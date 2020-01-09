@@ -1,0 +1,23 @@
+\documentclass[class=report, crop=false, 12pt,a4paper, twoside]{standalone}
+
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{siunitx}
+\usepackage{amssymb}
+\sisetup{detect-all}
+
+\makeatletter
+\providecommand\add@text{}
+\newcommand\tagaddtext[1]{%
+  \gdef\add@text{#1\gdef\add@text{}}}% 
+\renewcommand\tagform@[1]{%
+  \maketag@@@{\llap{\add@text\quad}(\ignorespaces#1\unskip\@@italiccorr)}%
+}
+
+\begin{document}
+ya bombo
+\end{document}
