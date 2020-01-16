@@ -1,2 +1,0 @@
-\contentsline {chapter}{\numberline {1}Course Outline}{3}% 
-\contentsline {section}{\numberline {1.1}Coursework and exam}{3}% 
