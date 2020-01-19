@@ -2,8 +2,13 @@
 
 \usepackage[subpreambles=true]{standalone}
 \usepackage{import}
-\usepackage{fullpage}
 \usepackage{mathtools}
+\usepackage{etoolbox}
+\preto{\section}{\clearpageafterfirst}
+\preto{\subsection}{\filbreak}
+\newcommand{\clearpageafterfirst}{%
+  \gdef\clearpageafterfirst{\clearpage}%
+}
 \usepackage{natbib}
 \usepackage{blindtext}
 \usepackage{amssymb}
