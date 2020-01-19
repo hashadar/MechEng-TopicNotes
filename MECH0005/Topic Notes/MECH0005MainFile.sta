@@ -1,0 +1,5 @@
+\standalonepreambles
+\subpreamble{tex/IntroToBasicFluidConcepts.tex}
+\usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {siunitx}\sisetup {detect-all}
+\endsubpreamble
+\endstandalonepreambles
