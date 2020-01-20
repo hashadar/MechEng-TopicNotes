@@ -1,0 +1,8 @@
+\standalonepreambles
+\subpreamble{tex/MECH0006Prelim.tex}
+\usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {siunitx}\sisetup {detect-all}
+\endsubpreamble
+\subpreamble{tex/MECH0006KinematicsOfParticles.tex}
+\usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {siunitx}\sisetup {detect-all}
+\endsubpreamble
+\endstandalonepreambles
