@@ -1,0 +1,43 @@
+\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\singlespacing\small}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{graphicx}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\begin{document}
+\section{Introduction to Fluid Dynamics}
+\subsection{Question 1}
+\subsubsection{a}
+Let us start with the equation for viscosity:
+\begin{equation}
+  \tau = \mu \frac{\partial u_y}{\partial x}
+\end{equation}
+Rearranging the following equation for \(\partial u_y / \partial x \) gives us:
+\[ \frac{\partial u_y}{\partial x} = \frac{\tau}{\mu}\]
+Inputting our variables:
+\[ \frac{\partial u_y}{\partial x} = \frac{0.4}{5} = 0.08 \ \si{\per\second}\]
+
+\subsubsection{b}
+We need to find the shear stress exerted by the block on the oil, found using the following equation:
+\begin{equation}
+  \tau = \frac{F_t}{A}
+\end{equation}
+The force that the block exerts tangentially on the oil covered inclined plane surface is given by:
+\[ F_t = 10\cdot g \cdot sin(20) \ \si{\newton} \]
+The area of contact between the oil and the block is
+\[ A = 0.1 \ \si{\meter \squared}\]
+Inputting into equation (2):
+\[ \tau = 100\cdot g \cdot sin(20) \]
+We are told the velocity distribution through the oil is linear and hence can make the following simplification:
+\[ \frac{\partial u_x}{\partial y} = \frac{u_{block}}{D} \]
+\[ \tau = \mu \frac{u_{block}}{D} \]
+\[ u_{block} = \frac{\tau D}{\mu} \]
+\[ u_{block} = \frac{100 \cdot 9.81 \cdot sin(20) \cdot 1\times 10^{-4}}{5} \]
+\[ u_{block} = 0.0067 \ \si{\meter \per \second} \]
+\subsection{Question 2}
+
+\end{document}

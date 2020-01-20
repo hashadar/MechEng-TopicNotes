@@ -1,14 +1,17 @@
 \documentclass[12pt,a4paper, twoside]{report}
 
 \usepackage[subpreambles=true]{standalone}
+\usepackage{verbatim}
 \usepackage{import}
 \usepackage{mathtools}
 \usepackage{etoolbox}
+\begin{comment}
 \preto{\section}{\clearpageafterfirst}
 \preto{\subsection}{\filbreak}
 \newcommand{\clearpageafterfirst}{%
   \gdef\clearpageafterfirst{\clearpage}%
 }
+\end{comment}
 \usepackage{natbib}
 \usepackage{blindtext}
 \usepackage{amssymb}
@@ -43,8 +46,8 @@
 \chapter{Fluids}
 \import{tex/}{IntroToBasicFluidConcepts}
 \import{tex/}{DimensionlessNumbersBuckhinghamPi}
-
+\chapter{Fluids Worksheets}
+\import{tex/}{Worksheet1Fluids}
 \chapter{Thermodynamics}
 \import{tex/}{MECH0005Lecture1}
-
 \end{document}
