@@ -1,13 +1,15 @@
 \documentclass[12pt,a4paper, twoside]{report}
-
 \usepackage[subpreambles=true]{standalone}
 \usepackage{import}
-\usepackage{fullpage}
 \usepackage{mathtools}
+\usepackage{etoolbox}
+\preto{\section}{\clearpageafterfirst}
+\preto{\subsection}{\filbreak}
+\newcommand{\clearpageafterfirst}{%
+  \gdef\clearpageafterfirst{\clearpage}%
+}
 \usepackage{natbib}
 \usepackage{blindtext}
-\usepackage{graphicx}
-\graphicspath{img/}
 \usepackage{amssymb}
 \usepackage{siunitx}
 \sisetup{detect-all}
@@ -16,7 +18,7 @@
 \pagestyle{fancy}
 
 \fancyhead{}
-\fancyhead[RO,LE]{MECH003 Topic Notes}
+\fancyhead[RO,LE]{MECH006 Topic Notes}
 \fancyfoot{}
 \fancyfoot[LE,RO]{\thepage}
 \fancyfoot[LO,CE]{Chapter \thechapter}
@@ -24,19 +26,24 @@
 \setlength{\headheight}{15pt}
 
 \setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
 
 \begin{document}
 
 \title{
-  {INSERT MODULE CODE Topic Notes}\\
+  {MECH0006 Topic Notes}\\
   {\large UCL}
   \author{Hasha Dar}
   \date{\today}
 }
 \maketitle
- 
+
 \tableofcontents
-\chapter{CHAPTER NAME}
-\import{tex/}{INSERT CHAPTER HERE}
+\chapter{Preliminaries}
+\import{tex/}{MECH0006Prelim}
+
+\chapter{Preliminaries}
+\import{tex/}{MECH0006KinematicsOfParticles}
+
 
 \end{document}
