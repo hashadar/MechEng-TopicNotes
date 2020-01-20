@@ -81,7 +81,9 @@ Where:
 \end{multicols}
 Viscosity is the constant of proportionality, telling us how much shear stress is required to produce a given shear rate. Shear stress can be different at different places in the same fluid. Equation (2) is Newton's equation for viscosity and he assumed that the viscosity was a constant. However, this is not always true and the fluids for which that does not apply are called \emph{non-Newtonian fluids.} An example of a shear \emph{thickening} fluid is corn-starch, i.e. viscosity increases with shear rate. An example of shear \emph{thinning} fluid is blood or ketchup, i.e. viscosity decreases with shear rate. We cannot use laminar flow analysis to study blood vessels because they constrict and dilate as fluids pass through - the rigid boundary condition does not apply (or you would not be able to feel your pulse.) We will only be studying Newtonian fluids and rigid boundaries.
 
-The standard symbol for the viscosity as defined above is \( \mu \) and this is known as the \emph{dynamic viscosity} with units \si{\kg\per\meter\per\second} or \si{\pascal \second}. This will be our definition of viscosity. For some applications it is easier to do calculations in terms of the viscosity per unit density:
+Viscosity changes as a function of temperature and pressure. In liquids, when the temperature increases, the viscosity decreases. In gases, the reverse occurs, with viscosity increasing with temperature. Relatively, pressure has a weak effect on the viscosity of a fluid.
+
+The standard symbol for the viscosity as defined above is \( \mu \) and this is known as the \emph{dynamic viscosity} (ratio of shear stress to the the shear rate) with units \si{\kg\per\meter\per\second} or \si{\pascal \second}. This will be our definition of viscosity. For some applications it is easier to do calculations in terms of the viscosity per unit density:
 \begin{equation}
   v = \frac{\mu}{\rho}
 \end{equation}
@@ -98,6 +100,7 @@ Surface tension is always considered perpendicular to the line it's pulling on. 
 \begin{center}
   \includegraphics[width = 0.4 \textwidth]{../img/SoapFilm}
 \end{center}
+Surface tension is what allows a drop of liquid to take its unique shape, when there are no external forces present.
 
 \subsection{Capillary action}
 This is caused by two processes:
@@ -105,7 +108,7 @@ This is caused by two processes:
   \item \emph{Adhesion} between the water molecules and the tube wall.
   \item \emph{Cohesion} between water molecules.
 \end{itemize}
-However, the surface tension (cohesion) must still be strong enough to drag the fluid up the pipe.
+However, the surface tension (cohesion) must still be strong enough to drag the fluid up the pipe. When the angle of contact between a solid and a liquid is 90 degrees, then the cohesive force = the adhesive force.
 \begin{center}
   \includegraphics[width = 0.4 \textwidth]{../img/CapillaryAction}
 \end{center}
@@ -124,7 +127,7 @@ What is Pascal's Law?
     The pressure at a point in a fluid at rest or in motion is independent of direction as long as there are no shearing forces present.
   \end{center}
 \end{quote}
-The volume of a fluid under pressure will depend on the magnitude of the pressure. However, for many liquids (e.g. water), the change in volume is so small that it can be considered \emph{negligible.} Even in everyday situations, water obviously is not really incompressible because sound waves can travel through it. For a truly incompressible fluid, the speed of sound would be infinite. Seawater density varies with temperature, pressure and salinity but below the top one kilometre, where salinity and temperature are nearly uniform, there is almost no variation in density with depth. The relationship between the pressure, volume and temperature of a fluid is described by an \emph{equation of state}. Any equation that relates pressure and volume tells us something about the compressibility of a fluid. 
+The volume of a fluid under pressure will depend on the magnitude of the pressure. However, for many liquids (e.g. water), the change in volume is so small that it can be considered \emph{negligible.} Even in everyday situations, water obviously is not really incompressible because sound waves can travel through it. For a truly incompressible fluid, the speed of sound would be infinite. Seawater density varies with temperature, pressure and salinity but below the top one kilometre, where salinity and temperature are nearly uniform, there is almost no variation in density with depth. The relationship between the pressure, volume and temperature of a fluid is described by an \emph{equation of state}. Any equation that relates pressure and volume tells us something about the compressibility of a fluid. Pressure is also the same in all directions from our continuum assumption.
 \begin{center}
   \includegraphics[width = 0.8 \textwidth]{../img/CompressibilityOfFluid}
 \end{center}
@@ -164,7 +167,7 @@ The resultant force acts at the centre of gravity of the fluid, the centroid of 
 \begin{center}
   \includegraphics[width = 0.4 \textwidth]{../img/BuoyancyForces}
 \end{center}
-An object is neutrally buoyant if the weight and the buoyant forces are equal, so the system is in equilibrium. 
+An object is neutrally buoyant if the weight and the buoyant forces are equal, so the system is in equilibrium. INSERT EXAMPLE MERT
 
 \subsection{Instability}
 Consider a submerged ping pong ball which is half filled with plasticine and the other half just filled with air.
