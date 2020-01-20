@@ -1,0 +1,79 @@
+\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\singlespacing\small}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{graphicx}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\begin{document}
+\section{Dimensionless Numbers}
+\subsection{Notation}
+We denote a dimension by using a capital letter in square brackets. Here are some common dimensions.
+\begin{itemize}[noitemsep]
+  \item {[M]} - mass (unit: kilogram).
+  \item {[T]} - time (unit: second).
+  \item {[L]} - length (unit: metre).
+  \item {[\(\Theta\)]} - temperature (unit: kelvin).
+\end{itemize}
+Thus, we can derive that the dimensions of acceleration (which has units \si{\meter\per\second\squared}) [L][T]\(^{-2}\). Some dimensions of common measurements are shown below:
+\begin{itemize}[noitemsep]
+  \item Force - [M][L][T]\(^{-2}\).
+  \item Energy - [M][L]\(^2\)[T]\(^{-2}\).
+\end{itemize}
+We use dimensional analysis to check derivations. The dimensions of both sides of any equation must match. Physical constants also often have units associated with them - these must also be considered. Some variables are dimensionless such as the Reynolds number.
+\[ Re = \frac{\rho l u}{\mu}\]
+\[ [Re] = \frac{[M][L]^{-3}\cdot [L] \cdot [L][T]^{-1}}{[L][M][T]^{-2}\cdot [T][L]^{-2}} = \frac{[M][L]^{-1}[T]^{-1}}{[M][L]^{-1}[T]^{-1}} \] 
+Hence, we can see that the Reynolds number is a dimensionless quantity as all the dimensions cancel.
+\subsection{Example}
+We can use dimensional analysis to derive basic forms of equations. We want to work out the pressure drop as oil flows though a pipe. Let us consider the parameters this may depend on. 
+\begin{itemize}[noitemsep]
+  \item Viscosity - [M][L]\(^{-1}\)[T]\(^{-1}\).
+  \item Pipe length - [L].
+  \item Pipe diameter - [L].
+  \item Velocity - [L][T]\(^{-1}\).
+  \item Pressure - [M][L]\(^{-1}\)[T]\(^{-2}\).
+\end{itemize}
+Next we can assume that the pressure is a function of the other four. Some combination of the others must have the same dimension as the quantity we want.
+\[ [M][L]^{-1}[T]^{-2} = ([M][L]^{-1}[T]^{-1})^\alpha \cdot ([L])^\beta \cdot ([L])^\gamma \cdot ([L][T]^{-1})^\delta \]
+\[ [L]: -1 = -\alpha + \beta + \gamma + \delta\]
+\[ [M]: 1 = \alpha \]
+\[ [T]: -2 = -\alpha -\delta \]
+\[\alpha =1, \ \delta =1, \ \beta + \gamma = -1\]
+So it must be true that:
+\[ \Delta P = \mu \cdot v \cdot I^{\beta} \cdot D^{\gamma}\] 
+Where \(\beta + \gamma = -1\)
+The actual answer for laminar flow is:
+\[ \Delta P = \frac{2\mu L v}{D^2}\]
+This sort of analysis is useful for checking on the functional form of relationships, but it won't give you the exact relationship, or the value of any dimensionless constants involved.
+\subsection{Similarity}
+\begin{itemize}[noitemsep]
+  \item Geometrical similarity: fixed ratio of lengths.
+  \item Kinematic similarity: fixed ratio of velocities.
+  \item Dynamic similarity - fixed ratio of forces.
+\end{itemize}
+Note on inertia: Inertia is not a force. However, for considering its importance to dynamic similarity, we can use the force needed to slow down a moving object. So we quantify inertia for these purposes as \(ma\), from \(F = ma\). Since the forces on flow change fluid motion, we use this often. 
+\subsubsection{Dynamic similarity: viscosity}
+Compare the inertia "force" and the viscous force for a fluid:
+\[ \frac{[Inertia \ force]}{[Viscous \ force]} = \frac{\rho L^2 u^2}{\mu u L} = \frac{\rho L u }{\mu} \]
+The Reynolds number is something very specific - it allows us to calculate the ratio of inertial and viscous forces in order to check for dynamical similarity.
+\begin{itemize}[noitemsep]
+  \item Honey: Re \(\approx 1.3 \times 10^{-4}\)
+  \item Tea: Re \(\approx 1100 \)
+\end{itemize}
+Therefore, they are not dynamically similar with respect to viscosity.
+\subsection{Dimensionless groups}
+We have identified some dimensionless groups such as Reynolds number and Froude number. There are many more such as:
+\begin{itemize}[noitemsep]
+  \item Bond number: ratio of gravitational to surface tension forces.
+  \item Capillary number: ratio of surface tension to viscous forces.
+  \item Euler number: ratio of pressure force to inertial force.
+  \item Grashof number: ratio of buoyancy to viscous forces.
+  \item Cauchy number: ratio of inertial to elastic forces.
+  \item Weber number: ratio of inertial to surface tension forces.
+\end{itemize}
+\section{Buckhingham Pi}
+insert theory here
+\end{document}
