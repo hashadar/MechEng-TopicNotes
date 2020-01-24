@@ -25,7 +25,7 @@ A certain energy balance will hold when a system undergoes change or a thermodyn
   \item It cannot indicate whether a metallic bar of uniform temperature can spontaneously become warmer at one end and cooler at the other.
   \item However, if that process did occur, all that law can state is that the energy gained at one end would exactly equal the energy lost at the other.
 \end{itemize}
-\subsubsection{Introduction to the second law}
+\subsection{Introduction to the second law}
 The second law of thermodynamics provides the criterion as to the \emph{probability} of various processes. 
 \begin{quote}
   \begin{center}
@@ -148,7 +148,7 @@ They include:
   \item Chemical reactions.
 \end{itemize}
 A reversible process includes none of these. There are three types of reversible process:
-\begin{itemize}
+\begin{itemize}[noitemsep]
   \item Externally reversible.
   \item Internally reversible.
   \item Totally reversible.
@@ -162,8 +162,89 @@ A process is called totally reversible, or simply reversible, if it involves no 
 \section{The Carnot cycle}
 A quick recap of the content covered so far.
 
-Heat engines are cyclic devices. The working fluid returns back to its original state at the end of each cycle. In part one (of the cycle), there is work done by the fluid and in part two, work is done on the working fluid. This difference between these two parts is the net work delivered by the engine. Cycle efficiency can be maximised by using processes that require the least amount of work. This is achieved by using \emph{reversible processes}. Reversible cycles cannot be achieved in practice because the irreversibilities associated with each process cannot be eliminated. However, they provide upper limits to the performance of real cycles. The most famous reversible cycle is the carnot cycle. A theoretical heat engine that operates on a Carnot cycle is called a Carnot heat engine. It is composed of four reversible processes: two isothermal and two adiabatic. It can be executed either in a closed system or a steady flow system.
+Heat engines are cyclic devices. The working fluid returns back to its original state at the end of each cycle. In part one (of the cycle), there is work done by the fluid and in part two, work is done on the working fluid. This difference between these two parts is the net work delivered by the engine. Cycle efficiency can be maximised by using processes that require the least amount of work. This is achieved by using \emph{reversible processes}. Reversible cycles cannot be achieved in practice because the irreversibilities associated with each process cannot be eliminated. However, they provide upper limits to the performance of real cycles. The most famous reversible cycle is the Carnot cycle. A theoretical heat engine that operates on a Carnot cycle is called a Carnot heat engine. It is composed of four reversible processes: two isothermal and two adiabatic. It can be executed either in a closed system or a steady flow system.
 
+Consider a system that consists of a gas contained in an adiabatic piston-cylinder device. The insulation of the cylinder head is such that it may be removed to bring the cylinder into contact with reservoirs to provide heat transfer. The four reversible processes that make up the Carnot cycle are as follows: 
+\subsubsection{A: Reversible isothermal expansion (Process 1-2, constant $T_H$)}
+\begin{enumerate}[noitemsep]
+  \item The gas is at temperature $T_H$.
+  \item The cylinder head is in close contact with a source at temperature $T_H$.
+  \item The gas is allowed to expand slowly and does work on the surrounding.
+  \item But as the temperature drops by $dT$, some heat is transferred from the source to the gas, raising the temperature back to $T_H$. Thus, the temperature remains constant at $T_H$.
+\end{enumerate}
+Since the temperature difference never exceeds $dT$, it is a reversible heat transfer process. It continues until reaching position 2. The total amount of heat transferred to the gas during this process is $Q_H$.
+\subsubsection{B: Reversible adiabatic expansion (Process 2-3, temperature drops from $T_H \rightarrow T_L$)}
+\begin{enumerate}[noitemsep]
+  \item The heat source in A is removed and the insulation is added, so the system becomes adiabatic. 
+  \item The gas expands slowly, doing work on the surroundings until its temperature drops from $T_H$ to $T_L$.
+\end{enumerate}
+The piston is assumed to be frictionless and the process to be quasistatic equilibrium, so the process is reversible and adiabatic. 
+\subsubsection{C: Reversible isothermal compression (Process 3-4, $T_L =$ constant)}
+\begin{enumerate}[noitemsep]
+  \item Insulation is removed and replaced with a low temperature sink at temp $T_L$.
+  \item The piston is pushed inwards by an external force, doing work on the gas.
+  \item As the gas is compressed, its temperature tends to rise. 
+  \item If it rises by $dT$, it drops back to $T_L$ as heat is transferred from the gas to the sink.
+  \item Thus, temperature remains constant at $T_L$.
+\end{enumerate}
+This is a reversible heat transfer process as the temperature difference never exceeds $dT$. The amount of heat rejected is $Q_L$.
+\subsubsection{D: Reversible adiabatic compression (Process 4-1, temperature rises from $T_L \rightarrow T_H$)}
+\begin{enumerate}[noitemsep]
+  \item Insulation is added back.
+  \item Gas is compressed.
+  \item The gas returns to its original state.
+  \item Temperature rises from $T_L$ to $T_H$ which completes the cycle.
+\end{enumerate}
+All of the steps of the Carnot cycle can be summarised on a P-V graph. Being a reversible cycle, the Carnot cycle is the most efficient cycle operating between two specified temperature limits.
+\subsection{Reversed Carnot cycle}
+The Carnot cycle is totally reversible. Thus, if each process is reversed, it becomes the Carnot refrigeration cycle. Heat and work interactions are reversed. 
+\subsection{The Carnot principles}
+The second law of thermodynamics puts limits on the operation of cyclic devices as expressed by the Kelvin-Planck and Clausius statements. A heat engine cannot operate by exchanging heat with a single reservoir and a refrigerator cannot operate without a net energy input from an external source. These bring rise to the Carnot principles:
+\begin{enumerate}[noitemsep]
+  \item The efficiency of an irreversible heat engine is always less than the efficiency of a reversible one operating between the same two reservoirs.
+  \item The efficiency of all reversible heat engines operating between the same two reservoirs are the same.
+\end{enumerate}
+\subsubsection{Proof for statement 1 (of Carnot principles)}
+insert proof
+\subsection{The thermodynamic temperature cycle}
+insert proof
+\[ \left( \frac{Q_M}{Q_L} \right)_{rev} = \frac{T_H}{T_L} \leftarrow \textrm{use Kelvin} \]
+\subsection{The Carnot heat engines}
+Any heat engine has a thermal efficiency of $\eta_{th}$ given by the formula
+\[ \eta_{th} = 1 - \frac{Q_L}{Q_H} \]
+For reversible heat engines, such as a Carnot engine, this becomes:
+\[ \eta_{th, \ rev} = 1 - \frac{T_L}{T_H}\]
+Using the formula shown in the previous part. This us called the Carnot efficiency, since the Carnot heat engine is the best known reversible engine. This is the highest efficiency a heat engine operating between two thermal energy reservoirs at temperature $T_H$ and $T_L$ can have. If you calculate the $\eta_{th}$ of a heat engine, their nature can be deduced as follows:
+\[ \eta_{th} < \eta_{th, \ rev} \rightarrow \textrm{Irreversible heat engine} \]
+\[ \eta_{th} = \eta_{th, \ rev} \rightarrow \textrm{Reversible heat engine} \]
+\[ \eta_{th} > \eta_{th, \ rev} \rightarrow \textrm{Impossible heat engine} \]
+From the equation $\eta_{th, \ rev} = 1 - \frac{T_L}{T_H}$, we can see that the efficiency of a Carnot heat engine increases as $T_H$ is increased, or as $T_L$ is decreased. As $T_L$ decreases so does the amount of heat rejected. The same is also true for actual heat engines. The thermal efficiency of actual heat engines can be maximised by:
+\begin{itemize}[noitemsep]
+  \item Supplying heat to the engine at the highest possible temperature (limited by material strength).
+  \item And rejecting heat from the engine at the lowest possible temperature (limited by the temperature of the cooling medium such as rivers, lakes or the atmosphere).
+\end{itemize}
+\subsection{The Carnot refrigerator and heat pump}
+The COP of any heat pump and refrigerator is given by:
+\[ \textrm{COP}_R = \frac{1}{\frac{Q_H}{Q_L} - 1}  \]
+\[ \textrm{COP}_{HP} = \frac{1}{1 - \frac{Q_L}{Q_H}} \]
+Using the thermodynamic scale formulas, the COP for heat pumps and refrigerators running on a reverse Carnot cycle is:
+\[ \textrm{COP}_{R, \ rev} = \frac{1}{\frac{T_H}{T_L} - 1}  \]
+\[ \textrm{COP}_{HP, \ rev} = \frac{1}{1 - \frac{T_L}{T_H}} \]
+These are the highest COP that a refrigerator or a heat pump operating between the temperature limits at $T_L$ and $T_H$ can have.
+\[  
+  \textrm{COP}_{R} = 
+    \begin{cases}
+      < \textrm{COP}_{R, \ rev}\\
+      = \textrm{COP}_{R, \ rev}\\\
+      > \textrm{COP}_{R, \ rev}
+    \end{cases}
+  \textrm{\& COP}_{HP} = 
+    \begin{cases}
+      < \textrm{COP}_{HP, \ rev} \rightarrow \textrm{Irreversible}\\
+      = \textrm{COP}_{HP, \ rev} \rightarrow \textrm{Reversible}\\
+      > \textrm{COP}_{HP, \ rev} \rightarrow \textrm{Impossible}
+    \end{cases}
+\]
 
 \section{Figures}
 \begin{figure}[H]
@@ -187,13 +268,25 @@ Heat engines are cyclic devices. The working fluid returns back to its original 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width = \textwidth]{../img/SteamPowerPlantDiagram}
-    \caption{A diesel engine}
+    \caption{Steam power plant operation}
   \end{center}
 \end{figure}
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width = \textwidth]{../img/RefrigerationCycle}
-    \caption{A diesel engine}
+    \caption{Refrigeration cycle}
+  \end{center}
+\end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width = \textwidth]{../img/CarnotCycle}
+    \caption{Carnot cycle}
+  \end{center}
+\end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width = \textwidth]{../img/ReversedCarnotCycle}
+    \caption{Reversed Carnot cycle}
   \end{center}
 \end{figure}
 \end{document}
