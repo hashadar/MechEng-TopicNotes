@@ -7,6 +7,8 @@
 \onehalfspacing
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{siunitx}
 \sisetup{detect-all}
 \begin{document}
@@ -95,7 +97,35 @@ Also, since \(W_{\textrm{net in}} = Q_{\textrm{in}} - Q_L\)
 \[ \textrm{COP}_R = \frac{Q_L}{Q_H-Q_L} \]
 \[ \textrm{COP}_R = \frac{1}{\frac{Q_H}{Q_L} - 1}\]
 COP can also be greater than unity. This means the heat removed can be greater than the work input. Whereas thermal efficiency can never be greater than 1. 
-
+\subsection{Heat pumps}
+ANother device that transfers heat from a low temperature medium to a high temperature one is a heat pump. 
+Here are some differences between refrigerators and heat pumps.
+\begin{itemize}[noitemsep]
+  \item Refrigerators:
+  \begin{itemize}
+    \item Maintain the refrigerated space at a low temperature by removing heat from it.
+    \item This extracted heat is then discharged to a high temperature medium out of necessity.
+  \end{itemize}
+  \item Heat pumps:
+  \begin{itemize}
+    \item Maintain a heated spaced at a high temperature.
+    \item This is accomplished by absorbing heat from a low temperature source e.g. well, water, cold air and then supplying this heat to the high temperature medium such as a house.
+  \end{itemize}
+\end{itemize}
+A heat pump runs on the same cycle as a refrigerator. The measure of performance of a heat pump is also expressed in terms of coefficient of performance \(\textrm{COP}_{HP}\).
+\[ \textrm{COP}_{HP} = \frac{Q_H}{W_{\textrm{net in}}} = \frac{Q_H}{Q_H - Q_L} = \frac{1}{1 - \frac{Q_L}{Q_H}} \]
+\[ \textrm{COP}_{HP} = \textrm{COP}_R + 1 \]
+This relation shows us that $\textrm{COP}_{HP} > \textrm{COP}_R$ at all times as $\textrm{COP}_R$ is always positive.
+\subsection{Air conditioners}
+Air conditioners are basically refrigerators where refrigerated space is a room instead of a food compartment. The same air conditioning unit can be used as a heat pump in winter by installing it backwards. In this mode, the unit absorbs heat from the cold outside and delivers it to the room.
+\subsection{The Clausius statement}
+The Kelvin-Planck statement was for direct heat engines. The Clausius statement is for reversed heat engines. The statement is as follows:
+\begin{quote}
+  \begin{center}
+    It is impossible to construct a device that operates in a cycle and produces no effect other than the transfer of heat from a low temperature body to a higher temperature body.
+  \end{center}
+\end{quote}
+This means that it is impossible to construct a refrigerator that operates without an input of work. \(W_{\textrm{net in}} \neq 0 \therefore \textrm{COP}_R \neq 0\).
 
 \subsection{Reversed heat engine}
 The definition of a heat engine says nothing about the direction of heat and work transfers. Thus, this makes a domestic refrigerator a heat engine. The domestic refrigerator consists of: 
@@ -116,8 +146,6 @@ Compare this to other heat engines e.g. steam/gas turbine power plants, where th
     \item Pump $>$ Throttle.
   \end{itemize}
 \end{multicols}
-\section{Reversibility}
-\section{Entropy}
 \section{Figures}
 \begin{figure}[H]
   \begin{center}
