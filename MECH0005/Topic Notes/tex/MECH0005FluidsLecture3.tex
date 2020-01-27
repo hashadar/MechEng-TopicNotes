@@ -1,0 +1,146 @@
+\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\singlespacing\small}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\begin{document}
+\section{Coordinate systems and velocity fields}
+Fluid flow can be classified in four ways:
+\begin{enumerate}[noitemsep]
+  \item Viscous/inviscid - when the viscosity of a fluid is equal to zero e.g. viscous -  blood flow through a capillary, honey and inviscid - tornado, stirring tea.
+  \item Laminar and turbulent flow - Reynold's number. This is a measure used to determine whether a flow is likely to be laminar or turbulent.
+  \item Compressible or incompressible - density is constant/does not change with time e.g. compressible - clouds, gas turbines and incompressible - oil pipelines, water dams.
+  \item Steady and unsteady flow - the velocity at a particular point in space does not change with time and eddy formations or the opposite with eddies and turbulence.
+\end{enumerate}
+\subsection{Coordinate systems and labelling}
+There are various notations used.
+\subsubsection{Cartesian coordinates}
+Position: x, y, z
+\[ \underline{x} = 
+\begin{pmatrix}
+  x\\
+  y\\
+  z
+\end{pmatrix} = 
+x\underline{i} + y\underline{j} + z\underline{k} 
+\]
+Velocity: u, v, w
+\[ \underline{v} = 
+\begin{pmatrix}
+  u\\
+  v\\
+  w
+\end{pmatrix} = 
+u\underline{i} + v\underline{j} + w\underline{k} 
+\]
+\subsubsection{Forces}
+Forces can either be applied to the body or on one of its surfaces.
+\begin{itemize}[noitemsep]
+  \item Body forces - The force acts at the centre of each increment of mass e.g. gravity.
+  \item Surface flows - The force acts at the surface of each increment of mass e.g. shear stress.
+\end{itemize}
+As there are two types of forces, we need a consistent labelling system to distinguish them. 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width = \textwidth]{../img/ForceDiagramFluids}
+    \caption{Force Diagram on an increment of fluid}
+  \end{center}
+\end{figure}
+\( \sigma_yy \) The first subscript refers to the face that the force is applied to. The second subscript is the direction the force acts in.
+\subsubsection{Incremental element of volume}
+Consider an incremental volume with dimensions: dx, dy, dz.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width = \textwidth]{../img/ForceDiagramFluids}
+    \caption{Force Diagram on an increment of fluid}
+  \end{center}
+\end{figure}
+There is a variation of fluid speeds in this box. Each component of the velocity can vary in each of these directions. The x-component of velocity, n, could vary with x, y or z independently.
+\[ \frac{\partial n}{\partial x}, \ \frac{\partial n}{\partial y}, \ \frac{\partial n}{\partial z} \]
+and the same goes to v and w.
+\subsection{Velocity Fields}
+A field is a three dimensional description of a field parameter in space. For example:
+\[  
+  \underline{v} = u
+  \begin{pmatrix}
+    x\\
+    y\\
+    z
+  \end{pmatrix} \underline{i} + v
+  \begin{pmatrix}
+    x\\
+    y\\
+    z
+  \end{pmatrix} \underline{j} + w
+  \begin{pmatrix}
+    x\\
+    y\\
+    z
+  \end{pmatrix} \underline{k}
+\]
+More generally, the flow field can be a function of time, t (this is unsteady flow.)
+\[  
+  \underline{v} = u
+  \begin{pmatrix}
+    x\\
+    y\\
+    z\\
+    t
+  \end{pmatrix} \underline{i} + v
+  \begin{pmatrix}
+    x\\
+    y\\
+    z\\
+    t
+  \end{pmatrix} \underline{j} + w
+  \begin{pmatrix}
+    x\\
+    y\\
+    z\\
+    t
+  \end{pmatrix} \underline{k}
+\]
+You can also get acceleration fields. Velocity and acceleration fields are vector fields as it has magnitude and direction. A scalar field only has magnitude e.g. Pressure, temperature and density fields.
+\subsection{Eularian and Lagrangian flow descriptions}
+There are two general approaches in analysing fluid mechanics problems:
+\begin{enumerate}[noitemsep]
+  \item Eularian method - this uses fields to describe the flow at a specific position in time and space. 
+  \item Lagrangian method - this describes what happens to an individual particle with time g.g ocean drifters, measuring conditions as they float freely through the oceans.
+\end{enumerate}
+\subsection{One-, two- and three- dimensional flows}
+Most flows are 3D flows, However, if one of the velocity components may be small (in some sense) relative to the other components then it may be reasonable to neglect the smaller components and assume 2D flow. That is \( \underline{v} = u\underline{i} + v\underline{j} \). Sometimes two of the components may be negligible so it can be approximated to one dimensional flow. That is \( \underline{v} = u\underline{i} \).
+
+For many flows, one dimensional flow will provide a reasonable approximation, whereas in others would produce erroneous results.
+\[ \textrm{Steady flow} \rightarrow \frac{\partial v}{\partial t} = 0 \]
+\[ \textrm{Unsteady flow} \rightarrow \frac{\partial v}{\partial t} \neq 0 \]
+\subsection{Streamlines, streaklines and pathlines}
+\begin{itemize}[noitemsep]
+  \item Pathlines - the line traced out by a given particle as it flows from one point to another.
+  \item Streaklines - A line that is created by particles in a flow that have previously passed through a common point.
+  \item Streamlines - A line that is tangent to the velocity to the velocity field (if flow is steady).
+\end{itemize}
+If the flow is steady nothing at a fixed point changes with time, so the streamlines are fixed in space. If unsteady, the streamlines will change with time. Streamlines are obtained by integration. 
+\[ \frac{dy}{dx} = \frac{v}{u} \]
+v and u are usually functions of x and y and so integration after separating variables can be done and graphs drawn for various constant of integration. If steady, streamline = streakline.
+\subsection{The acceleration field}
+To apply Newton's second law, we need the acceleration. For the Lagrangian method, \( a = a(t) \) for each particle. For the Eularian description, we can find the acceleration field, which provides the acceleration of given points in a field. We will discuss how to get this if the velocity field is known. 
+\subsection{The material derivatives}
+Consider a fluid particle moving along its pathline. In general, the particles velocity, denoted \(V_A\) for particle A, is a function of location and time. That is
+\[ V_A = V_A(V_A, \ b) = V_A \left[ x_A(t), \ y_A(t), \ z_A(t), t \right] = V_A \left[ x_A, \ y_A, \ z_A,\  t \right] 
+\]
+By definition, acceleration is the rate of change of velocity. We have to apply the chain rule as acceleration may change due to a change in position or time. 
+\[ \underline{a}_A(t) = \frac{dV_A}{dt} = \frac{\partial V_A}{\partial t} \frac{dt}{dt} + \frac{\partial V_A}{\partial x} \frac{dx_A}{dt} + \frac{\partial V_A}{\partial y} \frac{dy_A}{dt} + \frac{\partial V_A}{\partial z} \frac{dz_A}{dt} \]
+\[ = \frac{\partial V_A}{\partial t} + \frac{\partial V_A}{\partial x} \frac{dx_A}{dt} + \frac{\partial V_A}{\partial y} \frac{dy_A}{dt} + \frac{\partial V_A}{\partial z} \frac{dz_A}{dt} \]
+\[ \textrm{since } u_A = \frac{dx_A}{dt}, \ v_A = \frac{dy_A}{dt}, \ w_A = \frac{dz_A}{dt} \]
+\[ \underline{a}_A = \frac{\partial V_A}{\partial t} + \frac{\partial V_A}{\partial x} u_A + \frac{\partial V_A}{\partial y} v_A + \frac{\partial V_A}{\partial z} w_A \]
+This applies for any project and so we can drop the subscript.
+\[ \underline{a} = \frac{\partial V}{\partial t} + \frac{\partial V}{\partial x} u + \frac{\partial V}{\partial y} v + \frac{\partial V}{\partial z} w \]
+\end{document}
