@@ -143,4 +143,38 @@ By definition, acceleration is the rate of change of velocity. We have to apply 
 \[ \underline{a}_A = \frac{\partial V_A}{\partial t} + \frac{\partial V_A}{\partial x} u_A + \frac{\partial V_A}{\partial y} v_A + \frac{\partial V_A}{\partial z} w_A \]
 This applies for any project and so we can drop the subscript.
 \[ \underline{a} = \frac{\partial V}{\partial t} + \frac{\partial V}{\partial x} u + \frac{\partial V}{\partial y} v + \frac{\partial V}{\partial z} w \]
+This is a vector result where scalar components can be written as:
+\[ a_x = \frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} \]
+\[ a_y = \frac{\partial v}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} \]
+\[ a_z = \frac{\partial w}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} \]
+All of this is written in shorthand as:
+\[ \underline{a} = \frac{Dv}{Dt} \]
+Where the operator \( \frac{D}{Dt}\) is the material derivative. 
+\[ \frac{D}{Dt}() = \left[\frac{\partial ()}{\partial t} \right] \textrm{(A)} + \left[u\frac{\partial ()}{\partial x} + v\frac{\partial ()}{\partial y} + w\frac{\partial ()}{\partial z} \right] \textrm{(B)} \]
+Where A is the local derivative and B is the convective derivative. 
+
+If the parameter involved is acceleration, term (A) is called \emph{local acceleration} for steady flow this is equal to zero. \( \frac{\partial v}{\partial t} = 0 \). This physically means there is no change in flow parameter at a fixed point in space if the flow is steady. 
+
+The collection of terms labelled (B) are called the convective derivative. It represents the fact that a flow property associated with a fluid particle may vary because of the motion of the particle from one place to another. This contribution occurs when the parameter of concern is acceleration, then section (B) is called the convective acceleration. 
+\subsection{Streamline coordinates}
+in the streamline C.S. the flow is described in terms of one coordinate along the streamlines, denoted s, and the second coordinate normal to the streamlines, denoted n. Unit vectors in this direction are denoted by \( \underline{\hat{s}} \) and \( \underline{\hat{n}} \). The flow plane is covered by an orthogonal curved net of coordinate lines. s and n are always perpendicular, but the lines of constant s or constant n are not necessarily straight. Note that velocity is always tangent to the s direction. Thus:
+\[ \underline{v} = v\underline{\hat{s}} \]
+For steady, 2D flow, the acceleration is:
+\[ \underline{a} = \frac{Dv}{Dt} = a_s \hat{s} + a_n \hat{n}\]
+Where \( a_s \hat{s} \) is the acceleration in the streamline direction and \( a_n \hat{n} \) is the acceleration in the normal direction. 
+
+In general, for steady flow, both the speed and the flow direction are a function of location.
+\[ v = v(s, n) \textrm{and} \underline{\hat{s}} = \underline{\hat{s}}(s, n) \]
+For a given particle, the value \(dt \) s changes with time but the value of n remains fixed as the particle flows along a streamline defined by n = constant. (note: pathlines = streamlines during steady flow). Thus: 
+\[ \underline{a} = \frac{Dv}{Dt} = \frac{D}{Dt}(v\hat{s}) = \frac{Dv}{Dt}\underline{\hat{s}} + v \frac{D\underline{\hat{s}}}{Dt} \]
+Applying the material derivative,
+\[ \underline{a} = \left( \frac{\partial v}{\partial t} + \frac{\partial v}{\partial s}\frac{ds}{dt} + \frac{\partial v}{\partial n}\frac{dn}{dt} \right) \hat{s} + v \left( \frac{\partial \underline{\hat{s}}}{\partial t} + \frac{\partial \underline{\hat{s}}}{\partial s}\frac{ds}{dt} + \frac{\partial \underline{\hat{s}}}{\partial n}\frac{dn}{dt} \right) \]
+For steady flow, this simplifies too:
+\[ \underline{a} = \left( v\frac{\partial v}{\partial s} \right) \underline{\hat{s}} + v \left( v\frac{\partial \underline{\hat{s}}}{\partial s} \right) \]
+This equation can also be rewritten as:
+\[ \underline{a} = v\frac{\partial v}{\partial s} \underline{\hat{s}} + \frac{v^2}{R} \underline{\hat{n}} \]
+Or,
+\[ a_s = v\frac{\partial v}{\partial s}, \ a_n = \frac{v^2}{R} \]
+Where \(a_s\) is the streamwise/acceleration convective and \(a_n\) is the normal/acceleration centrifugal.
+
 \end{document}
