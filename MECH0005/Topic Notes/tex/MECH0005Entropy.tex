@@ -38,4 +38,20 @@ Where T is the thermodynamic temperature at the boundary. SQ is the heat transfe
     Change in entropy of a closed system during an irreversible process is \emph{always greater} than the integral of \(\frac{SQ}{T}\) evaluated for that process.
   \end{center}
 \end{quote}
+This inequality shows that during an irreversible process, the entropy  change of a closed system is \emph{always greater} than the entropy of transfer by heat. For a reversible process, \( \Delta S = \int_1^2 \frac{SQ}{T} \), which represents the entropy transfer by heat. Thus, some \emph{entropy generation} must be occurring. This generated entropy is denoted as \(S_{\textrm{gen}}\).
+\[ \therefore S_2 - S_1 \geq \int_1^2 \frac{SQ}{T} \]
+\[ \therefore \Delta S_{\textrm{sys}} \geq \int_1^2 \frac{SQ}{T} \] 
+\[ \therefore \Delta S_{\textrm{sys}} = \int_1^2 \frac{SQ}{T} + S_{\textrm{gen}} \]
+\( S_{\textrm{gen}} \) is always positive or zero. This depends upon the process, hence not a property.
+
+When a system is isolated, adiabatic and closed. The heat transfer is zero i.e. \(SQ = 0\).
+\[ \therefore \Delta S_{\textrm{sys}} = \Delta S_{textrm{isolated}} \geq \int_1^2 0 \]
+\[ \therefore \Delta S_{\textrm{isolated}} \geq 0 \]
+\[ \Delta S_{\textrm{isolated}} = S_{\textrm{gen}} \]
+This is the increase of entropy principle. The entropy of an isolated system during a process always increases or in the limiting case of a reversible process, remains constant. Note that in the absence of any heat transfer, entropy change is due to irreversibilities only and their effect is only and always an increase in entropy.
+
+Entropy is an extensive property. Thus, 
+\[ \sum^N_{i=1} \Delta S_i = \Delta S_{\textrm{total}} \]
+i.e. the usm of the change in entropies of the parts of the system is equal to the change in entropy of a system. An isolated system can consist of a number of subsystems. A system and its surroundings, for example, constitute an isolated system since both can be enclosed by a sufficiently large arbitrary boundary at which there is no heat, work or mass transfer. Thus, a system and its surroundings can be considered as two subsystems of an isolated system. Since \( \Delta S_{\textrm{isolated}} = S_{\textrm{gen}} \geq 0 \) but \( \Delta S_{\textrm{isolated}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}} \). Therefore:
+\[ S_{\textrm{gen}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{sys}} + \Delta S_{textrm{surr}} \geq 0 \]
 \end{document}
