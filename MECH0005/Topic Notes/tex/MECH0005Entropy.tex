@@ -52,6 +52,53 @@ This is the increase of entropy principle. The entropy of an isolated system dur
 
 Entropy is an extensive property. Thus, 
 \[ \sum^N_{i=1} \Delta S_i = \Delta S_{\textrm{total}} \]
-i.e. the usm of the change in entropies of the parts of the system is equal to the change in entropy of a system. An isolated system can consist of a number of subsystems. A system and its surroundings, for example, constitute an isolated system since both can be enclosed by a sufficiently large arbitrary boundary at which there is no heat, work or mass transfer. Thus, a system and its surroundings can be considered as two subsystems of an isolated system. Since \( \Delta S_{\textrm{isolated}} = S_{\textrm{gen}} \geq 0 \) but \( \Delta S_{\textrm{isolated}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}} \). Therefore:
-\[ S_{\textrm{gen}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{sys}} + \Delta S_{textrm{surr}} \geq 0 \]
+i.e. the use of the change in entropies of the parts of the system is equal to the change in entropy of a system. An isolated system can consist of a number of subsystems. A system and its surroundings, for example, constitute an isolated system since both can be enclosed by a sufficiently large arbitrary boundary at which there is no heat, work or mass transfer. Thus, a system and its surroundings can be considered as two subsystems of an isolated system. Since \( \Delta S_{\textrm{isolated}} = S_{\textrm{gen}} \geq 0 \) but \( \Delta S_{\textrm{isolated}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}} \). Therefore:
+\[ S_{\textrm{gen}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}} \geq 0 \]
+When considering a reversible process. Then \( \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}} = 0 = S_{\textrm{gen}} \). The inequality holds for irreversible process. Note that \( S_{\textrm{gen}}\) can never be negative, but \( \Delta S_{\textrm{sys}} \) can be negative and \( \Delta S_{\textrm{surr}} \) can be negative. The sum of the two must be positive or zero. For example, consider the following system. 
+\[ S_{\textrm{gen}} = \Delta S_{\textrm{total}} \]
+\[ = \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}}\]
+\[ = -2 + 3 \]
+\[ S_{\textrm{gen}} = 1 \si{\kilo\joule\per\kelvin} \]
+\[ S_{\textrm{gen}} = \begin{cases}
+  > 0 \textrm{ Irreversible process}\\
+  = 0 \textrm{ Reversible process}\\
+  < 0 \textrm{ Impossible process}
+\end{cases}
+\]
+\subsubsection{Example question}
+Using the increase in entropy principle, show that conduction with finite temperature difference is an irreversible process. 
+\[ S_{\textrm{gen}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{high temp. reservoir}} + \Delta S_{\textrm{low temp. reservoir}} \geq 0\]
+\[ \Delta S_{\textrm{total}} = \int \left( \frac{-SQ}{T_H} \right) + \int \frac{SQ}{T_L} \]
+\[ = -\frac{1}{T_H} \int SQ + \frac{1}{T_L} \int SQ \]
+\[ -\frac{Q}{T_H} + \frac{Q}{T_L} \geq 0 \]
+\[ S_{\textrm{gen}} = \frac{-Q}{T_H} + \frac{Q}{T_L} \geq 0 \]
+\[ \textrm{since } T_H > T_L \]
+\[ \therefore S_{\textrm{gen}} > 0 \rightarrow \textrm{irreversible process} \]
+\subsection{Entropy change of pure substances}
+The entropy of a pure substance us determined from tables in the same manner as other properties such as volume, internal energy and enthalpy. The value of entropy at a specified state is determined just like any other property.
+\begin{itemize}[noitemsep]
+  \item Compressed liquids \(\rightarrow\) from tables (if available).
+  \item Saturated liquid \(S_P\): from tables.
+  \item Saturated mixture: \(S=S_P + xS_{fg}\).
+  \item Saturated vapour \(S_g\): from tables.
+  \item Superheated vapour: from tables.
+\end{itemize}
+If the compressed liquid data is not available, the entropy of the compressed liquid can be approximated by the saturated liquid at the same temperature.
+\[ S_{\textrm{compressed @ T, P}} = S_{f@T} \]
+Note that \( \Delta S = m \Delta S = m(S_2 - S_1)\).
+\subsection{T-S diagram characteristics}
+Constant volume lines are steeper than the constant pressure lines. Constant pressure lines are parallel to the constant temperature lines in the saturated liquid-vapour mixture region. Constant pressure lines almost coincide with the saturated liquid line in the compressed liquid region. 
+\subsection{Isentropic processes}
+Entropy can be changed by: heat transfer or irreversibilities. During a process that is internally reversible and adiabatic, the entropy of a fixed mass does not change.
+\begin{center}
+  Entropy remains constant = isentropic process \(\rightarrow \Delta S = 0 \textrm{ or } S_2 = S_1 \)
+\end{center}
+\begin{center}
+  A reversible adiabatic process \(\rightarrow\) isentropic
+\end{center}
+\begin{center}
+  However, isentropic \(\rightarrow\) reversible adiabatic (Which usually means an internally reversible, adiabatic process)
+\end{center}
+\subsection{Property diagrams involving entropy}
+Two diagrams commonly used in the second-law analysis are the temperature-entropy and the enthalpy-entropy diagrams. 
 \end{document}
