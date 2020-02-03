@@ -35,10 +35,10 @@ You will generally only come across two types of boundary conditions:
 \end{enumerate}
 \subsection{Laminar flow calculations}
 Consider laminar flow between two flat plates. Split the flow into sheets of thickness \(d_{in}\). The top plate moves at constant speed \(v\) and the lower plate is stationary. Here boundary condition (1) applies i.e. fluid at the boundary moves at the speed of the boundary. The top plate has an area \(A\) and the sideways force being applied to it is \(F \therefore \tau = \frac{F}{A} \). If the flow is steady, the forces must balance for each layer. However, the liquid layers must transmit the stress so \(\tau\) is constant throughout the depth. Let us apply our boundary conditions:
-\begin{align}
+\begin{align*}
   u_y(0) &= 0 \\ 
   u_y(D) &= v
-\end{align}
+\end{align*}
 where D is the vertical distance between the upper and lower plate.
 \[ \therefore \tau = \mu \frac{du_y}{dx} \]
 \[
@@ -60,4 +60,80 @@ where D is the vertical distance between the upper and lower plate.
 In laminar flow, individual particles of fluid follow paths that do not cross those of neighbouring particles. However, there is still a velocity gradient across the flow. Laminar flow is not normally found except in the neighbourhood of a solid boundary, the retarding effect of which causes the transverse velocity gradient. 
 \[ \tau = \mu \left( \frac{\partial u}{\partial y} \right) \]
 Where \(\tau\) is the resultant shear stress, \(\mu\) is the dynamic viscosity and \(\left( \frac{\partial u}{\partial y} \right)\) is the rate at which the velocity \(u\) increases with the coordinate \(y\) perpendicular to the velocity.
+
+We can use the above to find the required shear stress, if we know the speed the fluid layer thickness and the viscosity:
+\[ \tau = \frac{v}{D}\mu \]
+\subsubsection{Flow between flat plates example}
+Consider two flat plates stuck together with a layer of honey of uniform thickness. Assume laminar flow between the plates. How hard must you pull sideways to separate them at a speed of 1 \si{\cm\per\second}?
+\begin{itemize}[noitemsep]
+  \item Viscosity of honey = 100 \si{\pascal \second}
+  \item Thickness \(D\) = 0.003 \si{\meter}
+  \item Speed \(v\) = 0.01 \si{\meter\per\second}
+  \item Width = 0.02 \si{\meter}
+  \item Area (\(A\)) = width \(\times\) length (\(l\))
+\end{itemize}
+Assuming that there end effects can be neglected, the stress is equal to the force applied divided by the area. Thus, we can see that the required force decreases as the plates separate.
+\begin{align*}
+  \tau &= \frac{F}{A}\\
+  &= \frac{v}{D}x\\
+  F &= \frac{v}{D}\mu \cdot A\\
+  F &= \frac{0.01}{0.003}100 \cdot 0.02 \cdot l\\
+  F &=6.6l
+\end{align*}
+\subsection{Finding shear stress}
+The velocity field in a sample of seawater is given below, where A and B are constants:
+\[ u_y = A(B^2-x^2) \]
+Tiny sea creatures called dinoflagellates emit light when the shear stress in the water around passes a critical level. This is a major cause of bioluminescence at the surface of the ocean. For one particular species, the critical stress level is \(\tau_c = 1 \si{\newton\per\meter\squared}\). The water viscosity is \( \mu = 1.2 \times 10^{-3} \si{\pascal\second} \) and the constants are \(A = -200, \ B=0.1 \). At what x-position in this water sample will the dinoflagellates start to glow?
+
+Remembering: \( \tau = \mu \frac{du_y}{dx} \), we can solve for the case \(\tau_c\).
+\begin{align*}
+  u_y &= -200(0.01-x^2)\\
+  u_y &= -2 +200x^2\\
+  \frac{du_y}{dx} &= 400x\\
+  1 &= 1.2 \cdot 10^{-3} \cdot 400x\\
+  x &= 2.08\si{\meter}
+\end{align*}
+\subsection{Laminar flow in pipes}
+What is the velocity at different radii in the pipe? We have circular symmetry and a no-slip boundary condition. Flow is being driven by a pressure difference between two ends of the tube. Note that the velocity and the pressure gradient vector point in opposite directions because fluid flows from high to low pressure. We will assume that the flow is fully developed i.e. that the velocity profile is constant along the pipe axis. Consider one cylinder of fluid with an edge at constant radius r. the total pipe radius is R. There is a pressure difference between the two ends of the tube. The total pressure difference is \(\Delta P\) over a length L of tube. The total resultant force parallel to the tube axis must be \(F\cdot A\).
+\begin{align*}
+  Force &= \Delta P \pi r^2\\
+  Force &= \frac{dP}{dx}L\pi r^2
+\end{align*}
+The force provided by the pressure difference must be equal to the shear stress on the outside of the cylinder, since the forces are balanced.
+\[ Force = 2\tau \pi r L \]
+Equating these two forces:
+\begin{align*}
+  \frac{dP}{dx}L\pi r^2 &= 2\tau \pi r L\\
+  \tau &= \frac{r}{2} \frac{dP}{dx}
+\end{align*}
+We can relate the shear stress at the cylinder surface to the velocity change with radius there:
+\begin{align*}
+  \tau &= \mu \frac{du}{dr}\\
+  \tau &= \mu \frac{du}{dr}\\
+  &= \frac{r}{2} \frac{dP}{dx}\\
+  \frac{du}{dr} &= \frac{r}{2\mu} \frac{dP}{dx}
+\end{align*}
+Now we can integrate to \(u\):
+\begin{align*}
+  u &= \int \left( \frac{r}{2\mu} \frac{dP}{dr} \right) dr\\
+  u &= \frac{1}{2\mu} \frac{dP}{dx} \int (r) dr\\
+  u &= \frac{1}{2\mu} \frac{dP}{dx} \frac{1}{2}r^2 +k
+\end{align*}
+Applying the no-slip boundary condition, \( u(R) = 0\):
+\begin{align*}
+  0 &= \frac{1}{2\mu} \frac{dP}{dx} \frac{1}{2} R^2 + k\\
+  k &= \frac{-1}{4\mu} \frac{dP}{dx} R^2 \\
+  \therefore u &= \frac{-1}{4\mu}\frac{dP}{dx}(R^2 - r^2)
+\end{align*}
+How can we use this? The maximum speed is at the centre of the pipe, where r = 0. We know the flow speed with radius, so we can integrate this to find the total volume flow.
+\begin{align*}
+  u_{max} &= \frac{-1}{4\mu}\frac{dP}{dx} R^2\\
+  Q &= \int^R_0 \left( u(r)\cdot 2\pi r \right) dr\\
+  Q &= \int^R_0 \left( \frac{-1}{4\mu} \frac{dP}{dt}(R^2 - r^2) \cdot 2\pi r \right) dr 
+\end{align*}
+The average flow speed is the total volume flow rate divided by the cross sectional area:
+\[ u_{mean} = \frac{Q}{\pi r^2} \]
+\begin{center}
+  Laminar flow through pipes of circular cross section is often called Hagan-Poiseulle flow.
+\end{center}
 \end{document}
