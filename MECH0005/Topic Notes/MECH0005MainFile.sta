@@ -8,6 +8,9 @@
 \subpreamble{tex/MECH0005FluidsLecture3.tex}
 \usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage {siunitx}\sisetup {detect-all}
 \endsubpreamble
+\subpreamble{tex/MECH0005Fluids4.tex}
+\usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage {mathtools}\usepackage {siunitx}\sisetup {detect-all}
+\endsubpreamble
 \subpreamble{tex/Worksheet1Fluids.tex}
 \usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {siunitx}\sisetup {detect-all}
 \endsubpreamble

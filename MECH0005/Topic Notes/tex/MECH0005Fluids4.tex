@@ -1,0 +1,63 @@
+\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\singlespacing\small}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\begin{document}
+IGNORE
+
+\section{Control-volume approach}
+Recall from thermodynamics th
+at \(\dot{m}_{in} = \dot{m}_{out}\) for a control volume (A c.v. allows heat, work and mass transfer across its boundary). In fluid dynamics different terminology is usually used:
+\begin{itemize}[noitemsep]
+  \item Closed system = control mass = system (in fluid mechanics).
+  \item Open system = control volume.
+\end{itemize}
+We also know that \(\frac{dm_{cv}}{dt} = \dot{m}_{in} - \dot{m}_{out} \) from thermodynamics. For a \emph{system}, \( \left( \frac{dm}{dt} \right)_{sys} = 0\) since a system is a control mass. 
+
+IGNORE
+
+\section{Laminar flow and boundary layers}
+\subsection{Boundary conditions}
+You will generally only come across two types of boundary conditions:
+\begin{enumerate}[noitemsep]
+  \item No-slip condition: at the point where the fluid touches the boundary, the velocity of the fluid along the boundary is zero. This is the case where the boundary is a solid.
+  \item Free surface: there are no viscous forces on the fluid where it touches the boundary, so the speed can take any value. This is the case where there is a liquid-gas boundary and may be called (e.g. for a stream) \emph{open-channel flow.}
+\end{enumerate}
+\subsection{Laminar flow calculations}
+Consider laminar flow between two flat plates. Split the flow into sheets of thickness \(d_{in}\). The top plate moves at constant speed \(v\) and the lower plate is stationary. Here boundary condition (1) applies i.e. fluid at the boundary moves at the speed of the boundary. The top plate has an area \(A\) and the sideways force being applied to it is \(F \therefore \tau = \frac{F}{A} \). If the flow is steady, the forces must balance for each layer. However, the liquid layers must transmit the stress so \(\tau\) is constant throughout the depth. Let us apply our boundary conditions:
+\begin{align}
+  u_y(0) &= 0 \\ 
+  u_y(D) &= v
+\end{align}
+where D is the vertical distance between the upper and lower plate.
+\[ \therefore \tau = \mu \frac{du_y}{dx} \]
+\[
+  \left.
+    \begin{array}{r}
+      \frac{\tau}{\mu} dx = du_y \\
+      \frac{\tau}{\mu}\int dx = \int du_y \\
+      k + \frac{\tau}{\mu}x = u_y
+    \end{array}
+  \right\}
+  \begin{array}{l}
+    u_y = \frac{\tau}{\mu}x + k \\
+    0 = \frac{\tau}{\mu}\cdot 0 +k \therefore k = 0 \\
+    \textrm{also } \frac{\tau}{\mu} = \frac{v}{D} \rightarrow \tau = \frac{v}{D}\mu
+  \end{array}
+\]
+\[ \therefore u_y = \frac{v}{D}x \]
+\subsection{Laminar flow between solid boundaries}
+In laminar flow, individual particles of fluid follow paths that do not cross those of neighbouring particles. However, there is still a velocity gradient across the flow. Laminar flow is not normally found except in the neighbourhood of a solid boundary, the retarding effect of which causes the transverse velocity gradient. 
+\[ \tau = \mu \left( \frac{\partial u}{\partial y} \right) \]
+Where \(\tau\) is the resultant shear stress, \(\mu\) is the dynamic viscosity and \(\left( \frac{\partial u}{\partial y} \right)\) is the rate at which the velocity \(u\) increases with the coordinate \(y\) perpendicular to the velocity.
+\end{document}
