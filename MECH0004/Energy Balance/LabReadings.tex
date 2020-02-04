@@ -1,0 +1,162 @@
+\documentclass[class=article, crop=false, 12pt,a4paper]{standalone}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\singlespacing\small}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\begin{document}
+\title{Energy balance lab report}
+\author{Hasha Dar}
+\date{February 4, 2020}
+\maketitle
+\section{Lab data}
+\subsection{1 bar}
+\begin{multicols}{2}
+  \begin{itemize}[noitemsep]
+    \item \(T_0\) = 25 degrees
+    \item \(T_1\) = 23 degrees
+    \item \(P_0\) = 1 \si{bar}
+    \item \(P_1\) = 0.05 \si{bar}
+    \item \(P_2\) = 1 \si{\bar}
+    \item \(V_{in}\) = 285 \si{\liter\per\minute}
+    \item \(N\) = 1430 \si{\newton}
+    \item \(F\) = 1.5 \si{\kilogram}
+    \item \(\dot{W}_{el}\) = 1150 \si{\watt}
+  \end{itemize}
+\end{multicols}
+\subsubsection{\(T_2\) readings} 
+\begin{table}
+  \centering
+    \begin{tabular}{|c|c|}
+      \hline
+      Time (\si{\minute}) & \(T_2\) (degrees)\\
+      \hline
+      0 & 95\\
+      1 & 98\\
+      2 & 101\\
+      3 & 104\\
+      4 & 106\\
+      5 & 108\\
+      6 & 110\\
+      7 & 112\\
+      8 & 114\\
+      9 & 116\\
+      10 & 118\\
+      11 & 119\\
+      12 & 121\\
+      13 & 122\\
+      14 & 124\\
+      15 & 125\\
+      16 & 127\\
+      17 & 128\\
+      18 & 130\\
+      19 & 131\\
+      20 & 131\\
+      \hline
+    \end{tabular}
+  \caption{\(T_2\) readings from apparatus with 1 bar compressor}
+  \label{table:1}
+\end{table}
+\subsection{0.6 bar}
+\begin{multicols}{2}
+  \begin{itemize}[noitemsep]
+    \item \(T_0\) = 25 degrees
+    \item \(T_1\) = 24 degrees
+    \item \(P_0\) = 1 \si{\bar}
+    \item \(P_1\) = 0.06 \si{\bar}
+    \item \(P_2\) = 1 \si{\bar}
+    \item \(V_{in}\) = 310 \si{\liter\per\minute}
+    \item \(N\) = 1445 \si{\newton}
+    \item \(F\) = 1.5 \si{\kilogram}
+    \item \(\dot{W}_{el}\) = 1000 \si{watt}
+  \end{itemize}
+\end{multicols}
+\subsubsection{\(T_2\) readings}
+\begin{table}
+  \centering
+    \begin{tabular}{|c|c|}
+      \hline
+      Time (\si{\minute}) & \(T_2\) (degrees)\\
+      \hline  
+      0 & 63\\
+      1 & 68\\
+      2 & 71\\
+      3 & 74\\
+      4 & 77\\
+      5 & 79\\
+      6 & 81\\
+      7 & 84\\
+      8 & 86\\
+      9 & 88\\
+      10 & 89\\
+      11 & 91\\
+      12 & 92\\
+      13 & 94\\
+      14 & 95\\
+      15 & 97\\
+      16 & 98\\
+      17 & 99\\
+      18 & 101\\
+      19 & 102\\
+      20 & 103\\
+      \hline
+    \end{tabular}
+  \caption{\(T_2\) readings from apparatus with 0.6 bar compressor}
+  \label{table:2}
+\end{table}
+\subsection{0.3 bar}
+\begin{multicols}{2}
+  \begin{itemize}[noitemsep]
+    \item \(T_0\) = 25 degrees
+    \item \(T_1\) = 25 degrees
+    \item \(P_0\) = 1 \si{\bar}
+    \item \(P_1\) = 0.08 \si{\bar}
+    \item \(P_2\) = 1 \si{\bar}
+    \item \(V_{in}\) = 320 \si{\liter\per\minute}
+    \item \(N\) = 1459 \si{\newton}
+    \item \(F\) = 1.5 \si{\kilogram}
+    \item \(\dot{W}_{el}\) = 850 \si{watt}
+  \end{itemize}
+\end{multicols}
+\subsubsection{\(T_2\) readings}
+\begin{table}
+  \centering
+    \begin{tabular}{|c|c|}
+      \hline
+      Time (\si{\minute}) & \(T_2\) (degrees)\\
+      \hline  
+      0 & 52\\
+      1 & 55\\
+      2 & 58\\
+      3 & 60\\
+      4 & 62\\
+      5 & 63\\
+      6 & 65\\
+      7 & 67\\
+      8 & 68\\
+      9 & 69\\
+      10 & 70\\
+      11 & 71\\
+      12 & 72\\
+      13 & 73\\
+      14 & 74\\
+      15 & 75\\
+      16 & 76\\
+      17 & 76\\
+      18 & 77\\
+      19 & 78\\
+      20 & 78\\
+      \hline
+    \end{tabular}
+  \caption{\(T_2\) readings from apparatus with 0.3 bar compressor}
+  \label{table:3}
+\end{table}
+\end{document}
