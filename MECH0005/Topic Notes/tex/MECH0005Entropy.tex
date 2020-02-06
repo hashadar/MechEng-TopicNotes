@@ -45,7 +45,7 @@ This inequality shows that during an irreversible process, the entropy  change o
 \( S_{\textrm{gen}} \) is always positive or zero. This depends upon the process, hence not a property.
 
 When a system is isolated, adiabatic and closed. The heat transfer is zero i.e. \(SQ = 0\).
-\[ \therefore \Delta S_{\textrm{sys}} = \Delta S_{textrm{isolated}} \geq \int_1^2 0 \]
+\[ \therefore \Delta S_{\textrm{sys}} = \Delta S_{\textrm{isolated}} \geq \int_1^2 0 \]
 \[ \therefore \Delta S_{\textrm{isolated}} \geq 0 \]
 \[ \Delta S_{\textrm{isolated}} = S_{\textrm{gen}} \]
 This is the increase of entropy principle. The entropy of an isolated system during a process always increases or in the limiting case of a reversible process, remains constant. Note that in the absence of any heat transfer, entropy change is due to irreversibilities only and their effect is only and always an increase in entropy.
@@ -100,5 +100,54 @@ Entropy can be changed by: heat transfer or irreversibilities. During a process 
   However, isentropic \(\rightarrow\) reversible adiabatic (Which usually means an internally reversible, adiabatic process)
 \end{center}
 \subsection{Property diagrams involving entropy}
-Two diagrams commonly used in the second-law analysis are the temperature-entropy and the enthalpy-entropy diagrams. 
+Two diagrams commonly used in the second-law analysis are the temperature-entropy and the enthalpy-entropy diagrams. Remember:
+\begin{align*}
+  \frac{SQ_{\textrm{int rev}}}{T} &= dS\\
+  \therefore SQ_{\textrm{\textrm{int rev}}} &= TdS\\
+  \therefore Q_{\textrm{int rev}} &= \int_1^2 T dS \ (\si{\kilo\joule})
+\end{align*}
+This integral computes the area under a process curve on a T-S diagram. This represents the heat transfer during an internally reversible process.
+\begin{center}
+  Area = heat transfer for processes that are internally/totally reversible. (This area has no meaning for irreversible processes.)
+\end{center}
+It can also be written in specific form
+\begin{align*}
+  q_{\textrm{int rev}} &= \int_1^2 TdS \ (\si{\kilo\joule\per\kg})\\
+  sq_{\textrm{int rev}} &= T ds \ (\si{\kilo\joule\per\kg})
+\end{align*}
+For internally reversible isothermal processes, T is constant: \(T_0\) therefore,
+\begin{align*}
+  Q_{\textrm{int rev isothermal}} &= T_0 \Delta S \ (\si{\kilo\joule})\\
+  q_{\textrm{int rev isothermal}} &= T_0 \Delta s \ (\si{\kilo\joule\per\kg})
+\end{align*}
+
+An isentropic process on a T-S diagram is easily recognised as a \emph{vertical} line segment. Isentropic means no heat transfer, thus area under the graph must be zero. Another diagram commonly used in engineering is the enthalpy - entropy diagram, which is quite valuable in the analysis of steady flow devices such as turbines. compressors and nozzles. In analysing the steady flow of steam through an adiabatic turbine for example, the graph produced is show below. This graph is also called the Mollier Diagram.
+\begin{figure}
+  \includegraphics[width = \textwidth]{../img/MollierDiagram}
+  \caption{Mollier Diagram}
+\end{figure}
+\subsection{T-S diagram of the Carnot cycle}
+The Carnot cycle is made up of two, reversible isothermal CT = constant S processes and two isentropic (adiabatic and S = constant) processes. These four processes form a rectangle on the T-S diagram. 
+\begin{figure}
+  \includegraphics[width = \textwidth]{../img/TSDiagramCarnotCycle}
+  \caption{T-S diagram for the Carnot cycle}
+\end{figure}
+\subsection{The Tds relations}
+The first law states:
+\[ \Delta E = \Delta U + \Delta KE + \Delta PE \]
+For closed systems that are stationary, \( \Delta KE = \Delta PE = 0 \) therefore, 
+\begin{align*}
+  \Delta E &= \Delta U\\
+  \Delta U &= \Delta Q + \Delta W (+ \Delta E_{mass} = 0)\\
+  \Delta U &= \Delta Q + \Delta W\\
+  \Delta U &= Q_{\textrm{net in}} - W_{\textrm{net out}}
+\end{align*}
+In differential form and for: a simple compressible substance, an internally reversible process,
+\[ dU = SQ_{\textrm{int rev}} - SW_{\textrm{int rev out}} \]
+But \( SQ_{\textrm{int rev}} = T dS \) and \( SW_{\textrm{int rev out}} = PdV\) thus,
+\begin{align*} 
+  dU &= TdS - PdV\\
+  TdS &= dU + PdV \ (\si{\kilo\joule})\\
+  Tds &= du + Pdv \ (\si{\kilo\joule\per\kg})
+\end{align*}
 \end{document}
