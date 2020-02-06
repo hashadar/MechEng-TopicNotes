@@ -150,4 +150,62 @@ But \( SQ_{\textrm{int rev}} = T dS \) and \( SW_{\textrm{int rev out}} = PdV\) 
   TdS &= dU + PdV \ (\si{\kilo\joule})\\
   Tds &= du + Pdv \ (\si{\kilo\joule\per\kg})
 \end{align*}
+These are known as the first Tds relations.
+
+Since \( h = u + Pv \), differentiating both sides yields:
+\begin{align*}
+  dh &= d[u+Pv]\\
+  &= du + d[Pv]\\
+  dh &= du + Pdv + dPv
+\end{align*}
+But the first Tds relation states that \(Tds = du + Pdv\) therefore, 
+\begin{align*}
+  du &= Tds - Pdv\\
+  \therefore dh &= Tds + vdP\\
+  Tds &= dh - vdP
+\end{align*}
+This is the second Tds relation.
+
+To summarise, the Tds relations are shown below.
+\begin{enumerate}[noitemsep]
+  \item Tds = dh - vdP
+  \item Tds = du + Pdv
+\end{enumerate}
+These equations were derived with internally reversible processes but since the entropy change between two states is independent of the process the system undergoes, hence the equations are valid for both irreversible and reversible processes. These are also valid for the change of states of a substance in a closed or an open system. Explicit relations for differential changes in entropy are obtained by solving for ds in the Tds relations.
+\begin{align*}
+  ds &= \frac{du}{T} + \frac{Pdv}{t} \textrm{ and}\\
+  ds &= \frac{dh}{T} - \frac{vdP}{T}
+\end{align*}
+\(\Delta S\) can be found by \emph{integrating} these equations between final and initial states. To perform these integrations we must know the relationship between du or dh and temperature. For an ideal gas:
+\[ du = c_V dT, \ dh = c_P dt \]
+The equation of state of the substance is given by:
+\[ Pv = RT (\textrm{for ideal gases}) \]
+For other substances, we have to rely on tabulated data.
+\subsection{Entropy change of liquids and solids}
+\[ ds = \frac{du}{T} + \frac{Pdv}{t} \]
+But for liquids and solids, they can be approximated as incompressible substances since their specific volumes remain nearly constant during a process. Thus \(dv \approx 0 \) for liquids and solids.
+\[ \therefore ds = \frac{du}{t}\]
+Performing the integration gives:
+\[ \Delta s = s_2 - s_1 = \int_1^2 ds = \int_1^2 \frac{du}{T} \]
+But \(du = cdT\) where \( c = c_P = c_V\) for liquids and solids.
+\begin{align*}
+  \Delta s = s_2 - s_1 &= \int_1^2 \frac{cdT}{T} = \int_1^2 \frac{c(T)dt}{T}\\
+  &\approx c_{avg} ln(\frac{T_2}{T_1})\\
+  \Delta s &= c_{avg} ln(\frac{T_2}{T_1}) \ \si{\kilo\joule\per\kg}
+\end{align*}
+Where \(c_{avg}\) is the average specific heat capacity over the interval. Note that the entropy change of a truly incompressible substance depends only on temperature.
+
+The equation \( s_2 - s_1 \approx c_{avg} ln(\frac{T_2}{T_1}) \) can be used with liquids and solids to reasonable accuracy (liquids and solids only). However, for liquids that expand considerablly with temperature, it may be necessary to consider the effects of volume change in calculcations. This is especially the case when the temperature change is large. Applying this to isentropic processes; for liquids and solids only (incompressible):
+\begin{align*}
+  s_2 - s_1 = 0 &= C_{avg} ln(\frac{T_2}{T_1})\\
+  ln(T_2) - ln(T_1) &= 0 \\
+  ln(T_2) &= ln(T_1)\\
+  T_2 &= T_1
+\end{align*}
+Hence, for truly incompressible substances that undergo an isentropic process, it is also isothermal.
+\begin{center}
+  incompressible + isentropic \(\rightarrow\) isothermal
+\end{center}
+This behaviour is closesly operate by liquids and solids. 
+\subsection{Entropy change of ideal gases}
 \end{document}
