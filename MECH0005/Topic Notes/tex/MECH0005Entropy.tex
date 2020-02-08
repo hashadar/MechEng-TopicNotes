@@ -208,4 +208,51 @@ Hence, for truly incompressible substances that undergo an isentropic process, i
 \end{center}
 This behaviour is closesly operate by liquids and solids. 
 \subsection{Entropy change of ideal gases}
+Remember that 
+\[ ds = \frac{dh}{T} - \frac{vdP}{T} \]
+But for ideal gases:
+\begin{align*}
+  dh &= c_P dT\\
+  \therefore ds &= \frac{c_PdT}{T} - \frac{vdP}{T}
+\end{align*}
+But the ideal gas relation gives:
+\begin{align*}
+  Pv&=RT\\
+  v&=\frac{RT}{P}\\
+  \therefore ds &= \frac{C_PdT}{T} - \frac{RTdP}{PT}\\
+  ds &= \frac{C_PdT}{T} - \frac{RdP}{P}
+\end{align*}
+Integrating both sides gives:
+\[ \Delta s = s_2 - s_1 = \int_1^2 c_P(T)\frac{dT}{T} - Rln\left(\frac{P_2}{P_1}\right) \]
+
+Also \( ds = \frac{du}{T} + \frac{Pdv}{T} \)
+But for ideal gases:
+\begin{align*}
+  du &= c_V dT\\
+  \therefore ds &= \frac{c_VdT}{T} - \frac{Pdv}{T}
+\end{align*}
+But the ideal gas relation gives:
+\begin{align*}
+  Pv&=RT\\
+  P&=\frac{RT}{v}\\
+  \therefore ds &= \frac{C_VdT}{T} - \frac{RTdv}{vT}\\
+  ds &= \frac{C_VdT}{T} - \frac{Rdv}{v}
+\end{align*}
+Integrating both sides gives:
+\[ \Delta s = s_2 - s_1 = \int_1^2 c_V(T)\frac{dT}{T} - Rln\left(\frac{v_2}{v_1}\right) \]
+For all ideal gases except monatomic gases, the specific heats depend on the temperature. Thus, the integrals on the previous pages cannot be performed unless the dependencies of \(c_V\) and \(c_P\) on temperature is known. Even when the \(c_V(T)\) and \(c_P(T)\) functions are available, long integrals make this approach impractical; this leaves two choices:
+\begin{enumerate}[noitemsep]
+  \item Assume constant specific heats
+  \item Evaluate those integrals once and tabulate the results
+\end{enumerate}
+The relationships allow us to form formulas for \(\Delta s\), in terms of temperature and pressure and temperature and specific volume. We can now derive a formula for \(\Delta s\) in terms of pressure and specific volume.
+\begin{align*}
+  ds &= \frac{c_PdT}{T} - \frac{RdP}{P}\\
+  \Delta s &= mc_P \int_1^2 \frac{dT}{T} - mR \int_1^2 \frac{dP}{P} \textrm{ assuming \(c_P\) is constant}\\ 
+  \Delta s &= mc_P ln \left( \frac{T_2}{T_1} \right) - mRln \left( \frac{P_2}{P_1} \right)\\
+  \textrm{since } R &= c_P - c_V\\
+  \Delta s &= mc_P ln \left( \frac{T_2}{T_1} \right) - mc_P ln \left( \frac{P_2}{P_1} \right) + mc_V ln \left( \frac{P_2}{P_1} \right)\\
+  &= mc_P ln \left(\frac{T_2}{P_2} \cdot \frac{P_1}{T_1} \right) + mc_V ln \left( \frac{P_2}{P_1} \right)\\
+  \Delta s &= mc_P ln \left( \frac{v_2}{v_1} \right) + mc_Vln\left( \frac{P_2}{P_1} \right)
+\end{align*}
 \end{document}
