@@ -1,0 +1,103 @@
+\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\singlespacing\small}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\begin{document}
+\section{Fluids formulas}
+Density
+\begin{equation}
+  v = \frac{1}{\rho}
+\end{equation}
+
+Specific weight
+\begin{equation}
+  \gamma = \rho g
+\end{equation}
+
+Specific gravity
+\begin{equation}
+  SG = \frac{\rho}{\rho_{H_2O @ 4\si{\degree}C}}
+\end{equation}
+
+Ideal gas law
+\begin{align}
+  P &= \rho R T\\
+  Pv &= RT\\
+  PV &= n R_u T
+\end{align}
+
+Kinematic viscosity
+\begin{equation}
+  v = \frac{\mu}{\rho}
+\end{equation}
+
+Surface tension
+\begin{equation}
+  \sigma = \frac{F}{L}
+\end{equation}
+
+Capillary action
+\begin{equation}
+  h = \frac{2 \sigma \cos \theta}{\gamma R}
+\end{equation}
+
+Centre of mass
+\begin{align}
+  \bar{x} &= \frac{\int_m (x) dm}{m}\\
+  &= \frac{\int_m (x)dm}{\int_m dm}
+\end{align}
+
+Stable equilibrium: the centre of gravity is directly below the centre of buoyancy.
+
+Reynolds Number
+\begin{equation}
+  Re = \frac{\rho L u}{\mu}
+\end{equation}
+\[ Re < 2000 \rightarrow \textrm{ Laminar} \]
+\[ Re > 2000 \rightarrow \textrm{ Turbulent} \]
+
+Material derivative
+\begin{align}
+  \frac{D}{Dt}() &= \frac{\partial}{\partial t}() + u \frac{\partial()}{\partial x} + v \frac{\partial ()}{\partial y} + w\frac{\partial ()}{\partial z}\\
+  \underline{a} = \frac{D}{Dt}(\underline{v}) &= \frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} 
+\end{align}
+
+Streamline coordinates
+\begin{align}
+  \underline{a} = \frac{Dv}{Dt} &= a_s\hat{s} + a_n\hat{n}\\
+  &= v\frac{\partial v}{\partial s} \hat{s} + \frac{v^2}{R} \hat{n}\\
+  a_s &= \frac{-v\sin \theta - \frac{\partial P}{\partial s}}{\rho} = v\frac{\partial v}{\partial s}//
+  a_n &= \frac{-v\cos \theta -\frac{\partial P}{\partial n}}{\rho} = \frac{v^2}{R}
+\end{align}
+
+RTT
+\begin{align}
+  \left( \frac{DB}{Dt} \right)_{sys} &= \frac{\partial}{\partial t}\int_{cv}(\rho b) d\forall + \int_{cs} (\rho b(\underline{v} \cdot \underline{\hat{n}})) dA\\
+  \textrm{When B=M} \rightarrow 0 &= \frac{\partial}{\partial t}\int_{cv}(\rho) d\forall + \int_{cs} (\rho(\underline{v} \cdot \underline{\hat{n}})) dA\\
+  \textrm{When \underline{B} = m\underline{v}} \rightarrow \sum F_{sys} &= \frac{\partial}{\partial t}\int_{cv}(\rho \underline{v}) d\forall + \int_{cs} (\rho \underline{v} (\underline{v} \cdot \underline{\hat{n}})) dA\\
+\end{align}
+
+Propeller stages
+\begin{enumerate}
+  \item Bernoulli equation between 1 and 2. \[ P_1 = P_2 +0.5\rho (v_2^2 - v_1^2) \]
+  \item Bernoulli equation between 3 and 4. \[ P_4 = P_3 +0.5\rho (v_3^2 - v_4^2) \]
+  \item \( P_1 = P_4 \). \[ \therefore \Delta P = P_3 - P_2 = 0.5 \rho (v_4^2 - v_1^2) \]
+  \item \( F=\Delta P \times A \). \[ \therefore F_{thrust} = \Delta P \times A = 0.5 \rho A (v_4^2 - v_1^2) \]
+  \item Apply momentum equation.
+    \begin{align*}
+      \sum F_x &= \int_{inlet}\rho v_1 (-v_1)dA + \int_{outlet}\rho v_4 (v_4)dA\\
+      &= -\dot{m}_1 v_1 + \dot{m}_2 v_4\\
+      &= \dot{m}(v_4 - v_1) \textrm{ (assume steady state, no viscous force, neglect g)}
+    \end{align*}
+\end{enumerate}
+\end{document}
