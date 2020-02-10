@@ -28,8 +28,8 @@
     \item \(P_1\) = 0.05 \si{bar}
     \item \(P_2\) = 1 \si{\bar}
     \item \(V_{in}\) = 285 \si{\liter\per\minute}
-    \item \(N\) = 1430 \si{\newton}
-    \item \(F\) = 1.5 \si{\kilogram}
+    \item \(N\) = 1430 rev\si{\per\second}
+    \item \(F\) = 1.5g \si{\newton} FIX THIS
     \item \(\dot{W}_{el}\) = 1150 \si{\watt}
   \end{itemize}
 \end{multicols}
@@ -38,7 +38,7 @@
   \centering
     \begin{tabular}{|c|c|}
       \hline
-      Time (\si{\minute}) & \(T_2\) (degrees)\\
+      Time (\si{\minute}) & \(T_2\) (degrees C)\\
       \hline
       0 & 95\\
       1 & 98\\
@@ -75,8 +75,8 @@
     \item \(P_1\) = 0.06 \si{\bar}
     \item \(P_2\) = 1 \si{\bar}
     \item \(V_{in}\) = 310 \si{\liter\per\minute}
-    \item \(N\) = 1445 \si{\newton}
-    \item \(F\) = 1.5 \si{\kilogram}
+    \item \(N\) = 1445 rev\si{\per\second}
+    \item \(F\) = 1.5 \si{\kilogram} FIX THIS
     \item \(\dot{W}_{el}\) = 1000 \si{watt}
   \end{itemize}
 \end{multicols}
@@ -85,7 +85,7 @@
   \centering
     \begin{tabular}{|c|c|}
       \hline
-      Time (\si{\minute}) & \(T_2\) (degrees)\\
+      Time (\si{\minute}) & \(T_2\) (degrees C)\\
       \hline  
       0 & 63\\
       1 & 68\\
@@ -122,8 +122,8 @@
     \item \(P_1\) = 0.08 \si{\bar}
     \item \(P_2\) = 1 \si{\bar}
     \item \(V_{in}\) = 320 \si{\liter\per\minute}
-    \item \(N\) = 1459 \si{\newton}
-    \item \(F\) = 1.5 \si{\kilogram}
+    \item \(N\) = 1459 rev\si{\per\second}
+    \item \(F\) = 1.5 \si{\kilogram} FIX THIS
     \item \(\dot{W}_{el}\) = 850 \si{watt}
   \end{itemize}
 \end{multicols}
@@ -132,7 +132,7 @@
   \centering
     \begin{tabular}{|c|c|}
       \hline
-      Time (\si{\minute}) & \(T_2\) (degrees)\\
+      Time (\si{\minute}) & \(T_2\) (degrees C)\\
       \hline  
       0 & 52\\
       1 & 55\\
@@ -212,13 +212,22 @@ Thus, our motor heat losses are:
 \subsection{Plot graph of outlet temperature against time}
 Importing the data into MATLAB, I plotted the data on a graph.
 \begin{figure}
-  \includegraphics[width = \textwidth]{./img/T2vsTimeGraph}
-  \caption{Plot of \(T_2\) against the operating time of the apparatus}
-  \label{ref:T2vsTime}
+  \includegraphics[width = 0.9 \textwidth]{./img/T21vsTimeGraph}
+  \caption{Plot of \(T_2\) against the operating time of the apparatus (1 bar)}
+  \label{ref:T21vsTime1bar}
 \end{figure}
+\begin{figure}
+  \includegraphics[width = 0.9 \textwidth]{./img/T206vsTimeGraph}
+  \caption{Plot of \(T_2\) against the operating time of the apparatus (0.6 bar)}
+  \label{ref:T206vsTime1bar}
+\end{figure}
+\begin{figure}
+  \includegraphics[width = 0.9 \textwidth]{./img/T203vsTimeGraph}
+  \caption{Plot of \(T_2\) against the operating time of the apparatus (0.3 bar)}
+  \label{ref:T203vsTime1bar}
+\end{figure}
+NOT IN SECONDS FIX
 \subsubsection{Why does the graph have this shape?}
-
-
 
 \section{Experiment 2 calculations}
 \subsection{Specific volume of air at atmosphere and the inlet and outlet of compressor}
