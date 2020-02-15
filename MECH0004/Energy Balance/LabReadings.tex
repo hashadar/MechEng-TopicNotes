@@ -29,8 +29,8 @@
     \item \(P_1\) = 0.05 \si{bar}
     \item \(P_2\) = 1 \si{\bar}
     \item \(V_{in}\) = 285 \si{\liter\per\minute}
-    \item \(N\) = 1430 \si{\newton}
-    \item \(F\) = 1.5 \si{\kilogram}
+    \item \(N\) = 1430 rev\si{\per\second}
+    \item \(F\) = 1.5g \si{\newton} FIX THIS
     \item \(\dot{W}_{el}\) = 1150 \si{\watt}
   \end{itemize}
 \end{multicols}
@@ -39,7 +39,7 @@
   \centering
     \begin{tabular}{|c|c|}
       \hline
-      Time (\si{\minute}) & \(T_2\) (degrees)\\
+      Time (\si{\minute}) & \(T_2\) (degrees C)\\
       \hline
       0 & 95\\
       1 & 98\\
@@ -76,8 +76,8 @@
     \item \(P_1\) = 0.06 \si{\bar}
     \item \(P_2\) = 1 \si{\bar}
     \item \(V_{in}\) = 310 \si{\liter\per\minute}
-    \item \(N\) = 1445 \si{\newton}
-    \item \(F\) = 1.5 \si{\kilogram}
+    \item \(N\) = 1445 rev\si{\per\second}
+    \item \(F\) = 1.5 \si{\kilogram} FIX THIS
     \item \(\dot{W}_{el}\) = 1000 \si{watt}
   \end{itemize}
 \end{multicols}
@@ -86,7 +86,7 @@
   \centering
     \begin{tabular}{|c|c|}
       \hline
-      Time (\si{\minute}) & \(T_2\) (degrees)\\
+      Time (\si{\minute}) & \(T_2\) (degrees C)\\
       \hline  
       0 & 63\\
       1 & 68\\
@@ -123,8 +123,8 @@
     \item \(P_1\) = 0.08 \si{\bar}
     \item \(P_2\) = 1 \si{\bar}
     \item \(V_{in}\) = 320 \si{\liter\per\minute}
-    \item \(N\) = 1459 \si{\newton}
-    \item \(F\) = 1.5 \si{\kilogram}
+    \item \(N\) = 1459 rev\si{\per\second}
+    \item \(F\) = 1.5 \si{\kilogram} FIX THIS
     \item \(\dot{W}_{el}\) = 850 \si{watt}
   \end{itemize}
 \end{multicols}
@@ -133,7 +133,7 @@
   \centering
     \begin{tabular}{|c|c|}
       \hline
-      Time (\si{\minute}) & \(T_2\) (degrees)\\
+      Time (\si{\minute}) & \(T_2\) (degrees C)\\
       \hline  
       0 & 52\\
       1 & 55\\
@@ -166,7 +166,7 @@ All the calculations completed below were done with data from the 1 bar experime
 \subsection{Volumetric flow rate}
 The formula for the volumetric flow rate is:
 \begin{equation}
-  \dot{V} = \frac{V_in}{60 \times 10^3} \ \si{\meter\cubed\per\second}
+  \dot{V} = \frac{V_{in}}{60 \times 10^3} \ \si{\meter\cubed\per\second}
   \label{volflowrate}
 \end{equation}
 Thus, our volumetric flow rate (using equation (1)) is:
@@ -174,7 +174,7 @@ Thus, our volumetric flow rate (using equation (1)) is:
 \subsection{Mass flow rate}
 The specific volume through flowmeter is given by the following equation
 \begin{equation}
-  v_0 = \frac{RT_0}{P_0} \ (\si{\meter\cubed\per\kg}) \textrm{ where \(R = 0.287 \ \si{\kilo\joule\per\kg\per\kelvin}\)}
+  v_0 = \frac{RT_0}{P_0} \ \si{\meter\cubed\per\kg} \textrm{ where \(R = 0.287 \ \si{\kilo\joule\per\kg\per\kelvin}\)}
   \label{specvol}
 \end{equation}
 The mass flow rate is given by the following equation:
@@ -188,7 +188,7 @@ Calculating the specific volume (2) and inputting the volume flow rate calculate
 \subsection{Energy added to air by compressor}
 The equation to calculate the energy added to air by compressor is:
 \begin{equation}
-  \dot{H}_c = \dot{m}c_P(T_2-T_1) \ (\si{\watt}) \textrm{ where \(c_P\) is 1005 \si{\kilo\joule\kg\per\kelvin}}
+  \dot{H}_c = \dot{m}c_P(T_2-T_1) \ \si{\watt} \textrm{ where \(c_P\) is 1005 \si{\kilo\joule\kg\per\kelvin}}
   \label{energyaddaircompressor}
 \end{equation}
 Inputting the variables into equation (4), we get: 
@@ -204,22 +204,30 @@ Thus, our motor power is:
 \subsection{Heat losses in the compressor}
 The equation for the heat emitted from the compressor is:
 \begin{equation}
-  \dot{Q}_c = \dot{W}_m - \dot{H}_c
+  \dot{Q}_c = \dot{W}_m - \dot{H}_c \ \si{\watt}
   \label{heatlosscompressor}
 \end{equation}
 Thus, our motor heat losses are:
 \[ \dot{Q}_c = 440.712 - 602.296 = -161.685 \ \si{\watt} \ (3\textrm{dp}) \]
 \section{Experiment 1 discussion}
-\subsection{Plot graph of outlet temperature against time}
+\subsection{Outlet temperature against time plot}
 Importing the data into MATLAB, I plotted the data on a graph.
 \begin{figure}
-  \includegraphics[width = \textwidth]{./img/T2vsTimeGraph}
-  \caption{Plot of \(T_2\) against the operating time of the apparatus}
-  \label{ref:T2vsTime}
+  \includegraphics[width = 0.9 \textwidth]{./img/T21vsTimeGraph}
+  \caption{Plot of \(T_2\) against the operating time of the apparatus (1 bar)}
+  \label{ref:T21vsTime1bar}
+\end{figure}
+\begin{figure}
+  \includegraphics[width = 0.9 \textwidth]{./img/T206vsTimeGraph}
+  \caption{Plot of \(T_2\) against the operating time of the apparatus (0.6 bar)}
+  \label{ref:T206vsTime1bar}
+\end{figure}
+\begin{figure}
+  \includegraphics[width = 0.9 \textwidth]{./img/T203vsTimeGraph}
+  \caption{Plot of \(T_2\) against the operating time of the apparatus (0.3 bar)}
+  \label{ref:T203vsTime1bar}
 \end{figure}
 \subsubsection{Why does the graph have this shape?}
-
-
 
 \section{Experiment 2 calculations}
 \subsection{Specific volume of air at atmosphere and the inlet and outlet of compressor}
@@ -244,7 +252,7 @@ Using equation (\ref{constpspecvol}), the specific volume after the compressor i
 \subsection{Volumetric flow rate of air}
 Using equation (\ref{volflowrate}) we can calculate the volumetric flow rate of air.
 \begin{equation}
-  \dot{V} = \frac{V_in}{60 \times 10^3} \ \si{\meter\cubed\per\second}
+  \dot{V} = \frac{V_{in}}{60 \times 10^3} \ \si{\meter\cubed\per\second}
   \tag{\ref{volflowrate}}
 \end{equation}
 \[ \dot{V} = \frac{285}{60\times 10^3} = \frac{19}{4000} = 4.75 \times 10^{-3} \ \si{\meter\cubed\per\second} \ (3\textrm{sf}) \ \textrm{ (1 bar)}\]
@@ -270,6 +278,24 @@ The compressors swept volume is \(V_{comp} = 2.67 \times 10^{-4}\), hence we can
 \[ \dot{m} = \frac{2.67 \times 10^{-4} \times 1430}{60 \times 0.856} = 7.43 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (1 bar)}\]
 \[ \dot{m} = \frac{2.67 \times 10^{-4} \times 1445}{60 \times 0.856} = 7.51 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.6 bar)}\]
 \[ \dot{m} = \frac{2.67 \times 10^{-4} \times 1459}{60 \times 0.856} = 7.58 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.3 bar)}\]
+
+\subsection{Pressure ratio}
+\subsection{Motor power}
+\subsection{Motor efficiency}
+\subsection{Energy added to the air by the compressor}
+\subsection{Heat loss in the apparatus}
+\subsection{Mechanical efficiency of the compressor}
+\subsection{Isentropic efficiency of the compressor}
+\subsection{Volumetric efficiency of the compressor}
+\subsection{Total efficiency of the compressor}
+\section{Experiment 2 discussion}
+\subsection{Isentropic, volumetric and total efficiency against pressure ratio plots}
+\subsection{Heat loss in apparatus against pressure ratio plot}
+\subsubsection{Why is the isentropic efficiency of the compressor smaller than 1? What can be concluded from the shape of the isentropic efficiency vs pressure ratio?}
+\subsubsection{What does the volumetric efficiency of the compressor represent? What are the causes that it is smaller than 1?}
+\subsubsection{How does the overall efficiency scale with operating condition (i.e. pressure ratio)? What does this tell us about the dominant efficiency and therefore how the design of the compressor could be improved?} 
+\subsubsection{How does the heat loss scale with operating condition (i.e. pressure ratio)? What are the causes for this trend?}
+
 
 \listoffigures
 \end{document}
