@@ -9,13 +9,16 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\numberwithin{equation}{section}
 \usepackage{siunitx}
 \sisetup{detect-all}
 \begin{document}
 \section{Entropy}
 An important inequality that has major consequences in thermodynamics is the \emph{Clausius inequality}.
-\[ \oint \frac{SQ}{T} \geq 0 \]
-The cyclic integral of \( \frac{SQ}{T} \) is always less than or equal to zero. This inequality is valid for all cycles reversible or irreversible. \( \frac{SQ}{T} \) is the sum of all differential amounts of heat transfer to or from a system, divided by the temperature of the boundary.
+\begin{equation}
+  \oint \frac{\delta Q}{T} \geq 0 
+\end{equation}
+The cyclic integral of \( \frac{\delta Q}{T} \) is always less than or equal to zero. This inequality is valid for all cycles reversible or irreversible. \( \frac{\delta Q}{T} \) is the sum of all differential amounts of heat transfer to or from a system, divided by the temperature of the boundary.
 \subsection{Proof of the Clausius inequality}
 INSERT PROOF
 \subsection{The increase of entropy principle}
@@ -25,55 +28,70 @@ Consider a cycle. It has two processes:
   \item Process 2-1L Internally reversible.
 \end{itemize}
 The Clausius inequality states:
-\[ \oint \frac{SQ}{T} \geq 0 \]
+\begin{equation} 
+  \oint \frac{\delta Q}{T} \geq 0 
+\end{equation}
 Or,
-\[ \int_1^2 \frac{SQ}{T} + \int_1^2\left( \frac{SQ}{T} \right)_{\textrm{int rev}} \geq 0 \]
-\[ \int_1^2 \frac{SQ}{T} + (S_1 - S_2) \geq 0 \]
-\[ S_2 - S_1 \leq \int_1^2 \frac{SQ}{T} \]
+\begin{align}
+  \int_1^2 \frac{\delta Q}{T} + \int_1^2\left( \frac{\delta Q}{T} \right)_{\textrm{int rev}} &\geq 0 \\
+  \int_1^2 \frac{\delta Q}{T} + (S_1 - S_2) &\geq 0 \\
+  S_2 - S_1 &\leq \int_1^2 \frac{\delta Q}{T}
+\end{align}
 When written in the differential form:
-\[ ds \leq \frac{SQ}{T} \]
-Where T is the thermodynamic temperature at the boundary. SQ is the heat transferred between the system and surroundings. ds is the differential change in energy. When reversible \( ds = \frac{SQ}{T} \). When irreversible \( ds \leq \frac{SQ}{T} \). This equation shows that:
-\begin{quote}
-  \begin{center}
-    Change in entropy of a closed system during an irreversible process is \emph{always greater} than the integral of \(\frac{SQ}{T}\) evaluated for that process.
-  \end{center}
-\end{quote}
-This inequality shows that during an irreversible process, the entropy  change of a closed system is \emph{always greater} than the entropy of transfer by heat. For a reversible process, \( \Delta S = \int_1^2 \frac{SQ}{T} \), which represents the entropy transfer by heat. Thus, some \emph{entropy generation} must be occurring. This generated entropy is denoted as \(S_{\textrm{gen}}\).
-\[ \therefore S_2 - S_1 \geq \int_1^2 \frac{SQ}{T} \]
-\[ \therefore \Delta S_{\textrm{sys}} \geq \int_1^2 \frac{SQ}{T} \] 
-\[ \therefore \Delta S_{\textrm{sys}} = \int_1^2 \frac{SQ}{T} + S_{\textrm{gen}} \]
+\begin{equation} 
+  ds \leq \frac{\delta Q}{T} 
+\end{equation}
+Where T is the thermodynamic temperature at the boundary. \( \delta Q \) is the heat transferred between the system and surroundings. ds is the differential change in energy. When reversible \( ds = \frac{\delta Q}{T} \). When irreversible \( ds \leq \frac{\delta Q}{T} \). This equation shows that:
+\begin{center}
+  Change in entropy of a closed system during an irreversible process is \emph{always greater} than the integral of \(\frac{SQ}{T}\) evaluated for that process.
+\end{center}
+This inequality shows that during an irreversible process, the entropy  change of a closed system is \emph{always greater} than the entropy of transfer by heat. For a reversible process, \( \Delta S = \int_1^2 \frac{\delta Q}{T} \), which represents the entropy transfer by heat. Thus, some \emph{entropy generation} must be occurring. This generated entropy is denoted as \(S_{\textrm{gen}}\).
+\begin{align}
+  \therefore S_2 - S_1 &\geq \int_1^2 \frac{\delta Q}{T} \\
+  \therefore \Delta S_{\textrm{sys}} &\geq \int_1^2 \frac{\delta Q}{T} \\ 
+  \therefore \Delta S_{\textrm{sys}} &= \int_1^2 \frac{\delta Q}{T} + S_{\textrm{gen}}
+\end{align}
 \( S_{\textrm{gen}} \) is always positive or zero. This depends upon the process, hence not a property.
 
 When a system is isolated, adiabatic and closed. The heat transfer is zero i.e. \(SQ = 0\).
-\[ \therefore \Delta S_{\textrm{sys}} = \Delta S_{\textrm{isolated}} \geq \int_1^2 0 \]
-\[ \therefore \Delta S_{\textrm{isolated}} \geq 0 \]
-\[ \Delta S_{\textrm{isolated}} = S_{\textrm{gen}} \]
+\begin{align}
+  \therefore \Delta S_{\textrm{sys}} = \Delta S_{\textrm{isolated}} \geq \int_1^2 0 \\
+  \therefore \Delta S_{\textrm{isolated}} \geq 0
+  \Delta S_{\textrm{isolated}} = S_{\textrm{gen}}
+\end{align}
 This is the increase of entropy principle. The entropy of an isolated system during a process always increases or in the limiting case of a reversible process, remains constant. Note that in the absence of any heat transfer, entropy change is due to irreversibilities only and their effect is only and always an increase in entropy.
 
 Entropy is an extensive property. Thus, 
-\[ \sum^N_{i=1} \Delta S_i = \Delta S_{\textrm{total}} \]
+\begin{equation}
+  \sum^N_{i=1} \Delta S_i = \Delta S_{\textrm{total}}
+\end{equation}
 i.e. the use of the change in entropies of the parts of the system is equal to the change in entropy of a system. An isolated system can consist of a number of subsystems. A system and its surroundings, for example, constitute an isolated system since both can be enclosed by a sufficiently large arbitrary boundary at which there is no heat, work or mass transfer. Thus, a system and its surroundings can be considered as two subsystems of an isolated system. Since \( \Delta S_{\textrm{isolated}} = S_{\textrm{gen}} \geq 0 \) but \( \Delta S_{\textrm{isolated}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}} \). Therefore:
-\[ S_{\textrm{gen}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}} \geq 0 \]
+\begin{equation} 
+  S_{\textrm{gen}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}} \geq 0 
+\end{equation}
 When considering a reversible process. Then \( \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}} = 0 = S_{\textrm{gen}} \). The inequality holds for irreversible process. Note that \( S_{\textrm{gen}}\) can never be negative, but \( \Delta S_{\textrm{sys}} \) can be negative and \( \Delta S_{\textrm{surr}} \) can be negative. The sum of the two must be positive or zero. For example, consider the following system. 
-\[ S_{\textrm{gen}} = \Delta S_{\textrm{total}} \]
-\[ = \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}}\]
-\[ = -2 + 3 \]
-\[ S_{\textrm{gen}} = 1 \si{\kilo\joule\per\kelvin} \]
-\[ S_{\textrm{gen}} = \begin{cases}
+\begin{align} 
+  S_{\textrm{gen}} &= \Delta S_{\textrm{total}} \\
+  &= \Delta S_{\textrm{sys}} + \Delta S_{\textrm{surr}}\\
+  &= -2 + 3 \\
+  S_{\textrm{gen}} &= 1 \ \si{\kilo\joule\per\kelvin} \\
+  S_{\textrm{gen}} &= \begin{cases}
   > 0 \textrm{ Irreversible process}\\
   = 0 \textrm{ Reversible process}\\
   < 0 \textrm{ Impossible process}
-\end{cases}
-\]
+  \end{cases}
+\end{align}
 \subsubsection{Example question}
-Using the increase in entropy principle, show that conduction with finite temperature difference is an irreversible process. 
-\[ S_{\textrm{gen}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{high temp. reservoir}} + \Delta S_{\textrm{low temp. reservoir}} \geq 0\]
-\[ \Delta S_{\textrm{total}} = \int \left( \frac{-SQ}{T_H} \right) + \int \frac{SQ}{T_L} \]
-\[ = -\frac{1}{T_H} \int SQ + \frac{1}{T_L} \int SQ \]
-\[ -\frac{Q}{T_H} + \frac{Q}{T_L} \geq 0 \]
-\[ S_{\textrm{gen}} = \frac{-Q}{T_H} + \frac{Q}{T_L} \geq 0 \]
-\[ \textrm{since } T_H > T_L \]
-\[ \therefore S_{\textrm{gen}} > 0 \rightarrow \textrm{irreversible process} \]
+Using the increase in entropy principle, show that conduction with finite temperature difference is an irreversible process.
+\begin{gather}
+  S_{\textrm{gen}} = \Delta S_{\textrm{total}} = \Delta S_{\textrm{high temp. reservoir}} + \Delta S_{\textrm{low temp. reservoir}} \geq 0\\
+  \Delta S_{\textrm{total}} = \int \left( \frac{-SQ}{T_H} \right) + \int \frac{SQ}{T_L} \\
+  = -\frac{1}{T_H} \int SQ + \frac{1}{T_L} \int SQ \\
+  -\frac{Q}{T_H} + \frac{Q}{T_L} \geq 0 \\
+  S_{\textrm{gen}} = \frac{-Q}{T_H} + \frac{Q}{T_L} \geq 0 \\
+  \textrm{since } T_H > T_L \\
+  \therefore S_{\textrm{gen}} > 0 \rightarrow \textrm{irreversible process}
+\end{gather}
 \subsection{Entropy change of pure substances}
 The entropy of a pure substance us determined from tables in the same manner as other properties such as volume, internal energy and enthalpy. The value of entropy at a specified state is determined just like any other property.
 \begin{itemize}[noitemsep]
@@ -84,7 +102,9 @@ The entropy of a pure substance us determined from tables in the same manner as 
   \item Superheated vapour: from tables.
 \end{itemize}
 If the compressed liquid data is not available, the entropy of the compressed liquid can be approximated by the saturated liquid at the same temperature.
-\[ S_{\textrm{compressed @ T, P}} = S_{f@T} \]
+\begin{equation} 
+  S_{\textrm{compressed @ T, P}} = S_{f@T} 
+\end{equation}
 Note that \( \Delta S = m \Delta S = m(S_2 - S_1)\).
 \subsection{T-S diagram characteristics}
 Constant volume lines are steeper than the constant pressure lines. Constant pressure lines are parallel to the constant temperature lines in the saturated liquid-vapour mixture region. Constant pressure lines almost coincide with the saturated liquid line in the compressed liquid region. 
@@ -100,26 +120,26 @@ Entropy can be changed by: heat transfer or irreversibilities. During a process 
   However, isentropic \(\rightarrow\) reversible adiabatic (Which usually means an internally reversible, adiabatic process)
 \end{center}
 \subsection{Property diagrams involving entropy}
-Two diagrams commonly used in the second-law analysis are the temperature-entropy and the enthalpy-entropy diagrams. Remember:
-\begin{align*}
+Two diagrams commonly used in the second-law analysis are the temperature - entropy and the enthalpy - entropy diagrams. Remember:
+\begin{align}
   \frac{SQ_{\textrm{int rev}}}{T} &= dS\\
   \therefore SQ_{\textrm{\textrm{int rev}}} &= TdS\\
   \therefore Q_{\textrm{int rev}} &= \int_1^2 T dS \ (\si{\kilo\joule})
-\end{align*}
+\end{align}
 This integral computes the area under a process curve on a T-S diagram. This represents the heat transfer during an internally reversible process.
 \begin{center}
   Area = heat transfer for processes that are internally/totally reversible. (This area has no meaning for irreversible processes.)
 \end{center}
 It can also be written in specific form
-\begin{align*}
+\begin{align}
   q_{\textrm{int rev}} &= \int_1^2 TdS \ (\si{\kilo\joule\per\kg})\\
   sq_{\textrm{int rev}} &= T ds \ (\si{\kilo\joule\per\kg})
-\end{align*}
+\end{align}
 For internally reversible isothermal processes, T is constant: \(T_0\) therefore,
-\begin{align*}
+\begin{align}
   Q_{\textrm{int rev isothermal}} &= T_0 \Delta S \ (\si{\kilo\joule})\\
   q_{\textrm{int rev isothermal}} &= T_0 \Delta s \ (\si{\kilo\joule\per\kg})
-\end{align*}
+\end{align}
 
 An isentropic process on a T-S diagram is easily recognised as a \emph{vertical} line segment. Isentropic means no heat transfer, thus area under the graph must be zero. Another diagram commonly used in engineering is the enthalpy - entropy diagram, which is quite valuable in the analysis of steady flow devices such as turbines. compressors and nozzles. In analysing the steady flow of steam through an adiabatic turbine for example, the graph produced is show below. This graph is also called the Mollier Diagram.
 \begin{figure}
@@ -134,36 +154,40 @@ The Carnot cycle is made up of two, reversible isothermal CT = constant S proces
 \end{figure}
 \subsection{The Tds relations}
 The first law states:
-\[ \Delta E = \Delta U + \Delta KE + \Delta PE \]
+\begin{equation} 
+  \Delta E = \Delta U + \Delta KE + \Delta PE 
+\end{equation}
 For closed systems that are stationary, \( \Delta KE = \Delta PE = 0 \) therefore, 
-\begin{align*}
+\begin{align}
   \Delta E &= \Delta U\\
   \Delta U &= \Delta Q + \Delta W (+ \Delta E_{mass} = 0)\\
   \Delta U &= \Delta Q + \Delta W\\
   \Delta U &= Q_{\textrm{net in}} - W_{\textrm{net out}}
-\end{align*}
+\end{align}
 In differential form and for: a simple compressible substance, an internally reversible process,
-\[ dU = SQ_{\textrm{int rev}} - SW_{\textrm{int rev out}} \]
+\begin{equation} 
+  dU = SQ_{\textrm{int rev}} - SW_{\textrm{int rev out}} 
+\end{equation}
 But \( SQ_{\textrm{int rev}} = T dS \) and \( SW_{\textrm{int rev out}} = PdV\) thus,
-\begin{align*} 
+\begin{align} 
   dU &= TdS - PdV\\
   TdS &= dU + PdV \ (\si{\kilo\joule})\\
   Tds &= du + Pdv \ (\si{\kilo\joule\per\kg})
-\end{align*}
+\end{align}
 These are known as the first Tds relations.
 
 Since \( h = u + Pv \), differentiating both sides yields:
-\begin{align*}
+\begin{align}
   dh &= d[u+Pv]\\
   &= du + d[Pv]\\
   dh &= du + Pdv + dPv
-\end{align*}
+\end{align}
 But the first Tds relation states that \(Tds = du + Pdv\) therefore, 
-\begin{align*}
+\begin{align}
   du &= Tds - Pdv\\
   \therefore dh &= Tds + vdP\\
   Tds &= dh - vdP
-\end{align*}
+\end{align}
 This is the second Tds relation.
 
 To summarise, the Tds relations are shown below.
@@ -172,36 +196,46 @@ To summarise, the Tds relations are shown below.
   \item Tds = du + Pdv
 \end{enumerate}
 These equations were derived with internally reversible processes but since the entropy change between two states is independent of the process the system undergoes, hence the equations are valid for both irreversible and reversible processes. These are also valid for the change of states of a substance in a closed or an open system. Explicit relations for differential changes in entropy are obtained by solving for ds in the Tds relations.
-\begin{align*}
+\begin{align}
   ds &= \frac{du}{T} + \frac{Pdv}{t} \textrm{ and}\\
   ds &= \frac{dh}{T} - \frac{vdP}{T}
-\end{align*}
+\end{align}
 \(\Delta S\) can be found by \emph{integrating} these equations between final and initial states. To perform these integrations we must know the relationship between du or dh and temperature. For an ideal gas:
-\[ du = c_V dT, \ dh = c_P dt \]
+\begin{equation} 
+  du = c_V dT, \ dh = c_P dt 
+\end{equation}
 The equation of state of the substance is given by:
-\[ Pv = RT (\textrm{for ideal gases}) \]
+\begin{equation} 
+  Pv = RT (\textrm{for ideal gases}) 
+\end{equation}
 For other substances, we have to rely on tabulated data.
 \subsection{Entropy change of liquids and solids}
-\[ ds = \frac{du}{T} + \frac{Pdv}{t} \]
+\begin{equation} 
+  ds = \frac{du}{T} + \frac{Pdv}{t} 
+\end{equation}
 But for liquids and solids, they can be approximated as incompressible substances since their specific volumes remain nearly constant during a process. Thus \(dv \approx 0 \) for liquids and solids.
-\[ \therefore ds = \frac{du}{t}\]
+\begin{equation} 
+  \therefore ds = \frac{du}{t}
+\end{equation}
 Performing the integration gives:
-\[ \Delta s = s_2 - s_1 = \int_1^2 ds = \int_1^2 \frac{du}{T} \]
+\begin{equation} 
+  \Delta s = s_2 - s_1 = \int_1^2 ds = \int_1^2 \frac{du}{T} 
+\end{equation}
 But \(du = cdT\) where \( c = c_P = c_V\) for liquids and solids.
-\begin{align*}
+\begin{align}
   \Delta s = s_2 - s_1 &= \int_1^2 \frac{cdT}{T} = \int_1^2 \frac{c(T)dt}{T}\\
   &\approx c_{avg} ln(\frac{T_2}{T_1})\\
   \Delta s &= c_{avg} ln(\frac{T_2}{T_1}) \ \si{\kilo\joule\per\kg}
-\end{align*}
+\end{align}
 Where \(c_{avg}\) is the average specific heat capacity over the interval. Note that the entropy change of a truly incompressible substance depends only on temperature.
 
 The equation \( s_2 - s_1 \approx c_{avg} ln(\frac{T_2}{T_1}) \) can be used with liquids and solids to reasonable accuracy (liquids and solids only). However, for liquids that expand considerablly with temperature, it may be necessary to consider the effects of volume change in calculcations. This is especially the case when the temperature change is large. Applying this to isentropic processes; for liquids and solids only (incompressible):
-\begin{align*}
+\begin{align}
   s_2 - s_1 = 0 &= C_{avg} ln(\frac{T_2}{T_1})\\
   ln(T_2) - ln(T_1) &= 0 \\
   ln(T_2) &= ln(T_1)\\
   T_2 &= T_1
-\end{align*}
+\end{align}
 Hence, for truly incompressible substances that undergo an isentropic process, it is also isothermal.
 \begin{center}
   incompressible + isentropic \(\rightarrow\) isothermal
@@ -209,44 +243,50 @@ Hence, for truly incompressible substances that undergo an isentropic process, i
 This behaviour is closesly operate by liquids and solids. 
 \subsection{Entropy change of ideal gases}
 Remember that 
-\[ ds = \frac{dh}{T} - \frac{vdP}{T} \]
+\begin{equation} 
+  ds = \frac{dh}{T} - \frac{vdP}{T} 
+\end{equation}
 But for ideal gases:
-\begin{align*}
+\begin{align}
   dh &= c_P dT\\
   \therefore ds &= \frac{c_PdT}{T} - \frac{vdP}{T}
-\end{align*}
+\end{align}
 But the ideal gas relation gives:
-\begin{align*}
+\begin{align}
   Pv&=RT\\
   v&=\frac{RT}{P}\\
   \therefore ds &= \frac{C_PdT}{T} - \frac{RTdP}{PT}\\
   ds &= \frac{C_PdT}{T} - \frac{RdP}{P}
-\end{align*}
+\end{align}
 Integrating both sides gives:
-\[ \Delta s = s_2 - s_1 = \int_1^2 c_P(T)\frac{dT}{T} - Rln\left(\frac{P_2}{P_1}\right) \]
+\begin{equation} \
+  Delta s = s_2 - s_1 = \int_1^2 c_P(T)\frac{dT}{T} - Rln\left(\frac{P_2}{P_1}\right) 
+\end{equation}
 
 Also \( ds = \frac{du}{T} + \frac{Pdv}{T} \)
 But for ideal gases:
-\begin{align*}
+\begin{align}
   du &= c_V dT\\
   \therefore ds &= \frac{c_VdT}{T} - \frac{Pdv}{T}
-\end{align*}
+\end{align}
 But the ideal gas relation gives:
-\begin{align*}
+\begin{align}
   Pv&=RT\\
   P&=\frac{RT}{v}\\
   \therefore ds &= \frac{C_VdT}{T} - \frac{RTdv}{vT}\\
   ds &= \frac{C_VdT}{T} - \frac{Rdv}{v}
-\end{align*}
+\end{align}
 Integrating both sides gives:
-\[ \Delta s = s_2 - s_1 = \int_1^2 c_V(T)\frac{dT}{T} - Rln\left(\frac{v_2}{v_1}\right) \]
+\begin{equation} 
+  \Delta s = s_2 - s_1 = \int_1^2 c_V(T)\frac{dT}{T} - Rln\left(\frac{v_2}{v_1}\right) 
+\end{equation}
 For all ideal gases except monatomic gases, the specific heats depend on the temperature. Thus, the integrals on the previous pages cannot be performed unless the dependencies of \(c_V\) and \(c_P\) on temperature is known. Even when the \(c_V(T)\) and \(c_P(T)\) functions are available, long integrals make this approach impractical; this leaves two choices:
 \begin{enumerate}[noitemsep]
   \item Assume constant specific heats
   \item Evaluate those integrals once and tabulate the results
 \end{enumerate}
 The relationships allow us to form formulas for \(\Delta s\), in terms of temperature and pressure and temperature and specific volume. We can now derive a formula for \(\Delta s\) in terms of pressure and specific volume.
-\begin{align*}
+\begin{align}
   ds &= \frac{c_PdT}{T} - \frac{RdP}{P}\\
   \Delta s &= mc_P \int_1^2 \frac{dT}{T} - mR \int_1^2 \frac{dP}{P} \textrm{ assuming \(c_P\) is constant}\\ 
   \Delta s &= mc_P ln \left( \frac{T_2}{T_1} \right) - mRln \left( \frac{P_2}{P_1} \right)\\
@@ -254,5 +294,5 @@ The relationships allow us to form formulas for \(\Delta s\), in terms of temper
   \Delta s &= mc_P ln \left( \frac{T_2}{T_1} \right) - mc_P ln \left( \frac{P_2}{P_1} \right) + mc_V ln \left( \frac{P_2}{P_1} \right)\\
   &= mc_P ln \left(\frac{T_2}{P_2} \cdot \frac{P_1}{T_1} \right) + mc_V ln \left( \frac{P_2}{P_1} \right)\\
   \Delta s &= mc_P ln \left( \frac{v_2}{v_1} \right) + mc_Vln\left( \frac{P_2}{P_1} \right)
-\end{align*}
+\end{align}
 \end{document}

@@ -18,6 +18,6 @@
 \usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage {siunitx}\sisetup {detect-all}
 \endsubpreamble
 \subpreamble{tex/MECH0005Entropy.tex}
-\usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage {siunitx}\sisetup {detect-all}
+\usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\numberwithin {equation}{section}\usepackage {siunitx}\sisetup {detect-all}
 \endsubpreamble
 \endstandalonepreambles
