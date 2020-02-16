@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper, twoside]{report}
+\documentclass[12pt,a4paper, twoside]{book}
 
 \usepackage[subpreambles=true]{standalone}
 \usepackage{verbatim}
@@ -20,6 +20,7 @@
 \sisetup{detect-all}
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
 \usepackage{fancyhdr}
+\usepackage{emptypage}
 \pagestyle{fancy}
 
 \fancyhead{}
@@ -53,4 +54,5 @@
 \chapter{Thermodynamics}
 \import{tex/}{MECH0005Lecture1}
 \import{tex/}{MECH0005Entropy}
+\listoffigures
 \end{document}
