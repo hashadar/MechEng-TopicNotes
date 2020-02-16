@@ -14,11 +14,9 @@
 \begin{document}
 \section{Second Law of Thermodynamics}
 First, let us remind ourselves of the first law of thermodynamics and some of its limitations. 
-\begin{quote}
-  \begin{center}
-    Energy can neither be created or destroyed during a process; it can only change forms.
-  \end{center}
-\end{quote}
+\begin{center}
+  Energy can neither be created or destroyed during a process; it can only change forms.
+\end{center}
 A certain energy balance will hold when a system undergoes change or a thermodynamic process.
 \begin{itemize}[noitemsep]
   \item But does not give information on whether the change of state or the process is at all feasible or not.
@@ -27,11 +25,9 @@ A certain energy balance will hold when a system undergoes change or a thermodyn
 \end{itemize}
 \subsection{Introduction to the second law}
 The second law of thermodynamics provides the criterion as to the \emph{probability} of various processes. 
-\begin{quote}
   \begin{center}
     Spontaneous processes in nature occur only in one direction. 
   \end{center}
-\end{quote}
 Heat flows from a body at high temperature to a body at low temperature; water always flows downwards etc. The spontaneity of the process is due to finite driving potential, sometimes called 'force' or 'cause', e.g. a temperature or concentration gradient or an electric potential. What happens as a result of this finite driving potential is called the 'flux' or the 'current' or the 'effect' (heat transfer, mass transfer, flow of electric current). This directional law puts a limitation on energy transformation other than that imposed by the first law. The second law also asserts that energy has \emph{quality} as well as \emph{quantity.} The first law is concerned with the quantity of energy and the transformations of energy from one form to another, with no regard to its quality. 
 \subsection{Qualitative difference between heat and work}
 There is also a qualitative difference between heat and work. Energy supplied as work can be completely converted to heat, e.g. paddle wheel work on a liquid in an adiabatic vessel. However, the complete conversion of heat into work is not possible, thus making heat and work not completely interchangeable forms of energy. Also, we considered the problem of a simple steam power plant and by using the Steady Flow Energy Equation (i.e. first law) and the properties of steam, were able to calculate the work done and heat transfers for individual components. However, we are not yet able to understand ways of improving steam engine efficiency.
@@ -64,27 +60,29 @@ The work producing device that best suits this definition of a heat engine is th
 Figure 4 shows a simplified diagram of a steam plant. From this we can see that \(W_{\textrm{net out}} = W_{\textrm{out}} - W_{\textrm{in}}\) (\si{\kilo\joule}). Considering that the change in internal energy is zero for cycles, we can derive, \(W_{\textrm{net out}} = Q_{\textrm{in}} - Q_{\textrm{out}}\) (\si{\kilo\joule}).
 \subsection{Thermal efficiency of direct engines / steam power plants}
 For heat engines, the desired output is the net work output and the required input is the amount of heat supplied to the working fluid. Thus the thermal efficiency is expressed as:
-\[ \textrm{Thermal efficiency} = \frac{\textrm{Net work output}}{\textrm{Total heat input}} \]
-\[ \eta = \frac{W_{\textrm{net out}}}{Q_{\textrm{in}}} \]
-\[ \eta = 1 - \frac{Q_{\textrm{out}}}{Q_{\textrm{in}}} \]
+\begin{align}
+  \textrm{Thermal efficiency} &= \frac{\textrm{Net work output}}{\textrm{Total heat input}} \\
+  \eta &= \frac{W_{\textrm{net out}}}{Q_{\textrm{in}}} \\
+  \eta &= 1 - \frac{Q_{\textrm{out}}}{Q_{\textrm{in}}} 
+\end{align}
 Since cyclic devices at practical interest operate between a high temperature \(T_H\) and a low temperature medium \(T_L\), we define these two quantities:
 \begin{itemize}
   \item {\(Q_H =\)} magnitude of heat transfer between the cyclic device and the high temperature medium \(T_H\).
   \item {\(Q_L =\)} magnitude of heat transfer between the cyclic device and the low temperature medium \(T_L\).
 \end{itemize}
 Thus, the previous equations can be written as follows:
-\[ W_{\textrm{net out}} = Q_H - Q_L \]
-\[ \eta = 1 - \frac{Q_L}{Q_H} \]
+\begin{align}
+  W_{\textrm{net out}} &= Q_H - Q_L \\
+  \eta &= 1 - \frac{Q_L}{Q_H} 
+\end{align}
 Thermal efficiencies of work producing devices are relatively low. Ordinary spark ignition automobile engines have a thermal efficiency of about 25\%. Gas steam power plants reach only 60\%.
 \subsection{Can we save \(Q_{out}\)?}
 In a steam power plant, the condenser is the device where large quantities of waste heat is rejected to rivers, lakes or the atmosphere. One may ask, can we not save all this waste energy? The answer is a firm \emph{no}. Without a heat rejection process in the condenser, the cycle cannot be completed. Cyclic devices such as steam power plants cannot run continuously, unless the cycle is completed.
 \subsection{The Kelvin-Planck statement}
 The Kelvin-Planck statement of the second law of thermodynamics is expressed as follows:
-\begin{quote}
-  \begin{center}
-    It is impossible for any device that operates on a cycle to receive heat from a single reservoir and produce a net amount of work.
-  \end{center}
-\end{quote}
+\begin{center}
+  It is impossible for any device that operates on a cycle to receive heat from a single reservoir and produce a net amount of work.
+\end{center}
 A heat engine must exchange heat with a low temperature sink as well as a high temperature source to keep operating. This implies that it is impossible to build a heat engine that has a thermal efficiency of 100\%. Complete conversion of heat into work is \emph{not possible.} This is contrary to the fact that 100\% of work can be transferred to heat. This is the directional implication of the second law. This is not due to frictional/non-adiabatic effects. It is a \emph{necessity.}
 
 Proof on page 128 of Cengel (insert edition.)
@@ -92,10 +90,14 @@ Proof on page 128 of Cengel (insert edition.)
 From experience, heat always from from high temperature to low temperature. These reverse process, however, cannot occur by itself. This reverse process requires special devices called refrigerators. Refrigerators are cyclic devices and the working fluid is called a refrigerant. A frequently used refrigeration cycle is the 'vapour-compression refrigeration cycle.' This involves a compressor, a condenser, an expansion valve and an evaporator.
 \subsection{Coefficient of performance}
 The efficiency of a refrigerator is called the coefficient of performance (COP), denoted by \(\textrm{COP}_R\). The objective of a refrigerator is to: remove heat from the refrigerated space by being provided with a work input \(W_{\textrm{net in}}\). Thus:
-\[ \textrm{COP}_R = \frac{Q_L}{W_{\textrm{net in}}} = \frac{\dot{Q}_L}{\dot{W}_{\textrm{net in}}} \]
-Also, since \(W_{\textrm{net in}} = Q_{\textrm{in}} - Q_L\)
-\[ \textrm{COP}_R = \frac{Q_L}{Q_H-Q_L} \]
-\[ \textrm{COP}_R = \frac{1}{\frac{Q_H}{Q_L} - 1}\]
+\begin{equation}
+  \textrm{COP}_R = \frac{Q_L}{W_{\textrm{net in}}} = \frac{\dot{Q}_L}{\dot{W}_{\textrm{net in}}} 
+\end{equation}
+Also, since \(W_{\textrm{net in}} = Q_{\textrm{H}} - Q_L\)
+\begin{align}
+  \textrm{COP}_R = \frac{Q_L}{Q_H-Q_L} \\
+  \textrm{COP}_R = \frac{1}{\frac{Q_H}{Q_L} - 1}
+\end{align}
 COP can also be greater than unity. This means the heat removed can be greater than the work input. Whereas thermal efficiency can never be greater than 1. 
 \subsection{Heat pumps}
 ANother device that transfers heat from a low temperature medium to a high temperature one is a heat pump. 
@@ -113,27 +115,25 @@ Here are some differences between refrigerators and heat pumps.
   \end{itemize}
 \end{itemize}
 A heat pump runs on the same cycle as a refrigerator. The measure of performance of a heat pump is also expressed in terms of coefficient of performance \(\textrm{COP}_{HP}\).
-\[ \textrm{COP}_{HP} = \frac{Q_H}{W_{\textrm{net in}}} = \frac{Q_H}{Q_H - Q_L} = \frac{1}{1 - \frac{Q_L}{Q_H}} \]
-\[ \textrm{COP}_{HP} = \textrm{COP}_R + 1 \]
+\begin{align}
+  \textrm{COP}_{HP} &= \frac{Q_H}{W_{\textrm{net in}}} = \frac{Q_H}{Q_H - Q_L} = \frac{1}{1 - \frac{Q_L}{Q_H}} \\
+  \textrm{COP}_{HP} &= \textrm{COP}_R + 1 
+\end{align}
 This relation shows us that $\textrm{COP}_{HP} > \textrm{COP}_R$ at all times as $\textrm{COP}_R$ is always positive.
 \subsection{Air conditioners}
 Air conditioners are basically refrigerators where refrigerated space is a room instead of a food compartment. The same air conditioning unit can be used as a heat pump in winter by installing it backwards. In this mode, the unit absorbs heat from the cold outside and delivers it to the room.
 \subsection{The Clausius statement}
 The Kelvin-Planck statement was for direct heat engines. The Clausius statement is for reversed heat engines. The statement is as follows:
-\begin{quote}
-  \begin{center}
-    It is impossible to construct a device that operates in a cycle and produces no effect other than the transfer of heat from a low temperature body to a higher temperature body.
-  \end{center}
-\end{quote}
+\begin{center}
+  It is impossible to construct a device that operates in a cycle and produces no effect other than the transfer of heat from a low temperature body to a higher temperature body.
+\end{center}
 This means that it is impossible to construct a refrigerator that operates without an input of work. \(W_{\textrm{net in}} \neq 0 \therefore \textrm{COP}_R \neq 0\).
 \subsection{Reversible and irreversible processes}
 As a result of the second law we know that the complete conversion of heat to work is impossible. Thus, an efficiency of 100\% cannot be achieved for a heat engine. Then what is the maximum efficiency of a heat engine/CHPP? Before we answer this question, we need to define an idealised process first, which is called a reversible process.
 Reversible process:
-\begin{quote}
-  \begin{center}
-    A process that can be reversed without having any trace to the surroundings. Both the system and the surroundings are returned to their initial states ath the end of the reverse process. Thus, for the combined forward and reverse processes the \emph{net heat} and \emph{net work} transfer is \emph{zero}.
-  \end{center}
-\end{quote}
+\begin{center}
+  A process that can be reversed without having any trace to the surroundings. Both the system and the surroundings are returned to their initial states ath the end of the reverse process. Thus, for the combined forward and reverse processes the \emph{net heat} and \emph{net work} transfer is \emph{zero}.
+\end{center}
 Reversible processes do not occur in nature naturally. They are merely an idealisation of real processes. They can be approximated by actual devices but can never be achieved. We consider theme even though they are impossible, as they are easy to analyse and they can be used for comparison.
 \subsection{Irreversibilities}
 The factors that cause a process to be irreversible are called irreversibilities. 
@@ -208,16 +208,24 @@ The second law of thermodynamics puts limits on the operation of cyclic devices 
 insert proof
 \subsection{The thermodynamic temperature cycle}
 insert proof
-\[ \left( \frac{Q_M}{Q_L} \right)_{rev} = \frac{T_H}{T_L} \leftarrow \textrm{use Kelvin} \]
+\begin{equation} 
+  \left( \frac{Q_M}{Q_L} \right)_{rev} = \frac{T_H}{T_L} \leftarrow \textrm{use Kelvin} 
+\end{equation}
 \subsection{The Carnot heat engines}
 Any heat engine has a thermal efficiency of $\eta_{th}$ given by the formula
-\[ \eta_{th} = 1 - \frac{Q_L}{Q_H} \]
+\begin{equation} 
+  \eta_{th} = 1 - \frac{Q_L}{Q_H} 
+\end{equation}
 For reversible heat engines, such as a Carnot engine, this becomes:
-\[ \eta_{th, \ rev} = 1 - \frac{T_L}{T_H}\]
+\begin{equation} 
+  \eta_{th, \ rev} = 1 - \frac{T_L}{T_H}
+\end{equation}
 Using the formula shown in the previous part. This us called the Carnot efficiency, since the Carnot heat engine is the best known reversible engine. This is the highest efficiency a heat engine operating between two thermal energy reservoirs at temperature $T_H$ and $T_L$ can have. If you calculate the $\eta_{th}$ of a heat engine, their nature can be deduced as follows:
-\[ \eta_{th} < \eta_{th, \ rev} \rightarrow \textrm{Irreversible heat engine} \]
-\[ \eta_{th} = \eta_{th, \ rev} \rightarrow \textrm{Reversible heat engine} \]
-\[ \eta_{th} > \eta_{th, \ rev} \rightarrow \textrm{Impossible heat engine} \]
+\begin{align} 
+  \eta_{th} < \eta_{th, \ rev} &\rightarrow \textrm{Irreversible heat engine} \\
+  \eta_{th} = \eta_{th, \ rev} &\rightarrow \textrm{Reversible heat engine} \\
+  \eta_{th} > \eta_{th, \ rev} &\rightarrow \textrm{Impossible heat engine} 
+\end{align}
 From the equation $\eta_{th, \ rev} = 1 - \frac{T_L}{T_H}$, we can see that the efficiency of a Carnot heat engine increases as $T_H$ is increased, or as $T_L$ is decreased. As $T_L$ decreases so does the amount of heat rejected. The same is also true for actual heat engines. The thermal efficiency of actual heat engines can be maximised by:
 \begin{itemize}[noitemsep]
   \item Supplying heat to the engine at the highest possible temperature (limited by material strength).
@@ -225,13 +233,17 @@ From the equation $\eta_{th, \ rev} = 1 - \frac{T_L}{T_H}$, we can see that the 
 \end{itemize}
 \subsection{The Carnot refrigerator and heat pump}
 The COP of any heat pump and refrigerator is given by:
-\[ \textrm{COP}_R = \frac{1}{\frac{Q_H}{Q_L} - 1}  \]
-\[ \textrm{COP}_{HP} = \frac{1}{1 - \frac{Q_L}{Q_H}} \]
+\begin{align}
+  \textrm{COP}_R = \frac{1}{\frac{Q_H}{Q_L} - 1}  \\
+  \textrm{COP}_{HP} = \frac{1}{1 - \frac{Q_L}{Q_H}}
+\end{align}
 Using the thermodynamic scale formulas, the COP for heat pumps and refrigerators running on a reverse Carnot cycle is:
-\[ \textrm{COP}_{R, \ rev} = \frac{1}{\frac{T_H}{T_L} - 1}  \]
-\[ \textrm{COP}_{HP, \ rev} = \frac{1}{1 - \frac{T_L}{T_H}} \]
+\begin{align}
+  \textrm{COP}_{R, \ rev} = \frac{1}{\frac{T_H}{T_L} - 1}  \\
+  \textrm{COP}_{HP, \ rev} = \frac{1}{1 - \frac{T_L}{T_H}} 
+\end{align}
 These are the highest COP that a refrigerator or a heat pump operating between the temperature limits at $T_L$ and $T_H$ can have.
-\[  
+\begin{equation}  
   \textrm{COP}_{R} = 
     \begin{cases}
       < \textrm{COP}_{R, \ rev}\\
@@ -244,7 +256,7 @@ These are the highest COP that a refrigerator or a heat pump operating between t
       = \textrm{COP}_{HP, \ rev} \rightarrow \textrm{Reversible}\\
       > \textrm{COP}_{HP, \ rev} \rightarrow \textrm{Impossible}
     \end{cases}
-\]
+\end{equation}
 
 \section{Figures}
 \begin{figure}[H]

@@ -20,28 +20,107 @@ An important inequality that has major consequences in thermodynamics is the \em
 \end{equation}
 The cyclic integral of \( \frac{\delta Q}{T} \) is always less than or equal to zero. This inequality is valid for all cycles reversible or irreversible. \( \frac{\delta Q}{T} \) is the sum of all differential amounts of heat transfer to or from a system, divided by the temperature of the boundary.
 \subsection{Proof of the Clausius inequality}
-INSERT PROOF
+Consider a system connected to a thermal energy reservoir at constant temperatur \( T_R \). Through a \emph{reversible} cycle device.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.75\textwidth]{../img/ClausiusDiagram}
+  \caption{Diagram to show proof of Clausius inequality}
+\end{figure}
+Where \( \delta Q_R \) is the heat supplied to the cyclic device and \( \delta Q \) is the heat rejected by the device to a system which has a temperature \(T\).
+
+The reversible cyclic device produced work \( = \delta W_{textrm{rev}}\) and the system produced work \( =\delta W_{\textrm{sys}} \). Applying energy balance to the entire combined system gives:
+\begin{align}
+  dE &= \delta Q_R - \delta W_{\textrm{sys}} - \delta W_{\textrm{rev}}\\
+  \delta W_C &= \delta W_{\textrm{sys}} - \delta W_{\textrm{rev}}\\
+  dE &= \delta Q_R - \delta W_C\\
+  \delta W_C &= \delta Q_R - dE_C \label{clausius1}
+\end{align}
+Since the cyclic device is a reversible one:
+\begin{align}
+  \therefore \frac{\delta Q_R}{\delta Q} &= \frac{T_R}{T} \leftarrow \textrm{ thermodynamic scale}\\
+  \therefore \delta Q_R &= T_R \frac{\delta Q}{T} \label{clausius2}
+\end{align}
+Substituting equation (\ref{clausius2}) into (\ref{clausius1}) gives:
+\begin{equation}
+  \delta W_C = T_R \frac{\delta Q}{T} - dE_C
+\end{equation}
+Let the system undergo a cycle while the cyclic device undergoes an integral number of cycles. Thus the relation becomes:
+\begin{equation}
+  W_C = T_R \oint \frac{\delta Q}{T}
+\end{equation}
+The net work for the combined cycle is \( W_C = \oint \delta W_C \) and \(\oint dE=0\) as the net change in energy, which is a property, during a cycle is zero.
+
+\emph{Now} since the Kelvin-Planck statement states that:
+\begin{center}
+  No system can produce a net amount of work while operating in a cycle and exchanging heat with a single thermal reservoir.
+\end{center}
+And the combined system is exchanging heat with a single thermal reservoir and producing work, hence this must be impossible. Thus,
+\begin{equation}
+  T_R \oint \frac{\delta Q}{T} \leq 0
+\end{equation}
+Since \(T_R\) is positive dividing by it gives:
+\begin{equation}
+  \oint \frac{\delta Q}{T} \leq 0
+\end{equation}
+If no reversibilities occur within the system as well as the reversible cyclic device then the cycle undergone by the combined system is internally reversible. Thus, it cannot be reverted.
+
+In the reversed cycle case, all quantities have the same magnitude but opposite sign.
+\begin{equation}
+  \therefore W_C = T_R \oint \frac{\delta Q}{T}
+\end{equation}
+We cannot be negative in the reversed case as that would break the Kelvin-Planck statement and \(W_C\) cannot be positive either, 
+\begin{equation}
+  \therefore T_R \oint \frac{\delta Q}{T} = 0
+\end{equation}
+Since \(T_R\) cannot be zero, hence
+\begin{equation}
+  \oint \left( \frac{\delta Q}{T} \right)_{\textrm{int rev}} = 0
+\end{equation}
+Thus,
+\begin{equation}
+  \oint \left( \frac{\delta Q}{T} \right)_{\textrm{int rev}} = 0 \textrm{ and } \oint \frac{\delta Q}{T} \leq 0
+\end{equation}
+The \emph{inequality} holds for the totatlly or just internally reversible cycles and the inequality for irreversible ones.
+
+We have proven that \( \oint \left( \frac{\delta Q}{T} \right)_{\textrm{int rev}} = 0 \) and \( \oint \frac{\delta Q}{T} \leq 0 \). here we have a quantity whose cyclic integral is zero. A quantity whose cyclic integral is zero depends on the state only and no the process path, is a property. Therefore, the quantity \( \left( \frac{\delta Q}{T} \right)_{\textrm{int rev}} \) must represent a property in the differential form. This is designated the name entropy, \(S\). 
+\begin{equation}
+  ds = \left( \frac{\delta Q}{T} \right)_{\textrm{int rev}} \ \si{\kilo\joule\per\kelvin} \label{clausius3}
+\end{equation}
+Entropy is an extensive property of a system and is sometimes referred as total entropy. Entropy per junit mass is designated \( s\) and is an intensive property and has the unit \si{\kilo\joule\per\kelvin\per\kg}. The entropy change of a system during a process can be determined by integration of equation (\ref{clausius3}) between initial and final states.
+\begin{equation}
+  \Delta S = S_2 - S_1 = \int_1^2 \left( \frac{\delta Q}{T} \right)_{\textrm{int rev}}
+\end{equation}
+Here we have defined the change in entropy instead of the entropy itself. Engineers are usually concerned with the change in entropy. This reference states are used in tabulated data. Entropy is a property; thus, it has fixed values at fixed states. Thus, \(\Delta S\) between two specified states is the same no matter what path, reversible or irreversible is followed during a process. Also note that \( \int \frac{\delta Q}{T}\) gives us \(\Delta S\) only if the integration is carried out along an internally reversible path between the two states. Therefore, even for irreversible processes, the entropy change should be determined by carrying out this integration along an imaginary internally reversible path between the specified states.
+\subsubsection{Special case: internally reversible isothermal heat transfer process}
+Isothermal heat transfer processes are internally reversible. Let us perform the integration
+\begin{align}
+  \Delta S &= \int_1^2 \left(\frac{\delta Q}{T}\right)_{\textrm{int rev}}\\
+  &= \int_1^2 \left(\frac{\delta Q}{T_0}\right)_{\textrm{int rev}}\\
+  &= \int_1^2 \frac{1}{T_0}\left(\delta Q\right)_{\textrm{int rev}}\\
+  \therefore \Delta S &= \frac{Q}{T_0} \ \si{\kilo\joule\per\kelvin} \label{clausius4}
+\end{align}
+\(\Delta S\) can be positive or negative. This depends on the direction of Q. Losing heat reduces entropy.
 \subsection{The increase of entropy principle}
 Consider a cycle. It has two processes:
 \begin{itemize}[noitemsep]
   \item Process 1-2: could be reversible or irreversible.
-  \item Process 2-1L Internally reversible.
+  \item Process 2-1: Internally reversible.
 \end{itemize}
 The Clausius inequality states:
 \begin{equation} 
-  \oint \frac{\delta Q}{T} \geq 0 
+  \oint \frac{\delta Q}{T} \leq 0 
 \end{equation}
 Or,
 \begin{align}
-  \int_1^2 \frac{\delta Q}{T} + \int_1^2\left( \frac{\delta Q}{T} \right)_{\textrm{int rev}} &\geq 0 \\
-  \int_1^2 \frac{\delta Q}{T} + (S_1 - S_2) &\geq 0 \\
-  S_2 - S_1 &\leq \int_1^2 \frac{\delta Q}{T}
+  \int_1^2 \frac{\delta Q}{T} + \int_1^2\left( \frac{\delta Q}{T} \right)_{\textrm{int rev}} &\leq 0 \\
+  \int_1^2 \frac{\delta Q}{T} + (S_1 - S_2) &\leq 0 \\
+  S_2 - S_1 &\geq \int_1^2 \frac{\delta Q}{T}
 \end{align}
 When written in the differential form:
 \begin{equation} 
-  ds \leq \frac{\delta Q}{T} 
+  ds \geq \frac{\delta Q}{T} 
 \end{equation}
-Where T is the thermodynamic temperature at the boundary. \( \delta Q \) is the heat transferred between the system and surroundings. ds is the differential change in energy. When reversible \( ds = \frac{\delta Q}{T} \). When irreversible \( ds \leq \frac{\delta Q}{T} \). This equation shows that:
+Where T is the thermodynamic temperature at the boundary. \( \delta Q \) is the heat transferred between the system and surroundings. ds is the differential change in energy. When reversible \( ds = \frac{\delta Q}{T} \). When irreversible \( ds \geq \frac{\delta Q}{T} \). This equation shows that:
 \begin{center}
   Change in entropy of a closed system during an irreversible process is \emph{always greater} than the integral of \(\frac{SQ}{T}\) evaluated for that process.
 \end{center}
@@ -211,7 +290,7 @@ The equation of state of the substance is given by:
 For other substances, we have to rely on tabulated data.
 \subsection{Entropy change of liquids and solids}
 \begin{equation} 
-  ds = \frac{du}{T} + \frac{Pdv}{t} 
+  ds = \frac{du}{T} + \frac{Pdv}{T} 
 \end{equation}
 But for liquids and solids, they can be approximated as incompressible substances since their specific volumes remain nearly constant during a process. Thus \(dv \approx 0 \) for liquids and solids.
 \begin{equation} 
@@ -225,7 +304,7 @@ But \(du = cdT\) where \( c = c_P = c_V\) for liquids and solids.
 \begin{align}
   \Delta s = s_2 - s_1 &= \int_1^2 \frac{cdT}{T} = \int_1^2 \frac{c(T)dt}{T}\\
   &\approx c_{avg} ln(\frac{T_2}{T_1})\\
-  \Delta s &= c_{avg} ln(\frac{T_2}{T_1}) \ \si{\kilo\joule\per\kg}
+  \Delta s &= c_{avg} ln(\frac{T_2}{T_1}) \ \si{\kilo\joule\per\kg\per\kelvin}
 \end{align}
 Where \(c_{avg}\) is the average specific heat capacity over the interval. Note that the entropy change of a truly incompressible substance depends only on temperature.
 
