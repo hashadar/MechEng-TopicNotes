@@ -49,7 +49,23 @@ As we know that heat transfer to work does not occur. However devices like heat 
   \item They reject the remaining heat to a low temperature sink (the atmosphere, body of water, etc.)
   \item They operate on a cycle.
 \end{itemize}
-Diesel engines (Figure 3) (and internal combustion engines generally) are not heat engines (CHPP) because matter crosses its boundaries. A jet engine is also not a CHPP because matter, air, fuel and exhaust cross the boundary of the system.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = \textwidth]{../img/SimpleSteamPP}
+    \caption{A simple steam power plant}
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = \textwidth]{../img/ClosedCycleGasPP}
+    \caption{A closed cycle gas power plant}
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = 0.7\textwidth]{../img/DieselEngine}
+    \caption{A diesel engine}
+    \label{dieselengine}
+\end{figure}
+Diesel engines (Figure \ref{dieselengine}) (and internal combustion engines generally) are not heat engines (CHPP) because matter crosses its boundaries. A jet engine is also not a CHPP because matter, air, fuel and exhaust cross the boundary of the system.
 \subsection{Steam power plant}
 The work producing device that best suits this definition of a heat engine is the steam power plant, which is an external combustion engine.
 \begin{enumerate}[noitemsep]
@@ -57,7 +73,13 @@ The work producing device that best suits this definition of a heat engine is th
   \item Transferred to steam as heat.
   \item Passed through various devices that transfer its energy to work.
 \end{enumerate}
-Figure 4 shows a simplified diagram of a steam plant. From this we can see that \(W_{\textrm{net out}} = W_{\textrm{out}} - W_{\textrm{in}}\) (\si{\kilo\joule}). Considering that the change in internal energy is zero for cycles, we can derive, \(W_{\textrm{net out}} = Q_{\textrm{in}} - Q_{\textrm{out}}\) (\si{\kilo\joule}).
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = \textwidth]{../img/SteamPowerPlantDiagram}
+    \caption{Steam power plant operation}
+    \label{steampowerplant}
+\end{figure}
+Figure \ref{steampowerplant} shows a simplified diagram of a steam plant. From this we can see that \(W_{\textrm{net out}} = W_{\textrm{out}} - W_{\textrm{in}}\) (\si{\kilo\joule}). Considering that the change in internal energy is zero for cycles, we can derive, \(W_{\textrm{net out}} = Q_{\textrm{in}} - Q_{\textrm{out}}\) (\si{\kilo\joule}).
 \subsection{Thermal efficiency of direct engines / steam power plants}
 For heat engines, the desired output is the net work output and the required input is the amount of heat supplied to the working fluid. Thus the thermal efficiency is expressed as:
 \begin{align}
@@ -88,6 +110,11 @@ A heat engine must exchange heat with a low temperature sink as well as a high t
 Proof on page 128 of Cengel (insert edition.)
 \subsection{Refrigerators and heat pumps}
 From experience, heat always from from high temperature to low temperature. These reverse process, however, cannot occur by itself. This reverse process requires special devices called refrigerators. Refrigerators are cyclic devices and the working fluid is called a refrigerant. A frequently used refrigeration cycle is the 'vapour-compression refrigeration cycle.' This involves a compressor, a condenser, an expansion valve and an evaporator.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = \textwidth]{../img/RefrigerationCycle}
+    \caption{Refrigeration cycle}
+\end{figure}
 \subsection{Coefficient of performance}
 The efficiency of a refrigerator is called the coefficient of performance (COP), denoted by \(\textrm{COP}_R\). The objective of a refrigerator is to: remove heat from the refrigerated space by being provided with a work input \(W_{\textrm{net in}}\). Thus:
 \begin{equation}
@@ -195,9 +222,20 @@ This is a reversible heat transfer process as the temperature difference never e
   \item The gas returns to its original state.
   \item Temperature rises from $T_L$ to $T_H$ which completes the cycle.
 \end{enumerate}
-All of the steps of the Carnot cycle can be summarised on a P-V graph. Being a reversible cycle, the Carnot cycle is the most efficient cycle operating between two specified temperature limits.
+All of the steps of the Carnot cycle can be summarised on a P-V graph (Figure \ref{carnotcycle}). Being a reversible cycle, the Carnot cycle is the most efficient cycle operating between two specified temperature limits.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = \textwidth]{../img/CarnotCycle}
+    \caption{Carnot cycle}
+    \label{carnotcycle}
+\end{figure}
 \subsection{Reversed Carnot cycle}
 The Carnot cycle is totally reversible. Thus, if each process is reversed, it becomes the Carnot refrigeration cycle. Heat and work interactions are reversed. 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = \textwidth]{../img/ReversedCarnotCycle}
+    \caption{Reversed Carnot cycle}
+\end{figure}
 \subsection{The Carnot principles}
 The second law of thermodynamics puts limits on the operation of cyclic devices as expressed by the Kelvin-Planck and Clausius statements. A heat engine cannot operate by exchanging heat with a single reservoir and a refrigerator cannot operate without a net energy input from an external source. These bring rise to the Carnot principles:
 \begin{enumerate}[noitemsep]
@@ -257,48 +295,4 @@ These are the highest COP that a refrigerator or a heat pump operating between t
       > \textrm{COP}_{HP, \ rev} \rightarrow \textrm{Impossible}
     \end{cases}
 \end{equation}
-
-\section{Figures}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width = \textwidth]{../img/SimpleSteamPP}
-    \caption{A simple steam power plant}
-  \end{center}
-\end{figure}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width = \textwidth]{../img/ClosedCycleGasPP}
-    \caption{A closed cycle gas power plant}
-  \end{center}
-\end{figure}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width = \textwidth]{../img/DieselEngine}
-    \caption{A diesel engine}
-  \end{center}
-\end{figure}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width = \textwidth]{../img/SteamPowerPlantDiagram}
-    \caption{Steam power plant operation}
-  \end{center}
-\end{figure}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width = \textwidth]{../img/RefrigerationCycle}
-    \caption{Refrigeration cycle}
-  \end{center}
-\end{figure}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width = \textwidth]{../img/CarnotCycle}
-    \caption{Carnot cycle}
-  \end{center}
-\end{figure}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width = \textwidth]{../img/ReversedCarnotCycle}
-    \caption{Reversed Carnot cycle}
-  \end{center}
-\end{figure}
 \end{document}
