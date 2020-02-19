@@ -9,6 +9,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\numberwithin{equation}{section}
 \usepackage{mathtools}
 \usepackage{siunitx}
 \sisetup{detect-all}
@@ -169,8 +170,10 @@ The formula for the volumetric flow rate is:
   \dot{V} = \frac{V_{in}}{60 \times 10^3} \ \si{\meter\cubed\per\second}
   \label{volflowrate}
 \end{equation}
-Thus, our volumetric flow rate (using equation (1)) is:
-\[ \dot{V} = \frac{285}{60\times 10^3} = \frac{19}{4000} = 4.75 \times 10^{-3} \ \si{\meter\cubed\per\second} \ (3\textrm{sf})\]
+Thus, our volumetric flow rate (using equation \ref{volflowrate}) is:
+\begin{equation} 
+  \dot{V} = \frac{285}{60\times 10^3} = \frac{19}{4000} = 4.75 \times 10^{-3} \ \si{\meter\cubed\per\second} \ (3\textrm{sf})
+\end{equation}
 \subsection{Mass flow rate}
 The specific volume through flowmeter is given by the following equation
 \begin{equation}
@@ -182,9 +185,11 @@ The mass flow rate is given by the following equation:
   \dot{m} = \frac{\dot{V}}{v_0} \ \si{\kg\per\second}
   \label{massflowrate}
 \end{equation}
-Calculating the specific volume (2) and inputting the volume flow rate calculated previously (from equation (1)) our mass flow rate is:
-\[ v_0 = \frac{0.287 \cdot (25+273.15)}{100} = 0.856 \ \si{\kg\per\second} \ (3\textrm{sf})  \]
-\[ \dot{m} = \frac{4.75 \times 10^{-3}}{0.856} = 5.55 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \]
+Calculating the specific volume (\ref{specvol}) and inputting the volume flow rate calculated previously (\ref{volflowrate}) our mass flow rate is:
+\begin{align} 
+  v_0 &= \frac{0.287 \cdot (25+273.15)}{100} = 0.856 \ \si{\kg\per\second} \ (3\textrm{sf})  \\
+  \dot{m} &= \frac{4.75 \times 10^{-3}}{0.856} = 5.55 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) 
+\end{align}
 \subsection{Energy added to air by compressor}
 The equation to calculate the energy added to air by compressor is:
 \begin{equation}
@@ -192,7 +197,9 @@ The equation to calculate the energy added to air by compressor is:
   \label{energyaddaircompressor}
 \end{equation}
 Inputting the variables into equation (4), we get: 
-\[ \dot{H}_c = 5.55 \times 10^{-3} \times 1005 \times (131-23) = 602.296 \ \si{\watt} \ (3\textrm{dp}) \]
+\begin{equation} 
+  \dot{H}_c = 5.55 \times 10^{-3} \times 1005 \times (131-23) = 602.296 \ \si{\watt} \ (3\textrm{dp}) 
+\end{equation}
 \subsection{Power out of motor}
 The equation for the power out of the motor is:
 \begin{equation}
@@ -200,7 +207,9 @@ The equation for the power out of the motor is:
   \label{motorpower}
 \end{equation}
 Thus, our motor power is:
-\[ \dot{W}_{m} = \frac{19.62 \times 1430 \times 1.5 \times 0.2 \times \pi}{60} = 440.712 \ \si{\watt} \ (3\textrm{dp}) \]
+\begin{equation} 
+  \dot{W}_{m} = \frac{19.62 \times 1430 \times 1.5 \times 0.2 \times \pi}{60} = 440.712 \ \si{\watt} \ (3\textrm{dp})
+\end{equation}
 \subsection{Heat losses in the compressor}
 The equation for the heat emitted from the compressor is:
 \begin{equation}
@@ -208,7 +217,9 @@ The equation for the heat emitted from the compressor is:
   \label{heatlosscompressor}
 \end{equation}
 Thus, our motor heat losses are:
-\[ \dot{Q}_c = 440.712 - 602.296 = -161.685 \ \si{\watt} \ (3\textrm{dp}) \]
+\begin{equation} 
+  \dot{Q}_c = 440.712 - 602.296 = -161.685 \ \si{\watt} \ (3\textrm{dp}) 
+\end{equation}
 \section{Experiment 1 discussion}
 \subsection{Outlet temperature against time plot}
 Importing the data into MATLAB, I plotted the data on a graph.
@@ -227,8 +238,11 @@ Importing the data into MATLAB, I plotted the data on a graph.
   \caption{Plot of \(T_2\) against the operating time of the apparatus (0.3 bar)}
   \label{ref:T203vsTime1bar}
 \end{figure}
-\subsubsection{Why does the graph have this shape?}
-
+\subsection{Why does the graph have this shape?}
+\subsection{What happens to the system's energy input as it heats up?}
+\subsection{How does the energy lost as heat compare to:}
+\subsubsection{The work input to the compressor?}
+\subsubsection{The heat added to the air?}
 \section{Experiment 2 calculations}
 \subsection{Specific volume of air at atmosphere and the inlet and outlet of compressor}
 We can calculate the specific volumes at atmosphere, before and after the compressor using equation (\ref{specvol}), which is shown below.
@@ -237,27 +251,33 @@ We can calculate the specific volumes at atmosphere, before and after the compre
   \tag{\ref{specvol}}
 \end{equation}
 Thus, at atmosphere our specific volume of air is:
-\[ v_0 = \frac{0.287 \times (25+273.15)}{100} = 0.856 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) \]
+\begin{equation} 
+  v_0 = \frac{0.287 \times (25+273.15)}{100} = 0.856 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) 
+\end{equation}
 The temperature is constant before the compressor and \(T_2\) approaches a constant value after some time, hence we can use a formula for specific volume where T is constant:
 \begin{equation}
   v_1 = v_0 \times \left( \frac{P_0}{P_0 - P_1} \right) \ \si{\meter\cubed\per\kg}
   \label{constpspecvol}
 \end{equation}
 Using equation (\ref{constpspecvol}), the specific volume before the compressor is:
-\[ v_1 = 0.856 \times \left( \frac{100}{100-5} \right) = \frac{428}{475} = 0.901 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) \textrm{ (1 bar)} \]
-\[ v_1 = 0.856 \times \left( \frac{100}{100-6} \right) = \frac{214}{235} = 0.911 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) \textrm{ (0.6 bar)} \]
-\[ v_1 = 0.856 \times \left( \frac{100}{100-8} \right) = \frac{107}{115} = 0.930 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) \textrm{ (0.3 bar)} \]
+\begin{align} 
+  v_1 &= 0.856 \times \left( \frac{100}{100-5} \right) = \frac{428}{475} = 0.901 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) \textrm{ (1 bar)} \\
+  v_1 &= 0.856 \times \left( \frac{100}{100-6} \right) = \frac{214}{235} = 0.911 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) \textrm{ (0.6 bar)} \\
+  v_1 &= 0.856 \times \left( \frac{100}{100-8} \right) = \frac{107}{115} = 0.930 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) \textrm{ (0.3 bar)} 
+\end{align}
 Using equation (\ref{constpspecvol}), the specific volume after the compressor is:
-\[ v_2 = 0.856 \times \left( \frac{100}{100+100} \right) = \frac{107}{115} = 0.428 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) \textrm{ (1, 0.6, 0.3 bar)} \]
+\begin{equation} v_2 = 0.856 \times \left( \frac{100}{100+100} \right) = \frac{107}{115} = 0.428 \ \si{\meter\cubed\per\kg} \ (3\textrm{sf}) \textrm{ (1, 0.6, 0.3 bar)} \end{equation}
 \subsection{Volumetric flow rate of air}
 Using equation (\ref{volflowrate}) we can calculate the volumetric flow rate of air.
 \begin{equation}
   \dot{V} = \frac{V_{in}}{60 \times 10^3} \ \si{\meter\cubed\per\second}
   \tag{\ref{volflowrate}}
 \end{equation}
-\[ \dot{V} = \frac{285}{60\times 10^3} = \frac{19}{4000} = 4.75 \times 10^{-3} \ \si{\meter\cubed\per\second} \ (3\textrm{sf}) \ \textrm{ (1 bar)}\]
-\[ \dot{V} = \frac{310}{60\times 10^3} = \frac{31}{6000} = 5.17 \times 10^{-3} \ \si{\meter\cubed\per\second} \ (3\textrm{sf}) \ \textrm{ (0.6 bar)}\]
-\[ \dot{V} = \frac{320}{60\times 10^3} = \frac{2}{375} = 5.33 \times 10^{-3} \ \si{\meter\cubed\per\second} \ (3\textrm{sf}) \ \textrm{ (0.3 bar)}\]
+\begin{align}
+  \dot{V} = \frac{285}{60\times 10^3} = \frac{19}{4000} &= 4.75 \times 10^{-3} \ \si{\meter\cubed\per\second} \ (3\textrm{sf}) \ \textrm{ (1 bar)}\\
+  \dot{V} = \frac{310}{60\times 10^3} = \frac{31}{6000} &= 5.17 \times 10^{-3} \ \si{\meter\cubed\per\second} \ (3\textrm{sf}) \ \textrm{ (0.6 bar)}\\
+  \dot{V} = \frac{320}{60\times 10^3} = \frac{2}{375} &= 5.33 \times 10^{-3} \ \si{\meter\cubed\per\second} \ (3\textrm{sf}) \ \textrm{ (0.3 bar)}
+\end{align}
 \subsection{Mass flow rate of air}
 The mass flow rate of air can be calculated using equation (\ref{massflowrate})
 \begin{equation}
@@ -265,24 +285,60 @@ The mass flow rate of air can be calculated using equation (\ref{massflowrate})
   \tag{\ref{massflowrate}}
 \end{equation}
 Calculating the specific volume and inputting the volume flow rate calculated previously (from equation (1)) our mass flow rate is:
-\[ v_0 = \frac{0.287 \cdot (25+273.15)}{100} = 0.856 \ \si{\kg\per\second} \ (3\textrm{sf})  \]
-\[ \dot{m} = \frac{4.75 \times 10^{-3}}{0.856} = 5.55 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (1 bar)} \]
-\[ \dot{m} = \frac{5.17 \times 10^{-3}}{0.856} = 6.04 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.6 bar)} \]
-\[ \dot{m} = \frac{5.33 \times 10^{-3}}{0.856} = 6.23 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.3 bar)} \]
+\begin{align}
+  v_0 &= \frac{0.287 \cdot (25+273.15)}{100} = 0.856 \ \si{\kg\per\second} \ (3\textrm{sf})  \\
+  \dot{m} &= \frac{4.75 \times 10^{-3}}{0.856} = 5.55 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (1 bar)} \\
+  \dot{m} &= \frac{5.17 \times 10^{-3}}{0.856} = 6.04 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.6 bar)} \\
+  \dot{m} &= \frac{5.33 \times 10^{-3}}{0.856} = 6.23 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.3 bar)}
+\end{align}
 \subsection{Theoretical mass flow rate of air}
 The compressors swept volume is \(V_{comp} = 2.67 \times 10^{-4}\), hence we can calculate the theoretical mass flow rate using equation (\ref{massflowrate})
-\begin{equation}
-  \dot{m} = \frac{\dot{V}_{comp} \times N}{60 \times v_0} \ \si{\kg\per\second}
-  \tag{\ref{massflowrate}}
-\end{equation}
-\[ \dot{m} = \frac{2.67 \times 10^{-4} \times 1430}{60 \times 0.856} = 7.43 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (1 bar)}\]
-\[ \dot{m} = \frac{2.67 \times 10^{-4} \times 1445}{60 \times 0.856} = 7.51 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.6 bar)}\]
-\[ \dot{m} = \frac{2.67 \times 10^{-4} \times 1459}{60 \times 0.856} = 7.58 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.3 bar)}\]
-
+\begin{align}
+  \dot{m} &= \frac{\dot{V}_{comp} \times N}{60 \times v_0} \ \si{\kg\per\second} \tag{\ref{massflowrate}}\\
+  \dot{m} = \frac{2.67 \times 10^{-4} \times 1430}{60 \times 0.856} &= 7.43 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (1 bar)}\\
+  \dot{m} = \frac{2.67 \times 10^{-4} \times 1445}{60 \times 0.856} &= 7.51 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.6 bar)}\\
+  \dot{m} = \frac{2.67 \times 10^{-4} \times 1459}{60 \times 0.856} &= 7.58 \times 10^{-3} \ \si{\kg\per\second} \ (3\textrm{sf}) \textrm{ (0.3 bar)}
+\end{align}
 \subsection{Pressure ratio}
+The pressure ratio is given by the following equation:
+\begin{equation}
+  r_P = \frac{\textrm{Pressure out}}{\textrm{Pressure in}} = \frac{P_0 + P_2}{P_0-P_1}
+\end{equation}
+Thus, our pressure ratios are:
+\begin{align}
+  r_P = \frac{100000 + 100000}{100000-5000} = \frac{40}{19} &= 2.11 \ (3\textrm{sf}) \ (1 \textrm{ bar})\\
+  r_P = \frac{100000 + 100000}{100000-6000} = \frac{100}{47} &= 2.13 \ (3\textrm{sf}) \ (0.6 \textrm{ bar})\\
+  r_P = \frac{100000 + 100000}{100000-8000} = \frac{50}{23} &= 2.17 \ (3\textrm{sf}) \ (0.3 \textrm{ bar})
+\end{align}
 \subsection{Motor power}
+The equation for motor power is already given in equation \ref{motorpower}.
+\begin{equation}
+  \dot{W}_{m} = \frac{19.62NFL\pi}{60} \ \si{\watt}
+  \tag{\ref{motorpower}}
+\end{equation}
+Thus, our motor powers are:
+\begin{align}
+  \dot{W}_{m} = \frac{19.62(1430)(1.5)(0.2)\pi}{60} &= 440.712\ \si{\watt} \ (3\textrm{dp}) \ (1 \textrm{ bar})\\
+  \dot{W}_{m} = \frac{19.62(1445)(1.5)(0.2)\pi}{60} &= 445.335\ \si{\watt} \ (3\textrm{dp}) \ (0.6 \textrm{ bar})\\
+  \dot{W}_{m} = \frac{19.62(1459)(1.5)(0.2)\pi}{60} &= 449.650\ \si{\watt} \ (3\textrm{dp}) \ (0.3 \textrm{ bar})
+\end{align}
 \subsection{Motor efficiency}
+The efficiency of the motor is given by the following equation.
+\begin{equation}
+  \eta_m = \frac{\dot{W}_m}{\dot{W}_{el}}
+\end{equation}
+Thus, our motor efficiencies are:
+\begin{align}
+  \eta_m = \frac{440.712}{1150} &= 0.383 \ (3\textrm{sf}) \ (1 \textrm{ bar})\\
+  \eta_m = \frac{445.335}{1000} &= 0.445 \ (3\textrm{sf}) \ (0.6 \textrm{ bar})\\
+  \eta_m = \frac{449.650}{850} &= 0.529 \ (3\textrm{sf}) \ (0.3 \textrm{ bar})\\
+\end{align}
 \subsection{Energy added to the air by the compressor}
+The equation for the energy added to the air by the compressor is given by equation \ref{energyaddaircompressor}.
+\begin{equation}
+  \dot{H}_c = \dot{m}c_P(T_2-T_1) \ \si{\watt} \textrm{ where \(c_P\) is 1005 \si{\kilo\joule\kg\per\kelvin}}
+  \tag{\ref{energyaddaircompressor}}
+\end{equation}
 \subsection{Heat loss in the apparatus}
 \subsection{Mechanical efficiency of the compressor}
 \subsection{Isentropic efficiency of the compressor}
@@ -295,7 +351,5 @@ The compressors swept volume is \(V_{comp} = 2.67 \times 10^{-4}\), hence we can
 \subsubsection{What does the volumetric efficiency of the compressor represent? What are the causes that it is smaller than 1?}
 \subsubsection{How does the overall efficiency scale with operating condition (i.e. pressure ratio)? What does this tell us about the dominant efficiency and therefore how the design of the compressor could be improved?} 
 \subsubsection{How does the heat loss scale with operating condition (i.e. pressure ratio)? What are the causes for this trend?}
-
-
 \listoffigures
 \end{document}
