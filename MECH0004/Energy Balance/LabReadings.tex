@@ -119,8 +119,8 @@
 \subsection{0.3 bar}
 \begin{multicols}{2}
   \begin{itemize}[noitemsep]
-    \item \(T_0\) = \si{\celsius}
-    \item \(T_1\) = \si{\celsius}
+    \item \(T_0\) = 25 \si{\celsius}
+    \item \(T_1\) = 25 \si{\celsius}
     \item \(P_0\) = 1 \si{\bar}
     \item \(P_1\) = 0.08 \si{\bar}
     \item \(P_2\) = 1 \si{\bar}
@@ -374,11 +374,22 @@ The isentropic efficiency of the compressor is given by the following equations.
 \end{align}
 Thus, our isentropic efficiences are:
 \begin{align}
-  \eta_s = \frac{T_1 - \left( T_1 \times r_P^{\left(\frac{\gamma -1}{\gamma} \right)} \right)}{T_1 - T_{2a}} &=  \ (3\textrm{sf}) \ (1 \textrm{ bar})\\
-  \eta_s = \frac{T_1 - \left( T_1 \times r_P^{\left(\frac{\gamma -1}{\gamma} \right)} \right)}{T_1 - T_{2a}} &= \ (3\textrm{sf}) \ (0.6 \textrm{ bar})\\
-  \eta_s = \frac{T_1 - \left( T_1 \times r_P^{\left(\frac{\gamma -1}{\gamma} \right)} \right)}{T_1 - T_{2a}} &= \ (3\textrm{sf}) \ (0.3 \textrm{ bar})
+  \eta_s = \frac{23 - \left( 23 \times \frac{40}{19}^{\left(\frac{1.4 -1}{1.4} \right)} \right)}{23 - 131} &= 0.050 \ (3\textrm{sf}) \ (1 \textrm{ bar})\\
+  \eta_s = \frac{24 - \left( 24 \times \frac{100}{47}^{\left(\frac{1.4 -1}{1.4} \right)} \right)}{24 - 103} &= 0.073 \ (3\textrm{sf}) \ (0.6 \textrm{ bar})\\
+  \eta_s = \frac{25 - \left( 25 \times \frac{50}{23}^{\left(\frac{1.4 -1}{1.4} \right)} \right)}{25 - 78} &= 0.117 \ (3\textrm{sf}) \ (0.3 \textrm{ bar})
 \end{align}
 \subsection{Volumetric efficiency of the compressor}
+The volumetric efficiency of the compressor is given by the following equation.
+\begin{align}
+  \eta_{vol} &= \frac{\dot{m}\times v_1 \times 60}{N \times V_{comp}}\\
+  \eta_{vol} &= \frac{\dot{m}\times v_1 \times 60}{N \times 267 \times 10^{-6}}
+\end{align}
+Thus, our volumetric efficiencies are:
+\begin{align}
+  \eta_{vol} = \frac{7.46\times 10^{-3} \times 0.901 \times 60}{1430 \times 267 \times 10^{-6}} &= 1.056 \ (3\textrm{dp}) \ (1 \textrm{ bar})\\
+  \eta_{vol} = \frac{7.51\times 10^{-3}\times 0.911 \times 60}{1445 \times 267 \times 10^{-6}} &= 1.064 \ (3\textrm{dp}) \ (0.6 \textrm{ bar})\\
+  \eta_{vol} = \frac{7.58\times 10^{-3}\times 0.930 \times 60}{1459 \times 267 \times 10^{-6}} &= 1.093 \ (3\textrm{dp}) \ (0.3 \textrm{ bar})
+\end{align}
 \subsection{Total efficiency of the compressor}
 \section{Experiment 2 discussion}
 \subsection{Isentropic, volumetric and total efficiency against pressure ratio plots}
