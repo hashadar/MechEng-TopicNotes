@@ -13,18 +13,50 @@
 \usepackage{siunitx}
 \sisetup{detect-all}
 \begin{document}
-IGNORE
-
 \section{Control-volume approach}
-Recall from thermodynamics th
-at \(\dot{m}_{in} = \dot{m}_{out}\) for a control volume (A c.v. allows heat, work and mass transfer across its boundary). In fluid dynamics different terminology is usually used:
+Recall from thermodynamics that \(\dot{m}_{in} = \dot{m}_{out}\) for a control volume (A c.v. allows heat, work and mass transfer across its boundary). In fluid dynamics different terminology is usually used:
 \begin{itemize}[noitemsep]
   \item Closed system = control mass = system (in fluid mechanics).
   \item Open system = control volume.
 \end{itemize}
 We also know that \(\frac{dm_{cv}}{dt} = \dot{m}_{in} - \dot{m}_{out} \) from thermodynamics. For a \emph{system}, \( \left( \frac{dm}{dt} \right)_{sys} = 0\) since a system is a control mass. 
+\section{Simple Reynolds transport theorem}
+\begin{equation}
+  \frac{DB_{sys}}{Dt} = \frac{\partial B_{cv}}{\partial t} + \dot{B}_{out} - \dot{B}_{in}
+\end{equation}
+Where $\frac{\partial B_{cv}}{\partial t}$ is how the property changes inside and $\dot{B}_{out} - \dot{B}_{in}$ is what is flowing in and out.
+\begin{align}
+  \dot{B}_{in} &= b_{in} \dot{m}_{in} = b_{in}\rho_{in}v_{in}A_{in} \textrm{ and}\\
+  \dot{B}_{out} &= b_{out} \dot{m}_{out} = b_{out}\rho_{out}v_{out}A_{out}\\
+  \therefore \frac{DB_{sys}}{Dt} &= \left( \frac{\partial B}{\partial t} \right)_{cv} + (b \rho v A)_{out} - (b \rho v A)_{in}
+\end{align}
+This makes an assumption: that the flow is linear across the cross-section, whereas in reality this is not the case.
+\begin{align}
+  \dot{m} &= \rho v A \rightarrow \textrm{unrealistic}\\
+  \dot{m} &= \int_A (\rho v) dA \rightarrow \textrm{realistic} \label{realisticSimpleRTT}
+\end{align}
+Equation \ref{realisticSimpleRTT} is the integral over different sections and encapsulates that the velocity is changing and that the density may also be changing. If the velocity of the fluid is not in the direction of the pope, then you have to only multiply by a component.
+\begin{equation}
+  \dot{m} = \int_A (\rho v \cos{\theta})dA 
+\end{equation}
+Instead of mass, lets do it for $\dot{B}_{in}$ and $\dot{B}_{out}$. 
+\begin{align}
+  \dot{B}_{out} &= \int_A (b \rho v \cos{\theta})dA\\ 
+  \textrm{where } \rho v \cos{\theta} dA &= \dot{m}
+\end{align}
+Let us define a unit normal vector $\underline{\hat{n}}$ on the exit. Thus:
+\begin{align}
+  \dot{B}_{out} &= \int_A (b \rho \overline{v} \cdot \underline{\hat{n}}) dA\\
+  \overline{v} \cdot \underline{\hat{n}} &= |\overline{v}| \cos{\theta} \textrm{ hence}\\
+  &= \dot{B}_{out} - \dot{B}_{in}
+\end{align}
+As the cross product would produce a negative if the angle is more than \ang{90}.
+\begin{align}
+  \therefore \dot{B}_{out} - \dot{B}_{in} &= \int_A (b \rho \overline{v}\cdot \underline{\hat{n}})dA\\
+  \therefore \left( \frac{DB}{Dt} \right)_{sys} &= \left( \frac{\partial B}{\partial t} \right)_{cv} + \int (b \rho \overline{v}\cdot \underline{\hat{n}}) dA
+\end{align}
+\section{Reynolds transport theorem: RTT}
 
-IGNORE
 
 \section{Laminar flow and boundary layers}
 \subsection{Boundary conditions}
