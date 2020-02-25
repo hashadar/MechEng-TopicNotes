@@ -240,10 +240,14 @@ Importing the data into MATLAB, I plotted the data on a graph.
   \label{ref:T203vsTime1bar}
 \end{figure}
 \subsection{Why does the graph have this shape?}
+The graph has this shape, due to the fact that the compressor is initially cold. As the compressor runs, the apparatus becomes warmer and hence is able to transfer more heat energy to the air. The graph appears to level off towards the end due to the system reaching a finite temperature limit. When this happens, no extra heat can be transferred to the air. The gradient of the graph shows that the change in temperature of the apparatus is larger initially and smaller 20 minutes later. 
 \subsection{What happens to the system's energy input as it heats up?}
+The systems electrical input does not change during the 20 minutes. However, more heat would be transferred to the air later in the cycle. 
 \subsection{How does the energy lost as heat compare to:}
 \subsubsection{The work input to the compressor?}
+The work input to the compressor is almost 1000\si{\watt}. Comparatively, our motor power is only 600\si{\watt}. Hence, we are losing 40\% of our electrical power to heat.
 \subsubsection{The heat added to the air?}
+This is quite large as both the compressor and the apparatus are adding heat to the air.
 \section{Experiment 2 calculations}
 \subsection{Specific volume of air at atmosphere and the inlet and outlet of compressor}
 We can calculate the specific volumes at atmosphere, before and after the compressor using equation \ref{specvol}, which is shown below.
@@ -391,12 +395,36 @@ Thus, our volumetric efficiencies are:
   \eta_{vol} = \frac{7.58\times 10^{-3}\times 0.930 \times 60}{1459 \times 267 \times 10^{-6}} &= 1.093 \ (3\textrm{dp}) \ (0.3 \textrm{ bar})
 \end{align}
 \subsection{Total efficiency of the compressor}
+The total efficiency of the compressor is given by the following equation.
+\begin{equation}
+  \eta = \eta_m \times \eta_c \times \eta_s
+\end{equation}
+Thus, our total efficiences are:
+\begin{align}
+  \eta = 0.050\times 1.367\times 0.383 &= 0.026 \ (3\textrm{dp}) \ (1 \textrm{ bar})\\
+  \eta = 0.073\times 1.077 \times 0.445 &= 0.035 \ (3\textrm{dp}) \ (0.6 \textrm{ bar})\\
+  \eta = 0.117\times 0.738 \times 0.529 &= 0.046 \ (3\textrm{dp}) \ (0.3 \textrm{ bar})  
+\end{align}
 \section{Experiment 2 discussion}
 \subsection{Isentropic, volumetric and total efficiency against pressure ratio plots}
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{./img/efficiencies}
+  \caption{Plot to show isentropic, volumetric and total efficiency of compressor against pressure ratio}
+\end{figure}
 \subsection{Heat loss in apparatus against pressure ratio plot}
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{./img/heatLoss}
+  \caption{Plot to show heat loss in apparatus against pressure ratio}
+\end{figure}
 \subsubsection{Why is the isentropic efficiency of the compressor smaller than 1? What can be concluded from the shape of the isentropic efficiency vs pressure ratio?}
+It is smaller than 1 due to the fact that this process is irreversible. Having an efficiency of more than 1 would imply that energy is being created. When the pressure ratio increases, the isentropic efficiency also increases. Thus, larger pressure ratios will yield higher isentropic efficiencies. 
 \subsubsection{What does the volumetric efficiency of the compressor represent? What are the causes that it is smaller than 1?}
+The volumetric efficiency of the compressor represents how much fluid is actually displaced by the compressor in one revolution versus its swept volume. If the compressor is pulling in air which is not at atmospheric pressures, than the air coming into the compressor will not fill the compressor to 100\% of its capacity, hence reducing the volumetric efficiency. 
 \subsubsection{How does the overall efficiency scale with operating condition (i.e. pressure ratio)? What does this tell us about the dominant efficiency and therefore how the design of the compressor could be improved?} 
+The overall efficiency improves with pressure ratio, we see greater gains in isentropic efficiency, when pressure ratio is increased. The dominant efficiency is the volumetric efficiency and to improve the efficiency of the system, volumetric efficiency could be improved further, by using forced induction of air perhaps. 
 \subsubsection{How does the heat loss scale with operating condition (i.e. pressure ratio)? What are the causes for this trend?}
+The heat loss lessens as the pressure ratio increases. The causes for this are due to the fact that at higher pressure ratios the temperature of the outlet air is relatively smaller to the room temperature, hence there is a slower energy loss to the surroundings. Hotter objects (i.e. compressor at low pressure ratio) lose more heat to the environment. 
 \listoffigures
 \end{document}
