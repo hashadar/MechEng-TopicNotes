@@ -56,8 +56,72 @@ As the cross product would produce a negative if the angle is more than \ang{90}
   \therefore \left( \frac{DB}{Dt} \right)_{sys} &= \left( \frac{\partial B}{\partial t} \right)_{cv} + \int (b \rho \overline{v}\cdot \underline{\hat{n}}) dA
 \end{align}
 \section{Reynolds transport theorem: RTT}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/RTTDiagram}
+  \caption{Diagram to show the Reynolds Transport Theorem.}
+\end{figure}
+Where:
+\begin{itemize}[noitemsep]
+  \item $\underline{\hat{n}} =$ unit vector.
+  \item $dA =$ area element.
+  \item $d\forall =$ volume element.
+  \item $B =$ an extensive property.
+  \item $b =$ an intensive property.
+\end{itemize}
+As a reminder the SRTT is:
+\begin{equation}
+  \left( \frac{DB}{Dt} \right)_{sys} = \left( \frac{\partial B}{\partial t} \right)_{cv} + \dot{B}_{out} - \dot{B}_{in}
+\end{equation}
+The general form of the RTT is:
+\begin{equation}
+  \left( \frac{DB}{Dt} \right)_{sys} = \frac{\partial}{\partial t} \int_{cv} (\rho b) d\forall + \int_{cs} (\rho b \overline{v} \cdot \underline{\hat{n}}) dA
+\end{equation}
+$\rho d \forall =$ mass of $d\forall$ then take an integral to calculate total mass. The change in the property of the C.V. $\int_{cs} (\rho b \overline{v} \cdot \underline{\hat{n}}) dA$ tells us how much B is changing per second. The net flow out of the C.S.
 
+We apply the RTT to 3 cases:
+\begin{enumerate}[noitemsep]
+  \item Mass conservation.
+  \item Newton's second law.
+  \item Energy conservation (first law of thermodynamics).
+\end{enumerate}
+\subsection{RTT and conservation of mass}
+The property of consideration is mass: 
+\begin{gather}
+  B = \textrm{mass} = M
+  \therefore b = \frac{B}{\textrm{mass}} = \frac{M}{M} = 1
+\end{gather}
+Applying these substitutions into RTT
+\begin{equation}
+  \frac{DM_{sys}}{Dt} = \frac{\partial}{\partial t} \int_{cv} (\rho)d\forall + \int_{cs} (\rho \overline{v} \cdot \underline{\hat{n}}) dA
+\end{equation}
+By definition, a system = closed system = control mass.
+\begin{align}
+  \therefore \frac{DM_{sys}}{Dt} &= 0\\
+  0 =\frac{\partial M_{cv}}{\partial t} &+ \int_{cs} (\rho v_n) dA\\
+  \therefore \frac{\partial M_{cv}}{\partial t} &= - \int_{cs} (\rho v_n) dA
+\end{align}
+Note: $\int_{cs} (\rho v_n) dA$ is the net mass flow rate through the C.S. out.
+\subsection{Example Q}
+INSERT
+\subsection{RTT and Newton's second law}
+\begin{equation}
+  \begin{rcases}
+    \underline{B} = m \overline{v} = \textrm{linear momentum}&\\
+    \underline{b} = \overline{v} = \textrm{velocity}&
+  \end{rcases} \textrm{Vectors}
+\end{equation}
+Substituting this into RTT gives (replacing b with $\overline{v}$).
+\begin{equation}
+  \frac{D}{Dt}(m\overline{v})_{sys} = \frac{\partial}{\partial t} \int_{cv} (\rho \underline{\overline{v}}) d\forall + \int_{cs} (\rho \overline{v} (\overline{v}\cdot \hat{n})) dA = ?
+\end{equation}
+Where $\frac{D}{Dt}(m\overline{v})_{sys}$ is the acceleration. M is a constant and hence $m\frac{D}{Dt}\overline{v} = \overline{a} \times m$. Thus, the $? = \sum \overline{F} \leftarrow$ sum of all the forces by Newton's second law. Hence:
+\begin{equation}
+  \frac{D}{Dt} (m \overline{v})_{sys} = \frac{\partial}{\partial t} \int_{cv} (\rho \overline{\underline{v}}) d\forall + \int_{cs} (\rho \overline{v}(\overline{v} \cdot \hat{n})) dA = \sum \overline{F}
+\end{equation}
+This is a vector equation and can be split up into x, y and z components. $\frac{\partial}{\partial t} \int_{cv} (\rho \overline{\underline{v}}) d\forall$ is the rate of change of linear momentum inside the C.V. $\int_{cs} (\rho \overline{v}(\overline{v} \cdot \hat{n})) dA$ is the net flow of linear momentum through C.S.
 
+Now 
 \section{Laminar flow and boundary layers}
 \subsection{Boundary conditions}
 You will generally only come across two types of boundary conditions:
