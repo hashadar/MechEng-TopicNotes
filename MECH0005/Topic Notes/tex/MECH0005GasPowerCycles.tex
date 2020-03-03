@@ -110,4 +110,112 @@ Carnot cycle is:
   \eta_{th, \textrm{ const}} &= 1 - \frac{T_L}{T_H}
 \end{align}
 \subsection{Air-standard assumptions}
+Even though internal combustion engines operate on a mechanical cycle (the piston returns to its starting position at the end of each revolution), the working fluid does not undergo a complete thermodynamic cycle. It is thrown out of the engine at some point in the cycle (as exhaust gases) instead of being returned to its initial state. Working on an open cycle is the characteristic of all internal combustion engines. To reduce the analysis to a manageable level, we utilise the following approximations, commonly known as the \emph{air-standard assumptions.} Those cycles that run this are called air-standard cycles.
+\begin{enumerate}[noitemsep]
+  \item The working fluid is air, which continuously circulates in a closed loop and always behaves as an ideal cycle.
+  \item All the processes are internally reversible.
+  \item The combustion process is replaced by heat-addition process from an external source.
+  \item The exhaust process is replaced by a heat rejection process that restores the working fluid to its initial state.
+\end{enumerate}
+Also we assume that air has constant specific heats whose value is determined at room temperature (25\si{\celsius}). When this assumption is applied, true air-standard assumptions are called the cold-air-standard assumptions.
+\subsection{An overview of reciprocating engines}
+The basic components of a reciprocating engine are shown in the diagrams.
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../img/ReciprocatingEngineDiagram}
+  \caption{Basic components of a reciprocating engine.}
+\end{figure}
+\begin{itemize}[noitemsep]
+  \item TDC: top dead center - position of the piston where it forms the smallest volume.
+  \item BDC: bottom dead center - position of the piston where it forms the largest volume.
+  \item Stroke: distance between TDC and BDC.
+  \item Bore: diameter of the piston (internal diameter of the cylinder).
+  \item Clearance volume: minimum volume formed.
+  \item Displacement volume: the volume displaced by the piston as it moves between TDC and BDC.
+\end{itemize}
+The ratio of the maximum volume formed in the cylinder to the (minimum) clearance volume is called the compression ratio, r, of the engine.
+\begin{gather}
+  \textrm{Compression ratio: } r = \frac{V_{max}}{V_{min}} = \frac{V_{BDC}}{V_{TDC}}\\
+  \textrm{Displacement volume} = \textrm{no. of cylinders} \times \textrm{stroke length} \times \textrm{bore area}
+\end{gather}
+The MEP (mean effective pressure) is a constant theoretical pressure, that if it acts on the piston to produce work, it would produce the same amount as that during an actual cycle. 
+\begin{gather}
+  \therefore W_{net} = \textrm{MEP} \times \textrm{piston area} \times \textrm{stroke}\\
+  \textrm{or } W_{net} = \textrm{MEP} \times \textrm{displacement volume}\\
+\end{gather}
+or rearranging for MEP gives:
+\begin{equation}
+  \textrm{MEP} = \frac{W_{net}}{(V_{max} - V_{min})} = \frac{w_{net}}{(v_{max} - v_{min})}
+\end{equation}
+Engines with larger MEP values deliver more net work per cycle and thus perform better. 
+\begin{itemize}[noitemsep]
+  \item Reciprocating engines
+    \begin{itemize}[noitemsep]
+      \item SI (spark ignition) engines - combustion is initiated using a spark plug. An example of this is the Otto cycle.
+      \item CI (compression ignition) engines - self-ignited as compression of gas (air-fuel) mixture raises the temperature. an example of this is the Diesel cycle.
+    \end{itemize}
+\end{itemize}
+\subsection{Otto cycle: ideal cycle for SI engines}
+In most SI engines, the piston executes four complete strokes (two mechanical cycles) within the cylinder and the crankshaft completes two revolutions for each thermodynamic cycle. These engines are called four-stroke IC engines.
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../img/OttoCycleDiagram}
+  \caption{T-S and P-V diagrams for Otto cycle, alongside mechanical cycle breakdown for the ideal and actual cases.} 
+\end{figure}
+The air-standard Otto cycle is described below in terms of processes.
+\begin{itemize}[noitemsep]
+  \item Process 1-2: isentropic compression.
+  \item Process 2-3: constant volume heat addition.
+  \item Process 3-4: isentropic expansion.
+  \item Process 4-1: constant volume heat removal
+\end{itemize}
+In these diagrams, the Otto cycle replaces the combustion process of the actual engine operation with the constant - volume heat addition process. The constant-volume heat removal process replaces the exhaust blowdown. The original figure of the P-V diagram only shows two strokes of the engine. The intake and exhaust strokes are the missing ones. That is accounted for by drawing the graph with a process 0-1 added (the blue line).
+\subsection{Efficiency of the Otto cycles}
+Lets apply the first law to an Otto cycle during each process separately:
+\begin{align}
+  \Delta U &= \Delta Q + \Delta W \textrm{ assuming } \Delta PE = \Delta KE \approx 0\\
+  \Delta u &= \Delta q + \delta w\\
+  \Delta u &= (q_{in} - q_{out}) + (w_{in} - w_{out})
+\end{align}
+For the heat transfer processes (process 2-3 and process 4-1), $\Delta w = 0$ as there is no boundary work as it is a constant volume process. Therefore for process 4-1 and 2-3:
+\begin{equation}
+  \Delta u = q_{in} - q_{out}
+\end{equation}
+For process 4-1: heat removal
+\begin{align}
+  \Delta u &= -q_{out}\\
+  u_1 - u_4 &= - q_{out}\\
+  q_{out} &= u_4 - u_1\\
+  q_{out} &= c_V(T_4 - T_1)
+\end{align}
+For process 2-3: heat addition
+\begin{align}
+  \Delta u &= q_{in}\\
+  q_{in} &= u_3 - u_2\\
+  q_{in} &= c_V(T_3 - T_2)\\
+  \therefore \eta_{th , \ otto} = \frac{w_{net}}{q_{in}} = 1 - \frac{q_{out}}{q_{in}} &= 1 - \frac{T_4 - T_1}{T_3 - T_2} = 1 - \frac{T_4 \left( \frac{T_4}{T_1} -1 \right)}{T_3 \left( \frac{T_3}{T_4} - 1 \right)}
+\end{align}
+But processes 1-2 and 3-4 are isentropic (adiabatic, internally reversible) and $v_2 = v_3$ and $v_4 = v_1$. From the definition of adiabatic processes:
+\begin{align}
+  \frac{T_1}{T_2} &= \left( \frac{v_2}{v_1} \right)^{\gamma -1}\\
+  \frac{T_4}{T_3} &= \left( \frac{v_3}{v_4} \right)^{\gamma -1}\\
+  \therefore \frac{T_1}{T_2} &= \frac{T_4}{T_3}\\
+  \therefore \eta-{th, \ otto} &= 1 - \frac{T_4 \left( \frac{T_4}{T_1} -1 \right)}{T_3 \left( \frac{T_3}{T_4} - 1 \right)}\\
+  \eta-{th, \ otto} &= 1 - \frac{T_3}{T_4}\left[ \frac{\frac{T_4}{T_3} \frac{T_3}{T_2} \frac{T_2}{T_1} - 1}{\frac{T_3}{T_2} -1} \right]
+\end{align}
+The compression ratio r is
+\begin{equation}
+  r = \frac{V_{max}}{V_{min}} = \frac{V_1}{V_2} = \frac{V_4}{V_3}
+\end{equation}
+Since it is a fixed mass:
+\begin{equation}
+  r = \frac{v_1}{v_2} = \frac{v_4}{v_3}
+\end{equation}
+Remember process 2-3 and 4-1  are constant volume processes. Hence, 
+\begin{align}
+  Pv &= mRt\\
+  \frac{v}{mR} &= \frac{T}{P}\\
+  \therefore \frac{T_2}{P_2} &= \frac{T_3}{P_3} \rightarrow \frac{P_3}{P_2} = \frac{T_3}{T_2} \textrm{ and}\\
+  \therefore \frac{T_4}{P_4} &= \frac{T_1}{P_1} \rightarrow \frac{P_1}{P_4} = \frac{T_1}{T_4}
+\end{align}
 \end{document}
