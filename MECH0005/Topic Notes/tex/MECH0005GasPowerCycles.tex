@@ -201,7 +201,7 @@ But processes 1-2 and 3-4 are isentropic (adiabatic, internally reversible) and 
   \frac{T_4}{T_3} &= \left( \frac{v_3}{v_4} \right)^{\gamma -1}\\
   \therefore \frac{T_1}{T_2} &= \frac{T_4}{T_3}\\
   \therefore \eta-{th, \ otto} &= 1 - \frac{T_4 \left( \frac{T_4}{T_1} -1 \right)}{T_3 \left( \frac{T_3}{T_4} - 1 \right)}\\
-  \eta-{th, \ otto} &= 1 - \frac{T_3}{T_4}\left[ \frac{\frac{T_4}{T_3} \frac{T_3}{T_2} \frac{T_2}{T_1} - 1}{\frac{T_3}{T_2} -1} \right]
+  \eta-{th, \ otto} &= 1 - \frac{T_4}{T_3}\left[ \frac{\frac{T_4}{T_3} \frac{T_3}{T_2} \frac{T_2}{T_1} - 1}{\frac{T_3}{T_2} -1} \right]
 \end{align}
 The compression ratio r is
 \begin{equation}
@@ -218,4 +218,47 @@ Remember process 2-3 and 4-1  are constant volume processes. Hence,
   \therefore \frac{T_2}{P_2} &= \frac{T_3}{P_3} \rightarrow \frac{P_3}{P_2} = \frac{T_3}{T_2} \textrm{ and}\\
   \therefore \frac{T_4}{P_4} &= \frac{T_1}{P_1} \rightarrow \frac{P_1}{P_4} = \frac{T_1}{T_4}
 \end{align}
+Process 1-2 and 3-4 are adiabatic (isentropic):
+\begin{align}
+  Pv &= mRT\\
+  \frac{Pv}{T} &= \textrm{constant}\\
+  \therefore \frac{P_1 v_1}{T_1} &= \frac{P_2 v_2}{T_2}\\
+  \frac{P_2}{P_1} &= \frac{T_2 v_1}{T_1 v_2}\\
+  \frac{T_2}{T_1} &= \frac{P_2}{P_1} \cdot \frac{v_2}{v_1}\\
+  \frac{T_2}{T_1} &= \frac{P_2}{P_1} \cdot r^{-1}
+\end{align} 
+Similarly,
+\begin{align}
+  Pv &= mRT\\
+  \frac{Pv}{T} &= \textrm{constant}\\
+  \therefore \frac{P_4 v_4}{T_4} &= \frac{P_3 v_3}{T_3}\\
+  \frac{P_4}{P_3} &= \frac{T_4 v_3}{T_3 v_4}\\
+  \frac{T_3}{T_4} &= \frac{P_3}{P_4} \cdot \frac{v_3}{v_4}\\
+  \frac{T_3}{T_4} &= \frac{P_3}{P_4} \cdot r
+\end{align} 
+Hence,
+\begin{align}
+  \eta_{th, \ otto} &= 1 - \frac{T_4}{T_3}\left[ \frac{\frac{T_3}{T_2}- 1}{\frac{T_3}{T_2} -1} \right]\\
+  \eta_{th, \ otto} &= 1 - \frac{T_4}{T_3}\\
+  \eta_{th, \ otto} &= 1 - \left( \frac{1}{r} \right)^{\gamma -1}\\
+  \eta_{th, \ otto} &= 1 - \frac{1}{r^{\gamma -1}}\\
+  \textrm{where } r = \frac{v_1}{v_2} = \frac{v_4}{v_3}
+\end{align}
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../img/OttoThermoEfficiency}
+  \caption{Graph to show $r$ against $\eta_{th , \ otto}$.}
+\end{figure}
+For higher efficiency, higher compression ratios are required. However, increase in pressure ratios would increase the air-fuel temperature above the temperature at which the mixture can auto-ignite. This would result in \emph{'engine knock'} (auto ignition that occurs prematurely, produces an audible noise) reducing the performance of the engine. In order to avoid such situations, additives are generally added which increase the auto-ignition temperature.
+\subsection{Diesel cycle: ideal cycle for CI engines}
+The diesel cycle is the ideal cycle for CI reciprocating engines. It differs to SI engines mainly in the method of initiating combustion.
+
+SI engines have an air-fuel mixture which is compressed below auto-ignition temperature and ignited with a spark. CI engines compress air to a temperature greater than the auto-ignition temperature of the fuel. Fuel is injected into hot compressed air and combustion is initiated. 
+
+Since in diesel engines, only air is compressed during the compression stroke, eliminating the possibility of auto-ignition. Therefore, diesel engines are designed to operate on much higher compression ratios.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/DieselCycleDiagram}
+  \caption{Diagram showing mechanical positions of piston at each process step along with P-v and T-s diagrams}
+\end{figure}
 \end{document}
