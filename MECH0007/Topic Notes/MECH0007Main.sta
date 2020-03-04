@@ -14,7 +14,7 @@
 \subpreamble{tex/MECH0007200205.tex}
 \usepackage {enumitem}\usepackage {gensymb}\usepackage {siunitx}\sisetup {detect-all}
 \endsubpreamble
-\subpreamble{tex/MECH0007200226.tex}
-\usepackage {enumitem}\usepackage {gensymb}\usepackage {siunitx}\usepackage {graphicx}\usepackage [labelfont=bf,format=hang,format=plain,margin=0pt,width=0.8\textwidth ,]{caption}\usepackage [list=true]{subcaption}\sisetup {detect-all}
+\subpreamble{tex/MECH0007200304.tex}
+\usepackage {enumitem}\usepackage {gensymb}\usepackage {siunitx}\usepackage {graphicx}\sisetup {detect-all}
 \endsubpreamble
 \endstandalonepreambles
