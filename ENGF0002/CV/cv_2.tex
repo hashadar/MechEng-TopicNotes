@@ -23,11 +23,19 @@
 \documentclass[margin, 10pt]{res} % Use the res.cls style, the font size can be changed to 11pt or 12pt here
 
 \usepackage{helvet} % Default font is the helvetica postscript font
+\renewcommand{\familydefault}{\sfdefault}
 %\usepackage{newcent} % To change the default font to the new century schoolbook postscript font uncomment this line and comment the one above
 
 \usepackage{siunitx}
 
 \setlength{\textwidth}{5.1in} % Text width of the document
+
+\usepackage{enumitem}
+
+\newlength\mylen
+\settowidth\mylen{\textbullet}
+\addtolength\mylen{-3mm}
+\setlist[itemize,1]{leftmargin=*,labelsep=-\mylen}
 
 \begin{document}
 
@@ -38,9 +46,10 @@
 \moveleft.5\hoffset\centerline{\large\bf Hasha Dar} % Your name at the top
  
 \moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}\smallskip % Horizontal line after name; adjust line thickness by changing the '1pt'
- 
+
+\moveleft.5\hoffset\centerline{Postal address: 17 Manor road, Chigwell, Essex, IG7 5PF}
+\moveleft.5\hoffset\centerline{Mobile Phone Number: 07305 576221}
 \moveleft.5\hoffset\centerline{E-Mail: zcemhhd@ucl.ac.uk} % Your address
-\moveleft.5\hoffset\centerline{Mobile Phone Number: +447305576221}
 \moveleft.5\hoffset\centerline{Website: hashadar.com}
 
 %----------------------------------------------------------------------------------------
@@ -53,16 +62,19 @@
  
 \section{EDUCATION}  
 
-{\sl Mechanical Engineering MEng,} University College London \hfill \textbf{2019 - present}\\
+\textbf{Mechanical Engineering MEng, University College London \hfill 2019 - present}
+
 Key modules: Mathematical Modelling \& Analysis, Fundamentals of Materials,\\ 
 Engineering Dynamics, Introduction to Thermodynamics and Fluid Dynamics, \\
 Mechanical Engineering Practical Skills.
 
-{\sl A-Levels,} Bancroft's School \hfill \textbf{2017 - 2019}\\
+\textbf{A-Levels, Bancroft's School \hfill 2017 - 2019}
+
 Mathematics A*, Further Mathematics - A, Physics - A, German - B
 
-{\sl GCSEs}, Bancroft's School
-\hfill \textbf{2015 - 2017}\\
+\textbf{GCSEs, Bancroft's School
+\hfill 2015 - 2017}
+
 4 A*, 4 A, 2 B
 
 
@@ -72,7 +84,8 @@ Mathematics A*, Further Mathematics - A, Physics - A, German - B
 
 \section{ENGINEERING \\ PROJECTS}
 
-{\sl IMechE Challenge - Squash ball line launcher: Design, build and test} \hfill \textbf{2020}\\
+\textbf{IMechE Challenge - Squash ball line launcher: Design, build and test \hfill 2020}
+\\
 \begin{itemize}
   \item \textbf{Communication:} as the team leader, I liaised with and effectively distributed tasks among my team, playing to the various strengths of my team and meeting deadlines.
   \item \textbf{Design:} designed a line launcher in a team of six to fire a squash ball (40\si{\milli\meter}) with a line attached into a target with a diameter of 120-490\si{\milli\meter}. Budgeted to cost no more than £25 and used bought parts as well as proprietary parts.
@@ -87,13 +100,15 @@ Mathematics A*, Further Mathematics - A, Physics - A, German - B
 
 \section{OTHER \\RELEVANT \\EXPERIENCE} 
 
-{\sl UCL Formula Student Racing team} \hfill \textbf{2019 - present}
+\textbf{UCL Formula Student Racing team \hfill 2019 - present}
+\\
 \begin{itemize}
   \item \textbf{Management:} worked on the costing and Bill of Materials for the Formula Student race car.
   \item \textbf{Electrical design:} Helped design electrical circuits for components on the race car.
 \end{itemize}
 
-{\sl UCL Drone team} \hfill \textbf{2020 - present}
+\textbf{UCL Drone team \hfill 2020 - present}
+\\
 \begin{itemize}
   \item \textbf{CAD} used Autodesk Fusion 360 to design the frame of the drone.
 \end{itemize}
@@ -103,20 +118,23 @@ Mathematics A*, Further Mathematics - A, Physics - A, German - B
 %----------------------------------------------------------------------------------------
  
 \section{OTHER \\ EXPERIENCE}
-{\sl Freelance Photographer} \hfill \textbf{2016 - present}
+\textbf{Freelance Photographer \hfill 2016 - present}
+\\
 \begin{itemize}
   \item \textbf{Leadership:} working freelance has taught me various skills, such as time management and effective business strategies.
   \item \textbf{Technical skills:} I have self-taught camera techniques and various photography styles including studio, fashion and event photography.
   \item \textbf{Creative portfolio:} this may be viewed at hashadar.com
 \end{itemize}
 
-{\sl Staff member at Cambridge Islamic Finance Leadership Program} \hfill \textbf{2016 - present}
+\textbf{Staff member at Cambridge Islamic \\ Finance Leadership Program \hfill 2016 - present}
+\\
 \begin{itemize}
   \item \textbf{Project management:} my role at the programme was to manage the media of the event. This involved social media posts, photography and live streaming. 
   \item \textbf{Communication:} working in a team meant that I had to clearly communicate with my team members, in order to make sure that the programme ran smoothly.
 \end{itemize}
 
-{\sl Theatre Sound Designer} \hfill \textbf{2017 - present}
+\textbf{Theatre Sound Designer \hfill 2017 - present}
+\\
 \begin{itemize}
   \item \textbf{Management:} I have worked as a lead sound designer for many university and school theatrical performances, integrating into large teams involving stage crew, cast and directors.
   \item \textbf{Technical skills:} I have taken part in training at UCL Stage Crew to create effective and well-structured integrated sound designs for numerous shows.
@@ -138,7 +156,8 @@ Mathematics A*, Further Mathematics - A, Physics - A, German - B
 
 \section{INTERESTS} 
 \textbf{Languages:} Native in English and Urdu. Conversational in German (B2). I am also learning Turkish and Bahasa.\\ 
-\textbf{Sport:} Fencer and badminton player. Played in national fencing competitions in 2016 and 2017. Captain for Redbridge Fencing team and Bancroft's Fencing team 2015-2018. 
+\textbf{Sport:} Fencer and badminton player. Played in national fencing competitions in 2016 and 2017. Captain for Redbridge Fencing team and Bancroft's Fencing team 2015-2018.\\
+\textbf{Reader:} Regular reader of technology news and current affairs.
 
 %----------------------------------------------------------------------------------------
 
