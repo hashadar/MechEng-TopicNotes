@@ -3,7 +3,7 @@
 \usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\numberwithin {equation}{section}\usepackage {siunitx}\sisetup {detect-all}
 \endsubpreamble
 \subpreamble{tex/DimensionlessNumbersBuckhinghamPi.tex}
-\usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {siunitx}\sisetup {detect-all}
+\usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {siunitx}\usepackage {amsmath}\sisetup {detect-all}
 \endsubpreamble
 \subpreamble{tex/MECH0005FluidsLecture3.tex}
 \usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage {siunitx}\sisetup {detect-all}
