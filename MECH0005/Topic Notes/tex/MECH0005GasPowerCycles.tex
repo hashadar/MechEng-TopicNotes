@@ -242,7 +242,7 @@ Hence,
   \eta_{th, \ otto} &= 1 - \frac{T_4}{T_3}\\
   \eta_{th, \ otto} &= 1 - \left( \frac{1}{r} \right)^{\gamma -1}\\
   \eta_{th, \ otto} &= 1 - \frac{1}{r^{\gamma -1}}\\
-  \textrm{where } r = \frac{v_1}{v_2} = \frac{v_4}{v_3}
+  \textrm{where } r &= \frac{v_1}{v_2} = \frac{v_4}{v_3}
 \end{align}
 \begin{figure}
   \centering
@@ -260,5 +260,127 @@ Since in diesel engines, only air is compressed during the compression stroke, e
   \centering
   \includegraphics[width = 0.8 \textwidth]{../img/DieselCycleDiagram}
   \caption{Diagram showing mechanical positions of piston at each process step along with P-v and T-s diagrams}
+\end{figure}
+Assumptions for Diesel cycle.
+\begin{itemize}[noitemsep]
+  \item Fixed amount of air (ideal gas) for working fluid.
+  \item Combustion process replace by constant pressure heat addition.
+  \item Intake and exhaust not considered, cycle completed with constant volume heat removal with piston at BDC.
+  \item All processes considered internally reversible.
+\end{itemize}
+The air-standard Diesel cycle is described below in terms of processes.
+\begin{itemize}[noitemsep]
+  \item Process 1-2: isentropic compression.
+  \item Process 2-3: isobaric heat addition.
+  \item Process 3-4: isentropic expansion.
+  \item Process 4-1: isochoric heat removal.
+\end{itemize}
+Lets apply the first law to a diesel cycle during each process separately.
+\begin{equation}
+  \Delta u = (q_{in} - q_{out}) + (w_{in}- w_{out})
+\end{equation}
+For process 2-3: constant pressure heat addition.
+\begin{align}
+  u_3 - u_2 &= q_{in} - w_{b, \ out}\\
+  q_{in} &= u_3 - u_2 + \int_2^3 P dv\\
+  q_{in} &= u_3 - u_2 + P_2 (v_3 - v_2)\\
+  q_{in} &= h_3 - h_2\\
+  q_{in} &= c_P (T_3 - T_2)
+\end{align}
+For process 4-1: isochoric heat rejection.
+\begin{align}
+  u_1 - u_4 &= - q_{out}\\
+  q_{out} &= u_4 - u_1\\
+  q_{out} &= c_V (T_4 - T_1)
+\end{align}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/PVDiesel}
+  \caption{PV diagram for Diesel cycle.}
+\end{figure}
+Given,
+\begin{align}
+  \textrm{Compression ratio} \rightarrow r_v &= \frac{v_1}{v_2}\\
+  \textrm{Expansion ratio} \rightarrow r_e &= \frac{v_4}{v_3}\\
+  \textrm{Cut off ratio} \rightarrow r_c &= \frac{v_3}{v_2}\\
+  r_e \cdot r_c = \frac{v_4}{v_3} \cdot \frac{v_3}{v_2} &= \frac{v_4}{V_2} = \frac{v_1}{v_2} = r_v\\
+  \therefore r_v &= r_c \cdot r_e
+\end{align}
+Process 1-2: isentropic compression.
+\begin{align}
+  \textrm{adiabatic, hence } \frac{T_1}{T_2} = \left( \frac{V_2}{V_1} \right)^{\gamma -1} &= \frac{1}{r_V^{\gamma - 1}}\\
+  T_1 &= \frac{T_2}{r_V^{\gamma - 1}} \label{diesel12}
+\end{align}
+Process 2-3: isobaric heat addition
+\begin{align}
+  Pv &= RT\\
+  \frac{P}{R} &= \frac{T}{v} = \textrm{constant}\\
+  \frac{T_2}{v_2} &= \frac{T_3}{v_3}\\
+  \therefore T_2 &= T_3 \frac{v_2}{v_3}\\
+  T_2 &= \frac{T_3}{v_c} \label{diesel23}
+\end{align}
+Process 3-4: isentropic heat expansion.
+\begin{align}
+  \frac{T_4}{T_3} &= \left( \frac{v_3}{v_4} \right)^{\gamma -1} = \frac{1}{r_e^{\gamma -1}}\\
+  T_4 &= \frac{T_3}{r_e^{\gamma -1}} \label{diesel34}
+\end{align}
+Thermal efficiency can be calculated as,
+\begin{equation}
+  \eta_{th, \ diesel} = 1 - \frac{1}{\gamma} \frac{1}{r_v^{\gamma -1}} \left[ \frac{r_c^{\gamma -1}}{r_c - 1} \right]
+\end{equation}
+\subsection{Otto and Diesel comparison}
+\begin{align}
+  \eta_{th, \ diesel} &= 1 - \frac{1}{\gamma} \frac{1}{r_v^{\gamma -1}} \left[ \frac{r_c^{\gamma -1}}{r_c - 1} \right]\\
+  \eta_{th, \ otto} &= 1 - \frac{1}{r^{\gamma -1}}\\
+  \textrm{for } r_v &= \frac{v_1}{v_2} > 1\\
+  \frac{1}{\gamma} \left[ \frac{r_c^{\gamma -1}}{r_c - 1} \right] &> 1
+\end{align}
+Therefore, the efficiency of the diesel cycle is less than that of the Otto cycle for the same compression ratio. However, the advantages of Diesel over petrol engines is that they can operate at higher compression ratios witout auto-igniton.
+\begin{equation}
+  \eta_{th, \ otto} > \eta_{th, \ diesel}
+\end{equation}
+Also if $r_c$ decreases, then $\eta_{th, \ diesel}$ increases. When the limiting case of $r_c = 1$ occurs, the quantity in the brackets becomes 1 and hence $\eta_{th, \ diesel} = \eta_{th, \ otto}$.
+\subsection{Brayton cycle (Joule cycle)}
+The Brayton cycle (Joule cycle) represents the operation of a gas turbine engine.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/Brayton1}
+  \caption{Sketch of the jet engine components.}
+  \label{brayton1}
+\end{figure}
+Gas turbines usually operate on an open cycle, as shown in Figure \ref{brayton2}. Fresh air is drawn into the compressor, where its temperature and pressure are. the high-pressure air proceeds into the combistion chamber, where the fuel is burned at constant pressure. The resulting high-temperature gases then enter the turbinem where they expand to the atmospheric pressure while producing ower.  The exhaust gases leaving the turbine are thrown out (not recirculated), causing the cycle to be classified as an open cycle.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/Brayton2}
+  \caption{Open cycle operation for Joule cycle.}
+  \label{brayton2}
+\end{figure}
+The open gas-turbine cycle described above can be modelled as a closed cycle, as shown in Figure \ref{brayton3}, by utilising the air-standard assumptions. Here the compression and expansion processes remain the samem but the combustion process is replace by a isobaric heat addition process from an external source and the echaust process is replaced bu a isobaric heat rejection process to the ambient air.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/Brayton3}
+  \caption{Closed cycle operation for Joule cycle.}
+  \label{brayton3}
+\end{figure}
+The ideal cycle that the working fluid undergoes in this closed loop is the Joule cycle. It consists of four processes:
+\begin{itemize}[noitemsep]
+  \item Process 1-2: isentropic compression in the inlet and compressor.
+  \item Process 2-3: isobaric heat addition.
+  \item Process 3-4: isentropic expansion, in the turbine and exhaust nozzle, with which we
+    \begin{itemize}[noitemsep]
+      \item take some work out of the air and use it to drive the compressor and
+      \item take the remaining work out and use it to accelerate fluid for jet propulsion, or to turn a generator for electrical power generation.
+    \end{itemize}
+  \item Process 4-1: isobaric heat rejection.
+\end{itemize}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/BraytonPV}
+  \caption{PV diagram for Joule cycle.}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/BraytonTS}
+  \caption{TS diagram for Joule cycle.}
 \end{figure}
 \end{document}
