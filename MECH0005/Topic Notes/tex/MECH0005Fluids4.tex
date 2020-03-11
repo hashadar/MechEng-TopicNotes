@@ -120,6 +120,61 @@ Where $\frac{D}{Dt}(m\overline{v})_{sys}$ is the acceleration. M is a constant a
   \frac{D}{Dt} (m \overline{v})_{sys} = \frac{\partial}{\partial t} \int_{cv} (\rho \overline{\underline{v}}) d\forall + \int_{cs} (\rho \overline{v}(\overline{v} \cdot \hat{n})) dA = \sum \overline{F}
 \end{equation}
 This is a vector equation and can be split up into x, y and z components. $\frac{\partial}{\partial t} \int_{cv} (\rho \overline{\underline{v}}) d\forall$ is the rate of change of linear momentum inside the C.V. $\int_{cs} (\rho \overline{v}(\overline{v} \cdot \hat{n})) dA$ is the net flow of linear momentum through C.S.
+\subsection{Example: mass flow at a pipe junction}
+Consider the steady flow in a water pipe joint shown in the diagram.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/waterpipejunction}
+  \caption{Water pipe junction.}
+\end{figure}
+The areas are: $A_1 = 0.2$ \si{\meter\squared}, $A_2 = 0.2$ \si{\meter\squared} and $A_3 = 0.15$ \si{\meter\squared}. In addition, fluid is lost out of a hole at 4, estimated at a rate of 0.1 \si{\meter\cubed\per\second}. The avergae speeds at sections 1 and 3 are $V_1 = 5$ \si{\meter\per\second} and $V_3 = 12$ \si{\meter\per\second} respectively. Find the velocity at section 2.
+
+Given: steady flow of water through the device.
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    $A_1 = 0.2$ \si{\meter\squared} & $A_2 = 0.2$ \si{\meter\squared} &$A_3 = 0.15$ \si{\meter\squared}\\
+    \hline
+    $V_1 = 5$ \si{\meter\per\second} & $V_3 = 12$ \si{\meter\per\second} & $\rho = 999$ \si{\kg\per\meter\cubed}\\
+    \hline
+  \end{tabular}
+\end{center}
+Volume flow rate at 4 $=0.1$ \si{\meter\cubed\per\second}. Find velocity at section 2.
+
+Choose a fixed control volume as shown. Make an assumption that the flow at section 2 is outwards and label the diagram accordingly (if this assumption is incorrect our final result will tell us.) Due to assumptions 2 and 3 below, we may use the following equation:
+\begin{equation}
+  \sum_{CS} \vec{V} \cdot \vec{A} = 0
+\end{equation}
+Assumptions:
+\begin{itemize}[noitemsep]
+  \item Steady flow (given).
+  \item Incompressible flow.
+  \item Uniform properties at each section.
+\end{itemize}
+Hence, for the leak:
+\begin{equation}
+  \vec{V}_1 \cdot \vec{A}_1 + \vec{V}_2 \cdot \vec{A}_2 + \vec{V}_3 \cdot \vec{A}_3 + Q_4 = 0
+  \label{exampleRTT1}
+\end{equation}
+where $Q_4$ is the flow rate out of the leak. Let us examine the first three terms in equation (\ref{exampleRTT1}) and the directions of the velocity vectors.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/RTTexample2}
+  \caption{Direction of velocity vectors. }
+\end{figure}
+Using these results in equation (\ref{exampleRTT1}),
+\begin{equation}
+  -V_1 A_1 + V_2 A_2 + V_3 A_3 + Q_4 = 0
+\end{equation}
+or
+\begin{align}
+  V_2 &= \frac{V_1 A_1 - V_3 A_3 - Q_4}{A_2}\\
+  V_2 &= \frac{5\times 0.2 - 12\times 0.15 - 0.1}{0.2}\\
+  V_2 &= -4.5 \ \si{\meter\per\second}
+\end{align}
+Recall that $V_2$ represents the magnitude of the velocity which we assumed was outwards from the control volume. The fact that $V_2$ is negative means that in fact we have an inflow at location 2 - our initial assumption was invalid.
+
+This problem demonstrates use of the sign convention for evaluating $\int_A \vec{V} \cdot d\vec{A}$ or $\sum_{CS} \vec{V} \cdot \vec{A}$. In particular, the area normal is always drawn outwards from the control surface.
 \section{Laminar flow and boundary layers}
 \subsection{Boundary conditions}
 You will generally only come across two types of boundary conditions:
