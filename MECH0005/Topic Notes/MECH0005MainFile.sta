@@ -29,4 +29,7 @@
 \subpreamble{tex/MECH0005VapourPowerCycles.tex}
 \usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage {siunitx}\sisetup {detect-all}
 \endsubpreamble
+\subpreamble{tex/MECH0005RefrigerationCycles.tex}
+\usepackage {enumitem}\usepackage {multicol}\usepackage {etoolbox}\AtBeginEnvironment {quote}{\singlespacing \small }\usepackage {setspace}\onehalfspacing \usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage {siunitx}\sisetup {detect-all}
+\endsubpreamble
 \endstandalonepreambles
