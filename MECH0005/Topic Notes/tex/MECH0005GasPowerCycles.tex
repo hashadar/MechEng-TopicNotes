@@ -383,4 +383,124 @@ The ideal cycle that the working fluid undergoes in this closed loop is the Joul
   \includegraphics[width = 0.5\textwidth]{../img/BraytonTS}
   \caption{TS diagram for Joule cycle.}
 \end{figure}
+\subsection{Thermal efficiency of the simple ideal Joule cycle}
+\subsubsection{Process 1-2: isentropic compression} 
+From the first law, the compressor is a steady flow device, hence let us apply the SFEE:
+\begin{equation}
+  \frac{dE_{system}}{dt} = [\dot{Q}_{in} + \dot{W}_{in} + \dot{m}_1 (h_1 + \frac{v_1^2}{2} + gz_1) ] - [\dot{Q}_{out} + \dot{W}_{out} + \dot{m}_2 (h_2 + \frac{v_2^2}{2} + gz_2) ]
+\end{equation}
+Assume steady flow and negligible changes in KE and PE.
+\begin{align}
+  \dot{W}_{in} + \dot{m}_1 h_1 &= \dot{m}_2 h_2 \ (\dot{m}_1 = \dot{m}_2 = \dot{m})\\
+  \dot{W}_{comp} &= \dot{m}(h_2 - h_1)\\
+  w_{comp} &= \frac{\dot{W}_{comp}}{\dot{m}}\\
+  \frac{\dot{W}_{comp}}{\dot{m}} &= [ w_{comp} = (h_2 - h_1)] \ \si{\kilo\joule\per\kg}
+\end{align}
+Also, since it is isentropic = adiabatic:
+\begin{equation}
+  \therefore \frac{T_2}{T_1} = \left( \frac{P_2}{P_1} \right)^{\frac{\gamma - 1}{\gamma}}
+\end{equation}
+\subsubsection{Process 2-3: isobaric heat addition}
+First law: apply SFEE:
+\begin{align}
+  \dot{Q}_{in} + \dot{m} h_2 &= \dot{m} h_3\\
+  \dot{Q}_{in} &= \dot{m} (h_3 - h_2)\\
+  q_{in} &= h_3 - h_2 \ \si{\kilo\joule\per\kg}
+\end{align}
+\subsubsection{Process 3-4: isentropic expression}
+First law: apply SFEE:
+\begin{align}
+  \dot{m} h_3 &= \dot{W}_{turbine} + \dot{m} h_4\\
+  \dot{W}_{turbine} &= \dot{m} (h_3 - h_4)\\
+  \dot{W}_{turbine} &= h_3 - h_4 \ \si{\kilo\joule\per\kg}
+\end{align}
+Also, since process 3-4 is isentropic = adiabatic:
+\begin{equation}
+  \therefore \frac{T_3}{T_4} = \left( \frac{P_3}{P_4} \right)^{\frac{\gamma -1}{\gamma}}
+\end{equation}
+But $P_2 = P_3$ and $P_1 = P_4$,
+\begin{align}
+  \therefore \frac{T_3}{T_4} = \left( \frac{P_3}{P_4} \right)^{\frac{\gamma -1}{\gamma}} &= \left( \frac{P_2}{P_1} \right)^{\frac{\gamma -1}{\gamma}} = \frac{T_2}{T_1}\\
+  \therefore \frac{T_3}{T_4} &= \frac{T_2}{T_1}
+\end{align}
+\subsubsection{Process 4-1: isobaric heat rejection}
+First law: apply SFEE:
+\begin{align}
+  \dot{m} h_4 &= \dot{Q}_{out} + \dot{m} h_1\\
+  \dot{Q}_{out} &= \dot{m} h_4 - \dot{m} h_1\\
+  q_{out} &= h_4 - h_1 \ \si{\kilo\joule\per\kg}
+\end{align}
+\subsection{Thermal efficiency of Joule cycle}
+\begin{gather}
+  \eta_{th, \ Joule} = \frac{W_{net}}{Q_{in}} = \frac{w_{net}}{q_{in}} = 1 - \frac{q_{out}}{q_{in}}\\
+  \eta_{th, \ Joule} = 1- \frac{T_1}{T_2} = 1 - \left( \frac{P_1}{P_2} \right)^{\frac{\gamma - 1}{\gamma}} = 1 - \left( \frac{V_1}{V_2} \right)^{\gamma -1}
+\end{gather}
+(as process 1-2 is adiabatic). Also since $r_V = \frac{V_1}{V_2}$ is compression ratio:
+\begin{equation}
+  \therefore \eta_{th, \ Joule} = 1 - \frac{1}{r_V^{\frac{\gamma -1}{\gamma}}}
+\end{equation}
+We can also define a new variable, $r_P$, the pressure ratio, where $r_P = \frac{P_2}{P_1}$.
+\begin{equation}
+  \therefore \eta_{th, \ Joule} = 1 - \frac{1}{r_P^{\frac{\gamma -1}{\gamma}}}
+\end{equation}
+Thus, the pressure ratio and the value of $\gamma$ determines the thermal efficiency of a Joule cycle. The melting point of the turbine blocks limit the max temperature and thus the pressure ratios that can be used in that cycle (as the maximum temperature in a cycle occurs at the end of the combustion process - state 3). For a fixed turbine inlet temperature $T_3$, the network output per cycle increases within the pressure ratio, reaches a maximum, and then starts to increase. Thus, there should be a compromise between the pressure ratio and the net work output. If net work output per cycle decreases, mass flow rate must increase to produce the same power output. This would require a larger system, which may not be economical.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/JouleCycleDiagram}
+  \caption{Diagram of Joule cycle.}
+\end{figure}
+The ratio of the compressor work to the turbine work is called the back work ratio $= r_{BW}$
+\begin{gather}
+  \textrm{Back work ratio} = \frac{W_{\textrm{compressor}}}{W_{\textrm{turbine}}} = \frac{h_3 h_1}{h_3 - h_4} = r_{BW}\\
+  \textrm{work ratio} = \frac{W_{net}}{W_{\textrm{turbine}}}
+\end{gather}
+As we showed before, there should be a compromise between the pressure ratio and the net work output. Let us try and work out the value of $T_2$ required for maximum work output when $T-3$ (metallurgical limits) is fixed and $T_1$ (natural sink) is also fixed. 
+\begin{align}
+  \textrm{net specific work produced} &= W_{\textrm{turbine}} - W_{\textrm{compressor}}\\
+  &= (h_3 - h_4) - (h_2 - h_1)\\
+  W_{net} &= c_P (T_3 - T_4) - c_P (T_2 - T_1)\\
+  \frac{dW_{net}}{dT_2} &= c_P \frac{d}{dT_2} \left[ T_3 - T_4 - T_2 + T_1 \right]\\
+  &= c_P \left[ -1 - \frac{dT_4}{dT_2} \right]
+\end{align}
+Max $W_{net}$ occurs when $\frac{dW_{net}}{dT_2} = 0$
+\begin{align}
+  \therefore \frac{dW_{net}}{dT_2} &= -1 - \frac{dT_4}{dT_2} = 0\\
+  \textrm{from before, } \frac{T_3}{T_4} &= \frac{T_2}{T_1}\\
+  T_4 &= \frac{T_1}{T_2}T_3\\
+  \therefore -1 - \frac{d}{dT_2} \left[ \frac{1}{T_2} T_1 T_3 \right] &= 0\\
+  -1 + \frac{T_1 T_3}{T_2^2} &= 0\\
+  T_2 &= \sqrt{T_1 T_3}
+\end{align}
+For a fixed $T_1$ and $T_3$, $T_2 = \sqrt{T_1 T_3}$ produces the max net work output per unit mass. Also, since:
+\begin{equation}
+  r_P = \frac{P_2}{P_1} = \left( \frac{T_1}{T_2} \right)^{\frac{\gamma}{1- \gamma}} = \left( \frac{T_2}{T_1} \right)^{\frac{\gamma}{\gamma -1}} 
+\end{equation}
+For net work output per unit mass to be maximum, $T_2 = \sqrt{T_1 T_3}$. 
+\begin{align}
+  \therefore r_{P \textrm{ max net work}} &= \left( \frac{\sqrt{T_1 T_3}}{T_1} \right)^{\frac{\gamma}{\gamma -1}}\\
+  &= \left( \frac{\sqrt{T_3}}{\sqrt{T_1}} \right)^{\frac{\gamma}{\gamma -1}}\\
+  &= \left( \frac{T_3}{T_1} \right)^{\frac{\gamma}{2(\gamma -1)}}
+\end{align}
+Thus $W_{net, \ max}$ occurs at:
+\begin{equation}
+  r_P = \left( \frac{T_3}{T_1} \right)^{\frac{\gamma}{2(\gamma -1)}} = \left( \frac{T_{max}}{T_{min}} \right)^{\frac{\gamma}{2(\gamma -1)}}
+\end{equation}
+\subsection{Derivation of actual gas-turbine cycles from idealised ones}
+The actual gas turbine cycle differs from the ideal Joule cycle on several accounts. This occurs because,
+\begin{itemize}[noitemsep]
+  \item There is a pressure drop from the 'idealised' isobaric heat addition and rejection.
+  \item The actual work input to compressor is larger and the actual work output from the turbine is less, due to irreversibilities.
+\end{itemize}
+The isentropic efficiencies of the turbine and compressor can be used to measure performance. They are expressed as:
+\begin{equation}
+  \eta_C = \frac{W_s}{W_a} = \frac{\textrm{ideal work}}{\textrm{actual work}} = \frac{h_{2s} - h_1}{h_{2a} - h_1} = \frac{c_P (T_{2s} - T_1)}{c_P (T_2 -T_1)} = \frac{T_{2s} - T_1}{T_2 - T_1}
+\end{equation}
+\begin{equation}
+  \eta_T = \frac{W_a}{W_s} = \frac{\textrm{actual work}}{\textrm{ideal work}} = \frac{h_{3} - h_{4a}}{h_{3} - h_{4s}} = \frac{c_P (T_{3} - T_{4a})}{c_P (T_4 -T_{4s})} = \frac{T_{3} - T_{4a}}{T_4 - T_{4s}}
+\end{equation}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/efficienciesOfActualJouleCycles}
+  \caption{TS diagram of an actual Joule cycle.}
+\end{figure}
 \end{document}
