@@ -90,4 +90,85 @@ Another diagram frequently used in the analysis of vapour compression refrigerat
   \caption{A Ph diagram.}
 \end{figure}
 \subsection{Ph diagram for the ideal vapour compression refrigeration cycle}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7 \textwidth]{../img/PhDiagram2}
+  \caption{Ph diagram for the ideal vapour compression refrigeration cycle.}
+\end{figure}
+\subsection{Energy analysis of the ideal vapour compression refrigeration cycle}
+All four components are steady flow devices. Neglect kinetic and potential energy changes as they are usually small relative to the work and heat transfer terms. Applying SFEE per unit mass:
+\begin{align}
+  \dot{Q}_{in} + \dot{W}_{in} + \dot{m} h_1 &= \dot{Q}_{out} + \dot{W}_{out} + \dot{m} h_2\\
+  q_{in} + w_{in} + h_1 &= q_{out} + w_{out} + h_2
+\end{align}
+\subsubsection{Compressor: Process 1-2}
+\begin{gather}
+  q = 0, \ w_{out} = 0\\
+  w_{in} = h_2 - h_1 \ \si{\kilo\joule\per\kg} \textrm{ where } h_1 = h_{g@P_1}
+\end{gather}
+\subsubsection{Condenser: Process 2-3}
+\begin{gather}
+  q_{in} = 0, \ w = 0 \\
+  q_{out} = h_2 - h_3\\
+  q_H = h_2 - h_3
+\end{gather}
+\subsubsection{Expansion valve: Process 3-4 (throttling process)}
+\begin{gather}
+  q = 0, \ w = 0\\
+  h_3 = h_4 \textrm{ (isentropic process)}
+\end{gather}
+Remember that process 2-3 is an isobaric process. Hence:
+\begin{equation}
+  P_2 = P_3
+\end{equation}
+Thus, since $h_3 = h_{f@P_3} \rightarrow h_3 = h_{f@P_2}$. Also, process 3-4 is isenthalpic.
+\begin{equation}
+  \therefore h_3 = h_4 \rightarrow h_4 = \left( h_f \right)_{P_2} \label{refrigeq1}
+\end{equation}
+But $h_4 = \left( h_f \right)_{P_H} + x_4 \left(h_{fg} \right)_{P_H}$
+\begin{equation}
+  (P_1 = P_4) \rightarrow h_4 = \left( h_f \right)_{P_1} + x_4 \left(h_{fg} \right)_{P_1}
+  \label{refrigeq2}
+\end{equation}
+Equation \ref{refrigeq1} = Equation \ref{refrigeq2}
+\begin{align}
+  h_4 = \left( h_f \right)_{P_2} &= \left( h_f \right)_{P_1} + x_4 \left(h_{fg} \right)_{P_1}\\
+  \therefore x_4 &= \frac{\left( h_f \right)_{P_2} - \left( h_f \right)_{P_1}}{\left( h_{fg} \right)_{P_1}}
+\end{align}
+Where $x_4$ is the quality of the refrigerant at the inlet of the evaporator.
+\subsubsection{Evaporator: Process 4-1}
+\begin{gather}
+  w = 0, \ q_{out} = 0\\
+  q_{in} = h_1 - h_4\\
+  q_L = h_1 - h_4
+\end{gather}
+Where $q_L = h_1 - h_4$ represents the refrigeration effect.
+\subsection{Coefficient of performance}
+From the definition of heat pumps and refrigerators:
+\begin{equation}
+  COP_R = \frac{q_L}{w_{net, \ in}} = \frac{h_1 - h_4}{h_2 - h_1}
+\end{equation}
+And
+\begin{equation}
+  COP_{HP} = \frac{q_H}{w_{net, \ in}} = \frac{h_2 - h_3}{h_2 - h_1}
+\end{equation}
+If $\dot{m}$ is the mass flow of refrigerant in \si{\kg\per\second} then,
+\begin{align}
+  \dot{Q}_L &= \dot{m}q_L = \dot{m} (h_1 - h_4) \ \si{\kg\per\second}\\
+  &= \dot{m} (h_1 - h_4) \times 3600 \ \si{\kg\per\hour}
+\end{align}
+One tonne of refrigeration: the rate of heat removal equivalent to the heat required for melting one tonne of ice in one day. If the total latent heat of fusion is 335 \si{\kilo\joule\per\kg} = $h_{fg}$ then one tonne of refrigeration is:
+\begin{equation}
+  \frac{336 \times 10^{3}}{24} = 14000 \ \si{\kilo\joule\per\hour}
+\end{equation}
+Therefore, the cooling capacity of the refrigeration plant (rate of heat removal from the refrigerated space) is:
+\begin{equation}
+  \textrm{cooling capacity of the refrigeration plant} = \frac{\dot{m}(h_1 - h_4) \times 3600}{14000}
+\end{equation}
+Similarly,
+\begin{gather}
+  \textrm{heat removed from the condenser} = \dot{m} q_H = \dot{m} (h_2 - h_3) = \dot{Q}_H\\
+  \textrm{power at compressor} = \dot{W}_{in} = m\dot{w}_{in} = \dot{m} (h_2 - h_1)\\
+  \textrm{volume of gas handled by the compressor, flow rate} = \dot{V} = \dot{m}v
+\end{gather}
 \end{document}
