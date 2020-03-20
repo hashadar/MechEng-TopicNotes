@@ -2,6 +2,8 @@
 
 \usepackage{mathtools}
 \usepackage{blindtext}
+\usepackage{natbib}
+\usepackage{float}
 \usepackage{graphicx}
 \graphicspath{img/}
 \usepackage{amssymb}
@@ -37,7 +39,61 @@
 \section{Design choices}
 \chapter{Heating components}
 \section{Materials used}
+The two main components of the heating components in the hair dryer are arguably the heating element and the fan. These have specific materials, in order to perform their designed function. Factors such as, mass producibility, cost, ease of manufacture and lifetime of component have all played a role as selection criteria for the material used in the components of the heating element. The first item of interest is the heating element. In this chapter, we will be looking at:
+\begin{itemize}
+  \item Heating coil.
+  \item Fan.
+  \item Fins. 
+  \item Protective shield.
+\end{itemize}
+\subsubsection{Heating coil}
+The heating coil is a long wound up piece of metal inside the hairdryer, surrounding the fins inside the air chamber. The wire is wound around the fins an is a specific length to produce an equivalently specific resistance. An electrical current is passed  through the wire, generating heat. Its function is to heat up the air as it passes through the air chamber. 
+
+We found that our heating element was made out of nichrome wire. nichrome is an alloy of nickel and chromium (sometimes iron too). The most common alloy are NiCrA, which is an 80\% - 20\% mix of nickel and chromium respectively. There is also NiCrC, which is nominally 61\% Ni, 15\% Cr and 23\% Fe. Nichrome wire has been chosen for this particular task due to its relatively low resistive properties. In order to create enough resistance to generate heat, metal must be drawn into thin strands. Some metals become brittle and break when they are drawn out in such a manner, as they lack the appropriate ductility. When nichrome wire is heated to red hot temperatures, it develops an outer layer of chromium oxide. Chromium oxide forms a coating on the nichrome wire, protecting the heating element from further oxidisation. This is because it is quite invulnerable to oxygen and is thermodynamically stable in air. Exact properties can be found in the table below.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      Material property & Value & Unit\\
+      \hline
+      Modulus of elasticity & $2.2 \times 10^{11}$ & \si{\pascal}\\
+      Melting point & $1400$ & \si{\celsius}\\
+      Electrical resistivity at room temperature & $(1-1.5) \times 10^{-6}$ & \si{\ohm \meter}\\
+      Thermal conductivity & $11.3$ & \si{\watt \per \meter \per \kelvin}\\
+      \hline
+    \end{tabular}
+    \caption{Table to show properties of nichrome alloy.}
+  \end{center}
+\end{table}
+
+In comparison, I have listed some properties of copper used in electrical cabling, in order to draw some comparisons and highlight the benefits of using nichrome wire.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      Material property & Value & Unit\\
+      \hline
+      Modulus of elasticity & $(1.1 - 2.8) \times 10^{11}$ & \si{\pascal}\\
+      Melting point & $1084$ & \si{\celsius}\\
+      Electrical resistivity at room temperature & $1.678 \times 10^{-8}$ & \si{\ohm \meter}\\
+      Thermal conductivity & $401$ & \si{\watt \per \meter \per \kelvin}\\
+      \hline
+    \end{tabular}
+    \caption{Table to show properties of copper.}
+  \end{center}
+\end{table}
+
+From this we can see that nichrome wire is about as ductile as copper, which is used almost universally in cabling. This would make it a good choice, as it can be easily manufactured into long strands. It also has a higher melting point than copper, however, this increase is not so relevant, as our hairdryer has a failsafe built in, which does not allow the nichrome wire to exceed a certain temperature. Thermal conductivity of nichrome wire is roughly a factor of ten lower than that of copper. This means that nichrome wire may take longer to heat up/cool down than an equivalent copper wire. Comparatively speaking, most other metals have a higher thermal conductivity than nichrome, but this property favours nichrome as it is intended to have high heat resistance.
+\subsubsection{Fan}
+\subsubsection{Fins}
+\subsubsection{Protective shield}
 \section{Manufacturing techniques}
+\subsubsection{Heating coil}
+The process of creating a nichrome alloy and drawing it into a thin wire will be covered in this section. Nickel and chromium may come from two major sources: ores or recycling plants. It is purified and the two metals are put into a furnace to melt and mix together. It is important that the metals are put in to the furnace in the correct quantities as having different percentage mixes of each metal may yield different properties in the final solidified nichrome alloy. The molten mixture is then poured and allowed to cool. 
+
+Next comes the process of drawing the nichrome into a long, thin wire. The alloy is heated until it has plastic properties but not to the point of becoming liquid. It is then forced through a die, which has an orifice to let the alloy through. The strand cools and is collected under tension. In this step it may be wound up onto a spool. This tension can be used to decrease the diameter further by pulling the alloy through smaller dies. A common (useful!) process is to anneal the wire between dies, in order to make it less brittle (as the process of forcing a metal through a small hole can cause the microstructure of the nichrome alloy). 
 \section{Design choices}
 \chapter{Electrical components}
 \section{Materials used}
@@ -56,4 +112,7 @@
   \item Philip to do electrical components.
   \item Hasha to do heating components.
 \end{itemize}
+\listoftables
+\bibliographystyle{agsm}
+\bibliography{references}
 \end{document}
