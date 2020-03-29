@@ -63,10 +63,74 @@ Neglect $w$ and the net force due to $P_{atm} = 0$
 Also remember that,
 \begin{align}
   \dot{m}_1 &= \dot{m}_2\\
-  V_1 A_1 &= V_2 A_2 \textrm{ (incompressiblity)}\\
+  V_1 A_1 &= V_2 A_2 \textrm{ (incompressibility)}\\
   V_1 = V_2 &\therefore A_1 = A_2\\
   \therefore F_{Ax} &= V_1^2 A_1 \sin{\theta} \rho \\
   F_{Az} = \rho V_1^2 (A_1 \cos{\theta} - A_1) &= \rho V_1^2 A_1 (\cos{\theta} - 1)
 \end{align}
 Plug in data to find $F_{Ax}$ and $F_{Az}$.
+\section{Calculating the thrust produced by a propeller}
+We want to know the thrust applied by the propeller and the total work done. We will assume that there is are no losses due to friction or viscosity. There are three stages to this: 
+\begin{enumerate}[noitemsep]
+  \item Use Bernoulli's equation to derive an expression for thrust.
+  \item Use the momentum equation to derive an independent equation for the thrust.
+  \item Combine these two equations to solve for the speed of the propeller.
+\end{enumerate}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/PropDiagram}
+  \caption{Diagram of a propeller with the flow going from left to right.}
+\end{figure}
+\begin{enumerate}[noitemsep]
+  \item Create a control volume. 
+  \item Apply Bernoulli's equation between points 1 and 2:
+    \begin{equation}
+      P_1 + \frac{1}{2} \rho V_1^2 = P_2 + \frac{1}{2} \rho V_1^2
+    \end{equation}
+  \item Apply Bernoulli's equation between points 3 and 4:
+    \begin{equation}
+      P_3 + \frac{1}{2} \rho V_3^2 = P_4 + \frac{1}{2} \rho V_4^2
+    \end{equation}
+  \item $P_1 = P_4 = P_{atm}$, so rearrange these two equations and equate:
+    \begin{gather}
+      P_1 = P_2 + \frac{1}{2}\rho (V_2^2 - V_1^2)\\
+      P_4 = P_3 + \frac{1}{2}\rho (V_3^2 - V_4^2)\\
+      P_2 + \frac{1}{2}\rho (V_2^2 - V_1^2) = P_3 + \frac{1}{2}\rho (V_3^2 - V_4^2)
+    \end{gather}
+  \item We can now say that the velocity change across the propeller is small such that $V_2 \approx V_3$, so we can write.
+    \begin{gather}
+      \Delta P = P_3 - P_2 = \frac{1}{2} \rho [ V_4^2 - V_1^2] = \frac{1}{2} \rho [V_4^2 - V_1^2]\\
+      \therefore \Delta P = \frac{1}{2} \rho (V_4^2 - V_1^2)
+    \end{gather}
+  \item The thrust $F$ provided by the pressure must be equal to the pressure difference multiplied by the area of the propellers. 
+    \begin{gather}
+      \therefore F = \Delta P \times A\\
+      F = \frac{1}{2} \rho A (V_4^2 - V_1^2) \label{thrustprop}
+    \end{gather}
+  \item Now we use the momentum equation to derive another expression for the force. Force exerted on this central volume is given by the momentum equation. 
+    \begin{equation}
+      \sum F = \frac{\partial}{\partial t} \int_{CV} \rho \underline{V} d \forall + \int_{CS} \rho \underline{V} (\underline{V} \cdot \underline{\hat{n}}) dA
+    \end{equation}
+    Assume steady flow, hence $\frac{\partial}{\partial t} \int_{CV} \rho \underline{V} d \forall =0$
+      \begin{gather}
+        \sum F_x = \int_{CS} \rho \underline{V} (\underline{V} \cdot \underline{\hat{n}}) dA = \int_{inlet} \rho V_1 (-V_1) dA + \int_{output} \rho V_4 (V_4) dA\\
+        = -\dot{m}_1 V_1 + \dot{m}_4 V_4
+      \end{gather}
+    Assume steady flow, neglect gravity and viscous forces: $\dot{m}_1 = \dot{m}_4$
+      \begin{equation}
+        F = \dot{m}(V_4 - V_1)
+      \end{equation}
+  \item But at the propeller the mass flow rate equals:
+    \begin{gather}
+      \dot{m} = \rho A_P \times V_P = \rho A V_P
+      \therefore F = \rho A V_P (V_4 - V_1) \label{thrustprop2}
+    \end{gather}
+  \item Equate equations (\ref{thrustprop}) and (\ref{thrustprop2})
+    \begin{gather}
+      F = V_P (V_4 - V_1) = \frac{1}{2}(V_4^2 - V_1^2)\\
+      V_P = \frac{1}{2}\frac{(V_4 - V_1)(V_4 + V_1 )}{(V_4 - V_1)}\\
+      V_P = \frac{1}{2}(V_4 + V_1 )
+    \end{gather}
+  \item Now using given data, you can work out $V_P$ and thus find the thrust and the work done.
+\end{enumerate}
 \end{document}
