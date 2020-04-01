@@ -133,4 +133,57 @@ We want to know the thrust applied by the propeller and the total work done. We 
     \end{gather}
   \item Now using given data, you can work out $V_P$ and thus find the thrust and the work done.
 \end{enumerate}
+\subsection{Moving control volume}
+Let us recap on the RTT:
+\begin{equation}
+  \frac{DB_{sys}}{Dt} = \frac{\partial}{\partial t} \int_{CV} \rho b d \forall + \int_{CS} \rho b (\underline{V}\cdot \underline{\hat{n}}) dA 
+\end{equation}
+For mass conservation:
+\begin{equation}
+  0 = \frac{\partial}{\partial t} \int_{CV} \rho d \forall + \int_{CS} \rho (\underline{V}\cdot \underline{\hat{n}}) dA 
+\end{equation}
+For momentum equation:
+\begin{equation}
+  \sum F_{sys} = \frac{\partial}{\partial t} \int_{CV} \rho \underline{V} d \forall + \int_{CS} \rho \underline{V} (\underline{V}\cdot \underline{\hat{n}}) dA 
+\end{equation}
+What if the control volume is moving around, in an inertial reference frame: not accelerating? Our $\underline{V} \cdot \underline{\hat{n}}$ terms pertains to the net mass flow out relative to that boundary.
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../img/RTTMovingControlVolume}
+\end{figure}
+\subsubsection{Conservation of mass}
+\begin{align}
+  \textrm{original} \rightarrow 0 &= \frac{\partial}{\partial t} \int_{CV} \rho d \forall + \int_{CS} \rho (\underline{V}\cdot \underline{\hat{n}}) dA \\
+  \textrm{moving inertial} \rightarrow 0 &= \frac{\partial}{\partial t} \int_{CV} \rho d \forall + \int_{CS} \rho (\underline{W}\cdot \underline{\hat{n}}) dA
+\end{align}
+When in steady state, first term cancels,
+\begin{equation}
+  0 = \int_{CS} \rho (\underline{W}\cdot \underline{\hat{n}}) dA 
+\end{equation}
+Mass crosses boundary due to the relative velocity, not the absolute.
+\subsubsection{Inertial moving object: conservation of momentum}
+\begin{equation}
+  \textrm{original} \rightarrow \sum F_{sys} = \frac{\partial}{\partial t} \int_{CV} \rho \underline{V} d \forall + \int_{CS} \rho \underline{V} (\underline{V}\cdot \underline{\hat{n}}) dA 
+\end{equation}
+Swap $\underline{V}$ for $\underline{W}$ in the second integral's bracket as the bracket relates to the mass flow out, relative to the boundary. 
+\begin{equation}
+  \sum F_{sys} = \frac{\partial}{\partial t} \int_{CV} \rho \underline{V} d \forall + \int_{CS} \rho \underline{V} (\underline{W}\cdot \underline{\hat{n}}) dA 
+\end{equation}
+Since
+\begin{align}
+  \underline{V} &= \underline{V}_{CV} + \underline{W}\\
+  \frac{\partial}{\partial t} \int_{CV} \rho (\underline{V}_{CV} + \underline{W}) d \forall &= 0 \rightarrow \textrm{steady state}\\
+  \sum F_{sys} &= \int_{CS} \rho (\underline{V}_{CV} + \underline{W}) (\underline{W}\cdot \underline{\hat{n}}) dA \\
+  \sum F_{sys} &= \int_{CS} \rho \underline{W}(\underline{W}\cdot \underline{\hat{n}}) dA + \underline{V}_{CV} \int_{CS} \rho (\underline{W}\cdot \underline{\hat{n}}) dA
+\end{align}
+Second term is equal to zero due to steady state flow and mass conservation
+\begin{equation}
+  \sum F_{sys} = \int_{CS} \rho (\underline{W})(\underline{W}\cdot \underline{\hat{n}}) dA 
+\end{equation}
+Hence, steady state conservation of momentum for a moving object in an inertial reference frame is: 
+\begin{equation}
+  \sum F_{sys} = \int_{CS} \rho \underline{W} (\underline{W}\cdot \underline{\hat{n}}) dA
+\end{equation}
+\subsection{The energy equation}
+
 \end{document}
