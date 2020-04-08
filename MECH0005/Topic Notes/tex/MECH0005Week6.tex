@@ -250,8 +250,32 @@ If only one stream is coming in and out:
   = \dot{m}_{out} (u + \frac{P}{\rho} + \frac{V^2}{2} + gz)_{out} - \dot{m}_{in} (u + \frac{P}{\rho} + \frac{V^2}{2} + gz)_{in}
 \end{equation}
 For steady flow, $\dot{m}_{in} = \dot{m}_{out} = \dot{m}$, therefore, the energy equation becomes:
-\begin{gather}
+\begin{multline}
   \dot{Q}_{\textrm{net in}} + \dot{W}_{\textrm{shaft net in}} = \\
   \dot{m} \left[ u_{out} - u_{in} + \left( \frac{P}{\rho} \right)_{out} - \left( \frac{P}{\rho} \right)_{in} + \frac{V_{out}^2 - V_{in}^2}{2} + g(z_{out} - z_{in}) \right]
+\end{multline}
+\subsection{Comparison of the energy equation and the Bernoulli equation}
+For an incompressible and steady flow which consists of no shaft work:
+\begin{multline}
+  \dot{Q}_{\textrm{net in}} = \dot{m} \left[ u_{out} - u_{in} + \frac{P_{out}}{\rho} - \frac{P_{in}}{\rho} + \frac{V_{out}^2 - V_{in}^2}{2} + g(z_{out} - z_{in}) \right]
+\end{multline}
+Divide by $\dot{m}$ and rearranging. $(\frac{Q_{\textrm{net in}}}{\dot{m}} = q_{\textrm{net in}})$.
+\begin{equation}
+  \frac{P_{out}}{\rho} + \frac{V_{out}^2}{2} + gz_{out} = \frac{P_{in}}{\rho} + \frac{V_{in}^2}{2} + gz_{in} - (u_{out} - u_{in} - q_{\textrm{net in}})
+\end{equation}
+Loss $= (u_{out} - u_{in} - q_{\textrm{net in}})$.
+\begin{equation}
+  \therefore \frac{P_{out}}{\rho} + \frac{V_{out}^2}{2} + gz_{out} = \frac{P_{in}}{\rho} + \frac{V_{in}^2}{2} + gz_{in} - \textrm{Loss}
+\end{equation}
+When the problem includes incompressible one-dimensional, steady in the mean flow, with friction and shaft work (e.g. in pumps, blowers, fans and turbines), then we need to include shaft work.
+\begin{gather}
+  \therefore \frac{P_{out}}{\rho} + \frac{V_{out}^2}{2} + gz_{out} = \frac{P_{in}}{\rho} + \frac{V_{in}^2}{2} + gz_{in} + w_{\textrm{shaft net in}} - \textrm{Loss}\\
+  (w_{\textrm{shaft net in}} = \frac{\dot{W}_{\textrm{shaft net in}}}{\dot{m}})
 \end{gather}
+To calculate the efficiency, we calculate the ratio of work that produces a useful effect $(w_{\textrm{shaft net in}} - \textrm{Loss})$ to the amount of work delivered to the fan blades.
+\begin{align}
+  \eta &= \frac{w_{\textrm{shaft net in}} - \textrm{Loss}}{w_{\textrm{shaft net in}}}\\
+  \textrm{where loss} &= (u_{out} - u_{in} - q_{\textrm{net in}})\\
+  \eta &= \frac{w_{\textrm{shaft net in}} - (u_{out} - u_{in} - q_{\textrm{net in}})}{w_{\textrm{shaft net in}}}
+\end{align}
 \end{document}
