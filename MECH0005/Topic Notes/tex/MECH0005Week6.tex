@@ -69,7 +69,7 @@ Also remember that,
   F_{Az} = \rho V_1^2 (A_1 \cos{\theta} - A_1) &= \rho V_1^2 A_1 (\cos{\theta} - 1)
 \end{align}
 Plug in data to find $F_{Ax}$ and $F_{Az}$.
-\section{Calculating the thrust produced by a propeller}
+\section{Calculating the thrust produced by \\ a propeller}
 We want to know the thrust applied by the propeller and the total work done. We will assume that there is are no losses due to friction or viscosity. There are three stages to this: 
 \begin{enumerate}[noitemsep]
   \item Use Bernoulli's equation to derive an expression for thrust.
@@ -184,7 +184,7 @@ Hence, steady state conservation of momentum for a moving object in an inertial 
 \begin{equation}
   \sum F_{sys} = \int_{CS} \rho \underline{W} (\underline{W}\cdot \underline{\hat{n}}) dA
 \end{equation}
-\subsection{The energy equation}
+\section{The energy equation}
 Review:
 \begin{equation}
   \frac{DB_{sys}}{dt} = \frac{\partial}{\partial t} \int_{CV} \rho b d \forall + \int_{CS} \rho b (\underline{V}\cdot \underline{\hat{n}}) dA
@@ -254,11 +254,11 @@ For steady flow, $\dot{m}_{in} = \dot{m}_{out} = \dot{m}$, therefore, the energy
   \dot{Q}_{\textrm{net in}} + \dot{W}_{\textrm{shaft net in}} = \\
   \dot{m} \left[ u_{out} - u_{in} + \left( \frac{P}{\rho} \right)_{out} - \left( \frac{P}{\rho} \right)_{in} + \frac{V_{out}^2 - V_{in}^2}{2} + g(z_{out} - z_{in}) \right]
 \end{multline}
-\subsection{Comparison of the energy equation and the Bernoulli equation}
+\subsection{Comparison of the energy equation and the \\ Bernoulli equation}
 For an incompressible and steady flow which consists of no shaft work:
-\begin{multline}
+\begin{equation}
   \dot{Q}_{\textrm{net in}} = \dot{m} \left[ u_{out} - u_{in} + \frac{P_{out}}{\rho} - \frac{P_{in}}{\rho} + \frac{V_{out}^2 - V_{in}^2}{2} + g(z_{out} - z_{in}) \right]
-\end{multline}
+\end{equation}
 Divide by $\dot{m}$ and rearranging. $(\frac{Q_{\textrm{net in}}}{\dot{m}} = q_{\textrm{net in}})$.
 \begin{equation}
   \frac{P_{out}}{\rho} + \frac{V_{out}^2}{2} + gz_{out} = \frac{P_{in}}{\rho} + \frac{V_{in}^2}{2} + gz_{in} - (u_{out} - u_{in} - q_{\textrm{net in}})
