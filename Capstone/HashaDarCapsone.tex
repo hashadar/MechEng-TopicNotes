@@ -2,10 +2,12 @@
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{graphicx}
+\usepackage{natbib}
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage[english]{babel}
 \usepackage{siunitx}
 \sisetup{detect-all}
 
@@ -16,10 +18,13 @@
 \date{2019/2020}
 \maketitle
 
+\begin{flushleft}
+
 \tableofcontents
 
 \section{Blades}
 \subsection{For the blades of the wind turbine, composite materials are usually employed. Why is this the case?}
+A composite material may be employed for their favourable properties. The material of a wind turbine is likely to be a fibreglass reinforced epoxy or polyester \citep{windTurbineMaterial}. Creating such a composite yields better strength, elasticity and corrosion resistance than an alternative e.g. aluminium. The orientation of the fibres in the matrix can be specifically arranged to combat the force of the wind on the blade, reducing the probability of failure (cracking, deformation) in the material. 
 
 \subsection{For the blades of the wind turbine, composite materials are usually employed. Why is this the case?}
 
@@ -43,8 +48,10 @@ Using Buckingham Pi:
   W_1 = \frac{W_2}{4} \\
   4W_1 = W_2
 \end{gather}
+From this we can see that doubling the blade length (\(B\)), quadruples the power output of the wind turbine.
 
 \subsection{Considering the answer above, discuss the trade-offs associated with choosing longer blades for a turbine of a fixed height.}
+Naturally, choosing larger blades for a turbine of a fixed height creates a limit to how large the blades can be before the turbine's tower would not be able to structurally support the weight of the blades. Hence, using larger blades requires the use of stronger materials in order to support their weight. Using stronger materials is more expensive to procure and manufacture, driving up initial costs. If the turbine cannot produce enough power to become econmically viable over its lifetime, this would cause problems for the manufacturer.  
 
 \section{Gearbox (dynamics)}
 \subsection{Derive a simple relationship for the gear ratio expressed as a function of number of teeth in the sun and ring gears of an epicyclic (or planetary) gear train.}
@@ -79,4 +86,8 @@ Using Buckingham Pi:
 \section{Final discussion}
 \subsection{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines.}
 
+\bibliographystyle{agsm}
+\bibliography{references}
+
+\end{flushleft}
 \end{document}
