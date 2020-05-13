@@ -1,38 +1,39 @@
 \documentclass[12pt]{article}
-\usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{natbib}
-\usepackage{float}
+\newcommand{\citeprimsec}[2]{\citep[][cited by \citealp{#2}]{#1}}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage[english]{babel}
 \usepackage{siunitx}
 \sisetup{detect-all}
-
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\setlength{\parskip}{\baselineskip}%
+\setlength{\parindent}{0pt}%
 \begin{document}
 
 \title{Mechanical Engineering: Year One Capstone Assesment}
 \date{2019/2020}
+\author{University College London}
 \maketitle
-
 \begin{flushleft}
 
 \tableofcontents
 
 \section{Blades}
 \subsection{For the blades of the wind turbine, composite materials are usually employed. Why is this the case?}
-A composite material may be employed for their favourable properties. The material of a wind turbine is likely to be a fibreglass reinforced epoxy or polyester \citep{windTurbineMaterial}. Creating such a composite yields better strength, elasticity and corrosion resistance than an alternative e.g. aluminium. The orientation of the fibres in the matrix can be specifically arranged to combat the force of the wind on the blade, reducing the probability of failure (cracking, deformation) in the material. 
+A composite material may be employed for their favourable properties. Composites materials can have variable (favourable) properties depending on their composition; yielding better fatigue strength, elasticity and corrosion resistance than an alternative e.g. an aluminium alloy. The orientation of the fibres in the composites matrix can be specifically arranged to combat stress (in this case the force of the wind on the blade), reducing the probability of failure (cracking, deformation) in the structure.
 
-\subsection{For the blades of the wind turbine, composite materials are usually employed. Why is this the case?}
+\subsection{What common composites might be employed in this application, and what are their relative merits and benefits in comparison to each other?}
+The composite used is likely to be of a fiber-reinforced matrix. The fiber used is likely to be glass or carbon based. Alternatives such as basalt fibers have also been used. Most common are 'E-Glass' fibers, used for their stiffness, tensile and compressive strength. Glass fibers with modified compositions, yielding higher strength, have been developed but are seldom used due to much greater cost.
+
+The matrix material is likely to be a thermoset plastic than a thermoplastic. This is due to thermosets having more favourable production characteristics: lower curing temperatures/times and lower viscosity, leading to high processing speed. The most common thermosets used are epoxy and polyester resins. However, an advantage to using a thermoplastic is their recyclability. \citeprimsec{windTurbineMaterial2}{windTurbineMaterial} 
 
 \subsection{What significant issues can you see with using composites in this engineering application? [For 
 example, you could consider economic or environmental
-challenges]
-}
-
+challenges]}
 \subsection{The power (W in J/s) produced by a wind turbine depends on blade length (B), the incoming wind speed (V), and air density (\(\rho\)). Derive one dimensionless number relevant to the problem using W as the dependent parameter. Use this dimensionless number to comment on the implications of doubling the blade length.}
 Using Buckingham Pi:
 \begin{gather}
@@ -88,6 +89,5 @@ Naturally, choosing larger blades for a turbine of a fixed height creates a limi
 
 \bibliographystyle{agsm}
 \bibliography{references}
-
 \end{flushleft}
 \end{document}
