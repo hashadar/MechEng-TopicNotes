@@ -10,6 +10,8 @@
 \usepackage{siunitx}
 \sisetup{detect-all}
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\numberwithin{equation}{section}
+
 \setlength{\parskip}{\baselineskip}%
 \setlength{\parindent}{0pt}%
 \begin{document}
@@ -60,6 +62,68 @@ Naturally, choosing larger blades for a turbine of a fixed height creates a limi
 
 \section{Gearbox (dynamics)}
 \subsection{Derive a simple relationship for the gear ratio expressed as a function of number of teeth in the sun and ring gears of an epicyclic (or planetary) gear train.}
+Let us define,
+\begin{itemize} 
+  \item The sun gear with subscript $S$
+  \item The planet gear(s) with subscript $P$ 
+  \item The ring gear with subscript $R$
+  \item The carrier with subscript $C$
+  \item The number of teeth $z$
+  \item The modulus of the gear(s) $m$
+\end{itemize}
+The diameter of a gear is simply $d = mz$ and for two gears to mesh, their module must be the same. Hence, we can derive
+\begin{gather}
+  m_1 = m_2\\
+  \frac{d_1}{z_1} = \frac{d_2}{z_2}\\
+  \frac{z_2}{z_1} = \frac{d_2}{d_1} = \frac{r_2}{r_1}
+\end{gather}
+From Figure (\ref{SystemRadii}), we can see that a constraint on our system is,
+\begin{equation}
+  r_R = r_S + 2r_P
+  \label{radiiRelationship}
+\end{equation}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5 \textwidth]{./img/GearRadii.jpg}
+  \caption{Planetary gearbox radii}
+  \label{SystemRadii}
+\end{figure}
+
+Considering that the sun gear is connected to the input shaft and the carrier of the planet gears is connected to the output shaft, we can simply say,
+\begin{equation}
+  i = \frac{\omega_S}{\omega_C}
+\end{equation}
+Where $i$ is the gear ratio.
+
+The linear velocity of the carrier is,
+\begin{equation}
+  v_C = \omega_C (r_S + r_P)
+\end{equation}
+The velocity of the point of contact between the sun and the planet gear is,
+\begin{equation}
+  v_S = \omega_S r_S
+\end{equation}
+By considering the point of contact between the planet and the ring gear as having 0 relative velocity, we can derive that the point of contact between the sun and the planet is simply $2v_C$. Hence,
+\begin{align}
+  v_S = 2v_C &= 2\omega_C(r_S + r_P)\\
+  \omega_S r_S &= 2\omega_C (r_S + r_P)\\
+  \frac{\omega_S}{\omega_C} &= \frac{2(r_S + r_P)}{r_S}\\
+  &= \frac{2r_S + 2r_P}{r_S} \label{gearRatio1}
+\end{align}
+Rearranging equation (\ref{radiiRelationship}) and substituting into (\ref{gearRatio1}), we get,
+\begin{align}
+  \frac{\omega_S}{\omega_C} &= \frac{2r_S + r_R - r_S}{r_S}\\
+  &= \frac{r_S + r_R}{r_S}
+\end{align}
+This simplifies to,
+\begin{equation}
+  i = 1 + \frac{r_R}{r_S}
+\end{equation}
+Since the number of teeth is proportional to the radius of the gear, we can substitute $z$ into our equation,
+\begin{equation}
+  i = 1 + \frac{z_R}{z_S}
+\end{equation}
 \subsection{Perform a conceptual design of an epicyclic gear system for a 1.5 MW wind turbine if the three blades spin at a design speed of 12 rpm and the high-speed shaft in the generator needs to spin at 1680 rpm. Provide information on the configuration of your proposed planetary gear set (note: the 5 laws of planetary gearing – see the provided videos) and the input/output torque ratio that can be achieved by your system. Neglect friction and assume that the angular acceleration of the gears (which are rigid and non-deformable) is zero. You must indicate the number of teeth in each gear and provide a schematic drawing.}
 \subsection{Wind gusts and turbulence lead to misalignment of the drive train and premature failure of the gear components. How could this be mitigated?}
 \subsection{Comment on the advantages/disadvantages of an epicyclic gear system in the context of a wind turbine gear box.}
@@ -90,6 +154,7 @@ Naturally, choosing larger blades for a turbine of a fixed height creates a limi
 
 \section{Final discussion}
 \subsection{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines.}
+test
 
 \bibliographystyle{agsm}
 \bibliography{references}
