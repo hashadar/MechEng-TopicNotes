@@ -64,6 +64,7 @@ Naturally, choosing larger blades for a turbine of a fixed height creates a limi
 \subsection{Derive a simple relationship for the gear ratio expressed as a function of number of teeth in the sun and ring gears of an epicyclic (or planetary) gear train.}
 Let us define,
 \begin{itemize} 
+  \item The gear ratio $i$
   \item The sun gear with subscript $S$
   \item The planet gear(s) with subscript $P$ 
   \item The ring gear with subscript $R$
@@ -71,7 +72,15 @@ Let us define,
   \item The number of teeth $z$
   \item The modulus of the gear(s) $m$
 \end{itemize}
-The diameter of a gear is simply $d = mz$ and for two gears to mesh, their module must be the same. Hence, we can derive
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.7 \textwidth]{./img/GearRadii.jpg}
+  \caption{Planetary gearbox radii}
+  \label{SystemRadii}
+\end{figure}
+
+The diameter of a gear is $d = mz$ and for two gears to mesh, their module must be the same. Hence, we can derive
 \begin{gather}
   m_1 = m_2\\
   \frac{d_1}{z_1} = \frac{d_2}{z_2}\\
@@ -82,20 +91,10 @@ From Figure (\ref{SystemRadii}), we can see that a constraint on our system is,
   r_R = r_S + 2r_P
   \label{radiiRelationship}
 \end{equation}
-
-\begin{figure}
-  \centering
-  \includegraphics[width = 0.5 \textwidth]{./img/GearRadii.jpg}
-  \caption{Planetary gearbox radii}
-  \label{SystemRadii}
-\end{figure}
-
 Considering that the sun gear is connected to the input shaft and the carrier of the planet gears is connected to the output shaft, we can simply say,
 \begin{equation}
   i = \frac{\omega_S}{\omega_C}
 \end{equation}
-Where $i$ is the gear ratio.
-
 The linear velocity of the carrier is,
 \begin{equation}
   v_C = \omega_C (r_S + r_P)
