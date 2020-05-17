@@ -22,8 +22,6 @@
 \maketitle
 \begin{flushleft}
 
-\tableofcontents
-
 \section{Blades}
 \subsection{For the blades of the wind turbine, composite materials are usually employed. Why is this the case?}
 A composite material may be employed for their favourable properties. Composites materials can have variable (favourable) properties depending on their composition; yielding better fatigue strength, elasticity and corrosion resistance than an alternative e.g. an aluminium alloy. The orientation of the fibres in the composites matrix can be specifically arranged to combat stress (in this case the force of the wind on the blade), reducing the probability of failure (cracking, deformation) in the structure.
@@ -42,15 +40,19 @@ Building on reuse, recovered fibers prevent a cost barrier as in most cases, rec
 
 \subsection{The power (W in J/s) produced by a wind turbine depends on blade length (B), the incoming wind speed (V), and air density (\(\rho\)). Derive one dimensionless number relevant to the problem using W as the dependent parameter. Use this dimensionless number to comment on the implications of doubling the blade length.}
 Using Buckingham Pi:
+\begin{align}
+  [W] &= ML^2T^{-3}\\
+  [B] &= L\\
+  [V] &= LT^{-1}\\
+  [\rho] &= ML^{-3}
+\end{align}
+\begin{align}
+  W &= B^a V^b \rho^c\\
+  ML^2T^{-3} &= L^a L^b T^{-b} M^c L^{-3c}\\
+  c = 1, b &= 3, a = 2\\
+  W &= B^2 V^3 \rho
+\end{align}
 \begin{gather}
-  [W] = ML^2T^{-3}\\
-  [B] = L\\
-  [V] = LT^{-1}\\
-  [\rho] = ML^{-3}\\
-  W = B^a V^b \rho^c\\
-  ML^2T^{-3} = L^a L^b T^{-b} M^c L^{-3c}\\
-  c = 1, b = 3, a = 2\\
-  W = B^2 V^3 \rho \\
   k = \frac{W_1}{B^2 V^3 \rho} \textrm{ and } k = \frac{W_2}{4B^2 V^3 \rho}\\
   W_1 = \frac{W_2}{4} \\
   4W_1 = W_2
@@ -73,13 +75,6 @@ Let us define,
   \item The modulus of the gear(s) $m$
 \end{itemize}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width = 0.7 \textwidth]{./img/GearRadii.jpg}
-  \caption{Planetary gearbox radii}
-  \label{SystemRadii}
-\end{figure}
-
 The diameter of a gear is $d = mz$ and for two gears to mesh, their module must be the same. Hence, we can derive
 \begin{gather}
   m_1 = m_2\\
@@ -90,6 +85,18 @@ From Figure (\ref{SystemRadii}), we can see that a constraint on our system is,
 \begin{equation}
   r_R = r_S + 2r_P
   \label{radiiRelationship}
+\end{equation}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.7 \textwidth]{./img/GearRadii.jpg}
+  \caption{Planetary gearbox radii}
+  \label{SystemRadii}
+\end{figure}
+
+The gear ratio of a planetary gearbox is given by the following formula.
+\begin{equation}
+  i = \frac{\omega_{\textrm{output}}}{\omega_{\textrm{input}}}
 \end{equation}
 Considering that the sun gear is connected to the input shaft and the carrier of the planet gears is connected to the output shaft, we can simply say,
 \begin{equation}
@@ -130,6 +137,13 @@ Since the number of teeth is proportional to the radius of the gear, we can subs
 \section{Gearbox (materials)}
 \subsection{For the gears in the gearbox of the wind turbine, steel would normally be the material of choice. Why is this the case?}
 \subsection{There are many different grades of steel available – what particular properties of the steel might be required for a gearbox application, and what sorts of steel would be suitable therefore?}
+A gear must be manufactured to have certain properties,
+\begin{itemize}
+  \item High tensile strength - prevent failure when a torque (static load) is applied to the gear.
+  \item High endurance strength - withstand the dynamic loads, when the gear is in use.
+  \item Low coefficient of friction - reduce mechanical losses in the system.
+  \item Good manufacturability - to reduce cost.
+\end{itemize}
 \subsection{The gears will be enclosed in a housing to help hold the mechanism together and prevent the ingress of contaminants. Suggest suitable materials for this housing, ensuring you provide justification for your suggestions (taking into account a range of factors including properties, and economic issues). Given your suggestions above, qualify these by providing consideration for how such an enclosure could be manufactured. What manufacturing processes might principally be required?}
 
 \section{Tower}
