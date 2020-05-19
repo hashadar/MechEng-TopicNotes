@@ -89,7 +89,7 @@ From Figure (\ref{SystemRadii}), we can see that a constraint on our system is,
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{./img/GearRadii.jpg}
+  \includegraphics[width = 0.7 \textwidth]{./img/GearRadii.png}
   \caption{Planetary gearbox radii}
   \label{SystemRadii}
 \end{figure}
@@ -97,7 +97,9 @@ From Figure (\ref{SystemRadii}), we can see that a constraint on our system is,
 The gear ratio of a planetary gearbox is given by the following formula.
 \begin{equation}
   i = \frac{\omega_{\textrm{output}}}{\omega_{\textrm{input}}}
+  \label{gearRatio}
 \end{equation}
+\subsubsection{Derivation One}
 Considering that the sun gear is connected to the input shaft and the carrier of the planet gears is connected to the output shaft, we can simply say,
 \begin{equation}
   i = \frac{\omega_S}{\omega_C}
@@ -125,6 +127,52 @@ Rearranging equation (\ref{radiiRelationship}) and substituting into (\ref{gearR
 This simplifies to,
 \begin{equation}
   i = 1 + \frac{r_R}{r_S}
+\end{equation}
+Since the number of teeth is proportional to the radius of the gear, we can substitute $z$ into our equation,
+\begin{equation}
+  i = 1 + \frac{z_R}{z_S}
+\end{equation}
+\subsubsection{Derivation Two (MERT AYDIN DEVELİOĞLU'NUN İZNİYLE)}
+Point A experiences fixed axis rotation about centre $0$. Hence,
+\begin{equation}
+  v_S = \omega_S r_S
+  \label{dev2Eq1}
+\end{equation}
+The velocity at point A can also be written as:
+\begin{equation}
+  v_S = v_R + v_{S/R}
+\end{equation}
+In the case where the ring gear is stationary, \(v_R = 0\). Subsituting this we arrive at,
+\begin{equation}
+  v_S = \omega_P(2r_P)
+  \label{dev2Eq2}
+\end{equation}
+Equating equations (\ref{dev2Eq1}) and (\ref{dev2Eq2}) yields:
+\begin{align}
+  \omega_S r_S &= \omega_P (2r_P)\\
+  \omega_P &= \frac{\omega_S r_S}{2r_P} \label{dev2Eq3}
+\end{align}
+Point B experience fixed axis rotation about centre $0$. Hence, 
+\begin{equation}
+  v_C = \omega_C r_C = \omega_C (r_S + r_P) \label{dev2Eq4}
+\end{equation}
+The velocity at point B can also be written as:
+\begin{equation}
+  v_C = v_R + v_{C/R} = 0 + r_P \omega_P \label{dev2Eq5}
+\end{equation}
+Using equations (\ref{dev2Eq3}), (\ref{dev2Eq4}) and (\ref{dev2Eq5}) yields:
+\begin{align}
+  \omega_C (r_S + r_P) &= r_P \frac{\omega_W r_S}{2r_P}\\
+  \frac{\omega_S}{\omega_C} &= \frac{2(r_S + r_P)}{r_S} \label{dev2Eq6}
+\end{align}
+Using equation (\ref{radiiRelationship}) into (\ref{dev2Eq6}) yields:
+\begin{align}
+  \frac{\omega_s}{\omega_C} &= \frac{2r_S + r_R - r_S}{r_S}\\
+  \frac{\omega_s}{\omega_C} &= \frac{r_S + r_R}{r_S}
+\end{align}
+Hence, the gear ratio $i$ is:
+\begin{equation}
+  i = \frac{r_S + r_R}{r_S} = 1 + \frac{r_R}{r_S}
 \end{equation}
 Since the number of teeth is proportional to the radius of the gear, we can substitute $z$ into our equation,
 \begin{equation}
