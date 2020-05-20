@@ -90,7 +90,7 @@ From Figure (\ref{SystemRadii}), we can see that a constraint on our system is,
 \begin{figure}[h]
   \centering
   \includegraphics[width = 0.7 \textwidth]{./img/GearRadii.png}
-  \caption{Planetary gearbox radii}
+  \caption{Simple planterary gearbox diagram.}
   \label{SystemRadii}
 \end{figure}
 
@@ -184,13 +184,14 @@ Since the number of teeth is proportional to the radius of the gear, we can subs
 
 \section{Gearbox (materials)}
 \subsection{For the gears in the gearbox of the wind turbine, steel would normally be the material of choice. Why is this the case?}
-Steel is cheap and available in a range of strengths. It is also tough and ductile. Steel is heat-treatable and alloys with many other elements such as Chromium, Manganese, Nickel, changing its properties. This makes steel (and its alloys) a very versatile material, able to be mass produced and manufactured easily, to suit a multitude of use cases.
+Steel is cheap and available in a range of strengths, dependent on the carbon content. It is also tough and ductile. Steel is heat-treatable and alloys with many other elements such as Chromium, Manganese and Nickel, changing its properties further. This makes steel (and its alloys) a very versatile material: easily procured and manufactured to suit the task at hand.
 \subsection{There are many different grades of steel available – what particular properties of the steel might be required for a gearbox application, and what sorts of steel would be suitable therefore?}
-Let us think about the failure modes which may occur in a gearbox involving the gears. Gear teeth can wear and break. Hence, we require steel with good (surface) hardness. As a side note, we may utilise lubrication to reduce the impact of shear forces on the gear. This will also help in keeping dirt and debris away from our gears. 
+Let us think about the potential failures which may occur with the gears in the gearbox. Gear teeth can wear and break. Hence, we require steel with good (surface) hardness. As a side note, we may utilise lubrication to reduce the impact of shear forces on the gear. This will also help in keeping dirt and debris away from our gears, preventing misalignment and breakdown.
 
-The gear will be subjected to cycles of loading and unloading (use and disuse), thus the steel should have good fatigue strength. The way our gear is designed will also impact this property, e.g. making sure there are no stress concentrations and making sure there is a good surface finish/contact. 
+The gear will be expected to have excellent longevity. One average, a wind turbine is expected to last twenty years \citep{windTurbineLifetime}. Since the wind is not a constant force, the application of forces on our gears will be cyclic in nature. Thus the steel used should have good fatigue strength. The way our gear is designed will also impact this property, e.g. making sure there are no stress concentrations and making sure there is a good surface finish/contact. Manufacturing the gear this way will help reduce the potential for failure points to grow and manifest into fractures. 
 
-We must also consider the operating conditions of our gears. Since our gearbox will be housed in the nacelle of the turbine, we can assume that our gearbox will be protected from weather. The gearbox will still undergo temperature changes however these fluctuations are comparatively minor. In 2019, the UK's average temperatures in summer and winter were 15.1\si{\celsius} and 5.2\si{\celsius}, with highest and lowest mean daily temperatures being 22.2\si{\celsius} and -2.1\si{\celsius} \citep{UKTemperatureData}. 
+We must also consider the operating conditions of our gears. Since our gearbox will be housed in the nacelle of the turbine, we can assume that our gearbox will be protected from weather. The gearbox will still undergo temperature changes. Depending on the location of the wind turbine, the gears must be designed to work with the local climate in mind. Wind turbines operating in sub 20\si{\celsius} or plus 50\si{\celsius} temperatures must be designed with special considerations given to the components and infrastructure \citep{windTurbineOperatingConditions}.
+
 A gear must be manufactured to have certain properties,
 \begin{itemize}
   \item High tensile strength - prevent failure when a torque (static load) is applied to the gear.
@@ -202,6 +203,7 @@ A gear must be manufactured to have certain properties,
 
 \section{Tower}
 \subsection{The tower in the picture is a single tube which is also normally made of steel. Explain why this is likely to be manufactured from a different grade of steel to that used in the gearbox. What properties are needed in this particular context?}
+The wind turbine’s tower is likely to be a different grade of steel because of the forces applied to the material. Considering that the nacelle and blades directly atop the tower, they exhibit a downwards force on the tower, compressing it. Hence, the tower must have adequate compressive strength to support the weight of the turbine. This is contrary to the steel used for the gears as they must be designed to have high tensile strength. One similarity they must share is high fatigue strength. The wind blowing on the blades applies a perpendicular load to the tower. Therefore, our turbine must be
 
 \section{Energy generation}
 \subsection{Designers are considering the maximum power that could be generated by this turbine in two theoretical case studies. In case A, the incoming wind speed is 25 m/s and the air speed after passing through the blades is 15 m/s. In case B, the incoming wind speed is 20 m/s and the final speed is 12 m/s. Describe the concepts needed to estimate the maximum theoretical output of a wind turbine, and calculate the maximum theoretical power output for both these cases when the blade length is 37 m. Take the value of 1.2 kg/m3 for air density.}
