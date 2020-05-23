@@ -180,6 +180,7 @@ Since the number of teeth is proportional to the radius of the gear, we can subs
 \end{equation}
 \subsection{Perform a conceptual design of an epicyclic gear system for a 1.5 MW wind turbine if the three blades spin at a design speed of 12 rpm and the high-speed shaft in the generator needs to spin at 1680 rpm. Provide information on the configuration of your proposed planetary gear set (note: the 5 laws of planetary gearing – see the provided videos) and the input/output torque ratio that can be achieved by your system. Neglect friction and assume that the angular acceleration of the gears (which are rigid and non-deformable) is zero. You must indicate the number of teeth in each gear and provide a schematic drawing.}
 \subsection{Wind gusts and turbulence lead to misalignment of the drive train and premature failure of the gear components. How could this be mitigated?}
+Misalignment of the gear teeth can occur in many ways, even at the same time. These are: radially, axially, yaw misalignment and pitch misalignment.
 \subsection{Comment on the advantages/disadvantages of an epicyclic gear system in the context of a wind turbine gear box.}
 
 \section{Gearbox (materials)}
@@ -188,7 +189,7 @@ Steel is cheap and available in a range of strengths, dependent on the carbon co
 \subsection{There are many different grades of steel available – what particular properties of the steel might be required for a gearbox application, and what sorts of steel would be suitable therefore?}
 Let us think about the potential failures which may occur with the gears in the gearbox. Gear teeth can wear and break. Hence, we require steel with good (surface) hardness. As a side note, we may utilise lubrication to reduce the impact of shear forces on the gear. This will also help in keeping dirt and debris away from our gears, preventing misalignment and breakdown.
 
-The gear will be expected to have excellent longevity. One average, a wind turbine is expected to last twenty years \citep{windTurbineLifetime}. Since the wind is not a constant force, the application of forces on our gears will be cyclic in nature. Thus the steel used should have good fatigue strength. The way our gear is designed will also impact this property, e.g. making sure there are no stress concentrations and making sure there is a good surface finish/contact. Manufacturing the gear this way will help reduce the potential for failure points to grow and manifest into fractures. 
+The gear will be expected to have excellent longevity. On average, a wind turbine is expected to last twenty years \citep{windTurbineLifetime}. Since the wind is not a constant force, the application of forces on our gears will be cyclic in nature. Thus the steel used should have good fatigue strength. The way our gear is designed will also impact this property, e.g. making sure there are no stress concentrations and making sure there is a good surface finish/contact. Manufacturing the gear this way will help reduce the potential for failure points to grow and manifest into fractures. 
 
 We must also consider the operating conditions of our gears. Since our gearbox will be housed in the nacelle of the turbine, we can assume that our gearbox will be protected from weather. The gearbox will still undergo temperature changes. Depending on the location of the wind turbine, the gears must be designed to work with the local climate in mind. Wind turbines operating in sub 20\si{\celsius} or plus 50\si{\celsius} temperatures must be designed with special considerations given to the components and infrastructure \citep{windTurbineOperatingConditions}.
 
@@ -203,10 +204,31 @@ A gear must be manufactured to have certain properties,
 
 \section{Tower}
 \subsection{The tower in the picture is a single tube which is also normally made of steel. Explain why this is likely to be manufactured from a different grade of steel to that used in the gearbox. What properties are needed in this particular context?}
-The wind turbine’s tower is likely to be a different grade of steel because of the forces applied to the material. Considering that the nacelle and blades directly atop the tower, they exhibit a downwards force on the tower, compressing it. Hence, the tower must have adequate compressive strength to support the weight of the turbine. This is contrary to the steel used for the gears as they must be designed to have high tensile strength. One similarity they must share is high fatigue strength. The wind blowing on the blades applies a perpendicular load to the tower. Therefore, our turbine must be
+The wind turbine’s tower is expected to be a particular grade of steel because of the forces applied to the material. A factor to consider is how the wind force can induce an oscillation in the tower. The stiffness of the steel and natural frequency of the tower will play a dominant role in diminishing oscillations and avoiding resonance.
+
+Considering that the nacelle and blades atop the tower, they exhibit a downward force on the tower, compressing it. Hence, a steel with adequate compressive strength and ultimate stress to support the weight of the turbine is required. This is contrary to the steel used for the gears as they are designed to have high tensile strength. 
+
+Our wind turbine will again be subject to a variety of forces over its lifetime. Wind turbines are designed to have long lifespans, hence we can mitigate failure (in the material) using a high fatigue strength steel. 
 
 \section{Energy generation}
 \subsection{Designers are considering the maximum power that could be generated by this turbine in two theoretical case studies. In case A, the incoming wind speed is 25 m/s and the air speed after passing through the blades is 15 m/s. In case B, the incoming wind speed is 20 m/s and the final speed is 12 m/s. Describe the concepts needed to estimate the maximum theoretical output of a wind turbine, and calculate the maximum theoretical power output for both these cases when the blade length is 37 m. Take the value of 1.2 kg/m3 for air density.}
+\subsubsection{Case A}
+Variables:
+\begin{itemize}
+  \item $V_{in} = 25\si{\meter\per\second}$
+  \item $V_{out} = 15\si{\meter\per\second}$
+  \item $B = 37\si{\meter}$
+  \item $\rho_{air} = 1.2\si{\kg\per\meter\cubed}$
+\end{itemize}
+Power is given by:
+\begin{equation}
+  \textrm{Power} = \textrm{Force} \times \textrm{Velocity}
+\end{equation}
+Hence,
+\begin{equation}
+  P = \frac{1}{4} \rho A (V_{out} + V_{in})(V_{out}^2 - V_{in}^2)
+\end{equation}
+\subsubsection{Case B}
 
 \subsection{Consider the various terms in the energy equation as they relate to a wind turbine. Describe briefly which terms are important for the wind turbine, and connect terms in the equation to the major sources of energy loss. Comment on the implications for wind turbine efficiency.}
 \subsection{The world’s most powerful commercial wind turbine today has a blade length of 82m and is rated at 9.5 MW. Comment briefly on the reasons why the numbers calculated using your theoretical approach above are far larger than this actual capacity.}
