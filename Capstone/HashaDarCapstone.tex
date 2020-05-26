@@ -22,23 +22,32 @@
 \maketitle
 \begin{flushleft}
 
+\section*{Notes}
+\begin{itemize}
+  \item Titles are \textbf{not} counted towards the word limit.
+  \item References are counted as one word e.g. \citeprimsec{windTurbineMaterial2}{windTurbineMaterial} is counted as \textbf{one} word. This is due to the limitations of \LaTeX \ having no word count feature.
+  \item The references section at the end of the document is \textbf{not} counted towards the word limit.
+  \item Maths and equations and subsequent words used in equations are \textbf{not} counted towards the word limit e.g. $i = \frac{\omega_{\textrm{output}}}{\omega_{\textrm{input}}}$ the words 'output' and 'input' are not counted here.
+  \item The word count for a section is displayed at the end of the last question e.g. the 'Blades' section has five questions and the word count will be displayed after the fifth question.  
+\end{itemize}
+
 \section{Blades}
-\subsection{For the blades of the wind turbine, composite materials are usually employed. Why is this the case?}
+\subsection{For the blades of the wind turbine, composite materials are usually employed. Why is this the case? [74/90 words]}
 A composite material may be employed for their favourable properties. Composites materials can have variable (favourable) properties depending on their composition; yielding better fatigue strength, elasticity and corrosion resistance than an alternative e.g. an aluminium alloy. The orientation of the fibres in the composites matrix can be specifically arranged to combat stress (in this case the force of the wind on the blade), reducing the probability of failure (cracking, deformation) in the structure.
 
-\subsection{What common composites might be employed in this application, and what are their relative merits and benefits in comparison to each other?}
+\subsection{What common composites might be employed in this application, and what are their relative merits and benefits in comparison to each other? [122/90 words]}
 The composite used is likely to be of a fiber-reinforced matrix. The fiber used is likely to be glass or carbon based. Alternatives such as basalt fibers have also been used. Most common are 'E-Glass' fibers, used for their stiffness, tensile and compressive strength. Glass fibers with modified compositions, yielding higher strength, have been developed but are seldom used due to much greater cost.
 
 The matrix material is likely to be a thermoset plastic rather than a thermoplastic. This is due to thermosets having more favourable production characteristics: lower curing temperatures/times and lower viscosity, leading to high processing speed. The most common thermosets used are epoxy and polyester resins. However, an advantage to using a thermoplastic is their recyclability. \citeprimsec{windTurbineMaterial2}{windTurbineMaterial} 
 
 \subsection{What significant issues can you see with using composites in this engineering application? [For 
 example, you could consider economic or environmental
-challenges]}
-A common manufacturing technique to produce turbine blades is called vacuum assister resin transfer molding. This is where fiber sheets are placed and aligned in a mold, covered in a vacuum bag and a resin injected. The resin is then left to cure \citep{VARTM}. This process may be labour intensive as the placing and direction of the fibers is a delicate process, requiring human input. Furthermore, once a blade has been manufactured, the blade msut undergo significant testing (in some cases several months), incurring more cost. If a blade is rejected from testing, the material in the blade may be quite difficult to extract and reuse. 
+challenges] [144/90 words]}
+A common manufacturing technique to produce turbine blades is called vacuum assisted resin transfer molding. This is where fiber sheets are placed and aligned in a mold, covered in a vacuum bag and a resin injected. The resin is then left to cure \citep{VARTM}. This process may be labour intensive as the placing and direction of the fibers is a delicate process, requiring human input. Once a blade has been manufactured, the blade must undergo significant testing (in some cases several months), incurring more cost. If a blade is rejected from testing, the material in the blade may be difficult to extract and reuse. 
 
-Building on reuse, recovered fibers prevent a cost barrier as in most cases, recovered fibers are more expensive than new fibers, to use on industrial scales. However, their reuse can be found in other fields, such as cement production \citep{fiberCement}.
+Building on reuse, recovered fibers prevent a cost barrier as in most cases, recovered fibers are more expensive than new fibers, to use on industrial scales. However, their reuse can be found in other fields, such as cement production \citep{fiberCement}. 
 
-\subsection{The power (W in J/s) produced by a wind turbine depends on blade length (B), the incoming wind speed (V), and air density (\(\rho\)). Derive one dimensionless number relevant to the problem using W as the dependent parameter. Use this dimensionless number to comment on the implications of doubling the blade length.}
+\subsection{The power (W in J/s) produced by a wind turbine depends on blade length (B), the incoming wind speed (V), and air density (\(\rho\)). Derive one dimensionless number relevant to the problem using W as the dependent parameter. Use this dimensionless number to comment on the implications of doubling the blade length. [18/90 words]}
 Using Buckingham Pi:
 \begin{align}
   [W] &= ML^2T^{-3}\\
@@ -59,8 +68,10 @@ Using Buckingham Pi:
 \end{gather}
 From this we can see that doubling the blade length (\(B\)), quadruples the power output of the wind turbine.
 
-\subsection{Considering the answer above, discuss the trade-offs associated with choosing longer blades for a turbine of a fixed height.}
-Naturally, choosing larger blades for a turbine of a fixed height creates a limit to how large the blades can be before the turbine's tower would not be able to structurally support the weight of the blades. Hence, using larger blades requires the use of stronger materials in order to support their weight. Using stronger materials is more expensive to procure and manufacture, driving up initial costs. If the turbine cannot produce enough power to become econmically viable over its lifetime, this would cause problems for the manufacturer.
+\subsection{Considering the answer above, discuss the trade-offs associated with choosing longer blades for a turbine of a fixed height. [84/90 words]}
+Naturally, choosing larger blades for a turbine of a fixed height creates a limit to how large the blades can be before the turbine’s tower could not structurally support the weight of the blades. Hence, using larger blades requires the use of stronger materials to support their weight. Using stronger materials is more expensive to procure and manufacture, driving up initial costs. If the turbine cannot produce enough power to become economically viable over its lifetime, this would cause problems for the manufacturer.
+
+Words: 442/500
 
 \section{Gearbox (dynamics)}
 \subsection{Derive a simple relationship for the gear ratio expressed as a function of number of teeth in the sun and ring gears of an epicyclic (or planetary) gear train.}
@@ -179,8 +190,8 @@ Since the number of teeth is proportional to the radius of the gear, we can subs
   i = 1 + \frac{z_R}{z_S}
 \end{equation}
 \subsection{Perform a conceptual design of an epicyclic gear system for a 1.5 MW wind turbine if the three blades spin at a design speed of 12 rpm and the high-speed shaft in the generator needs to spin at 1680 rpm. Provide information on the configuration of your proposed planetary gear set (note: the 5 laws of planetary gearing – see the provided videos) and the input/output torque ratio that can be achieved by your system. Neglect friction and assume that the angular acceleration of the gears (which are rigid and non-deformable) is zero. You must indicate the number of teeth in each gear and provide a schematic drawing.}
-\subsection{Wind gusts and turbulence lead to misalignment of the drive train and premature failure of the gear components. How could this be mitigated?}
-Misalignment of the gear teeth can occur in many ways, even at the same time. These are: radially, axially, yaw misalignment and pitch misalignment.
+\subsection{Wind gusts and turbulence lead to misalignment of the drive train and premature failure of the gear components. How could this be mitigated? [150 words]}
+Misalignment of the gear teeth can cause parts of the gear to undergo more wear and tear than normal or abnormal performance. This could take place as the gears grinding together. This would cause the gears to be wear much faster than usual and also introduce much more particulate matter into the gearbox, causing further damage. In another example, the gears could skip because of radial misalignment or eccentricity. This would decrease the performance of the gearbox.
 \subsection{Comment on the advantages/disadvantages of an epicyclic gear system in the context of a wind turbine gear box.}
 
 \section{Gearbox (materials)}
