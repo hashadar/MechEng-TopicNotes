@@ -4,6 +4,7 @@
 \usepackage{natbib}
 \newcommand{\citeprimsec}[2]{\citep[][cited by \citealp{#2}]{#1}}
 \usepackage{amsmath}
+\usepackage{tensor}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage[english]{babel}
@@ -287,7 +288,47 @@ The thermal losses in the the system $\si{Q}_{out}$ is due to inefficiencies in 
 \subsection{In an offshore wind turbine facility, the excess energy generated is stored using a simple compressed air storage system. The wind turbine is mechanically coupled to a compressor that has a compression ratio of 200. The compressor takes in air from the surrounding at ambient pressure and temperature conditions (p0, T0) and performs a reversible adiabatic compression process. The output air from the compressor (at p1, T1) undergoes a reversible isobaric heat removal process using a heat exchanger in order to reduce the temperature to T0. The air is then stored in a high-pressure storage facility.}
 \subsection{Determine:}
 \subsubsection{heat and work transfers per unit mass for both the compression and heat removal processes}
+Compression ratio = $\frac{V_f}{V_i}$ = 200
+
+First Process - Heat in compression. 
+\begin{equation}
+  \tensor[_1]{Q}{_2} = \tensor[_1]{q}{_2} = 0
+\end{equation}
+\begin{gather}
+  dQ = dW + dU\\
+  dQ = 0 \textrm{ (adiabtic)}\\
+  dW = - dU\\
+  dW = -m c_V dT
+  dw = - c_V dT 
+\end{gather}
+\begin{gather}
+  dU = -dW\\
+  c_V dT = -PdV\\
+  c_V dT = \frac{RT}{V} dV\\
+  c_V \frac{dT}{T} = -R \frac{dV}{V}\\
+  c_V\int_{T_0}^{T_1} \left( \frac{dT}{T} \right) = -R \int_{V_0}^{V_1} \left( \frac{dV}{V} \right)\\
+  c_V \ln \left( \frac{T_1}{T_0} \right) = -R \ln \left( \frac{V_1}{V_0} \right) = - R \ln \left(\frac{T_1}{T_0} \frac{P_0}{P_1}\right)\\
+  P_1 V_1 = R T_1\\
+  V_1 = \frac{RT_1}{P_1}\\
+  \therefore c_V \ln \left( \frac{T_1}{T_0} \right) = -R \ln \left(\frac{T_1}{T_0} \right) - \ln \left(\frac{P_0}{P_1}\right)\\
+  (c_V + R) \ln \left(\frac{T_1}{T_0} \right) = R \ln \left(\frac{P_1}{P_0}\right)\\
+  c_P \ln \left(\frac{T_1}{T_0} \right) = R \ln \left(\frac{P_1}{P_0}\right)\\
+  \ln \left(\frac{T_1}{T_0} \right) = \frac{R}{c_P}\ln \left(\frac{P_1}{P_0}\right) = \ln \left(\frac{P_1}{P_0}\right)^{\frac{R}{c_P}}\\
+  \frac{T_1}{T_0} = \left( \frac{P_1}{P_0} \right)^{\frac{R}{c_P}}
+\end{gather}
+Second Process - Heat in heat removal.
+\begin{equation}
+  \frac{\tensor[_2]{Q}{_3}}{m} = \tensor[_2]{q}{_3} = c_P (T_0 - T_1)
+\end{equation}
+Work in heat removal
+\begin{gather}
+  \tensor[_2]{W}{_3} = k \int_2^3 \frac{dV}{V^\gamma} = \frac{P_3 V_3 - P_2 V_2}{1 - \gamma} \\
+  \frac{\tensor[_2]{W}{_3}}{m} = \tensor[_2]{w}{_3} = \frac{nR(T_0 - T_1)}{m}
+\end{gather}
 \subsubsection{the total entropy change per unit mass undergone by air}
+\begin{equation}
+  \tensor[_1]{s}{_2} + \tensor[_2]{s}{_3} = 0 + c_P \ln \left( \frac{T_0}{T_1} \right)
+\end{equation}
 \subsection{The heat removal in the above system is achieved by a refrigerator operating on a simple vapour compression cycle. This simple vapour compression refrigerator uses ammonia (NH3) as the working fluid. The evaporator pressure is pe and the condenser pressure is pc (where pc/pe>=6). The working fluid leaves the evaporator dry-saturated and enters the compressor, where it is compressed reversibly and adiabatically. Condensation at constant pressure then takes place until the saturated liquid state is reached. This is followed by throttling to evaporator pressure.}
 \subsection{Sketch the cycle on T-s and p-h diagrams}
 \subsubsection{the compressor delivery temperature, and}
