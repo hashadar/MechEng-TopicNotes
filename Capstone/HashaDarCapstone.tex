@@ -290,7 +290,32 @@ The thermal losses in the the system $\si{Q}_{out}$ is due to inefficiencies in 
 \subsubsection{heat and work transfers per unit mass for both the compression and heat removal processes}
 Compression ratio = $\frac{V_f}{V_i}$ = 200
 
-First Process - Heat in compression. 
+First Process - isentropic (reverisble adiabatic) compression.
+Compression ratio = 200.
+Applying SFEE.
+\begin{gather}
+  q_{in} + w_{in} + h_0 = q_{out} + w_{out} + h_1\\
+  q = 0, \ w_{out} = 0\\
+  w_{in} = h_1 - h_0 \ \si{\kilo\joule\per\kg}\\
+  w_{in} = c_P (T_1 - T_0)
+\end{gather}
+Second Process - Heat in heat removal.
+Applying SFEE
+\begin{gather}
+  w= 0, \ q_{in} = 0\\
+  q_{out} = h_2 - h_3 \ \si{\kilo\joule\per\kg}
+\end{gather}
+
+\subsection{The heat removal in the above system is achieved by a refrigerator operating on a simple vapour compression cycle. This simple vapour compression refrigerator uses ammonia (NH3) as the working fluid. The evaporator pressure is pe and the condenser pressure is pc (where pc/pe>=6). The working fluid leaves the evaporator dry-saturated and enters the compressor, where it is compressed reversibly and adiabatically. Condensation at constant pressure then takes place until the saturated liquid state is reached. This is followed by throttling to evaporator pressure.}
+\subsection{Sketch the cycle on T-s and p-h diagrams}
+\subsubsection{the compressor delivery temperature, and}
+\subsubsection{the mass flow rate of the refrigerant}
+
+\section{Final discussion}
+\subsection{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines.}
+test
+
+\section{scrap text}
 \begin{equation}
   \tensor[_1]{Q}{_2} = \tensor[_1]{q}{_2} = 0
 \end{equation}
@@ -316,7 +341,7 @@ First Process - Heat in compression.
   \ln \left(\frac{T_1}{T_0} \right) = \frac{R}{c_P}\ln \left(\frac{P_1}{P_0}\right) = \ln \left(\frac{P_1}{P_0}\right)^{\frac{R}{c_P}}\\
   \frac{T_1}{T_0} = \left( \frac{P_1}{P_0} \right)^{\frac{R}{c_P}}
 \end{gather}
-Second Process - Heat in heat removal.
+
 \begin{equation}
   \frac{\tensor[_2]{Q}{_3}}{m} = \tensor[_2]{q}{_3} = c_P (T_0 - T_1)
 \end{equation}
@@ -329,14 +354,6 @@ Work in heat removal
 \begin{equation}
   \tensor[_1]{s}{_2} + \tensor[_2]{s}{_3} = 0 + c_P \ln \left( \frac{T_0}{T_1} \right)
 \end{equation}
-\subsection{The heat removal in the above system is achieved by a refrigerator operating on a simple vapour compression cycle. This simple vapour compression refrigerator uses ammonia (NH3) as the working fluid. The evaporator pressure is pe and the condenser pressure is pc (where pc/pe>=6). The working fluid leaves the evaporator dry-saturated and enters the compressor, where it is compressed reversibly and adiabatically. Condensation at constant pressure then takes place until the saturated liquid state is reached. This is followed by throttling to evaporator pressure.}
-\subsection{Sketch the cycle on T-s and p-h diagrams}
-\subsubsection{the compressor delivery temperature, and}
-\subsubsection{the mass flow rate of the refrigerant}
-
-\section{Final discussion}
-\subsection{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines.}
-test
 
 \bibliographystyle{agsm}
 \bibliography{references}
