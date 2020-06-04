@@ -5,6 +5,7 @@
 \newcommand{\citeprimsec}[2]{\citep[][cited by \citealp{#2}]{#1}}
 \usepackage{amsmath}
 \usepackage{tensor}
+\usepackage{float}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage[english]{babel}
@@ -286,9 +287,150 @@ The thermal losses in the the system $\si{Q}_{out}$ is due to inefficiencies in 
 
 \section{Energy storage}
 \subsection{In an offshore wind turbine facility, the excess energy generated is stored using a simple compressed air storage system. The wind turbine is mechanically coupled to a compressor that has a compression ratio of 200. The compressor takes in air from the surrounding at ambient pressure and temperature conditions (p0, T0) and performs a reversible adiabatic compression process. The output air from the compressor (at p1, T1) undergoes a reversible isobaric heat removal process using a heat exchanger in order to reduce the temperature to T0. The air is then stored in a high-pressure storage facility.}
+We have two processes in this simple compressed air storage system:
+\begin{itemize}
+  \item Process 1 $\rightarrow$ 2: Reversible adiabtic compression (isentropic)
+  \item Process 2 $\rightarrow$ 3: Reversible isobaric heat rejection
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width  = \textwidth]{./img/TsPvDiagrams62.png}
+  \caption{Graphs to show T-s and P-v for simple compressed air storage system}
+\end{figure}
+
 \subsection{Determine:}
 \subsubsection{heat and work transfers per unit mass for both the compression and heat removal processes}
-Compression ratio = $\frac{V_f}{V_i}$ = 200
+\subsubsection*{Process 1 $\rightarrow$ 2: isentropic compression}
+Let us begin with the First Law of Thermodynamics.
+\begin{equation}
+  dQ = dU + dW
+\end{equation}
+The process is adiabtic, hence:
+\begin{gather}
+  dQ = 0\\
+  dW = - dU\\
+  dW = -m c_V dT\\
+  dw = - c_V dT\\
+  \int_1^2(dw) = -c_V \int_1^2(dT)\\
+  \tensor[_1]{w}{_2} = -c_V (T_2 - T_1)\\
+\end{gather}
+We know that $T_2 = T_1$ and $T_1 = T_0$ (as stated in question). Hence:
+\begin{gather}
+  \tensor[_1]{w}{_2} = -c_V (T_1 - T_0)\\
+  \tensor[_1]{w}{_2} = c_V (T_0 - T_1)
+\end{gather}
+Work done in compression is given by:
+\begin{equation}
+  \tensor[_1]{W}{_2} = \int_1^2 (PdV)
+\end{equation}
+
+\subsubsection*{Process 2 $\rightarrow$ 3: reversible isobaric heat rejection}
+Let us begin with the First Law of Thermodynamics.
+\begin{equation}
+  dQ = dU + dW
+\end{equation}
+Which can also be written as:
+\begin{equation}
+  dW = dU + PdV
+\end{equation}
+Assuming that ideal gas law applies, we can use the following equation. Process is isobaric, thus P is constant, as well as $n$ and $R$.
+\begin{equation}
+  PdV = nRdT
+\end{equation}
+Substituting:
+\begin{gather}
+  dQ = dU + nRdT
+\end{gather}
+$dU$ can be rewritten:
+\begin{equation}
+  dU = nC_V dT 
+\end{equation}
+Subsituting:
+\begin{gather}
+  dQ = nC_V dT + nRdT\\
+  dQ = ndT (C_V + R)
+\end{gather}
+We know:
+\begin{equation}
+  C_P = C_V +R 
+\end{equation}
+Hence:
+\begin{gather}
+  dQ = nC_P dT\\
+  dQ = mc_P dT\\
+  \int_2^3 (dQ) = mc_P \int_2^3 (dT)\\
+  \tensor[_2]{Q}{_3} = mc_P (T_3 - T_2)\\
+\end{gather}
+We know that $T_3 = T_0$ and $T_2 = T_1$ (as can be seen in the T-s diagram). Hence:
+\begin{gather}
+  \tensor[_2]{Q}{_3} = mc_P (T_0 - T_1)\\
+  \tensor[_2]{q}{_3} = c_P (T_0 - T_1)
+\end{gather}
+Work done in heat rejection is simply:
+\begin{gather}
+  \tensor[_2]{W}{_3} = nR\int_2^3(dT)\\
+  \tensor[_2]{W}{_3} = nR(T_3 - T_2)\\
+\end{gather}
+We know that $T_3 = T_0$ and $T_2 = T_1$ (as can be seen in the T-s diagram). Hence:
+\begin{gather}
+  \tensor[_2]{W}{_3} = nR(T_0 - T_1)\\
+  \tensor[_2]{w}{_3} = \frac{nR(T_0 - T_1)}{m}
+\end{gather}
+\subsubsection{the total entropy change per unit mass undergone by air}
+\subsubsection*{Process 1 $\rightarrow$ 2: isentropic compression}
+Process is isentropic, hence:
+\begin{equation}
+  \tensor[_1]{s}{_2} = 0
+\end{equation}
+\subsubsection*{Process 2 $\rightarrow$ 3: reversible isobaric heat rejection}
+Process is isobaric, hence:
+\begin{gather}
+  dS = \frac{dQ}{T}\\
+  \int_2^3 (dS) = \int_2^3 (\frac{dQ}{T})\\
+  \tensor[_2]{S}{_3} = \int_2^3 (\frac{mc_PdT}{T})\\
+  \tensor[_2]{S}{_3} = mc_P\int_2^3 (\frac{dT}{T})\\
+  \tensor[_2]{S}{_3} = mc_P \ln \left( \frac{T_3}{T_2} \right)
+\end{gather}
+We know that $T_3 = T_0$ and $T_2 = T_1$ (as can be seen in the T-s diagram). Hence:
+\begin{gather}
+  \tensor[_2]{S}{_3} = mc_P \ln \left( \frac{T_0}{T_1} \right)\\
+  \tensor[_2]{s}{_3} = c_P \ln \left( \frac{T_0}{T_1} \right)
+\end{gather}
+Total entropy change from Process $1 \rightarrow 2 \rightarrow 3$ is:
+\begin{gather}
+  \tensor[_1]{s}{_2} + \tensor[_2]{s}{_3} = 0 + c_P \ln \left( \frac{T_0}{T_1} \right)\\
+  \Delta s = c_P \ln \left( \frac{T_0}{T_1} \right)
+\end{gather}
+
+\subsection{The heat removal in the above system is achieved by a refrigerator operating on a simple vapour compression cycle. This simple vapour compression refrigerator uses ammonia (NH3) as the working fluid. The evaporator pressure is pe and the condenser pressure is pc (where pc/pe>=6). The working fluid leaves the evaporator dry-saturated and enters the compressor, where it is compressed reversibly and adiabatically. Condensation at constant pressure then takes place until the saturated liquid state is reached. This is followed by throttling to evaporator pressure.}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width  = \textwidth]{./img/SystemDiagram63.png}
+  \caption{Diagram to show simple vapour compression system}
+\end{figure}
+\subsection{Sketch the cycle on T-s and P-h diagrams}
+Processes in a simple vapour compression cycle are as follows:
+\begin{itemize}
+  \item Process 1 $\rightarrow$ 2: Reversible adiabatic compresssion (isentropic)
+  \item Process 2 $\rightarrow$ 3: Isobaric heat rejection
+  \item Process 3 $\rightarrow$ 4: Thermal throttling
+  \item Process 4 $\rightarrow$ 1: Isobaric heat absorption
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width  = \textwidth]{./img/TsPhDiagrams64.png}
+  \caption{Graphs to show T-s and P-h for simple vapour compression cycle}
+\end{figure}
+\subsection{Describe the procedure required to determine:}
+\subsubsection{the compressor delivery temperature}
+\subsubsection{the mass flow rate of the refrigerant}
+
+\section{Final discussion}
+\subsection{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines.}
+test
+
+\section{scrap text}
 
 First Process - isentropic (reverisble adiabatic) compression.
 Compression ratio = 200.
@@ -305,17 +447,6 @@ Applying SFEE
   w= 0, \ q_{in} = 0\\
   q_{out} = h_2 - h_3 \ \si{\kilo\joule\per\kg}
 \end{gather}
-
-\subsection{The heat removal in the above system is achieved by a refrigerator operating on a simple vapour compression cycle. This simple vapour compression refrigerator uses ammonia (NH3) as the working fluid. The evaporator pressure is pe and the condenser pressure is pc (where pc/pe>=6). The working fluid leaves the evaporator dry-saturated and enters the compressor, where it is compressed reversibly and adiabatically. Condensation at constant pressure then takes place until the saturated liquid state is reached. This is followed by throttling to evaporator pressure.}
-\subsection{Sketch the cycle on T-s and p-h diagrams}
-\subsubsection{the compressor delivery temperature, and}
-\subsubsection{the mass flow rate of the refrigerant}
-
-\section{Final discussion}
-\subsection{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines.}
-test
-
-\section{scrap text}
 \begin{equation}
   \tensor[_1]{Q}{_2} = \tensor[_1]{q}{_2} = 0
 \end{equation}
