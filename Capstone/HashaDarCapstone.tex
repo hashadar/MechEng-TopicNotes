@@ -166,6 +166,32 @@ Since the number of teeth is proportional to the radius of the gear, we can subs
   i = 1 + \frac{z_R}{z_S}
 \end{equation}
 \subsection[Schematic.]{Perform a conceptual design of an epicyclic gear system for a 1.5 MW wind turbine if the three blades spin at a design speed of 12 rpm and the high-speed shaft in the generator needs to spin at 1680 rpm. Provide information on the configuration of your proposed planetary gear set (note: the 5 laws of planetary gearing – see the provided videos) and the input/output torque ratio that can be achieved by your system. Neglect friction and assume that the angular acceleration of the gears (which are rigid and non-deformable) is zero. You must indicate the number of teeth in each gear and provide a schematic drawing.}
+My proposed design is to use three 4:1 planetary gearboxes with a 2.1875:1 spur gear stage. In total, $4^3 \times 2.1875 = 140$, giving us a final ratio of 140:1. This would allow the gearbox to take a 12 rpm input and convert it to 1680 rpm ($\frac{1680}{12} = 140$).
+
+In the 4:1 planetary, the sun, planet and ring gears have teeth numbers of 29, 29, and 87 respectively. The two spur gears have teeth numbers of 35 and 16, with the 35 teeth gear being the drive gear. The torque for a planetary gearset is given by:
+\begin{equation}
+  \tau_S = - \tau_C \frac{N_S}{N_R + N_S}
+\end{equation}
+Where $\tau_S$ is the sun torque and $\tau_C$ is the carrier torque. The negative sign symbolises that output torques have the reverse sign of input torques.
+Hence, after three planetaries, our torque ratio is:
+\begin{align}
+  \tau_{S3} &= - \tau_{C1} \left( \frac{N_S}{N_R + N_S} \right)^3\\
+  \tau_{S3} &= - \tau_{C1} \left( \frac{29}{87 + 29} \right)^3\\
+  \tau_{S3} &= - \frac{1}{64}\tau_{C1} 
+\end{align}
+For a simple gear train, the torque ratio is given by:
+\begin{equation}
+  R = \frac{\tau_{\textrm{driving}}}{\tau_{\textrm{driven}}}
+\end{equation}
+Where $R$ is the gear ratio. Hence:
+\begin{align}
+  \tau_{\textrm{driven}} &= \frac{\tau_{\textrm{driving}}}{R}\\
+  \tau_{\textrm{driven}} &= \frac{- \frac{1}{64}\tau_{C1} }{2.1875}\\
+  \tau_{\textrm{driven}} &= -\frac{1}{140} \tau_{C1}\\
+  \tau_{\textrm{output}} &= -\frac{1}{140} \tau_{\textrm{input}}
+\end{align}
+A schematic drawing of the gearbox is shown on the next page.
+\newpage
 \subsection[Misalignment and failure prevention.]{Wind gusts and turbulence lead to misalignment of the drive train and premature failure of the gear components. How could this be mitigated? [124/150 words]}
 Misalignment of the gear teeth can cause parts of the gear to undergo more wear and tear than normal. This abrasive action would cause more particulate matter to be generated when the gearbox is in operation. Particulate matter in the gearbox will scratch, cut and gouge material out of the gears. This can be mitigated with adequate lubrication of the gears, as it will keep the gears clean, cool and prevent a buildup of dirt and debris. 
 
