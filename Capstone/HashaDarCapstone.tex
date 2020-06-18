@@ -7,6 +7,7 @@
 \usepackage{tensor}
 \usepackage{float}
 \usepackage{multicol}
+\usepackage{url}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage[english]{babel}
@@ -192,8 +193,9 @@ Where $R$ is the gear ratio. Hence:
 \end{align}
 A schematic drawing of the gearbox is shown on the next page.
 \newpage
+\setcounter{page}{11}
 \subsection[Misalignment and failure prevention.]{Wind gusts and turbulence lead to misalignment of the drive train and premature failure of the gear components. How could this be mitigated? [124/150 words]}
-Misalignment of the gear teeth can cause parts of the gear to undergo more wear and tear than normal. This abrasive action would cause more particulate matter to be generated when the gearbox is in operation. Particulate matter in the gearbox will scratch, cut and gouge material out of the gears. This can be mitigated with adequate lubrication of the gears, as it will keep the gears clean, cool and prevent a buildup of dirt and debris. 
+Misalignment of the gear teeth can be mitigated through utlisation of more planets in the planetary. This will provide more stability as there are more contact points in the gear system. This could be combined with a special gear design to prevent axial, radial or angular misalignment. 
 
 Prevention of failure can also occur through maintenance inspections of the gearbox. A technician inspecting the gearbox will identify signs of failure in the gears and drivetrain. Components shall be replaced when needed. Processes such as cleaning can also take place to prevent further failure from occurring.
 
@@ -479,97 +481,13 @@ Simplifying equation (\ref{SFEE}), we arrive at:
 \end{align}
 \section{Final discussion}
 \subsection*{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines.}
-test
+Wind turbine design is a matter of producing a long lasting and efficient design. The materials used must be economically sourced, manufactured and transported, whilst fitting the design specifications. This balance between cost and performance is paramount to a well-engineered design. With the gearbox, the engineers must be able to design a gearbox which is efficient, lightweight and compact. An inefficient design contributes to unnecessary power losses and a bulky design. This leads to less economic viability and requires extra/stronger material in the tower, to support the extra weight of the turbine - driving up cost. This links in with the materials utilised and the gear design. Is it better to use two large, high-ratio planetaries or three smaller, low-ratio planetaries? 
 
-\section{scrap text}
+An underlying consideration is how much power can be generated from a particular site; is there enough wind available to make a wind turbine economically feasible? Once this has been ascertained, optimising the wind turbine to function in those specific conditions is crucial to ensuring that the chosen wind turbine design is not over or under engineered. The best power generation and storage method can vary depending on the particular characteristics of the weather in the area. For example, consistent low speed wind versus intermittent high speed wind. 
 
-First Process - isentropic (reverisble adiabatic) compression.
-Compression ratio = 200.
-Applying SFEE.
-\begin{gather}
-  q_{in} + w_{in} + h_0 = q_{out} + w_{out} + h_1\\
-  q = 0, \ w_{out} = 0\\
-  w_{in} = h_1 - h_0 \ \si{\kilo\joule\per\kg}\\
-  w_{in} = c_P (T_1 - T_0)
-\end{gather}
-Second Process - Heat in heat removal.
-Applying SFEE
-\begin{gather}
-  w= 0, \ q_{in} = 0\\
-  q_{out} = h_2 - h_3 \ \si{\kilo\joule\per\kg}
-\end{gather}
-\begin{equation}
-  \tensor[_1]{Q}{_2} = \tensor[_1]{q}{_2} = 0
-\end{equation}
-\begin{gather}
-  dQ = dW + dU\\
-  dQ = 0 \textrm{ (adiabtic)}\\
-  dW = - dU\\
-  dW = -m c_V dT
-  dw = - c_V dT 
-\end{gather}
-\begin{gather}
-  dU = -dW\\
-  c_V dT = -PdV\\
-  c_V dT = \frac{RT}{V} dV\\
-  c_V \frac{dT}{T} = -R \frac{dV}{V}\\
-  c_V\int_{T_0}^{T_1} \left( \frac{dT}{T} \right) = -R \int_{V_0}^{V_1} \left( \frac{dV}{V} \right)\\
-  c_V \ln \left( \frac{T_1}{T_0} \right) = -R \ln \left( \frac{V_1}{V_0} \right) = - R \ln \left(\frac{T_1}{T_0} \frac{P_0}{P_1}\right)\\
-  P_1 V_1 = R T_1\\
-  V_1 = \frac{RT_1}{P_1}\\
-  \therefore c_V \ln \left( \frac{T_1}{T_0} \right) = -R \ln \left(\frac{T_1}{T_0} \right) - \ln \left(\frac{P_0}{P_1}\right)\\
-  (c_V + R) \ln \left(\frac{T_1}{T_0} \right) = R \ln \left(\frac{P_1}{P_0}\right)\\
-  c_P \ln \left(\frac{T_1}{T_0} \right) = R \ln \left(\frac{P_1}{P_0}\right)\\
-  \ln \left(\frac{T_1}{T_0} \right) = \frac{R}{c_P}\ln \left(\frac{P_1}{P_0}\right) = \ln \left(\frac{P_1}{P_0}\right)^{\frac{R}{c_P}}\\
-  \frac{T_1}{T_0} = \left( \frac{P_1}{P_0} \right)^{\frac{R}{c_P}}\\
-\end{gather}
+Offshore wind turbines need to be built on a foundational structure that must secure into the seabed. The most common foundation is called a monopile, a large steel tube which is hydraulically rammed into the sea bed \citep{monopile}. The suitability of the seabed structure and material must be taken into consideration when choosing a site. The tower and monopile should be highly corrosion resistant and withstand the force of the waves and current crashing against the side of the turbine, otherwise wear and tear may cause premature failure.
 
-\begin{equation}
-  \frac{\tensor[_2]{Q}{_3}}{m} = \tensor[_2]{q}{_3} = c_P (T_0 - T_1)
-\end{equation}
-Work in heat removal
-\begin{gather}
-  \tensor[_2]{W}{_3} = k \int_2^3 \frac{dV}{V^\gamma} = \frac{P_3 V_3 - P_2 V_2}{1 - \gamma} \\
-  \frac{\tensor[_2]{W}{_3}}{m} = \tensor[_2]{w}{_3} = \frac{nR(T_0 - T_1)}{m}
-\end{gather}
-\subsubsection{the total entropy change per unit mass undergone by air}
-\begin{equation}
-  \tensor[_1]{s}{_2} + \tensor[_2]{s}{_3} = 0 + c_P \ln \left( \frac{T_0}{T_1} \right)
-\end{equation}
-
-\subsubsection{Derivation One}
-Considering that the sun gear is connected to the input shaft and the carrier of the planet gears is connected to the output shaft, we can simply say,
-\begin{equation}
-  i = \frac{\omega_S}{\omega_C}
-\end{equation}
-The linear velocity of the carrier is,
-\begin{equation}
-  v_C = \omega_C (r_S + r_P)
-\end{equation}
-The velocity of the point of contact between the sun and the planet gear is,
-\begin{equation}
-  v_S = \omega_S r_S
-\end{equation}
-By considering the point of contact between the planet and the ring gear as having 0 relative velocity, we can derive that the point of contact between the sun and the planet is simply $2v_C$. Hence,
-\begin{align}
-  v_S = 2v_C &= 2\omega_C(r_S + r_P)\\
-  \omega_S r_S &= 2\omega_C (r_S + r_P)\\
-  \frac{\omega_S}{\omega_C} &= \frac{2(r_S + r_P)}{r_S}\\
-  &= \frac{2r_S + 2r_P}{r_S} \label{gearRatio1}
-\end{align}
-Rearranging equation (\ref{radiiRelationship}) and substituting into (\ref{gearRatio1}), we get,
-\begin{align}
-  \frac{\omega_S}{\omega_C} &= \frac{2r_S + r_R - r_S}{r_S}\\
-  &= \frac{r_S + r_R}{r_S}
-\end{align}
-This simplifies to,
-\begin{equation}
-  i = 1 + \frac{r_R}{r_S}
-\end{equation}
-Since the number of teeth is proportional to the radius of the gear, we can substitute $z$ into our equation,
-\begin{equation}
-  i = 1 + \frac{z_R}{z_S}
-\end{equation}
+Offshore wind turbines suffer from an additional engineering challenge. They are harder to maintain as one travel out to sea to simply conduct a visual inspection! However, they also promise higher potential power and other benefits such as being away from population centres and protecting sea life by limiting human activity in the area \citep{offshorePower}. The location for an offshore wind turbine decides its viability. Balancing potential power with distance from land is a key consideration. It would make little sense to place a farm in the middle of the Atlantic ocean where it is far away from human settlement, even with higher potential power generation. 
 
 \bibliographystyle{agsm}
 \bibliography{references}
