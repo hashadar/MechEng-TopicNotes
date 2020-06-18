@@ -1,33 +1,33 @@
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}Blades}{4}% 
-\contentsline {subsection}{\numberline {1.1}Why use composites?}{4}% 
-\contentsline {subsection}{\numberline {1.2}Common composites, relative advantages.}{4}% 
-\contentsline {subsection}{\numberline {1.3}Issues with composites.}{4}% 
-\contentsline {subsection}{\numberline {1.4}Dimensionless number derivation.}{5}% 
-\contentsline {subsection}{\numberline {1.5}Trade-offs with longer blade.}{6}% 
-\contentsline {section}{\numberline {2}Gearbox (dynamics)}{6}% 
-\contentsline {subsection}{\numberline {2.1}Gear ratio derivation.}{6}% 
-\contentsline {subsection}{\numberline {2.2}Schematic.}{8}% 
-\contentsline {subsection}{\numberline {2.3}Misalignment and failure prevention.}{11}% 
-\contentsline {subsection}{\numberline {2.4}Advantages/disadvantages of an epicyclic gearbox.}{11}% 
-\contentsline {section}{\numberline {3}Gearbox (materials)}{12}% 
-\contentsline {subsection}{\numberline {3.1}Why is steel used?}{12}% 
-\contentsline {subsection}{\numberline {3.2}What steel is suitable?}{12}% 
-\contentsline {subsection}{\numberline {3.3}Gearbox casing material.}{13}% 
-\contentsline {section}{\numberline {4}Tower}{13}% 
-\contentsline {subsection}{\numberline {4.1}Tower steel.}{13}% 
-\contentsline {section}{\numberline {5}Energy generation}{14}% 
-\contentsline {subsection}{\numberline {5.1}Maximum power generation.}{14}% 
-\contentsline {subsection}{\numberline {5.2}Terms important for wind turbine.}{15}% 
-\contentsline {subsection}{\numberline {5.3}Power value discrepancies.}{16}% 
-\contentsline {section}{\numberline {6}Energy storage}{17}% 
-\contentsline {subsection}{\numberline {6.1}Compressed air storage system.}{17}% 
-\contentsline {subsection}{\numberline {6.2}Determine:}{18}% 
-\contentsline {subsubsection}{\numberline {6.2.1}Heat/Work transfers.}{18}% 
-\contentsline {subsubsection}{\numberline {6.2.2}Entropy change.}{19}% 
-\contentsline {subsection}{\numberline {6.3}SVCC Refrigerator.}{21}% 
-\contentsline {subsection}{\numberline {6.4}T-s P-h Diagrams.}{21}% 
-\contentsline {subsection}{\numberline {6.5}Describe the procedure required to determine:}{22}% 
-\contentsline {subsubsection}{\numberline {6.5.1}Compressor delivery temperature.}{22}% 
-\contentsline {subsubsection}{\numberline {6.5.2}Refrigerant mass flow rate.}{23}% 
-\contentsline {section}{\numberline {7}Final discussion}{24}% 
+\contentsline {section}{\numberline {1}Blades}{4}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Why use composites?}{4}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Common composites, relative advantages.}{4}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Issues with composites.}{4}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Dimensionless number derivation.}{5}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.5}Trade-offs with longer blade.}{6}{subsection.1.5}% 
+\contentsline {section}{\numberline {2}Gearbox (dynamics)}{6}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Gear ratio derivation.}{6}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Schematic.}{8}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Misalignment and failure prevention.}{11}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Advantages/disadvantages of an epicyclic gearbox.}{11}{subsection.2.4}% 
+\contentsline {section}{\numberline {3}Gearbox (materials)}{12}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Why is steel used?}{12}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}What steel is suitable?}{12}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Gearbox casing material.}{13}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}Tower}{13}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Tower steel.}{13}{subsection.4.1}% 
+\contentsline {section}{\numberline {5}Energy generation}{14}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Maximum power generation.}{14}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Terms important for wind turbine.}{15}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Power value discrepancies.}{16}{subsection.5.3}% 
+\contentsline {section}{\numberline {6}Energy storage}{17}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Compressed air storage system.}{17}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Determine:}{18}{subsection.6.2}% 
+\contentsline {subsubsection}{\numberline {6.2.1}Heat/Work transfers.}{18}{subsubsection.6.2.1}% 
+\contentsline {subsubsection}{\numberline {6.2.2}Entropy change.}{19}{subsubsection.6.2.2}% 
+\contentsline {subsection}{\numberline {6.3}SVCC Refrigerator.}{21}{subsection.6.3}% 
+\contentsline {subsection}{\numberline {6.4}T-s P-h Diagrams.}{21}{subsection.6.4}% 
+\contentsline {subsection}{\numberline {6.5}Describe the procedure required to determine:}{22}{subsection.6.5}% 
+\contentsline {subsubsection}{\numberline {6.5.1}Compressor delivery temperature.}{22}{subsubsection.6.5.1}% 
+\contentsline {subsubsection}{\numberline {6.5.2}Refrigerant mass flow rate.}{23}{subsubsection.6.5.2}% 
+\contentsline {section}{\numberline {7}Final discussion}{24}{section.7}% 
