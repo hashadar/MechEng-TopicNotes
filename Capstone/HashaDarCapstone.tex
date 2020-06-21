@@ -20,23 +20,24 @@
 \setlength{\parindent}{0pt}%
 
 \begin{document}
-
-\title{Mechanical Engineering: Year One Capstone Assesment}
+\setcounter{page}{2}
+\title{UCL Mechanical Engineering: Year One Capstone Assesment}
 \date{2019/2020}
-\author{University College London}
+\author{Candidate Number: HKTD0}
 \maketitle
 \begin{flushleft}
 \tableofcontents
+\newpage
 
 \section*{Notes}
 \begin{itemize}
   \item Titles are \textbf{not} counted towards the word limit.
   \item References are counted as one word e.g. \citeprimsec{windTurbineMaterial2}{windTurbineMaterial} is counted as \textbf{one} word. This is due to the limitations of \LaTeX \ having no word count feature.
   \item The references section at the end of the document is \textbf{not} counted towards the word limit.
-  \item Inline level maths,equations and subsequent words used in equations are \textbf{not} counted towards the word limit e.g. $i = \frac{\omega_{\textrm{output}}}{\omega_{\textrm{input}}}$ the words 'output' and 'input' are not counted here.
+  \item Inline level maths,equations and subsequent words used in equations \textbf{are} counted towards the word limit, with each 'element' being counted as one word e.g. $i = \frac{\omega_{\textrm{output}}}{\omega_{\textrm{input}}}$ will be counted as three words.
   \item Block level maths, equations and subsequent words used in equations are counted as \textbf{one} word per line.
   \item The word count for a section is displayed at the end of the last question e.g. the 'Blades' section has five questions and the word count will be displayed after the fifth question.
-  \item A total word count will appear after the word count of the final discussion section.
+  \item Word count for document: 2852/3000.
 \end{itemize}
 \newpage
 
@@ -56,7 +57,7 @@ A common manufacturing technique to produce turbine blades is called vacuum assi
 
 Building on reuse, recovered fibers prevent a cost barrier. In most cases, recovered fibers are more expensive than new fibers. Thus, to use them on industrial scales is difficult. However, their reuse can be found in other fields, such as cement production \citep{fiberCement}.
 
-\subsection[Dimensionless number derivation.]{The power (W in J/s) produced by a wind turbine depends on blade length (B), the incoming wind speed (V), and air density (\(\rho\)). Derive one dimensionless number relevant to the problem using W as the dependent parameter. Use this dimensionless number to comment on the implications of doubling the blade length. [25/90 words]}
+\subsection[Dimensionless number derivation.]{The power (W in J/s) produced by a wind turbine depends on blade length (B), the incoming wind speed (V), and air density (\(\rho\)). Derive one dimensionless number relevant to the problem using W as the dependent parameter. Use this dimensionless number to comment on the implications of doubling the blade length. [33/90 words]}
 Using Buckingham Pi:
 \begin{multicols}{2}
   \begin{itemize}
@@ -82,10 +83,10 @@ From this we can see that doubling the blade length (\(B\)), quadruples the powe
 \subsection[Trade-offs with longer blade.]{Considering the answer above, discuss the trade-offs associated with choosing longer blades for a turbine of a fixed height. [83/90 words]}
 Naturally, choosing larger blades for a turbine of a fixed height creates a limit to how large the blades can be before the turbine’s tower cannot structurally support the weight of the blades. Hence, using larger blades requires the use of stronger materials to support their weight. Using stronger materials is more expensive to pruchase and manufacture, driving up initial costs. If the turbine cannot produce enough power to become economically viable over its lifetime, this would cause problems for the manufacturer.
 
-Words: 451/500
+Words: 459/500
 
 \section{Gearbox (dynamics)}
-\subsection[Gear ratio derivation.]{Derive a simple relationship for the gear ratio expressed as a function of number of teeth in the sun and ring gears of an epicyclic (or planetary) gear train.}
+\subsection[Gear ratio derivation.]{Derive a simple relationship for the gear ratio expressed as a function of number of teeth in the sun and ring gears of an epicyclic (or planetary) gear train.[208/225 words]}
 Let us define,
 \begin{multicols}{2}
   \begin{itemize} 
@@ -166,10 +167,10 @@ Since the number of teeth is proportional to the radius of the gear, we can subs
 \begin{equation}
   i = 1 + \frac{z_R}{z_S}
 \end{equation}
-\subsection[Schematic.]{Perform a conceptual design of an epicyclic gear system for a 1.5 MW wind turbine if the three blades spin at a design speed of 12 rpm and the high-speed shaft in the generator needs to spin at 1680 rpm. Provide information on the configuration of your proposed planetary gear set (note: the 5 laws of planetary gearing – see the provided videos) and the input/output torque ratio that can be achieved by your system. Neglect friction and assume that the angular acceleration of the gears (which are rigid and non-deformable) is zero. You must indicate the number of teeth in each gear and provide a schematic drawing.}
+\subsection[Schematic.]{Perform a conceptual design of an epicyclic gear system for a 1.5 MW wind turbine if the three blades spin at a design speed of 12 rpm and the high-speed shaft in the generator needs to spin at 1680 rpm. Provide information on the configuration of your proposed planetary gear set (note: the 5 laws of planetary gearing – see the provided videos) and the input/output torque ratio that can be achieved by your system. Neglect friction and assume that the angular acceleration of the gears (which are rigid and non-deformable) is zero. You must indicate the number of teeth in each gear and provide a schematic drawing. [171/225 words]}
 My proposed design is to use three 4:1 planetary gearboxes with a 2.1875:1 spur gear stage. In total, $4^3 \times 2.1875 = 140$, giving us a final ratio of 140:1. This would allow the gearbox to take a 12 rpm input and convert it to 1680 rpm ($\frac{1680}{12} = 140$).
 
-In the 4:1 planetary, the sun, planet and ring gears have teeth numbers of 29, 29, and 87 respectively. The two spur gears have teeth numbers of 35 and 16, with the 35 teeth gear being the drive gear. The torque for a planetary gearset is given by:
+In the 4:1 planetary, the sun, planet and ring gears have teeth numbers of 30, 30, and 90 respectively. The two spur gears have teeth numbers of 35 and 16, with the 35 teeth gear being the drive gear. The torque for a planetary gearset is given by:
 \begin{equation}
   \tau_S = - \tau_C \frac{N_S}{N_R + N_S}
 \end{equation}
@@ -177,7 +178,7 @@ Where $\tau_S$ is the sun torque and $\tau_C$ is the carrier torque. The negativ
 Hence, after three planetaries, our torque ratio is:
 \begin{align}
   \tau_{S3} &= - \tau_{C1} \left( \frac{N_S}{N_R + N_S} \right)^3\\
-  \tau_{S3} &= - \tau_{C1} \left( \frac{29}{87 + 29} \right)^3\\
+  \tau_{S3} &= - \tau_{C1} \left( \frac{30}{90 + 30} \right)^3\\
   \tau_{S3} &= - \frac{1}{64}\tau_{C1} 
 \end{align}
 For a simple gear train, the torque ratio is given by:
@@ -193,18 +194,20 @@ Where $R$ is the gear ratio. Hence:
 \end{align}
 A schematic drawing of the gearbox is shown on the next page.
 \newpage
-\setcounter{page}{11}
-\subsection[Misalignment and failure prevention.]{Wind gusts and turbulence lead to misalignment of the drive train and premature failure of the gear components. How could this be mitigated? [124/150 words]}
+\setcounter{page}{12}
+\subsection[Misalignment and failure prevention.]{Wind gusts and turbulence lead to misalignment of the drive train and premature failure of the gear components. How could this be mitigated? [94/225 words]}
 Misalignment of the gear teeth can be mitigated through utlisation of more planets in the planetary. This will provide more stability as there are more contact points in the gear system. This could be combined with a special gear design to prevent axial, radial or angular misalignment. 
 
 Prevention of failure can also occur through maintenance inspections of the gearbox. A technician inspecting the gearbox will identify signs of failure in the gears and drivetrain. Components shall be replaced when needed. Processes such as cleaning can also take place to prevent further failure from occurring.
 
-\subsection[Advantages/disadvantages of an epicyclic gearbox.]{Comment on the advantages/disadvantages of an epicyclic gear system in the context of a wind turbine gear box. [175/150 words]}
+\subsection[Advantages/disadvantages of an epicyclic gearbox.]{Comment on the advantages/disadvantages of an epicyclic gear system in the context of a wind turbine gear box. [175/225 words]}
 Considering that wind turbines are designed to generate power in the MWs, the gearbox must be able to withstand high torque, be small, lightweight and have great design efficiency. In an epicyclic gear system, the input load is shared between multiple planet gears. This makes them ideal for high torque use cases as the force is shared between multiple planets. Epicyclic gear systems are more space efficient than traditional gearboxes, as the driving member and the driven member are concentrically aligned. This allows multiple planetaries to be placed together in a gearbox, allowing for very high gear ratios in a small and compact size.
 
 However, the cost to develop an epicyclic gear system is higher than a traditional gearbox. The design is more complex and because of this; it requires a higher engineering accuracy to develop the components. This design complexity also requires these gearboxes to be maintained more regularly than traditional gearboxes.
 
 To conclude, epicyclic gear systems are a suitable fit for a wind turbine gearbox for their design efficiency and high torque capability.
+
+Words: 648/900
 \section{Gearbox (materials)}
 \subsection[Why is steel used?]{For the gears in the gearbox of the wind turbine, steel would normally be the material of choice. Why is this the case? [61/150 words]}
 Steel is cheap and available in a range of strengths, dependent on the carbon content. It is also tough and ductile. Steel is heat treatable and alloys with many other elements such as Chromium, Manganese and Nickel, changing its properties further. This makes steel (and its alloys) a very versatile material: easily bought and manufactured to suit the task at hand.
@@ -233,7 +236,7 @@ Our wind turbine will again be subject to a variety of forces over its lifetime.
 Words: 166/150
 
 \section{Energy generation}
-\subsection[Maximum power generation.]{Designers are considering the maximum power that could be generated by this turbine in two theoretical case studies. In case A, the incoming wind speed is 25 \si{\meter\per\second} and the air speed after passing through the blades is 15 \si{\meter\per\second}. In case B, the incoming wind speed is 20 \si{\meter\per\second} and the final speed is 12 \si{\meter\per\second}. Describe the concepts needed to estimate the maximum theoretical output of a wind turbine, and calculate the maximum theoretical power output for both these cases when the blade length is 37 \si{\meter}. Take the value of 1.2 \si{\kg\per\meter\cubed} for air density. [98/150 words]}
+\subsection[Maximum power generation.]{Designers are considering the maximum power that could be generated by this turbine in two theoretical case studies. In case A, the incoming wind speed is 25 \si{\meter\per\second} and the air speed after passing through the blades is 15 \si{\meter\per\second}. In case B, the incoming wind speed is 20 \si{\meter\per\second} and the final speed is 12 \si{\meter\per\second}. Describe the concepts needed to estimate the maximum theoretical output of a wind turbine, and calculate the maximum theoretical power output for both these cases when the blade length is 37 \si{\meter}. Take the value of 1.2 \si{\kg\per\meter\cubed} for air density. [131/100 words]}
 Power is given by:
 \begin{equation}
   P = \frac{1}{4} \rho A (V_{out} + V_{in})(V_{out}^2 - V_{in}^2)
@@ -278,7 +281,7 @@ Inputting the above:
 \end{gather}
 Negative sign here is in reference to the direction of energy transfer. Energy is being transferred from the wind particles to the wind i.e. energy is leaving the system. 
 
-\subsection[Terms important for wind turbine.]{Consider the various terms in the energy equation as they relate to a wind turbine. Describe briefly which terms are important for the wind turbine, and connect terms in the equation to the major sources of energy loss. Comment on the implications for wind turbine efficiency. [150/150 words]}
+\subsection[Terms important for wind turbine.]{Consider the various terms in the energy equation as they relate to a wind turbine. Describe briefly which terms are important for the wind turbine, and connect terms in the equation to the major sources of energy loss. Comment on the implications for wind turbine efficiency. [150/100 words]}
 Energy balance equation for steady flow is:
 \begin{equation}
   \dot{Q}_{in} + \dot{W}_{in} + \sum_{\substack{\text{i = all} \\ \text{inputs}}} \dot{m}_i \theta_i = \dot{Q}_{out} + \dot{W}_{out} + \sum_{\substack{\text{j = all} \\ \text{outputs}}} \dot{m}_j \theta_j 
@@ -292,11 +295,12 @@ The thermal losses in the the system $\si{Q}_{out}$ are because of thermal losse
 $\dot{W}_{out}$ is energy transferred to the blades of the turbine from wind particles. The rotational energy of the blades increases as the kinetic energy of the wind particles decreases. $\theta$ represents the enthalpy, kinetic energy and potential energy of the wind particles. We can assume the wind particles to be travelling horizontally, thus $\Delta pe$ is negligible. When the wind particles pass through the blades, their enthalpy increases and kinetic energy decreases. 
 
 To reach higher efficiencies, $\Delta ke$ must be maximised and $\dot{Q}_{out}$ must be minimised.
-\subsection[Power value discrepancies.]{The world’s most powerful commercial wind turbine today has a blade length of 82m and is rated at 9.5 MW. Comment briefly on the reasons why the numbers calculated using your theoretical approach above are far larger than this actual capacity. [80/150 words]}
+\subsection[Power value discrepancies.]{The world’s most powerful commercial wind turbine today has a blade length of 82m and is rated at 9.5 MW. Comment briefly on the reasons why the numbers calculated using your theoretical approach above are far larger than this actual capacity. [80/100 words]}
 As stated above, energy generation is directly linked to the kinetic energy of the wind particles. One problem is that if there is 100\% $\Delta ke$, the particles would not move past the blades. However, there are also operational limits on components in the wind turbine such as the gearbox and the generator. These may prohibit the wind turbine to run at higher speeds. These components also have their own thermal and operational losses, further decreasing the potential power output.
 
+Words: 361/300
 \section{Energy storage}
-\subsection[Compressed air storage system.]{In an offshore wind turbine facility, the excess energy generated is stored using a simple compressed air storage system. The wind turbine is mechanically coupled to a compressor that has a compression ratio of 200. The compressor takes in air from the surrounding at ambient pressure and temperature conditions (p0, T0) and performs a reversible adiabatic compression process. The output air from the compressor (at p1, T1) undergoes a reversible isobaric heat removal process using a heat exchanger in order to reduce the temperature to T0. The air is then stored in a high-pressure storage facility.}
+\subsection[Compressed air storage system.]{In an offshore wind turbine facility, the excess energy generated is stored using a simple compressed air storage system. The wind turbine is mechanically coupled to a compressor that has a compression ratio of 200. The compressor takes in air from the surrounding at ambient pressure and temperature conditions (p0, T0) and performs a reversible adiabatic compression process. The output air from the compressor (at p1, T1) undergoes a reversible isobaric heat removal process using a heat exchanger in order to reduce the temperature to T0. The air is then stored in a high-pressure storage facility. [27/70 words]}
 We have two processes in this simple compressed air storage system:
 \begin{itemize}
   \item Process 1 $\rightarrow$ 2: Reversible adiabtic compression (isentropic)
@@ -310,7 +314,7 @@ We have two processes in this simple compressed air storage system:
 \end{figure}
 
 \subsection{Determine:}
-\subsubsection[Heat/Work transfers.]{heat and work transfers per unit mass for both the compression and heat removal processes}
+\subsubsection[Heat/Work transfers.]{heat and work transfers per unit mass for both the compression and heat removal processes [147/70 words]}
 \subsubsection*{Process 1 $\rightarrow$ 2: isentropic compression}
 Let us begin with the First Law of Thermodynamics.
 \begin{equation}
@@ -383,7 +387,7 @@ We know that $T_3 = T_0$ and $T_2 = T_1$ (as can be seen in the T-s diagram). He
   \tensor[_2]{W}{_3} &= nR(T_0 - T_1)\\
   \tensor[_2]{w}{_3} &= \frac{nR(T_0 - T_1)}{m}
 \end{align}
-\subsubsection[Entropy change.]{the total entropy change per unit mass undergone by air}
+\subsubsection[Entropy change.]{the total entropy change per unit mass undergone by air [46/70 words]}
 \subsubsection*{Process 1 $\rightarrow$ 2: isentropic compression}
 Process is isentropic, hence:
 \begin{equation}
@@ -415,7 +419,7 @@ Total entropy change from Process $1 \rightarrow 2 \rightarrow 3$ is:
   \includegraphics[width  = \textwidth]{./img/SystemDiagram63.png}
   \caption{Diagram to show simple vapour compression system}
 \end{figure}
-\subsection[T-s P-h Diagrams.]{Sketch the cycle on T-s and P-h diagrams}
+\subsection[T-s P-h Diagrams.]{Sketch the cycle on T-s and P-h diagrams [38/70 words]}
 Processes in a simple vapour compression cycle are as follows:
 \begin{itemize}
   \item Process 1 $\rightarrow$ 2: Reversible adiabatic compresssion (isentropic)
@@ -428,7 +432,7 @@ Processes in a simple vapour compression cycle are as follows:
   \includegraphics[width  = \textwidth]{./img/TsPhDiagrams64.png}
   \caption{Graphs to show T-s and P-h for simple vapour compression cycle}
 \end{figure}
-\subsection{Describe the procedure required to determine:}
+\subsection{Describe the procedure required to determine: [137/70 words]}
 \subsubsection[Compressor delivery temperature.]{the compressor delivery temperature}
 Process 1 $\rightarrow$ 2 is isentropic, hence:
 \begin{equation}
@@ -479,8 +483,10 @@ Simplifying equation (\ref{SFEE}), we arrive at:
   &= \dot{Q}_{e} + \dot{m} (h_4 - h_1)\\
   \dot{m} &= \frac{\dot{Q}_e}{h_1 - h_4} = \frac{\dot{Q}_e}{h_{g@T_e} - h_{f@T_c}}
 \end{align}
+
+Words: 349/350
 \section{Final discussion}
-\subsection*{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines.}
+\subsection*{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines. [406/400 words]}
 Wind turbine design is a matter of producing a long lasting and efficient design. The materials used must be economically sourced, manufactured and transported, whilst fitting the design specifications. This balance between cost and performance is paramount to a well-engineered design. With the gearbox, the engineers must be able to design a gearbox which is efficient, lightweight and compact. An inefficient design contributes to unnecessary power losses and a bulky design. This leads to less economic viability and requires extra/stronger material in the tower, to support the extra weight of the turbine - driving up cost. This links in with the materials utilised and the gear design. Is it better to use two large, high-ratio planetaries or three smaller, low-ratio planetaries? 
 
 An underlying consideration is how much power can be generated from a particular site; is there enough wind available to make a wind turbine economically feasible? Once this has been ascertained, optimising the wind turbine to function in those specific conditions is crucial to ensuring that the chosen wind turbine design is not over or under engineered. The best power generation and storage method can vary depending on the particular characteristics of the weather in the area. For example, consistent low speed wind versus intermittent high speed wind. 
@@ -489,6 +495,10 @@ Offshore wind turbines need to be built on a foundational structure that must se
 
 Offshore wind turbines suffer from an additional engineering challenge. They are harder to maintain as one travel out to sea to simply conduct a visual inspection! However, they also promise higher potential power and other benefits such as being away from population centres and protecting sea life by limiting human activity in the area \citep{offshorePower}. The location for an offshore wind turbine decides its viability. Balancing potential power with distance from land is a key consideration. It would make little sense to place a farm in the middle of the Atlantic ocean where it is far away from human settlement, even with higher potential power generation. 
 
+\begin{itemize}
+  \item Words: 406/400
+  \item Total words in document: 2852/3000
+\end{itemize}
 \bibliographystyle{agsm}
 \bibliography{references}
 \end{flushleft}
