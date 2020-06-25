@@ -20,9 +20,9 @@
 \setlength{\parindent}{0pt}%
 
 \begin{document}
-\title{UCL Mechanical Engineering: Year One Capstone Assessment}
-\date{2019/2020}
-\author{Candidate Number: HKTD0}
+\title{\textbf{UCL Mechanical Engineering 2019/2020}\\Year One Capstone Assessment}
+\date{Due: 30/06/2020\\Submitted: 27/06/2020}
+\author{Candidate Number: \textbf{HKTD0}\\Word Count: \textbf{2814/3000}}
 \maketitle
 \begin{flushleft}
 \tableofcontents
@@ -36,7 +36,7 @@
   \item Inline level maths, equations and subsequent words used in equations \textbf{are} counted towards the word limit, with each 'element' being counted as one word e.g. $i = \frac{\omega_{\textrm{output}}}{\omega_{\textrm{input}}}$ will be counted as three words.
   \item Block level maths, equations and subsequent words used in equations are counted as \textbf{one} word per line.
   \item The word count for a section is displayed at the end of the last question e.g. the 'Blades' section has five questions and the word count will be displayed after the fifth question.
-  \item Word count for document: 2775/3000.
+  \item Word count for document: 2814/3000.
 \end{itemize}
 \newpage
 
@@ -388,7 +388,7 @@ We know that $T_3 = T_0$ and $T_2 = T_1$ (as can be seen in the T-s diagram). He
   \tensor[_2]{W}{_3} &= nR(T_0 - T_1)\\
   \tensor[_2]{w}{_3} &= \frac{nR(T_0 - T_1)}{m}
 \end{align}
-\subsubsection[Entropy change.]{the total entropy change per unit mass undergone by air [46/70 words]}
+\subsubsection[Entropy change.]{the total entropy change per unit mass undergone by air [85/70 words]}
 \subsubsection*{Process 1 $\rightarrow$ 2: isentropic compression}
 Process is isentropic, hence:
 \begin{equation}
@@ -412,6 +412,44 @@ Total entropy change from Process $1 \rightarrow 2 \rightarrow 3$ is:
 \begin{align}
   \tensor[_1]{s}{_2} + \tensor[_2]{s}{_3} &= 0 + c_P \ln \left( \frac{T_0}{T_1} \right)\\
   \Delta s &= c_P \ln \left( \frac{T_0}{T_1} \right)
+\end{align}
+\subsection*{Numerical Values}
+Assumptions:
+\begin{multicols}{2}
+  \begin{itemize}
+    \item $C_P = 1.005 \ \si{\kilo\joule\per\kg\per\kelvin}$
+    \item $C_V = C_P - R = 0.718 \ \si{\kilo\joule\per\kg\per\kelvin}$
+    \item $R = 0.287 \ \si{\kilo\joule\per\kg\per\kelvin}$ or 
+    \item $R = 0.00831 \ \si{\kilo\joule\per\mole\per\kelvin}$
+    \item $\gamma =\frac{C_P}{C_P - R} = \frac{1.005}{1.005 - 0.287} = 1.4$
+    \item $T_0 = 300 \ \si{\kelvin}$
+    \item $\frac{m}{n} = M = 0.02897 \si{\kg\per\mole}$
+  \end{itemize}
+\end{multicols}
+\subsubsection*{Process 1 $\rightarrow$ 2: isentropic compression}
+\begin{align}
+  \frac{T_1}{T_0} &= \left( \frac{P_1}{P_0} \right)^{\frac{\gamma - 1}{\gamma}}\\
+  T_1 &= 300 \times 200^{\frac{1.4 - 1}{1.4}}\\
+  T_1 &= 1363.2 \ \si{\kelvin}\\
+  \tensor[_1]{w}{_2} &= c_V (T_0 - T_1)\\
+  \tensor[_1]{w}{_2} &= 0.718\times (300 - 1363.2)\\
+  \tensor[_1]{w}{_2} &= -763.4 \ \si{\kilo\joule}
+\end{align}
+\subsubsection*{Process 2 $\rightarrow$ 3: reversible isobaric heat rejection}
+\begin{align}
+  \tensor[_2]{q}{_3} &= c_P (T_0 - T_1)\\
+  \tensor[_2]{q}{_3} &= 1.005 \times (300 - 1363.2)\\
+  \tensor[_2]{q}{_3} &= -1068.5 \ \si{\kilo\joule}
+\end{align}
+\begin{align}
+  \tensor[_2]{w}{_3} &= \frac{nR(T_0 - T_1)}{m}\\
+  \tensor[_2]{w}{_3} &= \frac{0.00831(300 - 1363.2)}{0.02897}\\
+  \tensor[_2]{w}{_3} &= -304.1 \ \si{\kilo\joule}
+\end{align}
+\begin{align}
+  \Delta s &= c_P \ln \left( \frac{T_0}{T_1} \right)\\
+  \Delta s &= 1.005 \times \ln \left( \frac{300}{1363.2} \right)\\
+  \Delta s &= -1.52 \ \si{\kilo\joule\per\kg\per\kelvin}
 \end{align}
 
 \subsection[SVCC Refrigerator.]{The heat removal in the above system is achieved by a refrigerator operating on a simple vapour compression cycle. This simple vapour compression refrigerator uses ammonia (NH3) as the working fluid. The evaporator pressure is pe and the condenser pressure is pc (where pc/pe>=6). The working fluid leaves the evaporator dry-saturated and enters the compressor, where it is compressed reversibly and adiabatically. Condensation at constant pressure then takes place until the saturated liquid state is reached. This is followed by throttling to evaporator pressure.}
@@ -485,7 +523,7 @@ Simplifying equation (\ref{SFEE}), we arrive at:
   \dot{m} &= \frac{\dot{Q}_e}{h_1 - h_4} = \frac{\dot{Q}_e}{h_{g@T_e} - h_{f@T_c}}
 \end{align}
 
-Words: 349/350
+Words: 388/350
 \section{Final discussion}
 \subsection*{Consider all the aspects covered above and compare the trade-offs in each of these categories during wind turbine design. You may also wish to consider how they are affected by the environment: water depth, ocean waves and seafloor structure. Reflect on the consequent additional challenges in building and maintaining offshore wind turbines. [406/400 words]}
 Wind turbine design is a matter of producing a long lasting and efficient design. The materials used must be economically sourced, manufactured and transported, whilst fitting the design specifications. This balance between cost and performance is paramount to a well-engineered design. With the gearbox, the engineers must be able to design a gearbox which is efficient, lightweight and compact. An inefficient design contributes to unnecessary power losses and a bulky design. This leads to less economic viability and requires extra/stronger material in the tower, to support the extra weight of the turbine - driving up cost. This links in with the materials utilised and the gear design. Is it better to use two large, high-ratio planetaries or three smaller, low-ratio planetaries? 
@@ -498,7 +536,7 @@ All in all, there are many factors to consider when conducting a wind turbine pr
 
 \begin{itemize}
   \item Words: 330/400
-  \item Total words in document: 2775/3000
+  \item Total words in document: 2814/3000
 \end{itemize}
 \bibliographystyle{agsm}
 \bibliography{references}
