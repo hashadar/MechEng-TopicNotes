@@ -1,0 +1,5 @@
+\standalonepreambles
+\subpreamble{tex/MECH0010-001.tex}
+\usepackage {enumitem}
+\endsubpreamble
+\endstandalonepreambles

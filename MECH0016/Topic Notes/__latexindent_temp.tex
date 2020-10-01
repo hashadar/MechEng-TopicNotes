@@ -1,0 +1,38 @@
+\documentclass[12pt,a4paper, twoside]{report}
+
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+\usepackage{mathtools}
+\usepackage{natbib}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\graphicspath{img/}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[RO,LE]{MECH016 Topic Notes}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Chapter \thechapter}
+\fancyfoot[CO,RE]{HD}
+\setlength{\headheight}{15pt}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+\title{
+  {MECH0016 Topic Notes}\\
+  {\large UCL}
+  \author{HD}
+  \date{\today}
+}
+\maketitle
+\tableofcontents
+\import{tex/}{MECH0016-001}
+\end{document}
