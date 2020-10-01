@@ -1,5 +1,5 @@
 \standalonepreambles
 \subpreamble{tex/MECH0010-001.tex}
-\usepackage {enumitem}
+\usepackage {enumitem}\usepackage {tikz}\usepackage {float}\usepackage {graphicx}\usepackage {siunitx}
 \endsubpreamble
 \endstandalonepreambles
