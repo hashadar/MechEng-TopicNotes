@@ -23,6 +23,10 @@ In an \textbf{open loop} control system, the input to the system is not dependan
 These control systems are simple and low cost. They are used in systems where feedback is not important. For example, a washing machine runs for 90 minutes, regardless of whether the clothes are dry after 60 minutes. 
 \subsection*{3D Printer example}
 Consider the stepper motors used to move the print head in x and y with belt and pulley system. Here, open loop control is used because the stepper motors are simple to control and have a relationship between input and output. For example, consider a stepper motor which moves 0.2\si{\milli\m} each step (S) for an integer number of steps. 
+\begin{verbatim}
+  Plant model: X = 0.2 S
+  Control strategy: S = X/0.2
+\end{verbatim}
 \begin{figure}[H]
   \centering
   \includegraphics[width = 0.8\textwidth]{../img/controlstrat3dprinter.png}
@@ -118,6 +122,12 @@ Complex systems can be abstracted to a signal block if the behaviour can be adeq
   \centering
   \includegraphics[width = 0.8\textwidth]{../img/blockdiagram4.png}
 \end{figure}
+\section{Control system design process}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/controlstrat3dprinterclosed.PNG}
+\end{figure}
+add in control system design process
 \section{Summary}
 \begin{itemize}
   \item Control systems are interconnected components which are configured to provide a desired response.
