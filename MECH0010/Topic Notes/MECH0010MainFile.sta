@@ -3,6 +3,6 @@
 \usepackage {enumitem}\usepackage {tikz}\usepackage {float}\usepackage {graphicx}\usepackage {siunitx}
 \endsubpreamble
 \subpreamble{tex/MECH0010-002.tex}
-\usepackage {enumitem}\usepackage {tikz}\usepackage {float}\usepackage {graphicx}\usepackage {siunitx}\usepackage {tikz}\usetikzlibrary {positioning, fit, calc}\tikzset {block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},line/.style={-latex}}
+\usepackage {enumitem}\usepackage {tikz}\usepackage {float}\usepackage [normalem]{ulem}\usepackage {graphicx}\usepackage {siunitx}\usepackage {tikz}\usetikzlibrary {positioning, fit, calc}\tikzset {block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},line/.style={-latex}}
 \endsubpreamble
 \endstandalonepreambles

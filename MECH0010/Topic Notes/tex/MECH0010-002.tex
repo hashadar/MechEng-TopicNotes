@@ -2,6 +2,7 @@
 \usepackage{enumitem}
 \usepackage{tikz}
 \usepackage{float}
+\usepackage[normalem]{ulem}
 \usepackage{graphicx}
 \usepackage{siunitx}
 \usepackage{tikz}
@@ -58,4 +59,53 @@ They are required in systems when the output from the transducer-signal conditio
 Generally, it is a voltage measurement device that is used to display the measurement in a form that can be read and interpreted. For example, digital voltmeters, self-balancing potentiometers, oscilloscopes, chart recorders and magnetic tape recorders.
 \section{Feedback-control stage}
 Used when the measurement system is employed in process control. The signal from the measurement system is compared with the command signal that reflects the required value of the quantity in the process. The process-controller forms the difference between these two and produces and error signal. The error signal is then used to automatically adjust the process. For example, the float system in a toilet (called a ballock) to control the water supply in the tank.
+\section{Calibration}
+How do we know whether one metre is one metre? We compare it with a reference, which is supposed to be reliable. This act of checking is called calibration. Our references are the measuring \textbf{standards}.
+\section{Standards}
+There are seven fundamental quantities of the International Measuring System.
+\begin{itemize}
+  \item Length \si{\m} - metre
+  \item Time \si{\second} - second
+  \item Mass \si{\kg} - kilogram
+  \item Temperature \si{\kelvin} - kelvin
+  \item Electric Current \si{\ampere} - ampere
+  \item Luminous Intensity - \si{\candela} - candela
+  \item Amount of Substance - \si{\mol} - mole
+\end{itemize}
+Units and standard for all other quantities are derived from these.
+
+We can look at how the definition of the metre has changed over the past 2 centuries for some insight into the accuracy of our reference.
+\begin{itemize}
+  \item 1792 - a ten millionth of the quarter of a meridian ($0.5 - 0.1 \si{\milli\m}$ of uncertainty)
+  \item 1889 - a platinum-iridium bar at melting point of ice ($0.2-0.1 \si{\micro\m}$ of uncertainty)
+  \item 1983 - the length of the path travelled by light in vacuum during a time interval of $1/299792458$ of a second ($0.1 \si{\nano\m}$ of uncertainty)
+\end{itemize}
+Here are how the other fundamental quantities are defined.
+\begin{itemize}
+  \item Metre - Length of the path travelled by light in a vacuum in $1/299792458$ of a second
+  \item Time - Duration of $9192631770$ periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom
+  \item Mass - \sout{Equal to the mass of the International Prototype of the Kilogram}
+  \begin{itemize}
+    \item Equal to h / (Metre standard$^2$ / Time standard) … since 2019
+    $h$: Plank constant (in $e = hf, \ h = 6.626 \times 10^{-34} \si{\kg\m\squared\per\second}$)
+  \end{itemize}
+  \item Temperature - $1/273.16$ of the thermodynamic temperature
+  of the triple point of water (exactly 0.01 \si{\celsius})
+  \item Electric current - The flow of electric charges through
+  a surface at the rate of one coulomb per second
+\end{itemize}
+The fundamental standards are protected by such organisations such organisations as the National Institute of Standard and Technology (NIST) in the US. They set up the National Reference Standards and below these in accuracy, the Working Standards (and more below these).
+\section{Units and dimensions}
+\begin{itemize}
+  \item Dimension - a physical variable that is used to describe some aspect of a physical system
+  \item Unit - a measure of a dimension. Primary standards are used to form the exact definition of a unit
+\end{itemize}
+SI units are now commonly used worldwide. The fundamental dimensions are:
+\begin{itemize}
+  \item Length [L]
+  \item Mass [M]
+  \item Force [F] ([MLS$^{-2}$])
+  \item Time [$\tau$]
+  \item Temperature [T]
+\end{itemize}
 \end{document}
