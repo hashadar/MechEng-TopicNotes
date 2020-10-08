@@ -31,7 +31,37 @@ Taking into account of both classifications, pumps can be divided into three mai
   \item \textbf{Positive-displacement rotary machines} - energy is supplied or extracted by the movement of rotating components acting on a closed volume of fluid
   \item \textbf{Roto-dynamic machines} - energy is supplied or extracted to an open volume by the movement of rotating blades
 \end{itemize}
-\subsubsection*{Positive-displacement reciprocation pumps}
+\subsection{Positive-displacement pumps}
+Advantages
+\begin{itemize}
+  \item They are less traumatic for the fluid - are ideal to handle with shear sensitive fluids such as those in the food industry or blood (all pumping devices in animals are positive-displacement pumps)
+  \item If well sealed, they are self-priming pumps - they can create a vacuum pressure at their inlet, even when dry (empty of liquid), sufficient to lift a liquid for several meters below the pump
+  \item They run at relatively low speed - they need much less speed than dynamic pumps to operate at similar loads (fatigue and wearing are more reduced)
+\end{itemize}
+Disadvantages
+\begin{itemize}
+  \item Their volume flow rate does not change unless operating velocity is changed - usually it is not simple because AC electric motors are designed to operate at one or more fixed speeds
+  \item If obstructed, they can create very high pressure at the outlet side - this may overload the driving motors, that may fail (overpressure protection is required)
+  \item They may deliver a discontinuous flow (pulsatile) - this may be unacceptable for some applications
+\end{itemize}
+\subsection{Dynamic pumps}
+Advantages
+\begin{itemize}
+  \item They are mechanically simple - because of their simplicity, they are relatively economic and low maintenance
+  \item Tolerances are not critical - since they are momentum based, they operate with a large range of mechanical tolerances. For the same reason, they are suitable for low viscosity fluids. 
+  \item Provide a steady flow at the outlet - contrary to many positive displacement pumps
+\end{itemize}
+Disadvantages
+\begin{itemize}
+  \item They are not suitable for highly viscous fluids - due to the large amount of work required to rotate the impellers in this case
+  \item They produce high levels of shear on the fluid - they should not be used to pump shear sensitive fluids (such as blood)
+  \item They are not self-priming pumps - if empty, they do not create vacuum pressure sufficient to rise fluids for meters
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/tabletocomparepumps.png}
+\end{figure}
+\subsection{Positive-displacement reciprocation pumps}
 Positive-displacement pumps supply energy to the fluid by the movement of the boundaries of a closed volume: Fluid is sucked into an expanding volume and then pushed along as that volume contracts, producing an increase in fluid pressure.
 
 For example, in a reciprocating positive displacement piston pump, the piston moves backwards, reducing the fluid pressure in the cylinder. The pressure decrease causes an inlet check valve to open, so that the fluid is sucked through the inlet check valve into the expanding volume. Then the piston moves forward, pushing the fluid volume and the increasing the fluid pressure. The pressurised liquid closes the inlet valve and lifts an outlet valve, leaving the chamber at higher pressure. Energy is supplied by the reciprocating motion of a piston acting on a closed volume of fluid.
@@ -49,7 +79,7 @@ Technical characteristics
   \item Obstruction - can generates unacceptable high outlet pressures (safety valves required)
   \item Dimensions - relatively large, heavy and expensive
 \end{itemize}
-\subsubsection*{Positive-displacement rotary pumps}
+\subsection{Positive-displacement rotary pumps}
 Positive displacement pumps supply energy to the fluid by the movement of the boundaries of a closed volume. Fluid is sucked into an expanding volume and then pushed along as that volume contracts, producing an increase in fluid pressure.
 
 Lobe, gear and screw rotary pumps: volumes of fluid are trapped in the pockets between the lobes (or the gear tooth spaces) and the casing. With the rotation of the loves (or gears) the liquid is forced to travel in one direction around the interior of the casing and is pushed through the outlet port under pressure. Lobes are driven by external timing gears and as a result the lobes do not make contact. Liquid travels around the interior of the casing in the pockets between the lobes and the casing, meshing of the lobes forces liquid through the outlet port under pressure. Energy is supplied by the movement of rotating components acting on a closed volume of fluid. 
@@ -66,11 +96,11 @@ Technical characteristics
   \item Treatable liquids - viscous but free from sand, fibres or impurities
   \item Adjustment of capacity - requires change of operating speed (not always possible)
 \end{itemize}
-\subsubsection*{Positive-displacement peristaltic pumps}
+\subsection{Positive-displacement peristaltic pumps}
 Positive-displacement pumps supply energy to the fluid by the movement of the boundaries of a closed volume. Fluid is sucked into an expanding volume and then pushed along as that volume contracts, producing an increase in fluid pressure.
 
 Peristaltic pumps: It is based on the principle of "peristalsis" (alternating contraction and relaxation of muscles around a tube). A smooth wall flexible tube is squeezed along its length, positively displacing the fluid contained within the tube. The tube's restitution after the squeeze creates a vacuum, which sucks more fluid into the tube, causing a gentle pumping action with minimal damage to the media inside the tube.
-\subsubsection*{Roto-dynamic pumps}
+\subsection{Roto-dynamic pumps}
 Dynamic pumps supply energy to an open volume of fluid. In the case of roto-dynamic pumps, this is done by imparting to the flowing fluid a momentum through the rotation of the blades (impeller blades or rotor blades). (There are also non rotary dynamic pumps such as jet pumps or electromagnetic pumps.) The rotating blades are called \textbf{impeller blades} (or \textbf{rotor blades}) in the case of pumps. If the blades have a casing around the turbomachine it is called \textbf{enclosed} or \textbf{ducted}. If there is no casing, it is called \textbf{open}. 
 
 Axial flow pumps: pressure is developed by the propelling or lifting action of the blades of the impeller on the liquid. These act as rotating wings, and produce force through application of both Bernoulli's principle and Newton's third law, generating a difference in pressure the forward and rear surfaces of the airfoil-shaped blades. Axial pumps give much lower pressures than centrifugal pumps.
@@ -93,34 +123,81 @@ Technical characteristics
   \item Adjustment of capacity - affects the efficiency
   \item Treatable fluids - they are not suitable for viscous fluids and shear sensitive fluids
 \end{itemize}
-\subsubsection*{Positive-displacement pumps}
-Advantages
+\section{Dynamic pump performance}
+\subsection{The Bernoulli equation}
+The \textbf{Bernoulli equation} is an approximate relation between pressure($p$), velocity ($v$) and elevation ($z$).
+\begin{equation}
+  \frac{p}{\rho} + \frac{v^2}{2} + gz = \textrm{constant (along a streamline)}
+\end{equation}
+The sum of flow, kinetic and potential energies of a fluid particle is constant along a streamline during steady flow. Between two points on the same streamline, the Bernoulli equation can be rewritten as:
+\begin{equation}
+  \frac{p_1}{\rho} + \frac{v_1^2}{2}+ gz_1 = \frac{p_2}{\rho} + \frac{v_2^2}{2} + gz_2
+\end{equation}
+The Bernoulli equation is accurate only if:
 \begin{itemize}
-  \item They are less traumatic for the fluid - are ideal to handle with shear sensitive fluids such as those in the food industry or blood (all pumping devices in animals are positive-displacement pumps)
-  \item If well sealed, they are self-priming pumps - they can create a vacuum pressure at their inlet, even when dry (empty of liquid), sufficient to lift a liquid for several meters below the pump
-  \item They run at relatively low speed - they need much less speed than dynamic pumps to operate at similar loads (fatigue and wearing are more reduced)
+  \item The flow is steady
+  \item The flow is incompressible
+  \item Frictional effects are negligible
 \end{itemize}
-Disadvantages
+\subsection{Hydraulic heads}
+Dividing each term of the Bernoulli equation by the gravity acceleration $g$m each term has the dimension of length.
+\begin{equation}
+  \frac{p}{\rho g} + \frac{v^2}{2g} +z = h = \textrm{constant (along a streamline)}
+\end{equation}
+Each term represents some kind of \textbf{head} of the flowing fluid.
 \begin{itemize}
-  \item Their volume flow rate does not change unless operating velocity is changed - usually it is not simple because AC electric motors are designed to operate at one or more fixed speeds
-  \item If obstructed, they can create very high pressure at the outlet side - this may overload the driving motors, that may fail (overpressure protection is required)
-  \item They may deliver a discontinuous flow (pulsatile) - this may be unacceptable for some applications
+  \item $\frac{p}{\rho g}$ is called \textbf{pressure head} and represents the height of a fluid column that produces the static pressure $p$
+  \item $\frac{v^2}{2g}$ is called \textbf{velocity head} and represents the height needed for a fluid to reach the velocity $v$ during frictionless free fall
+  \item $z$ is called the \textbf{elevation head} and represents the potential energy of a fluid
+  \item $h$ is the \textbf{total head} for the flow and is constant along a streamline
 \end{itemize}
-\subsubsection*{Dynamic pumps}
-Advantages
-\begin{itemize}
-  \item They are mechanically simple - because of their simplicity, they are relatively economic and low maintenance
-  \item Tolerances are not critical - since they are momentum based, they operate with a large range of mechanical tolerances. For the same reason, they are suitable for low viscosity fluids. 
-  \item Provide a steady flow at the outlet - contrary to many positive displacement pumps
-\end{itemize}
-Disadvantages
-\begin{itemize}
-  \item They are not suitable for highly viscous fluids - due to the large amount of work required to rotate the impellers in this case
-  \item They produce high levels of shear on the fluid - they should not be used to pump shear sensitive fluids (such as blood)
-  \item They are not self-priming pumps - if empty, they do not create vacuum pressure sufficient to rise fluids for meters
-\end{itemize}
+\subsubsection{Net head of the pump}
+Tje value of total energy is constant and is therefore a straight line (Energy Grade Line) when plotted against distance. It corresponds to the liquid level in a Pitot tube. The Energy Grade Line take away the velocity head is called the Hydraulic Grade Line (it corresponds at each section to the liquid level in a piezometer)
+The Bernoulli equation can also be expressed as: the sum of the pressure, velocity and elevation heads along a streamline is constant during steady flow (when the compressibility and the frictional effects are negligible).
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/tabletocomparepumps.png}
+  \includegraphics[width = 0.8\textwidth]{../img/gradelines.png}
 \end{figure}
+If a pump is present in the circuit, it will deliver energy to the fluid, raising the total head of a quantity $H$, corresponding to the net head of the pump. The Bernoulli equation between the inlet and the outlet of the pump can be written as:
+\begin{equation}
+  \frac{p_{in}}{\rho g} + \frac{v_{in}^2}{2g} + z_{in} + H = \frac{p_{out}}{\rho g} + \frac{v_{out}^2}{2g} + z_{out}
+\end{equation}
+Therefore, the net head of the pump is given by:
+\begin{equation}
+  H = \left( \frac{p}{\rho g} + \frac{v^2}{2g} +z \right)_{out} - \left( \frac{p}{\rho g} + \frac{v^2}{2g} +z \right)_{in} = EGL_{out} - EGL_{in}
+\end{equation}
+\subsection{Power and efficiency}
+The net head of the pump is proportional to the useful power delivered to the fluid, that is called \textbf{water horsepower} (whp).
+\begin{equation}
+  whp = Q\cdot p = \rho g Q\cdot H
+\end{equation}
+(where $Q$ is the volume flow rate).
+
+Due to the irreversible energy losses of the pump, this energy will be less then the supplied power supplied to the pump, called brake horsepower (bhp) and equal to:
+\begin{equation}
+  bhp = \omega T_{\textrm{shaft}}
+\end{equation}
+(where $\omega$ is the rotational speed of the shaft and $T_{\textrm{shaft}}$ is the torque applied to the shaft).
+
+THe \textbf{pump efficiency} ($\eta_{\textrm{pump}}$) is defined as the ratio of \textbf{useful power} and \textbf{supplied power} and is equal to:
+\begin{equation}
+  \eta_{\textrm{pump}} = \frac{\rho g Q}{\omega T_{\textrm{shaft}}} H
+\end{equation}
+\subsection{Performance curves}
+The pump's \textbf{free delivery} corresponds to the maximum flow rate and occurs when there is no flow restriction at the pump inlet or outlet (there is no load on the pump). This condition is associated with largest capacity but zero head.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/freedelivery.png}
+\end{figure}
+At the other extreme, the pump's \textbf{shut-off head} corresponds to a large head (not necessarily the highest) and occurs when the outlet pressure is so high as to block off the outlet port (there is no flow rate). This condition is associated with zero capacity but with a large net head. Efficiency depends on the pump size, type, design and finishes. Larger pumps and smoother impeller finishes increase the efficiency.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/shutoffhead.png}
+\end{figure}
+Consider a specific rotational speed of the pump. The curve of the net head as a function of the capacity is equal to the shut-off head for $Q=0$ and equal 0 for at free delivery. The curve of the efficiency (green) as function of the capacity is equal to zero at zero capacity (shut-off head) and free delivery, and reaches the maximum somewhere in between, at a point called \textbf{best efficiency point} (BEP). Commonly, the curve of the of the brake horsepower is included in the diagram that is provided by the pump manufacturer.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width= 0.5\textwidth]{../img/BEPgraph.png}
+\end{figure}
+The diagram, generated by experimental tests performed by the pump manufacturer at a specific speed, describes the operating properties of the pump and is known as the pump's \textbf{characteristic curves}. Under steady conditions, the pump can operate along its performance curves.
 \end{document}
