@@ -143,6 +143,188 @@ You can look up these transforms in a table. The Laplace variable, s, can be con
   s \equiv \frac{\dif}{\dif t}\\
   \frac{1}{s} \equiv \int_{0^-}^\infty \dif t
 \end{gather}
+Laplace transform of time derivative $\frac{\dif x}{\dif t}$:
+\begin{equation}
+  L \left\{ \frac{\dif x}{\dif t} \right\} = \int_{0^-}^\infty \frac{\dif x}{\dif t} e^{-st} \dif t
+\end{equation}
+Integrating by parts
+\begin{equation}
+  L \left\{ \frac{\dif x}{\dif t} \right\} = s \int_{0^-}^\infty x(t) e^{-st} \dif t + \left[ x(t)e^{-st} \right]_{0^-}^\infty
+\end{equation}
+The initial condition $x(0^-)$ is often zero in practice
+\begin{equation}
+  L \left\{ \frac{\dif x}{\dif t} \right\} = sX(s) - x(0^-) = sX(s)
+\end{equation}
+We can substitute this result to solve higher order derivatives:
+\begin{gather}
+  L\left\{ \frac{\dif^2 x}{\dif t^2} \right\} = sL\left\{ \frac{\dif x}{\dif t} \right\} - \frac{dif x}{\dif t} (0^-)\\
+  L\left\{ \frac{\dif^2 x}{\dif t^2} \right\} = s^2 X(s) - sx(0^-) - \frac{\dif X}{\dif t} (0^-) = s^2 X(s)
+\end{gather}
+So more generally, with all initial conditions set to zero:
+\begin{equation}
+  L\left\{ \frac{d^n x}{dt^n} \right\} = s^n X(s)
+\end{equation}
 \subsection{Transfer Functions}
+After we have taken the Laplace transform of the differential equation of a system, it's useful to rearrange to give the system \textbf{output} as the product of the system \textbf{input} and the system \textbf{transfer function}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/blockdiagram11.png}
+\end{figure}
+The transfer function of a linear system is defined as the \textbf{ratio} of the Laplace transform of the output variable to the Laplace transform of the input variable, with all the initial conditions assumed to be zero. 
+\subsection{Transfer Functions of Mechanical Components}
+\subsubsection{Spring}
+Convention is input force, output displacement. Balance \textbf{forces}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram1.png}
+\end{figure}
+Time domain equation (Hooke's Law): 
+\begin{equation}
+  f(x) - kx
+\end{equation}
+$k$ is stiffness in \si{\newton\per\meter}. Laplace domain equation:
+\begin{equation}
+  F(s) = kX(s)
+\end{equation}
+Transfer function:
+\begin{equation}
+  G(s) = \frac{X(s)}{F(s)} = \frac{1}{k}
+\end{equation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram12.png}
+\end{figure}
+\subsubsection{Mass}
+Inertial load - mass
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.3\textwidth]{../img/diagram2.png}
+\end{figure}
+Time domain equation from Newton's 2nd law of motion
+\begin{equation}
+  f(t) = m \frac{\dif^2x(t)}{dt^2}
+\end{equation}
+Laplace domain equation
+\begin{equation}
+  F(s) = ms^2 X(s)
+\end{equation}
+Transfer function
+\begin{equation}
+  \frac{X(s)}{F(s)} = \frac{1}{ms^2}
+\end{equation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram13.png}
+\end{figure}
+\subsubsection{Damper}
+Below is a dashpot - a viscous damper. They resist motion through friction. The damping coefficient is in terms of $c$ with units \si{\newton\per\meter\per\second}. Time domain equation:
+\begin{equation}
+  f(x) = x\frac{\dif x }{\dif t} = csx
+\end{equation}
+Laplace domain equation:
+\begin{equation}
+  F(s) = csX(s)
+\end{equation}
+Transfer function
+\begin{equation}
+  \frac{X(s)}{F(s)} = \frac{1}{cs}
+\end{equation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/blockdiagram14.png}
+\end{figure}
 \subsection{Combining components}
+\subsubsection{Springs}
+Springs in parallel
+\begin{gather}
+  k' - k_1 + k_2\\
+  G(s) = \frac{X(s)}{F(s)} = \frac{1}{k'}
+\end{gather}
+Springs in series
+\begin{gather}
+  \frac{1}{k'} = \frac{1}{k_1} + \frac{1}{k_2}\\
+  G(s) = \frac{X(s)}{F(s)} = \frac{1}{k'}
+\end{gather}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram4.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6 \textwidth]{../img/blockdiagram15.png}
+\end{figure}
+Dashpots behave in a similar way to springs. Parallel:
+\begin{equation}
+  c' = c_1 + c_2
+\end{equation}
+and in series:
+\begin{equation}
+  \frac{1}{c'} = \frac{1}{c_1} + \frac{1}{c_2}
+\end{equation}
+\subsubsection{Resistor}
+Convention is input voltage, output current. Balance voltages.
+Ohms law is $V=IR$. Time domain:
+\begin{equation}
+  v(t) = i(t)R
+\end{equation}
+Laplace domain:
+\begin{equation}
+  V(s) = I(s)R
+\end{equation}
+Transfer function:
+\begin{equation}
+  G(s) = \frac{I(s)}{V(s)} = \frac{1}{R}
+\end{equation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/diagram5.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram16.png}
+\end{figure}
+\subsubsection{Capacitor}
+Either definition of current/voltage relationship gives same result. Time domain:
+\begin{gather}
+  i(t) = C\frac{\dif v}{\dif t}\\
+  v(t) = \frac{1}{C}\int i(t) \dif t
+\end{gather}
+Laplace domain:
+\begin{gather}
+  I(s) = CsV(s)\\
+  V(s) = \frac{1}{C} \frac{1}{s} I(s)
+\end{gather}
+Transfer function:
+\begin{equation}
+  G(s) = \frac{I(s)}{V(s)} = Cs
+\end{equation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/diagram6.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram17.png}
+\end{figure}
+\subsubsection{Inductor}
+An inductor resists changes of current by generating a voltage in opposition via magnetic induction. From Faraday's Law:
+\begin{equation}
+  v(t) = L \frac{\dif i}{\dif t}
+\end{equation}
+Laplace domain
+\begin{equation}
+  V(s) = LsI(s)
+\end{equation}
+Transfer function:
+\begin{equation}
+  G(s) = \frac{I(s)}{V(s)} = \frac{1}{Ls}
+\end{equation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/diagram7.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram18.png}
+\end{figure}
 \end{document} 
