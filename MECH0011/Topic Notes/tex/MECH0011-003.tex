@@ -90,4 +90,62 @@ Let us consider another term, such as $\frac{\partial u}{\partial y}$. We can de
   \centering
   \includegraphics[width = \textwidth]{../img/diagram6.png}
 \end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram7.png}
+\end{figure}
+\subsection{Strain rate tensor}
+\begin{equation}
+  s = \begin{bmatrix}
+    \frac{\partial u}{\partial x} & \frac{1}{2} \left[ \frac{\partial u}{\partial y} + \frac{1}{2} \frac{\partial v}{\partial x} \right] & \left[ \frac{\partial u}{\partial z} + \frac{\partial w}{\partial x} \right]\\
+    \frac{1}{2} \left[ \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right] & \frac{\partial v}{\partial y} & \frac{1}{2} \left[ \frac{\partial v}{\partial z} + \frac{\partial w}{\partial y} \right] \\
+    \frac{1}{2} \left[ \frac{\partial u}{\partial z} + \frac{\partial w}{\partial x} \right] & \frac{1}{2} \left[ \frac{\partial v}{\partial z} + \frac{\partial w}{\partial y} \right] & \frac{\partial w}{\partial z}
+  \end{bmatrix} =
+\end{equation}
+\begin{multline}
+  \begin{bmatrix}
+    \frac{1}{3} \nabla \cdot \vec{V} & 0 & 0\\
+    0 & \frac{1}{3} \nabla \cdot \vec{V} & 0\\
+    0 & 0 & \frac{1}{3} \nabla \cdot \vec{V}\\ 
+  \end{bmatrix} + \\
+  \begin{bmatrix}
+    \left[\frac{\partial u}{\partial x} - \frac{1}{3} \nabla \cdot \vec{V} \right] & \frac{1}{2} \left[ \frac{\partial u}{\partial y} + \frac{1}{2} \frac{\partial v}{\partial x} \right] & \frac{1}{2} \left[ \frac{\partial u}{\partial z} + \frac{\partial w}{\partial x} \right]\\
+    \frac{1}{2} \left[ \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right] & \left[ \frac{\partial v}{\partial y} - \frac{1}{3} \nabla \cdot \vec{V} \right] & \frac{1}{2} \left[ \frac{\partial v}{\partial z} + \frac{\partial w}{\partial y} \right] \\
+    \frac{1}{2} \left[ \frac{\partial u}{\partial z} + \frac{\partial w}{\partial x} \right] & \frac{1}{2} \left[ \frac{\partial v}{\partial z} + \frac{\partial w}{\partial y} \right] & \left[ \frac{\partial w}{\partial z} - \frac{1}{3} \nabla \cdot \vec{V} \right]
+  \end{bmatrix}
+\end{multline}
+\begin{multline}
+  \textrm{Deformation part which goes in pressure } \rho \ +\\ \textrm{Deformation part which goes in the stress tensor } T
+\end{multline}
+Compact notation of the strain rate tensor, indices $i, \ j = 1, \ 2,\ 3$
+\begin{equation}
+  s_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+\subsection{Stress tensor}
+\begin{gather}
+  T = \begin{bmatrix}
+    \tau_xx & \tau_yx & \tau_zx\\
+    \tau_xy & \tau_yy & \tau_zy\\
+    \tau_xz & \tau_yz & \tau_zz
+  \end{bmatrix} = \\ 
+  \begin{bmatrix}
+    \mu \left[ 2 \frac{\partial u}{\partial x} - \frac{2}{3} \nabla \cdot \vec{V} \right] & \mu \left[ \frac{\partial u}{\partial y} + \frac{1}{2} \frac{\partial v}{\partial x} \right] & \mu \left[ \frac{\partial u}{\partial z} + \frac{\partial w}{\partial x} \right]\\
+    \mu \left[ \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right] & \mu\left[ 2\frac{\partial v}{\partial y} - \frac{2}{3}\nabla \cdot \vec{V} \right] & \mu \left[ \frac{\partial v}{\partial z} + \frac{\partial w}{\partial y} \right] \\
+    \mu \left[ \frac{\partial u}{\partial z} + \frac{\partial w}{\partial x} \right] & \mu \left[ \frac{\partial v}{\partial z} + \frac{\partial w}{\partial y} \right] & \mu \left[ 2\frac{\partial w}{\partial z} - \frac{2}{3}\nabla \cdot \vec{V} \right]
+  \end{bmatrix}
+\end{gather}
+Compact notation for constitutive equation:
+\begin{gather}
+  \tau_{ij} = 2\mu \left[ s_{ij} - \frac{1}{3}(\nabla \cdot \vec{V}) \delta_{ij} \right] = \mu \left[ \left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right) - \frac{2}{3}(\nabla \cdot \vec{V}) \delta_{ij} \right]\\
+  \delta_{ij} = \begin{cases}
+    1 \textrm{ if } i = j\\
+    0 \textrm{ if } i \neq j
+  \end{cases} 
+\end{gather}
+The stress tensor is always symmetric along the left diagonal.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram8.png}
+\end{figure}
+We now have 10/12 equations to describe the fluid. The final two relate to the temperature and the energy of the fluid. We will not be considering the energies of the fluid in this course. Our state equation can be $p = \rho RT$, when the fluid is compressible and if our fluid is incompressible we take $\rho$ as constant. All in all, 11 variables and 11 equations to describe the fluid
 \end{document}
