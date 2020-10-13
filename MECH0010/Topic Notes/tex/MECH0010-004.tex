@@ -143,4 +143,44 @@ Substituting for $R_G$ and $R_G'$, we have:
   \frac{V_0}{V_S} = \frac{R(1+x){1+y}}{R(1+x){1+y} + R(1+y)} - \frac{1}{2} \leftarrow \textrm{no influence by y}
 \end{gather}
 However, for this you must find the specimen of the same material and keep them under the same temperature - are these easy enough? The dummy gauge could be placed on the same member as the measuring gauge with its active axis in the direction normal to that of the strain.
+\subsection{Effect of Poisson's ratio on a dummy gauge}
+Consider both measuring and dummy gauges are attached to the same specimen but perpendicular to each other.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6 \textwidth]{../img/diagram14.png}
+\end{figure}
+Deformation of the specimen elongates the measuring gauge and shortens the dummy gauge, and the ratio of strains in the two directions is Poisson's ratio, $v = e_{\textrm{lateral}}/e_{\textrm{longitudinal}}$, which is between 0.25 to 4 for most materials. Ignoring temperature changes, the measuring gauge and dummy gauge resistances are then \begin{align}
+  R_g &= R(1+x)\\
+  R_g' &= R(1-\nu x)
+\end{align}
+The bridge output is: 
+\begin{equation}
+  V_0 = V_S\frac{R_g}{R_g + R_g'} - \frac{V_S}{2}
+\end{equation}
+Substituting for $R_g$ and $R_g'$, we have:
+\begin{align}
+  V_0 &= V_S \frac{R(1+x)}{R(1+x) + R_g(1-\nu x)} - \frac{V_S}{2}\\
+  \frac{V_0}{V_S} &= \frac{R(1+x)}{R(1+x) + R_g(1-\nu x)} - \frac{1}{2}\\
+  \frac{V_0}{V_S} &= \frac{(1+ \nu)}{2[2+ (1-\nu)x]} \approx \frac{1}{4} (1+\nu) eG
+\end{align}
+Because typically $(1-\nu) x << 2$. Comparing to the single gauge, $\frac{V_0}{V_S} = \frac{1}{4}eG$, sensitivity is increased by a factor $(1+\nu)$ due to the effect of Poisson's ratio on the dummy gauge.
+\section{Practical Aspects of Strain Gauge Measurement}
+\subsection{Strain gauge rosette}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram15.png}
+  \caption{An example of a foil strain gauge having two elements with their active axis perpendicular to each other is shown in the top left (Omega Engineering Inc. USA). Some other types of rosette are also shown (figures courtesy of BLH Electronics, Waltham, Mass )}
+\end{figure}
+How can be these useful? Strain (stress) in real-world applications is, not uniformly distributed and/or the principal stress axis is unknown. We use strain gauge rosettes to measure strain in three orientations. Understand complex stress/strain state (principal stress calculation is a topic of MECH0013 in term 2).
+\subsection{Bending Strain}
+To measure the strain of a member in which only bending is occurring, i.e. no additional tensile or compressive stresses present, we attach two strain gauges one on either side of its neutral axis with their actives axes along the length of the member.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram16.png}
+\end{figure}
+If the gauges are equidistant from the neutral axis, the tensile strain imposed on one will be equal to the compressive strain in the other, and t he change of the resistance is the same magnitude but in opposite directions. Similarly to the previous cases, consider the fractional change of resistance $x$ and then output voltage.
+\begin{align}
+  V_0 &= V_S \frac{R_{g1}}{R_{g1} + R_{g2}} - \frac{V_S}{2}\\
+  &= V_S \frac{R(1+x)}{R(1+x) + R(1-x)} - \frac{V_S}{2} = \frac{1}{2} V_S x
+\end{align}
 \end{document}
