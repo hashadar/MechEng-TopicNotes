@@ -153,4 +153,59 @@ The leading edge angle $\beta_1$ is defined as the blade angle relative to the r
   \centering
   \includegraphics[width = 0.8\textwidth]{../img/diagram8.png}
 \end{figure}
+The normal and tangential components of the absolute velocity are:
+\begin{gather}
+  v_{2,n} = v_{2,rel} \sin{\beta} \\
+  v_{2,t} = (v_{2,\textrm{blade}} - v_{2, rel} \cos{\beta}) = \omega r_2 - v_{2,rel}\cos{\beta}
+\end{gather}
+The normal components of the inlet and outlet velocities are directly related to the capacity through the conservation equation. The tangential components of the inlet and outlet velocities are directly related to the torque and to the required head through the Euler's turbomachine equation. A similar equation is found at the blade inlet.
+\subsection{Euler's turbomachine equation}
+To calculate the torque $T_{\textrm{shaft}}$ on the rotating shaft, the angular momentum relation is used. The starting point to obtain it is Newton's second law: the amount of force exerted upon the object is directly proportional to the rate of change in the momentum of the object.
+\begin{equation}
+  \vec{F} = \frac{d}{dt}(m\vec{v})
+\end{equation}
+The moment of a force $\vec{F}$ about a point $O$ is given by $\vec{T} = \vec{r}\times\vec{F}$, where $\vec{r}$ is the vector from $O$ to $\vec{F}$ called radius vector (where $\times$ is cross product). From the two expressions:
+\begin{equation}
+  \vec{T} = \vec{r} \times \frac{d}{dt} (mv)
+\end{equation}
+We define a vector $\vec{L}$ called angular momentum as vector product of the radius vector to the object and the linear momentum of the object.
+\begin{equation}
+  \vec{L} = \vec{r} \times m \vec{v}
+\end{equation}
+Upon taking the temporal differential of $\vec{L}$, we have: 
+\begin{equation}
+  \frac{d\vec{L}}{dt} = \frac{d\vec{r}}{dt} \times m\vec{v} + \vec{r} \times \frac{d}{dt}(m\vec{v})
+\end{equation}
+But $ \frac{d\vec{r}}{dt} = \vec{v}$ and the cross product of parallel vectors is 0. Therefore:
+\begin{equation}
+  \vec{T} = \frac{d\vec{L}}{dt}
+\end{equation}
+The rate of change of angular momentum of an object about a fixed point is equal to the torque applied to the object.
+\subsection{Flow into the impeller}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram9.png}
+  \caption{Consider the control volume described by the rotating impeller blades.}
+\end{figure}
+We can calculate the torque $T_{\textrm{shaft}}$ on the rotating shaft from the Euler turbomachine equation:
+\begin{equation}
+  T_{\textrm{shaft}} = \rho Q (r_s v_{2,t} - r_1 v_{1,t})
+\end{equation}
+Assuming no losses, the efficiency is equal to one and therefore the ideal net head of the pump can be calculated as:
+\begin{gather}
+  \eta_{\textrm{pump}} = \frac{\rho g Q}{\omega T_{\textrm{shaft}}}H = 1\\ 
+  \rho g QH = \omega T_{\textrm{shaft}} = \omega\rho Q (r_2v_{2,t} - r_1 v_{1,t})\\
+  H = \frac{1}{g}(\omega r_2 v_{2,t} - \omega r_1 v_{1,t})
+\end{gather}
+The operating conditions of the pump are related to the flow velocities into the impeller:
+\begin{gather}
+  \textrm{Flow rate: } Q = 2\pi r_1 b_1 b_{1,n} = 2\pi r_2 b_2 v_{2,n}\\
+  \textrm{Ideal head: } H = \frac{1}{g}(\omega r_2 v_{2,t} - \omega r_1 v_{1,t})
+\end{gather}
+Since the flow velocities into the impeller depend on the blades angles (e.g. leading and trailing edge angles) the impeller cna be designed in order to match required operative conditions.
+\begin{gather}
+  v_{1,2,n} = v_{1,2,rel} \sin{\beta_{1,2}}\\
+  v_{1,2,n} = (v_{1,2,\textrm{blade}} - v_{1,2,rel} \cos{\beta_{1,2}}) = \omega r_{1,2} - v_{1,2,rel} \cos{\beta_{1,2}}
+\end{gather}
+$Q, \ H, \ v_n, \ v_t$ are in terms of $r, \ b, \ \omega, \ \beta, \ v_{rel}$
 \end{document}
