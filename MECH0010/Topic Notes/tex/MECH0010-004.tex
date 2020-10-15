@@ -183,4 +183,91 @@ If the gauges are equidistant from the neutral axis, the tensile strain imposed 
   V_0 &= V_S \frac{R_{g1}}{R_{g1} + R_{g2}} - \frac{V_S}{2}\\
   &= V_S \frac{R(1+x)}{R(1+x) + R(1-x)} - \frac{V_S}{2} = \frac{1}{2} V_S x
 \end{align}
+Since $x=eG, \ V_0 = \frac{1}{2} V_S eG$ is a measure of bending occurring in the body.
+\subsection{Tensile or compressive strain in a bending member}
+The arrangement shown below allows to measure any tensile or compressive strain in the member, while ignoring any bending strain.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram17.png}
+  \caption{Variation of gauge resistance and output voltage in the configuration above.}
+\end{figure} 
+\begin{center}
+  \begin{tabular}{||c | c c c c c||} 
+    \hline
+    & $Rg_1$ & $Rg_2$ & $Rg_3$ & $Rg_4$ & $V_0$\\
+    \hline
+    Under pure stretch & ++ & - & ++ & - & ++\\
+    Under pure bending & ++ & - & - - & + & $\pm 0$ \\
+    \hline 
+ \end{tabular}
+\end{center}
+\subsection{Bridge balancing}
+In reality, resistance in the arms of the Wheatstone bridge slightly differ in value because of: 
+\begin{itemize}
+  \item Manufacturing variations
+  \item Temperature differences between gauges and resistors
+  \item Static strain occurring in a member
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram18.png}
+\end{figure}
+If the bridge is perfectly balanced:
+\begin{gather}
+  \frac{R_4}{R_3 + R_4} = \frac{R_2}{R_1 +R_2}\\
+  \rightarrow \frac{R_3}{R_4} + 1 = \frac{R_1}{R_2} +1 \rightarrow \frac{R_3}{R_4} = \frac{R_1}{R_2}
+\end{gather}
+The imbalance needs to be adjusted before the measurement (adjustment of the output voltage to zero) $\rightarrow$ bridge balancing. One possible way to achieve this is to connect a pot (potentiometer) in series with $R_2$. The total resistance $R_x = R_1 + R_p$ should be adjusted such that:
+\begin{equation}
+  \frac{R_x}{R_2} = \frac{R_g'}{R_g}
+\end{equation}
+\subsection{Semiconductor strain gauge}
+In some crystalline materials such as germanium and silicon, the piezo-resistive effect is very large. If a slice of such a crystal is used as a strain gauge, very large gauge factors can be obtained, which could range from 100 to 300. 
+\begin{equation}
+  \textrm{Gauge factor: }G = \frac{1}{e}\frac{\delta R}{R}
+\end{equation}
+The magnitude of the piezo-resistive effect, which determines the sensitivity of the gauge, depends on the minute quantities of impurity introduced into the base material before formation of the crystal.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram19.png}
+  \caption{Some examples of semiconductor strain gauges}
+\end{figure}
+Characteristics of semiconductor strain gauges:
+\begin{itemize}
+  \item The material of the strain gauge reaches its elastic limit at about 4000 microstrain ($4000\times 10^{-6}$), much smaller than that of metals (typically 20000 microstrain)
+  \item The gauge factor $G$ varies with high strain at high strain levels. i.e. the gauge is not linear
+  \item The gauge factor varies with temperature
+  \item The temperature coefficient of resistivity is large
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/diagram20.png}
+  \caption{Change of resistance ratio with strain for a semiconductor strain gauge}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/diagram21.png}
+\end{figure}
+Negative effect of the temperature sensitivity of this type of strain gauge can be significantly reduced by using two gauges each consisting of two crystals connected in series. When two crystals are connected in series (but aligned in parallel), tensile of compressive strain applied to a gauge will produce an increase in the resistance of one crystal and a decrease in the other. Because the base material of each crystal is the same, their temperature coefficients of resistivity are approximately equal. In the configuration below, if the body experiences a tensile strain,
+\begin{align}
+  R_1 &= R(1+x)\\
+  R_2 &= R(1-x)\\
+  R_3 &= R(1-\nu x)\\
+  R_4 &= R(1 + \nu x)
+\end{align}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/diagram22.png}
+\end{figure}
+The bridge output voltage will thus be:
+\begin{equation}
+  V_0 = \frac{1}{2} V_S x (1 + \nu)
+\end{equation}
+Even if temperature increases, that affects all crystals equally. Also, changes in dimensions will cause $R_1 \uparrow$, $R_2 \downarrow$, $R_3 \uparrow$, $R_4 \downarrow$. Hence, no unbalance occurs. 
+\section{Summary}
+\begin{enumerate}
+  \item Strain gauges utilise variability of resistance due to deformation
+  \item Strain gauges are used in Wheatstone bridges with various gauge arrangements
+  \item Bridge balance calculation is an essential part of the module
+\end{enumerate}
 \end{document}
