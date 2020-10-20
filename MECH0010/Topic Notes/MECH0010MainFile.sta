@@ -3,7 +3,7 @@
 \usepackage {enumitem}\usepackage {tikz}\usepackage {float}\usepackage {graphicx}\usepackage {siunitx}
 \endsubpreamble
 \subpreamble{tex/MECH0010-003.tex}
-\usepackage {enumitem}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage [normalem]{ulem}\usepackage {graphicx}\usepackage {siunitx}\usepackage {tikz}\usetikzlibrary {positioning, fit, calc}\tikzset {block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},line/.style={-latex}}\newcommand {\dif }{\mathop {}\!\mathrm {d}}\newcommand {\Lagr }{\mathcal {L}}
+\usepackage {enumitem}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage [normalem]{ulem}\usepackage {graphicx}\usepackage {commath}\usepackage {siunitx}\usepackage {tikz}\usetikzlibrary {positioning, fit, calc}\tikzset {block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},line/.style={-latex}}\newcommand {\Lagr }{\mathcal {L}}
 \endsubpreamble
 \subpreamble{tex/MECH0010-002.tex}
 \usepackage {enumitem}\usepackage {tikz}\usepackage {float}\usepackage [normalem]{ulem}\usepackage {graphicx}\usepackage {siunitx}\usepackage {tikz}\usetikzlibrary {positioning, fit, calc}\tikzset {block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},line/.style={-latex}}
