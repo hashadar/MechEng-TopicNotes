@@ -1,0 +1,76 @@
+\documentclass[12pt]{report}
+\usepackage{standalone}
+\usepackage{import}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{natbib}
+\sisetup{detect-all}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{setspace}
+\numberwithin{equation}{section}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\title{
+  {MECH0013: Mechanics of Solids and Structures\\Topic Notes}\\
+  \vspace{36pt}
+  {\Large UCL}
+  \author{\Large Mert Aydin Develioglu}
+  \date{\Large \today}
+}
+\maketitle
+\doublespacing
+\tableofcontents
+\singlespacing
+
+\chapter*{Course Outline}
+\section*{Contact Information}
+\begin{center}
+    \begin{tabular}{ |c|c|c| } 
+     \hline
+     Prof. Gaetano Burriesci & 507A Malet Place & g.burriesci@ucl.ac.uk \\ 
+     \hline
+     Dr Ryo Torii & 518 Malet Place & r.torii@ucl.ac.uk \\
+     \hline
+    \end{tabular}
+\end{center}
+
+\section*{Methods of Assessment}
+\begin{itemize}[noitemsep]
+    \item 50\% Final Assessment
+    \item 20\% Coursework 1
+    \item 20\% Coursework 2
+    \item 10\% Quizzes (Best 3/5 Each Term)
+\end{itemize}
+
+\section*{Topics to be Covered}
+\begin{itemize}[noitemsep]
+    \item Bending of beams
+    \item Plastic collapse
+    \item Energy methods
+    \item Beam buckling
+    \item Principal stresses and failure criteria
+    \item Axisymmetric stress and strain
+\end{itemize}
+
+\chapter{Basic Concepts of Structure Mechanics}
+\import{tex/}{MECH0013-001}
+\chapter{Bending of Beams}
+\import{tex/}{MECH0013-002}
+\import{tex/}{MECH0013-003}
+
+\chapter{Beam buckling}
+\chapter{Plastic Collapse}
+\chapter{Principal Stresses and Failure Criteria}
+\chapter{Axisymmetric Stress and Strain}
+\chapter{Energy Methods}
+
+\end{document}
