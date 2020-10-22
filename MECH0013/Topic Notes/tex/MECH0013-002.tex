@@ -44,42 +44,42 @@ Imagine to cut the beam at a section at a distance $x$ from the beam extreme. Ba
 \begin{center}
   $\vec{R_B} = \left[ \begin{array}{ccc} R_x \\ R_y \\ M \end{array}\right]$
 \end{center}
-\begin{gather*}
+\begin{gather}
   \sum F_x: R_x = 0 \\
   \sum F_y: R_y + F + wl = 0 \\
   R_y = -(F+wl) \\
   \sum M: M - F\frac{l}{2} - wl\frac{l}{2} = 0 \\
   M = F\frac{l}{2} + wl\frac{l}{2} = \frac{Fl+wl^2}{2}
-\end{gather*}
+\end{gather}
 \subsubsection{Determination of internal forces (from $x=0$ to $x=\frac{l}{2}$)}
 \begin{figure}[H]
   \centering
   \includegraphics[width = 0.8 \textwidth]{../img/determinationofforces1.PNG}
 \end{figure}
-\begin{gather*}
+\begin{gather}
   \sum F_y: Q + wx = 0 \\
   Q = -wx
-\end{gather*}
+\end{gather}
 $Q$ varies linearly: it is zero at $x=0$ and is $\frac{-wl}{2}$ at $x=\frac{l}{2}$.
-\begin{gather*}
+\begin{gather}
   \sum M: M_x + wx\frac{x}{2} = 0 \\
   M_x = \frac{-wx^2}{2}
-\end{gather*}
+\end{gather}
 $M$ varies parabolically: it is zero at $x=0$ and $\frac{-wl^2}{8}$ at $x=\frac{l}{2}$.
 \subsubsection{Determination of internal forces (from $x=\frac{l}{2}$ to $x=l$)}
 \begin{figure}[H]
   \centering
   \includegraphics[width = 0.8 \textwidth]{../img/determinationofforces2.PNG}
 \end{figure}
-\begin{gather*}
+\begin{gather}
   \sum F_y: Q + wx + F = 0 \\
   Q = -wx -F
-\end{gather*}
+\end{gather}
 $Q$ varies linearly between $x=\frac{l}{2}$ (where it is $-(\frac{wl}{2}+F)$) and $x=l$ (where it is $-(F+wl)$)
-\begin{gather*}
+\begin{gather}
   \sum M: M_x + wx\frac{x}{2} + F(x-\frac{l}{2})= 0 \\
   M_x = \frac{-wx^2}{2} - F(x-\frac{l}{2})
-\end{gather*}
+\end{gather}
 At $x=\frac{l}{2}$, $M$ distribution changes into a parabola with a steeper slope
 \subsubsection{Diagram of Internal Forces}
 \begin{figure}[H]
