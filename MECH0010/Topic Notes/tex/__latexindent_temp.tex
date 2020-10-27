@@ -1,222 +1,145 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
+\documentclass[class=report, crop=false, 12pt,a4paper, tikz, border=4mm]{standalone}
 \usepackage{enumitem}
-\usepackage{graphicx}
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
 \usepackage{siunitx}
 \usepackage{tikz}
-\usepackage{commath}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usetikzlibrary{positioning, fit, calc}   
+\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
+line/.style={-latex}     
+}
 \begin{document}
-\begin{center}
-  19/10/2020
-\end{center}
-\section{First Order Systems}
-All first order systems i.e. those with only $\frac{\dif x}{\dif t}$ take the following “standard” forms:
-\begin{gather}
-  \frac{X(s)}{Y(s)} = \frac{\alpha}{1+Ts} = \frac{\gamma}{1+\tau s}
-\end{gather}
-Where:
-\begin{itemize}
-  \item $\tau$, $\gamma$ is the \textbf{gain}
-  \item T, $\tau$ is the \textbf{time constant}
-\end{itemize}
-This function is commonly known as an exponential time delay, or lag.
-\subsection{Returning to the Time Domain}
-To get the response of the system in the time domain we need to convert the transfer function from the Laplace domain. Tables of common inverse Laplace functions have already been created; all we need to do arrange our transfer function into one of these standard forms.
+\section{Impulse functions/responses}
+\subsection{Impulse response of a system: Dirac delta function}
+A useful tool in analysing the transient response of a system is the impulse signal, a unit (amplitude = 1) pulse infinitesimally small, with area = 1. Formally this is known as the \textbf{Dirac delta function (impulse function)}.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/laplacetransformationtable.png}
-  \caption{Laplace Transformation Table}
+  \includegraphics[width = 0.8\textwidth]{../img/diagram23.png}
 \end{figure}
-\subsubsection*{Example: Parallel Spring \& Damper (Laplace Domain found previously)}
-\begin{gather}
-  \frac{X(s)}{Y(s)} = \frac{\alpha}{1+Ts} = \frac{\gamma}{1+\tau s}
-\end{gather}
-Looking at the table, we can find the relevant inverse function; in this case (3rd from the top):
-\begin{gather}
-  a = \frac{1}{\tau}
-\end{gather}
-Hence:
-\begin{gather}
-  \frac{X(s)}{Y(s)} = \frac{\frac{\gamma}{\tau}}{\frac{1}{\tau}+s} = \frac{\gamma}{\tau}\frac{1}{\frac{1}{\tau}+s} \\
-  x(t) = L^{-1}\left\{\frac{\gamma}{\tau}\frac{1}{\frac{1}{\tau}+s}\right\} \\
-  = \frac{\gamma}{\tau}L^{-1}\left\{\frac{1}{\frac{1}{\tau}+s}\right\} \\
-  = \frac{\gamma}{\tau}e^{-\frac{t}{\tau}}
-\end{gather}
-This is an exponential decay – the only variable needed to define the system is the time constant. The gain merely scales the response.
+The Dirac delta function is a non-physical, singularity function with the follow definition:
+\begin{equation}
+  \delta (t) = \begin{cases}
+    0 \textrm{ for } t \neq 0\\
+    \textrm{undefined for } t = 0 
+  \end{cases}
+\end{equation}
+but with the requirement that
+\begin{equation}
+  \int_{-\infty}^{\infty} \delta (t) \,\mathrm{d}t =1
+\end{equation}
+so taking the Laplace transform of this is also just 1
+\begin{equation}
+  \mathcal{L} (\delta (t)) = \int_{0^-}^{\infty} \delta (t) e^{-st} \,\mathrm{d}t = 1 
+\end{equation}
+Thus, the impulse response of the system is equal to the transfer function and from this it can be shown that \textbf{any} arbitrary signal can be described as a summation of impulse responses.
+\subsection{Impulse response on a first order system}
+Take a first order response for example, the transfer function and thus the impulse response looks like this:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/graphs6.PNG}
+  \includegraphics[width = 0.8\textwidth]{../img/diagram24.png}
 \end{figure}
-Having a negative time constant makes no physical sense, so the exception of $T=0$, the response will always be an exponential decay.
-\subsection{Unit Step Response}
+Due to our LTI assumptions:
+\begin{itemize}
+  \item Scaling the input scales the output
+  \item Superposition of inputs equals superposition of outputs
+  \item Time invariance
+\end{itemize}
+\subsection{Impulse response of a system}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.65 \textwidth]{../img/graphs7.PNG}
+  \includegraphics[width = 0.8\textwidth]{../img/diagram25.png}
 \end{figure}
-If a step input is given to a first order system, this will result in an exponential increase. This might be something like changing the room temperature. When talking about unit step input, the amplitude of the input will vary from 0 to 1. Some important definitions are:
-\begin{itemize}
-  \item Initial slope = $\frac{1}{time \ constant} = a$ 
-  \item $T_r =$ Raising time = how quick the exponential function achieves 90\% of the final value
-  \item $\tau$ = Time constant = how quick the exponential function achieves 63\% of the final value
-  \item $T_s$ = Settling time = how quick the exponential function becomes constant
-\end{itemize}
-Remember, we have modelled mechanical and electrical systems, and arrived at the same equations. This could be biological, financial, meteorological… This is good, because you only need to understand one system to understand hundreds. However, this means the models can appear abstract (or possibly arbitrary), so it is important to keep in mind the physical systems we are trying to model. 
+\subsubsection{Time vs Frequency Domain}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/blockdiagram19.png}
-  \caption{Left: Rate of decay determined by ratio of spring return force to viscous friction | Right: Rate of decay determined by total impedance of $R$ and $C$}
+  \includegraphics[width = 0.8\textwidth]{../img/diagram26.png}
 \end{figure}
-\section{Second Order Systems}
-The standard form for second order systems is shown below:
-\begin{gather}
-  G(s) = \gamma \frac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^2}
-\end{gather}
-Where:
 \begin{itemize}
-  \item $\gamma$ is the \textbf{gain}
-  \item $\omega_n$ is the \textbf{natural frequency}
-  \item $\zeta$ is the \textbf{damping ratio}
+  \item $u$ is the impulse function to the system
+  \item $h$ is called the impulse response of the system
+  \item $H$ is called the transfer function (TF) of the system
 \end{itemize}
-This function is known as a damped oscillator, in that it produces harmonic sinusoidal oscillations which decay over time. This type of system appears everywhere in physics, as well as in engineering. Even to the extent that some higher order systems are simplified to become second order, just because it is so well understood.
-\subsubsection*{Example – Mass Spring Damper}
+\begin{equation}
+  y(t) = \int_{0}^{\infty} h(\tau) u (t-\tau) \,\mathrm{d}\tau = \int_{0}^{\infty} h(\tau - t)u(\tau) \,\mathrm{d}\tau  
+\end{equation}
+with $0\leq \tau \leq t$
+\begin{equation}
+  y(t) = h(t) \cdot u(t)
+\end{equation}
+This is called convolution.
+\begin{equation}
+  Y(s) = H(s) \cdot U(s)
+\end{equation}
+This is called multiplication.
+\subsubsection{Convolution example}
+Essentially, the steps for convolving two signals are to first reflect the signal $g$, then offset the reflected signal. Then calculate the area under the graph for every offset, by sliding $-g$. The convolution at each time point is equal to the area under the intersection of functions. For two pulses, the result is a triangle wave:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.3 \textwidth]{../img/massspringdamper.PNG}
+  \includegraphics[width = 0.8\textwidth]{../img/diagram27.png}
 \end{figure}
-Consider a simple mechanical system Mass/Spring/Damper (MSD). As before, we wish to relate the input force to the output displacement i.e. Transfer function desired:
-\begin{gather}
-  G(s) = \frac{X(s)}{F(s)}
-\end{gather}
-Balancing forces as function of time:
-\begin{gather}
-  f(t) = f_S(t) + f_D(t) + f_I(t)
-\end{gather}
-Where:
+However, the calculations to obtain this result in the time domain are complicated, but are only multiplication in the Laplace domain.
+\subsubsection{Getting the Time Response}
+The procedure to describe the time response for LTI systems is thus:
 \begin{itemize}
-  \item $f_S(t) = kx(t)$
-  \item $f_D(t) = c\frac{\dif x(t)}{\dif t}$
-  \item $f_I(t) = m\frac{\dif^2 x(t)}{\dif t^2}$
+  \item Express the input, $u(t)$, in Laplace notation, $U(s)$
+  \item Use this to find output $Y(s)$, usually by multiplying $U(s)$ by the transfer function $Y(s) = U(s)G(s)$
+  \item Use inverse Laplace transforms (from tables) to express $Y(s)$ as a function of time, $y(t)$
 \end{itemize}
-So time domain force equilibrium is:
-\begin{gather}
-  f(t) = kx(t) + c\frac{\dif x(t)}{\dif t} + m\frac{\dif^2 x(t)}{\dif t^2}
-\end{gather}
-Converting to Laplace domain:
-\begin{gather}
-  F(s) = kX(s) + csX(s) + ms^2X(s) \\
-  F(s) = X(s)(k + cs + ms^2) \\
-  G(s) = \frac{X(s)}{F(s)} = \frac{1}{ms^2 + cs + k}
-\end{gather}
-To obtain the Laplace domain in the "standard" form, the coefficient of the highest order of $s$ on the denominator should be 1:
-\begin{gather}
-  G(s) = \frac{\frac{k}{m}}{s^2 + s\frac{c}{m} + \frac{k}{m}}\frac{1}{k} \\
-  = \gamma \frac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^2}
-\end{gather}
-Where:
+\section{Input functions: Impulse - Step - Ramp}
+Now we will consider some standard inputs and look at the response of first and second order systems:
 \begin{itemize}
-  \item $\omega_n = \sqrt{\frac{k}{m}}$
-  \item $\zeta = \frac{c}{2\sqrt{km}}$
-  \item $\gamma = \frac{1}{k}$
+  \item Impulse
+  \begin{itemize}
+    \item The Laplace transform is 1, so the response to an impulse is by the definition the transfer function
+  \end{itemize}
+  \item Step
+  \item Ramp
 \end{itemize}
-\subsection{Returning to the Time Domain}
-As before, we use the inverse Laplace transform to get the time domain response. To reiterate, the benefit of standard forms is that the transforms are given in the tables:
-\begin{gather}
-  G(s) = \gamma \frac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^2} \\
-  x(t) = L^{-1} \left\{\frac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^2} \right\} \\
-  \frac{x(t)}{x(0)} = \gamma \frac{\omega_n}{\sqrt{1-\zeta^2}}e^{-\zeta \omega_n t} sin(\omega_n \sqrt{1-\zeta^2}\cdot t)
-\end{gather}
-$\gamma$ is not shown as it is unaffected by the Laplace transform. The equation above looks complicated, but investigating each term yields:
-\begin{gather}
-  \gamma \frac{\omega_n}{\sqrt{1-\zeta^2}}
-\end{gather}
-$\gamma \ \omega_n \ \zeta$ are all constants, so the whole term is just a number.
-\begin{gather}
-  e^{-\zeta \omega_n t}
-\end{gather}
-It is an exponential function, which depending on whether $-\zeta \omega_n$ is positive or negative, increases or decays.
-\begin{gather}
-  sin(\omega_n \sqrt{1-\zeta^2}\cdot t)
-\end{gather}
-$\omega_n \ \zeta$ are just constants, so assuming $\zeta < 1$, this is just a sine wave.
+There are many others, particularly sinusoidal inputs or other discontinuous inputs, which are important in control loops, but we will focus on the two classic examples.
+\subsection{Step input}
+A step input is a discontinuous function, which is zero for all negative values of $t$ and 1 for all positive values.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/graphs8.PNG}
+  \includegraphics[width = 0.8\textwidth]{../img/diagram28.png}
 \end{figure}
-This is an exponentially decaying sinusoidal oscillation, with:
+\subsubsection{Laplace transform}
+\begin{gather}
+  x(t) = U(t)\\
+  \mathcal{L} \left\{ U(t) \right\} = \int_{0^-}^{\infty} e^{-st} \,\mathrm{d}t = \left[-\frac{1}{s} e^{-st}\right]_{0^-}^{\infty} \rightarrow \frac{1}{s}\\    
+\end{gather}
+Or for a gain of A
+\begin{gather}
+  x(t) = AU(t) \\
+  \mathcal{L} \left\{ AU(t) \right\} = \frac{A}{s} 
+\end{gather}
+\subsubsection{Applications}
+The step response is extremely useful in control theory for describing the behaviour of the system. In part because it incorporates the "transient" behaviour - from the sudden change from zero to one, as well as the "steady state" behaviour as the system settles down to a single value. IT also replicates many real world control applications such as:
 \begin{itemize}
-  \item Frequency: $\omega_n \sqrt{1-\zeta^2}\cdot t$
-  \item Decay: $e^{-\zeta \omega_n t}$
-  \item Gain: $\gamma \frac{\omega_n}{\sqrt{1-\zeta^2}}$
+  \item Position control - move to a $X=10\si{\milli\meter}$ position and stay
+  \item Speed control - go to 33 RPM
+  \item Temperature - heat element on 3D printer to 230 \si{\celsius}
 \end{itemize}
-\subsection{Unit Step Response}
+Also, unlike the Dirac impulse - it is physically realisable.
+\subsection{Ramp input}
+A ramp input has a value of $t$ for all $t$ values above zero and zero elsewhere, often is scaled by a gain A.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.65 \textwidth]{../img/graphs9.PNG}
+  \includegraphics[width = 0.8\textwidth]{../img/diagram29.png}
 \end{figure}
-Some properties that should be known, but will be investigated later are:
+\subsubsection{Laplace transform}
+\begin{gather}
+  x(t) = at\\
+  \mathcal{L} \left\{ at \right\} \int_{0^-}^{\infty} ate^{-st} \,\mathrm{d}t = -a \left[ \frac{t}{s}e^{-st} \right]_{0}^{\infty} + a\int_{0}^{\infty} \frac{1}{s} e^{-st} \,\mathrm{d}t\\
+  = a \left[ -\frac{1}{s^2}e^{-st} \right] \rightarrow \frac{a}{s^2}   
+\end{gather}
+\subsubsection{Applications}
+Ramp inputs are useful in understanding the steady state behaviour of a system i.e. when $t$ goes to infinity. Practical examples of control applications using ramp inputs are
 \begin{itemize}
-  \item Slope at the time step input is made $(t=0)$ = 0
-  \item $T_p=$ Peak Time
-  \item $T_s=$ Settling Time
-  \item $T_r=$ Rise Time
-  \item Overshoot
+  \item Servo motors - shaft \textbf{position} rather than speed
+  \item Ovens for PCB manufacturing etc. - strict linear \textbf{profile} of temperature required as opposed to "get to this temperature quickly"
+  \item CNC milling machine, move in $X$ direction and constant rate
 \end{itemize}
-\section{Tutorial}
-\subsection*{LRC Filter}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.25 \textwidth]{../img/lrcfilter.PNG}
-\end{figure}
-A more complex filtering circuit is an LRC filter, also known as a harmonic oscillator circuit, which allows for a narrower range of frequencies to be amplified or attenuated. These circuits are used in analogue radios with a variable capacitor or inductor connected to the dial to select the frequency. To describe the relationship between the input voltage $V_i$, and the voltage across the capacitor $V_C$:
-\begin{gather}
-  G(s) = \frac{V_C(s)}{V_i(s)}
-\end{gather}
-Balancing voltages using Kirchoff's Law:
-\begin{gather}
-  v_i = v_R + v_L + v_C
-\end{gather}
-Where:
-\begin{itemize}
-  \item $v_r(t) = i(t)R$
-  \item $v_c(t) = \frac{1}{C}\int i(t)\dif t$
-  \item $v_L(t) = L\frac{\dif i(t)}{\dif t}$
-\end{itemize}
-So time domain voltage is:
-\begin{gather}
-  v_i(t) = i(t)R + \frac{1}{C}\int i(t)\dif t + L\frac{\dif i(t)}{\dif t}
-\end{gather}
-Converting to Laplace domain:
-\begin{gather}
-  V_i(s) = I(s)R + \frac{1}{Cs}I(s) + LsI(s) \\
-  V_i(s) = I(s) \left(R + \frac{1}{Cs} + Ls\right)
-  \label{laplacedomain1}
-\end{gather}
-Getting the laplace domain and rearranging the $v_c(t)$ term yields:
-\begin{gather}
-  v_c(t) = \frac{1}{C}\int i(t)\dif t \\
-  V_c(s) = \frac{1}{Cs}I(s) \\
-  I(s) = V_C(s)Cs \label{Is}
-\end{gather}
-Inputting equation (\ref{Is}) into equation (\ref{laplacedomain1}):
-\begin{gather}
-  V_i(s) = CsV_c(s) \left(R + \frac{1}{Cs} + Ls\right) \\
-  G(s) = \frac{V_C(s)}{V_i(s)} = \frac{1}{LCs^2 + CRs + 1}
-\end{gather}
-To obtain the Laplace domain in the "standard form":
-\begin{gather}
-  G(s) = \frac{\frac{1}{LC}}{s^2 + s\frac{R}{L} + \frac{1}{LC}} \\
-  = \frac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^2}
-\end{gather}
-Where:
-\begin{itemize}
-  \item $\omega_n = \sqrt{\frac{1}{LC}}$
-  \item $\zeta = \frac{R}{2}\sqrt{\frac{C}{L}}$
-  \item $\gamma = 1$
-\end{itemize}
-
-
 \end{document}

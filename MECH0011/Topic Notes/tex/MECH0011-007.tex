@@ -1,29 +1,37 @@
 \documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
 \usepackage{enumitem}
-\usepackage{float}
-\usepackage[normalem]{ulem}
+\usepackage{multicol}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{siunitx}
 \usepackage{commath}
+\usepackage{array}
+\usepackage{natbib}
 \usepackage{tikz}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
 \usetikzlibrary{positioning, fit, calc}   
 \tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
 line/.style={-latex}     
 }  
+\setlength{\parindent}{0pt}
 \begin{document}
-\section{Uniform flow}
-Cartesian coordinates:
+\begin{center}
+    27/10/2020
+\end{center}
+\section{Uniform Flow}
+Cartesian Coordinates:
 \begin{gather}
   \phi = V_{\infty} \left[ x\cos(\alpha) + y\sin(\alpha) \right]\\
   \psi = V_{\infty} \left[ y\cos(\alpha) - x\sin(\alpha) \right]
 \end{gather}
-Is the conservation of mass balanced?
+The conservation of mass is balanced:
 \begin{equation}
   \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0
 \end{equation}
-Is the flow irrotational?
+The flow is irrotational:
 \begin{equation}
   \omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = 0
 \end{equation}
@@ -31,23 +39,28 @@ Is the flow irrotational?
   \centering
   \includegraphics[width = 0.4\textwidth]{../img/diagram16.png}
 \end{figure}
-Cylindrical coordinates:
+Cylindrical Coordinates:
 \begin{gather}
   \phi (r, \theta) = V_{\infty} r \cos(\theta - \alpha)\\
   \psi (r, \theta) = V_{\infty} r \sin(\theta - \alpha)
 \end{gather}
-Check these two conditions in cylindrical coordinates. Is the conservation is mass equation balanced? Is the flow irrotational?
+The conservation of mass is satisfied for cylindrical coordinates:
+\begin{gather}
+  \nabla \cdot \overrightarrow{V} = \frac{1}{r}\frac{\partial ru_r}{\partial r} + \frac{1}{r}\frac{\partial u_{\theta}}{\partial \theta} \\
+  = \frac{\partial r(v_{\infty}\cos(\theta-\alpha))}{\partial r} - \frac{\partial v_{\infty}\sin(\theta-\alpha)}{\partial \theta} \\
+  v_{\infty}\cos(\theta-\alpha) - v_{\infty}\cos(\theta-\alpha) = 0
+\end{gather}
 \begin{figure}[H]
   \centering
   \includegraphics[width = 0.4\textwidth]{../img/diagram17.png}
 \end{figure}
-\section{Source/sink flow}
-Cartesian coordinates:
+\section{Source/Sink Flow}
+Cartesian Coordinates:
 \begin{gather}
   \phi = \frac{\Lambda}{2\pi} \ln(\sqrt{x^2 +y^2})\\
   \psi = \frac{\Lambda}{2\pi}\arctan\left(\frac{y}{x}\right)
 \end{gather}
-Cylindrical coordinates
+Cylindrical Coordinates:
 \begin{gather}
   \phi = \frac{\Lambda}{2\pi}\ln(r)\\
   \psi = \frac{\Lambda}{2\pi}\theta
@@ -62,17 +75,17 @@ In cylindrical coordinates, we do not have a $\theta$ component as it is moving 
   u_{\theta} = \frac{1}{r} \frac{\partial \phi}{\partial \theta} = 0
 \end{gather}
 Here we can see the magnitude of the velocity is dependent on $\frac{1}{r}$. If $\Lambda > 0$, we have a source and if $\Lambda < 0$, we have a sink.
-\section{Uniform flow + source}
+\section{Uniform Flow + Source}
 \begin{gather}
   \phi (r,\theta) = \frac{\Lambda}{2\pi} \ln(r) + V_{\infty} r \cos \theta \\
-  \phi (r,\theta) = \frac{\Lambda}{2\pi}\theta + V_{\infty} r \sin \theta
+  \psi (r,\theta) = \frac{\Lambda}{2\pi}\theta + V_{\infty} r \sin \theta
 \end{gather}
 Stream function $\psi (r,\theta)$ of:
 \begin{figure}[H]
   \centering
   \includegraphics[width = 0.8\textwidth]{../img/diagram19.png}
 \end{figure}
-\section{Uniform flow + source + sink}
+\section{Uniform Flow + Source + Sink}
 \begin{gather}
   \phi - V_{\infty} r \cos \theta + \frac{\Lambda}{2\pi}(\ln (r_1) - \ln (r_2))\\
   \psi = V_{\infty} r \sin \theta + \frac{\Lambda}{2\pi} (\theta_1 - \theta_2)
@@ -91,7 +104,7 @@ Consider a pair of source and sink of $\pm \Lambda$ who are $l$ apart and $l\tim
   \centering
   \includegraphics[width = 0.8\textwidth]{../img/diagram21.png}
 \end{figure}
-\section{Cylinder (uniform flow + doublet)}
+\section{Cylinder (Uniform Flow + Doublet)}
 \begin{gather}
   \phi = V_{\infty}r\cos\theta + \frac{k}{2\pi} \frac{\cos\theta}{r}\\
   \psi = V_{\infty} r\sin\theta - \frac{k}{2\pi}\frac{\sin\theta}{r}
@@ -120,7 +133,7 @@ On the cylinder surface, $r =R$ and inputting this into $\psi$:
 \begin{equation}
   \psi = 0
 \end{equation}
-\section{Uniform stream with varying direction}
+\section{Uniform Stream with Varying Direction}
 All we need to do to generalise our equations a bit more is to rewrite our equations with an extra angular term, $\alpha$:
 \begin{gather}
   \phi = V_{\infty}r\cos(\theta-\alpha)\left(1+\frac{R^2}{r^2}\right)\\
@@ -130,7 +143,7 @@ All we need to do to generalise our equations a bit more is to rewrite our equat
   \centering
   \includegraphics[width = 0.8\textwidth]{../img/diagram23.png}
 \end{figure}
-\section{Adding circulation with a vortex flow}
+\section{Adding Circulation with a Vortex Flow}
 \begin{gather}
   \phi = -\frac{\Gamma}{2\pi}\theta\\
   \psi = \frac{\Gamma}{2\pi}\ln\left(\frac{r}{R}\right)\\
@@ -142,7 +155,7 @@ Where $\Gamma < 0$ is anti-clockwise motion and $\Gamma > 0$ is clockwise motion
   \centering
   \includegraphics[width = 0.4\textwidth]{../img/diagram24.png}
 \end{figure}
-\section{Cylinder with a vortex flow}
+\section{Cylinder with a Vortex Flow}
 \begin{gather}
   \psi = V_{\infty}r\sin\theta\left(1-\frac{R^2}{r^2}\right) + \frac{\Gamma}{2\pi}\ln\left(\frac{r}{R}\right)\\
   \phi = V_{\infty}r\cos\theta\left(1+\frac{R^2}{r^2}\right)-\frac{\Gamma}{2\pi}\theta\\
@@ -153,17 +166,18 @@ Where $\Gamma < 0$ is anti-clockwise motion and $\Gamma > 0$ is clockwise motion
   \centering
   \includegraphics[width = 0.8\textwidth]{../img/diagram25.png}
 \end{figure}
-\section{Lift and drag of a cylinder with circulation}
+\section{Lift and Drag of a Cylinder with Circulation}
 Apply Bernoulli:
 \begin{gather}
-  p_{\infty} + \frac{1}{2}\rho V_{\infty}^2 = p + \frac{1}{2}(u_r^2+u_{\theta}^2)\\
+  p_{\infty} + \frac{1}{2}\rho V_{\infty}^2 = p(r,\theta) + \frac{1}{2}\rho(u_r^2+u_{\theta}^2)\\
   c_p = \frac{p - p_{\infty}}{\frac{1}{2}\rho V_{\infty}^2} = 1 - \frac{u_r^2 + u_{\theta}^2}{V_{\infty}^2}
 \end{gather}
 On the cylinder surface: $u_r = 0$
-\begin{equation}
-  c_p (R,\theta) = 1 - \frac{u_{\theta}^2}{V_{\infty}^2}=1-\frac{(2V_{\infty}\sin\theta + \frac{\Gamma}{2\pi R})^2}{V_{\infty}^2}
-\end{equation}
-\section{Lift of the cylinder}
+\begin{gather}
+  c_p (R,\theta) = 1 - \frac{u_{\theta}^2}{V_{\infty}^2}=1-\frac{(2V_{\infty}\sin\theta + \frac{\Gamma}{2\pi R})^2}{V_{\infty}^2} \\
+  = 1-\left(4\sin^2(\theta)+\frac{\Gamma^2}{4\pi^2V_{\infty}^2R^2}+\frac{2\Gamma\sin(\theta)}{V_{\infty}\pi R}\right)
+\end{gather}
+\section{Lift of the Cylinder}
 We need to calculate $c_p$ on the surface of the cylinder.
 \begin{align}
   L &= -\frac{1}{2}\rho V_{\infty}^2\int_{0}^{2\pi} \left(c_p \cdot \hat{n}\cdot\hat{j}R\right)\dif \theta \\
