@@ -6,6 +6,7 @@
 \usepackage[normalem]{ulem}
 \usepackage{graphicx}
 \usepackage{siunitx}
+\usepackage{commath}
 \usepackage{tikz}
 \usetikzlibrary{positioning, fit, calc}   
 \tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
@@ -142,4 +143,132 @@ Ramp inputs are useful in understanding the steady state behaviour of a system i
   \item Ovens for PCB manufacturing etc. - strict linear \textbf{profile} of temperature required as opposed to "get to this temperature quickly"
   \item CNC milling machine, move in $X$ direction and constant rate
 \end{itemize}
+\subsection{Summary of Input Functions}
+\begin{gather}
+  \textrm{Impulse } F(s) = A\\
+  \textrm{Step } F(s) = \frac{A}{s}\\
+  \textrm{Ramp } F(s) = \frac{A}{s^2}
+\end{gather}
+For a \textbf{unit} response, $A=1$. We can apply these inputs to the LTI system by multiplying the transfer function by the input, both in terms of $s$.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram30.png}
+\end{figure}
+\section{First Order System Step Response}
+Electromagnets are used in motors both rotary and linear, as well as in power transfer and also magnetic levitation in trains. First obtain the transfer function.
+\begin{equation}
+  \frac{I(s)}{V(s)}
+\end{equation}
+Balancing voltage gives:
+\begin{equation}
+  v(t) = v_R(t) + v_I(t)
+\end{equation}
+where
+\begin{gather}
+  v_R(t) = i (t) R\\
+  v_I (t) = L\frac{\dif i(t)}{\dif t}
+\end{gather}
+Substitution gives:
+\begin{equation}
+  v(t) = Ri(t) + L\frac{\dif i(t)}{\dif t}
+\end{equation}
+In the Laplace domain
+\begin{gather}
+  V(s) = RI(s) + LsI(s)\\
+  \frac{I(s)}{V(s)} = \frac{1}{(Ls + R)}
+\end{gather}
+For a \textbf{step} input of 1 \si{\volt} (unit step)
+\begin{gather}
+  V(s) = \frac{1}{s}\\
+  I(s) = V(s) \frac{1}{(Ls + R)}\\
+  =  \frac{1}{s(Ls + R)}
+\end{gather}
+Sadly there is no direct equivalent in the tables for this transform. The first takes is to split the expression up using partial fractions, into expressions that are give in the tables.
+\begin{gather}
+  I(s) = \frac{1}{s(Ls + R)} = \frac{\frac{1}{L}}{s(s+\frac{R}{L})} \textrm{ (remove coeff for s)}\\
+  = \frac{k_1}{s} + \frac{k_2}{(s + \frac{R}{L})} \textrm{ partial fraction expansion}
+\end{gather}
+where
+\begin{equation}
+  k_1 (s + \frac{R}{L}) + k_2 s = \frac{1}{L}\\
+\end{equation}
+Looking at $s=0$
+\begin{equation}
+  k_1 \frac{R}{L} = \frac{1}{L} \rightarrow k_1 = \frac{1}{R}\\
+\end{equation} 
+Looking at $s= -\frac{R}{L}$
+\begin{equation}
+  -k_2 \frac{R}{L} = \frac{1}{L} \rightarrow k_2 = -\frac{1}{R}
+\end{equation}
+Which yields
+\begin{equation}
+  I(s) = \frac{1}{R} \left[ \frac{1}{s} - \frac{1}{(s+\frac{R}{L})} \right]
+\end{equation}
+Looking at the Laplace tables, we can now use entries for $\frac{1}{s}$ and $\frac{1}{(s + a)}$, considering $t > 0 \therefore u(t) = 1$.
+\begin{equation}
+  I(t) = \frac{1}{R} \left[ 1 - e^{-\frac{R}{L}t}\right]
+\end{equation}
+Which has the familiar form of a first order exponential rise, with a steady state gain of $\frac{1}{R}$. Time constant $\tau = \frac{L}{R}$. For now assume that $L$ and $R = 1$, so gain and time constant are 1.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram31.png}
+\end{figure}
+Thus for a known time constant, it is possible to calculate the response at any point after the step. A common parameter of a first order system is the \textbf{settling time} which is the time taken to reach 95\% of the desired value, or $3\tau$. The inverse process is also used in system identification, because the response is so simple - we can measure the step response and calculate the time constant of the system. If we do convolution in the time domain you get the same too.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram32.png}
+  \caption{Area under $f(\tau)g(1-\tau)$, blue line $f(\tau)$, red line $g(t-\tau)$, black line $(f+g)t$.}
+\end{figure}
+These "step responses" can be repeated for different values of $V$ and for different starting values of $I(t)$. The response will always be behind the input for all time constant $>0$, and thus these systems are referred to as \textbf{first order lags}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram33.png}
+\end{figure}
+\section{First Order System Ramp Response}
+For a \textbf{ramp} input of gain 1 (unit ramp)
+\begin{gather}
+  \frac{I(s)}{V(s)} = \frac{1}{(Ls+R)}\\
+  V(s) = \frac{1}{s^2}\\
+  I(s) = \frac{1}{s^2(Ls+R)} = \frac{\frac{1}{L}}{s^2(s+\frac{R}{L})}
+\end{gather}
+Again, this is not in the Laplace tables, so rearrange use partial fractions, giving us the general solution:
+\begin{equation}
+  I(t) = t - \tau \left(1 - e^{-\frac{t}{\tau}}\right)
+\end{equation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram34.png}
+\end{figure}
+After 4 time constants, we can say that the system is in the \textbf{steady state} where the difference between the input and output is no longer changing. The steady state lag is then equal to $\tau$
+\section{Understanding Poles and Zeros}
+As defined, the transfer function is a rational function in the complex variable $s = \sigma + jw$, that is
+\begin{equation}
+  G(s)=\frac{b_ms^m + b_{m-1}s^{m-1} + ... + b_1s + b_0}{a_ns^n + a_{n-1}s^{n-1}+...+a_1s + a_0}
+\end{equation}
+It is often convenient to factor the polynomials in the numerator and denominator, and to write the transfer function terms of those factors:
+\begin{equation}
+  G(s) = \frac{N(s)}{D(s)} = K \frac{(s-z_1)(s-z_2)...(s-z_{m-1})(s-z_m)}{(s-p_1)(s-p_2)...(s-p_{n-1})(s-p_n)}
+\end{equation}
+Where the numerator and denominator polynomials, $N(s)$ and $D(s)$, have real coefficients defined by the system's differential equation and $K = \frac{b_m}{a_n}$. Poles and zeros are found by
+\begin{equation}
+  N(s) = 0 \textrm{ and } D(s) = 0
+\end{equation}
+All of the coefficients of polynomials $N(s)$ and $D(s)$ are real, therefore  the poles and zeros must be either purely real, or appear in complex conjugate pairs.
+\begin{quotation}
+  The poles and zeros are properties of the transfer function and therefore of the differential equation describing the input-output system dynamics. Together with the gain constant, they completely characterize the differential equation, and provide a complete description of the system.
+\end{quotation}
+\subsection{Example}
+A linear system is described by the differential equation:
+\begin{gather}
+  \frac{\dif^2y}{\dif t^2} + 2\frac{\dif y}{\dif t} + 5y = 3\frac{\dif u}{\dif t} + 12u\\
+  \mathcal{L} \left\{ \frac{\dif^2y}{\dif t^2} + 2\frac{\dif y}{\dif t} + 5y \right\} = s^2 Y(s) + 2sY(s) + 5Y(s)\\
+  \mathcal{L} \left\{ 3\frac{\dif u}{\dif t} + 12u \right\} = 3sU(s) + 12U(s)\\
+  N(s) = 3s + 12 = 0 \rightarrow z_1 = -4\\
+  D(s) = s^2 + 2s + 5 \rightarrow p_{1/2} = \frac{-2 \pm \sqrt{2^2 - 4\times 5}}{2} = -1 \pm j2\\
+  G(s) = \frac{N(s)}{D(s)} = 3 \frac{(s-(-4))}{(s-(-1+j2))(s-(-1-j2))} 
+\end{gather}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram35.png}
+\end{figure}
 \end{document}
