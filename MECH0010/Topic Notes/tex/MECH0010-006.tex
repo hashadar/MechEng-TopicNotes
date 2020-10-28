@@ -271,4 +271,77 @@ A linear system is described by the differential equation:
   \centering
   \includegraphics[width = 0.6\textwidth]{../img/diagram35.png}
 \end{figure}
+\subsection{s-Plane}
+We can see how the time domain representation changes as we move around the s-plane. The imaginary axis corresponds to the sinusoidal component, and the real axis corresponds to the exponential.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/diagram36.png}
+\end{figure}
+\section{Open Loop Motor Speed Control}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/diagram37.png}
+\end{figure}
+For a DC motor connected to an inertial load, there is a combination of electrical and mechanical system equations determining the transfer function for angular position with respect to voltage.
+\begin{equation}
+  \frac{\Theta_m (s)}{v_a(s)}
+\end{equation}
+First consider the voltage balance:
+\begin{equation}
+  v_a = R_a i_a + L_a \frac{\dif i_a}{\dif t} + e_m
+\end{equation}
+Where $e_m$ is the back e.m.f of the motor. We can also write the above in Laplace:
+\begin{equation}
+  V_a(s) = R_a I_a (s) + L_a s I_a (s) + E_m (s)
+\end{equation}
+Next consider the torque balance in motor:
+\begin{equation}
+  T(t) = I_m \frac{\dif^2 \theta_m}{\dif t^2} + b \frac{\dif \theta_m}{\dif t}
+\end{equation}
+Which gives the following in Laplace:
+\begin{equation}
+  T(s) = I_m s^2 \Theta_m + bs\Theta_m (s)
+\end{equation}
+The electrical and mechanical sides are connected by motor constant which describe the characteristics of the motor (and given by manufacturer).
+\begin{gather}
+  e_m = K_e \frac{\dif \theta_m}{\dif t} \\ 
+  T = K_t i_a
+\end{gather}
+Or in the Laplace domain:
+\begin{gather}
+  E_m (s) = K_e s \Theta_m (s)\\
+  T(s) = K_t I_a (s)
+\end{gather}
+Combining this with our previous equations:
+\begin{gather}
+  V_a (s) = R_a I_a (s)+L_a s I_a (s) + E_m (s)\\
+  T(s) = I_m s^2 \Theta_m (s) + bs\Theta_m (s)
+\end{gather}
+We arrive at the equation of voltage with respect to angular position:
+\begin{equation}
+  V_a (s) = \frac{R_a b}{K_t} \left[ s(\tau_a s +1)(\tau_m s +1)\right] \Theta_m (s) + K_e s\Theta_m (s)
+\end{equation}
+"Armature" time constant related to electrical side:
+\begin{equation}
+  \tau_a = \frac{L_a}{R_a}
+\end{equation}
+Motor time constant related to mechanical side:
+\begin{equation}
+  \tau_m = \frac{I_m}{b}
+\end{equation}
+The transfer function the becomes:
+\begin{equation}
+  \frac{\Theta_m(s)}{V_a(s)} = \frac{\frac{K_t}{R_a b}}{s\left[ \tau_m \tau_a s^2 + (\tau_m + \tau_a)s + \left( \frac{K_e K_t}{R_a b} + 1 \right)  \right]}
+\end{equation}
+Which looks very complicated, but we can make some simplifying assumptions, which quickly make things simple again. The electrical time constant is normally very small when compared to the mechanical one, as manufacturers try to keep the resistance and inductance low, so we can neglect $\tau_a$. The result, then simplifies to the following equation:
+\begin{gather}
+  \frac{\Theta_m(s)}{V_a(s)} = \frac{K}{s(\tau s + 1)}\\
+  K = \frac{K_a K_t}{(bR_a + K_t K_b)}
+\end{gather}
+Where $K$ is the remaining leftover constants. This looks \textbf{much} simpler now, but we can take a step further, rather than consider the output position, lets look at the transfer function with respect to speed $\omega$
+\begin{gather}
+  \frac{\omega_m (s)}{V_a (s)} = \frac{\dif \left( \frac{\Theta_m (s)}{V_a (s)} \right)}{\dif t} = s \left( \frac{K}{s(\tau s +1)} \right)\\
+  \frac{\omega_m (s)}{V_a (s)} = \frac{K}{(\tau s +1)}
+\end{gather}
+This is now just a first order system.
 \end{document}
