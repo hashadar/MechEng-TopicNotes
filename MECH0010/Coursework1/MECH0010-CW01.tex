@@ -46,6 +46,36 @@ If $P$ is constant and $F$ is increased/decreased, $v$ must decrease/increase.
 \subsection{Proximity sensors}
 We can utilise a proximity sensor to measure the distance to the vehicle ahead. This can be used to 'track' the vehicle ahead. A simple cruise control system is unable to make changes to the throttle in response to changing road conditions. With a proximity sensor, we can observe whether the vehicle ahead has got closer (vehicle ahead is braking) or got further away (vehicle ahead is accelerating away). By setting a fixed 'following distance' (how far away the vehicle ahead should be kept), the driver can set a maximum speed for the vehicle to travel at and the vehicle will automatically slow down and speed up to the limits set in response to changing road conditions. For example, in traffic vehicles are constantly slowing down and accelerating. With our previous system, we would have to disable the cruise control (by braking) and set it again once vehicles speed up again. Our new system will allow a user to simply set the cruise control once and no longer worry about colliding into the car in front, as the car will keep a safe distance from the vehicle in front.
 \section{Question B}
+\begin{itemize}
+  \item Sensor - circuit to measure resistance of heating coil.
+  \item Actuator - heating element
+  \item Input signal(s) - relay switch (heating element on and off, convection fan and off), rotary switch (temperature control)
+  \item Output signal(s) - temperature
+  \item Control signal(s) - 
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/2-1blockdiagram.png}
+\end{figure}
+My first solution is to have an open-loop control system. Our input is simply the temperature desired. I have left the timing to an external device such as an oven timer, however this could be easily implemented with a simple timing circuit and relay. This system utilises a potentiometer as an analogue input. Each resistance setting corresponds to a certain desired temperature. Our heating element operates on the basis of Joule heating, whereby passing a current through a conductor produces a heating effect. Assuming that the heating element is a perfect resistor, we know that:
+\begin{equation}
+  P = I^2 \cdot R
+\end{equation}
+Whether we use a DC supply or an AC supply has a negligible effect on our system, as we can simply look at the RMS values for AC. 
+
+Our heating element will continue to heat up until it reaches a certain equilibrium (where the power in to the heating element matches the heat dissipation), however this equilibrium temperature will most likely not be the desired temperature. We have two options here: modulate our power supply to change the equilibrium temperature of the heating element or switch the power supply off and on at threshold values. Some of the advantages of power modulation include a stable temperature, but this may come at the cost of additional electronic complexity and cost. 
+
+On the other hand, on-off control is relatively simple. We can set our threshold values to be $\pm 5\si{\celsius}$ of the desired temperature. I have arbitrarily chosen this value, as the the effects of a temperature oscillation of 10\si{\celsius} will have negligible effects on the food being cooked. The thermal inertia of the heating coil is also relatively high, thus switching will occur with low frequency and can be managed with a simple relay.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{./img/2-2graph.png}
+  \caption{Temperature - time graph for an on-off control system. We can see the desired temperature as $T_{set}$ and our threshold temperatures as the pink dotted lines. As the circuit is switched on and off, the temperature of the oven is controlled.}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{./img/2-3graph.png}
+  \caption{Temperature - time graph for a modulated power supply. Here we can see that the equilibrium temperature is our $T_{set}$ value.}
+\end{figure}
 \section{Question C}
 \part{Instrumentation}
 \section{Question 1}
