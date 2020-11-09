@@ -67,7 +67,7 @@ Terminology:
     \hline
     Zero Output resistance $r_{out} = 0$ & $r_{out} < 1 \si{\kilo\ohm}$\\
     \hline
-    Infinite differential (or open-loop) gain $A_v \rightarrow \infty$ & $A_v > 100,000$\\
+    Infinite differential (or open-loop) gain $A_v \rightarrow \infty$ & $A_v > 100000$\\
     \hline
     Zero common-mode voltage gain $A_{cm} = 0$ & $A_v$ also frequency dependant\\
     \hline
@@ -176,7 +176,7 @@ This is positive and always greater than 1.
 \subsection{Voltage amplification summary}
 Operational amplifier:
 \begin{itemize}
-  \item The gain usually is too large (typically > 100,000) and not well defined. ($V_0$ cannot be larger than supply voltage)
+  \item The gain usually is too large (typically $>$ 100,000) and not well defined. ($V_0$ cannot be larger than supply voltage)
   \item The gains for two op-amps of the same type can differ by a factor of two or more.
   \item The gain is not stable, can change with temperature, can change with changes of supply voltage.
 \end{itemize}
@@ -487,4 +487,13 @@ Even with higher order polynomials, for example
 \begin{equation}
   y = ax^2 + bx + c
 \end{equation}
+We can define quantity
+\begin{equation}
+  S = \sum_{i=1}^n [y_i - (ax_i^2 + bx_i +c)]^2
+\end{equation}
+for minimisation.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../img/diagram66.png}
+\end{figure}
 \end{document}
