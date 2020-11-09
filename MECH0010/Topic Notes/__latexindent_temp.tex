@@ -1,0 +1,56 @@
+\documentclass[12pt,a4paper, twoside]{report}
+
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+\usepackage{mathtools}
+\usepackage{natbib}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\graphicspath{img/}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[RO,LE]{MECH010 Topic Notes}
+\fancyfoot{}
+\fancyfoot[LO,RE]{\thepage}
+\fancyfoot[CO,CE]{Chapter \thechapter}
+\fancyfoot[LE,RO]{HD}
+\setlength{\headheight}{15pt}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+\title{
+  {MECH0010 Topic Notes}\\
+  {\large UCL}
+  \author{HD}
+  \date{\today}
+}
+\maketitle
+\tableofcontents
+\part{Control}
+\chapter{Introduction to Control Systems}
+\import{tex/}{MECH0010-001}
+\chapter{Modelling Linear Systems}
+\import{tex/}{MECH0010-003}
+\chapter{First and Second Order Systems}
+\import{tex/}{MECH0010-005}
+\chapter{System Time Response}
+\import{tex/}{MECH0010-006}
+
+\part{Instrumentation}
+\chapter{General Measurement Systems}
+\import{tex/}{MECH0010-002}
+\chapter{Strain Gauges}
+\import{tex/}{MECH0010-004}
+\chapter{Measurements of Displacement}
+\import{tex/}{MECH0010-007}
+\chapter{Laboratory measurement}
+\import{tex/}{MECH0010-008}
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\numberwithin{equation}{section}
+\setlength{\parskip}{\baselineskip}%
+\setlength{\parindent}{0pt}%
+\begin{document}
+\title{\textbf{UCL Mechanical Engineering 2020/2021}\\MECH0010 Coursework 1}
+\date{Starting on: 31/10/2020\\Deadline: 13/11/2020}
+\author{Anonymous submission}
+\maketitle
+\tableofcontents
+\newpage
+\part{Control}
+\section{Question A}
+\subsection{Block diagram (open loop)}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/1-1blockdiagram.png}
+\end{figure}
+\subsection{Block diagram (closed loop)}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/1-2blockdiagram.png}
+\end{figure}
+With closed loop control, we can better control the actual speed of the vehicle. For example, when in abnormal conditions, (bad weather, incline, decline) there will be a different resistive force acting against the motion of the vehicle. Assuming that the engine throttle has a linear relationship with the power output of the engine, we see that in the case where the resistance force is changed, the speed of the vehicle will change (given a fixed throttle position ergo fixed power output). For example, on an incline not only does the power output have to match the resistive forces but also the sine component of the weight of the vehicle ($mg\sin{\theta}$, where $\theta$ is the incline angle.) The derivation for the equation linking power output, force and velocity is below.
+\begin{gather}
+  W = \int_{x_0}^{x} F \cdot \textrm{d}x\\
+  v = \frac{\dif x}{\dif t}\\
+  v\dif t = \dif x\\
+  W = \int_{t_0}^{t} Fv\cdot \textrm{d} t\\
+  P = \frac{\dif W}{\dif t}\\
+  P = \frac{\dif}{\dif t}\left(\int_{t_0}^{t} Fv\cdot \textrm{d} t\right)\\
+  P = Fv
+\end{gather}
+If $P$ is constant and $F$ is increased/decreased, $v$ must decrease/increase.
+\subsection{Proximity sensors}
+We can utilise a proximity sensor to measure the distance to the vehicle ahead. This can be used to 'track' the vehicle ahead. A simple cruise control system is unable to make changes to the throttle in response to changing road conditions. With a proximity sensor, we can observe whether the vehicle ahead has got closer (vehicle ahead is braking) or got further away (vehicle ahead is accelerating away). By setting a fixed 'following distance' (how far away the vehicle ahead should be kept), the driver can set a maximum speed for the vehicle to travel at and the vehicle will automatically slow down and speed up to the limits set in response to changing road conditions. For example, in traffic vehicles are constantly slowing down and accelerating. With our previous system, we would have to disable the cruise control (by braking) and set it again once vehicles speed up again. Our new system will allow a user to simply set the cruise control once and no longer worry about colliding into the car in front, as the car will keep a safe distance from the vehicle in front.
+\section{Question B}
+\section{Question C}
+\part{Instrumentation}
+\section{Question 1}
+\section{Question 2}
+\section{Question 3}
+\end{document}
