@@ -110,11 +110,19 @@ Where $\omega = \sqrt{\frac{k}{m}}$
   x(t) = \frac{1}{\sqrt{mk}} \cdot L^{-1} \left[ \frac{\sqrt{\frac{k}{m}}}{s^2 + \frac{k}{m}} \right]\\
   x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}
 \end{align}
+The frequency and period are:
+\begin{align}
+  \omega &= 2\pi f = \sqrt{\frac{k}{m}}\\
+  f &= \frac{1}{2\pi}\sqrt{\frac{k}{m}}\\
+  T &= \frac{1}{f} = 2\pi\sqrt{\frac{m}{k}}
+\end{align}
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./img/3-1timeresponse.png}
   \caption{Graph to show plot of $x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}$. $m$ and $k$ were arbitrarily selected as 1 and 2.5 respectively. When $m$ is increased/decreased, we see the frequency and gain increase/decrease. When $k$ is increased/decreased, we see the frequency }
 \end{figure}
+\subsection{Discussion and improvements}
+After an hour, the system would still be oscillating as it were initially. This would not be the case in a real life system, as air resistance and losses would cause our system to stop oscillating. The system is missing this damping effect and an adding a damper will make our system more realistic.
 \part{Instrumentation}
 \section{Question 1}
 \subsection*{Wheatstone bridge}
@@ -173,5 +181,12 @@ Since the strain gauges are being stretched on a perpendicular axis, the strain 
 \end{align}
 $6.6 > 5$, hence we can see that this arrangement has increased sensitivity.
 \section{Question 2}
+The effect of ambient temperature has three primary effects:
+\begin{itemize}
+  \item Dimensions of the specimen and hence the gauge will change due to thermal expansion
+  \item Dimensions of the gauge itself (particularly the thickness) will change
+  \item Resistivity of the gauge material will change
+\end{itemize}
+We can alleviate these effects by utilising a dummy gauge on a separate, unloaded beam. This dummy gauge will act as a 'reference' for our strain gauge.
 \section{Question 3}
 \end{document}

@@ -1,17 +1,17 @@
-\documentclass[class=report, crop=false, 12pt,a4paper, tikz, border=4mm]{standalone}
+\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
 \usepackage{enumitem}
+\usepackage{tikz}
 \usepackage{float}
+\usepackage{graphicx}
+\usepackage{siunitx}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[normalem]{ulem}
-\usepackage{graphicx}
-\usepackage{siunitx}
-\usepackage{tikz}
-\usetikzlibrary{positioning, fit, calc}   
-\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
-line/.style={-latex}     
-}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
 \begin{document}
+\begin{center}
+  12/10/2020
+\end{center}
 \section{Strain gauges}
 \subsection{Strain}
 The changes in the value of a dimension of a body divided by the original value of the dimension is the relative change in the dimensions. 
@@ -133,14 +133,29 @@ Compensated with a dummy gauge:
   \centering
   \includegraphics[width = 0.8 \textwidth]{../img/diagram13.png}
 \end{figure}
+The dummy gauge is:
+\begin{itemize}
+  \item Identical to the measuring gauge
+  \item Mounted on an unstressed specimen of the same material
+\end{itemize}
+The unstressed specimen should be placed as close to the strained member, in order to make it work accurately. Now, consider resistance of a strain gauge $R_g$:
+\begin{itemize}
+  \item Changes due to tensile strain: $R_g \rightarrow R(1+x) = R(1+eG)$
+  \item Changes due to temperature: $R_g \rightarrow R(1+y)$
+\end{itemize}
+The measuring gause and dummy gause resistances are then: 
+\begin{align}
+  R_g = R(1+x)(1+y) \\
+  R_g' = R(1+y)
+\end{align}
 The output voltage of the bridge is: 
 \begin{equation}
   V_0 = V_S \frac{R_G}{R_G + R_G'} - \frac{V_S}{2}
 \end{equation}
 Substituting for $R_G$ and $R_G'$, we have:
 \begin{gather}
-  V_0 = V_S \frac{R(1+x){1+y}}{R(1+x){1+y} + R(1+y)} - \frac{V_S}{2}\\
-  \frac{V_0}{V_S} = \frac{R(1+x){1+y}}{R(1+x){1+y} + R(1+y)} - \frac{1}{2} \leftarrow \textrm{no influence by y}
+  V_0 = V_S \frac{R(1+x)(1+y)}{R(1+x)(1+y) + R(1+y)} - \frac{V_S}{2}\\
+  \frac{V_0}{V_S} = \frac{R(1+x)(1+y)}{R(1+x)(1+y) + R(1+y)} - \frac{1}{2} \leftarrow \textrm{no influence by y}
 \end{gather}
 However, for this you must find the specimen of the same material and keep them under the same temperature - are these easy enough? The dummy gauge could be placed on the same member as the measuring gauge with its active axis in the direction normal to that of the strain.
 \subsection{Effect of Poisson's ratio on a dummy gauge}
@@ -210,21 +225,26 @@ In reality, resistance in the arms of the Wheatstone bridge slightly differ in v
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram18.png}
+  \includegraphics[width = 0.5\textwidth]{../img/diagram18.png}
 \end{figure}
 If the bridge is perfectly balanced:
 \begin{gather}
   \frac{R_4}{R_3 + R_4} = \frac{R_2}{R_1 +R_2}\\
   \rightarrow \frac{R_3}{R_4} + 1 = \frac{R_1}{R_2} +1 \rightarrow \frac{R_3}{R_4} = \frac{R_1}{R_2}
 \end{gather}
-The imbalance needs to be adjusted before the measurement (adjustment of the output voltage to zero) $\rightarrow$ bridge balancing. One possible way to achieve this is to connect a pot (potentiometer) in series with $R_2$. The total resistance $R_x = R_1 + R_p$ should be adjusted such that:
+The imbalance needs to be adjusted before the measurement (adjustment of the output voltage to zero) $\rightarrow$ bridge balancing. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.4\textwidth]{../img/edit1.jpeg}
+\end{figure}
+One possible way to achieve this is to connect a pot (potentiometer) in series with $R_2$. The total resistance $R_x = R_1 + R_p$ should be adjusted such that:
 \begin{equation}
   \frac{R_x}{R_2} = \frac{R_g'}{R_g}
 \end{equation}
 \subsection{Semiconductor strain gauge}
 In some crystalline materials such as germanium and silicon, the piezo-resistive effect is very large. If a slice of such a crystal is used as a strain gauge, very large gauge factors can be obtained, which could range from 100 to 300. 
 \begin{equation}
-  \textrm{Gauge factor: }G = \frac{1}{e}\frac{\delta R}{R}
+  \textrm{Gauge factor: }G = \frac{1}{e}\frac{\Delta R}{R}
 \end{equation}
 The magnitude of the piezo-resistive effect, which determines the sensitivity of the gauge, depends on the minute quantities of impurity introduced into the base material before formation of the crystal.
 \begin{figure}[H]
@@ -265,7 +285,7 @@ The bridge output voltage will thus be:
 \end{equation}
 Even if temperature increases, that affects all crystals equally. Also, changes in dimensions will cause $R_1 \uparrow$, $R_2 \downarrow$, $R_3 \uparrow$, $R_4 \downarrow$. Hence, no unbalance occurs. 
 \section{Summary}
-\begin{enumerate}
+\begin{enumerate}[noitemsep]
   \item Strain gauges utilise variability of resistance due to deformation
   \item Strain gauges are used in Wheatstone bridges with various gauge arrangements
   \item Bridge balance calculation is an essential part of the module
