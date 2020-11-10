@@ -1,15 +1,13 @@
 \documentclass[12pt]{article}
-\usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{float}
 \usepackage{hyperref}
-\usepackage{amssymb}
 \usepackage{commath}
-\usepackage{mathtools}
 \usepackage{siunitx}
 \sisetup{detect-all}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage[a4paper,width=160mm,top=20mm,bottom=20mm]{geometry}
 \numberwithin{equation}{section}
 \setlength{\parskip}{\baselineskip}%
 \setlength{\parindent}{0pt}%
@@ -22,28 +20,28 @@
 \newpage
 \part{Control}
 \section{Question A}
-\subsection{Block diagram (open loop)}
+\subsection*{Block diagram (open loop)}
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./img/1-1blockdiagram.png}
 \end{figure}
-\subsection{Block diagram (closed loop)}
+\subsection*{Block diagram (closed loop)}
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./img/1-2blockdiagram.png}
 \end{figure}
 With closed loop control, we can better control the actual speed of the vehicle. For example, when in abnormal conditions, (bad weather, incline, decline) there will be a different resistive force acting against the motion of the vehicle. Assuming that the engine throttle has a linear relationship with the power output of the engine, we see that in the case where the resistance force is changed, the speed of the vehicle will change (given a fixed throttle position ergo fixed power output). For example, on an incline not only does the power output have to match the resistive forces but also the sine component of the weight of the vehicle ($mg\sin{\theta}$, where $\theta$ is the incline angle.) The derivation for the equation linking power output, force and velocity is below.
-\begin{gather}
-  W = \int_{x_0}^{x} F \cdot \textrm{d}x\\
-  v = \frac{\dif x}{\dif t}\\
-  v\dif t = \dif x\\
-  W = \int_{t_0}^{t} Fv\cdot \textrm{d} t\\
-  P = \frac{\dif W}{\dif t}\\
-  P = \frac{\dif}{\dif t}\left(\int_{t_0}^{t} Fv\cdot \textrm{d} t\right)\\
-  P = Fv
-\end{gather}
+\begin{align}
+  W &= \int_{x_0}^{x} F \cdot \textrm{d}x\\
+  v &= \frac{\dif x}{\dif t}\\
+  v\dif t &= \dif x\\
+  W &= \int_{t_0}^{t} Fv\cdot \textrm{d} t\\
+  P &= \frac{\dif W}{\dif t}\\
+  P &= \frac{\dif}{\dif t}\left(\int_{t_0}^{t} Fv\cdot \textrm{d} t\right)\\
+  P &= Fv
+\end{align}
 If $P$ is constant and $F$ is increased/decreased, $v$ must decrease/increase.
-\subsection{Proximity sensors}
+\subsection*{Proximity sensors}
 We can utilise a proximity sensor to measure the distance to the vehicle ahead. This can be used to 'track' the vehicle ahead. A simple cruise control system is unable to make changes to the throttle in response to changing road conditions. With a proximity sensor, we can observe whether the vehicle ahead has got closer (vehicle ahead is braking) or got further away (vehicle ahead is accelerating away). By setting a fixed 'following distance' (how far away the vehicle ahead should be kept), the driver can set a maximum speed for the vehicle to travel at and the vehicle will automatically slow down and speed up to the limits set in response to changing road conditions. For example, in traffic vehicles are constantly slowing down and accelerating. With our previous system, we would have to disable the cruise control (by braking) and set it again once vehicles speed up again. Our new system will allow a user to simply set the cruise control once and no longer worry about colliding into the car in front, as the car will keep a safe distance from the vehicle in front.
 \section{Question B}
 \begin{itemize}
@@ -58,9 +56,12 @@ We can utilise a proximity sensor to measure the distance to the vehicle ahead. 
   \includegraphics[width=\textwidth]{./img/2-1blockdiagram.png}
 \end{figure}
 My first solution is to have an open-loop control system. Our input is simply the temperature desired. I have left the timing to an external device such as an oven timer, however this could be easily implemented with a simple timing circuit and relay. This system utilises a potentiometer as an analogue input. Each resistance setting corresponds to a certain desired temperature. Our heating element operates on the basis of Joule heating, whereby passing a current through a conductor produces a heating effect. Assuming that the heating element is a perfect resistor, we know that:
-\begin{equation}
-  P = I^2 \cdot R
-\end{equation}
+\begin{align}
+  P &= IV\\
+  V &= IR\\
+  I &= \frac{V}{R}\\
+  P &= I^2 \cdot R
+\end{align}
 Whether we use a DC supply or an AC supply has a negligible effect on our system, as we can simply look at the RMS values for AC. 
 
 Our heating element will continue to heat up until it reaches a certain equilibrium (where the power in to the heating element matches the heat dissipation), however this equilibrium temperature will most likely not be the desired temperature. We have two options here: modulate our power supply to change the equilibrium temperature of the heating element or switch the power supply off and on at threshold values. Some of the advantages of power modulation include a stable temperature, but this may come at the cost of additional electronic complexity and cost. 
@@ -74,9 +75,29 @@ On the other hand, on-off control is relatively simple. We can set our threshold
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{./img/2-3graph.png}
-  \caption{Temperature - time graph for a modulated power supply. Here we can see that the equilibrium temperature is our $T_{set}$ value.}
+  \caption{Temperature - time graph for a modulated power supply. Here we can see that the equilibrium temperature is our $T_{set}$ value - the temperature at which power in = power dissipated.}
 \end{figure}
 \section{Question C}
+\subsection*{Transfer function}
+\begin{align}
+  G(s) &= \frac{X(s)}{F(s)}\\
+  f(t) &= kx(t) + m \frac{\dif ^2 x}{\dif t^2}\\
+  F(s) &= kX(s) + ms^2 X(s)\\
+  F(s) &= X(s) (k + ms^2)\\
+  \frac{X(s)}{F(s)} &= \frac{1}{k + ms^2}\\
+  \frac{X(s)}{F(s)} &= \frac{\frac{1}{m}}{s^2 + \frac{k}{m}}
+\end{align}
+\subsection*{Time domain response}
+\begin{align}
+  \frac{X(s)}{F(s)} &= \frac{\frac{1}{m}}{s^2 + \frac{k}{m}}\\
+  \frac{X(s)}{F(s)} &= \frac{\sqrt{\frac{k}{m}}}{s^2 + \frac{k}{m}} \times \frac{1}{\sqrt{mk}}
+\end{align}
+Where $\omega = \sqrt{\frac{k}{m}}$
+\begin{align}
+  x(t) = L^{-1} \left[ \frac{\sqrt{\frac{k}{m}}}{s^2 + \frac{k}{m}} \cdot \frac{1}{\sqrt{mk}} \right]\\
+  x(t) = \frac{1}{\sqrt{mk}} \cdot L^{-1} \left[ \frac{\sqrt{\frac{k}{m}}}{s^2 + \frac{k}{m}} \right]\\
+  x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}
+\end{align}
 \part{Instrumentation}
 \section{Question 1}
 \section{Question 2}
