@@ -79,6 +79,10 @@ On the other hand, on-off control is relatively simple. We can set our threshold
 \end{figure}
 \section{Question C}
 \subsection*{Transfer function}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{./img/2-4blockdiagram.png}
+\end{figure}
 \begin{align}
   G(s) &= \frac{X(s)}{F(s)}\\
   f(t) &= kx(t) + m \frac{\dif ^2 x}{\dif t^2}\\
@@ -88,6 +92,7 @@ On the other hand, on-off control is relatively simple. We can set our threshold
   \frac{X(s)}{F(s)} &= \frac{\frac{1}{m}}{s^2 + \frac{k}{m}}
 \end{align}
 \subsection*{Time domain response}
+
 \begin{align}
   \frac{X(s)}{F(s)} &= \frac{\frac{1}{m}}{s^2 + \frac{k}{m}}\\
   \frac{X(s)}{F(s)} &= \frac{\sqrt{\frac{k}{m}}}{s^2 + \frac{k}{m}} \times \frac{1}{\sqrt{mk}}
@@ -98,6 +103,11 @@ Where $\omega = \sqrt{\frac{k}{m}}$
   x(t) = \frac{1}{\sqrt{mk}} \cdot L^{-1} \left[ \frac{\sqrt{\frac{k}{m}}}{s^2 + \frac{k}{m}} \right]\\
   x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}
 \end{align}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/2-5timeresponse.png}
+  \caption{Graph to show plot of $x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}$. $m$ and $k$ were arbitrarily selected as 1 and 2.5 respectively. When $m$ is increased/decreased, we see the frequency and gain increase/decrease. When $k$ is increased/decreased, we see the frequency }
+\end{figure}
 \part{Instrumentation}
 \section{Question 1}
 \section{Question 2}
