@@ -3,7 +3,6 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{float}
-\usepackage{hyperref}
 \usepackage{commath}
 \usepackage{siunitx}
 \sisetup{detect-all}
@@ -30,7 +29,9 @@
   \centering
   \includegraphics[width=\textwidth]{./img/1-2blockdiagram.png}
 \end{figure}
-With closed loop control, we can better control the actual speed of the vehicle. For example, when in abnormal conditions, (bad weather, incline, decline) there will be a different resistive force acting against the motion of the vehicle. Assuming that the engine throttle has a linear relationship with the power output of the engine, we see that in the case where the resistance force is changed, the speed of the vehicle will change (given a fixed throttle position ergo fixed power output). For example, on an incline not only does the power output have to match the resistive forces but also the sine component of the weight of the vehicle ($mg\sin{\theta}$, where $\theta$ is the incline angle.) The derivation for the equation linking power output, force and velocity is below.
+With closed loop control, we can better control the actual speed of the vehicle. For example, when in abnormal conditions, (bad weather, incline, decline) there will be a different resistive force acting against the motion of the vehicle. In the cases where the resistance force is changed, the speed of the vehicle will change, if power output is constant (assuming throttle position is proportional to engine power output). 
+
+For example, on an incline not only does the engine force have to match the resistive forces but also the sine component of the weight of the vehicle ($\sum{\textrm{opposing forces}} = F_R + mg\sin{\theta}$, where $\theta$ is the incline angle.) The derivation for the equation linking power output, force and velocity is below.
 \begin{align}
   W &= \int_{x_0}^{x} F \cdot \textrm{d}x\\
   v &= \frac{\dif x}{\dif t}\\
@@ -42,12 +43,18 @@ With closed loop control, we can better control the actual speed of the vehicle.
 \end{align}
 If $P$ is constant and $F$ is increased/decreased, $v$ must decrease/increase.
 \subsection*{Proximity sensors}
-We can utilise a proximity sensor to measure the distance to the vehicle ahead. This can be used to 'track' the vehicle ahead. A simple cruise control system is unable to make changes to the throttle in response to changing road conditions. With a proximity sensor, we can observe whether the vehicle ahead has got closer (vehicle ahead is braking) or got further away (vehicle ahead is accelerating away). By setting a fixed 'following distance' (how far away the vehicle ahead should be kept), the driver can set a maximum speed for the vehicle to travel at and the vehicle will automatically slow down and speed up to the limits set in response to changing road conditions. For example, in traffic vehicles are constantly slowing down and accelerating. With our previous system, we would have to disable the cruise control (by braking) and set it again once vehicles speed up again. Our new system will allow a user to simply set the cruise control once and no longer worry about colliding into the car in front, as the car will keep a safe distance from the vehicle in front.
+We can utilise a proximity sensor to measure the distance to the vehicle ahead. This can be used to 'track' the vehicle ahead. A simple cruise control system is unable to make changes to the throttle in response to changing road conditions. With a proximity sensor, we can observe whether the vehicle ahead is getting closer (vehicle ahead is braking) or moving further away (vehicle ahead is accelerating away). By setting a fixed 'following distance' (how far away the vehicle ahead should be kept), the driver can set a maximum speed for the vehicle to travel at and the vehicle will automatically slow down and speed up to the limits set in response to changing road conditions. 
+
+For example, in traffic vehicles are constantly slowing down and accelerating. With our previous system, we would have to disable the cruise control (by braking) and set it again once vehicles speed up again. Our new system will allow a user to simply set the cruise control once and no longer worry about colliding into the car in front, as the car will keep a safe distance from the vehicle.
 \section{Question B}
 \begin{itemize}
   \item Sensor - circuit to measure resistance of heating coil.
   \item Actuator - heating element
-  \item Input signal(s) - relay switch (heating element on and off, convection fan and off), rotary switch (temperature control)
+  \item Input signal(s)
+    \begin{itemize}
+      \item Relay switch (heating element on and off, convection fan on and off)
+      \item Rotary switch (temperature control)
+    \end{itemize}
   \item Output signal(s) - temperature
   \item Control signal(s) - 
 \end{itemize}
@@ -105,11 +112,66 @@ Where $\omega = \sqrt{\frac{k}{m}}$
 \end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{./img/2-5timeresponse.png}
+  \includegraphics[width=\textwidth]{./img/3-1timeresponse.png}
   \caption{Graph to show plot of $x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}$. $m$ and $k$ were arbitrarily selected as 1 and 2.5 respectively. When $m$ is increased/decreased, we see the frequency and gain increase/decrease. When $k$ is increased/decreased, we see the frequency }
 \end{figure}
 \part{Instrumentation}
 \section{Question 1}
+\subsection*{Wheatstone bridge}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./img/4-1circuit.png}
+  \caption{Circuit diagram to show a Wheatstone bridge}
+\end{figure}
+We know that:
+\begin{align}
+  V_0 &= V_S \left( \frac{R_{g1}}{R_{g1} + R_{g2}} - \frac{1}{2} \right)\\
+  V_0 &= V_S \frac{R(1+x)}{R(1+x) + R(1-x)} - \frac{V_S}{2}\\
+  V_0 &= \frac{1}{2} V_S \cdot x
+\end{align}
+We know that $x = eG$, hence:
+\begin{equation}
+  \frac{V_0}{e} = \frac{1}{2}V_S \cdot G
+\end{equation}
+\subsection*{Identify specification}
+\begin{itemize}
+  \item $G = 2.1$
+  \item $R_g = 120\si{\ohm}$
+  \item $\frac{V_0}{e} = 5\si{\volt}$
+\end{itemize}
+\begin{align}
+  5 &= \frac{1}{2} V_S \times 2.1\\
+  V_S &= 4.8 \si{\volt} \textrm{ (2sf)}\\
+  R = R_g &= 120\si{\ohm}
+\end{align}
+\subsection*{Longitudinal stretch}
+Since the strain gauges are being stretched on a perpendicular axis, the strain in the wires will become a negligible quantity. This will lead to an approximately 0 $V_S$. 
+\begin{align}
+  V_0 &= V_S \left( \frac{R_{g1}}{R_{g1} + R_{g2}} - \frac{1}{2} \right)\\
+  R_{g1} &= R_{g2} = R(1+x)\\
+  V_0 &= V_S\frac{R(1+x)}{2R(1+x)} - \frac{V_S}{2}\\
+  V_0 &= 0 
+\end{align}
+\subsection*{Method to increasing sensitivity}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./img/4-4circuit.png}
+  \caption{Circuit diagram to show a Wheatstone bridge with increased sensitivity.}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./img/4-4arrangement.png}
+  \caption{Diagram to show arrangement of strain gauges for increased sensitivity.}
+\end{figure}
+\begin{align}
+  V_0 &= V_S \left(\frac{R_{g1}}{R_{g1} + R_{g2}} - \frac{R_{g3}}{R_{g3} + R_{g4}}\right)\\
+  V_0 &= V_S \left(\frac{R(1+x)}{R(1+x) + R(1+\nu x)} - \frac{R(1-\nu x)}{R(1-\nu x) + R(1+\nu x)}\right)\\
+  V_0 &= V_S \left(\frac{1}{2}(1+x) - \frac{1}{2}(1-\nu x)\right)\\
+  V_0 &= \frac{V_S \cdot x}{2} \left(1 + \nu \right)\\
+  \frac{V_0}{e} &= \frac{4.8}{2} \times 2.1\times  (1 + 0.3)\\
+  \frac{V_0}{e} &= 6.6 \si{\volt}
+\end{align}
+$6.6 > 5$, hence we can see that this arrangement has increased sensitivity.
 \section{Question 2}
 \section{Question 3}
 \end{document}
