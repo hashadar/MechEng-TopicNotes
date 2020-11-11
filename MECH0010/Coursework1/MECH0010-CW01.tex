@@ -119,10 +119,22 @@ The frequency and period are:
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./img/3-1timeresponse.png}
-  \caption{Graph to show plot of $x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}$. $m$ and $k$ were arbitrarily selected as 1 and 2.5 respectively. When $m$ is increased/decreased, we see the frequency and gain increase/decrease. When $k$ is increased/decreased, we see the frequency }
+  \caption{Graph to show plot of $x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}$. $m$ and $k$ were arbitrarily selected as 1 and 2.5 respectively.}
 \end{figure}
 \subsection{Discussion and improvements}
 After an hour, the system would still be oscillating as it were initially. This would not be the case in a real life system, as air resistance and losses would cause our system to stop oscillating. The system is missing this damping effect and an adding a damper will make our system more realistic.
+\begin{align}
+  f(t) &= kx(t) + f_v \frac{\dif x}{\dif t} + m \frac{\dif ^2 x}{\dif t^2}\\
+  F(s) &= kX(s) + f_v s X(s) + m s^2 X(s)\\
+  \frac{X(s)}{F(s)} &= \frac{1}{ms^2 + f_v s + k}\\
+  L^{-1}\left[ \frac{1}{ms^2 + f_v s + k} \right] = x(t) &= \frac{2\sin{\left(\frac{\sqrt{4km-f_v^2 }}{2m} \cdot t\right)}e^{-\frac{f_v \cdot t}{2m}}}{\sqrt{4km - f_v^2}}
+\end{align}
+This was plotted:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/3-2timeresponsedamped.png}
+  \caption{Graph to show plot of $x(t) = \frac{2\sin{\left(\frac{\sqrt{4km-f_v^2 }}{2m} \cdot t\right)}e^{-\frac{f_v \cdot t}{2m}}}{\sqrt{4km - f_v^2}}$. $m$, $k$ and $f_v$ were arbitrarily selected as 1, 2.5 and 1 respectively.}
+\end{figure}
 \part{Instrumentation}
 \section{Question 1}
 \subsection*{Wheatstone bridge}
