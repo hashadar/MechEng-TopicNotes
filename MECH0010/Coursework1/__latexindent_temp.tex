@@ -119,21 +119,32 @@ The frequency and period are:
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./img/3-1timeresponse.png}
-  \caption{Graph to show plot of $x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}$. $m$ and $k$ were arbitrarily selected as 1 and 2.5 respectively.}
+  \caption{Graph to show plot of $x(t) = \frac{1}{\sqrt{mk}} \cdot \sin{\left(\sqrt{\frac{k}{m}}\cdot t\right)}$. $m$ and $k$ were arbitrarily selected as 1 and 2.5 respectively. y-axis: displacement, x-axis: time.}
 \end{figure}
-\subsection{Discussion and improvements}
+\subsection*{Discussion and improvements}
 After an hour, the system would still be oscillating as it were initially. This would not be the case in a real life system, as air resistance and losses would cause our system to stop oscillating. The system is missing this damping effect and an adding a damper will make our system more realistic.
 \begin{align}
   f(t) &= kx(t) + f_v \frac{\dif x}{\dif t} + m \frac{\dif ^2 x}{\dif t^2}\\
   F(s) &= kX(s) + f_v s X(s) + m s^2 X(s)\\
   \frac{X(s)}{F(s)} &= \frac{1}{ms^2 + f_v s + k}\\
-  L^{-1}\left[ \frac{1}{ms^2 + f_v s + k} \right] = x(t) &= \frac{2\sin{\left(\frac{\sqrt{4km-f_v^2 }}{2m} \cdot t\right)}e^{-\frac{f_v \cdot t}{2m}}}{\sqrt{4km - f_v^2}}
+  &= \frac{1}{m}\cdot \frac{1}{s^2 + \frac{f_v}{m}s + \frac{k}{m}}\\
+  &= \frac{1}{m} \cdot \frac{1}{(s+\frac{f_v}{2m})^2 +\frac{4km - f_v^2}{4m^2}}\\
+  &= \frac{1}{m \cdot \sqrt{\frac{4km - f_v^2}{4m^2}}} \cdot \frac{\sqrt{\frac{4km - f_v^2}{4m^2}}}{(s+\frac{f_v}{2m})^2 +\frac{4km - f_v^2}{4m^2}}\\
+  &= \frac{2}{\sqrt{4km - f_v^2}} \cdot \frac{\sqrt{\frac{4km - f_v^2}{4m^2}}}{(s+\frac{f_v}{2m})^2 +\frac{4km - f_v^2}{4m^2}}
+\end{align}
+From Laplace tables: 
+\begin{align}
+  e^{-at}\sin{\omega t} &= \frac{\omega}{(s + a)^2 + \omega^2}\\
+  \omega &= \sqrt{\frac{4km - f_v^2}{4m^2}}\\
+  a &= \frac{f_v}{2m}\\
+  x(t) &= L^{-1} \left[ \frac{2}{\sqrt{4km - f_v^2}} \cdot \frac{\sqrt{\frac{4km - f_v^2}{4m^2}}}{(s+\frac{f_v}{2m})^2 +\frac{4km - f_v^2}{4m^2}} \right]\\
+  x(t) &= \frac{2e^{-\frac{f_v \cdot t}{2m}}\sin{\left(\frac{\sqrt{4km-f_v^2 }}{2m} \cdot t\right)}}{\sqrt{4km - f_v^2}}
 \end{align}
 This was plotted:
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./img/3-2timeresponsedamped.png}
-  \caption{Graph to show plot of $x(t) = \frac{2\sin{\left(\frac{\sqrt{4km-f_v^2 }}{2m} \cdot t\right)}e^{-\frac{f_v \cdot t}{2m}}}{\sqrt{4km - f_v^2}}$. $m$, $k$ and $f_v$ were arbitrarily selected as 1, 2.5 and 1 respectively.}
+  \caption{Graph to show plot of $x(t) = \frac{2e^{-\frac{f_v \cdot t}\sin{\left(\frac{\sqrt{4km-f_v^2 }}{2m} \cdot t\right)}{2m}}}{\sqrt{4km - f_v^2}}$. $m$, $k$ and $f_v$ were arbitrarily selected as 1, 2.5 and 1 respectively. y-axis: displacement, x-axis: time.}
 \end{figure}
 \part{Instrumentation}
 \section{Question 1}
@@ -165,7 +176,7 @@ We know that $x = eG$, hence:
   R = R_g &= 120\si{\ohm}
 \end{align}
 \subsection*{Longitudinal stretch}
-Since the strain gauges are being stretched on a perpendicular axis, the strain in the wires will become a negligible quantity. This will lead to an approximately 0 $V_S$. 
+Since both strain gauges are undergoing tension, we will see their resistance to change in the same way, rather than opposite to each other. This will lead to an approximately 0 $V_S$. 
 \begin{align}
   V_0 &= V_S \left( \frac{R_{g1}}{R_{g1} + R_{g2}} - \frac{1}{2} \right)\\
   R_{g1} &= R_{g2} = R(1+x)\\
@@ -199,6 +210,40 @@ The effect of ambient temperature has three primary effects:
   \item Dimensions of the gauge itself (particularly the thickness) will change
   \item Resistivity of the gauge material will change
 \end{itemize}
-We can alleviate these effects by utilising a dummy gauge on a separate, unloaded beam. This dummy gauge will act as a 'reference' for our strain gauge.
+We can tackle the first two points by actually utilising a strain gauge which is of the same material as the test specimen. The thermal expansion of the material and the strain gauge will now be the same, cancelling out the effect of the contraction/expansion of the test specimen.
+
+A second solution for temperature compensation is incorporating a dummy gauge. We have two options here: we can place the dummy gauge on an unstrained part of the same beam (placing it normal to the principal stress axis), or we can place it on a separate, unloaded beam (with identical properties) in the same environment as our test specimen. This dummy gauge will act as a 'reference' for our strain gauge and due to the ratiometric nature of the Wheatstone bridge, we can place the dummy gauge in another arm of the bridge to achieve this. 
+
+The system in Figure 3 of the coursework brief does not utilise dummy gauges
+\subsection*{$V_{amp}$ variation with beam vibration}
+\begin{align}
+  V_{amp} &= \frac{R_2}{R_1} (V_2 - V_1) = \frac{R_2}{R_1} V_0\\
+  V_0 &= V_S \frac{R_{g1}}{R_{g1} + R_{g2}} - \frac{V_S}{2}\\
+  V_0 &= V_S \frac{R(1+x)}{R(1+x) - R(1-x)} - \frac{V_S}{2}\\
+  V_0 &= \frac{1}{2}V_S \cdot x\\
+  V_{amp} &= \frac{R_2}{2R_1} V_s \cdot e \cdot G
+\end{align}
+\begin{itemize}
+  \item $e = 0.01 \sin{\left(4\pi \cdot t\right)}$
+  \item $R_1 = 1000\si{\ohm}$
+  \item $R_2 = 200000\si{\ohm}$
+  \item $G = 2.1$
+  \item $V_S = 4.8\si{\volt}$
+\end{itemize}
+\begin{align}
+  V_{amp}(t) &= \frac{200000}{1000} \cdot 4.8 \cdot 2.1 \cdot 0.01 \cdot \sin{\left(4\pi \cdot t\right)}\\
+  V_{amp}(t) &= \frac{504}{25} \sin{\left(4\pi \cdot t\right)}
+\end{align}
+\begin{itemize}
+  \item Maximum amplitude: 20.16\si{\volt}
+  \item Frequency: $4\pi \si{\hertz}$
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/5-2Vampresponse.png}
+  \caption{Graph to show $V_{amp}$ as the beam vibrates.}
+\end{figure}
 \section{Question 3}
+\subsection*{Amplified output voltage}
+
 \end{document}
