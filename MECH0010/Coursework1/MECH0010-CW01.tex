@@ -13,7 +13,7 @@
 \begin{document}
 \title{\textbf{UCL Mechanical Engineering 2020/2021}\\MECH0010 Coursework 1}
 \date{Starting on: 31/10/2020\\Deadline: 13/11/2020}
-\author{Anonymous submission}
+\author{Candidate number: HKTD0}
 \maketitle
 \tableofcontents
 \newpage
@@ -48,15 +48,11 @@ We can utilise a proximity sensor to measure the distance to the vehicle ahead. 
 For example, in traffic vehicles are constantly slowing down and accelerating. With our previous system, we would have to disable the cruise control (by braking) and set it again once vehicles speed up again. Our new system will allow a user to simply set the cruise control once and no longer worry about colliding into the car in front, as the car will keep a safe distance from the vehicle.
 \section{Question B}
 \begin{itemize}
-  \item Sensor - circuit to measure resistance of heating coil.
+  \item Sensor - circuit to measure resistance of heating element/thermistor to measure temperature of oven.
   \item Actuator - heating element
-  \item Input signal(s)
-    \begin{itemize}
-      \item Relay switch (heating element on and off, convection fan on and off)
-      \item Rotary switch (temperature control)
-    \end{itemize}
-  \item Output signal(s) - temperature
-  \item Control signal(s) - 
+  \item Input signal(s) - Relay switch (heating element on and off, convection fan on and off)
+  \item Output signal(s) - Oven temperature [T]
+  \item Control signal(s) - Rotary switch (temperature control)
 \end{itemize}
 \begin{figure}[H]
   \centering
@@ -173,8 +169,11 @@ We know that $x = eG$, hence:
 \begin{align}
   5 &= \frac{1}{2} V_S \times 2.1\\
   V_S &= 4.76 \si{\volt} \textrm{ (3sf)}\\
-  R = R_g &= 120\si{\ohm}
 \end{align}
+To balance the bridge, we can set $R$ to be the same value as our nominal gauge resistance.
+\begin{equation}
+  R = R_g = 120\si{\ohm}
+\end{equation}
 \subsection*{Longitudinal stretch}
 Since both strain gauges are undergoing tension, we will see their resistance to change in the same way, rather than opposite to each other. This will lead to an approximately 0 $V_S$. 
 \begin{align}
@@ -245,5 +244,24 @@ The system in Figure 3 of the coursework brief does not utilise dummy gauges
 \end{figure}
 \section{Question 3}
 \subsection*{Amplified output voltage}
+\begin{align}
+  \sum F_y: \ R_A &= R_B = \frac{W}{2}\\
+  \epsilon_{max} &= 0.005\\
+  \sigma &= \frac{Mh}{I}\\
+  h_{max} &= 0.0025 \ \si{\metre}\\
+  I &= \frac{bd^3}{12} = \frac{0.03 \cdot 0.005^3}{12} = 3.125 \times 10^{-10} \ \si{\metre\tothe{4}}\\
+  M(x) &= R_A \cdot x - W(x-0.15)\\
+  M(I=0.1) &= \frac{0.1 \cdot W_{max}}{2} = 0.05\cdot W_{max}\\
+  \sigma &= \frac{0.05\cdot W_{max} \cdot 0.0025}{3.125 \times 10^{-10}} = E\epsilon = 70 \times 10^{9} \cdot 0.005\\
+  W_{max} &= 875 \ \si{\newton}
+\end{align}
+\begin{align}
+  \frac{0.05\cdot 10g \cdot 0.0025}{3.125\times 10^{-10}} &= 70 \times 10^{9} \cdot \epsilon\\
+  \epsilon &= 5.6057 \times 10^{-4}\\
+  V_{amp} &= 1000\epsilon = 0.56 \ \si{\volt} (2sf)
+\end{align}
+\subsection*{Semiconductor gauges}
+Semiconductor gauges can have extremely high relative gauge factors (100-300). This makes them very sensitive and they also have a strong output signal due to this high gauge factor.
 
+However, semiconductor gauges also have a smaller elastic limit (typically a factor of 10 less). At high strain levels, the gauge factor also varies, meaning there is a non-linear relationship. The gauge factor also varies with temperature and the temperature coefficient of resistivity is also large. Making them unsuitable in applications with wide-varying temperatures.
 \end{document}
