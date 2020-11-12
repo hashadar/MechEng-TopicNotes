@@ -144,7 +144,7 @@ This was plotted:
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./img/3-2timeresponsedamped.png}
-  \caption{Graph to show plot of $x(t) = \frac{2e^{-\frac{f_v \cdot t}\sin{\left(\frac{\sqrt{4km-f_v^2 }}{2m} \cdot t\right)}{2m}}}{\sqrt{4km - f_v^2}}$. $m$, $k$ and $f_v$ were arbitrarily selected as 1, 2.5 and 1 respectively. y-axis: displacement, x-axis: time.}
+  \caption{Graph to show plot of $x(t) = \frac{2e^{-\frac{f_v \cdot t}{2m}}\sin{\left(\frac{\sqrt{4km-f_v^2 }}{2m} \cdot t\right)}}{\sqrt{4km - f_v^2}}$ $m$, $k$ and $f_v$ were arbitrarily selected as 1, 2.5 and 1 respectively. y-axis: displacement, x-axis: time.}
 \end{figure}
 \part{Instrumentation}
 \section{Question 1}
@@ -172,7 +172,7 @@ We know that $x = eG$, hence:
 \end{itemize}
 \begin{align}
   5 &= \frac{1}{2} V_S \times 2.1\\
-  V_S &= 4.8 \si{\volt} \textrm{ (2sf)}\\
+  V_S &= 4.76 \si{\volt} \textrm{ (3sf)}\\
   R = R_g &= 120\si{\ohm}
 \end{align}
 \subsection*{Longitudinal stretch}
@@ -228,14 +228,14 @@ The system in Figure 3 of the coursework brief does not utilise dummy gauges
   \item $R_1 = 1000\si{\ohm}$
   \item $R_2 = 200000\si{\ohm}$
   \item $G = 2.1$
-  \item $V_S = 4.8\si{\volt}$
+  \item $V_S = 4.76\si{\volt}$
 \end{itemize}
 \begin{align}
-  V_{amp}(t) &= \frac{200000}{1000} \cdot 4.8 \cdot 2.1 \cdot 0.01 \cdot \sin{\left(4\pi \cdot t\right)}\\
-  V_{amp}(t) &= \frac{504}{25} \sin{\left(4\pi \cdot t\right)}
+  V_{amp}(t) &= \frac{200000}{2000} \cdot 4.76 \cdot 2.1 \cdot 0.01 \cdot \sin{\left(4\pi \cdot t\right)}\\
+  V_{amp}(t) &= \frac{2499}{250} \sin{\left(4\pi \cdot t\right)}
 \end{align}
 \begin{itemize}
-  \item Maximum amplitude: 20.16\si{\volt}
+  \item Maximum amplitude: 10\si{\volt} (3sf)
   \item Frequency: $4\pi \si{\hertz}$
 \end{itemize}
 \begin{figure}[H]
