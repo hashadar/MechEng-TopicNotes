@@ -29,7 +29,7 @@
   \centering
   \includegraphics[width=\textwidth]{./img/1-2blockdiagram.png}
 \end{figure}
-With closed loop control, we can better control the actual speed of the vehicle. For example, when in abnormal conditions, (bad weather, incline, decline) there will be a different resistive force acting against the motion of the vehicle. In the cases where the resistance force is changed, the speed of the vehicle will change, if power output is constant (assuming throttle position is proportional to engine power output). 
+With closed loop control, we can better control the actual speed of the vehicle. For example, when in abnormal conditions, (bad weather, incline, decline) there will be a different resistive force acting against the motion of the vehicle. In the cases where the resistance force is changed, if power output is constant, the speed of the vehicle will be different (assuming throttle position is proportional to engine power output). 
 
 For example, on an incline not only does the engine force have to match the resistive forces but also the sine component of the weight of the vehicle ($\sum{\textrm{opposing forces}} = F_R + mg\sin{\theta}$, where $\theta$ is the incline angle.) The derivation for the equation linking power output, force and velocity is below.
 \begin{align}
@@ -58,6 +58,10 @@ For example, in traffic vehicles are constantly slowing down and accelerating. W
   \centering
   \includegraphics[width=\textwidth]{./img/2-1blockdiagram.png}
 \end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./img/2-5timedomain.png}
+\end{figure}
 My first solution is to have an open-loop control system. Our input is simply the temperature desired. I have left the timing to an external device such as an oven timer, however this could be easily implemented with a simple timing circuit and relay. This system utilises a potentiometer as an analogue input. Each resistance setting corresponds to a certain desired temperature. Our heating element operates on the basis of Joule heating, whereby passing a current through a conductor produces a heating effect. Assuming that the heating element is a perfect resistor, we know that:
 \begin{align}
   P &= IV\\
@@ -69,7 +73,7 @@ Whether we use a DC supply or an AC supply has a negligible effect on our system
 
 Our heating element will continue to heat up until it reaches a certain equilibrium (where the power in to the heating element matches the heat dissipation), however this equilibrium temperature will most likely not be the desired temperature. We have two options here: modulate our power supply to change the equilibrium temperature of the heating element or switch the power supply off and on at threshold values. Some of the advantages of power modulation include a stable temperature, but this may come at the cost of additional electronic complexity and cost. 
 
-On the other hand, on-off control is relatively simple. We can set our threshold values to be $\pm 5\si{\celsius}$ of the desired temperature. I have arbitrarily chosen this value, as the the effects of a temperature oscillation of 10\si{\celsius} will have negligible effects on the food being cooked. The thermal inertia of the heating coil is also relatively high, thus switching will occur with low frequency and can be managed with a simple relay.
+On the other hand, on-off control is relatively simple. We can set our threshold values to be $T_{set}$ and $\SI{-5}{\celsius}$ of the desired temperature. I have arbitrarily chosen this value, as the the effects of a temperature oscillation of \SI{5}{\celsius} will have negligible effects on the food being cooked. The thermal inertia of the heating coil is also relatively high, thus switching will occur with low frequency and can be managed with a simple relay.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{./img/2-2graph.png}
@@ -119,6 +123,11 @@ The frequency and period are:
 \end{figure}
 \subsection*{Discussion and improvements}
 After an hour, the system would still be oscillating as it were initially. This would not be the case in a real life system, as air resistance and losses would cause our system to stop oscillating. The system is missing this damping effect and an adding a damper will make our system more realistic.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./img/3-3dampedsystem.png}
+  \caption{System diagram with a damper added.}
+\end{figure}
 \begin{align}
   f(t) &= kx(t) + f_v \frac{\dif x}{\dif t} + m \frac{\dif ^2 x}{\dif t^2}\\
   F(s) &= kX(s) + f_v s X(s) + m s^2 X(s)\\
@@ -163,19 +172,19 @@ We know that $x = eG$, hence:
 \subsection*{Identify specification}
 \begin{itemize}
   \item $G = 2.1$
-  \item $R_g = 120\si{\ohm}$
-  \item $\frac{V_0}{e} = 5\si{\volt}$
+  \item $R_g = \SI{120}{\ohm}$
+  \item $\frac{V_0}{e} = \SI{5}{\volt}$
 \end{itemize}
 \begin{align}
   5 &= \frac{1}{2} V_S \times 2.1\\
-  V_S &= 4.76 \si{\volt} \textrm{ (3sf)}\\
+  V_S &= \SI{4.76}{\volt} \textrm{ (3sf)}\\
 \end{align}
 To balance the bridge, we can set $R$ to be the same value as our nominal gauge resistance.
 \begin{equation}
-  R = R_g = 120\si{\ohm}
+  R = R_g = \SI{120}{\ohm}
 \end{equation}
 \subsection*{Longitudinal stretch}
-Since both strain gauges are undergoing tension, we will see their resistance to change in the same way, rather than opposite to each other. This will lead to an approximately 0 $V_S$. 
+Since both strain gauges are undergoing tension, we will see their resistance change in the same way, rather than opposite to each other. This will lead to an approximately 0 $V_S$. 
 \begin{align}
   V_0 &= V_S \left( \frac{R_{g1}}{R_{g1} + R_{g2}} - \frac{1}{2} \right)\\
   R_{g1} &= R_{g2} = R(1+x)\\
@@ -183,6 +192,7 @@ Since both strain gauges are undergoing tension, we will see their resistance to
   V_0 &= 0 
 \end{align}
 \subsection*{Method to increasing sensitivity}
+We can increase the sensitivity of the system by adding two more gauges to our system. The arrangement shown below increases both the sensitivity whilst also compensating for temperature.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.4\textwidth]{./img/4-4circuit.png}
@@ -199,7 +209,7 @@ Since both strain gauges are undergoing tension, we will see their resistance to
   V_0 &= V_S \left(\frac{1}{2}(1+x) - \frac{1}{2}(1-\nu x)\right)\\
   V_0 &= \frac{V_S \cdot x}{2} \left(1 + \nu \right)\\
   \frac{V_0}{e} &= \frac{4.8}{2} \times 2.1\times  (1 + 0.3)\\
-  \frac{V_0}{e} &= 6.6 \si{\volt}
+  \frac{V_0}{e} &= \SI{6.6}{\volt}
 \end{align}
 $6.6 > 5$, hence we can see that this arrangement has increased sensitivity.
 \section{Question 2}
@@ -213,7 +223,22 @@ We can tackle the first two points by actually utilising a strain gauge which is
 
 A second solution for temperature compensation is incorporating a dummy gauge. We have two options here: we can place the dummy gauge on an unstrained part of the same beam (placing it normal to the principal stress axis), or we can place it on a separate, unloaded beam (with identical properties) in the same environment as our test specimen. This dummy gauge will act as a 'reference' for our strain gauge and due to the ratiometric nature of the Wheatstone bridge, we can place the dummy gauge in another arm of the bridge to achieve this. 
 
-The system in Figure 3 of the coursework brief does not utilise dummy gauges
+The system in Figure 3 of the coursework brief does compensate for temperature, as two gauges are being utilised. We can show this by:
+\begin{align}
+  R_{g1} &= R(1+x)(1+y)\\
+  R_{g2} &= R(1-x)(1+y)\\
+\end{align}
+Where $R(1+y)$ is the resistance change due to temperature.
+\begin{align}
+  V_0 &= V_S \frac{R(1+x)(1+y)}{R(1+x)(1+y) + R(1-x)(1+y)} - \frac{V_S}{2}\\
+  V_0 &= V_S \frac{R(1+x)}{R(1+x) + R(1-x)} - \frac{V_S}{2}
+\end{align}
+We can see that we have a factor of $(1+y)$ in our fraction, which cancels out the effects of temperature.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./img/4-1circuit.png}
+  \caption{Circuit diagram to show a Wheatstone bridge which compensates for temperature.}
+\end{figure}
 \subsection*{$V_{amp}$ variation with beam vibration}
 \begin{align}
   V_{amp} &= \frac{R_2}{R_1} (V_2 - V_1) = \frac{R_2}{R_1} V_0\\
@@ -224,18 +249,18 @@ The system in Figure 3 of the coursework brief does not utilise dummy gauges
 \end{align}
 \begin{itemize}
   \item $e = 0.01 \sin{\left(4\pi \cdot t\right)}$
-  \item $R_1 = 1000\si{\ohm}$
-  \item $R_2 = 200000\si{\ohm}$
+  \item $R_1 = \SI{1000}{\ohm}$
+  \item $R_2 = \SI{200000}{\ohm}$
   \item $G = 2.1$
-  \item $V_S = 4.76\si{\volt}$
+  \item $V_S = \SI{4.76}{\volt}$
 \end{itemize}
 \begin{align}
   V_{amp}(t) &= \frac{200000}{2000} \cdot 4.76 \cdot 2.1 \cdot 0.01 \cdot \sin{\left(4\pi \cdot t\right)}\\
   V_{amp}(t) &= \frac{2499}{250} \sin{\left(4\pi \cdot t\right)}
 \end{align}
 \begin{itemize}
-  \item Maximum amplitude: 10\si{\volt} (3sf)
-  \item Frequency: $4\pi \si{\hertz}$
+  \item Maximum amplitude: \SI{10}{\volt} (2sf)
+  \item Frequency: $\SI{4\pi}{\hertz}$
 \end{itemize}
 \begin{figure}[H]
   \centering
@@ -244,21 +269,29 @@ The system in Figure 3 of the coursework brief does not utilise dummy gauges
 \end{figure}
 \section{Question 3}
 \subsection*{Amplified output voltage}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./img/6-1diagram.png}
+  \caption{Beam setup.}
+\end{figure}
+Maximum weight system can measure:
 \begin{align}
   \sum F_y: \ R_A &= R_B = \frac{W}{2}\\
   \epsilon_{max} &= 0.005\\
   \sigma &= \frac{Mh}{I}\\
-  h_{max} &= 0.0025 \ \si{\metre}\\
-  I &= \frac{bd^3}{12} = \frac{0.03 \cdot 0.005^3}{12} = 3.125 \times 10^{-10} \ \si{\metre\tothe{4}}\\
+  h_{max} &= \SI{0.0025}{\metre}\\
+  I &= \frac{bd^3}{12} = \frac{0.03 \cdot 0.005^3}{12} = \SI{3.125e-10}{\metre\tothe{4}}\\
   M(x) &= R_A \cdot x - W(x-0.15)\\
   M(I=0.1) &= \frac{0.1 \cdot W_{max}}{2} = 0.05\cdot W_{max}\\
   \sigma &= \frac{0.05\cdot W_{max} \cdot 0.0025}{3.125 \times 10^{-10}} = E\epsilon = 70 \times 10^{9} \cdot 0.005\\
-  W_{max} &= 875 \ \si{\newton}
+  W_{max} &= \SI{875}{\newton}
 \end{align}
+Amplified output voltage $V_{amp}$, when \SI{10}{\kilo\gram} weight is placed on beam:
 \begin{align}
+  \sigma &= \frac{Mh}{I}\\
   \frac{0.05\cdot 10g \cdot 0.0025}{3.125\times 10^{-10}} &= 70 \times 10^{9} \cdot \epsilon\\
   \epsilon &= 5.6057 \times 10^{-4}\\
-  V_{amp} &= 1000\epsilon = 0.56 \ \si{\volt} (2sf)
+  V_{amp} &= 1000\epsilon = \SI{0.56}{\volt} (2sf)
 \end{align}
 \subsection*{Semiconductor gauges}
 Semiconductor gauges can have extremely high relative gauge factors (100-300). This makes them very sensitive and they also have a strong output signal due to this high gauge factor.
