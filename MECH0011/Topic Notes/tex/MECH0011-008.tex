@@ -98,5 +98,29 @@ We can see that this streamline is unrealistic. This is because to curl around t
   \centering
   \includegraphics[width = 0.9\textwidth]{../img/diagram39.png}
 \end{figure}
-This streamline is more realistic as the velocity is parallel to the trailing edge cusp and its component in the vertical direction is zero. This circulation can be used to predict the lift $F_L$ but still predicts no drag $(F_D = 0)$.
+This streamline is more realistic as the velocity is parallel to the trailing edge cusp and its component in the vertical direction is zero. This circulation can be used to predict the lift $F_L$ but still predicts no drag $(F_D = 0)$. The next question is how do we achieve this mapping?
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram40.png}
+\end{figure}
+We can see here that for a given angle of coincidence, the circulation has to be selected by imposing that the back stagnation point (red circle) and the point corresponding to the airfoil trailing edge (black circle) coincide.
+\begin{align}
+  \phi &= V_\infty r \cos{(\theta - \alpha )}\left(1 + \frac{R^2}{r^2}\right) - \frac{\Gamma}{2\pi}\theta\\
+  \psi &= V_\infty r \sin{(\theta - \alpha)}\left(1 - \frac{R^2}{r^2}\right) + \frac{\Gamma}{2\pi} \log{\left(\frac{r}{R}\right)}
+\end{align}
+Velocity components:
+\begin{align}
+  u_r &= \frac{1}{r} \frac{\partial \psi}{\partial \theta} = V_\infty r \cos{(\theta - \alpha)}\left(1-\frac{R^2}{r^2}\right)\\
+  u_\theta &= - \frac{\partial \psi}{\partial r} = -V_\infty \sin{(\theta - \alpha)} \left(1 + \frac{R^2}{r^2}\right) - \frac{\Gamma}{2\pi r}
+\end{align}
+On the cylinder $r = R$:
+\begin{align}
+  u_r &= 0 \\
+  u_\theta &= -2V_\infty \sin{(\theta-\alpha)} - \frac{\Gamma}{2\pi R}
+\end{align}
+Kutta condition:
+\begin{align}
+  u_\theta (\theta = 0) &= 0\\
+  \Gamma = -4\pi V_\infty R \sin{(-\alpha)} &= 4\pi V_\infty R\sin{\alpha}
+\end{align}
 \end{document}
