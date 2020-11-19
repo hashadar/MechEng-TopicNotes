@@ -1,0 +1,55 @@
+\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{commath}
+\usepackage{array}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usetikzlibrary{positioning, fit, calc}   
+\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
+line/.style={-latex}     
+}  
+\setlength{\parindent}{0pt}
+\begin{document}
+\section{Exercise 2 - Fluid tutorial Group B}
+\subsection*{Question a}
+When using Bernoulli and potential function, we have the following assumptions
+\begin{itemize}
+  \item No temporal changes (steady flow)
+  \item Inviscid flow
+  \item Incompressible flow
+  \item Irrotational flow
+\end{itemize}
+Irrotational proof:
+\begin{align}
+  \omega_z &= 0\\
+  0 &= \frac{1}{r}\left(\frac{\partial (ru_\theta)}{\partial r} - \frac{\partial u_r}{\partial \theta}\right)\\
+  ru_r &= - V_\infty r\sin{(\theta - \alpha)} \left(1 + \frac{R^2}{r^2}\right) - \frac{\Gamma}{2\pi}\\
+  &= - V_\infty r\sin{(\theta - \alpha)} - V_\infty \frac{R^2}{r}\sin{(\theta - \alpha)} - \frac{\Gamma}{2\pi}\\
+  \frac{\partial (ru_\theta)}{\partial r} &= V_\infty \frac{R^2}{r^2}\sin{(\theta - \alpha)} - V_\infty \sin{(\theta - \alpha)}\\
+  u_r &= V_\infty \cos{(\theta - \alpha)}\left(1 - \frac{R^2}{r^2}\right)\\
+  \frac{\partial u_r}{\partial \theta} &= - V_\infty \sin{(\theta - \alpha)}\left(1 - \frac{R^2}{r^2}\right)\\
+  \omega_z &= V_\infty \sin{(\theta - \alpha)} \left[ \left(\frac{R^2}{r^2}-1\right) - \left(\frac{R^2}{r^2}-1\right) \right]\\
+  &= 0
+\end{align}
+Incompressible proof:
+\begin{align}
+  u_r &= \frac{\partial \phi}{\partial r}\\
+  &= V_\infty \cos{(\theta - \alpha)}\left(1 - \frac{R^2}{r^2}\right)\\
+  u_\theta &= \frac{1}{r}\frac{\partial \phi}{\partial \theta}\\
+  &= - V_\infty \sin{(\theta - \alpha)} \left(1 + \frac{R^2}{r^2}\right) - \frac{\Gamma}{2\pi r}\\
+  \textrm{Bernoulli: } 0 &= 
+\end{align}
+\subsection{Question b}
+Pressure coefficient:
+\begin{align}
+  c_p = \frac{p - p_\infty}{\frac{1}{2}pV_\infty^2} = 1 - \frac{u_r^2 + i_\theta^2}{V_\infty^2}
+\end{align}
+\end{document}
