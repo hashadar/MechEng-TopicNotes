@@ -67,7 +67,7 @@ We need to exploit this relationship in order to derive an expression for $\delt
 Combining this with our above assumption:
 \begin{align}
   \frac{\frac{U_\infty^2}{L}}{\nu \frac{U_\infty}{\delta^2}} &= \frac{\delta^2}{L^2} Re \approx 1\\
-  \delta^2 &= \frac{L^2}{Re}
+  \delta^2 &\approx \frac{L^2}{Re}
 \end{align}
 Looking at the continuity equation:
 \begin{align}
@@ -92,5 +92,143 @@ We can see in the fourth term that $Re >> 1$, hence it is neglected i.e. there w
   \textrm{Fourth term: } \nu \frac{\partial^2 v}{\partial x^2} &\propto \nu \frac{U_\infty \delta}{L} \frac{1}{L^2} = \frac{\nu}{L U_\infty} \frac{U_\infty^2 \delta}{L^2} = \frac{1}{Re} \frac{U_\infty^2}{L\sqrt{Re}} = \frac{1}{\sqrt{Re}^3} \frac{U_\infty^2}{L}\\
   \textrm{Fifth term: } \nu \frac{\partial^2 v}{\partial y^2} &\propto \nu \frac{U_\infty \delta}{L} \frac{1}{\delta^2} = \frac{\nu}{LU_\infty} \frac{U_\infty^2}{\delta} = \frac{1}{Re} \frac{U_\infty^2 \sqrt{Re}}{L} = \frac{1}{\sqrt{Re}} \frac{U_\infty^2}{L}
 \end{align}
-We see that in the first, second, fourth and fifth terms, $Re >> 1$, hence they are neglected.
+We see that in the first, second, fourth and fifth terms, $Re >> 1$, hence they are neglected. Let us see what this analysis tells us:
+\begin{align}
+  \textrm{x-direction: } u\frac{\partial u}{\partial x} + v \frac{\partial u }{\partial y} &= - \frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \frac{\partial^2 u}{\partial y^2}\\
+  \textrm{y-direction: } \frac{\partial p}{\partial y} &= 0
+\end{align}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram51.png}
+\end{figure}
+Pressure does not change along thickness of the boundary layer. Therefore I can estimate the pressure outside of the boundary layer using Bernoulli (inviscid flow theory), and then apply that pressure on the body wall. Outside of the boundary layer, we know:
+\begin{gather}
+  \frac{\partial}{\partial y} = 0 \ \& \ v = 0\\
+  U(x) = \frac{\partial U(x)}{\partial x} = \frac{\partial \frac{1}{2}U(x)^2}{\partial x} = -\frac{1}{\rho} \frac{\partial p}{\partial x}\\
+  p + \frac{1}{2} \rho U(x)^2 = \textrm{const}
+\end{gather}
+\section{Flow separation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram52.png}
+  \caption{Formation of a vortex, due to flow separation and flow reversal.}
+\end{figure}
+Favourable pressure gradient:
+\begin{align}
+  \frac{\partial U(x)}{\partial x} > 0, \ \frac{\partial p}{\partial x} <0
+\end{align}
+Adverse pressure gradient:
+\begin{align}
+  \frac{\partial U(x)}{\partial x} < 0, \ \frac{\partial p}{\partial x} > 0
+\end{align}
+Adverse pressure gradient produces further retardation of fluid (which is already slowed down close to wall). The fluid near to the wall is eventually brought to rest, flow reverse and separated. Separation occurs at or near the point where $\frac{dp}{dx}$ first becomes zero; at the first point of separation, at $y = 0$, $\frac{du}{du} =0$. The formation of separation occurs as the fluid accelerates from the centre to get round the cylinder (it must accelerate as it has further to go than the surround fluid). It reaches a maximum at $Y-Y$, where it has also dropped in pressure. The adverse pressure gradient between here and the downstream side of the cylinder will cause separation if the flow is fast enough ($Re > 2$).
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6 \textwidth]{../img/diagram53.png}
+\end{figure}
+\section{Laminar and turbulent flow separation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6 \textwidth]{../img/diagram54.png}
+  \caption{Left: laminar, right: turbulent}
+\end{figure}
+The boundary layer has a high momentum deficit and in the case of laminar flow, it is unable to adjust to the increasing pressure and separates. A turbulent boundary layer is more resistant to separation than a laminar one. Due to the chaotic nature of turbulence, a turbulent boundary layer has a great capacity for mixing and absorbing energy from the free stream (this is obvious from its profile and its rate of growth compared with a laminar layer). The effect of increased mixing is increased transport of momentum (due to turbulent stresses) between the free-stream and the flow near the wall. This increased transport of momentum from the free-stream to the wall increases the stream-wise momentum in the boundary layer allowing the flow to overcome $\frac{dp}{dx}$ for longer and to separate further downstream (larger velocities near the wall are not so easily halted). 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \textwidth]{../img/diagram55.png}
+\end{figure}
+\section{Flow past a cylinder - Drag coefficient}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram56.png}
+\end{figure}
+For a cylinder, 
+\begin{itemize}
+  \item $c_D$ is nearly constant when $Re = 10^3 - 10^5$, but varies considerably as the boundary layer becomes turbulent between $Re = 10^5 - 10^6$
+  \item At $Re \approx 2000$, $c_D$ reaches minimum of $\approx 0.9$
+  \item At $Re \approx 30000$, $c_D$ rises to $\approx 1.2$ (partly due to increasing turbulence in the wake)
+  \item At $Re \approx 200000$, $c_D$ drops suddenly to $\approx 0.3$
+  \item At $Re > 200000$, $c_D$ increases slowly. 
+  \item The form drag is $\approx 50\%$ of the profile drag as $Re \rightarrow 0$
+  \item By $Re \approx 200$ the form drag is $\approx 90\%$ of the profile drag
+  \item At $Re \approx 30000$, skin friction is insignificant.
+\end{itemize}
+\section{Flow past a sphere}
+The flow over a sphere starts to separate from the surface at $Re \approx 20$. As $Re$ increases, a pair of recirculating vortices becomes visible in the wake region. At flows up to $Re \approx 200$ the flow is still steady but beyond this value oscillations start to appear and the separation point moves upstream of the top of the sphere, increasing the drag. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \textwidth]{../img/diagram57.png}
+\end{figure}
+\subsection{Drag coefficient}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram58.png}
+\end{figure}
+For a sphere, $c_D$ is nearly constant for $Re = 10^3 - 10^5$ but varies considerably as the boundary layer becomes turbulent between $Re = 10^5 - 10^6$ and, in fact, this transition causes $c_D$ to dramatically increase. As $Re \rightarrow 0$, $c_D$ is given by Stokes's law ($c_D = \frac{24}{Re}$)
+\subsection{Drag reduction}
+Deliberately tripping the boundary layer from laminar to turbulent (i.e. by a trip wire) results in an increase in skin drag (due to increased shear stresses), but a decrease in form drag (due to delayed separation point). The reduction in form drag more than compensates for the increased drag due to turbulent shearing, resulting in a greatly reduced overall drag coefficient $c_D$. Drag reduction can also be accomplished by roughening the surface and, thereby, lowering $Re$ at which transition occurs. However, the drag coefficient for a roughened surface will typically rise faster in comparison to a smooth surface, once the transition point is passed. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \textwidth]{../img/diagram59.png}
+\end{figure}
+\section{Flow past an aerofoil - stalling}
+If the angle of attack becomes too great and boundary layer separation occurs on top of the aerofoil, the pressure pattern will change dramatically. In such a case, the lift component is insufficient to overcome the weight of one aircraft and disaster is imminent. This phenomenon is known as \textbf{stalling}. When stalling occurs, all, or most, of the 'suction' pressure is lost, and the plane will suddenly drop from the sky. The solution to this is to put the plane into a dive to regain the boundary layer. A transverse lift force is then exerted on the wing which gives the pilot some control and allows the plane to be pulled out of the dive.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \textwidth]{../img/diagram60.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width =0.7 \textwidth]{../img/diagram61.png}
+\end{figure}
+\section{Boundary layer control}
+There are mechanisms for preventing the boundary layer from separating in the first place.
+\begin{itemize}
+  \item Surface roughening
+  \begin{itemize}
+    \item To initiate turbulent boundary layer, thus delay separation and achieve a narrower wake of higher pressure
+  \end{itemize}
+  \item Shape variation
+  \begin{itemize}
+    \item Putting a flap at the end of the wing and tilting it before separation occurs increases the velocity over the top of the wing, reduces the pressure and chance of separation 
+  \end{itemize}
+  \item Fluid injection
+  \begin{itemize}
+    \item Accelerate boundary layer in direction of flow (but this will produce very turbulent flow and more skin friction)
+  \end{itemize}
+  \item Fluid removal
+  \begin{itemize}
+    \item Suction through small holes or a porous surface
+    \item Downstream of suction position, boundary layer is thinner and faster thus better able to withstand adverse pressure gradient. Suction delays laminar to turbulent transition and leads to less skin friction
+  \end{itemize}
+  \item Slotted wing
+  \begin{itemize}
+    \item Slower moving air on the upper surface can be accelerated by bringing air from the high-pressure area on the bottom of the wing through slots. Pressure decreases on the top and adverse pressure gradient reduces
+  \end{itemize}
+  \item Engine arrangement
+  \begin{itemize}
+    \item Engine intakes draw slow air from the boundary layer at the rear of the wing through small holes. This keeps the boundary layer close to the wing and greater pressure gradients can be maintained before separation
+  \end{itemize}
+\end{itemize}
+Control systems are often costly and difficult to install. Advantages for some conditions, hindrance of others (advantages maybe offset by the added drag). Planes take advantage of the cambered aerofoil's high lift characteristics by enabling shape variation of the basic wing. Leading edge 'Krüger' flaps or slats and trailing edge 'Fowler' flaps are extended from the wing and change the aerofoil's shape into a cambered form, generating greater lift during low-speed flight.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width =0.5 \textwidth]{../img/diagram63.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width =0.8 \textwidth]{../img/diagram62.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width =0.7 \textwidth]{../img/diagram64.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width =0.7 \textwidth]{../img/diagram65.png}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width =0.7 \textwidth]{../img/diagram66.png}
+\end{figure}
 \end{document}
