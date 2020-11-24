@@ -295,4 +295,56 @@ $\zeta > 1$: overdamped - cannot overshoot, lag increases.
   \centering
   \includegraphics[width = 0.6\textwidth]{../img/diagram82.png}
 \end{figure}
+\subsection{Summary}
+Much more complicated response! but follows the same pattern as with the step response with changing damping ratio. The most important thing to notice here, is that the system does not match desired value - there is still a lag:
+\begin{equation}
+  y(t) = t - \frac{2\zeta}{\omega_n}
+\end{equation}
+So a low damping ratio is needed to closely match the input value, but this comes at the expense of overshoot and settling time.
+\section{Transfer function - unity feedback system}
+Recall the block diagram for a closed loop feedback system, in this case with 'unity' feedback - i.e. the error signal is passed directly to the summation junction:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram83.png}
+\end{figure}
+$G(s)$ is referred to as the \textbf{forward loop transfer function}, i.e. the combined transfer function of all the amplifiers controller, plant, systems in the feedforward path. In the case of unity feedback, it is also the \textbf{open loop transfer function}. We can find the overall transfer function $F(s)$ or \textbf{closed loop transfer function} through a bit of manipulation:
+\begin{gather}
+  \theta = \theta_i - \theta_0\\
+  G(s)\theta = \theta_0\\
+  \theta_0 = G(s) (\theta_i - \theta_0)\\
+  \frac{\theta_0}{\theta_i} = F(s) = \frac{G(s)}{1 + G(s)}
+\end{gather}
+Or more generally for a non unity gain system:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram84.png}
+\end{figure}
+\begin{equation}
+  F_1 = \frac{\theta_0}{\theta_i} = \frac{G_1}{1 + G_1 H}
+\end{equation}
+Lets take an example to show how this transfer function can relate to the systems we have studied so far.
+\section{Summary}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram85.png}
+\end{figure}
+The overdamped ($\zeta > 1$) and critically damped ($\zeta = 1$) responses are seldom desirable for control systems due to their long settling time. $\zeta = 0.7$ gives a fast response without excessive overshoot or oscillations.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram86.png}
+\end{figure}
+The response of second order systems is much more complicated than that of a first order system, with considerably different responses arising from changes in damping ratio.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram84.png}
+\end{figure}
+Negative feedback systems have a transfer function of the form:
+\begin{equation}
+  F_1 = \frac{\theta_0}{\theta_i} = \frac{G_1}{1 + G_1 H}
+\end{equation}
+Which for a remote position servo is equal to:
+\begin{equation}
+  F(s) = \frac{\Theta_0 (s)}{\Theta_i (s)} = \frac{\frac{k}{I}}{s^2 + \frac{f}{I}s + \frac{k}{I}}
+\end{equation}
+Where $\omega_n = \sqrt{\frac{k}{I}}$ and $\zeta = \frac{f}{2\sqrt{kI}}$. The gain determines the damping ratio, and this the characteristics of the response of the system.
 \end{document}
