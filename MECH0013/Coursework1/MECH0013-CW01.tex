@@ -33,20 +33,86 @@ Yu Lu}
 \section{Question 1}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{./img/TotalDeformationQ1.png}
-  \caption{Total Deformation in beam}
-\end{figure}
-\begin{figure}[H]
-  \centering
   \begin{minipage}[b]{0.49\textwidth}
-    \includegraphics[width=\textwidth]{./img/DirectionalDeformationQ1.png}
-    \caption{Directional Deformation in beam}
+    \includegraphics[width=\textwidth]{./img/TotalDeformationQ1.png}
+    \caption{Total deformation in beam}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{0.49\textwidth}
     \includegraphics[width=\textwidth]{./img/BendingMomentQ1.png}
-    \caption{Bending Moment in beam}
+    \caption{Bending moment in beam}
   \end{minipage}
 \end{figure}
-\href{https://github.com/hashadar/ME-Latex/tree/master/MECH0013/Topic%20Notes}{FIX LINK} to see numerical data of the directional deformation and the bending moment of the beam. Here, we can see that 
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{./img/DirectionalShearQ1.png}
+    \caption{Directional shear in beam}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{./img/DirectionalBendingQ1.png}
+    \caption{Directional bending in beam}
+  \end{minipage}
+\end{figure}
+\href{https://github.com/hashadar/ME-Latex/tree/master/MECH0013/Topic%20Notes}{FIX LINK} to see numerical data of the directional deformation and the bending moment of the beam.
+\section{Question 2}
+\begin{align}
+  \sum F_y = 0 \rightarrow &R_A + R_B = 20000 \label{Q1Eq1}\\
+  \sum M_B = 0 \rightarrow &M_B + 20000(0.75) - R_A(1.5) = 0\\
+  & M_A + 15000 - 1.5 R_A = 0 \label{Q1Eq2}
+\end{align}
+Determine second moment of area ($I$):
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{./img/SecondMomentOfInertiaQ2.png}
+\end{figure}
+Segment 1
+\begin{align}
+  I_x &= \bar{I}_x + Ady^2 = \frac{1}{12}(0.06)(0.02)^3 + (0.06)(0.02)(0.04)^2 = \SI{1.96e-6}{\meter\tothe{4}}
+\end{align}
+Segment 2
+\begin{align}
+  I_x &= \bar{I}_x + Ady^2 = \frac{1}{12}(0.06)(0.02)^3 + (0.06)(0.02)(0)^2 = \SI{3.6e-7}{\meter\tothe{4}}
+\end{align}
+Segment 3
+\begin{align}
+  I_x &= \bar{I}_x + Ady^2 = \frac{1}{12} (0.06)(0.02)^3 + (0.06)(0.02)(0.04)^2 = \SI{1.96e-6}{\meter\tothe{4}}\\
+  I_{\textrm{total}} &= \SI{4.28e-6}{\meter\tothe{4}}
+\end{align}
+Macaulay's Method
+\begin{align}
+  M &= M_A + F(x-0.75) - R_A(x)\\
+  \theta = -\frac{1}{EI} \int_{}^{} M \,\mathrm{d}x &= -\frac{1}{EI} \left[ M_A x + \frac{F(x-0.75)^2}{2} + \frac{R_A(x)^2}{2} \right] + \theta_0\\
+  y = \int_{}^{} \theta \,\mathrm{d}x &= -\frac{1}{EI} \left[ \frac{M_Ax^2}{2} + \frac{F(x-0.75)^3}{6} + \frac{R_A (x)^3}{6} \right] + \theta_0 x + y_0
+\end{align}
+Boundary conditions. At $y= 0$, $x=0$:
+\begin{align}
+  y(0) = 0 = \theta_0 \cdot (0) + y_0 \rightarrow y_0 = 0
+\end{align}
+At $\theta = 0$, $x=0$:
+\begin{align}
+  \theta (0) = 0 = \theta_0 \rightarrow \theta_0 = 0  
+\end{align}
+At $y =0$, $x=1.5$:
+\begin{align}
+  y(1.5) &= 0 = -\frac{1}{EI} \left[ \frac{M_A(1.5)^2}{2} + \frac{F(1.5-0.75)^3}{6} + \frac{R_A (1.5)^3}{6} \right] + 0\cdot 1.5 + 0\\
+  0 &= \frac{9}{8}M_A + 1406.25 - \frac{9}{16}R_A \label{Q1Eq3}
+\end{align}
+Multiply equation (\ref{Q1Eq2}) by $\frac{9}{8}$:
+\begin{align}
+  \frac{9}{8} M_A + 16875 - \frac{27}{16} R_A &= 0 \label{Q1Eq4}
+\end{align}
+Equations (\ref{Q1Eq4}) - (\ref{Q1Eq3}):
+\begin{align}
+  15468.75 = \frac{9}{8}R_A \rightarrow R_A &= \SI{13750}{\newton}\\
+  \therefore M_A = 1.5(13750) - 15000 \rightarrow M_A &= \SI{5625}{\newton}\\
+  \therefore R_B = 20000-13750 \rightarrow R_B &= \SI{6250}{\newton}
+\end{align}
+We know $y_{max}$ occurs at $\theta = 0$
+\begin{gather}
+  M_A x + \frac{F(x=0.75)^2}{2} - \frac{R_A x^2}{2} = 3125x^2 -9325x + 5625 = 0\\
+  x\neq\SI{2.171}{\metre} \rightarrow x = \SI{0.829}{\metre} \ (3dp)\\
+  y_{max} = -\frac{1}{EI} \left[ \frac{M_A(0.829)^2}{2} + \frac{F(0.829-0.75)^3}{6} + \frac{R_A (0.829)^3}{6} \right] = \SI{-2.099e-3}{\metre} \ (3dp)
+\end{gather}
 \end{document}
