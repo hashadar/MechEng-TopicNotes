@@ -64,7 +64,7 @@ In this case, angular velocity is proportional to the electromotive force and cu
     T(s) &= K_t I(s) \label{ll4}
 \end{align}
 
-In order to find the response between angular position ($\theta$) and input voltage ($v$) in time domain, the Laplace transfer function by combination of Eq.\ref{ll1}, Eq.\ref{ll2}, Eq.\ref{ll3} and Eq.\ref{ll4} is shown below:
+In order to find the response between angular position ($\theta$) and input voltage ($v$) in time domain, the Laplace transfer function by combination of Eq.\ref{ll1}, \ref{ll2}, \ref{ll3}, \ref{ll4} is shown below:
 
 \begin{align}
     \frac{\theta (s)}{v(s)} = \frac{K_t}{bR_s (\frac{K_e K_t}{bR}) + \tau_e \tau_m s^2 + \tau_m s + \tau_e s +1}
@@ -160,6 +160,7 @@ where 3.54 is the gain of the system.
     \begin{minipage}[b]{0.24\textwidth}
       \includegraphics[width=\textwidth]{../img/q1-7.png}
       \caption{Model of open loop transfer function of angular displacement with impulse input.}
+      \label{oltad1}
     \end{minipage}
 \end{figure}
 
@@ -168,13 +169,60 @@ where 3.54 is the gain of the system.
     \begin{minipage}[b]{0.24\textwidth}
       \includegraphics[width=\textwidth]{../img/q1-9.png}
       \caption{Model of open loop transfer function of angular displacement with step input.}
+      \label{oltad2}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{0.24\textwidth}
       \includegraphics[width=\textwidth]{../img/q1-10.png}
       \caption{Model of open loop transfer function of angular displacement with ramp input.}
+      \label{oltad3}
     \end{minipage}
 \end{figure}
+
+According to the results show in Graphs.\ref{oltad1}, .\ref{oltad2}, .\ref{oltad3}, the response of output angular displacement will intersect with input and then overshoot to infinity (undesirable behaviour), which means these oopen loops cannot meet the requirement to control the angular displacement of the motor. Under this circumstance, the unit feedback closed loop with a gain of $H$ is required to overcome this undesirable behaviour of open loop control system for angular velocity. The formula for the feedback loop is:
+
+\begin{align}
+    G(s) &= \frac{\theta (s)}{v(s)} = \frac{3.54}{0.0112s^2 + s}\\
+    H(s) &= H\\
+    G'(s) &= \frac{G(s)}{1 + G(s) \cdot H(s)}
+\end{align}
+
+Therefore, the new transfer function is:
+
+\begin{align}
+    G'(s) &= \gamma \frac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^2}
+\end{align}
+
+\begin{align}
+    \resizebox{.4 \textwidth}{!}
+    {$
+    G'(s) = \frac{316.07H}{H\left( s^2 + 2 \cdot 44.64 \cdot \sqrt{\frac{1}{316.07H}} \cdot \sqrt{316.07 H} s + 316.07 H\right)}
+    $}
+\end{align}
+
+Note: $\gamma = H$, $\zeta = 44.64 \sqrt{\frac{1}{316.07H}}$ and $\omega_n = \sqrt{316.07H}$
+
+In this case, we can use $\zeta$ to determine the response wanted as overdamped, critically damped, underdamped or undamped to control the loop without undesired behaviour and according to the results and analysis of transfer function of angular velocity, step input is suitable to make the response reach the desired input compared to ramp input and impulse input. Therefore, the step input is the input for the new transfer function to overcome the undesirable behaviour. The results of the simulation for Simulink are shown in Fig.\ref{damp1}, \ref{damp2}, \ref{damp3}. 
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width = 0.4\textwidth]{../img/q1-11.png}}
+    \caption{Overdamped. $\zeta > 1$, $0 < H < 6.304 \therefore H = 1$}
+    \label{damp1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width = 0.4\textwidth]{../img/q1-12.png}}
+    \caption{Critically damped. $\zeta = 1$, $H = 6.304$}
+    \label{damp2}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width = 0.4\textwidth]{../img/q1-13.png}}
+    \caption{Underdamped. $0 < \zeta < 1$, $H > 6.304$. In this case, $H = 30$}
+    \label{damp3}
+\end{figure}
+
+There is no undamped condition in this case as $\omega_n$ also depends on $H$.
 
 \section{Question 2}
 \subsection{4}
