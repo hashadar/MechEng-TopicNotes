@@ -25,7 +25,7 @@ christopher.tawk.19@ucl.ac.uk}
 \and
 \IEEEauthorblockN{3\textsuperscript{rd} Xichen Yang}
 \IEEEauthorblockA{
-Xichen Yang}
+xichen.yang.19@ucl.ac.uk}
 }
 
 \maketitle
@@ -40,11 +40,115 @@ or Math in Paper Title or Abstract.
 component, formatting, style, styling, insert
 \end{IEEEkeywords}
 
+\section{Question 1}
+In the real world, the operation of DC motor is the transfer from electrical energy to the mechanical rotation of motor. Therefore, the electric circuit of motor operation is composed by the input voltage ($v$ (\si{\volt})), terminal resistance ($R$ (\si{\ohm})), Inductance ($L$ (\si{\henry})), and the electromotive force ($em$ (\si{\volt})). In this case the formulas for the time domain and frequency domain are ($i$ is the current of the circuit):
+
+\begin{align}
+    V &= Ri + L \frac{\textrm{d}i}{\textrm{d} t} + em\\
+    V(s) &= RI(s) + LsI(s) + Em(s) \label{ll1}
+\end{align}
+
+For the mechanical rotation, the relationship among torque ($T$ (\si{\newton\metre})), moment of inertia ($Im$ (\si{\kg\metre\squared})), angular displacement ($\theta$) and the friction coefficient ($b$) in time domain and frequency domain are given:
+
+\begin{align}
+    T &= Im \frac{\textrm{d}^2 \theta}{\textrm{d} t^2} + b \frac{\textrm{d} \theta}{\textrm{d} t}\\
+    T(s) &= Ims^2 \theta(s) + bs\theta(s)\label{ll2}
+\end{align}
+
+In this case, angular velocity is proportional to the electromotive force and current is proportional to the torque of the motor. ($K_e$ the electrical motor constant, $K_t$ is the mechanical motor constant):
+
+\begin{align}
+    em &= K_e \frac{\textrm{d} \theta}{\textrm{d} t}\\
+    Em(s) &= K_e s \theta(s)\\ \label{ll3}
+    T &= K_t i\\
+    T(s) &= K_t I(s) \label{ll4}
+\end{align}
+
+In order to find the response between angular position ($\theta$) and input voltage ($v$) in time domain, the Laplace transfer function by combination of Eq.\ref{ll1}, Eq.\ref{ll2}, Eq.\ref{ll3} and Eq.\ref{ll4} is shown below:
+
+\begin{align}
+    \frac{\theta (s)}{v(s)} = \frac{K_t}{bR_s (\frac{K_e K_t}{bR}) + \tau_e \tau_m s^2 + \tau_m s + \tau_e s +1}
+\end{align}
+
+Note: $\tau_m$ is the mechanical time constant of motor ($\tau_m=\frac{Im}{b}$), $\tau_e$ is the electrical time constant ($\tau_e=\frac{L}{R}$).
+
+Assumption: Because the electrical time constant ($\tau_e$) is much smaller compared to the mechanical time constant of the motor ($\tau_m$), term $\tau_e\tau_ms^2$ and $\tau_es$ are approximately equal to zero compared with other terms. Therefore, the equation will become:
+
+\begin{align}
+    \frac{\theta (s)}{v(s)} = \frac{K}{s(\tau s + 1)} \ \left( K = \frac{K_t}{bR + K_t K_e}, \ \tau = \frac{\tau_m Rb}{K K_t + Rb} \right)
+\end{align}
+
+Due to the angular velocity ($\omega$) is the first derivative of angular position related to time ($\omega\left(s\right)=s\cdot\theta\left(s\right)$). In this case, the transfer function of angular velocity and input voltage is:
+
+\begin{align}
+    \frac{\omega(s)}{v(s)} = \frac{k}{\tau s + 1}
+\end{align}
+
+According to the specification data of Motor C42-L50 winding code 10 
+
+\begin{table}[htbp]
+    \caption{Specification Data}
+    \begin{center}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Specification} & \textbf{Value}\\
+    \hline
+    \hline
+    Torque sensitivity ($K_t$) & \SI{0.1412}{\newton\metre\per\ampere}\\
+    \hline
+    Back e.m.f. ($K_e$) & \SI{0.1413}{\volt\per\radian\per\second}\\
+    \hline
+    Rotor inertia ($Im$) & \SI{6.3354e-4}{\kg\per\meter\squared}\\
+    \hline
+    Mec. time constant ($\tau_m$) & \SI{0.0223}{\second}\\
+    \hline
+    Terminal resistance ($R$) & \SI{0.7}{\ohm}\\
+    \hline
+    Friction coefficient $\left(\frac{I_m}{\tau_m}\right)$ & \SI{0.0285}{}\\
+    \hline
+    \end{tabular}
+    \label{sdtable}
+    \end{center}
+\end{table}
+
+Therefore, the constant $K$ and overall time constant $\tau$ can be calculated as:
+
+\begin{align}
+    K = \frac{K_t}{bR + K_t K_e} &= 3.54\\ 
+    \tau = \frac{\tau_m Rb}{K K_t + Rb} &= 0.0112
+\end{align}
+
+In this case, the transfer function of angular velocity and angular displacement of motor with voltage input is:
+
+\begin{align}
+    \frac{\omega (s)}{v(s)} = \frac{K}{(\tau s +1)} &= \frac{3.54}{0.0112s + 1}\\
+    \frac{\theta (s)}{v(s)} = \frac{K}{s(\tau s + 1)} &= \frac{3.54}{0.0112s^2 + s}
+\end{align}
+
+where 3.54 is the gain of the system.
+
+Model of the open loop transfer function of angular velocity in Simulink:
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width = 0.45\textwidth]{../img/placeholder2.png}}
+    \caption{Model of open loop transfer function of angular velocity with impulse input.}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width = 0.45\textwidth]{../img/placeholder1.png}}
+    \caption{Results analysis - the response can reach desired target exponentially without oscillation.}
+\end{figure}
+
 \section{Question 2}
 \subsection{4}
 Considering a FDM (fused deposition modelling) PLA (polyactic acid) 3D printer, typical printing speeds \cite{b1} for a medium end model are \SI{100}{\milli\meter\per\second}. The accuracy for a good printer would be around $\pm$\SI{0.2}{\milli\meter}. The sampling rate of an Arduino's analogue input port is roughly \SI{9600}{\hertz}, as tested here. This would allow us to have a strip with a blocked-transparent pattern in \SI{1}{\milli\meter} blocks (i.e. \SI{0.5}{\milli\meter} of blocked out and then \SI{0.5}{\milli\meter} of transparent). Assuming our sample rate is stable at \SI{9600}{\hertz}, if the head travels at \SI{100}{\milli\meter\per\second}, we will traverse 96 patterned blocks. This relates to 96 samples per block traversed. This should provide adequate information to measure the intensity of light from the LED. When the printer head moves along the encoder, the intensity of the light reaching the LDR will form a sinusoidal intensity signal. We can utilise a comparator to remove noise from our signal by inverting one of the outputs and running both signals to the inputs of an op-amp. This will be beneficial in reducing error signals, a necessary requirement for a high-accuracy system. 
 
 We can measure which direction the head is moving in and the position of the head by using a quadrature sine/cosine signal. This is where we take the voltage signal from our LDR (a sinusoid) and compare it with a signal with a $\frac{\pi}{2}$ phase shift. Plotting these on an xy oscilloscope will produce a plot called a Lissajous figure. Under perfect conditions, our Lissajous figure will be a circle centred on the origin. The radius of the Lissajous is based on the amplitude and the direction in which the point is traced relates to whether our linear encoder is being read in the positive or negative direction. However, we may see that our Lissajous is not a perfect circle and this can be amended with trimming the signal and calibrations. The Lissajous figure tells us the position of the printer head, but we will need an absolute reference in order for our printer head to know where it is. For example, setting the zero point at the top right corner, we can count the number of times our Lissajous traverses $2\pi$ times in the oscilloscope, when the head moves. We can use the axis' crossed as a reference as to whether the number should be increased or decreased. As we also know the size of our strip pattern, we can derive the position of the head.
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width = 0.45\textwidth]{../img/Lissajous1.png}}
+    \caption{Lissajous plot}
+\end{figure}
 
 \section{Introduction}
 This document is a model and instructions for \LaTeX.
