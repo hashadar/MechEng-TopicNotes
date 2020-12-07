@@ -51,7 +51,7 @@ In this case, angular velocity is proportional to the electromotive force and cu
 \end{align}
 To find the response between angular position ($\theta$) and input voltage ($v$) in time domain, the Laplace transfer function by combination of Eq.\ref{ll1}, \ref{ll2}, \ref{ll3}, \ref{ll4} is shown below:
 \begin{align}
-    \frac{\theta (s)}{v(s)} = \frac{K_t}{bR_s (\frac{K_e K_t}{bR}) + \tau_e \tau_m s^2 + \tau_m s + \tau_e s +1}
+    \frac{\theta (s)}{v(s)} = \frac{K_t}{bRs (\frac{K_e K_t}{bR}) + \tau_e \tau_m s^2 + \tau_m s + \tau_e s +1}
 \end{align}
 Note: $\tau_m$ is the mechanical time constant of motor ($\tau_m=\frac{Im}{b}$), $\tau_e$ is the electrical time constant ($\tau_e=\frac{L}{R}$).
 
@@ -59,16 +59,16 @@ Assumption: Because the electrical time constant ($\tau_e$) is much smaller comp
 \begin{align}
     \resizebox{.43 \textwidth}{!}
     {$
-    \frac{\theta (s)}{v(s)} = \frac{K}{s(\tau s + 1)} \ \left( K = \frac{K_t}{bR + K_t K_e}, \ \tau = \frac{\tau_m Rb}{K K_t + Rb} \right)
+    \frac{\theta (s)}{v(s)} = \frac{K}{s(\tau s + 1)} \ \left( K = \frac{K_t}{bR + K_t K_e}, \ \tau = \frac{\tau_m Rb}{K_e K_t + Rb} \right)
     $}
 \end{align}
 Due to the angular velocity ($\omega$) is the first derivative of angular position related to time ($\omega\left(s\right)=s\cdot\theta\left(s\right)$). In this case, the transfer function of angular velocity and input voltage is:
 \begin{align}
-    \frac{\omega(s)}{v(s)} = \frac{k}{\tau s + 1}
+    \frac{\omega(s)}{v(s)} = \frac{K}{\tau s + 1}
 \end{align}
 According to the specification data of Motor C42-L50 winding code 10 
 \begin{table}[htbp]
-    \caption{Specification Data}
+    \caption{Specification Data \cite{b1}}
     \begin{center}
     \begin{tabular}{|c|c|}
     \hline
@@ -94,14 +94,14 @@ According to the specification data of Motor C42-L50 winding code 10
 Therefore, the constant $K$ and overall time constant $\tau$ can be calculated as:
 \begin{align}
     K = \frac{K_t}{bR + K_t K_e} &= 3.54\\ 
-    \tau = \frac{\tau_m Rb}{K K_t + Rb} &= 0.0112
+    \tau = \frac{\tau_m Rb}{K_e K_t + Rb} &= 0.0112
 \end{align}
 In this case, the transfer function of angular velocity and angular displacement of motor with voltage input is:
 \begin{align}
-    \frac{\omega (s)}{v(s)} = \frac{K}{(\tau s +1)} &= \frac{3.54}{0.0112s + 1}\\
+    \frac{\omega (s)}{v(s)} = \frac{K}{(\tau s +1)} &= \frac{3.54}{0.0112s + 1} \label{angvelsys}\\
     \frac{\theta (s)}{v(s)} = \frac{K}{s(\tau s + 1)} &= \frac{3.54}{0.0112s^2 + s}
 \end{align}
-where 3.54 is the gain of the system.
+where 3.54 is the gain of the system for the angular velocity system (Eq.\ref{angvelsys}).
 \begin{figure}[htbp]
     \centering
     \begin{minipage}[b]{0.24\textwidth}
@@ -233,11 +233,13 @@ where 3.54 is the gain of the system.
 \end{figure}
 \end{comment}
 
-According to the results show in Graphs.\ref{oltad1}, .\ref{oltad2}, .\ref{oltad3}, the response of output angular displacement will intersect with input and then overshoot to infinity (undesirable behaviour), which means these open loops cannot meet the requirement to control the angular displacement of the motor. Under this circumstance, the unit feedback closed loop with a gain of $H$ is required to overcome this undesirable behaviour of open loop control system for angular velocity. The formula for the feedback loop is:
+According to the results show in Graphs.\ref{oltad1}, .\ref{oltad2}, .\ref{oltad3}, for the impulse input, the response cannot reposition to zero, which means the response is undesired as impulse input. For the step input and ramp input, the response of output angular displacement will intersect with input and then overshot to infinity (undesirable behaviour), which mean these open loop cannot meet the requirement to control the angular displacement of motor. 
+
+Under this circumstance, the unit feedback closed loop with a gain of H is required to overcome this undesirable behaviour of open loop control system for angular displacement. The formula for the feedback loop is:
 \begin{align}
     G(s) &= \frac{\theta (s)}{v(s)} = \frac{3.54}{0.0112s^2 + s}\\
-    H(s) &= H\\
-    G'(s) &= \frac{G(s)}{1 + G(s) \cdot H(s)}
+    G'(s) &= \frac{G(s)}{1 + G(s) \cdot H(s)}\\
+    H(s) &= H
 \end{align}
 Therefore, the new transfer function is:
 \begin{align}
@@ -280,7 +282,7 @@ Therefore, the transfer function of unit feedback loop is:
 
 The unit feedback loop servo control system is type 1 system $(P=1)$, which means there is no steady state position error for the step input and there must be a steady velocity lag for the ramp input.
 
-For the impulse input, we want the response reach desired value fast without any oscillation, which refers to the overdamped case. Hence, H=6.304 for the impulse input situation. The Simulink model of impulse input of closed loop transfer response is shown in Graph 7.
+For the impulse input, we want the response reach desired value fast without any oscillation, which refers to the overdamped case. Hence, H=6.304 for the impulse input situation. The Simulink model of impulse input of closed loop transfer response is shown in Fig.\ref{cltr}
 For the step input situation, underdamped response has the fastest speed to reach the desired input value. In our case, the desired overshoot percentage is 5\%, which means our servo system can reach desired position within 5\% overshoot. Therefore, gain H can be calculated by:
 \begin{align}
     \frac{A}{100} = e^{\frac{-\zeta \pi}{\sqrt{1-\zeta^2}}} = 0.05, \ \zeta = 0.69
@@ -295,6 +297,7 @@ Hence, $H=\frac{1}{e \times 3.54} = 2.82$ for \SI{0.1}{\second} velocity lag, wh
     \begin{minipage}[b]{0.24\textwidth}
         \includegraphics[width=\textwidth]{./Graph/G7'.png}
         \caption{}
+        \label{cltr}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{0.24\textwidth}
@@ -331,13 +334,14 @@ Hence, $H=\frac{1}{e \times 3.54} = 2.82$ for \SI{0.1}{\second} velocity lag, wh
         \caption{}
     \end{minipage}
 \end{figure}
+
 \section*{Question 2}
 \subsection*{2.1 - Create a light-sensing circuit...}
-Building the voltage divider circuit in TinkerCAD, the light level slider was moved left and right and the range of voltages displayed were \SI{1.49}{\volt} - \SI{0.504}{\volt}. Using the formula:
+Building the voltage divider circuit in TinkerCAD, the light level slider was moved left and right.
 \begin{align}
-    V_{meter} &= \frac{R_{LDR}}{R_{R} + R_{LDR}} \times V_{in}\\
+    V_{meter} &= \frac{R_{LDR}}{R + R_{LDR}} \times V_{in}\\
     R_{LDR} &= \frac{V_{meter}R_{R}}{V_{in} - V_{meter}}\\
-    R_{LDR,max} &= \frac{1.49\times 1000}{1.5-1.49} = \SI{149e3}{\ohm}\\
+    R_{LDR,max} &= \frac{1.49\times 1000}{1.5-1.49} = \SI{149000}{\ohm}\\
     R_{LDR,min} &= \frac{0.504\times 1000}{1.5 - 0.504} = \SI{506.02}{\ohm}
 \end{align}
 \begin{figure}[htbp]
@@ -351,24 +355,29 @@ A microswitch placed at the "home" position. This is actuated when the printer h
 
 A laser system can also be used. The time-of-flight is calculated for the laser beam. This changes depending on the distance from the origin point to the printer head. This method is more accurate and also self correcting i.e. during a print, a misalignment can be corrected. However, they must also be checked and calibrated in cases where they may be a systematic error.
 
-Hall Effect sensors consist of a thin piece of semiconductor material with a current being passed through it. When this is placed in a magnetic field, a force is exerted on the charge carriers, producing a voltage proportional to the strength of the magnetic flux density \cite{b3}. Hence, placing hall effect sensors along the rails of the 3D printer and placing a small magnet on the printer head itself will allow for the position of the printer head to be calculated to a high degree of accuracy. When the printer head approaches a sensor, the voltage will increase linearly to a peak (when the head is directly overhead) and then decrease linearly again. This allows for the position the be calculated to extremely high accuracies. Typically, the error values for a hall effect sensor are much less than one percent \cite{b4}.
+Hall-Effect sensors consist of a thin piece of semiconductor material with a current being passed through it. When this is placed in a magnetic field, a force is exerted on the charge carriers, producing a voltage proportional to the strength of the magnetic flux density \cite{b3}. Hence, placing hall-effect sensors along the rails of the 3D printer and placing a small magnet on the printer head itself will allow for the position of the printer head to be calculated to a high degree of accuracy. When the printer head approaches a sensor, the voltage will increase linearly to a peak (when the head is directly overhead) and then decrease linearly again. This allows for the position the be calculated to extremely high accuracies. Typically, the error values for a hall-effect sensor are much less than one percent \cite{b4}.
 
 \subsection*{2.4 - Design a linear encoder...}
-Considering a FDM (fused deposition modelling) PLA (polyactic acid) 3D printer, typical printing speeds \cite{b1} for a medium end model are \SI{100}{\milli\meter\per\second}. The accuracy for a good printer would be around $\pm$\SI{0.2}{\milli\meter}. The sampling rate of an Arduino's analogue input port is roughly \SI{9600}{\hertz}, as tested here. This would allow us to have a stripe with a blocked-transparent pattern in \SI{0.5}{\milli\meter} blocks (i.e. \SI{0.25}{\milli\meter} of blocked out and then \SI{0.25}{\milli\meter} of transparent). Assuming our sample rate is stable at \SI{9600}{\hertz}, if the head travels at \SI{100}{\milli\meter\per\second}, we will traverse 192 patterned blocks. This relates to 48 samples per block traversed. This should provide adequate information to measure the intensity of light from the LED. When the printer head moves along the encoder, the intensity of the light reaching the LDR will form a sinusoidal intensity signal. We can utilise a comparator to remove noise from our signal by inverting one of the outputs and running both signals to the inputs of an op-amp. This will be beneficial in reducing error signals, a necessary requirement for a high-accuracy system. 
+Considering a FDM (fused deposition modelling) PLA (polyactic acid) 3D printer, typical printing speeds \cite{b5} for a medium end model are \SI{100}{\milli\meter\per\second}. The accuracy for a good printer would be around $\pm$\SI{0.2}{\milli\meter} \cite{b6}. The sampling rate of an Arduino's analogue input port is roughly \SI{9600}{\hertz} \cite{b7}. This would allow us to have a stripe with a blocked-transparent pattern in \SI{0.5}{\milli\meter} blocks (i.e. \SI{0.25}{\milli\meter} of blocked out and then \SI{0.25}{\milli\meter} of transparent). Assuming our sample rate is stable at \SI{9600}{\hertz}, if the head travels at \SI{100}{\milli\meter\per\second}, we will traverse 192 patterned blocks. This relates to 48 samples per block traversed. This should provide adequate information to measure the intensity of light from the LED. When the printer head moves along the encoder, the intensity of the light reaching the LDR will form a sinusoidal intensity signal. We can utilise a comparator to remove noise from our signal by inverting one of the outputs and running both signals to the inputs of an op-amp. This will be beneficial in reducing error signals, a necessary requirement for a high-accuracy system. 
 
-For the signal sent to the Arduino, we can measure which direction the head is moving in and the position of the head by using a quadrature sine/cosine signal. This is where we take the voltage signal from our LDR (a sinusoid) and compare it with a signal with a $\frac{\pi}{2}$ phase shift. Plotting the intensity of light on perpendicular axis' on an xy oscilloscope will produce a plot called a Lissajous figure. Under perfect conditions, our Lissajous figure will be a circle centred on the origin. The radius of the Lissajous is based on the amplitude and the direction in which the point is traced relates to whether our linear encoder is being read in the positive or negative direction. However, we may see that our Lissajous is not a perfect circle and this can be amended with trimming the signal and calibrations. The Lissajous figure tells us the position of the printer head, but we will need an absolute reference in order for our printer head to know where it is, e.g. utilising hall effect sensors. We can count the number of times our Lissajous traverses $2\pi$ times in the oscilloscope as the head moves along the rails. We can use information such as whether the axis' was crossed clockwise or anticlockwise as a reference as to whether the number should be increased or decreased. As we also know the size of our stripe pattern, we can derive the position of the head.
+For the signal sent to the Arduino, we can measure which direction the head is moving in and the position of the head by using a quadrature sine/cosine signal. This is where we take the voltage signal from our LDR (a sinusoid) and compare it with a signal with a $\frac{\pi}{2}$ phase shift. Plotting the intensity of light on perpendicular axis' on an xy oscilloscope will produce a plot called a Lissajous figure. Under perfect conditions, our Lissajous figure will be a circle centred on the origin. The radius of the Lissajous is based on the amplitude and the direction in which the point is traced relates to whether our linear encoder is being read in the positive or negative direction. However, we may see that our Lissajous is not a perfect circle and this can be amended with trimming the signal and calibrations. The Lissajous figure tells us the position of the printer head, but we will need an absolute reference in order for our printer head to know where it is, e.g. utilising hall-effect sensors. We can count the number of times our Lissajous traverses $2\pi$ times in the oscilloscope as the head moves along the rails. We can use information such as whether the axis' was crossed clockwise or anticlockwise as a reference as to whether the number should be increased or decreased. As we also know the size of our stripe pattern, we can derive the position of the head.
 \begin{figure}[htbp]
     \centerline{\includegraphics[width = 0.45\textwidth]{../img/Lissajous1.png}}
     \caption{Lissajous plot}
 \end{figure}
 
 \section*{Conclusion}
-According to our Simulink modelling and TinkerCAD circuits, we can successfully control the printer head and measure its position to a suitable standard. After researching the status quo, we believe that the control methods (e.g. closed loop displacement control system) we have devised are acceptable for use in a 3D printer.
+According to our Simulink modelling and TinkerCAD circuits, we can successfully control the printer head and measure its position to a suitable standard. We have derived a closed loop displacement control system, capable of controlling the angular displacement of a motor. After researching the status quo, we believe that the instrumentation methods (e.g. hall-effect sensors) we have devised are acceptable for use in a 3D printer.
+
+\newpage
 
 \begin{thebibliography}{00}
-\bibitem{b1} 3D printing, how to obtain the best possible speeds, Chris Joel, https://www.3dprintersonlinestore.com/how-to-obtain-best-3d-printing-speed Accessed at 28-11-20 16:14:32
+\bibitem{b1} Permanent Magnet DC Motors, Moog Components Group, https://www.moog.com/content/dam/moog/literature/MCG/moc23series.pdf Accessed at 07-12-20 10:44:43
 \bibitem{b2} Which Position Sensing Module Should You Use for Your RepRap 3D Printer?, Kalani Kirk Hausman, Richard Horne, https://www.dummies.com/computers/pcs/printers/which-position-sensing-module-should-you-use-for-your-reprap-3d-printer/ Accessed at 06-12-20 20:43:14
 \bibitem{b3} Hall Effect Sensor, AspenCore Inc, https://www.electronics-tutorials.ws/electromagnetism/hall-effect.html Accessed at 06-12-20 20:51:19
 \bibitem{b4} Accuracy of Hall-Effect Current Measurement Transducers in Automotive Battery Management Applications using Current Integration, R. Portas, L. Colombel, https://www.iconopower.com/v/lem/coulometry.pdf, Accessed at 07-12-20 02:20:55
+\bibitem{b5} 3D printing, how to obtain the best possible speeds, Chris Joel, https://www.3dprintersonlinestore.com/how-to-obtain-best-3d-printing-speed Accessed at 28-11-20 16:14:32
+\bibitem{b6} 3D Printer Dimensional Accuracy: 7 Tips \& Tricks, Tobias Hullette, https://all3dp.com/2/dimensional-accuracy-3d-printing-tips-tricks/ Accessed at 07-12-20 10:50:02
+\bibitem{b7} Question: How do I know the sampling frequency? Answered by user: alexan\_e, Arduino StackExchange, https://all3dp.com/2/dimensional-accuracy-3d-printing-tips-tricks/ Accessed at 07-12-20 10:52:56
 \end{thebibliography}
 \end{document}
