@@ -8,6 +8,7 @@
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{commath}
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
 \begin{document}
 \section{System types}
@@ -329,4 +330,80 @@ Thus, by choosing the appropriate values of $K_P$, $K_D$ and $K_I$, it is possib
   \caption{}
 \end{figure}
 Selecting these parameters is known as \textbf{tuning}, and it was (and still is in machine learning circles) a very active area of research. These controllers are used everywhere, and can even be applied with acceptable results with little or no knowledge of the system being controlled!
+
+If we set one of the gains to zero, then we remove that term from the controller, e.g. 
+\begin{align}
+  K_I \rightarrow 0 \textrm{ PID becomes PD controller}
+\end{align}
+Qualitatively, the three terms can be thought of as follows:
+\begin{itemize}
+  \item Proportional - tries to reach target as soon as possible
+  \item Derivative - resists overshooting
+  \item Integral - Corrects for steady state errors
+\end{itemize}
+Consider our servo model, each controller changes the step response in the following ways: 
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram133.png}}
+  \caption{}
+\end{figure}
+P - Initially chosen to give $\zeta$ close to 0.7 for acceptable transient response. PI - I term has little effect on the transient response for this \textbf{TYPE 1} system. Steady state error technically 0, but may improve in practice. Open loop transfer function:
+\begin{equation}
+  G(s)H(s) = \frac{\left(s-z_1\right) \left(s-z_2\right) \left(s-z_3\right)...}{s^p \left(s-\sigma_1\right) \left(s-\sigma_2\right) \left(s-\alpha_k + j \omega_k\right) \left(s- \alpha_k - j \omega_k\right)...}
+\end{equation}
+\begin{table}[H]
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    & \multicolumn{3}{c|}{Input type}\\
+    \cline{2-4}
+    No. Integrators & Step & Ramp & Acceleration\\
+    in denominator & $r(t) = a$ & $r(t) = at$ & $r(t) = \frac{at^2}{2}$\\
+    = system TYPE & $R(s) = \frac{a}{s}$ & $R(s) = \frac{a}{s^2}$ & $R(s) = \frac{a}{s^3}$\\
+    \hline
+    \hline
+    0 & $e_{ss} = \frac{a}{1+k_p}$ & $e_{ss} = \infty$ & $e_{ss} = \infty$\\
+    \hline
+    1 & $e_{ss} = 0$ & $e_{ss} = \frac{a}{k_v}$ & $e_{ss} = \infty$\\
+    \hline
+    2 & $e_{ss} = 0$ & $e_{ss} = 0$ & $e_{ss} = \frac{a}{k_a}$\\
+    \hline
+  \end{tabular}
+  \end{center}
+  \caption{}
+\end{table}
+PD - D term improves transient response as enabling higher P weighting to be used, but with a reduced overshoot. Steady state unchanged. PID - Again, transient response largely unchanged, but potential benefits in steady state. 
+\subsection{Choosing the weightings}
+The above figure was generated using a transfer function of a model of a servo system, and MATLAB's implementation of some commonly used "tuner" algorithms, where err on the side of caution.
+\begin{quote}
+  THESE ARE ONLY AS GOOD AS YOUR MODEL
+\end{quote}
+\subsection{PID control}
+Implementing a basic PID controller is a comparatively simple task compared to that of analysing the system and choosing the coefficients. An example Arduino code is showing, assuming \textbf{Setpoint} determined elsewhere and \textbf{Input} receives the data from the feedback path.
+\begin{verbatim}
+  void Compute()
+{
+  /*How long since we last calculated*/
+  unsigned long now = millis();
+  double timeChange = (now - lastTime);
+
+  /*Compute all the working error variables*/
+  double error = Setpoint - Input;
+
+  errSum = errSum+ (error * timeChange);
+
+  double dErr = (error - lastErr) / timeChange;
+
+  /*Compute PID Output*/
+  Output = kp * error + ki * errSum + kd * dErr;
+
+  /*Remember some variables for next time*/
+  lastErr = error;
+  lastTime = now;
+}
+\end{verbatim}
+The process above is to get $\dif T$, calculate the error $E(s)$, update $\dif E \ \left(\frac{E(s)}{s}\right)$, est $\frac{\dif E}{\dif t} \ sE(s)$. We also know:
+\begin{equation}
+  G_c (s) = K_P + K_D s + \frac{K_I}{s}
+\end{equation}
+The new control signal \textbf{Output} is then sent to the system. This code could be used for a vast majority of simple applications, with the \textbf{input} and \textbf{output} and \textbf{set point}, being application specific. However, selecting the correct setpoint is easier said than done! In fact much of the field of robots could be seen (very cleverly) deciding \textit{what} the next set point should be. 
 \end{document}
