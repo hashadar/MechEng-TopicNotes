@@ -29,7 +29,7 @@
 We are given:
 \begin{align}
 	f(x) &= \frac{x}{\sqrt{1-x}}\\
-	&= x\left( 1 - x \right)^{-\frac{1}{2}}
+	f(x) &= x\left( 1 - x \right)^{-\frac{1}{2}}
 \end{align}
 Differentiating three times yields:
 \begin{align}
@@ -68,7 +68,7 @@ Sum of electric fields due to both charged particles is:
 \begin{align}
 	E &= \frac{ke}{\left( x-r \right)^2} - \frac{ke}{\left( x+r \right)^2}\\
 	&= ke \left[ \frac{1}{x^2\left( 1 - \frac{r}{x} \right)^2} - \frac{1}{x^2\left( 1 + \frac{r}{x} \right)^2} \right]\\
-	&= \frac{ke}{x^2} \left[ \left( 1- y \right)^{-2} - \left( 1 + y\right)^{-2} \right]
+	E&= \frac{ke}{x^2} \left[ \left( 1- y \right)^{-2} - \left( 1 + y\right)^{-2} \right]
 \end{align}
 Where $y =\frac{r}{x}$.
 \subsubsection*{ii}
@@ -113,8 +113,8 @@ Inputting the above variables into Eq.\ref{macser}:
 Substitution:
 \begin{align}
 	E &\approx \frac{ke}{x^2} \left[ f(y) - g(y)\right]\\
-	E &\approx \frac{ke}{x^2} \left[ 1 + 2y + 3y^2 + 4y^3 - 1 + 2y - 3y^2 + 4y^3 \right]\\
-	E &\approx \frac{ke}{x^2}\left[ 4y + 8y^3 \right]\\
+	&\approx \frac{ke}{x^2} \left[ 1 + 2y + 3y^2 + 4y^3 - 1 + 2y - 3y^2 + 4y^3 \right]\\
+	&\approx \frac{ke}{x^2}\left[ 4y + 8y^3 \right]\\
 	E &\approx \frac{4ke}{x^2}\left[ y + 2y^3 \right]
 \end{align}
 \subsubsection*{iii}
@@ -145,7 +145,7 @@ Laplace transformation (from tables):
 	s^2 Y(s) -1 -2(sY(s) - 1) + Y(s) = \frac{1}{\left(s-1\right)^2}\\
 	Y(s)\left[s^2-2s+1\right] = \frac{1}{\left(s-1\right)^2}\\
 	Y(s) = \frac{1}{\left(s-1\right)^2\left(s^2-2s+1\right)}\\
-	Y(s) = \frac{1}{\left(s-1\right)^2\left(s-1\right)^2}\\
+	= \frac{1}{\left(s-1\right)^2\left(s-1\right)^2}\\
 	Y(s) = \frac{1}{\left(s-1\right)^4} 
 \end{gather}
 \subsection*{e}
@@ -158,19 +158,72 @@ $a =1 \therefore -3 \leq t \leq 3$. Sketch:
 \end{figure}
 \subsubsection*{ii}
 \begin{align}
-	F(u) &= \int_{-\infty}^{0}e^{at}e^{-ju t}  \,\dif t + \int_{0}^{\infty} e^{-at} e^{-ju t}\,\dif t\\
-	F(u) &= \int_{-\infty}^{0}e^{t(a - ju)}  \,\dif t + \int_{0}^{\infty} e^{-t(a + ju)}\,\dif t\\
-	F(u) &= \left. \frac{1}{\left(a - ju\right)}e^{-t\left(a - ju\right)} \right|_0^\infty + \left. \frac{1}{-\left(a + ju\right)}e^{-t\left(a + ju\right)} \right|_0^\infty\\
-	F(u) &= \frac{1}{a - ju} + \frac{1}{a + ju}\\
-	F(u) &= \frac{2a}{a^2 + u^2}
+	F(u) &= \int_{t=-\infty}^{0}e^{at}e^{-j2\pi u t}  \,\dif t + \int_{t=0}^{\infty} e^{-at} e^{-j2\pi u t}\,\dif t\\
+	&= \int_{t=-\infty}^{0}e^{t(a - j2\pi u)}  \,\dif t + \int_{t=0}^{\infty} e^{-t(a + j2\pi u)}\,\dif t\\
+	&= \left. \frac{1}{\left(a - j2\pi u\right)}e^{-t\left(a - j2\pi u\right)} \right|_{t = -\infty}^0 + \left. \frac{1}{-\left(a + j2\pi u\right)}e^{-t\left(a + j2\pi u\right)} \right|_{t=0}^\infty\\
+	&= \frac{1}{a - j2\pi u} + \frac{1}{a + j2\pi u}\\
+	&= \frac{a + j2\pi u + a - j2\pi u}{a^2 + 4\pi^2 u^2}\\
+	F(u) &= \frac{2a}{a^2 + 4\pi^2u^2}
 \end{align}
 \subsubsection*{iii}
+Substituting $\omega = 2\pi u$, $\omega^2 = 4\pi^2 u^2$:
+\begin{align}
+	F(\omega) = \frac{2a}{a^2 + \omega^2}
+\end{align}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{./img/q1eiii.JPG}
+	\caption{}
+\end{figure}
 \subsubsection*{iv}
 \subsubsection*{v}
 \section{Question Two}
 \subsection*{a}
 \subsubsection*{i}
+\begin{align}
+	\frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2}
+\end{align}
+We know that $u(x,t) = X(x)T(t)$. Substituting:
+\begin{align}
+	\frac{\partial XT}{\partial t} &= k\frac{\partial^2 XT}{\partial x^2}\\
+	X\frac{\partial T}{\partial t} &= kT\frac{\partial^2 X}{\partial x^2}
+\end{align}
+Divide by $XTk$:
+\begin{align}
+	\frac{1}{kT}\frac{\partial T}{\partial t} = \frac{1}{X}\frac{\partial^2 X}{\partial x^2} &= -\mu\\
+	\frac{\partial T}{\partial t} + k\mu T &= 0\\
+	T'(t) &= -\mu k T(t)\\
+	\frac{\partial^2 X}{\partial x^2} + \mu X &= 0\\
+	-X''(x) &= \mu X(x)
+\end{align}
 \subsubsection*{ii}
+\begin{align}
+	X''(x) + \mu X(x) &= 0\\
+	\textrm{Let } X(x) &= e^{mx}\\
+	X'(x) &= me^{mx}\\
+	X''(x) &= m^2e^{mx}\\
+	m^2 + \mu &= 0\\
+	m &= \pm j\sqrt{\mu}\\
+\end{align}
+General solution:
+\begin{align}
+	X(x) = A\cos\left(\sqrt{\mu}x\right) + B\sin\left(\sqrt{\mu}x\right)
+\end{align}
+Boundary conditions:
+\begin{align}
+	u\left(0,t\right) &= 0\\
+	X(0)T(t) &= 0\\
+\end{align}
+We require that $X(0) = 0$. Hence:
+\begin{align}
+	X(0) &= A\cos\left(0\right) + B\sin\left(0\right)\\
+	\therefore A &= 0\\
+	X(x) &= B \sin\left(\sqrt{\mu}x\right)\\
+	u\left(l,t\right) &= 0\\
+	X(l) &= B\sin\left(\sqrt{\mu}x\right) = 0\\
+	\sqrt{\mu}x &= n\pi \textrm{ where } n = 1, \ 2, \ 3, \ ... \\
+	\mu &= \frac{n^2 \pi^2}{x^2}
+\end{align}
 \subsubsection*{iii}
 \subsection*{b}
 \subsubsection*{i}
