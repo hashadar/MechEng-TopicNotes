@@ -1,0 +1,181 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+%\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{commath}
+%\usepackage{siunitx}
+%\sisetup{detect-all}
+\usepackage[a4paper,margin=20mm]{geometry}
+\numberwithin{equation}{section}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+    filecolor=magenta,      
+    urlcolor=magenta,
+}
+\urlstyle{same}
+\begin{document}
+\title{\textbf{UCL Mechanical Engineering 2020/2021}\\ENGF0004 Coursework 1}
+\author{NCWT3}
+\maketitle
+\section{Question One}
+\subsection*{a}
+\subsection*{b}
+We are given:
+\begin{align}
+	f(x) &= \frac{x}{\sqrt{1-x}}\\
+	&= x\left( 1 - x \right)^{-\frac{1}{2}}
+\end{align}
+Differentiating three times yields:
+\begin{align}
+	f'(x) &= \left(1 - x \right)^{-\frac{1}{2}} + \frac{x}{2} \left( 1-x\right)^{-\frac{3}{2}}\\
+	f''(x) &= \frac{1}{2} \left( 1- x\right)^{-\frac{3}{2}} + \frac{1}{2} \left( 1- x\right)^{-\frac{3}{2}} + \frac{3x}{4} \left( 1-x \right)^{-\frac{5}{2}}\\
+	&= \left( 1-x \right)^{-\frac{3}{2}} + \frac{3x}{4} \left( 1-x \right)^{-\frac{5}{2}} \\
+	f'''(x) &= \frac{3}{2} \left( 1-x \right)^{-\frac{5}{2}} + \frac{3}{4} \left( 1-x \right)^{-\frac{5}{2}} + \frac{15x}{8} \left( 1-x \right)^{-\frac{7}{2}}\\
+	&= \frac{9}{4} \left( 1-x \right)^{-\frac{5}{2}} + \frac{15x}{8} \left( 1-x \right)^{-\frac{7}{2}}
+\end{align}
+Inputting $x=0$:
+\begin{align}
+	f(0) &= 0 \cdot \left( 1 - 0 \right)^{-\frac{1}{2}}\\
+	&= 0\\
+	f'(0) &= \left(1 - 0 \right)^{-\frac{1}{2}} + \frac{0}{2} \left( 1-0\right)^{-\frac{3}{2}}\\
+	&= 1\\
+	f''(0) &= \left( 1-0 \right)^{-\frac{3}{2}} + \frac{3\cdot 0}{4} \left( 1-0 \right)^{-\frac{5}{2}}\\
+	&= 1\\
+	f'''(0) &= \frac{9}{4} \left( 1-0 \right)^{-\frac{5}{2}} + \frac{15 \cdot 0}{8} \left( 1-0 \right)^{-\frac{7}{2}}\\
+	&= \frac{9}{4}
+\end{align}
+General form of Maclaurin series:
+\begin{align}
+	f(x) \approx f(0) + \frac{x}{1!}f'(0) + \frac{x^2}{2!}f''(0) + \frac{x^3}{3!}f'''(0) + ... \label{macser}
+\end{align}
+Inputting the above variables into Eq.\ref{macser}:
+\begin{align}
+	f(x) \approx x + \frac{x^2}{2} + \frac{3x^3}{8}	
+\end{align}
+\subsection*{c}
+\subsubsection*{i}
+We are given:
+\begin{align}
+E = \frac{kq}{x^2}
+\end{align}
+Sum of electric fields due to both charged particles is:
+\begin{align}
+	E &= \frac{ke}{\left( x-r \right)^2} - \frac{ke}{\left( x+r \right)^2}\\
+	&= ke \left[ \frac{1}{x^2\left( 1 - \frac{r}{x} \right)^2} - \frac{1}{x^2\left( 1 + \frac{r}{x} \right)^2} \right]\\
+	&= \frac{ke}{x^2} \left[ \left( 1- y \right)^{-2} - \left( 1 + y\right)^{-2} \right]
+\end{align}
+Where $y =\frac{r}{x}$.
+\subsubsection*{ii}
+Calculation of constants to be used in Maclaurin series expansion:
+\begin{equation*}
+	\begin{aligned}[c]
+		f(y) &= \left( 1 - y \right)^{-2}\\
+		f'(y) &= 2\left(1-y\right)^{-3}\\
+		f''(y) &= 6\left(1-y\right)^{-4}\\
+		f'''(y) &= 24\left(1-y\right)^{-5}
+	\end{aligned}
+	\makebox[2cm]{}
+	\begin{aligned}[c]
+		f(0) &= 1\\
+		f'(0) &= 2\\
+		f''(0) &= 6\\
+		f'''(0) &= 24\\
+	\end{aligned}
+\end{equation*}
+\begin{equation*}
+	\begin{aligned}[c]
+		g(y) &= \left( 1 + y \right)^{-2}\\
+		g'(y) &= -2\left(1+y\right)^{-3}\\
+		g''(y) &= 6\left(1+y\right)^{-4}\\
+		g'''(y) &= -24\left(1+y\right)^{-5}
+	\end{aligned}
+	\makebox[2cm]{}
+	\begin{aligned}[c]
+		g(0) &= 1\\
+		g'(0) &= -2\\
+		g''(0) &= 6\\
+		g'''(0) &= -24\\
+	\end{aligned}
+\end{equation*}
+Inputting the above variables into Eq.\ref{macser}:
+\begin{align}
+	f(y) &\approx 1 + \frac{2 y}{1!} + \frac{6y^2}{2!} + \frac{24y^3}{3!} + ...\\
+	f(y) &\approx 1 + 2y + 3y^2 + 4y^3 \\ 
+	g(y) &\approx 1 - \frac{2 y}{1!} + \frac{6y^2}{2!} - \frac{24y^3}{3!} + ...\\
+	g(y) &\approx 1 - 2y + 3y^2 - 4y^2
+\end{align}
+Substitution:
+\begin{align}
+	E &\approx \frac{ke}{x^2} \left[ f(y) - g(y)\right]\\
+	E &\approx \frac{ke}{x^2} \left[ 1 + 2y + 3y^2 + 4y^3 - 1 + 2y - 3y^2 + 4y^3 \right]\\
+	E &\approx \frac{ke}{x^2}\left[ 4y + 8y^3 \right]\\
+	E &\approx \frac{4ke}{x^2}\left[ y + 2y^3 \right]
+\end{align}
+\subsubsection*{iii}
+$y = 0.01$. Exact:
+\begin{align}
+	E_E &= \frac{ke}{x^2} \left[\left(1-0.01\right)^{-2}-\left(1+0.01\right)^{-2}\right]\\
+	E_E &= \frac{ke}{x^2} \left[0.0400080012\right]\\
+\end{align}
+Approximation:
+\begin{align}
+	E_A &= \frac{ke}{x^2} \left[0.01 + 2\left(0.01\right)^3\right]\\
+	E_A &= \frac{ke}{x^2} \left[0.010002\right]
+\end{align}
+Percentage error:
+\begin{align}
+	\frac{E_A}{E_E} \cdot 100 = \frac{0.010002}{0.0400080012} \cdot 100 = 25\% \textrm{ error (2sf)}
+\end{align}
+\subsection*{d}
+We are given:
+\begin{align}
+	y'' - 2y' + y = te^t\\
+	y(0) = 0, \ y'(0)=1
+\end{align}
+Laplace transformation (from tables):
+\begin{gather}
+	\mathcal{L} \{ y''\} - 2\mathcal{L} \{ y'\} + \mathcal{L} \{ y\} = \mathcal{L} \{te^t \}\\
+	s^2 Y(s) - sy(0) - y'(0) - 2\left(sY(s) - y(0)\right) + Y(s) = \frac{1!}{\left(s-1\right)^2}\\
+	s^2 Y(s) -1 -2(sY(s) - 1) + Y(s) = \frac{1}{\left(s-1\right)^2}\\
+	Y(s)\left[s^2-2s+1\right] = \frac{1}{\left(s-1\right)^2}\\
+	Y(s) = \frac{1}{\left(s-1\right)^2\left(s^2-2s+1\right)}\\
+	Y(s) = \frac{1}{\left(s-1\right)^2\left(s-1\right)^2}\\
+	Y(s) = \frac{1}{\left(s-1\right)^4} 
+\end{gather}
+\subsection*{e}
+\subsubsection*{i}
+$a =1 \therefore -3 \leq t \leq 3$. Sketch:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{./img/q1ei.JPG}
+	\caption{}
+\end{figure}
+\subsubsection*{ii}
+\begin{align}
+	F(u) &= \int_{-\infty}^{0}e^{at}e^{-ju t}  \,\dif t + \int_{0}^{\infty} e^{-at} e^{-ju t}\,\dif t\\
+	F(u) &= \int_{-\infty}^{0}e^{t(a - ju)}  \,\dif t + \int_{0}^{\infty} e^{-t(a + ju)}\,\dif t\\
+	F(u) &= \left. \frac{1}{\left(a - ju\right)}e^{-t\left(a - ju\right)} \right|_0^\infty + \left. \frac{1}{-\left(a + ju\right)}e^{-t\left(a + ju\right)} \right|_0^\infty\\
+	F(u) &= \frac{1}{a - ju} + \frac{1}{a + ju}\\
+	F(u) &= \frac{2a}{a^2 + u^2}
+\end{align}
+\subsubsection*{iii}
+\subsubsection*{iv}
+\subsubsection*{v}
+\section{Question Two}
+\subsection*{a}
+\subsubsection*{i}
+\subsubsection*{ii}
+\subsubsection*{iii}
+\subsection*{b}
+\subsubsection*{i}
+\subsubsection*{ii}
+\subsubsection*{iii}
+\subsubsection*{iv}
+\subsubsection*{v}
+\end{document}
