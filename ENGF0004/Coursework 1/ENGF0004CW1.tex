@@ -3,6 +3,7 @@
 \usepackage{hyperref}
 %\usepackage{appendix}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{commath}
@@ -25,6 +26,32 @@
 \maketitle
 \section{Question One}
 \subsection*{a}
+\begin{proof}
+Left hand side:
+\begin{gather}
+	\sum_{n=0}^{\infty} \left(\frac{k-1}{k}\right)^n = 1 + \frac{k-1}{k} + \frac{\left(k-1\right)^2}{k^2} + ...\\
+	a= 1, \ r = \frac{k-1}{k}
+\end{gather}
+$\frac{k-1}{k}$ is always less than 1 for $k > 1$. Hence:
+\begin{align}
+	S_{\infty, LHS} &= \frac{a}{1-r}\\
+	&= \frac{1}{1-\frac{k-1}{k}}\\
+	&= \frac{k}{k-k+1}\\
+	S_{\infty, LHS} &= k
+\end{align}
+Right hand side:
+\begin{gather}
+	\left(k-1\right) \sum_{n=0}^{\infty} \left(\frac{1}{k}\right)^n = \left(k-1\right) \left[1 + \frac{1}{k} + \frac{1}{k^2} + ...\right]\\
+	a = 1, \ r = \frac{1}{k}
+\end{gather}
+$\frac{1}{k}$ is always less than 1 for $k > 1$. Hence:
+\begin{align}
+	S_{\infty,RHS} &= \frac{k-1}{1 - \frac{1}{k}}\\
+	&= \frac{k\left(k-1\right)}{k-1}\\
+	S_{\infty,RHS} = k\\
+\end{align}
+LHS = RHS (for $k > 1$).
+\end{proof}
 \subsection*{b}
 We are given:
 \begin{align}
@@ -181,7 +208,7 @@ Substituting $\omega = 2\pi u$, $\omega^2 = 4\pi^2 u^2$:
 \subsection*{a}
 \subsubsection*{i}
 \begin{align}
-	\frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2}
+	\frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2}\label{PDEq2ai}
 \end{align}
 We know that $u(x,t) = X(x)T(t)$. Substituting:
 \begin{align}
@@ -192,7 +219,7 @@ Divide by $XTk$:
 \begin{align}
 	\frac{1}{kT}\frac{\partial T}{\partial t} = \frac{1}{X}\frac{\partial^2 X}{\partial x^2} &= -\mu\\
 	\frac{\partial T}{\partial t} + k\mu T &= 0\\
-	T'(t) &= -\mu k T(t)\\
+	T'(t) &= -\mu k T(t) \label{TPDE}\\
 	\frac{\partial^2 X}{\partial x^2} + \mu X &= 0\\
 	-X''(x) &= \mu X(x)
 \end{align}
@@ -220,15 +247,82 @@ We require that $X(0) = 0$. Hence:
 	\therefore A &= 0\\
 	X(x) &= B \sin\left(\sqrt{\mu}x\right)\\
 	u\left(l,t\right) &= 0\\
-	X(l) &= B\sin\left(\sqrt{\mu}x\right) = 0\\
-	\sqrt{\mu}x &= n\pi \textrm{ where } n = 1, \ 2, \ 3, \ ... \\
-	\mu &= \frac{n^2 \pi^2}{x^2}
+	X(l) &= B\sin\left(\sqrt{\mu}l\right) = 0\\
+	\sqrt{\mu}l &= n\pi \textrm{ where } n = 1, \ 2, \ 3, \ ... \\
+	\mu &= \frac{n^2 \pi^2}{l^2}
+\end{align}
+Returning to Eq.\ref{TPDE}:
+\begin{align}
+	\frac{\dif T}{\dif t} &= -k\mu T\\
+	\int_{}^{} \left(\frac{1}{T}\frac{\dif T}{\dif t}\right) \,\dif t &= -k\mu \int_{}^{}  \,\dif t\\
+	\ln T &= -k \mu t + \ln B\\
+	\ln \left(\frac{T}{B}\right) &= - k\mu t\\
+	\frac{T}{B} &= e^{--k\mu t}\\
+	T &= Be^{-k\mu t}, \ \mu = \frac{n^2 \pi^2}{l^2} \\
+	\therefore T &= Be^{-k \frac{n^2 \pi^2}{l^2}t} 
+\end{align}
+$u(x,t) = X(x)T(t)$. Hence, by utilising principle of superposition:
+\begin{align}
+	u_n(x,t) = \sum_{n=1}^{\infty} c_n \sin\left(\frac{n\pi}{l}x\right)e^{-k \frac{n^2 \pi^2}{l^2}t}
+\end{align}
+We are given that $u(x, 0) = f(x)$. Hence, $f(x)$ is:
+\begin{align}
+	u(x,0) = f(x) = \sum_{n=1}^{\infty} c_n \sin\left(\frac{n\pi}{l}x\right)
 \end{align}
 \subsubsection*{iii}
+Using Fourier series:
+\begin{align}
+	c_n = 2\int_{0}^{1} \left(f(x)\sin\left(n\pi x\right)\right) \,\dif x 
+\end{align}
+We are given:
+\begin{align}
+	u(x,0) = f(x) = x^2, \ 0 \leq x \leq l\\
+	u(0,t) = u(l,t) = 0, \ t > 0\\
+\end{align}
+Substituting into Fourier:
+\begin{align}
+	c_n = 2 \int_{0}^{1} \left( x^2 \sin\left(n\pi x\right) \right) \,\dif x \\
+\end{align}
+Integration by parts once. $u = x^2$, $u' = 2x$, $v = -\frac{\cos\left(n\pi x\right)}{n\pi}$ and $v' = \sin\left(n\pi x\right)$.
+\begin{align}
+	= 2\left[ -\frac{x^2 \cos\left(n\pi x\right)}{n\pi} + \frac{2}{n\pi}\int_{0}^{1} \left(x\cos\left(n\pi x\right)\right) \,\dif x \right]_0^1
+\end{align} 
+Integration by parts twice. $u = x$, $u = 1$, $v= \frac{\sin\left(n\pi x\right)}{n\pi}$ and $v' = \cos\left(n\pi x\right)$.
+\begin{align}
+	&= 2\left[ -\frac{x^2 \cos\left(n\pi x\right)}{n\pi} + \frac{2}{n\pi}\left[ \frac{x\sin\left(n\pi x\right)}{n\pi} - \frac{1}{n\pi} \int_{0}^{1} \left(\sin\left(n\pi x\right)\right) \,\dif x \right]_0^1 \right]_0^1\\
+	&= 2\left[ -\frac{x^2 \cos\left(n\pi x\right)}{n\pi} + \frac{2}{n\pi}\left[ \frac{x\sin\left(n\pi x\right)}{n\pi} - \frac{1}{n\pi} \left[ -\frac{\cos\left(n\pi x\right)}{n\pi} \right] \right]_0^1 \right]_0^1\\
+	&= 2\left[ -\frac{x^2 \cos\left(n\pi x\right)}{n\pi} + \frac{2x\sin\left(n\pi x\right)}{n^2\pi^2} + \frac{2\cos\left(n\pi x\right)}{n^3\pi^3} \right]_0^1\\
+\end{align}
 \subsection*{b}
 \subsubsection*{i}
 \subsubsection*{ii}
 \subsubsection*{iii}
 \subsubsection*{iv}
 \subsubsection*{v}
+\section{EXTRA STUFF}
+\subsection{q2aii}
+Where $\mu$ is the eigenvalue. Returning to our PDE in Eq.\ref{PDEq2ai}, if $u_1$ and $u_2$ are solutions to the PDE, so are $C_1 u_1$ and $C_2 u_2$:
+\begin{align}
+	\frac{\partial C_1 u_1}{\partial t} &= k\frac{\partial^2 C_1 u_1}{\partial x^2}\\
+	\frac{\partial u_1}{\partial t} &= k\frac{\partial^2 u_1}{\partial x^2}
+\end{align}
+Similarly $C_1 u_1 + C_2 u_2$ will satisfy the PDE:
+\begin{align}
+	U = C_1 u_1 + C_2 u_2 + ... + C_n u_n
+\end{align}
+We can also form the following equation:
+\begin{align}
+	A\underline{X} = \mu \underline{X}
+\end{align}
+Where $A = n \times n$ matrix, $\underline{X} = n \times 1$ column vector and $\mu$ is a scalar. 
+\begin{align}
+	A \underline{X} - \mu \underline{X} &= 0\\
+	\left( A - \mu I\right)\underline{X} &= 0
+\end{align} 
+We have:
+\begin{align}
+	\det \left(A - \mu I\right)\underline{X} &= 0\\
+	\left| A - \mu I \right| &= 0
+\end{align}
+Where $\underline{X}$ is the eigenvector.
 \end{document}
