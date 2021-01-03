@@ -8,7 +8,7 @@
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{commath}
-%\usepackage{siunitx}
+\usepackage{siunitx}
 %\sisetup{detect-all}
 \usepackage[a4paper,margin=20mm]{geometry}
 \numberwithin{equation}{section}
@@ -64,7 +64,7 @@ The skin friction is the tangential component of the force normal to the surface
 \begin{align}
   F_s = \int_S \left(\tau_w\right)\dif S
 \end{align}
-\subsection{How do you determine the lift coefficient of a finite wing using the coefficient of an infinite one? explain why this is necessary and mention measures to improve the efficiency of a wing}
+\subsection{How do you determine the lift coefficient of a finite wing using the coefficient of an infinite one? Explain why this is necessary and mention measures to improve the efficiency of a wing}
 The lift coefficient of the finite wing can be calculated with given lift coefficient of a finite wing by using lifting-line theory.
 \begin{figure}[H]
   \centering
@@ -120,4 +120,55 @@ Where - point is the mid point of the wingspan. The lift of the finite wing is:
 It is usually hard to calculated the lift force of the whole wing in the three dimensional world. So, it is much more easier just to consider slicing the wing into cross-sections. But we can’t just add up all the independently calculated forces of each cross-sections because this approximation is incorrect. In practice, each cross-section of the wing will influence its neighbouring one. The lifting-line theory correct part of the errors by introducing the interactions between the wing slices. 
 
 To maximize the efficiency of the wing, we must maximize the lift force exerted on the wing surface. To achieve that, we must minimize the downwash at the wing tips. One of the way to do so is to change the wing tip by adding a winglet.
+\section{Part 1 - Experimental Data Processing}
+\subsection{Describe the experimental apparatus, the experimental procedure and sources of error (you can use photo/sketch). Why do you measure negative pressures?}
+The goal of this experiment is to measure the pressure around the airfoil. Pressure tappings are located on the upper and lower surfaces of the airfoil. These tappings are connected to a manometer using tubes. The multi-tube manometer is filled with coloured water, and half of it is connected to the pressure tappings of the airfoil and measures the pressure different point on the its surfaces, and the other half is left unconnected, and measures the atmospheric pressure of the room. The airfoil is placed in an air tunnel, and can be rotated with the help of a remote controlled stepper motor. Next, the wind tunnel velocity (free stream total) can be calculated using $P_{tot}$ which is measured with a pitot tube inside the wind tunnel, $P_{inf}$ which is measured by a pressure tapping on the wall of the wind tunnel, and the air density which is given. The sources of errors can come from an air leakage, an imprecise angle of attack, non-negligible drag and lift forces on the support of the wing (test rig). All the measured pressures are inferior than $P_{atm}$ which is measured by the tube 21, so they are all negative with respect to the measured atmospheric pressure - this creates a vacuum at the top and bottom surfaces of the airfoil. However, when the angle of attack is between 0 and 18 degrees, the pressure at the top is lower than the pressure at the bottom, lifting the airfoil upwards.
+\subsection{Determine the free stream velocity, $U_{\infty}$, and the Reynolds number, $Re$}
+The free stream can be calculated as such:
+\begin{align}
+  U_{\infty} = \sqrt{\frac{2}{\rho}\left(P_{tot} - P_{inf}\right)} = \sqrt{\frac{2}{1.23}\left( \left| 42-71 \right| \right) \cdot 9.80638} = \SI{20.50}{\meter\per\second}
+\end{align}
+The Reynolds number can be calculated as such:
+\begin{align}
+  Re = \frac{\rho v l}{\mu} = \frac{1.23 \cdot 6.87 \cdot 0.15}{1.938\cdot 10^{-5}} = 63919
+\end{align}
+\subsection{For each angle of attack determine the pressure coefficient, $c_p$, of the upper and lower surface, and provide these values in a table (Use a measurement of the static pressure in each tapping with respect to the atmospheric value, i.e. water height difference between the tapping and the water level in position 21)}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/diagram6.png}
+  \caption{Measured pressure (in mmH20) of the tappings at each angle.}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{./img/diagram7.png}
+  \caption{Water height differences.}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{./img/diagram8.png}
+  \caption{Static pressure at each taps in \si{\pascal}.}
+  \label{staticpressure}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/diagram9.png}
+  \caption{Pressure coefficients at the tappings at each angle.}
+\end{figure}
+The pressure coefficient can be determined by the following formula:
+\begin{gather}
+  C_p = \frac{p - p_{\infty}}{\frac{1}{2}\rho V_{\infty}^2}\\
+  p_{\infty} = -71\cdot 9.80638 = \SI{-696.253}{\pascal} \textrm{ and } V_{\infty} - \SI{20.50}{\meter\per\second}
+\end{gather}
+\subsection{Plot the variation along the chord of $c_p$ at $\alpha = \SI{0}{\degree}$, \SI{4}{\degree} and \SI{14}{\degree} and provide discussion}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/diagram10.png}
+  \caption{Upper profile variation.}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/diagram11.png}
+  \caption{Lower profile variation.}
+\end{figure}
+We can see that for the upper profile, at angles of attack of \SI{0}{\degree} and \SI{3.6}{\degree}, the pressure coefficient along the chord are negative which represent a suction, apart from the last data point which is positive. This corresponds to the typical pressure distribution given in Fig.\ref{staticpressure}. However, for the \SI{14}{\degree} angle of attack, we can see that the last data point is negative. We can see that for the lower profile, for a \SI{3.6}{\degree} angle of attack, the pressure coefficients are always positive, which means that there is a compression region lifting the airfoil upwards. For a \SI{0}{\degree} angle of attack, the pressure coefficient is positive then turns negative before turning positive again, and is very close to 0 along the chord, meaning the compression or suction generated will be significantly smaller so the lift will be smaller. Finally, at an angle of attack of \SI{14.4}{\degree}, the pressure coefficient does not turn positive towards the end of the chord like for the two other angles, indicating the presence of a suction region. We can also see that at the angle of attack of \SI{14.4}{\degree}, the pressure coefficients at the end of the chord in the upper profile does not get closer to 0 like there would be in a typical pressure distribution. Finally we can see that until \SI{35}{\milli\meter} from the leading edge, at a \SI{3.6}{\degree} angle of attack, the pressure coefficient is approximately two times higher than at a \SI{14.4}{\degree} angle of attack.
 \end{document}
