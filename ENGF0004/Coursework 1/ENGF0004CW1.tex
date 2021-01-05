@@ -272,26 +272,41 @@ We are given that $u(x, 0) = f(x)$. Hence, $f(x)$ is:
 \subsubsection*{iii}
 Using Fourier series:
 \begin{align}
-	c_n = 2\int_{0}^{1} \left(f(x)\sin\left(n\pi x\right)\right) \,\dif x 
+	c_n = \frac{2}{l}\int_{0}^{l} \left(f(x)\sin\left(n\pi x\right)\right) \,\dif x 
 \end{align}
 We are given:
 \begin{align}
 	u(x,0) = f(x) = x^2, \ 0 \leq x \leq l\\
 	u(0,t) = u(l,t) = 0, \ t > 0\\
 \end{align}
-Substituting into Fourier:
+Let $a = \frac{n\pi}{l}$. Substituting the above into Fourier:
 \begin{align}
-	c_n = 2 \int_{0}^{1} \left( x^2 \sin\left(n\pi x\right) \right) \,\dif x \\
+	c_n = \frac{2}{l} \int_{0}^{l} \left( x^2 \sin\left(a x\right) \right) \,\dif x \\
 \end{align}
-Integration by parts once. $u = x^2$, $u' = 2x$, $v = -\frac{\cos\left(n\pi x\right)}{n\pi}$ and $v' = \sin\left(n\pi x\right)$.
+Integration by parts once. $u = x^2$, $u' = 2x$, $v = -\frac{\cos\left(a x\right)}{n\pi}$ and $v' = \sin\left(a x\right)$.
 \begin{align}
-	= 2\left[ -\frac{x^2 \cos\left(n\pi x\right)}{n\pi} + \frac{2}{n\pi}\int_{0}^{1} \left(x\cos\left(n\pi x\right)\right) \,\dif x \right]_0^1
+	c_n = \frac{2}{l}\left[ -\frac{x^2 \cos\left(a x\right)}{a} + \frac{2}{a}\int_{0}^{l} \left(x\cos\left(a x\right)\right) \,\dif x \right]_0^l
 \end{align} 
-Integration by parts twice. $u = x$, $u = 1$, $v= \frac{\sin\left(n\pi x\right)}{n\pi}$ and $v' = \cos\left(n\pi x\right)$.
+Integration by parts twice. $u = x$, $u = 1$, $v= \frac{\sin\left(a x\right)}{a}$ and $v' = \cos\left(a x\right)$.
 \begin{align}
-	&= 2\left[ -\frac{x^2 \cos\left(n\pi x\right)}{n\pi} + \frac{2}{n\pi}\left[ \frac{x\sin\left(n\pi x\right)}{n\pi} - \frac{1}{n\pi} \int_{0}^{1} \left(\sin\left(n\pi x\right)\right) \,\dif x \right]_0^1 \right]_0^1\\
-	&= 2\left[ -\frac{x^2 \cos\left(n\pi x\right)}{n\pi} + \frac{2}{n\pi}\left[ \frac{x\sin\left(n\pi x\right)}{n\pi} - \frac{1}{n\pi} \left[ -\frac{\cos\left(n\pi x\right)}{n\pi} \right] \right]_0^1 \right]_0^1\\
-	&= 2\left[ -\frac{x^2 \cos\left(n\pi x\right)}{n\pi} + \frac{2x\sin\left(n\pi x\right)}{n^2\pi^2} + \frac{2\cos\left(n\pi x\right)}{n^3\pi^3} \right]_0^1\\
+	c_n &= \frac{2}{l}\left[ -\frac{x^2 \cos\left(a x\right)}{a} + \frac{2}{a}\left[ \frac{x\sin\left(a x\right)}{a} - \frac{1}{a} \int_{0}^{l} \left(\sin\left(a x\right)\right) \,\dif x \right]_0^l \right]_0^l\\
+	&= 2\left[ -\frac{x^2 \cos\left(n\pi x\right)}{n\pi} + \frac{2}{n\pi}\left[ \frac{x\sin\left(n\pi x\right)}{n\pi} - \frac{1}{n\pi} \left[ -\frac{\cos\left(n\pi x\right)}{n\pi} \right] \right]_0^l \right]_0^l\\
+	&= \frac{2}{l}\left[ -\frac{x^2 \cos\left(a x\right)}{n\pi} + \frac{2x\sin\left(a x\right)}{a^2} + \frac{2\cos\left(a x\right)}{a^3} \right]_0^l\\
+	&= \frac{2}{l}\left[ -\frac{l^3 \cos\left(n\pi x\right)}{n\pi} + \frac{2l^3\sin\left(n\pi x\right)}{n^2\pi^2} + \frac{2l^3\cos\left(n\pi x\right)}{n^3\pi^3} \right]_0^l\\
+	&= \frac{2l^2}{n\pi}\left[ -\cos\left(n\pi x\right) + \frac{2\sin\left(n\pi x\right)}{n\pi} + \frac{2\cos\left(n\pi x\right)}{n^2\pi^2} \right]_0^l\\
+	c_n &= \frac{2l^2}{n\pi}\left[ -\cos\left(n\pi\right) + \frac{2\sin\left(n\pi\right)}{n\pi} +\frac{2\left(\cos\left(n\pi\right)-1\right)}{n^2\pi^2} \right]
+\end{align}
+Substituting:
+\begin{align}
+	\therefore u_n \left(x,t\right) = \sum_{n=1}^{\infty} \left(\frac{2l^2}{n\pi}\left[ -\cos\left(n\pi\right) + \frac{2\sin\left(n\pi\right)}{n\pi} +\frac{2\left(\cos\left(n\pi\right)-1\right)}{n^2\pi^2} \right] \cdot \sin\left(\frac{n\pi x}{l}\right) \cdot e^{\frac{n^2\pi^2}{l^2}kt} \right)
+\end{align}
+When $n$ is even:
+\begin{align}
+	u_n \left(x,t\right) = \sum_{n=1}^{\infty} \left( -\frac{2l^2}{n\pi} \cdot \sin\left(\frac{n\pi x}{l}\right) \cdot e^{\frac{n^2\pi^2}{l^2}kt} \right)
+\end{align}
+When $n$ is odd:
+\begin{align}
+	u_n \left(x,t\right) = \sum_{n=1}^{\infty} \left( -\frac{2l^2}{n\pi}\left[1 - \frac{4}{n^2\pi^2}\right] \cdot \sin\left(\frac{n\pi x}{l}\right) \cdot e^{\frac{n^2\pi^2}{l^2}kt} \right)
 \end{align}
 \subsection*{b}
 \subsubsection*{i}
