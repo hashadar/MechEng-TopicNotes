@@ -190,11 +190,19 @@ $a =1 \therefore -3 \leq t \leq 3$. Sketch:
 	\caption{}
 \end{figure}
 \subsubsection*{ii}
+Let $z = \infty$.
 \begin{align}
-	F(u) &= \int_{t=-\infty}^{0}e^{at}e^{-j2\pi u t}  \,\dif t + \int_{t=0}^{\infty} e^{-at} e^{-j2\pi u t}\,\dif t\\
-	&= \int_{t=-\infty}^{0}e^{t(a - j2\pi u)}  \,\dif t + \int_{t=0}^{\infty} e^{-t(a + j2\pi u)}\,\dif t\\
-	&= \left. \frac{1}{\left(a - j2\pi u\right)}e^{t\left(a - j2\pi u\right)} \right|_{t = -\infty}^0 + \left. \frac{1}{-\left(a + j2\pi u\right)}e^{-t\left(a + j2\pi u\right)} \right|_{t=0}^\infty\\
-	&= \frac{1}{a - j2\pi u} + \frac{1}{a + j2\pi u}\\
+	F(u) &= \lim_{z\rightarrow \infty} \int_{t=-z}^{0}e^{at}e^{-j2\pi u t}  \,\dif t + \lim_{z\rightarrow \infty}\int_{t=0}^{z} e^{-at} e^{-j2\pi u t}\,\dif t\\
+	&= \lim_{z\rightarrow \infty} \int_{t=-\infty}^{0}e^{t(a - j2\pi u)}  \,\dif t + \lim_{z\rightarrow \infty} \int_{t=0}^{\infty} e^{-t(a + j2\pi u)}\,\dif t\\
+	F(u) &= \lim_{z\rightarrow \infty} \left[ \left. \frac{1}{\left(a - j2\pi u\right)}e^{t\left(a - j2\pi u\right)} \right|_{t = -z}^0 \right] + \lim_{z\rightarrow \infty} \left[ \left. \frac{1}{-\left(a + j2\pi u\right)}e^{-t\left(a + j2\pi u\right)} \right|_{t=0}^z \right]
+\end{align}
+Applying limits:
+\begin{align}
+	\lim_{z\rightarrow \infty} \left[ \frac{1}{\left(a - j2\pi u\right)} \left[ 1 - e^{-z\left(a - j2\pi u\right)} \right] \right] = \left[ \frac{1}{\left(a - j2\pi u\right)} \left[ 1 - 0 \right] \right] &= \frac{1}{a - j2\pi u}\\
+	\lim_{z\rightarrow \infty} \left[ \frac{-1}{\left(a + j2\pi u\right)} \left[ e^{-z\left( a + j2\pi u\right)} -1 \right]\right] = \left[ \frac{-1}{\left(a + j2\pi u\right)} \left[ 0 -1 \right]\right] &= \frac{1}{a + j2\pi u}
+\end{align}
+\begin{align}
+	F(u) &= \frac{1}{a - j2\pi u} + \frac{1}{a + j2\pi u}\\
 	&= \frac{a + j2\pi u + a - j2\pi u}{a^2 + 4\pi^2 u^2}\\
 	F(u) &= \frac{2a}{a^2 + 4\pi^2u^2}
 \end{align}
