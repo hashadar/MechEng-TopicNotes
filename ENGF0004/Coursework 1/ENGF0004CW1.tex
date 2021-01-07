@@ -170,10 +170,16 @@ Laplace transformation (from tables):
 	\mathcal{L} \{ y''\} - 2\mathcal{L} \{ y'\} + \mathcal{L} \{ y\} = \mathcal{L} \{te^t \}\\
 	s^2 Y(s) - sy(0) - y'(0) - 2\left(sY(s) - y(0)\right) + Y(s) = \frac{1!}{\left(s-1\right)^2}\\
 	s^2 Y(s) -1 -2(sY(s) - 1) + Y(s) = \frac{1}{\left(s-1\right)^2}\\
-	Y(s)\left[s^2-2s+1\right] = \frac{1}{\left(s-1\right)^2}\\
-	Y(s) = \frac{1}{\left(s-1\right)^2\left(s^2-2s+1\right)}\\
-	= \frac{1}{\left(s-1\right)^2\left(s-1\right)^2}\\
-	Y(s) = \frac{1}{\left(s-1\right)^4} 
+	Y(s)\left[s^2-2s+1\right] -1 = \frac{1}{\left(s-1\right)^2}\\
+	Y(s) = \frac{1}{\left(s-1\right)^2} + 1\\
+	Y(s) = \frac{1}{\left(s-1\right)^4} + \frac{1}{\left(s-1\right)^2}
+\end{gather}
+Returning to time domain. From tables:
+\begin{gather}
+	L^{-1}\left[\frac{n!}{\left(s-a\right)^n}\right] = t^ne^{at}\\
+	L^{-1}\left[\frac{1}{\left(s-1\right)^2}\right] = te^t\\
+	\frac{1}{6}L^{-1}\left[\frac{3!}{\left(s-1\right)^2}\right] = \frac{1}{6}t^3e^t\\
+	y(t) = \frac{1}{6}t^3e^t + te^t
 \end{gather}
 \subsection*{e}
 \subsubsection*{i}
@@ -187,7 +193,7 @@ $a =1 \therefore -3 \leq t \leq 3$. Sketch:
 \begin{align}
 	F(u) &= \int_{t=-\infty}^{0}e^{at}e^{-j2\pi u t}  \,\dif t + \int_{t=0}^{\infty} e^{-at} e^{-j2\pi u t}\,\dif t\\
 	&= \int_{t=-\infty}^{0}e^{t(a - j2\pi u)}  \,\dif t + \int_{t=0}^{\infty} e^{-t(a + j2\pi u)}\,\dif t\\
-	&= \left. \frac{1}{\left(a - j2\pi u\right)}e^{-t\left(a - j2\pi u\right)} \right|_{t = -\infty}^0 + \left. \frac{1}{-\left(a + j2\pi u\right)}e^{-t\left(a + j2\pi u\right)} \right|_{t=0}^\infty\\
+	&= \left. \frac{1}{\left(a - j2\pi u\right)}e^{t\left(a - j2\pi u\right)} \right|_{t = -\infty}^0 + \left. \frac{1}{-\left(a + j2\pi u\right)}e^{-t\left(a + j2\pi u\right)} \right|_{t=0}^\infty\\
 	&= \frac{1}{a - j2\pi u} + \frac{1}{a + j2\pi u}\\
 	&= \frac{a + j2\pi u + a - j2\pi u}{a^2 + 4\pi^2 u^2}\\
 	F(u) &= \frac{2a}{a^2 + 4\pi^2u^2}
