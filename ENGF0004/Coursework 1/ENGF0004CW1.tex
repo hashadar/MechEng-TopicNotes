@@ -248,15 +248,19 @@ The product has no $a$ term, thus there is no dependence on the parameter.
 We know that $u(x,t) = X(x)T(t)$. Substituting:
 \begin{gather}
 	X\left(x\right) T'\left(t\right) = kX''\left(x\right)T\left(t\right)\\
-	\frac{T'\left(t\right)}{kT'\left(t\right)} = \frac{X''\left(x\right)}{X\left(x\right)} = -\mu \\
+	\frac{T'\left(t\right)}{kT\left(t\right)} = \frac{X''\left(x\right)}{X\left(x\right)} = \mu \\
+	X''\left(x\right) = \mu X\left(x\right)\\
+	T'\left(t\right) = \mu k T\left(t\right)
+\end{gather}
+where $\mu$ is an arbitrary constant. If we define $\mu$ as negative then we obtain:
+\begin{align}
 	-X''\left(x\right) = \mu X\left(x\right)\\
 	T'\left(t\right) = -\mu k T\left(t\right)
-\end{gather}
-where $\mu$ is an arbitrary constant. 
+\end{align}
 \subsubsection*{ii}
 $\mu$ can be either positive, zero or negative. Let us consider these cases. 
 
-\textbf{Case 1: positive $\mu = \lambda^2 > 0$}
+\textbf{Case 1: positive constant $\mu = \lambda^2 > 0$}
 \begin{align}
 	\frac{X''\left(x\right)}{X\left(x\right)} &= \lambda^2\\
 	X''\left(x\right) - \lambda^2X\left(x\right) &= 0 
@@ -313,6 +317,73 @@ Applying $u(l,t) = 0$ implies $X(l)X(t) = 0$. Substituting $x=l$ in $X(x)$ gives
 	T(t) = 0 \textrm{ or } C = 0
 \end{gather}
 $T(t) = 0$ and $C=0$ both will lead to a trivial solution of $u(x,t) = X(x)T(t) =0$. Case 2 only produces the trivial solution of $u(x,t) = X(x)T(t) =0$ and does not produce any useful solutions. 
+
+\textbf{Case 3: negative constant $\mu = \lambda^2 < 0$}
+\begin{align}
+	\frac{X''\left(x\right)}{X\left(x\right)} &= -\lambda^2\\
+	X''\left(x\right) + \lambda^2X\left(x\right) &= 0 
+\end{align}
+Auxiliary equation:
+\begin{gather}
+	m^2 + \lambda^2 = 0\\
+	m_1 = i\lambda, \ m_2 = -i\lambda
+\end{gather}
+Complex and distinct roots. Hence:
+\begin{align}
+	X(x) = Ce^{i\lambda x} + De^{-i\lambda x}
+\end{align}
+Using Euler's formula and expanding:
+\begin{align}
+	X(x) = A\cos\left(\lambda x\right) + B\sin\left(\lambda x\right)
+\end{align}
+where $A = C +D$ and $B = i\left(C-D\right)$. Applying boundary conditions for $x$. Applying $u(0,t) = 0$ implies $X(0)T(t) = 0$. Substituting $x=0$ in $X(x)$ gives:
+\begin{gather}
+	X(0) = A\\
+	AT(t) = 0\\
+	T(t) = 0, \ A = 0
+\end{gather}
+$T(t) = 0$ will lead to a trivial solution of $u(x,t) = X(x)T(t) = 0$. Therefore, $A = 0$
+\begin{align}
+	X(x) = B\sin\left(\lambda x\right)
+\end{align}
+Applying $u(l,t) = 0$ implies $X(l)T(t) = 0$. Substituting $x=l$ in $X(x)$ gives:
+\begin{gather}
+	X(l) = B\sin\left(\lambda l\right)\\
+	D\sin\left(\lambda l\right)T(t) = 0\\
+	T(t) = 0, \ B = 0 \textrm{ or } \sin\left(\lambda l\right) = 0
+\end{gather}
+$T(t) = 0$ will lead to a trivial solution of $u(x,t) = X(x)T(t) = 0$. $B=0$ will lead to a trivial solution of $u(x,t) = X(x)T(t) = 0$. 
+\begin{gather}
+	\sin\left(\lambda l\right) = 0\\
+	\lambda l = n\pi \textrm{ for } n = 1,2,3,...\\
+	\lambda_n = \frac{n\pi}{l}\\
+	\mu_n = -\left(\lambda_n\right)^2 = -\left(\frac{n\pi}{l}\right)^2
+\end{gather}
+We can denote $B_n$ to represent the various constants that correspond to each value of $\mu$. Therefore:
+\begin{align}
+	X(x) = B_n \sin\left(\frac{n\pi x}{l}\right) \textrm{ for } n=1,2,3,...
+\end{align}
+ODE in $T(t)$:
+\begin{align}
+	\frac{T'(t)}{kT(t)} = \mu_n = -\left(\lambda_n^2\right)\\
+	\int \left(\frac{T'(t)}{T(t)}\right) \dif t = \int \left(\mu_n k\right) \dif t
+\end{align}
+In $T(t) = \mu_n kt + d_n$ where $d_n$ is a constant of integration for the differing values of each value of $\mu_n$.
+\begin{align}
+	T(t) = A_n e^{-\lambda_n^2 kt} 
+\end{align}
+where $A_n = e^{d_n}$. Therefore:
+\begin{align}
+	u(x,t) = X(x)T(t) = c_n e^{-\lambda_n^2 kt}\sin\left(\frac{n\pi x}{l}\right)
+\end{align}
+where $c_n = A_n B_n$. Let $u_n(x,t) e^{-\lambda_n^2 kt}\sin\left(\frac{n\pi x}{l}\right)$. The principle of superposition gives:
+\begin{align}
+	u(x,t) = \sum_{n=1}^{\infty} c_n u_n(x,t)
+\end{align}
+Applying the initial condition $u(x,0) = f(x)$ $0\leq x\leq l$. We have:
+\begin{align}
+	f(x) = \sum_{n=1}^{\infty} c_n \sin\left(\frac{n\pi x}{l}\right)
+\end{align}
 \subsubsection*{iii}
 Using Fourier series:
 \begin{align}
