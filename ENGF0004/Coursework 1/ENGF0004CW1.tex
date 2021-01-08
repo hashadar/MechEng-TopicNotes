@@ -9,6 +9,10 @@
 \usepackage{commath}
 %\usepackage{siunitx}
 %\sisetup{detect-all}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
 \usepackage[a4paper,margin=20mm]{geometry}
 \numberwithin{equation}{section}
 \setlength{\parskip}{\baselineskip}
@@ -95,17 +99,17 @@ Sum of electric fields due to both charged particles is:
 \begin{align}
 	E &= \frac{ke}{\left( x-r \right)^2} - \frac{ke}{\left( x+r \right)^2}\\
 	&= ke \left[ \frac{1}{x^2\left( 1 - \frac{r}{x} \right)^2} - \frac{1}{x^2\left( 1 + \frac{r}{x} \right)^2} \right]\\
-	E&= \frac{ke}{x^2} \left[ \left( 1- y \right)^{-2} - \left( 1 + y\right)^{-2} \right]
+	E&= \frac{ke}{x^2} \left[ \left( 1- \gamma \right)^{-2} - \left( 1 + \gamma\right)^{-2} \right]
 \end{align}
-Where $y =\frac{r}{x}$.
+Where $\gamma =\frac{r}{x}$.
 \subsubsection*{ii}
 Calculation of constants to be used in Maclaurin series expansion:
 \begin{equation*}
 	\begin{aligned}[c]
-		f(y) &= \left( 1 - y \right)^{-2}\\
-		f'(y) &= 2\left(1-y\right)^{-3}\\
-		f''(y) &= 6\left(1-y\right)^{-4}\\
-		f'''(y) &= 24\left(1-y\right)^{-5}
+		f(\gamma) &= \left( 1 - \gamma \right)^{-2}\\
+		f'(\gamma) &= 2\left(1-\gamma\right)^{-3}\\
+		f''(\gamma) &= 6\left(1-\gamma\right)^{-4}\\
+		f'''(\gamma) &= 24\left(1-\gamma\right)^{-5}
 	\end{aligned}
 	\makebox[2cm]{}
 	\begin{aligned}[c]
@@ -117,10 +121,10 @@ Calculation of constants to be used in Maclaurin series expansion:
 \end{equation*}
 \begin{equation*}
 	\begin{aligned}[c]
-		g(y) &= \left( 1 + y \right)^{-2}\\
-		g'(y) &= -2\left(1+y\right)^{-3}\\
-		g''(y) &= 6\left(1+y\right)^{-4}\\
-		g'''(y) &= -24\left(1+y\right)^{-5}
+		g(\gamma) &= \left( 1 + \gamma \right)^{-2}\\
+		g'(\gamma) &= -2\left(1+\gamma\right)^{-3}\\
+		g''(\gamma) &= 6\left(1+\gamma\right)^{-4}\\
+		g'''(\gamma) &= -24\left(1+\gamma\right)^{-5}
 	\end{aligned}
 	\makebox[2cm]{}
 	\begin{aligned}[c]
@@ -132,32 +136,32 @@ Calculation of constants to be used in Maclaurin series expansion:
 \end{equation*}
 Inputting the above variables into Eq.\ref{macser}:
 \begin{align}
-	f(y) &\approx 1 + \frac{2 y}{1!} + \frac{6y^2}{2!} + \frac{24y^3}{3!} + ...\\
-	f(y) &\approx 1 + 2y + 3y^2 + 4y^3 \\ 
-	g(y) &\approx 1 - \frac{2 y}{1!} + \frac{6y^2}{2!} - \frac{24y^3}{3!} + ...\\
-	g(y) &\approx 1 - 2y + 3y^2 - 4y^2
+	f(\gamma) &\approx 1 + \frac{2 \gamma}{1!} + \frac{6\gamma^2}{2!} + \frac{24\gamma^3}{3!} + ...\\
+	f(\gamma) &\approx 1 + 2\gamma+ 3\gamma^2 + 4\gamma^3 \\ 
+	g(\gamma) &\approx 1 - \frac{2 \gamma}{1!} + \frac{6\gamma^2}{2!} - \frac{24\gamma^3}{3!} + ...\\
+	g(\gamma) &\approx 1 - 2\gamma + 3\gamma^2 - 4\gamma^2
 \end{align}
 Substitution:
 \begin{align}
-	E &\approx \frac{ke}{x^2} \left[ f(y) - g(y)\right]\\
-	&\approx \frac{ke}{x^2} \left[ 1 + 2y + 3y^2 + 4y^3 - 1 + 2y - 3y^2 + 4y^3 \right]\\
-	&\approx \frac{ke}{x^2}\left[ 4y + 8y^3 \right]\\
-	E &\approx \frac{4ke}{x^2}\left[ y + 2y^3 \right]
+	E &\approx \frac{ke}{x^2} \left[ f(\gamma) - g(\gamma)\right]\\
+	&\approx \frac{ke}{x^2} \left[ 1 + 2\gamma + 3\gamma^2 + 4\gamma^3 - 1 + 2\gamma - 3\gamma^2 + 4\gamma^3 \right]\\
+	&\approx \frac{ke}{x^2}\left[ 4\gamma + 8\gamma^3 \right]\\
+	E &\approx \frac{4ke}{x^2}\left[ \gamma + 2\gamma^3 \right]
 \end{align}
 \subsubsection*{iii}
 $y = 0.01$. Exact:
 \begin{align}
-	E_E &= \frac{4ke}{x^2} \left[\left(1-0.01\right)^{-2}-\left(1+0.01\right)^{-2}\right]\\
-	E_E &= \frac{4ke}{x^2} \left[0.0400080012\right]\\
+	E_E &= \frac{ke}{x^2} \left[\left(1-0.01\right)^{-2}-\left(1+0.01\right)^{-2}\right]\\
+	E_E &= \frac{ke}{x^2} \left[0.0400080012\right]\\
 \end{align}
 Approximation:
 \begin{align}
 	E_A &= \frac{4ke}{x^2} \left[0.01 + 2\left(0.01\right)^3\right]\\
-	E_A &= \frac{4ke}{x^2} \left[0.010002\right]
+	E_A &= \frac{ke}{x^2} \left[0.040008\right]
 \end{align}
 Percentage error:
 \begin{align}
-	\frac{E_A}{E_E} \cdot 100 = \frac{0.0400080012 - 0.010002}{0.0400080012} \cdot 100 = 75\% \textrm{ error (2sf)}
+	\frac{E_E - E_A}{E_E} \cdot 100 = \frac{0.0400080012 - 0.040008}{0.0400080012} \cdot 100 = 3.0\times 10^6\, \% \textrm{ error (2sf)}
 \end{align}
 \subsection*{d}
 We are given:
@@ -223,7 +227,7 @@ Full width at half maximum of $F\left(u\right)$ can be calculated as:
 	\ln \left(\frac{1}{2}\right) &= -at\\
 	-\ln \left(2\right) &= at\\
 	t &= \frac{\ln \left( 2 \right)}{a} \rightarrow \textrm{HWHM}\\
-	\therefore t &= \frac{2\ln \left( 2 \right)}{a} \rightarrow \textrm{FWHM}
+	\therefore \textrm{FWHM} &= \frac{2\ln \left( 2 \right)}{a}
 \end{align}
 Full width at half maximum of $F\left(\omega\right)$ can be calculated as:
 \begin{align}
@@ -231,7 +235,7 @@ Full width at half maximum of $F\left(\omega\right)$ can be calculated as:
 	\frac{1}{a} &= \frac{2a}{a^2 + \omega^2}\\
 	\omega^2 + a^2 &= 2a^2\\
 	\omega &= a \rightarrow \textrm{HWHM}\\
-	\therefore \omega &= 2a \rightarrow \textrm{FWHM}
+	\therefore \textrm{FWHM} &= 2a 
 \end{align}
 \subsubsection*{v}
 Product of FWHMs:
@@ -425,80 +429,158 @@ When $n$ is odd:
 \end{align}
 \subsection*{b}
 \subsubsection*{i}
+Taylor series expansion for $u=u(x,y)$
+\begin{align}
+	u(x+h,y) &= u(x,y) + h \frac{\partial u}{\partial x} + \frac{h^2}{2!} \frac{\partial^2 u}{\partial x^2} + \frac{h^3}{3!} \frac{\partial^3 u}{\partial x^3} + ... \label{taylor1}\\
+	u(x-h,y) &= u(x,y) -h\frac{\partial u}{\partial x} + \frac{h^2}{2!}\frac{\partial^2 u}{\partial x^2} - \frac{h^3}{3!} \frac{\partial^3 u}{\partial x^3} + ... \label{taylor2}\\
+	u(x,y+k) &= u(x,y) + k \frac{\partial u}{\partial y} + \frac{k^2}{2!} \frac{\partial^2 u}{\partial y^2} + \frac{k^3}{3!} \frac{\partial^3 u}{\partial y^3} + ... \label{taylor3}\\
+	u(x,y-k) &= u(x,y) -k\frac{\partial u}{\partial y} + \frac{k^2}{2!}\frac{\partial^2 u}{\partial y^2} - \frac{k^3}{3!} \frac{\partial^3 u}{\partial y^3} + ... \label{taylor4}
+\end{align}
+Summing Eq.\ref{taylor1} and Eq.\ref{taylor2} yields:
+\begin{align}
+	u(x+h,y) + u(x-h,y) &= 2u(x,y) +h^2\frac{\partial^2 u}{\partial x^2} + h^2O(h^2)\\
+	\frac{\partial^2 u}{\partial x^2} &= \frac{u(x+h,y)-2u(x,y)+u(x-h,y)}{h^2} + O(h^2)\\
+	\frac{\partial^2 u}{\partial x^2} &\approx \frac{u(x+h,y)-2u(x,y)+u(x-h,y)}{h^2}
+\end{align}
+Summing Eq.\ref{taylor3} and Eq.\ref{taylor4} yields:
+\begin{align}
+	u(x,y+k) + u(x,y-k) &= 2u(x,y) +k^2\frac{\partial^2 u}{\partial y^2} + k^2O(h^2)\\
+	\frac{\partial^2 u}{\partial y^2} &= \frac{u(x,y+k)-2u(x,y)+u(x,y-k)}{k^2} + O(k^2)\\
+	\frac{\partial^2 u}{\partial y^2} &\approx \frac{u(x,y+k)-2u(x,y)+u(x,y-k)}{k^2}
+\end{align}
 \subsubsection*{ii}
+\begin{align}
+	\frac{\dif^2 u}{\dif x^2} + \frac{\dif^2 u}{\dif y^2} = xe^y
+\end{align}
+On our mesh sizing of $h=\delta x = 0.4$ and $k=\delta y = 0.2$
+\begin{gather}
+	\frac{u_{i+1,j} - 2u_{i,j} + u_{i-1,j}}{h^2} + \frac{u_{i,j+1} - 2u_{i,j} + u_{i,j-1}}{k^2} = ihe^{jk}\\
+	\frac{25}{4}\left(u_{i+1,j} - 2u_{i,j} + u_{i-1,j}\right) + 25\left(u_{i,j+1} - 2u_{i,j} + u_{i,j-1}\right) = xe^y\\
+	\left(u_{i+1,j} - 2u_{i,j} + u_{i-1,j}\right) + 4\left(u_{i,j+1} - 2u_{i,j} + u_{i,j-1}\right) = \frac{4}{25}xe^y\\
+	u_{i+1,j} - 2u_{i,j} + u_{i+1,j} + 4u_{i,j+1} - 8u_{i,j} + 4u_{i,j-1} = \frac{4}{25}xe^y\\
+	10u_{i,j} = u_{i+1,j}+ u_{i+1,j} + 4u_{i,j+1}+ 4u_{i,j-1} - \frac{4}{25}xe^y\\
+	u_{i,j} = \frac{1}{10}\left(u_{i+1,j}+ u_{i+1,j} + 4u_{i,j+1}+ 4u_{i,j-1} - \frac{4}{25}xe^y\right) \label{computationalMolecule}
+\end{gather}
+where Eq.\ref{computationalMolecule} is our computational molecule.
 \subsubsection*{iii}
-\subsubsection*{iv}
-\subsubsection*{v}
-\section{EXTRA STUFF}
-\subsection*{q2aii}
-Where $\mu$ is the eigenvalue. Returning to our PDE in Eq.\ref{PDEq2ai}, if $u_1$ and $u_2$ are solutions to the PDE, so are $C_1 u_1$ and $C_2 u_2$:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.9\textwidth]{./img/q2b.JPG}
+	\caption{}
+\end{figure}
+16 difference equations:
+\begin{gather}
+	10u_1 = u_2 + 0 + 4(0.4)e + 4u_5 - 0.16(0.4)e^{0.8}\\
+	-10u_1 + u_2 + 4u_5 = 0.064e^{0.8} -1.6e
+\end{gather} 
+\begin{gather}
+	10u_2 = u_3 + u_1 + 4(0.8)e + 4u_6 - 0.16(0.8)e^{0.8}\\
+	-10u_2 + u_3 + u_1 + 4u_6 = 0.128e^{0.8} - 3.2e
+\end{gather}
+\begin{gather}
+	10u_3 = u_4 + u_2 + 4(1.2)e + 4u_7 - 0.16(1.2)e^{0.8}\\
+	-10u_3 + u_4 + u_2 + 4u_7 = 0.192e^{0.8} - 4.8e
+\end{gather}
+\begin{gather}
+	10u_4 = 2e^{0.8} + u_3 + 4(1.6)e + 4u_8 - 0.16(1.6)e^{0.8}\\
+	-10u_4 + u_3 + 4u_8 = -1.744e^{0.8} - 6.4e
+\end{gather}
 \begin{align}
-	\frac{\partial C_1 u_1}{\partial t} &= k\frac{\partial^2 C_1 u_1}{\partial x^2}\\
-	\frac{\partial u_1}{\partial t} &= k\frac{\partial^2 u_1}{\partial x^2}
+	10u_5 = u_6 + 0 + 4u_1 + 4u_9 -0.16(0.4)e^{0.6}\\
+	-10u_5 + u_6 + 4u_1 + 4u_9 =0.064e^{0.6}
 \end{align}
-Similarly $C_1 u_1 + C_2 u_2$ will satisfy the PDE:
 \begin{align}
-	U = C_1 u_1 + C_2 u_2 + ... + C_n u_n
+	10u_6 = u_7 + u_5 +4u_2 +4u_{10} -0.16(0.8)e^{0.6}\\
+	-10u_6 + u_7 + u_5 + 4u_2 + 4u_{10} =0.128e^{0.6}
 \end{align}
-We can also form the following equation:
 \begin{align}
-	A\underline{X} = \mu \underline{X}
+	10u_7 = u_8 + u_6 + 4u_3 + 4u_{11} = 0.16(1.2)e^{0.6}\\
+	-10u_7 + u_8 + u_6 + 4u_3 + 4u_{11} = 0.192e^{0.6}
 \end{align}
-Where $A = n \times n$ matrix, $\underline{X} = n \times 1$ column vector and $\mu$ is a scalar. 
 \begin{align}
-	A \underline{X} - \mu \underline{X} &= 0\\
-	\left( A - \mu I\right)\underline{X} &= 0
-\end{align} 
-We have:
-\begin{align}
-	\det \left(A - \mu I\right)\underline{X} &= 0\\
-	\left| A - \mu I \right| &= 0
+	10u_8 = 2e^{0.6} + u_7 + 4u_4 +4u_{12} -0.16(1.6)e^{0.6}\\
+	-10u_8 + u_7 + 4u_4 + 4u_{12} = -1.744e^{0.6}
 \end{align}
-Where $\underline{X}$ is the eigenvector.
+\begin{align}
+	10u_9 = u_{10} + 0 + 4u_5 + 4u_{13} -0.16(0.4)e^{0.4}\\
+	-10u_9 + u_{10} + 4u_5 + 4u_{13} = 0.064e^{0.4}
+\end{align}
+\begin{align}
+	10u_{10} = u_{11} + u_9 + 4u_6 + 4u_{14}-0.16(0.8)e^{0.4}\\
+	-10u_{10} + u_{11} +u_9 + 4u_{6} + 4u_{14} = 0.128e^{0.4}
+\end{align}
+\begin{align}
+	10u_{11} = u_{12} + u_{10} + 4u_7 + 4u_{15} -0.16(1.2)e^{0.4}\\
+	-10u_{11} + u_{12} + u_{10} + 4u_7 + 4u_{15} = 0.192e^{0.4}
+\end{align}
+\begin{align}
+	10u_{12} = 2e^{0.4} + u_{11} + 4u_8 + 4u_{16} -0.16(1.6)e^{0.4}\\
+	-10u_{12} + u_{11} + 4u_8 + 4u_{16} = -1.744e^{0.4}
+\end{align}
+\begin{align}
+	10u_{13} = u_{14} + 0 + 4u_9 + 4(0.4) = 0.16(0.4)e^{0.2}\\
+	-10u_{13} + u_{14} + 4u_9 = 0.064e^{0.2} - 1.6
+\end{align}
+\begin{align}
+	10u_{14} = u_{15} + u_{13} + 4u_{10} + 4(0.8) -0.16(0.8)e^{0.2}\\
+	-10u_{14} + u_{15} + u_{13} + 4u_{10} = 0.128e^{0.2}-3.2
+\end{align}
+\begin{align}
+	10u_{15} = u_{16} + u_{14} + 4u_{11} + 4(1.2) = 0.16(1.2)e^{0.2}\\
+	-10u_{15} + u_{16} + u_{14} + 4u_{11} = 0.192e^{0.2} - 4.8
+\end{align}
+\begin{align}
+	10u_{16} = 2e^{0.2} + u_{15} + 4u_{12} + 4(1.6) -0.16(1.6)e^{0.2}\\
+	-10u_{16} + u_{15} + 4u_{12} = -1.744e^{0.2} - 6.4
+\end{align}
 
-\begin{align}
-	X''(x) + \mu X(x) &= 0\\
-	\textrm{Let } X(x) &= e^{mx}\\
-	X'(x) &= me^{mx}\\
-	X''(x) &= m^2e^{mx}\\
-	m^2 + \mu &= 0\\
-	m &= \pm j\sqrt{\mu}\\
-\end{align}
-General solution:
-\begin{align}
-	X(x) = A\cos\left(\sqrt{\mu}x\right) + B\sin\left(\sqrt{\mu}x\right)
-\end{align}
-Boundary conditions:
-\begin{align}
-	u\left(0,t\right) &= 0\\
-	X(0)T(t) &= 0\\
-\end{align}
-We require that $X(0) = 0$. Hence:
-\begin{align}
-	X(0) &= A\cos\left(0\right) + B\sin\left(0\right)\\
-	\therefore A &= 0\\
-	X(x) &= B \sin\left(\sqrt{\mu}x\right)\\
-	u\left(l,t\right) &= 0\\
-	X(l) &= B\sin\left(\sqrt{\mu}l\right) = 0\\
-	\sqrt{\mu}l &= n\pi \textrm{ where } n = 1, \ 2, \ 3, \ ... \\
-	\mu &= \frac{n^2 \pi^2}{l^2}
-\end{align}
-Returning to Eq.\ref{TPDE}:
-\begin{align}
-	\frac{\dif T}{\dif t} &= -k\mu T\\
-	\int_{}^{} \left(\frac{1}{T}\frac{\dif T}{\dif t}\right) \,\dif t &= -k\mu \int_{}^{}  \,\dif t\\
-	\ln T &= -k \mu t + \ln B\\
-	\ln \left(\frac{T}{B}\right) &= - k\mu t\\
-	\frac{T}{B} &= e^{--k\mu t}\\
-	T &= Be^{-k\mu t}, \ \mu = \frac{n^2 \pi^2}{l^2} \\
-	\therefore T &= Be^{-k \frac{n^2 \pi^2}{l^2}t} 
-\end{align}
-$u(x,t) = X(x)T(t)$. Hence, by utilising principle of superposition:
-\begin{align}
-	u_n(x,t) = \sum_{n=1}^{\infty} c_n \sin\left(\frac{n\pi}{l}x\right)e^{-k \frac{n^2 \pi^2}{l^2}t}
-\end{align}
-We are given that $u(x, 0) = f(x)$. Hence, $f(x)$ is:
-\begin{align}
-	u(x,0) = f(x) = \sum_{n=1}^{\infty} c_n \sin\left(\frac{n\pi}{l}x\right)
-\end{align}
+\newpage
+\subsubsection*{iv \& v}
+MATLAB code used to solve the system of equations above.
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{Question2Code.m}
+The values for the variables $w$, $wE$ and $d$ are shown below.
+\begin{table}[H]
+\centering
+\label{q2bvals}
+	\begin{tabular}{||c|c|c||} 
+	\hline
+	$w$ & $wE$ & $d\cdot 10^{4}$\\
+	\hline
+	\hline
+	0.8904 & 0.8902 & 1.9117\\
+	1.7808 & 1.7804 & 3.7120\\
+	2.6711 & 2.6706 & 5.1109\\
+	3.5613 & 3.5609 & 5.1313\\
+	0.7291 & 0.7288 & 2.6628\\
+	1.4582 & 1.4577 & 5.1474\\
+	2.1872 & 2.1865 & 7.0008\\
+	2.9160 & 2.9154 & 6.7963\\
+	0.5969 & 0.5967 & 2.4853\\
+	1.1939 & 1.1935 & 4.7943\\
+	1.7908 & 1.7902 & 6.4859\\
+	2.3875 & 2.3869 & 6.2168\\
+	0.4887 & 0.4886 & 1.5553\\
+	0.9774 & 0.9771 & 3.0022\\
+	1.4660 & 1.4657 & 4.0711\\
+	1.9546 & 1.9542 & 3.9375\\
+	\hline
+ \end{tabular}
+ \caption{Values for $w$, $wE$ and $d$.}
+\end{table}
 \end{document}
