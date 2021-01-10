@@ -27,7 +27,7 @@ Lift of a NACA-0012 Aerofoil}
 \maketitle
 \section*{Introduction to Lift and Drag}
 \subsection*{Description of lift and drag}
-A fluid, for example air in our case, that flows around an object will act a force on it. In our case, this object is the airfoil. Lift is the effect of the force applied by the fluid in the perpendicular direction to the flow direction. THe lift force can be calculated with known pressure distribution.
+A fluid, for example air in our case, that flows around an object will act a force on it. In our case, this object is the airfoil. Lift is the effect of the force applied by the fluid in the perpendicular direction to the flow direction. The lift force can be calculated with known pressure distribution.
 \begin{align}
   L = \oint \left(p n k \right)\dif S
 \end{align}
@@ -172,9 +172,15 @@ The pressure coefficient can be determined by the following formula:
 We can see that for the upper profile, at angles of attack of \SI{0}{\degree} and \SI{3.6}{\degree}, the pressure coefficient along the chord are negative which represent a suction, apart from the last data point which is positive. This corresponds to the typical pressure distribution given in Fig.\ref{staticpressure}. However, for the \SI{14}{\degree} angle of attack, we can see that the last data point is negative. We can see that for the lower profile, for a \SI{3.6}{\degree} angle of attack, the pressure coefficients are always positive, which means that there is a compression region lifting the airfoil upwards. For a \SI{0}{\degree} angle of attack, the pressure coefficient is positive then turns negative before turning positive again, and is very close to 0 along the chord, meaning the compression or suction generated will be significantly smaller so the lift will be smaller. Finally, at an angle of attack of \SI{14.4}{\degree}, the pressure coefficient does not turn positive towards the end of the chord like for the two other angles, indicating the presence of a suction region. We can also see that at the angle of attack of \SI{14.4}{\degree}, the pressure coefficients at the end of the chord in the upper profile does not get closer to 0 like there would be in a typical pressure distribution. Finally we can see that until \SI{35}{\milli\meter} from the leading edge, at a \SI{3.6}{\degree} angle of attack, the pressure coefficient is approximately two times higher than at a \SI{14.4}{\degree} angle of attack.
 \section*{Part 2 - Conformal Mapping}
 \subsection*{Shape change of the cylinder when the parameters, $x_c$, $y_c$ and $\lambda$ are varied}
-Varying the value of $\lambda$ would provide a scaling effect to the shape our cylinder. Changing $x_c$ would change the shape of the cylinder from elliptical to tear drop shape, with one edge pinched and one end rounded. Changing $y_c$ would skew the airfoil into a curved shape. This would result in one of the profiles of the wing becoming concave. 
+Varying the value of $\lambda$ between 0 and 1 compressed the cylinder into an elliptical shape and approached the shape of a line with length $4r$ at $\lambda = 1$. For values greater than 1, the shape produced was an ellipse and an increase in $\lambda$ provided a scaling effect. Changing $x_c$ would change the shape of the cylinder from elliptical to a symmetrical tear drop shape (aerofoil shape), with one edge becoming more pinched and the other more rounded. Changing $x_c$ when $\lambda < 1$ would pinch the right side, whereas for $\lambda >1$ it would pinch the left side. Changing $y_c$ would skew the aerofoil into a curved shape, becoming unsymmetrical. This would result in one of the profiles of the wing becoming concave. 
 \subsection*{Determination of the values of $x_c$ and $y_c$ }
-
+As our airfoil is uncambered (denoted by the 00 in NACA-0012), hence, our value of $y_c$ is 0. After iteratively finding values of $\lambda$ and $x_c$, the values of $\lambda = \sqrt{122}/10$ and $x_c = 0.06$. A NACA scaling factor of 4.43 with NACA shift x of -2.24 yielded a shape closely matching the grey profile. This can be seen below.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{./img/diagram15.png}
+  \caption{Matching conformally mapped aerofoil with NACA-0012 aerofoil.}
+\end{figure}
+Graphically estimating the chord, $c$, of this aerofoil, we attain a value of approximately 4.8. The maximum thickness is approximated to to be around 0.44.
 \subsection*{Determination of the lift, $L$, and a plot of the lift coefficient, $c_L'$, of the aerofoil as a function of the angle of incidence}
 \begin{align}
   \Gamma &= 4\pi R U_{\infty} \sin a\\
