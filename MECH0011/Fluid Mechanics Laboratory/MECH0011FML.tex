@@ -9,7 +9,11 @@
 \usepackage{float}
 \usepackage{commath}
 \usepackage{siunitx}
-%\sisetup{detect-all}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\sisetup{detect-all}
 \usepackage[a4paper,margin=20mm]{geometry}
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0pt}
@@ -170,17 +174,261 @@ The pressure coefficient can be determined by the following formula:
   \caption{Lower profile variation.}
 \end{figure}
 We can see that for the upper profile, at angles of attack of \SI{0}{\degree} and \SI{3.6}{\degree}, the pressure coefficient along the chord are negative which represent a suction, apart from the last data point which is positive. This corresponds to the typical pressure distribution given in Fig.\ref{staticpressure}. However, for the \SI{14}{\degree} angle of attack, we can see that the last data point is negative. We can see that for the lower profile, for a \SI{3.6}{\degree} angle of attack, the pressure coefficients are always positive, which means that there is a compression region lifting the airfoil upwards. For a \SI{0}{\degree} angle of attack, the pressure coefficient is positive then turns negative before turning positive again, and is very close to 0 along the chord, meaning the compression or suction generated will be significantly smaller so the lift will be smaller. Finally, at an angle of attack of \SI{14.4}{\degree}, the pressure coefficient does not turn positive towards the end of the chord like for the two other angles, indicating the presence of a suction region. We can also see that at the angle of attack of \SI{14.4}{\degree}, the pressure coefficients at the end of the chord in the upper profile does not get closer to 0 like there would be in a typical pressure distribution. Finally we can see that until \SI{35}{\milli\meter} from the leading edge, at a \SI{3.6}{\degree} angle of attack, the pressure coefficient is approximately two times higher than at a \SI{14.4}{\degree} angle of attack.
+\subsection*{Determination of lift coefficient $c_L'$}
+In order to find the lift coefficient, we must use the following equation:
+\begin{align}
+  c_L' = -\frac{1}{c} \int_0^c \left(c_p \left(\hat{n}\cdot \hat{j}\right)\right)\dif x
+\end{align}
+By assuming the local normal to the surface is aligned with the $y$-direction, we can simplify $\left(\hat{n}\cdot \hat{j}\right)$ based on the top and bottom surface. When looking at the top surface, we will simplify to $+1$ and the bottom to $-1$. 
+
+To integrate our pressure coefficients, we must use the trapezium rule to find an approximate for the area underneath the curve. Taking \SI{-9}{\degree}, we can integrate the top and bottom surfaces individually. The pressure coefficients at tappings 1, 2, 3 and 4 are shown below.
+\begin{table}[H]
+  \centering
+  \label{q2bvals}
+    \begin{tabular}{||c|c|c|c||} 
+    \hline
+    \textbf{Surface tapping} & \textbf{Angle of attack} & $x/c$ & \textbf{Coefficient of pressure}\\
+    \hline
+    \hline
+    1 & -9 & 0.05 & 2.1\\
+    3 & -9 & 0.025 & 1.6\\
+    2 & -9 & 0.01 & -2.9\\
+    4 & -9 & 0.051 & -2.7\\
+    \hline
+   \end{tabular}
+   \caption{Pressure coefficients at tappings 1, 2, 3 and 4.}
+\end{table}
+To find the area of the trapezium, we also need to know the height which is simply the difference of our two $x/c$ values at tappings 1 and 3, as well as tappings 2 and 4.
+\begin{align}
+  \textrm{Top area} &= \frac{1}{2}\left(2.1 + 1.6\right)(0.025 -0.05)\\
+  \textrm{Top area} &= 0.037\\
+  \textrm{Bottom area} &= \frac{1}{2}\left(-2.9 + \left(-2.7\right)\right)(0.051-0.01)\\
+  \textrm{Bottom area} &= 0.114
+\end{align}
+Repeating this process for all the remaining trapeziums, we can find total top and bottom areas for each angle of attack as shown below. Then, to find the lift coefficient, we simply subtract the top area from the bottom area.
+\begin{table}[H]
+  \centering
+  \label{q2bvals}
+    \begin{tabular}{||c|c|c|c||} 
+    \hline
+    \textbf{Angle of attack} & \textbf{Total upper area} & \textbf{Total lower area} & \textbf{Lift coefficient}\\
+    \hline
+    \hline
+      -9 & 0.102 & -0.670 & -0.773\\
+      -7.2 & -0.114 & -0.523 & -0.409\\
+      -5.4 & -0.279 & -0.381 & -0.102\\
+      -3.6 & -0.211 & -0.062 & 0.149\\
+      -1.8 & -0.584 & -0.008 & 0.577\\
+      0 & -0.760 & 0.179 & 0.939\\
+      1.8 & -0.979 & 0.119 & 1.098\\
+      3.6 & -1.140 & 0.508 & 1.648\\
+      5.4 & -1.335 & 0.475 & 1.809\\
+      7.2 & -1.511 & 0.692 & 2.203\\
+      9 & -1.663 & 0.824 & 2.488\\
+      10.8 & -1.783 & 0.925 & 2.707\\
+      12.6 & -1.829 & 0.985 & 2.814\\
+      14.4 & -2.091 & 0.358 & 2.449\\
+      16.2 & -2.118 & 0.361 & 2.479\\
+      18 & -2.076 & 0.331 & 2.406\\ 
+    \hline
+   \end{tabular}
+   \caption{Lift coefficients.}
+\end{table}
+\subsection*{Plot of the lift coefficient, $c_L'$ against $\alpha$ and comparison to NACA}
+Based on the graph from the NACA Technical Notes 2074 (Fig.\ref{nacagraph}), our values for the lift coefficient can be compared.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{./img/diagram20.png}
+  \caption{Lift coefficient from NACA Technical Notes 2074.}
+  \label{nacagraph}
+\end{figure}
+Plotting both sets of results on a single graph, we arrive at Fig.\ref{liftcoeffgraphs}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{./img/diagram21.png}
+  \caption{Experimental and NACA lift coefficients.}
+  \label{liftcoeffgraphs}
+\end{figure}
+\subsection*{Discussion on what an aerofoil stall is}
+Both sets of results follow a similar trend where the lift coefficient rises uniformly. Then at a critical angle of around \SI{15}{\degree}, it suddenly drops. This phenomenon is known as stalling and is a result of the angle of attack being too large. Beyond the critical angle, flow over the top surface of an aerofoil becomes turbulent thus increasing drag and reducing lift as shown in Fig.\ref{liftcoeffgraphs}.
 \section*{Part 2 - Conformal Mapping}
 \subsection*{Shape change of the cylinder when the parameters, $x_c$, $y_c$ and $\lambda$ are varied}
 Varying the value of $\lambda$ between 0 and 1 compressed the cylinder into an elliptical shape and approached the shape of a line with length $4r$ at $\lambda = 1$. For values greater than 1, the shape produced was an ellipse and an increase in $\lambda$ provided a scaling effect. Changing $x_c$ would change the shape of the cylinder from elliptical to a symmetrical tear drop shape (aerofoil shape), with one edge becoming more pinched and the other more rounded. Changing $x_c$ when $\lambda < 1$ would pinch the right side, whereas for $\lambda >1$ it would pinch the left side. Changing $y_c$ would skew the aerofoil into a curved shape, becoming unsymmetrical. This would result in one of the profiles of the wing becoming concave. 
 \subsection*{Determination of the values of $x_c$ and $y_c$ }
-As our airfoil is uncambered (denoted by the 00 in NACA-0012), hence, our value of $y_c$ is 0. After iteratively finding values of $\lambda$ and $x_c$, the values of $\lambda = \sqrt{122}/10$ and $x_c = 0.06$. A NACA scaling factor of 4.43 with NACA shift x of -2.24 yielded a shape closely matching the grey profile. This can be seen below.
+Using the following equation, we can derive $\lambda$ as a function of $x_c$:
+\begin{align}
+  \lambda = \left(R - \sqrt{x_c^2 + y_c^2}\right)\\
+\end{align}
+$y_c = 0$ because our NACA-0012 aerofoil is uncambered. $R = 1$. Therefore:
+\begin{align}
+  \lambda &= \left(1-\sqrt{x_c^2}\right)\\
+  \lambda &= \left(1-x_c\right)\\
+  \lambda^2 &= \left(1-x_c\right)^2
+\end{align}
+After iteratively changing the value of $x_c$, we found that a value of $x_c = -0.94$ and $\lambda^2 = 0.820836$ produced an aerofoil closely matching the NACA-0012. This is shown in Fig.\ref{mappedaerofoil}.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{./img/diagram15.png}
-  \caption{Matching conformally mapped aerofoil with NACA-0012 aerofoil.}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram15.png}
+  \caption{Aerofoil with parameters $x_c = -0.94$ and $\lambda^2 = 0.820836$.}
+  \label{mappedaerofoil}
+\end{figure} 
+To calculate the chord length, the minimum and maximum values were taken from the NACA profile scaled and shifted, x column in the excel sheet. This yielded -1.85 and 1.85. Hence, our chord length, $c$, is \SI{3.7}{\metre}. A similar approach was taken to find $t_{max}$. The excel sheet yielded -0.222 and 0.222 as our minimum and maximum $y$ values. Hence, $t_{max} = \SI{0.444}{\metre}$.
+\subsection*{Plot of the streamlines around the cylinder in the (x, y) plane for $\alpha = 0$ and $\psi = \pm 0.1$}
+The stream function of the flow around a cylinder of radius, $R$ is given by Eq.\ref{streamfunction}:
+\begin{align}
+  \psi = U_{\infty}r\sin\left(\theta\right) \left(1 - \frac{R^2}{r^2}\right) + \frac{\Gamma}{2\pi}\log\left(r\right)\label{streamfunction}
+\end{align}
+where a cylindrical coordinate system $(r,\theta)$ is used. 
+The lift of the cylinder is proportional to the circulation, $\Gamma$, as shown in Eq.\ref{liftcirc}:
+\begin{align}
+  L = \rho U_{\infty} \Gamma \label{liftcirc}
+\end{align}  
+Substituting $\psi = \pm 0.1$, $\alpha = 0$, $U_{\infty} = 1$ and $R=1$ into Eq.\ref{streamfunction}:
+\begin{align}
+  \pm 0.1 = r\sin\left(\theta\right) \left(1-\frac{1}{r^2}\right) + \frac{\Gamma}{2\pi} \log\left(r\right) \label{streamfunction2}
+\end{align}
+From our cylindrical coordinate system, we know that $x=r\cos\theta$ and $y = r\sin\theta$. Hence, we can derive that $x^2 + y^2 = r^2$. We can also rearrange Eq.\ref{liftcirc} in terms of $\Gamma$. Substituting these values into Eq.\ref{streamfunction2}:
+\begin{align}
+  \pm 0.1 = y\left(1-\frac{1}{x^2 + y^2}\right)\label{streamfunction3}
+\end{align}
+We can derive three equations now, shown below:
+\begin{align}
+  0.1 &= y\left(1-\frac{1}{x^2 + y^2}\right)\\
+  -0.1 &= y\left(1-\frac{1}{x^2 + y^2}\right)\\
+  1 &= x^2 + y^2
+\end{align}
+These were plotted in MATLAB with the following code:
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{MECH0011FMLQ2c.m}
+This produced the following plot:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{./img/diagram16.png}
+  \caption{Plot of streamlines around cylinder.}
+\end{figure} 
+\subsection*{Use of Joukowsky transformation to obtain the streamlines around the aerofoil in the $\left(\xi, \zeta \right)$ plane.}
+We know:
+\begin{align}
+  G(z) &= z + \frac{\lambda^2}{z}\\
+  \lambda &= R - \sqrt{x_c^2 + y_c^2}\\
+  z = \left(x-x_c\right) + i\left(y-y_c\right)
+\end{align}
+We also know that $y_c = 0$:
+\begin{align}
+  \lambda &= R - \left| x_c \right|\\
+  z &= \left(x-x_c\right) + iy
+\end{align}
+$x$ and $y$ in cylindrical coordinates:
+\begin{align}
+  x &= R\cos\theta\\
+  y &= R\sin\theta
+\end{align}
+Joukowsky transform, $G(z) = w$:
+\begin{align}
+  w = R\cos\theta - x_c + iR\sin\theta + \frac{\left(R-\left|x_c\right|\right)^2}{R\cos\theta - x_c + iR\sin\theta}
+\end{align}
+Inputting $R=1$:
+\begin{align}
+  w &= \cos\theta - x_c + i\sin\theta + \frac{\left(1-\left|x_c\right|\right)^2}{\cos\theta - x_c + i\sin\theta}\\
+  w &= \cos\theta - x_c + i\sin\theta + \frac{\left(1-\left|x_c\right|\right)^2}{\cos\theta - x_c + i\sin\theta} \cdot \frac{\cos\theta - x_c - i\sin\theta}{\cos\theta - x_c - i\sin\theta}\\
+  w &= \cos\theta - x_c + i\sin\theta + \frac{\left(1-\left|x_c\right|\right)^2 \cdot \left(\cos\theta - x_c - i\sin\theta\right)}{\cos^2\theta -2x_c\cos\theta + x_c^2 + \sin^2\theta}\\
+  w &= \cos\theta - x_c + i\sin\theta + \frac{\left(1-\left|x_c\right|\right)^2 \cdot \left(\cos\theta - x_c - i\sin\theta\right)}{1 -2x_c\cos\theta + x_c^2}\\
+\end{align}
+Separating into real and imaginary components:
+\begin{align}
+  w = \left(\cos\theta - x_c + \frac{\left(1-\left|x_c\right|\right)^2 \cdot \left(\cos\theta - x_c\right)}{1 -2x_c\cos\theta + x_c^2}\right) + i\left(\sin\theta + \frac{-\left(1-\left|x_c\right|\right)^2 \cdot \sin\theta}{1 -2x_c\cos\theta + x_c^2}\right)
+\end{align}
+We know that $w = \xi + i\zeta$:
+\begin{align}
+  \xi &= \left(\cos\theta - x_c + \frac{\left(1-\left|x_c\right|\right)^2 \cdot \left(\cos\theta - x_c\right)}{1 -2x_c\cos\theta + x_c^2}\right)\\
+  \zeta &= \left(\sin\theta + \frac{-\left(1-\left|x_c\right|\right)^2 \cdot \sin\theta}{1 -2x_c\cos\theta + x_c^2}\right)
+\end{align}
+Joukowsky transform plotted in MATLAB with the following code:
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{MECH0011FMLQ2d.m}
+This produced the following plot:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \textwidth]{./img/diagram17.png}
+  \caption{Plot of Joukowsky transformed streamlines.}
+\end{figure} 
+\subsection*{Determination of the circulation $\Gamma$ as a function of the angle of incidence $\alpha$ for a cylinder using Kutta condition. Discussion on the condition that the Kutta condition imposes}
+We impose the Kutta condition when we have unrealistic streamlines e.g. Fig.\ref{unrealisticstreamline}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{./img/diagram18.png}
+  \caption{Unrealistic streamlines.}
+  \label{unrealisticstreamline}
+\end{figure} 
+This streamline is unrealistic because to curl around the trailing edge cusp, the speed goes to infinity. This is impossible and flow separation would occur instead. For a given angle of coincidence, the circulation has to be selected by imposing that the back stagnation point and the aerofoil trailing edge coincide, as shown in Fig.\ref{goodkutta}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{./img/diagram19.png}
+  \caption{Back stagnation point coinciding with trailing edge of aerofoil.}
+  \label{goodkutta}
 \end{figure}
-Graphically estimating the chord, $c$, of this aerofoil, we attain a value of approximately 4.8. The maximum thickness is approximated to to be around 0.44.
+Some requirements for the Kutta condition are:
+\begin{itemize}
+  \item Inviscid flow in the region surrounding the aerofoil
+  \item Back stagnation point and aerofoil trailing edge coincide
+  \item Valid for $\alpha < \alpha_{crit}$ where $\alpha_{crit}$ is the critical angle of attack where stalling occurs. 
+  \item Fluid flowing on the top and bottom of the aerofoil meets smoothly at the trailing edge.
+\end{itemize}
+Determining $\Gamma$ as a function of $\alpha$. Streamline function:
+\begin{align}
+  \psi = U_{\infty}r \sin\left(\theta-\alpha\right) \left(1 - \frac{R^2}{r^2}\right) + \frac{\Gamma}{2\pi}\log r
+\end{align}
+Velocity components:
+\begin{align}
+  u_{\theta} &= -\frac{\partial \psi}{\partial r}\\
+  u_{\theta} &= -U_{\infty} \sin\left(\theta-\alpha\right) \left(1 + \frac{R^2}{r^2}\right) - \frac{\Gamma}{2\pi r}\\
+  u_r &= \frac{1}{r} \frac{\partial \psi}{\partial \theta}\\
+  u_r &= U_{\infty} r\cos\left(\theta-\alpha\right) \left(1-\frac{R^2}{r^2}\right)
+\end{align}
+On the cylinder $r=R$:
+\begin{align}
+  u_{\theta} &= -2U_{\infty} \sin\left(-\alpha\right) - \frac{\Gamma}{2\pi R}\\
+  u_r &= 0
+\end{align}
+Kutta condition:
+\begin{align}
+  u_{\theta} \left(\theta = 0\right) &= 0\\
+  \Gamma = -4\pi U_{\infty} R \sin\left(-\alpha\right) &= 4\pi U_{\infty} R\sin\alpha
+\end{align}
+$R=1$ and $U_{\infty} =1$:
+\begin{align}
+  \Gamma = 4\pi \sin\alpha
+\end{align}
 \subsection*{Determination of the lift, $L$, and a plot of the lift coefficient, $c_L'$, of the aerofoil as a function of the angle of incidence}
 \begin{align}
   \Gamma &= 4\pi R U_{\infty} \sin a\\
