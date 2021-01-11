@@ -37,23 +37,20 @@ Left hand side:
 	a= 1, \ r = \frac{k-1}{k}
 \end{gather}
 $\frac{k-1}{k}$ is always less than 1 for $k > 1$. Hence:
-\begin{align}
-	S_{\infty, LHS} &= \frac{a}{1-r}\\
-	&= \frac{1}{1-\frac{k-1}{k}}\\
-	&= \frac{k}{k-k+1}\\
-	S_{\infty, LHS} &= k
-\end{align}
+\begin{gather}
+	S_{\infty, LHS} = \frac{a}{1-r} = \frac{1}{1-\frac{k-1}{k}} = \frac{k}{k-k+1}\\
+	S_{\infty, LHS} = k
+\end{gather}
 Right hand side:
 \begin{gather}
 	\left(k-1\right) \sum_{n=0}^{\infty} \left(\frac{1}{k}\right)^n = \left(k-1\right) \left[1 + \frac{1}{k} + \frac{1}{k^2} + ...\right]\\
 	a = 1, \ r = \frac{1}{k}
 \end{gather}
 $\frac{1}{k}$ is always less than 1 for $k > 1$. Hence:
-\begin{align}
-	S_{\infty,RHS} &= \frac{k-1}{1 - \frac{1}{k}}\\
-	&= \frac{k\left(k-1\right)}{k-1}\\
+\begin{gather}
+	S_{\infty,RHS} = \frac{k-1}{1 - \frac{1}{k}} = \frac{k\left(k-1\right)}{k-1}\\
 	S_{\infty,RHS} = k\\
-\end{align}
+\end{gather}
 LHS = RHS (for $k > 1$).
 \end{proof}
 \subsection*{b}
@@ -72,14 +69,10 @@ Differentiating three times yields:
 \end{align}
 Inputting $x=0$:
 \begin{align}
-	f(0) &= 0 \cdot \left( 1 - 0 \right)^{-\frac{1}{2}}\\
-	&= 0\\
-	f'(0) &= \left(1 - 0 \right)^{-\frac{1}{2}} + \frac{0}{2} \left( 1-0\right)^{-\frac{3}{2}}\\
-	&= 1\\
-	f''(0) &= \left( 1-0 \right)^{-\frac{3}{2}} + \frac{3\cdot 0}{4} \left( 1-0 \right)^{-\frac{5}{2}}\\
-	&= 1\\
-	f'''(0) &= \frac{9}{4} \left( 1-0 \right)^{-\frac{5}{2}} + \frac{15 \cdot 0}{8} \left( 1-0 \right)^{-\frac{7}{2}}\\
-	&= \frac{9}{4}
+	f(0) &= 0 \cdot \left( 1 - 0 \right)^{-\frac{1}{2}} = 0\\
+	f'(0) &= \left(1 - 0 \right)^{-\frac{1}{2}} + \frac{0}{2} \left( 1-0\right)^{-\frac{3}{2}} = 1\\
+	f''(0) &= \left( 1-0 \right)^{-\frac{3}{2}} + \frac{3\cdot 0}{4} \left( 1-0 \right)^{-\frac{5}{2}} = 1\\
+	f'''(0) &= \frac{9}{4} \left( 1-0 \right)^{-\frac{5}{2}} + \frac{15 \cdot 0}{8} \left( 1-0 \right)^{-\frac{7}{2}} = \frac{9}{4}
 \end{align}
 General form of Maclaurin series:
 \begin{align}
@@ -583,4 +576,5 @@ The values for the variables $w$, $wE$ and $d$ are shown below.
  \end{tabular}
  \caption{Values for $w$, $wE$ and $d$.}
 \end{table}
+As seen in the table above, our error term is on the magnitude of $10^{-4}$ which is a relatively tiny error. Hence, our approximation is useful.
 \end{document}
