@@ -136,7 +136,8 @@ This leads to:
   \delta_i = \int_0^L \frac{M}{EI} \frac{\partial M}{\partial P_i}\dif x
 \end{gather}
 \section{Examples and applications}
-\subsection{Example 1}
+\subsection{Dummy loads}
+\subsubsection{Example 1}
 Determine the deflection of the free end of the beam in the direction of $P$.
 \begin{figure}[H]
   \centering
@@ -152,6 +153,7 @@ Castigliano's theorem:
   \delta = \int_0^L \frac{\partial}{\partial P} \left(\frac{M^2}{2EI}\right) \, \dif x = \int_0^L \frac{\partial }{\partial P} \left(\frac{P^2 x^2}{2EI}\right)\, \dif x = \int_0^L \frac{Px^2}{EI} \, \dif x = \frac{PL^3}{3EI}\\
   \delta = \frac{PL^3}{3EI}
 \end{gather}
+\subsubsection{Example 2}
 \begin{figure}[H]
   \centering
   \includegraphics[width = 0.7\textwidth]{../img/diagram16.png}
@@ -170,4 +172,27 @@ Substituting:
   \delta = \int_0^L \frac{1}{EI} \left(-\frac{wx^2}{2}\right)\left(-x\right)\, \dif x = \frac{w}{2EI} \int_0^L x^3 \, \dif x = \frac{wL^4}{8EI}
 \end{align}
 Note: as $P_0 x$ and $M_0$ are dummy loads, they do not need to be included in our final equation for $\delta$.
+\subsection{Curved beams}
+In many applications beams are curved in the form of circular arcs, rather than straight. Standard formulae used for straight beam deflections cannot be used for curved beams. In this case the application of Castigliano's theorem allows for a solution.
+\begin{quotation}
+  \textbf{Thin curved beams} are characterised by a beam depth which is small compared to the radius of curvature.
+\end{quotation}
+As a result:
+\begin{itemize}
+  \item curvature effects and stress concentration in the cross-section are negligible: stresses are essentially linear like those of a straight beam
+  \item effects of normal and shear forces are typically negligible
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.4\textwidth]{../img/diagram17.png}
+  \caption{}
+\end{figure}
+In the case of curved beams, it is more convenient to refer to the angle $\theta$ than to to the beam length. The bending moment can be characterised as:
+\begin{itemize}
+  \item Contribution to bending moment from horizontal force $H$: $M_H$ = force $\cdot$ distance $ = H\cdot R \sin{\theta}$
+  \item Contribution to bending moment from vertical force $V$: $M_V$ = force $\cdot$ distance $ = V\cdot R \left(1-\cos{\theta}\right)$
+\end{itemize}
+\begin{equation}
+  M(\theta) = HR \sin \theta + VR \left(1-\cos\theta\right)
+\end{equation}
 \end{document}
