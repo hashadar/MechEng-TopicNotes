@@ -4,9 +4,11 @@
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{siunitx}
+\usepackage{multirow}
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{commath}
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
 \begin{document}
 \section{System types}
@@ -55,8 +57,11 @@ The \textbf{velocity error constant} for a \textit{type p} system is given by:
   \begin{center}
   \begin{tabular}{|c|c|c|c|}
     \hline
-    amend & & &\\
-    amend & & &\\
+    & \multicolumn{3}{c|}{Input type}\\
+    \cline{2-4}
+    No. Integrators & Step & Ramp & Acceleration\\
+    in denominator & $r(t) = a$ & $r(t) = at$ & $r(t) = \frac{at^2}{2}$\\
+    = system TYPE & $R(s) = \frac{a}{s}$ & $R(s) = \frac{a}{s^2}$ & $R(s) = \frac{a}{s^3}$\\
     \hline
     \hline
     0 & $e_{ss} = \frac{a}{1+k_p}$ & $e_{ss} = \infty$ & $e_{ss} = \infty$\\
@@ -208,5 +213,197 @@ These can be modelled as shown below, with a DC motor rotating an inertial load,
 \begin{gather}
   F(s) = \frac{G(s)}{1+ G(S)} = \frac{k_p k_m}{Is^2 + fs + k_p k_m}
 \end{gather}
-We have already seen this in our previous analysis of second order systems, and from changing $k_m$ from last last week. To summarise:
+We have already seen this in our previous analysis of second order systems, and from changing $k_m$ from last last week. To summarise: low values of $k_p$ give stable but slow responses, and high SSVL. High values reduce SSVL but response overshoots considerably. With proportional control the error \textit{and thus the control signal} does not reach zero until the motor is at the desired position.
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram119.png}}
+  \caption{}
+\end{figure}
+However, due to the inertia for the system, the motor continues to move even without a control signal, resulting in an overshoot.
+\subsection{PID control}
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.8\textwidth]{../img/diagram120.png}}
+  \caption{}
+\end{figure}
+\subsection{Derivative error}
+We can replicate this by considering the \textbf{derivative} of the error. 
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.8\textwidth]{../img/diagram121.png}}
+  \caption{}
+\end{figure}
+This is negative as the servo approaches the target, so offers a way of restraining the servos forward motion. Lets consider a derivative controller with unity proportional gain.
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.8\textwidth]{../img/diagram122.png}}
+  \caption{}
+\end{figure}
+The open loop transfer function now becomes type 1: 
+\begin{equation}
+  G' = \frac{\left( 1 + K_D s \right) k_m}{Is^2 + fs}
+\end{equation}
+Giving a \textit{closed loop transfer function} of:
+\begin{gather}
+  F(s) = \frac{G'(s)}{1 + G'(s)} = \frac{\left( 1 + K_D s \right)k_m}{Is^2 + fs + \left( 1+K_D s\right)k_m}\\
+  F(s) = \frac{k_m K_d s + k_m}{Is^2 + \left( f + k_m K_D\right)s + k_m}
+\end{gather}
+System is still second order but now there is a zero in the numerator. The effect of this is subtle compared to the change in the poles. More importantly, lets consider the SSVL of this system:
+\begin{align}
+  k_v = \lim_{s\rightarrow 0} s G'(s) = \frac{s \left( 1+K_D s\right) k_m}{s\left( Is + f \right)} = \frac{k_m}{f}
+\end{align}
+So, unlike velocity feedback, the SSVL is unchanged by derivative error. So we can improve transient response without compromising steady state error. The effect on the step response is similar to that of the minor loop velocity feedback.
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram123.png}}
+  \caption{}
+\end{figure}
+The poles of the system become less oscillatory and decay quicker. This combined with a reduced proportional gain, gives an improved transient response. This is clear when looking at the step response, and the relative contributions of the two error terms.
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram124.png}}
+  \caption{}
+\end{figure}
+At the start, the derivative term is significant \textit{and in the opposite direction to} the proportional error term, but becomes negligible as the system settles.
+\subsection{PID control}
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram125.png}}
+  \caption{}
+\end{figure}
+\subsection{Integral error}
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram126.png}}
+  \caption{}
+\end{figure}
+Further, if we consider the \textbf{integral} or total error over time. This gradually increases over time, and can be used to magnify the control signal for small errors, and improve SSE. The integral of the error is used for correcting steady state errors, as it adds a pole at zero in the transfer function. This increases type.
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram127.png}}
+  \caption{}
+\end{figure}
+\begin{gather}
+  G' = \frac{\left(1 + \frac{K_I}{s}\right) k_m}{Is^2 + fs} = \frac{\frac{1}{s} \left(s + K_I \right)k_m}{s \left(Is + f\right)}\\
+  G' = \frac{k_m s + k_m K_I}{s^2 \left(Is + f\right)}
+\end{gather}
+With a closed loop transfer function of:
+\begin{gather}
+  F(s) = \frac{G'(s)}{1 + G'(s)} = \frac{k_m s + k_m K_I}{s^2 \left( Is + f\right) + k_m s +k_m K_I}\\
+  F(s) = \frac{K-m s + k_m K_I}{Is^3 + fs^2 + k_m s + k_m K_I} \label{3rdOTF}
+\end{gather}
+Eq.\ref{3rdOTF} is a third order transfer function. Increasing the system type improves the steady state response:
+\begin{gather}
+  k_v = \lim_{s\rightarrow 0} sG'(s) = \frac{s\left( k_m s + k_m K_I \right)}{s^2 \left( Is + f \right)}\\
+  k_v = \frac{k_m K_I}{0} = \infty \\
+  \textrm{SSVL} = \frac{a}{k_v} = 0
+\end{gather}
+We now have no velocity lag! The effect of an extra pole close to the origin - which would make our system \textit{very slow} - is largely cancelled out by the nearby zero. 
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram128.png}}
+  \caption{}
+\end{figure}
+This means the system is broadly similar to a proportional controller, with the exception of improved steady state performance.
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram129.png}}
+  \caption{}
+\end{figure}
+We can see that the integral term has enabled proper tracking of a ramp input.
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram130.png}}
+  \caption{}
+\end{figure}
+This is useful for overcoming steady state errors arising from nonlinearities not included in the model which prevent proper tracking in reality.
+\subsection{PID control}
+Putting all three of these controllers together gives the complete PID.
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram131.png}}
+  \caption{}
+\end{figure}
+\begin{align}
+  G_c (s) = K_P + K_D s + \frac{K_I}{s} = \frac{K_D s^2 + K_P s + K_I}{s}
+\end{align}
+Open loop gain:
+\begin{align}
+  G'(s) = \frac{k_m \left( K_D s^2 + K_P s + K_I \right)}{s^2 \left( Is + f \right)}
+\end{align}
+The closed loop transfer function is then:
+\begin{align}
+  F(s) &= \frac{k_m \left(K_D s^2 + K_P s + K_I\right)}{s^2 \left( Is + f\right) + k_m \left(K_D s^2 + K_P s +K_I \right)}\\
+  F(s) &= \frac{k_m K_D s^2 + k_m K_P s + k_m K_I}{Is^3 + fs^2 + k_m K_D s^2 + k_m K_P s + k_m K_I}\\
+  F(s) &= \frac{k_m K_D s^2 + k_m K_P s + k_m K_I}{Is^3 + \left( f +k_m K_D\right) s^2 + k_m K_P s + k_m K_I}
+\end{align}
+Thus, by choosing the appropriate values of $K_P$, $K_D$ and $K_I$, it is possible to design a controller with improved transient response \textbf{and} decreased/no steady state error (in theory). There is no unique solution for the settings of the three gains, and so the values are dependent upon the specific system and the application.
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram132.png}}
+  \caption{}
+\end{figure}
+Selecting these parameters is known as \textbf{tuning}, and it was (and still is in machine learning circles) a very active area of research. These controllers are used everywhere, and can even be applied with acceptable results with little or no knowledge of the system being controlled!
+
+If we set one of the gains to zero, then we remove that term from the controller, e.g. 
+\begin{align}
+  K_I \rightarrow 0 \textrm{ PID becomes PD controller}
+\end{align}
+Qualitatively, the three terms can be thought of as follows:
+\begin{itemize}
+  \item Proportional - tries to reach target as soon as possible
+  \item Derivative - resists overshooting
+  \item Integral - Corrects for steady state errors
+\end{itemize}
+Consider our servo model, each controller changes the step response in the following ways: 
+\begin{figure}[H]
+  \centerline{\includegraphics[width = 0.6\textwidth]{../img/diagram133.png}}
+  \caption{}
+\end{figure}
+P - Initially chosen to give $\zeta$ close to 0.7 for acceptable transient response. PI - I term has little effect on the transient response for this \textbf{TYPE 1} system. Steady state error technically 0, but may improve in practice. Open loop transfer function:
+\begin{equation}
+  G(s)H(s) = \frac{\left(s-z_1\right) \left(s-z_2\right) \left(s-z_3\right)...}{s^p \left(s-\sigma_1\right) \left(s-\sigma_2\right) \left(s-\alpha_k + j \omega_k\right) \left(s- \alpha_k - j \omega_k\right)...}
+\end{equation}
+\begin{table}[H]
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    & \multicolumn{3}{c|}{Input type}\\
+    \cline{2-4}
+    No. Integrators & Step & Ramp & Acceleration\\
+    in denominator & $r(t) = a$ & $r(t) = at$ & $r(t) = \frac{at^2}{2}$\\
+    = system TYPE & $R(s) = \frac{a}{s}$ & $R(s) = \frac{a}{s^2}$ & $R(s) = \frac{a}{s^3}$\\
+    \hline
+    \hline
+    0 & $e_{ss} = \frac{a}{1+k_p}$ & $e_{ss} = \infty$ & $e_{ss} = \infty$\\
+    \hline
+    1 & $e_{ss} = 0$ & $e_{ss} = \frac{a}{k_v}$ & $e_{ss} = \infty$\\
+    \hline
+    2 & $e_{ss} = 0$ & $e_{ss} = 0$ & $e_{ss} = \frac{a}{k_a}$\\
+    \hline
+  \end{tabular}
+  \end{center}
+  \caption{}
+\end{table}
+PD - D term improves transient response as enabling higher P weighting to be used, but with a reduced overshoot. Steady state unchanged. PID - Again, transient response largely unchanged, but potential benefits in steady state. 
+\subsection{Choosing the weightings}
+The above figure was generated using a transfer function of a model of a servo system, and MATLAB's implementation of some commonly used "tuner" algorithms, where err on the side of caution.
+\begin{quote}
+  THESE ARE ONLY AS GOOD AS YOUR MODEL
+\end{quote}
+\subsection{PID control}
+Implementing a basic PID controller is a comparatively simple task compared to that of analysing the system and choosing the coefficients. An example Arduino code is showing, assuming \textbf{Setpoint} determined elsewhere and \textbf{Input} receives the data from the feedback path.
+\begin{verbatim}
+  void Compute()
+{
+  /*How long since we last calculated*/
+  unsigned long now = millis();
+  double timeChange = (now - lastTime);
+
+  /*Compute all the working error variables*/
+  double error = Setpoint - Input;
+
+  errSum = errSum+ (error * timeChange);
+
+  double dErr = (error - lastErr) / timeChange;
+
+  /*Compute PID Output*/
+  Output = kp * error + ki * errSum + kd * dErr;
+
+  /*Remember some variables for next time*/
+  lastErr = error;
+  lastTime = now;
+}
+\end{verbatim}
+The process above is to get $\dif T$, calculate the error $E(s)$, update $\dif E \ \left(\frac{E(s)}{s}\right)$, est $\frac{\dif E}{\dif t} \ sE(s)$. We also know:
+\begin{equation}
+  G_c (s) = K_P + K_D s + \frac{K_I}{s}
+\end{equation}
+The new control signal \textbf{Output} is then sent to the system. This code could be used for a vast majority of simple applications, with the \textbf{input} and \textbf{output} and \textbf{set point}, being application specific. However, selecting the correct setpoint is easier said than done! In fact much of the field of robots could be seen (very cleverly) deciding \textit{what} the next set point should be. 
 \end{document}
