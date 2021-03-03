@@ -181,7 +181,7 @@ The \textit{maximum normal strain theory} was completed by Grashof, who introduc
 \end{itemize}
 Applicability:
 \begin{quotation}
-  \textbf{the maximum normal strain theory is reliable for the stufy of brittle materials with tensile and compressive strengths not very different, subjected to states of stress different from the hydrostatic compression.}
+  \textbf{the maximum normal strain theory is reliable for the study of brittle materials with tensile and compressive strengths not very different, subjected to states of stress different from the hydrostatic compression.}
 \end{quotation}
 It was the first principle to consider the interaction between principal stresses.
 \section{Maximum shear stress theory}
@@ -324,4 +324,100 @@ Applicability:
   \textbf{The maximum strain energy theory can be used for the study of ductile materials. It is usually very conservative, especially close the hydrostatic states of stress.}
 \end{quotation}
 It was the first principle based on energetic considerations.
+\subsection{Distortion-energy theory}
+Any three-dimensional state of deformation can be modelled as the result of two components.
+\begin{itemize}
+  \item a \textbf{hydrostatic component}, producing only a volume change
+  \item a \textbf{distortional component}, producing only angular distortions, without volume changes
+\end{itemize}
+The criterion proposed by von Mises assumes that not all elastic-energy contributes to yielding, but only the distortional component.
+\begin{quotation}
+  \textbf{Yielding occurs whenever the distortion strain energy density equals the distortion strain energy density that produces yielding in a tension-test specimen of the same material.}
+\end{quotation}
+\begin{gather}
+  \frac{\dif W_{DY}}{\dif V} < \frac{\dif W_{DY}}{\dif V}
+  \frac{\dif W}{\dif V} = \frac{1}{2E} \left[ \sigma_1^2 + \sigma_2^2 + \sigma_3^2 - 2\nu \left( \sigma_1 \cdot \sigma_2 + \sigma_2 \cdot \sigma_3 + \sigma_1 \cdot \sigma_3 \right) \right]
+\end{gather}
+Hydrostatic stress component is:
+\begin{equation}
+  \sigma_{oct} = \frac{\sigma_1 + \sigma_2 + \sigma_3}{3}
+\end{equation}
+Then, strain energy associated with change of volume is:
+\begin{align}
+  \frac{\dif W_V}{\dif V} &= \frac{1}{2} \left( \sigma_{oct} \cdot \epsilon_1 + \sigma_{oct} \cdot \epsilon_2 + \sigma_3 \cdot \epsilon_3\right) = \frac{\sigma_{oct}}{2} \left(\epsilon_1 + \epsilon_2 + \epsilon_3\right)\\
+  &= \frac{1 - 2\nu}{6E} \left[\sigma_1^2 + \sigma_2^2 + \sigma_3^2 + 2 \left(\sigma_1\cdot\sigma_2 + \sigma_2\cdot\sigma_3 + \sigma_1\cdot\sigma_3\right)\right]
+\end{align}
+The strain energy associated with distortion (change of shape) is:
+\begin{gather}
+  \frac{\dif W}{\dif V} - \frac{\dif W_V}{\dif V} = \frac{1+ \nu}{6E} \left[\left(\sigma_1 - \sigma_2\right)^2 + \left(\sigma_2-\sigma_3\right)^2 + \left(\sigma_3-\sigma_1\right)^2\right]\\
+  \frac{\dif W_{DY}}{\dif V} = \frac{1+\nu}{6E} 2 \sigma_Y^2 \rightarrow \sqrt{\frac{\left(\sigma_1-\sigma_2\right)^2 + \left(\sigma_2-\sigma_3\right)^2 + \left(\sigma_3-\sigma_1\right)^2}{2}} < \sigma_Y
+\end{gather}
+Representing the points of safety in a plane $\sigma_1$, $\sigma_2$, $\sigma_3 = 0$, an ellipse is described. Representing the points of safety in a space $\sigma_1$, $\sigma_2$, $\sigma_3$, a cylinder of circular section, with axis along the trisection to the planes is defined.
+\begin{figure}
+  \begin{center}
+    \begin{minipage}[b]{0.46\textwidth}
+      \centering
+      \includegraphics[width = \textwidth]{../img/diagram94.png}
+      \caption{}
+    \end{minipage}
+    \begin{minipage}[b]{0.46\textwidth}
+      \centering
+      \includegraphics[width = \textwidth]{../img/diagram95.png}
+      \caption{}
+    \end{minipage}
+  \end{center}
+\end{figure}
+In the Mohr's representation, the result is similar to the one obtained with Tresca representation, but in the region close to the $\tau$-axis the advantage due to interaction between the principal stress becomes significant.
+\begin{figure}[H]
+  \centering
+  \includegraphics[height = 5cm]{../img/diagram96.png}
+  \caption{}
+\end{figure}
+Applicability:
+\begin{quotation}
+  \textbf{The distortion-energy theory is the one that better describes the experimental behaviour of ductile materials. It does not limit hydrostatic compressive loads (in agreement with experimental evidence). Contrary to Tresca theory, it does consider the benefit given by the intermediate principal stress.}
+\end{quotation}
+The main limitation of the distortion-energy theory is that it does not predict the failure under hydrostatic tension.
+\subsection{Comparison with experiments}
+\begin{figure}[H]
+  \centering
+  \includegraphics[height = 7cm]{../img/diagram97.png}
+  \caption{}
+\end{figure}
+\section{Experimental criteria}
+\subsection{Mohr's criterion}
+The failure criterion proposed by Mohr differs from previous criteria because it is purely experimental.
+\begin{quotation}
+  \textbf{The Mohr's circles from a number of tests, under different stress conditions, can be enveloped by a failure curve. Failure occurs whenever the Mohr's circle describing the state of stress in the material becomes tangent to the failure envelope.}
+\end{quotation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \textwidth]{../img/diagram98.png}
+  \caption{}
+\end{figure}
+In the case of brittle materials, the failure envelope has a shape similar to the one in Fig.\ref{mohrscriterion1}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[height = 5cm]{../img/diagram99.png}
+  \caption{}
+  \label{mohrscriterion1}
+\end{figure}
+\subsection{Coulomb-Mohr's criterion}
+For this case, \textit{Coulomb-Mohr} criterion uses a simplified envelope, obtained by simply performing one tensile test and one compressive test. The two Mohr's circles relative to the tests are joined with straight tangent lines.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \textwidth]{../img/diagram100.png}
+  \caption{}
+\end{figure}
+Applicability:
+\begin{quotation}
+  \textbf{The Coulomb-Mohr criterion is reliable for the study of brittle materials, and gives conservative results.}
+\end{quotation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[height = 7cm]{../img/diagram101.png}
+  \caption{}
+\end{figure}
+\section{Conclusion}
+For brittle materials, the maximum principal stress or Coulomb-Mohr criteria are most suitable. For bi-axial stress conditions, the Coulomb-Mohr modified criteria are preferable, provided that reliable test data are available for tension, compression and torsion. For ductile materials, the von Mises "distortion-energy" theory is the most reliable. The Tresca maximum shear stress theory is more conservative (i.e. the safest) and has a simple formula.
 \end{document}
