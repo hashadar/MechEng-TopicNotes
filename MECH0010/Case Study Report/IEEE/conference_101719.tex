@@ -4,6 +4,10 @@
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
+\usepackage{url}
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
@@ -22,11 +26,17 @@ This document is a piece of coursework for the Control and Instrumentation modul
 \end{abstract}
 
 \begin{IEEEkeywords}
-component, formatting, style, styling, insert
+\url{https://www.analog.com/en/analog-dialogue/articles/how-to-control-fan-speed.html#}
 \end{IEEEkeywords}
 
 \section{Product overview}
+The product chosen is a CPU cooler called the Intel Thermal Solution, designed for Intel processors. The part number of the CPU cooler is E97379-003 and there are three manufacturers: Delta, Foxconn and Nidec. 
+
+The purpose of the Intel Thermal Solution is to provide cooling to the processor. During operation, the processor outputs heat energy, which must be drawn away from the chip to prevent overheating and damage to the processor and surrounding components. This is achieved through the use of a heat-sink and fan assembly. The heat sink is attached to the processor via mounting hardware on the motherboard. A film of thermal paste is also added in between the heat sink and the processor to aid thermal conduction. On top of the heat sink is an impeller, which passes air through the fins of the heat sink, drawing heat energy away. This keeps the CPU cool and prevents overheating. Cooling the processor allows for more performance to be extracted from the processor before overheating occurs. 
+
+Feedback control is used here to control the speed of the fan. The fan does not need to run at the maximum possible speed at all times because the processor's thermal output is not constant, varying with processor load. As the fan also makes audible noise and consumes power whilst in use, it is desirable to be able to have the fan run at lower speeds when possible. The feedback loop in this system looks at the temperature of the processor and sets the fan speed accordingly. When the processor is in high-performance mode, the fan speed can be increased and when the processor is idling, it can be reduced. 
 \section{Feedback system}
+The goal of the feedback system is to provide the system with the information on the current temperature of the system. It is important to measure the actual temperature of the CPU as simply calculating the expected temperature based on processor load is not sufficient. Factors such as air temperature, airflow, humidity, dust and other environmental factors can all cause the temperature of the CPU to fluctuate. With this information, the closed loop system can make adjustments to the fan speed based. For example, on particularly hot days, the cooler may need to run at higher speeds to achieve the same amount of heat exchange. 
 \section{Transducers in feedback system}
 \section{Alternative transducers}
 \section{Expected nature of signal output}
@@ -240,7 +250,7 @@ For papers published in translation journals, please give the English
 citation first, followed by the original foreign-language citation \cite{b6}.
 
 \begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
+\bibitem{b1} Intel Corporation, ``Specifications and Datasheets of Intel\textsuperscript{\tiny\textregistered} Thermal Solution,'' URL: \url{https://www.intel.com/content/www/us/en/support/articles/000055841/processors.html} Accessed: 04-03-2021 18:05:21.
 \bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
 \bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
 \bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
