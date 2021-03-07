@@ -9,6 +9,7 @@
 \g@addto@macro{\UrlBreaks}{\UrlOrds}
 \makeatother
 \usepackage{graphicx}
+\usepackage{siunitx}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -26,11 +27,11 @@ This document is a piece of coursework for the Control and Instrumentation modul
 \end{abstract}
 
 \begin{IEEEkeywords}
-\url{https://www.analog.com/en/analog-dialogue/articles/how-to-control-fan-speed.html#}
+control, instrumentation, feedback system, closed loop control
 \end{IEEEkeywords}
 
 \section{Product overview}
-The product chosen is a CPU cooler called the Intel Thermal Solution, designed for Intel processors. The part number of the CPU cooler is E97379-003 and there are three manufacturers: Delta, Foxconn and Nidec. 
+The product chosen is a CPU cooler called the Intel Thermal Solution, designed for Intel processors. The part number of the CPU cooler is E97379-003 and there are three manufacturers: Delta, Foxconn and Nidec \cite{b1}
 
 The purpose of the Intel Thermal Solution is to provide cooling to the processor. During operation, the processor outputs heat energy, which must be drawn away from the chip to prevent overheating and damage to the processor and surrounding components. This is achieved through the use of a heat-sink and fan assembly. The heat sink is attached to the processor via mounting hardware on the motherboard. A film of thermal paste is also added in between the heat sink and the processor to aid thermal conduction. On top of the heat sink is an impeller, which passes air through the fins of the heat sink, drawing heat energy away. This keeps the CPU cool and prevents overheating. Cooling the processor allows for more performance to be extracted from the processor before overheating occurs. 
 
@@ -38,9 +39,41 @@ Feedback control is used here to control the speed of the fan. The fan does not 
 \section{Feedback system}
 The goal of the feedback system is to provide the system with the information on the current temperature of the system. It is important to measure the actual temperature of the CPU as simply calculating the expected temperature based on processor load is not sufficient. Factors such as air temperature, airflow, humidity, dust and other environmental factors can all cause the temperature of the CPU to fluctuate. With this information, the closed loop system can make adjustments to the fan speed based. For example, on particularly hot days, the cooler may need to run at higher speeds to achieve the same amount of heat exchange. 
 \section{Transducers in feedback system}
+The transducer used in our system is part of the processor to which the Thermal Solution is attached. Intel processors measure the temperature of each core by measuring the forward voltage drop of a silicon diode on the chip. This is usually a bipolar junction transistor and the forward voltage drop is temperature dependent. This dependence is described as follows \cite{b2}:
+\begin{multline}
+    V_{BE} = V_{G0} \left(1-\frac{T}{T_0}\right) + V_{BE0}\left(\frac{T}{T_0}\right) + \left(\frac{nKT}{q}\right)\ln\left(\frac{T_0}{T}\right) \\+ \left(\frac{KT}{q}\right)\ln\left(\frac{IC}{IC_0}\right) \label{azo1}
+\end{multline}
+where:
+\begin{itemize}
+    \item $n$ is a device-dependent constant
+    \item $q$ is the charge on an electron
+    \item $K$ is Boltzmann's constant
+    \item $V_{BE0}$ is the bandgap voltage at temperature $T_0$ and current $IC_0$
+    \item $V_{G0}$ is the bandgap voltage at absolute zero
+    \item $T$ is the temperature in \si{\kelvin}
+\end{itemize}
+The voltage is measured at two different currents and inputted into \eqref{azo1}, giving us a simplified equation:
+\begin{equation}
+    \Delta V_{BE} = \left(\frac{KT}{q}\right)\ln\left(\frac{IC_1}{IC_2}\right)
+    \label{bandgap}
+\end{equation}
+Looking at a similar silicon temperature sensor to the one used in a CPU chip (NXP PCT2075), we can look at the data sheet to find how accurate the sensor typically is. The power supply range is from \SI{2.7}{\volt} to \SI{5.5}{\volt}. This gives us temperatures ranging from between \SI{-55}{\celsius} to \SI{+125}{\celsius}. Within this temperature range, the accuracy of the temperature reading is $\pm$\SI{1}{\celsius} between \SI{-25}{\celsius} to \SI{+100}{\celsius} and $\pm$\SI{2}{\celsius} between \SI{-55}{\celsius} to \SI{+125}{\celsius} \cite{b3}. 
+
+The analogue output is converted with an 11-bit ADC that offers a temperature resolution of \SI{0.125}{\celsius}. The measurement is made every \SI{100}{\milli\second} and takes \SI{28}{\milli\second} to convert into bit data. The data is stored in the temperature register and can be read at any time. The register contains two 8-bit data bytes: one Most Significant Byte and one Least Significant Byte. The first significant bit is used as a positive (0) - negative (1) indicator and the other 10 significant bits are used to store the temperature data, the rest of the bits are not relevant to the temperature reading. For example, 011 1111 0001 converted from binary to decimal is 1009. This then needs to be multiplied with \SI{0.125}{\celsius} to get our temperature value, in this case being \SI{126.125}{\celsius}.
+
+A difference between the NXP chip and the transducer on a CPU chip are the activation states of the chips. The NXP chip has a temperature at which it activates ($T_{ots}$ and stays activated and then a reset temperature ($T_{hys}$ hysteresis factor). Compared to a CPU chip, there is only an upper temperature limit, above which the CPU will decrease its clock speed and even reduce its $VCC$ to avoid thermal damage. On an Intel i7-4790k chip, this temperature is \SI{100}{\celsius} (TCC activation temperature) \cite{b4}. The temperature is always monitored, when power is being received to the processor.
 \section{Alternative transducers}
-\section{Expected nature of signal output}
+An alternative transducer that can be used (and is used for testing purposes on Intel chips) is a thermocouple. This is attached to the integrated heat spreader by machining a groove to the geometric centre of the heat spreader. This thermocouple gives a different set of temperature readings (called $T_{case}$) than the silicon temperature sensors as they are in different positions. As the silicon sensors are embedded in the actual die of the CPU, they are closer to the source of heat than the thermocouple, which is only attached to the heat spreader. This results in the $T_{case}$ temperatures being lower than the core temperatures (which are called junction temperatures $T_{j}$).
+
+A thermocouple operates on the principle of joining two different metals at both ends (junctions). One junction is for measurement and the other is for reference. As the temperature rises or falls at the measuring junction, a voltage is generated. This is directly related to the temperature and can be converted by the reference with an appropriate table of values \cite{b5}. However, since this method of measurement requires altering the chip, it is unsuitable for use in the design environment of the product.
+
+Other transducers which could be used include a thermistor, which operates on the principle of resistance changing with temperature. They are durable, small and affordable. However, the nature of their output is non-linear and they are best suited to measuring a single point of temperature within a limited temperature range \cite{b6}. Their non-linear output would require there to be additional signal processing to extract the temperature data. 
+
+A silicon bandgap temperature sensor is the most suitable transducer in this system. As explored previously we do not need to add any additional components to the chip, resulting in an extremely compact package - important for a processor. They also provide a suitable degree of accuracy over a wide range of temperatures and have a linear output, allowing for easier signal processing. 
+\section{Expected nature of signal output from transducer}
+The signal output from our silicon temperature sensor is expected to be a linear signal, as defined by \eqref{bandgap}, as long as we keep the ratios of the currents the same. However, as with any system, a totally linear output is not received. 
 \section{Costs}
+\section{Accuracy of feedback system}
 \section{Limitations and improvements}
 
 \section{Introduction}
@@ -250,12 +283,12 @@ For papers published in translation journals, please give the English
 citation first, followed by the original foreign-language citation \cite{b6}.
 
 \begin{thebibliography}{00}
-\bibitem{b1} Intel Corporation, ``Specifications and Datasheets of Intel\textsuperscript{\tiny\textregistered} Thermal Solution,'' URL: \url{https://www.intel.com/content/www/us/en/support/articles/000055841/processors.html} Accessed: 04-03-2021 18:05:21.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
+\bibitem{b1} Intel Corporation, ``Specifications and datasheets of Intel\textsuperscript{\tiny\textregistered} Thermal Solution,'' URL: \url{https://www.intel.com/content/www/us/en/support/articles/000055841/processors.html} Accessed: 04-03-2021 18:05:21.
+\bibitem{b2} AZoSensors, ``An introduction to silicon bandgap temperature sensors,'' URL: \url{https://www.azosensors.com/article.aspx?ArticleID=369#:~:text=A%20silicon%20bandgap%20temperature%20sensor,integral%20stability%20of%20crystalline%20silicon.} Accessed: 06-03-2021 16:41:56.
+\bibitem{b3} NXP Semiconductors, ``PCT2075 product data sheet,'' URL: \url{https://www.nxp.com/docs/en/data-sheet/PCT2075.pdf} Accessed: 06-03-2021 17:19:32.
+\bibitem{b4} Intel Corporation, ``Desktop 4th Generation Intel\textsuperscript{\tiny\textregistered} Core\textsuperscript{\tiny TM} Processor Family, Desktop Intel\textsuperscript{\tiny\textregistered} Pentium\textsuperscript{\tiny\textregistered} Processor Family, and Desktop Intel\textsuperscript{\tiny\textregistered} Celeron\textsuperscript{\tiny\textregistered} Processor Family Datasheet – Volume 1 of 2, March 2015,'' URL: \url{http://www.intel.com/content/dam/www/public/us/en/documents/datasheets/4th-gen-core-family-desktop-vol-1-datasheet.pdf} Accessed: 06-03-2021 20:45:11.
+\bibitem{b5} Process Parameters Ltd, ``What is a thermocouple? How do they work?'' URL: \url{https://www.processparameters.co.uk/thermocouples-sensor/what-is-a-thermocouple/} Accessed: 06-03-2021 21:43:33
+\bibitem{b6} Pyrosales, ``What is a thermistor?'' URL: \url{https://www.pyrosales.com.au/blog/thermocouple-information/what-is-a-thermistor} Accessed: 06-03-2021 22:37:12
 \bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
 \end{thebibliography}
 \end{document}
