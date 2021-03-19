@@ -271,6 +271,45 @@ Lame's equations
     \caption{}
 \end{figure}
 \section{Thick-walled cylinders - longitudinal stress}
-\subsection{Cylinders with end-caps}
-How do we deal with the case of end caps pistons? (Triaxial stress state)
+How do we deal with the case of end caps pistons? (Triaxial stress state). We know:
+\begin{align}
+    \sigma_r &= C - \frac{D}{r^2} \\
+    \sigma_{\theta} &= C + \frac{D}{r^2}\\
+    \sigma_r + \sigma_{\theta} &= 2C = \textrm{const}
+\end{align}
+Triaxial stress state:
+\begin{gather}
+    \begin{array}{l}
+        \varepsilon_r = \frac{1}{E}\left[\sigma_{r} - v\left(\sigma_{\theta} + \sigma_z\right)\right]\\
+        \varepsilon_{\theta} = \frac{1}{E}\left[\sigma_{\theta} - v\left(\sigma_z + \sigma_r\right)\right]\\
+        \varepsilon_z = \frac{1}{E}\left[\sigma_z - v\left(\sigma_r + \sigma_{\theta}\right)\right]
+    \end{array} \hspace{1cm} 
+    \begin{array}{l}
+        \sigma_r = \frac{E}{\left(1+v\right)\left(1-2v\right)} \left[\left(1-v\right)\varepsilon_r + v\left(\varepsilon_{\theta} + \varepsilon_z\right)\right]\\
+        \sigma_{\theta} = \frac{E}{\left(1+v\right)\left(1-2v\right)} \left[\left(1-v\right)\varepsilon_{\theta} + v\left(\varepsilon_r + \varepsilon_z\right)\right]\\
+        \sigma_z = \frac{E}{\left(1+v\right)\left(1-2v\right)} \left[\left(1-v\right)\varepsilon_z + v\left(\varepsilon_{\theta} + \varepsilon_r\right)\right]
+    \end{array}
+\end{gather}
+We know that $\varepsilon_z$, $\frac{1}{E}$ and $v\left(\sigma_r + \sigma_{\theta}\right)$ are constant, therefore $\sigma_z$ is also constant. Longitudinal stresses can be estimated by simple equilibrium considerations.
+\begin{gather}
+    p \cdot \pi r_i^2 = \sigma_z \left(\pi r_0^2 - \pi r_i^2\right)\\
+    \sigma_z - p \frac{r_i^2}{r_0^2 - r_i^2}
+\end{gather}
+with $p = p_i - p_0$. In the case of end pistons, the longitudinal component of the stress can be superimposed. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 7cm]{../img/diagram116.png}
+    \caption{}
+\end{figure}
+\subsection{Thick vs thin cylinders}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 7cm]{../img/diagram117.png}
+    \caption{}
+\end{figure}
+Decreasing wall thickness with respect to radius, the hoop stress increases dramatically, but the radial stress does not change significantly. Assumptions of thin wall theories become more accurate:
+\begin{itemize}
+    \item constant hoop stresses
+    \item negligible radial stresses
+\end{itemize}
 \end{document}
