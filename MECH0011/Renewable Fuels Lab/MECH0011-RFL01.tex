@@ -15,6 +15,7 @@
 \usepackage{float}
 \usepackage{commath}
 \usepackage{siunitx}
+\usepackage{multirow}
 \usepackage[a4paper,margin=20mm]{geometry}
 \setlength{\parskip}{\baselineskip}%
 \setlength{\parindent}{0pt}%
@@ -123,6 +124,67 @@ Lastly, it is important to consider whether it is appropriate to evaluate the sy
 \section*{Question 5}
 \section*{Question 6}
 \section*{Question 7}
+{\centering
+  \underline{Part A: On Production}\par
+}
+
+A study published by the Royal Society of Chemistry CITATION shows that the esterification of valeric acid (VA) with ethanol catalysed by amino acid ionic liquids is a promising route of production for ethyl valerate (EV). VA is obtained from cellulosic materials, a cheap and abundant renewable feedstock for biofuels which, importantly, does not compete with food supply like biofuels derived from starch-based plants.
+
+Several amino acid ionic liquids can be used to catalyse the esterification process, including proline bisulfate (\ce{ProHSO4}), glycine bisulfate (\ce{GlyHSO4}), and alanine bisulfate (\ce{AlaHSO4}). The synthesis of these catalysts involves processes in water without by-products and post-processing, thus these preparations are highly efficient and low cost. 
+
+The esterification process catalysed by \ce{ProHSO4} shows the most promise, with conversion rate above 99.9\% and 100\% selectivity for a 7-hour reaction at \SI{80}{\celsius}. As a comparison, the esterification process produced no EV in the absence of an acidic catalyst at room temperature and only 67\% of EV found using concentrated sulfuric acid at \SI{80}{\celsius}. The lipase process took up to 9 days to reach a conversion rate of 97.8\% and is thus much less efficient. 
+
+The difference is due to the reaction mechanism. The reactants and ionic liquid catalyst are miscible in a single phase before reaction, but the produced EV has low solubility in the ionic liquid, resulting in a biphasic system, in which the unreacted VA and ethanol remained in the ionic liquid layer. Additionally, \ce{ProHSO4} acts as water absorbent since water as a by-product is also miscible in the ionic liquid layer, thus shifting the equilibrium of the reaction to the products without water removal. As a result, \ce{ProHSO4} facilitates the auto phase separation of the product from the reactants and by-products, favouring the conversion of VA and achieving a high EV yield, whilst restraining the reversible reaction of the ester. 
+
+\ce{ProHSO4} is also easily recyclable from the products by a simple removal of water under vacuum taking place at \SI{100}{\celsius} for two hours. The reused catalyst showed similar catalytic performance to the original, with EV yield remaining above 95\% for five additional cycles of the reused catalyst.   
+
+The sources of these lignocellulosic biomass from which VA is derived must also be considered when discussing EV as a potential biofuel. The revised Renewable Energy Directive (EU) 2018/2001 emphasises the direct negative impact the procurement of biomass may have due to indirect land use change (ILUC). The production of biofuel may lead to the extension of agricultural land into areas with high carbon stock such as forests, wetlands and peatlands, the clearing of which may negate the positive effects of greenhouse gas savings from the increased use of biofuels. CITATION
+
+One way to mitigate the impact of ILUC is to produce lignocellulosic biomass from crop residues of agriculture, which does not require the extension of agricultural land. A study published in GCB Bioenergy CITATION estimated that in the reference period from 2011 to 2015, the total production of lignocellulosic material from crop residues in the EU28 is 419MT. From this estimate a sustained supply of crop residue for the production of biofuels can be deduced, though there are other important applications for crop residues, such as those related to soil quality and resilience.  
+
+Additionally, the design of the supply chain is an important factor when considering the economic and environmental sustainability of our biofuel, of which the transportation of biomass plays a critical role. As such, the location of residue production within the EU28, the distance between production, processing and consumption hotspots, the timing of biomass supply, and the variability of crop yields year on year due to weather fluctuations are all critical factors to examine. Moreover, the GHG emissions during the transportation of the biomass must also be accounted for in the life cycle assessment of our biofuel.
+
+In conclusion, ethyl valerate shows great promise of displacing gasoline if its production is catalysed by amino acid ionic liquids, namely proline bisulfate (\ce{ProHSO4}). The time and temperature of the production processes are relatively low whilst achieving conversion and selectivity of nearly 100\%. Ethanol is readily available, and the catalyst can be easily mass-produced due to the lack of post processing needed. Additionally, \ce{ProHSO4} is easily recyclable and can be reused multiple times with minimal impact on catalytic activity, improving its economic and environmental sustainability.
+
+The main feedstock of lignocellulosic biomass, from which valeric acid is derived, is crop residues from agriculture and they are expected to play a major role in the production of advanced biofuels. Of course, valeric acid is not the only use of biomass both in the context of biofuel production and agricultural applications, though an optimised supply chain will increase the availability and decrease the cost of procurement. The design of the supply chain is a complicated process due to the factors mentioned previously, but also presents exciting opportunities, such as the densification of biomass with techniques such as baling, peleting, and pyrolysis to reduce logistic costs CITATION. Ongoing research in this field and government incentives such as the EU’s Horizon 2020 program shows there is great potential for crop residues as a feedstock for lignocellulosic biomass.   
+
+{\centering
+  \underline{Part B: On Efficiency and Emissions}\par
+}
+
+The efficiency and emissions of the ethyl valerate test fuel blend must also be examined to better judge its suitability in replacing gasoline. For all spark timings investigated, the thermal efficiency of the ethyl valerate test fuel blend was higher when compared to gasoline (see FIGURE X). This is caused by the lower indicated specific fuel consumption using the test fuel blend at all spark timing when compared to gasoline (not including test 4). This result is slightly unexpected given the higher energy density of gasoline, meaning the ISFC of gasoline should be lower.
+
+The reason for this is likely to be the narrow range of spark timings investigated. As previously mentioned, experimental data has shown 31 CAD BTDC to be the optimal spark timing for the combustion of gasoline in a spark ignition engine. If the range of spark timings investigated were to be increased, we would likely see a range of spark timings across which the ISFC of gasoline was higher than the test fuel blend, leading to higher thermal efficiencies. 
+
+For all spark timings investigated, the emissions of both \ce{CO2} and $\text{NO}_{\text{x}}$ were lower for the test fuel blend when compared to gasoline. Additionally, the emissions of both gases were lower for earlier spark timings when using the test fuel blend; whilst the opposite was true for gasoline, emissions were higher for earlier spark timings.
+
+The difference in the amount of \ce{CO2} produced can be explained by the chemical composition of the fuels. Since gasoline, whose main component is octane (\ce{C8H18}), is more carbon heavy than ethyl valerate (\ce{C7H14O2}), thus blending ethyl valerate with gasoline will reduce the carbon dioxide produced during combustion. Similarly, since more air is required for the combustion of air with gasoline than the test fuel blend, more $\text{NO}_{\text{x}}$ is produced since the formation of it is highly oxygen dependent. 
+
+Interestingly, temperature and fuel viscosity dependence seem to have little effect on the $\text{NO}_{\text{x}}$ emissions. Theoretically, $\text{NO}_{\text{x}}$ emissions increase with both increasing combustion temperature and fuel viscosity. Table \ref{q7-t1} shows that for all spark timings, the exhaust gasses are hotter for the test blend when compared to gasoline, which suggest combustion temperatures are higher. Furthermore, the test blend had a much higher viscosity of $\SI{1.08}{\milli\pascal\second}$ compared to $\SI{0.61}{\milli\pascal\second}$ for gasoline. 
+
+\begin{table}[H]
+	\begin{center}
+	\begin{tabular}{c c c}
+		\toprule
+		\multirow{2}{*}{Spark Timing} & \multicolumn{2}{c}{Average Exhaust Gas Temperature (Celsius)} \\
+		\cmidrule{2-3} & 10\% Ethyl Valerate & Reference Gasoline \\
+		\midrule
+		10 CAD BTDC & 477.7 & 461.1 \\
+		\midrule
+		13 CAD BTDC & 492.7 & 481.0 \\
+		\midrule
+		16 CAD BTDC & 493.3 & 484.3 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Average exhaust gas temperature for all spark timings.}
+	\label{q7-t1}
+	\end{center}
+\end{table}
+
+Both factors suggest that $\text{NO}_{\text{x}}$ emissions should be higher for the ethyl valerate test blend, though we do not observe this in our data. Again, it is important to note the narrow range of spark timings across which our results were collected. Plotting $\text{NO}_{\text{x}}$ emissions against spark timing (see FIGURE X) suggest that $\text{NO}_{\text{x}}$ emissions for ethyl valerate will increase beyond the $\text{NO}_{\text{x}}$ emissions for gasoline, which looks to have reached a maximum near 10 CAD BTDC. However, these trends are by no means conclusive and must be tested experimentally.
+
+In conclusion, ethyl valerate performed better than gasoline at all spark timings both in terms of thermal efficiency and pollutant emissions. However, due to the narrow range of spark timings investigated, the test fuel blend cannot conclusively be recommended as a potential replacement for gasoline. At different spark timings, gasoline may outperform the test fuel blend. The analysis would also benefit from data about additional pollutants such as unburnt fuel, carbon monoxide, and particulates. Furthermore, efficiency and emissions are not the only parameters to be examined. For example, for power sensitive applications such as high-performance vehicles, IMEP is a much more important parameter to consider. Overall, the performance the ethyl valerate test fuel blend shows promise, though much more data would be needed to make a definitive judgement. 
+
 \section*{Results and discussion}
 \section*{Conclusions}
 \begin{thebibliography}{00}
