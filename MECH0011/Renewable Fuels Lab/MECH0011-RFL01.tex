@@ -26,10 +26,13 @@
 \setlength{\parindent}{0pt}%
 \sisetup{detect-all}
 \begin{document}
-\section*{Abstract}
-\section*{Introduction}
-\section*{Experimental setup and methodology}
-\section*{Question 1}
+\tableofcontents
+\listoffigures
+\listoftables
+\section{Abstract}
+\section{Introduction}
+\section{Experimental setup and methodology}
+\section{Question 1}
 \subsection*{Averaged in-cylinder pressure (vs. CAD) and heat release trace (vs. CAD)}
 In order to calculate the averaged in-cylinder pressure, the data recorded for 50 individual pressure cycles in each test are averaged for each fuel. Then for each spark timing, mean of the corresponding tests are taken to eliminate cycle-to-cycle variation and are plotted against Crank Angle Degree (CAD), as shown in Figure \ref{q1-f1} and Figure \ref{q1-f2}. 
 \begin{figure}[H]
@@ -166,7 +169,7 @@ Looking at Tables \ref{q1-t1} and \ref{q1-t2}, both gasoline and 10\% ethyl-vale
 These results are expected as earlier spark ignition time would result in earlier combustion of the fuel, which decreases the CAD at which net peak heat release rate and pressure occurs, resulting in a shift towards left. Furthermore, the early ignition results in higher average in-cylinder pressure, and thus higher IMEP. This may be due to most of the combustion happening near TDC as the spark timing advances BTDC. As the combustion occurs closer to TDC, more of the product gas will expand and increase the work output on the piston by pushing it down. The peak pressure at the combustion closer to TDC therefore will be higher as it will occur in lower cylinder volume. However, if the spark timing is too early and the combustion happens as the piston is rising before TDC, the performance will drop significantly CITATION. Moreover, as the heat release trace depends on in-cylinder pressure, the apparent net peak release rate is higher in earlier ignition time. The higher pressure increase rate in earlier ignition time causes more heat to be released faster CITATION. 
 
 Comparing the fuels, gasoline has higher overall IMEP and Apparent net peak release rate than 10\% ethyl-valerate, seen respectively from Figure \ref{q1-f5} and Figure \ref{q1-f7} Moreover, the peak CAD was earlier in gasoline than that of ethyl-valerate, seen in Figure \ref{q1-f8}. As IMEP is directly related with work done on the piston, it is safe to say that gasoline has better performance compared to 10\% ethyl-valerate. 
-\section*{Question 2}
+\section{Question 2}
 \subsection*{Average emissions of \ce{CO}, \ce{CO2}, \ce{NO_x}}
 In order to calculate the average \ce{CO2} and \ce{NO_x} emissions, the emission data acquired from the sensors are plotted against time for every test. When possible, the stable region with low variance is selected to average the emissions. The calculated \ce{CO2} and \ce{NO_x} emission means for each test and average of each spark ignition time can be seen in Table \ref{q2-t1} and \ref{q2-t2}.
 \begin{table}[H]
@@ -260,7 +263,7 @@ There are a few errors that could have caused errors in calculations.
     \item It is possible that the measuring instrument used to detect \ce{NO_x} and \ce{CO2} emissions may have errors, especially calibration error.
     \item The heat released may not be uniformly distributed, which makes the measurement inaccurate and leads to deviations from the calculated values. 
 \end{enumerate}
-\section*{Question 3}
+\section{Question 3}
 The lower heating value is the amount of heat released in the complete combustion of a specific quantity of fuel at standard conditions (\SI{25}{\celsius} and \SI{1}{\bar}), without recovering the latent heat of vaporization from the water vapour content in the gaseous products CITATION. The LHV is preferred to HHV in relation to internal combustion engines as it is not practical to recover the energy contained in the gaseous water vapour in typical ICEs, as this would require cooling the combustion products until the water vapour condenses. In most engines the vapour is expelled from the system as part of the hot exhaust gases and is therefore unavailable to do useful work. 
 
 Heating values may be determined using a calorimeter or derived empirically by considering an energy balance, as will be done here. The heating value of the renewable fuel, ethyl valerate (\ce{C7H14O2}), was estimated by considering its stoichiometric combustion in dry air. The chemical equation is presented as follows: 
@@ -354,12 +357,12 @@ In general, the LHV is an inaccurate estimate for heat input to the system. As m
 Additionally, as mentioned previously since the power output is an overestimate, since it was derived from the IMEP which this does not consider frictional losses which may occur in the moving parts of an ICE. Hence, the useful power will be lower in practical purposes and thus the thermal efficiencies calculated are also an overestimate. 
 
 Lastly, it is important to consider whether it is appropriate to evaluate the system using thermodynamic analysis. Thermodynamic efficiency of the spark ignition engine is derived from the closed system analysis of the Otto cycle, whilst our experiment deals with a system that undergoes a mechanical cycle instead of a thermodynamic one. Though thermodynamic analysis is not strictly accurate with regards to our system, it is still useful for observing trends within our data. Our analysis allows us to conclude that efficiency increases with increased spark timings, and for all spark timings, the ethyl valerate fuel blend yields a higher thermal efficiency, meaning more energy is converted to useful work.  
-\section*{Question 4}
-\section*{Question 5}
+\section{Question 4}
+\section{Question 5}
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{./img/diagram3.png}
-    \caption{}
+    \caption{Variation of in-cylinder pressures against crank angle degree for both fuels.}
     \label{q5-f1}
 \end{figure}
 The three cycles show a variation in the instantaneous in-cylinder pressure cycles. The reason for the cycle-to-cycle variation in in-cylinder pressure is due to the variations in mixture motion, cyclic variations in the local equivalence ratio and the mixture composition near the spark plug. The air-fuel mixture might not be identical for every cycle that takes place which could create the variance in the pressure.  
@@ -371,7 +374,7 @@ The vary in the speed of the engine could also have an effect on the in-cylinder
 Incomplete combustion of the fuel could be a reason for the change in in-cylinder pressure as unburnt fuel left over could affect the cycles after, causing the pressure in the cylinder to change as we get a varied amount of heat release in each cycle due to the inconsistency in the amount of fuel present for combustion. 
 
 This cycle-to-cycle variations in in-cylinder pressure are not desirable as they lead to lower efficiency, limitations in power output and higher emissions. The varying pressure leads to varying amount of power output and this could affect the whole system as it may cause it to wear over time. This is due to the change in the pressure causing the components to experience a changing force which could cause damages. This varied power output limits performance and reliability of the engine.  
-\section*{Question 6}
+\section{Question 6}
 Thermal engines present in modern cars rely on the combustion of fuel in oxygen to release energy CITATION. Ideally, this process should involve the complete combustion of all fuel with no excess oxygen; an air-fuel mixture containing the precise ratio of air to fuel required to ensure this is called a stoichiometric mixture. For a gasoline powered vehicle, this ratio is approximately 14.7:1 CITATION. It is important to maintain the air-fuel mixture in the combustion chamber of vehicles as close as possible to the ideal stoichiometric mixture as this ensures that the combustion process is most efficient, with the highest fuel economy and lowest emissions CITATION.
 
 In fact, burning an air-fuel mixture that contains too much fuel and too little air (a rich mixture) will result in some of the fuel not being combusted, but released with the exhaust gases instead. This results in poor fuel economy as a portion of the fuel is wasted, as well as damage to the environment as the release of the unburned hydrocarbon fuels in the atmosphere will cause pollution. On the other hand, the combustion of a mixture that has too much oxygen/air and not enough fuel (a lean mixture) can have even more adverse consequences due to the increase in combustion chamber temperature that this process results in. The high temperatures can cause damage to the vehicle itself, e.g., damaging the pistons and spark plug, as well as promoting the production of Nitrous Oxides (\ce{NO_x})  which are remarkably damaging to the environment, as they are directly linked to smog and acid rain, and have indirect effects on human health, like causing breathing problems CITATION CITATION CITATION.
@@ -381,7 +384,7 @@ However, it is of relevance to mention that the stoichiometric ratio is not idea
 \ce{O2} sensors are electronic transducers located in the exhaust pipe of vehicles. They are used to measure the proportion of Oxygen in the exhaust gas released by the vehicle and compare it to that measured in the atmospheric air in real time CITATION. These sensors are usually “solid-state electrochemical fuel cells […] that provide a certain output voltage depending on the amount of oxygen in the exhaust system relative to that in the atmosphere” CITATION. The sensor usually operates between two voltages (e.g., between \SI{0.2}{\volt} and \SI{0.8}{\volt} for narrowband sensors), the lower one associated with a lean mixture, the higher one with a rich mixture, and a middle voltage (\SI{0.45}{\volt} for narrowband sensors) associated with a nearly stoichiometric, optimal mixture CITATION. The output voltage, alongside with other sensors’ readings, is fed back to and processed by the ECU which automatically adjusts the air-fuel mixture as required by injecting more or less fuel into the mixture. The adjusted air-fuel mixture then undergoes combustion and releases new exhaust gases which will then be analysed by the \ce{O2} sensor and the process described above will continually repeat itself to maintain the ideal ratio. The use of this sensor permits closed loop operation of the air-fuel mixture – the information from the sensor is gathered and processed in real time, enabling the ECU to continuously change the air-fuel ratio, if needed, to match the desired one – ensuring optimal combustion conditions and engine function at all times.
 
 In modern vehicles, \ce{O2} sensors are also used to measure the efficiency of catalytic converters. A catalytic converter is a device typically placed in the exhaust system of a vehicle that chemically changes some of the harmful gases (namely \ce{NO_x} and Carbon Monoxide) present in the exhaust gas of vehicle into more innocuous gases (Nitrogen, Carbon Dioxide and Water) in order to reduce exhaust emissions. By placing one oxygen sensor before the convertor and one after it, the difference in oxygen concentration between the gas that is yet to pass though the converter and the gas that has already passed through it can be measured, and this difference is used to assess the efficiency of the converter.
-\section*{Question 7}
+\section{Question 7}
 \subsection*{Part A: Production}
 A study published by the Royal Society of Chemistry shows that the esterification of valeric acid (VA) with ethanol catalysed by amino acid ionic liquids is a promising route of production for ethyl valerate (EV) CITATION. VA is obtained from cellulosic materials, a cheap and abundant renewable feedstock for biofuels which, importantly, does not compete with food supply like biofuels derived from starch-based plants.
 
@@ -432,8 +435,8 @@ Interestingly, temperature and fuel viscosity dependence seem to have little eff
 Both factors suggest that \ce{NO_x} emissions should be higher for the ethyl valerate test blend, though we do not observe this in our data. Again, it is important to note the narrow range of spark timings across which our results were collected. Plotting \ce{NO_x} emissions against spark timing (see FIGURE X) suggest that \ce{NO_x} emissions for ethyl valerate will increase beyond the \ce{NO_x} emissions for gasoline, which looks to have reached a maximum near 10 CAD BTDC. However, these trends are by no means conclusive and must be tested experimentally.
 
 In conclusion, ethyl valerate performed better than gasoline at all spark timings both in terms of thermal efficiency and pollutant emissions. However, due to the narrow range of spark timings investigated, the test fuel blend cannot conclusively be recommended as a potential replacement for gasoline. At different spark timings, gasoline may outperform the test fuel blend. The analysis would also benefit from data about additional pollutants such as unburnt fuel, carbon monoxide, and particulates. Furthermore, efficiency and emissions are not the only parameters to be examined. For example, for power sensitive applications such as high-performance vehicles, IMEP is a much more important parameter to consider. Overall, the performance the ethyl valerate test fuel blend shows promise, though much more data would be needed to make a definitive judgement. 
-\section*{Results and discussion}
-\section*{Conclusions}
+\section{Results and discussion}
+\section{Conclusions}
 \begin{thebibliography}{00}
 
 \end{thebibliography}
