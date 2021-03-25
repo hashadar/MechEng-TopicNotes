@@ -17,7 +17,11 @@
 \usepackage{commath}
 \usepackage{siunitx}
 \usepackage{multirow}
+\usepackage{listings}
 \usepackage[a4paper,margin=20mm]{geometry}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
 \setlength{\parskip}{\baselineskip}%
 \setlength{\parindent}{0pt}%
 \sisetup{detect-all}
@@ -26,10 +30,144 @@
 \section*{Introduction}
 \section*{Experimental setup and methodology}
 \section*{Question 1}
+\subsection*{Averaged in-cylinder pressure (vs. CAD) and heat release trace (vs. CAD)}
+In order to calculate the averaged in-cylinder pressure, the data recorded for 50 individual pressure cycles in each test are averaged for each fuel. Then for each spark timing, mean of the corresponding tests are taken to eliminate cycle-to-cycle variation and are plotted against Crank Angle Degree (CAD), as shown in Figure \ref{q1-f1} and Figure \ref{q1-f2}. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 7cm]{./img/diagram8.png}
+    \caption{Variation of in-cylinder pressure against crank angle degree for different spark timings using gasoline.}
+    \label{q1-f1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 7cm]{./img/diagram9.png}
+    \caption{Variation of in-cylinder pressure against crank angle degree for different spark timings using 10\% Ethyl Valerate.}
+    \label{q1-f2}
+\end{figure}
+While calculating the heat release trace, the following assumptions are made.
+\begin{itemize}
+    \item Cylinder contents are at a uniform instantaneous temperature (T).
+    \item No mass flow occurs across system boundaries.
+    \item System is adiabatic.
+    \item The cylinder content behaves like an ideal gas.
+\end{itemize}
+Based on the second law of thermodynamics:
+\begin{equation}
+    Q_n = Q_{ch} - Q_{ht}
+\end{equation}
+Where, $Q_n$ is the net apparent heat release, $Q_{ch}$ is the gross heat release of the fuel during combustion and $Q_{ht}$ is the heat transfer from the system to the cylinder walls (negligible). Taking the derivative with respect to CAD, applying the first law of thermodynamics, and using ideal gas law the final equation is derived:
+\begin{align}
+    \frac{\dif Q_{n}}{\dif \phi} &= \frac{\gamma}{\gamma - 1}\cdot p\cdot \frac{\dif V}{\dif \phi} + \frac{1}{\gamma - 1} \cdot V \cdot \frac{\dif p}{\dif \phi}\\
+    \frac{\dif p}{\dif \phi} &= \frac{p_{n+1}-p_n}{\dif \phi}\\
+    \frac{\dif V}{\dif \phi} &= \frac{V_{n+1}-V_n}{\dif \phi}
+\end{align}
+$\gamma = 1.35$ during compression stroke and 1.28 during expansion stroke.
+
+For both gasoline and 10\% ethyl-valerate the heat release trace has been plotted against CAD  for different spark timings with a smoothed line, respectively in Figure \ref{q1-f3} and Figure \ref{q1-f4}. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 14cm]{./img/diagram10.png}
+    \caption{Calculated and smoothed data for heat release trace for different spark timings using gasoline(b) and in-cylinder pressure values in the corresponding CAD(a).}
+    \label{q1-f3}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 14cm]{./img/diagram11.png}
+    \caption{Calculated and smoothed data for heat release trace for different spark timings using 10\% Ethyl-Valerate(b) and in-cylinder pressure values in the corresponding CAD(a).}
+    \label{q1-f4}
+\end{figure}
+\subsection*{Indicated mean effective pressure (IMEP)}
+The indicated mean effective pressure is defined as indicated displacement work per cycle over swept volume of the cylinder: 
+\begin{equation}
+    \textrm{IMEP} = \frac{W_i}{V_d}
+\end{equation}
+Where, 
+$W_i = \int \left(p\right)\dif V$ and $V_d = \SI{506.8}{\centi\meter\cubed}$ as stated in the Ricardo E6 engine specification CITATION. $W_i$ is calculated using the “trapz” function in MATLAB, and the variation of IMEP for different spark timings are plotted for both fuel content in Figure \ref{q1-f5}. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 7cm]{./img/diagram12.png}
+    \caption{Variation of IMEP against spark ignition timing for both fuels.}
+    \label{q1-f5}
+\end{figure}
+\subsection*{Apparent net peak heat release rate and crank angle degree at which the apparent net peak heat release rate occurs.}
+The apparent net peak heat release rate and the corresponding CAD is taken from the smoothed data in Figure \ref{q1-f6}, to eliminate any noise related error. The apparent net peak release rate variation for different spark timing can be seen in Figure \ref{q1-f7}, and the CAD variation can be seen in Figure \ref{q1-f8}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{./img/diagram13.png}
+    \caption{Peak points of heat release trace in smoothed data for different spark timings, for Gasoline(a) and Ethyl-valerate (b).}
+    \label{q1-f6}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 7cm]{./img/diagram14.png}
+    \caption{Variation of apparent net peak heat release rate against spark ignition timing for both fuels.}
+    \label{q1-f7}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 7cm]{./img/diagram15.png}
+    \caption{Variation of CAD at which apparent net peak heat release rate occurs against spark ignition timing for both fuels.}
+    \label{q1-f8}
+\end{figure}
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}{@{}l l l l l@{}}
+        \toprule
+        \multicolumn{5}{c}{\textbf{Gasoline}}\\
+        Spark time & Tests & IMEP (bar) & Apparent net peak heat & Crank angle degree\\
+        & & & release rate (\si{\joule}/deg) & at peak (deg)\\
+        \midrule
+        10 CAD  & Test 1    & 7.9708    & 57.8557   & 382.0\\
+        BTDC    & Test 2    & 8.0227    & 56.1861   & 382.8\\
+                & Test 3    & 8.0352    & 55.4070   & 382.8\\
+                & Average   & 8.0096    & 56.4286   & 382.4\\
+        13 CAD  & Test 4    & 8.1531    & 56.8654   & 379.2\\
+        BTDC    & Test 5    & 8.1795    & 56.7089   & 379.0\\
+                & Test 6    & 8.1378    & 58.0777   & 378.8\\
+                & Average   & 8.1568    & 57.2049   & 379.2\\
+        16 CAD  & Test 7    & 8.1665    & 58.6862   & 379.2\\
+        BTDC    & Test 8    & 8.1586    & 59.4184   & 375.1\\
+                & Test 9    & 8.1590    & 60.1389   & 375.8\\
+                & Average   & 8.1614    & 59.2449   & 375.1\\
+        \bottomrule
+    \end{tabular}
+    \caption{Table showing IMEP, apparent net peak heat release rate and corresponding crank angle degree, for gasoline.}
+    \label{q1-t1}
+\end{center}
+\end{table}
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}{@{}l l l l l@{}}
+        \toprule
+        \multicolumn{5}{c}{\textbf{Ethyl-Valerate 10\%}}\\
+        Spark time & Tests & IMEP (bar) & Apparent net peak heat & Crank angle degree\\
+        & & & release rate (\si{\joule}/deg) & at peak (deg)\\
+        \midrule
+        10 CAD  & Test 10   & 7.7599    & 49.9627   & 385.2\\
+        BTDC    & Test 11   & 7.6285    & 49.1097   & 385.9\\
+                & Test 12   & 7.6755    & 46.8893   & 385.0\\
+                & Average   & 7.6880    & 47.8727   & 385.2\\
+        13 CAD  & Test 13   & 7.8717    & 49.4222   & 381.2\\
+        BTDC    & Test 14   & 7.8310    & 48.2018   & 380.1\\
+                & Test 15   & 7.8839    & 50.8594   & 380.5\\
+                & Average   & 7.8622    & 49.4592   & 380.7\\
+        16 CAD  & Test 16   & 7.8919    & 50.6153   & 377.7\\
+        BTDC    & Test 17   & 7.9554    & 52.6286   & 378.5\\
+                & Test 18   & 7.9909    & 54.2366   & 378.0\\
+                & Average   & 7.9460    & 52.4592   & 378.0\\
+        \bottomrule
+    \end{tabular}
+    \caption{Table showing IMEP, apparent net peak heat release rate and corresponding crank angle degree, for Ethyl-Valerate 10\%.}
+    \label{q1-t2}
+\end{center}
+\end{table}
+Looking at Tables \ref{q1-t1} and \ref{q1-t2}, both gasoline and 10\% ethyl-valerate seems to have similar trend in every calculated variable.  As seen from Figure \ref{q1-f1} and \ref{q1-f2}, the average in-cylinder pressures increase in amplitude and the peak shifts towards left with earlier spark ignition time, which also results in increasing IMEP, highlighted in Figure \ref{q1-f5}. The same trends can also be seen in the heat release trace plots in Figure \ref{q1-f6}.  
+
+These results are expected as earlier spark ignition time would result in earlier combustion of the fuel, which decreases the CAD at which net peak heat release rate and pressure occurs, resulting in a shift towards left. Furthermore, the early ignition results in higher average in-cylinder pressure, and thus higher IMEP. This may be due to most of the combustion happening near TDC as the spark timing advances BTDC. As the combustion occurs closer to TDC, more of the product gas will expand and increase the work output on the piston by pushing it down. The peak pressure at the combustion closer to TDC therefore will be higher as it will occur in lower cylinder volume. However, if the spark timing is too early and the combustion happens as the piston is rising before TDC, the performance will drop significantly CITATION. Moreover, as the heat release trace depends on in-cylinder pressure, the apparent net peak release rate is higher in earlier ignition time. The higher pressure increase rate in earlier ignition time causes more heat to be released faster CITATION. 
+
+Comparing the fuels, gasoline has higher overall IMEP and Apparent net peak release rate than 10\% ethyl-valerate, seen respectively from Figure \ref{q1-f5} and Figure \ref{q1-f7} Moreover, the peak CAD was earlier in gasoline than that of ethyl-valerate, seen in Figure \ref{q1-f8}. As IMEP is directly related with work done on the piston, it is safe to say that gasoline has better performance compared to 10\% ethyl-valerate. 
 \section*{Question 2}
-{\centering
-  \underline{Average emissions of \ce{CO}, \ce{CO2}, \ce{NO_x}}\par
-}
+\subsection*{Average emissions of \ce{CO}, \ce{CO2}, \ce{NO_x}}
 In order to calculate the average \ce{CO2} and \ce{NO_x} emissions, the emission data acquired from the sensors are plotted against time for every test. When possible, the stable region with low variance is selected to average the emissions. The calculated \ce{CO2} and \ce{NO_x} emission means for each test and average of each spark ignition time can be seen in Table \ref{q2-t1} and \ref{q2-t2}.
 \begin{table}[H]
     \begin{center}
@@ -53,7 +191,7 @@ In order to calculate the average \ce{CO2} and \ce{NO_x} emissions, the emission
                 & Average   & 14.6906   & 380  \\
         \bottomrule
     \end{tabular}
-    \caption{\ce{CO2} and \ce{NO_x} emissions for all tests for gasoline.}
+    \caption{\ce{CO2} and \ce{NO_x} emissions for gasoline.}
     \label{q2-t1}
 \end{center}
 \end{table}
@@ -79,7 +217,7 @@ In order to calculate the average \ce{CO2} and \ce{NO_x} emissions, the emission
                 & Average    & 13.4556   & 16  \\
         \bottomrule
     \end{tabular}
-    \caption{\ce{CO2} and \ce{NO_x} emissions for all tests for Ethyl-Valerate.}
+    \caption{\ce{CO2} and \ce{NO_x} emissions for Ethyl-Valerate.}
     \label{q2-t2}
 \end{center}
 \end{table}
@@ -100,10 +238,7 @@ Looking at Figure \ref{q2-f1}, it is very clear that as the sparking time increa
 As shown in Figure \ref{q2-f2}, through out the tests gasoline had higher emissions of \ce{NO_x} compared to ethyl-valerate. Unlike \ce{CO2} emissions, both gasoline and ethyl-valerate gave a similar response for \ce{NO_x} emissions as emissions for both decreased with earlier spark ignition timing. On the other hand, the emission of \ce{NO_x} for gasoline had a significant drop between 13 and 16 CAD BTDC while the ethyl-valerate experienced a drastic decline between 10 to 13 CAD BTDC. The \ce{NO_x} emissions for ethyl-valerate between 13 and 16 CAD BTDC is comparatively lower than any other value. 
 
 Overall, as highlighted in Figure \ref{q2-f1} and \ref{q2-f2}, gasoline consistently had significantly larger emission of both \ce{NO_x} and \ce{CO2}  between 10 to 16 CAD BTDC, this phenomenon can be explained by the greater number of carbons in gasoline; the molecular formula of ethyl-valerate is \ce{C7H14O2} CITATION and the main component of gasoline is octane, which has a molecular formula of \ce{C8H18} CITATION. Greater number of carbons means more \ce{CO2} would be produced and larger amount of oxygen is required, since the formation of \ce{NO_x} is highly temperature and \ce{O2} concentration dependent, high temperatures and \ce{O2} concentrations will result in high \ce{NO_x} formation rate. As more oxygen is obtained during the chemical reaction of air with gasoline than the reaction of air with ethyl-valerate, more \ce{NO_x} is released by gasoline CITATION.
-
-{\centering
-  \underline{Peak heat release rate}\par
-}
+\subsection*{Peak heat release rate}
 \begin{figure}[H]
     \centering
     \includegraphics[height = 7cm]{./img/diagram6.png}
@@ -247,10 +382,8 @@ However, it is of relevance to mention that the stoichiometric ratio is not idea
 
 In modern vehicles, \ce{O2} sensors are also used to measure the efficiency of catalytic converters. A catalytic converter is a device typically placed in the exhaust system of a vehicle that chemically changes some of the harmful gases (namely \ce{NO_x} and Carbon Monoxide) present in the exhaust gas of vehicle into more innocuous gases (Nitrogen, Carbon Dioxide and Water) in order to reduce exhaust emissions. By placing one oxygen sensor before the convertor and one after it, the difference in oxygen concentration between the gas that is yet to pass though the converter and the gas that has already passed through it can be measured, and this difference is used to assess the efficiency of the converter.
 \section*{Question 7}
-{\centering
-  \underline{Part A: On Production}\par
-}
-A study published by the Royal Society of Chemistry shows that the esterification of valeric acid (VA) with ethanol catalysed by amino acid ionic liquids is a promising route of production for ethyl valerate (EV )CITATION. VA is obtained from cellulosic materials, a cheap and abundant renewable feedstock for biofuels which, importantly, does not compete with food supply like biofuels derived from starch-based plants.
+\subsection*{Part A: Production}
+A study published by the Royal Society of Chemistry shows that the esterification of valeric acid (VA) with ethanol catalysed by amino acid ionic liquids is a promising route of production for ethyl valerate (EV) CITATION. VA is obtained from cellulosic materials, a cheap and abundant renewable feedstock for biofuels which, importantly, does not compete with food supply like biofuels derived from starch-based plants.
 
 Several amino acid ionic liquids can be used to catalyse the esterification process, including proline bisulfate (\ce{ProHSO4}), glycine bisulfate (\ce{GlyHSO4}), and alanine bisulfate (\ce{AlaHSO4}). The synthesis of these catalysts involves processes in water without by-products and post-processing, thus these preparations are highly efficient and low cost. 
 
@@ -269,10 +402,7 @@ Additionally, the design of the supply chain is an important factor when conside
 In conclusion, ethyl valerate shows great promise of displacing gasoline if its production is catalysed by amino acid ionic liquids, namely proline bisulfate (\ce{ProHSO4}). The time and temperature of the production processes are relatively low whilst achieving conversion and selectivity of nearly 100\%. Ethanol is readily available, and the catalyst can be easily mass-produced due to the lack of post processing needed. Additionally, \ce{ProHSO4} is easily recyclable and can be reused multiple times with minimal impact on catalytic activity, improving its economic and environmental sustainability.
 
 The main feedstock of lignocellulosic biomass, from which valeric acid is derived, is crop residues from agriculture and they are expected to play a major role in the production of advanced biofuels. Of course, valeric acid is not the only use of biomass both in the context of biofuel production and agricultural applications, though an optimised supply chain will increase the availability and decrease the cost of procurement. The design of the supply chain is a complicated process due to the factors mentioned previously, but also presents exciting opportunities, such as the densification of biomass with techniques such as baling, pelleting, and pyrolysis to reduce logistic costs CITATION. Ongoing research in this field and government incentives such as the EU’s Horizon 2020 program shows there is great potential for crop residues as a feedstock for lignocellulosic biomass.
-   
-{\centering
-  \underline{Part B: On Efficiency and Emissions}\par
-}
+\subsection*{Part B: Efficiency and emissions}
 The efficiency and emissions of the ethyl valerate test fuel blend must also be examined to better judge its suitability in replacing gasoline. For all spark timings investigated, the thermal efficiency of the ethyl valerate test fuel blend was higher when compared to gasoline (see Figure \ref{q3-f2}). This is caused by the lower indicated specific fuel consumption using the test fuel blend at all spark timing when compared to gasoline (not including test 4). This result is slightly unexpected given the higher energy density of gasoline, meaning the ISFC of gasoline should be lower.
 
 The reason for this is likely to be the narrow range of spark timings investigated. As previously mentioned, experimental data has shown 31 CAD BTDC to be the optimal spark timing for the combustion of gasoline in a spark ignition engine. If the range of spark timings investigated were to be increased, we would likely see a range of spark timings across which the ISFC of gasoline was higher than the test fuel blend, leading to higher thermal efficiencies. 
@@ -281,7 +411,8 @@ For all spark timings investigated, the emissions of both \ce{CO2} and \ce{NO_x}
 
 The difference in the amount of \ce{CO2} produced can be explained by the chemical composition of the fuels. Since gasoline, whose main component is octane (\ce{C8H18}), is more carbon heavy than ethyl valerate (\ce{C7H14O2}), thus blending ethyl valerate with gasoline will reduce the carbon dioxide produced during combustion. Similarly, since more air is required for the combustion of air with gasoline than the test fuel blend, more \ce{NO_x} is produced since the formation of it is highly oxygen dependent. 
 
-Interestingly, temperature and fuel viscosity dependence seem to have little effect on the \ce{NO_x} emissions. Theoretically, \ce{NO_x} emissions increase with both increasing combustion temperature and fuel viscosity. Table \ref{q7-t1} shows that for all spark timings, the exhaust gasses are hotter for the test blend when compared to gasoline, which suggest combustion temperatures are higher. Furthermore, the test blend had a much higher viscosity of \SI{1.08}{\milli\pascal\second} compared to \SI{0.61}{\milli\pascal\second} for gasoline. 
+Interestingly, temperature and fuel viscosity dependence seem to have little effect on the \ce{NO_x} emissions. Theoretically, \ce{NO_x} emissions increase with both increasing combustion temperature and fuel viscosity. Table \ref{q7-t1} shows that for all spark timings, the exhaust gasses are hotter for the test blend when compared to gasoline, which suggest combustion temperatures are higher. Furthermore, the test blend had a much higher viscosity of \SI{1.08}{\milli\pascal\second} compared to \SI{0.61}{\milli\pascal\second} for gasoline.
+
 \begin{table}[H]
 	\begin{center}
 	\begin{tabular}{@{}lll@{}}
