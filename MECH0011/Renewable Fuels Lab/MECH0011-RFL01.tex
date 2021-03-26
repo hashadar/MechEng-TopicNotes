@@ -358,6 +358,234 @@ Additionally, as mentioned previously since the power output is an overestimate,
 
 Lastly, it is important to consider whether it is appropriate to evaluate the system using thermodynamic analysis. Thermodynamic efficiency of the spark ignition engine is derived from the closed system analysis of the Otto cycle, whilst our experiment deals with a system that undergoes a mechanical cycle instead of a thermodynamic one. Though thermodynamic analysis is not strictly accurate with regards to our system, it is still useful for observing trends within our data. Our analysis allows us to conclude that efficiency increases with increased spark timings, and for all spark timings, the ethyl valerate fuel blend yields a higher thermal efficiency, meaning more energy is converted to useful work.  
 \section{Question 4}
+Applying the First Law to the Internal Combustion Engine, we get the following sources of energy inputs and outputs to the system as shown in Figure \ref{q4-f1}. Table \ref{q4-t1} shows the amount of energy each category comprises, for each of the tests. The energy balance is:
+\begin{equation}
+	Q_\textrm{ch} = W_\textrm{i} + Q_\textrm{ex} + Q_\textrm{ht} + Q_\textrm{other}\label{q4-1}
+\end{equation}
+\begin{itemize}
+	\item $Q_\textrm{ch}$ is the gross heat release of fuel during combustion.
+	\item $W_\textrm{i}$ is the indicated displacement work output (cylinder power output).
+	\item $Q_\textrm{ex}$ is the energy to engine exhaust.
+	\item $Q_\textrm{ht}$ is the heat transfer from the system to the cylinder walls (which are transferred as heat to the engine cooling water).
+	\item $Q_\textrm{other}$ includes all other sources of energy loss (noise, vibration, heat transfer to surrounding air, etc.).
+\end{itemize}
+\begin{figure}[H]
+	\centering
+    \includegraphics[height = 7cm]{./img/diagram16.png}
+    \caption{Energy Balance for I.C. Engine. [CITATION]}
+    \label{q4-f1}
+\end{figure}
+\begin{table}[H]
+	\begin{center}
+	\begin{tabular}{@{}l l l l l l l@{}}
+		\toprule
+		\multicolumn{7}{c}{\textbf{Gasoline}}\\
+		Spark Time & Test & $Q_\textrm{ch}$ (W) & $W_\textrm{i}$ (W) & $Q_\textrm{ex}$ (J/s) & $Q_\textrm{ht}$ (J/s) & Efficiency (\%)\\
+		\midrule
+				& Test 1  & 6796.5238 & 2019.816 & 1460.246 & 341.1995 & 29.718\\
+		10 CAD	& Test 2  & 7048.0320 & 2032.955 & 1483.526 & 322.0532 & 28.844\\
+		BTDC	& Test 3  & 7001.4992 & 2036.121 & 1514.127 & 349.4283 & 29.081\\
+				& Average & 6948.6850 & 2029.631 & 1485.967 & 337.5603 & 29.215\\
+				& Test 4  & 6736.1891 & 2065.986 & 1517.161 & 364.1403 & 30.670\\
+		13 CAD	& Test 5  & 6913.5082 & 2072.690 & 1567.170 & 374.9483 & 29.980\\
+		BTDC	& Test 6  & 6908.1743 & 2062.123 & 1570.760 & 375.9971 & 29.850\\
+				& Average & 6852.6239 & 2066.933 & 1551.697 & 371.6952 & 30.167\\	
+				& Test 7  & 6930.5932 & 2069.393 & 1556.818 & 392.0714 & 29.859\\
+		16 CAD	& Test 8  & 6834.3491 & 2067.397 & 1557.887 & 397.0891 & 30.250\\
+		BTDC	& Test 9  & 7103.9362 & 2067.492 & 1580.087 & 404.0736 & 29.103\\
+				& Average & 6956.2928 & 2068.094 & 1564.931 & 397.7447 & 29.737\\		
+		\bottomrule
+	\end{tabular}
+	\caption{Table of proportion of chemical energy to various heat and work output from the system for gasoline}
+	\label{q4-t1}
+	\end{center}
+\end{table}
+\begin{table}[H]
+	\begin{center}
+	\begin{tabular}{@{}l l l l l l l@{}}
+		\toprule
+		\multicolumn{7}{c}{\textbf{Ethyl-Valerate 10\%}}\\
+		Spark Time & Test & $Q_\textrm{ch}$ (W) & $W_\textrm{i}$ (W) & $Q_\textrm{ex}$ (J/s) & $Q_\textrm{ht}$ (J/s) & Efficiency (\%)\\
+		\midrule
+				& Test 10  & 6393.8485 & 1966.3645 & 1531.301 & 405.0180 & 30.754\\
+		10 CAD	& Test 11  & 6205.3713 & 1933.0826 & 1536.155 & 391.1557 & 31.152\\
+		BTDC	& Test 12  & 6421.5921 & 1944.9890 & 1554.764 & 373.5094 & 30.288\\
+				& Average  & 6340.2707 & 1948.1454 & 1540.740 & 389.8943 & 30.731\\
+				& Test 13  & 6457.5565 & 1994.6858 & 1591.637 & 424.4467 & 30.889\\
+		13 CAD	& Test 14  & 6342.5951 & 1984.3780 & 1586.476 & 362.6769 & 31.287\\
+		BTDC	& Test 15  & 6440.0621 & 1997.8018 & 1593.249 & 379.7808 & 31.021\\
+				& Average  & 6413.4046 & 1992.2885 & 1590.454 & 388.9681 & 31.066\\	
+				& Test 16  & 6225.6571 & 1999.8119 & 1567.919 & 435.6451 & 32.122\\
+		16 CAD	& Test 17  & 6294.3904 & 2015.8882 & 1577.852 & 1127.802 & 32.027\\
+		BTDC	& Test 18  & 6425.7492 & 2024.8938 & 1582.163 & 1245.007 & 31.512\\
+				& Average  & 6315.2656 & 2013.5313 & 1575.978 & 936.151 & 31.887\\		
+		\bottomrule
+	\end{tabular}
+	\caption{Table of proportion of chemical energy to various heat and work output from the system for Ethyl-Valerate 10\%}
+	\label{q4-t2}
+	\end{center}
+\end{table}
+\subsection*{Useful Power Output}
+The proportion of the chemical energy from the fuel converted to useful (indicated) power is calculated using the IMEP and displacement volume, as mentioned previously in Q3, using Equations \ref{q3-4} and \ref{q3-5}. The results are plotted in Figure \ref{q4-f2}.
+\begin{figure}[H]
+	\centering
+    \includegraphics[height = 7cm]{./img/diagram17.png}
+    \caption{Bar chart of useful power output for gasoline (left) and Ethyl-Valerate 10\% (right)}
+    \label{q4-f2}
+\end{figure}
+\subsection*{Heat to Cooling Water}
+The heat transfer to the cylinder walls is assumed to be perfectly transmitted to the cooling water and responsible for raising its temperature. It was calculated by integrating the heat transfer to the cooling water over the duration of the measurement, using Equation \ref{q4-2}. The results are plotted in \ref{q4-f3}.
+\begin{equation}
+Q_\textrm{ht} = \frac{\Sigma^{end}_{time step=1} \dot{m}_w \times c_p \times (T_{out} - T_{in}) \times \Delta t}{Duration} \label{q4-2}
+\end{equation}
+\begin{align*}
+\textrm{Where }
+\dot{m}_w	&= \textrm{Mass flow rate of engine cooling water (6L/min = 0.1kg/s)}\\
+c_p 		&= \textrm{Specific heat capacity of water (\SI{4.18}{\joule\per\gram\per\kelvin})}\\ %CITATION%
+T_{in}		&= \textrm{Temperature of cooling water in}\\ 
+T_{out}		&= \textrm{Temperature of cooling water out}\\
+\Delta t	&= \textrm{Time step size}
+\end{align*}
+\begin{figure}[H]
+	\centering
+    \includegraphics[height = 7cm]{./img/diagram18.png}
+    \caption{Bar chart of heat to cooling water for gasoline (left) and Ethyl-Valerate 10\% (right)}
+    \label{q4-f3}
+\end{figure}
+\subsection*{Elevation of Exhaust Gases Temperature}
+The heat transferred to the exhaust gases is lost to the system and is unavailable to be converted to work. It is calculated by Equation \ref{q4-3}, and the results plotted in Figure \ref{q4-f4}.
+\begin{equation}
+Q_{ex} = \dot{m}_{ex} \times c_p \times (T_{out}-T_{in}) \label{q4-3}
+\end{equation}
+\begin{align*}
+\textrm{Where }
+\dot{m}_{ex}	&= \dot{m}_{fuel} + \dot{m}_{air} \textrm{ (By conservation of mass)}\\
+T_{in}			&= \textrm{Temperature of cooling water in}\\ 
+T_{out}			&= \textrm{Temperature of cooling water out}\\
+c_p				&= \textrm{Specific heat capacity of exhaust gases, calculated as follows:}
+\end{align*}
+Making the ideal gas assumption, we can say that the volume fraction is equivalent to mole fraction $y_i$, where $i$ represents all the components of the exhaust gas. Thus the apparent molecular weight of the exhaust gas mixture is:
+\begin{equation}
+M = \sum\limits_{i=1}^{all} y_i \cdot M_i \label{q4-4}
+\end{equation}
+The mass fraction of the $i^{th}$ component $x_i$ is given by:
+\begin{equation}
+x_i= \frac{y_i \cdot M_i}{M} \label{q4-5}
+\end{equation}
+Therefore, $c_p$ for the exhaust gas is:
+\begin{equation}
+c_p = \sum \limits_{i=1}^{all} x_i \cdot c_{p,i} \label{q4-6}
+\end{equation}
+The composition of typical exhaust gases of gasoline engines are as follows in Table \ref{q4-t3} CITATION: 
+\begin{table}[H]
+	\begin{center}
+	\begin{tabular}{@{}l l l l l l l l@{}}
+		\toprule
+		Gases & Volume & $y_i$ & $M_i$ & Weighted M & $x_i$ (\%) & $c_p @ 750K$ & Weighted $c_p$ \\
+		 & (\%) & (\%) & (g/mol) & (g/mol) & (\%) & (J/g $\textrm{K}^{-1}$) & (J/g $\textrm{K}^{-1}$) \\ 
+		\midrule
+		\ce{N2} & 71 & 71 & 28.01 & 19.8871 & 66.448 & 1.11 & 0.73757 \\
+		\ce{CO2} & 18 & 18 & 44.01 & 7.9218 & 26.469 & 1.148 & 0.30386 \\
+		\ce{H2O} & 9.2 & 9.2 & 18.02 & 1.65784 & 5.539 & 2.113 & 0.11704 \\
+		\ce{O2} & 0.7 & 0.7 & 32 & 0.224 & 0.748 & 1.043 & 0.00781 \\
+		\ce{CO} & 0.85 & 0.85 & 28.01 & 0.238085 & 0.796 & 1.126 & 0.00896 \\
+		Others &   &   &   & Negligible &   &   &  \\
+		Total & 99.75 & 99.75 & - & 29.929 & 100 & - & 1.17524\\
+		\bottomrule
+	\end{tabular}
+	\caption{Composition of exhaust gases}
+	\label{q4-t3}
+	\end{center}
+\end{table}
+\begin{figure}[H]
+	\centering
+    \includegraphics[height = 7cm]{./img/diagram19.png}
+    \caption{Bar chart of heat to exhaust gases for gasoline (left) and Ethyl-Valerate 10\% (right)}
+    \label{q4-f4}
+\end{figure}
+\subsection*{Other losses}
+Any other losses to the system reduces the amount of energy available to be converted to heat and is undesirable. These may include:
+\begin{itemize}
+	\item Raising temperature of the engine components/oil.
+	\item Heat loss through walls/casing.
+	\item Noise and vibrations.
+	\item Frictional losses. 
+	\item Incomplete combustion - in reality there will not be a homogeneous mixture of air and fuel in the combustion chamber. The pockets of fuel will not get combusted.
+	\item Gas leakage from imperfect seal between cylinder piston and walls - there will be loss of cylinder pressure.
+\end{itemize}
+\subsection*{Discussion}
+Firstly, the power calculated is using indicated mean effective pressure. The indicated power does not take frictional losses into account, hence the actual work output is lower. To improve this the break mean effective pressure and break power can be used as it does account for friction losses and hence is a more accurate measure of engine power output. We can also use a torque sensor on the output shaft to measure the actual torque, hence the useful power output would be given by torque multiplied by engine speed (600 RPM).
+
+Secondly, it was observed that from amongst the tests for 16 CAD BTDC for the  Ethyl-Valerate blend, tests 17 and 18 show a dramatically different mass flow rate than test 16 and even all the other tests. As a result, the calculated heat transfer to cooling water is much higher than other tests, as can be seen from Figure \ref{q4-f4}. This may be caused by changing of cooling water flow rate, or the malfunctioning of the sensor. Another possibility is test 16 was not fully preheated or the test 17 and 18 were overheated. More measurements should be taken and ensuring that the cooling water and engine is running in stable status.
+
+Finally, the time step between each measurement data point is not equal, hence Equation \ref{q4-3} to calculate heat going towards elevating the temperature of exhaust gases is inaccurate. The accurate way of calculating energy out should be:
+\begin{align*}
+Q_{ex} &= \frac{\sum \textrm{Instantaneous } \dot{m}_{ex} \cdot c_p \cdot \Delta T \cdot \textrm{Time Step}}{\textrm{Total Duration}} \\
+&= \frac{\sum \limits_{i=1}^{all} \dot{m}_{i} \cdot c_p \cdot (T_i-T_{ambient}) \cdot (t_{n+1}-t_n)}{\textrm{Total Duration}}
+\end{align*}
+\subsection*{Comparison to theoretical Otto Cycle}
+Comparing the Otto Cycle and real case, we notice that the pumping losses is not considered in the cycle (Figure \ref{q4-f5}). The Otto cycle also only consider one rotation as a cycle, which ignore the expansion and compression for exhaust stroke and intake stroke. Thus, the Otto Cycle will have much higher work output. The calculation for Otto cycle is shown below CITATION, and the results are displayed and compared to the experimental in Tables \ref{q4-t4} and \ref{q4-t5}.
+\begin{eqnarray}
+Q_{in} = W_{output} + Q_{out}\\
+Q_{in} = Q_{ch} \textrm{ and } Q_{out} = Q_{ex}\\
+W_{output} = Q_{ch} - Q_{ex}
+\end{eqnarray}
+\begin{figure}[H]
+	\centering
+    \includegraphics[height = 5cm]{./img/diagram20.png}
+    \caption{P-v diagram of Otto Cycle (left) vs. Real Cycle (right)}
+    \label{q4-f5}
+\end{figure}
+\begin{table}[H]
+	\begin{center}
+	\begin{tabular}{@{}l l l l l l@{}}
+		\toprule
+		\multicolumn{6}{c}{\textbf{Gasoline}} \\
+		Spark Time & Test & $Q_\textrm{ch}$ (W) & $Q_\textrm{ex}$ (J/s) & $W_\textrm{otto}$ (W) & $W_\textrm{exp}$ (W) \\ 
+		\midrule
+				& Test 1  & 6796.5238 & 1460.246 & 5336.278 & 2019.816\\
+		10 CAD	& Test 2  & 7048.0320 & 1483.526 & 5564.506 & 2032.955\\
+		BTDC	& Test 3  & 7001.4992 & 1514.127 & 5487.372 & 2036.121\\
+				& Average & 6948.6850 & 1485.967 & 5462.718 & 2029.631\\
+				& Test 4  & 6736.1891 & 1517.161 & 5219.028 & 2065.986\\
+		13 CAD	& Test 5  & 6913.5082 & 1567.170 & 5346.338 & 2072.690\\
+		BTDC	& Test 6  & 6908.1743 & 1570.760 & 5337.414 & 2062.123\\
+				& Average & 6852.6239 & 1551.697 & 5300.927 & 2066.933\\	
+				& Test 7  & 6930.5932 & 1556.818 & 5373.775 & 2069.393\\
+		16 CAD	& Test 8  & 6834.3491 & 1557.887 & 5276.462 & 2067.397\\
+		BTDC	& Test 9  & 7103.9362 & 1580.087 & 5523.849 & 2067.492\\
+				& Average & 6956.2928 & 1564.931 & 5391.362 & 2068.094\\		
+		\bottomrule
+	\end{tabular}
+	\caption{Table of Q and W values for Otto and Experimental for gasoline.}
+	\label{q4-t4}
+	\end{center}
+\end{table}
+\begin{table}[H]
+	\begin{center}
+	\begin{tabular}{@{}l l l l l l l@{}}
+		\toprule
+		\multicolumn{6}{c}{\textbf{Gasoline}} \\
+		Spark Time & Test & $Q_\textrm{ch}$ (W) & $Q_\textrm{ex}$ (J/s) & $W_\textrm{otto}$ (W) & $W_\textrm{exp}$ (W) \\ 
+		\midrule
+				& Test 10  	& 6393.8485 & 1531.301 & 4862.548 & 1966.3645\\
+		10 CAD	& Test 11 	& 6205.3713 & 1536.155 & 4669.216 & 1933.0826\\
+		BTDC	& Test 12 	& 6421.5921 & 1554.764 & 4866.828 & 1944.9890\\
+				& Average 	& 6340.2707 & 1540.740 & 4799.531 & 1948.1454\\
+				& Test 13 	& 6457.5565 & 1591.637 & 4865.92 & 1994.6858\\
+		13 CAD	& Test 14 	& 6342.5951 & 1586.476 & 4756.119 & 1984.3780\\
+		BTDC	& Test 15 	& 6440.0621 & 1593.249 & 4846.813 & 1997.8018\\
+				& Average	& 6413.4046 & 1590.454 & 4822.951 & 1992.2885\\	
+				& Test 16  	& 6225.6571 & 1567.919 & 4657.738 & 1999.8119\\
+		16 CAD	& Test 17 	& 6294.3904 & 1577.852 & 4716.538 & 2015.8882\\
+		BTDC	& Test 18 	& 6425.7492 & 1582.163 & 4843.586 & 2024.8938\\
+				& Average	& 6315.2656 & 1575.978 & 4739.288 & 2013.5313\\		
+		\bottomrule
+	\end{tabular}
+	\caption{Table of Q and W values of Otto and Experimental for Ethyl-Valerate 10\%.}
+	\label{q4-t5}
+	\end{center}
+\end{table}
 \section{Question 5}
 \begin{figure}[H]
     \centering
@@ -367,7 +595,7 @@ Lastly, it is important to consider whether it is appropriate to evaluate the sy
 \end{figure}
 The three cycles show a variation in the instantaneous in-cylinder pressure cycles. The reason for the cycle-to-cycle variation in in-cylinder pressure is due to the variations in mixture motion, cyclic variations in the local equivalence ratio and the mixture composition near the spark plug. The air-fuel mixture might not be identical for every cycle that takes place which could create the variance in the pressure.  
 
-There could be defects created during the manufacturing in the throttle valve of the engine or the defects could be due to wear, which would cause the intake of air-fuel mixture to be inconsistent, affecting the in-cylinder pressure. There could be a larger amount of intake, than what is required, into the combustion chamber which will cause the pressure to be irregular from cycle to cycle as we see the curves in figure 1 have different peaks. 
+There could be defects created during the manufacturing in the throttle valve of the engine or the defects could be due to wear, which would cause the intake of air-fuel mixture to be inconsistent, affecting the in-cylinder pressure. There could be a larger amount of intake, than what is required, into the combustion chamber which will cause the pressure to be irregular from cycle to cycle as we see the curves in Figure \ref{q5-1} have different peaks. 
 
 The vary in the speed of the engine could also have an effect on the in-cylinder pressure as in reality, the engine will not run at a constant speed due to discontinuities in flow, resistance and the change in momentum. Therefore, the time duration of the combustion cycle will change as the speed changes which will have an impact on the in-cylinder pressure during the cycle.  
 
