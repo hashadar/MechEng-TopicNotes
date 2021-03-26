@@ -26,12 +26,75 @@
 \setlength{\parindent}{0pt}%
 \sisetup{detect-all}
 \begin{document}
+\title{\textbf{UCL Mechanical Engineering}\\MECH0011 Renewable Fuels Laboratory\\
+Combustion characteristics of a spark ignition engine operated with renewable fuel blends}
+\maketitle
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}{@{}l l l@{}}
+        \toprule
+        \multicolumn{3}{c}{\textbf{Group 3}}\\
+        Name & Contribution (\%) & Student number\\
+        \midrule
+        Kofoworolaoluwa Babalola  & Equal & 19010913\\
+        Xieying Chen & Equal & 19004097\\
+        Hasha Dar & Equal & 19090799\\
+        Sara Hassan Abdelaziz Morsy Elawadi & Equal & 18017008\\
+        Jiafei Li & Equal & 19010024\\
+        Krzysztof Morszczyzna & Equal & 18016035\\
+        Yarkin Saltik & Equal & 19108818\\
+        Rose Song & Equal & 18010495\\
+        Eugene Ting & Equal & 19004991\\
+        Rain Wan & Equal & 19001106\\
+        Xinai Alex Zhang & Equal & 19009306\\
+        Yuxue Zhong & Equal & 19067484\\
+        \bottomrule
+    \end{tabular}
+\end{center}
+\end{table}
+\newpage
 \tableofcontents
 \listoffigures
 \listoftables
 \section{Abstract}
+Pollution from the automotive sector is of global concern, with auto exhaust emissions having an indisputable negative impact on sustainability. Researchers are looking at alternative fuel sources that can replace fossil fuels, the main energy source for most modern vehicles. This is because fossil fuels are derived from fossilized organic matter from millions of years ago – burning them liberates this carbon content and adds to the greenhouse effect, trapping heat in the atmosphere and causing global warming. In recent years there has been large amounts of research dedicated to investigating biofuels and the viability of replacing conventional fuels. As biofuels are derived from biomass and feedstock that are recently grown, the carbon cycle is much shorter and is less damaging to global temperatures. 
+
+In this study, the performance characteristics of a 4-stroke spark-ignition research engine (Ricardo E6) will be studied with two fuels – commercial gasoline, and a blend consisting of gasoline and 10\% Ethyl Valerate, which is a promising option for biofuels that do not compete with food for feedstock. It is derived from lignocellulosic material and is compatible for blending with conventional gasoline or diesel. The blend was found to have better performance than pure gasoline at all spark timings tested, with better thermal efficiency and lower pollutive emissions. 
 \section{Introduction}
+By utilising theory and experimental data, we will be able to investigate whether a fuel blend consisting of gasoline and 10\% Ethyl-Valerate would be suitable as an alternative to regular gasoline. The goal is to increase the efficiency of the combustion process. This will lead to a reduction in exhaust emissions of regulated pollutants such as \ce{CO} and \ce{NO_x}. Analysing key performance metrics such as the indicated mean effective pressures (IMEP), peak heat release rates and the pressures in the cylinder and volume can help us to understand the chemistry behind our fuel. This will enable us to learn more about the thermal efficiency, engine knock effects, and the formation of exhaust gases and particulates. 
+
+We will be conducting experiments with both gasoline and our Ethyl-Valerate fuel blend with a Ricardo E6 single-cylinder engine, which will provide a solid foundation for us to conduct our experiments. The engine used is a variable compression ratio research engine used for testing the performance characteristics of fuel blends. This is so that the fuel blend composition can be tweaked to obtain the desired performance. In general, the spark-ignition engine injects the fuel mixed with a predetermined proportion of air, stoichiometric in this case. We will also be using equipment to measure the aforementioned variables, connected to the engine. The engine performance can be analysed by applying basic theoretical principles of thermodynamics. The Otto cycle is the model of the ideal spark-ignition engine, which is altered from the ideal Carnot cycle to better model the conditions in the cylinder throughout the combustion cycle.
 \section{Experimental setup and methodology}
+The experiments will be conducted using the Ricardo E6 spark ignition research engine. The specifications are detailed in Table \ref{intro-1}. Emissions data will be collected using a Horiba MEXA-9100 automotive gas analyser system, and viscosity will be measured with a Brookfield DV-III rheometer.  
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}{@{}l l@{}}
+        \toprule
+        \textbf{Model Name} & Ricardo E6 \\ 
+        \textbf{Number of Cylinders} & 1 \\
+        \textbf{Cylinder bore} & 76.2 mm\\
+        \textbf{Crankshaft} & 55.57 mm \\
+        \textbf{Swept volume} & 506.8 cc\\
+        \textbf{Compression ratio} & 8:1\\
+        \textbf{Engine speed} & 600 rpm\\
+        \textbf{Air fuel ratio} & 1.00 $+-$ 0.05\\
+        \textbf{Fuel delivery system} & Single barrel, fixed venturi carburettor \\
+        \textbf{Shaft encoder} & 0.1 CAD resolution\\
+        \bottomrule
+    \end{tabular}
+    \caption{Ricardo E6 Research Engine Specifications}
+    \label{intro-1}
+\end{center}
+\end{table}
+All tests will be conducted with the engine operating at 600 rpm and wide-open throttle. The following steps should be completed for both the reference gasoline fuel and the ethyl valerate test fuel blend. 
+\begin{enumerate}
+	\item Set the engine spark timing to 10 CAD BTDC using the engine control unit (ECU) and ensure the lambda value is constant at 1.00 ± 0.05.
+	\item Record in-cylinder pressure and heat release trace data across sufficient engine cycles (>50). 
+	\item Record data from gas analyser system. 
+	\item Set the spark timing to 13 CAD BTDC, ensuring the lambda value remains at 1.00 ± 0.05, and repeat steps 2 and 3. 
+	\item Set the spark timing to 16 CAD BTDC, ensuring the lambda value remains at 1.00 ± 0.05, and repeat steps 2 and 3. 
+	\item Measure the viscosity of a sample of the fuel used using the rheometer. 
+\end{enumerate}
 \section{Question 1}
 \subsection*{Averaged in-cylinder pressure (vs. CAD) and heat release trace (vs. CAD)}
 In order to calculate the averaged in-cylinder pressure, the data recorded for 50 individual pressure cycles in each test are averaged for each fuel. Then for each spark timing, mean of the corresponding tests are taken to eliminate cycle-to-cycle variation and are plotted against Crank Angle Degree (CAD), as shown in Figure \ref{q1-f1} and Figure \ref{q1-f2}. 
@@ -169,6 +232,8 @@ Looking at Tables \ref{q1-t1} and \ref{q1-t2}, both gasoline and 10\% ethyl-vale
 These results are expected as earlier spark ignition time would result in earlier combustion of the fuel, which decreases the CAD at which net peak heat release rate and pressure occurs, resulting in a shift towards left. Furthermore, the early ignition results in higher average in-cylinder pressure, and thus higher IMEP. This may be due to most of the combustion happening near TDC as the spark timing advances BTDC. As the combustion occurs closer to TDC, more of the product gas will expand and increase the work output on the piston by pushing it down. The peak pressure at the combustion closer to TDC therefore will be higher as it will occur in lower cylinder volume. However, if the spark timing is too early and the combustion happens as the piston is rising before TDC, the performance will drop significantly \cite{q1-r1}. Moreover, as the heat release trace depends on in-cylinder pressure, the apparent net peak release rate is higher in earlier ignition time. The higher pressure increase rate in earlier ignition time causes more heat to be released faster \cite{q1-r2}. 
 
 Comparing the fuels, gasoline has higher overall IMEP and Apparent net peak release rate than 10\% ethyl-valerate, seen respectively from Figure \ref{q1-f5} and Figure \ref{q1-f7} Moreover, the peak CAD was earlier in gasoline than that of ethyl-valerate, seen in Figure \ref{q1-f8}. As IMEP is directly related with work done on the piston, it is safe to say that gasoline has better performance compared to 10\% ethyl-valerate. 
+
+The MATLAB code may be viewed online at the following link: \url{https://github.com/hashadar/ME-Latex/tree/master/MECH0011/Renewable%20Fuels%20Lab}
 \section{Question 2}
 \subsection*{Average emissions of \ce{CO}, \ce{CO2}, \ce{NO_x}}
 In order to calculate the average \ce{CO2} and \ce{NO_x} emissions, the emission data acquired from the sensors are plotted against time for every test. When possible, the stable region with low variance is selected to average the emissions. The calculated \ce{CO2} and \ce{NO_x} emission means for each test and average of each spark ignition time can be seen in Table \ref{q2-t1} and \ref{q2-t2}.
@@ -680,6 +745,7 @@ The indicated thermal efficiency for all test conditions were about 30\%. We see
 
 Some conclusions may also be drawn between the two different fuels used. The Ethyl Valerate blend performed better than gasoline at all spark timings both in terms of thermal efficiency and pollutant emissions. However, due to the narrow range of spark timings investigated, the test fuel blend cannot conclusively be recommended as a potential replacement for gasoline. At different spark timings, gasoline may outperform the test fuel blend. The analysis would also benefit from data about additional pollutants such as unburnt fuel, carbon monoxide, and particulates. Furthermore, efficiency and emissions are not the only parameters to be examined. For example, for power sensitive applications such as high-performance vehicles, IMEP is a much more important parameter to consider. Overall, the performance the Ethyl Valerate test fuel blend shows promise, though much more data would be needed to make a definitive judgement. 
 \begin{thebibliography}{00}
+\bibitem{i1} Public Health England, "Health Matters: air pollution" 14 Nov 2018, URL: \url{https://www.gov.uk/government/publications/health-matters-air-pollution/health-matters-air-pollution#:~:text=Poor%20air%20quality%20is%20the,leading%20to%20reduced%20life%20expectancy.} [Accessed 26 March 2021]
 \bibitem{r0} Talibi, M., Hellier, P., \textit{MECH0011: Combustion characteristics of a spark ignition engine operated with renewable fuels} Introductory Lecture.
 \bibitem{q1-r1} Zareei, J. and Kakaee, A., 2013. Study and the effects of ignition timing on gasoline engine performance and emissions. European Transport Research Review, [online] 5(2), pp.109-116. Available at: \url{https://link.springer.com/content/pdf/10.1007\%2Fs12544-013-0099-8.pdf} [Accessed 22 March 2021]. 
 \bibitem{q1-r2} Manofsky, L., Vavra, J., Assanis, D., Babajimopoulos, A., (2011). ``Bridging the gap between HCCI and SI: Spark-assisted compression ignition''. SAE Technical Paper Series. 
