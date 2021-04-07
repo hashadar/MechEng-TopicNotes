@@ -1,0 +1,71 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+%\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{commath}
+%\usepackage{siunitx}
+%\sisetup{detect-all}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage[a4paper,margin=20mm]{geometry}
+\numberwithin{equation}{section}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+    filecolor=magenta,      
+    urlcolor=magenta,
+}
+\urlstyle{same}
+\begin{document}
+\title{\textbf{UCL Mechanical Engineering 2020/2021}\\ENGF0004 Coursework 2}
+\author{NCWT3}
+\maketitle
+\section{Question 1}
+\subsection{a}
+For the line integral to be independent from the path of integration, the following conditions must be fulfilled:
+\begin{gather}
+    I = \int_A^B \left(\frac{\partial u}{\partial x} \dif x + \frac{\partial u}{\partial y}\dif y\right)\\
+    P\left(x, \, y\right) = \frac{\partial u}{\partial x} \textrm{ and } Q\left(x, \, y\right) = \frac{\partial u}{\partial y}\\
+    \frac{\partial P\left(x, \, y\right)}{\partial y} = \frac{\partial Q\left(x, \, y\right)}{\partial x}
+\end{gather}
+Considering the integral:
+\begin{gather}
+    I = \int_A^B \left[e^{-\alpha xy} \left(\frac{\alpha-2}{x}\right)\dif x - \frac{1}{\alpha y}\left(e^{-\alpha x y}-1\right)\dif y\right]\\
+    P\left(x, \, y\right) = e^{-\alpha xy} \left(\frac{\alpha-2}{x}\right) \textrm{ and } Q\left(x, \, y\right) = - \frac{1}{\alpha y}\left(e^{-\alpha x y}-1\right)\\
+    \frac{\partial P\left(x, \, y\right)}{\partial y} = -\alpha x \left(\frac{\alpha -2}{x}\right) e^{-\alpha xy} = \left(2\alpha - \alpha^2\right)e^{-\alpha xy}\\
+    \frac{\partial Q\left(x, \, y\right)}{\partial x} = -\frac{1}{\alpha y}\left(-\alpha y\right)e^{-\alpha xy} = e^{-\alpha xy}\\
+    \therefore 2\alpha e^{-\alpha xy} - \alpha^2 e^{-\alpha xy} = e^{-\alpha xy}\\
+    e^{-\alpha xy} \left(\alpha^2 - 2\alpha + 1\right) = 0\\
+    e^{-\alpha xy} = 0 \rightarrow \textrm{no solutions}\\
+    \left(\alpha - 1\right)^2 = 0\\
+    \alpha = 1
+\end{gather}
+\subsection{b}
+Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(1, \, e-1)$ along $y=e^x -1$:
+\begin{gather}
+    I = \int_O^A \left(ye^{-2x}\right)\left(\dif x + \dif y\right) \label{1beq1}\\
+    y = e^x - 1\\
+    \dif y = e^x \dif x\\
+    I = \int_0^1 \left( \left( e^x-1\right) \left( e^{-2x} \right) + \left( e^x-1\right)\left( e^{-2x}\right)\left( e^x\right)\right)\dif x \\
+    I = \int_0^1 \left(e^{-x} - e^{-x} - e^{-2x} +1\right)\dif x\\
+    I = \int_0^1 \left(1-e^{-2x}\right)\dif x \\
+    I = \left[x + \frac{e^{-2x}}{2}\right]_0^1\\
+    I = 1 + \frac{e^{-2}}{2} -0-\frac{1}{2}\\
+    I = \frac{1}{2}\left(e^{-2}+1\right)
+\end{gather}
+\subsection{c}
+\begin{gather}
+    \underline{F}\left(x, \, y, \, z\right) = \begin{pmatrix}
+        \frac{y}{x^2}\\
+        \frac{x}{y^2}
+    \end{pmatrix}
+\end{gather}
+\end{document}
