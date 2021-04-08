@@ -55,17 +55,56 @@ Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(
     y = e^x - 1\\
     \dif y = e^x \dif x\\
     I = \int_0^1 \left( \left( e^x-1\right) \left( e^{-2x} \right) + \left( e^x-1\right)\left( e^{-2x}\right)\left( e^x\right)\right)\dif x \\
-    I = \int_0^1 \left(e^{-x} - e^{-x} - e^{-2x} +1\right)\dif x\\
-    I = \int_0^1 \left(1-e^{-2x}\right)\dif x \\
-    I = \left[x + \frac{e^{-2x}}{2}\right]_0^1\\
-    I = 1 + \frac{e^{-2}}{2} -0-\frac{1}{2}\\
+    = \int_0^1 \left(e^{-x} - e^{-x} - e^{-2x} +1\right)\dif x\\
+    = \int_0^1 \left(1-e^{-2x}\right)\dif x \\
+    = \left[x + \frac{e^{-2x}}{2}\right]_0^1\\
+    = 1 + \frac{e^{-2}}{2} -0-\frac{1}{2}\\
     I = \frac{1}{2}\left(e^{-2}+1\right)
 \end{gather}
 \subsection{c}
+\subsubsection{i}
 \begin{gather}
     \underline{F}\left(x, \, y, \, z\right) = \begin{pmatrix}
         \frac{y}{x^2}\\
         \frac{x}{y^2}
-    \end{pmatrix}
+    \end{pmatrix}\\
+    \nabla \cdot \underline{F} = \begin{pmatrix}
+        \frac{\partial}{\partial x}\\
+        \frac{\partial}{\partial y}
+    \end{pmatrix} \cdot \begin{pmatrix}
+        \frac{y}{x^2}\\
+        \frac{x}{y^2}
+    \end{pmatrix}\\
+    = \frac{\partial}{\partial x}\left(\frac{y}{x^2}\right) + \frac{\partial}{\partial y} \left(\frac{x}{y^2}\right)\\
+    = -\frac{2y}{x^3}-\frac{2x}{y^3} \\
+    = -2\left(\frac{y}{x^3}+\frac{x}{y^3}\right)
+\end{gather}
+\subsubsection{ii}
+\begin{gather}
+    I = \int_{1}^{2} \int_{1}^{2} \left(-2\left(\frac{y}{x^3}+\frac{x}{y^3}\right)\right) \dif x \dif y\\
+    = \int_{1}^{2} \left[-2\left(\frac{y}{-2x^2} + \frac{x^2}{2y^3}\right)\right]_1^2 \dif y\\
+    = \int_{1}^{2} \left[-2\left(-\frac{y}{8} + \frac{2}{y^3}+\frac{y}{2} - \frac{1}{2y^3}\right)\right] \dif y\\
+    = \int_{1}^{2} \left(-\frac{3y}{4}-\frac{3}{y^3}\right) \dif y\\
+    = \left[-\frac{3y^2}{8}+\frac{3}{2y^2}\right]_1^2\\
+    = -\frac{3}{2} + \frac{3}{8} + \frac{3}{8} - \frac{3}{2}\\
+    I = -\frac{9}{4}
+\end{gather}
+\subsection{d}
+\subsubsection{i}
+\begin{gather}
+    I = \int \left(\sin x \cos y \dif y + \cos x \sin y \dif y\right)\\
+    y = 0 \hspace{1cm} \dif y = 0\\
+    I_{AB} = \int_{x=0}^{\pi} \left(\sin x\right)\dif x = \left[-\cos x\right]_0^{\pi} = 2\\
+    x = \pi \hspace{1cm} \dif x = 0\\
+    I_{BC} = \int_{y=0}^{\pi} \left(-\sin y\right)\dif y= \left[\cos y\right]_0^{\pi} = -2\\
+    \therefore I = I_{AB} + I_{BC} = 2-2 = 0
+\end{gather}
+\subsubsection{ii}
+\begin{gather}
+    I = \int \left(\sin x \cos y \dif y + \cos x \sin y \dif y\right)\\
+    y = x \hspace{1cm} \dif y = \dif x\\
+    I_{AC} = \int_0^{\pi} \left(\sin x \cos x + \sin x \cos x\right) \dif x\\
+    = \int_0^{\pi} \left(\sin \left(2x\right)\right)\dif x\\
+    I_{AC} = \left[-\frac{1}{2}\cos \left(2x\right)\right]_0^{\pi} = \frac{1}{2} - \frac{1}{2} = 0\\
 \end{gather}
 \end{document}
