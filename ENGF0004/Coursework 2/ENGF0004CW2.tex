@@ -132,4 +132,128 @@ Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(
 }
 \lstinputlisting{q1ei.m}
 \subsubsection{ii}
+\subsection{f}
+\subsubsection{ii}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75 \textwidth]{./img/q1fii.png}
+    \caption{}
+\end{figure}
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{q1fii.m}
+\section{Question 2}
+\subsection{a}
+In our series of equations, there are three unknown internal bar forces $N_{12}$, $N_{23}$, $N_{13}$, and three unknown reaction forces, $R_{2x}$, $R_{2y}$, $R_{3y}$. We also have two unknown angles, $\alpha$ and $\beta$, and the force $F$. Given that there are six unknowns that we would like to find and six equations with those variables, the conditions are fulfilled to solve this using matrices. Our answer would be in terms of the variables $\alpha$, $\beta$ and $F$. Values may be assumed, measured or calculated for these.
+\subsection{b}
+\begin{gather}
+    \begin{bmatrix}
+        -\cos \alpha & 0 & \cos \beta & 0 & 0 & 0\\
+        -\sin \alpha & 0 & -\sin \beta & 0 & 0 &0\\
+        \cos \alpha & 1 & 0 & 1 & 0 & 0\\
+        \sin \alpha & 0 & 0& 0 & 1 & 0\\
+        0 & -1 & -\cos \beta & 0 & 0 & 0\\
+        0 & 0 & \sin \beta & 0 & 0 & 1
+    \end{bmatrix} \begin{bmatrix}
+        N_{12}\\
+        N_{23}\\
+        N_{13}\\
+        R_{2x}\\
+        R_{2y}\\
+        R_{3y}        
+    \end{bmatrix} = \begin{bmatrix}
+        0\\
+        F\\
+        0\\
+        0\\
+        0\\
+        0\\
+    \end{bmatrix}
+\end{gather}
+\subsection{c}
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{q2c.m}
+This returned the following:
+\begin{gather}
+    \begin{bmatrix}
+        N_{12}\\
+        N_{23}\\
+        N_{13}\\
+        R_{2x}\\
+        R_{2y}\\
+        R_{3y}        
+    \end{bmatrix} = \begin{bmatrix}
+        -866.0254\\
+        433.0127\\
+       -500.0000\\
+               0\\
+        750.0000\\
+        250.0000
+    \end{bmatrix}
+\end{gather}
+\subsection{d}
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{q2d.m}
+This returned the following:
+\begin{gather}
+    \begin{bmatrix}
+        N_{12}\\
+        N_{23}\\
+        N_{13}\\
+        R_{2x}\\
+        R_{2y}\\
+        R_{3y}        
+    \end{bmatrix} = \begin{bmatrix}
+        -866.0254\\
+        433.0127\\
+       -500.0000\\
+               0\\
+        750.0000\\
+        250.0000
+    \end{bmatrix}
+\end{gather}
 \end{document}
