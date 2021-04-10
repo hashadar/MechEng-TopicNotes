@@ -107,4 +107,29 @@ Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(
     = \int_0^{\pi} \left(\sin \left(2x\right)\right)\dif x\\
     I_{AC} = \left[-\frac{1}{2}\cos \left(2x\right)\right]_0^{\pi} = \frac{1}{2} - \frac{1}{2} = 0\\
 \end{gather}
+\subsection{e}
+\subsubsection{i}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75 \textwidth]{./img/q1ei.png}
+    \caption{Domain of integration where $R: \, -1 \leq x \leq 1, \, 0 \leq y \leq x^2$.}
+\end{figure}
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{q1ei.m}
+\subsubsection{ii}
 \end{document}
