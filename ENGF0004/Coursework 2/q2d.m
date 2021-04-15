@@ -2,8 +2,8 @@ clc
 clear 
 close all
 
-alpha = pi/3;
-beta = pi/6;
+alpha = 0.927295;
+beta = 0.643501;
 F = 1000;
 
 A = [-cos(alpha) 0 cos(beta) 0 0 0;
