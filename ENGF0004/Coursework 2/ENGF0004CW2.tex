@@ -65,6 +65,7 @@ Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(
 \end{gather}
 \subsection{c}
 \subsubsection{i}
+Calculating $\nabla \cdot \underline{F}$:
 \begin{gather}
     \underline{F}\left(x, \, y, \, z\right) = \begin{pmatrix}
         \frac{y}{x^2}\\
@@ -82,6 +83,7 @@ Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(
     = -2\left(\frac{y}{x^3}+\frac{x}{y^3}\right)
 \end{gather}
 \subsubsection{ii}
+Calculating the double integral:
 \begin{gather}
     I = \int_{1}^{2} \int_{1}^{2} \left(-2\left(\frac{y}{x^3}+\frac{x}{y^3}\right)\right) \dif x \dif y\\
     = \int_{1}^{2} \left[-2\left(\frac{y}{-2x^2} + \frac{x^2}{2y^3}\right)\right]_1^2 \dif y\\
@@ -93,6 +95,7 @@ Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(
 \end{gather}
 \subsection{d}
 \subsubsection{i}
+Calculating the line integral along the red path:
 \begin{gather}
     I = \int \left(\sin x \cos y \dif y + \cos x \sin y \dif y\right)\\
     y = 0 \hspace{1cm} \dif y = 0\\
@@ -102,6 +105,7 @@ Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(
     \therefore I = I_{AB} + I_{BC} = 2-2 = 0
 \end{gather}
 \subsubsection{ii}
+Calculating the line integral along the blue path:
 \begin{gather}
     I = \int \left(\sin x \cos y \dif y + \cos x \sin y \dif y\right)\\
     y = x \hspace{1cm} \dif y = \dif x\\
@@ -157,25 +161,21 @@ Integration by parts thrice:
     I = \frac{1}{\pi} - \frac{6}{\pi^3} = 0.125
 \end{gather}
 \subsubsection{iii}
-Utilising symmetry, we can select the limits $x = 0, \, x=1$ :
+Utilising symmetry, we can select the limits $x = 0, \, x=1$ and then multiply the result by 2:
 \begin{align}
-    I &= \int_0^1 \int_{\sqrt{y}}^1 \left(x^2 + y^2\right) \dif x \dif y\\
-    &= \int_0^1 \left[\frac{x^3}{3} + xy^2\right]_{\sqrt{y}}^1 \dif y\\
-    &= \int_0^1 \left(\frac{1}{3} + y^2 - \frac{y^{\frac{3}{2}}}{3} - y^{\frac{5}{2}}\right) \dif y\\
-    &= \left[\frac{y}{3} + \frac{y^3}{3} - \frac{2y^{\frac{5}{2}}}{15} - \frac{2y^{\frac{7}{2}}}{7}\right]_0^1\\
-    &= \frac{1}{3} + \frac{1}{3} - \frac{2}{15} - \frac{2}{7}\\
-    I &= \frac{26}{105}
+    I &= 2\int_0^1 \int_{\sqrt{y}}^1 \left(x^2 + y^2\right) \dif x \dif y\\
+    &= 2\int_0^1 \left[\frac{x^3}{3} + xy^2\right]_{\sqrt{y}}^1 \dif y\\
+    &= 2\int_0^1 \left(\frac{1}{3} + y^2 - \frac{y^{\frac{3}{2}}}{3} - y^{\frac{5}{2}}\right) \dif y\\
+    &= 2\left[\frac{y}{3} + \frac{y^3}{3} - \frac{2y^{\frac{5}{2}}}{15} - \frac{2y^{\frac{7}{2}}}{7}\right]_0^1\\
+    &= 2\left[\frac{1}{3} + \frac{1}{3} - \frac{2}{15} - \frac{2}{7}\right]\\
+    I &= \frac{2\cdot 26}{105} = \frac{52}{105}
 \end{align}
-Doubling this value yields:
-\begin{equation}
-    I = \frac{52}{105}
-\end{equation}
 \subsection{f}
 \subsubsection{i}
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75 \textwidth]{./img/q1fi.png}
-    \caption{}
+    \caption{Plot of scalar function $z= xye^{-\sqrt{x^2 + y^2}}$ and its gradient.}
 \end{figure}
 \lstset{language=Matlab,%
     %basicstyle=\color{red},
@@ -198,7 +198,7 @@ Doubling this value yields:
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75 \textwidth]{./img/q1fii.png}
-    \caption{}
+    \caption{Plot of scalar function $z= \sin\left(\frac{\pi}{2}x\right)\cos\left(\frac{\pi}{2}y\right)$ and its gradient.}
 \end{figure}
 \lstset{language=Matlab,%
     %basicstyle=\color{red},
@@ -222,7 +222,7 @@ Doubling this value yields:
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75 \textwidth]{./img/q1gi.png}
-    \caption{}
+    \caption{Plot of vector field $\underline{u} = 2\cos\left(\pi x\right)\underline{i} + \sin^2\left(\pi y\right)\underline{j}$ and its associated divergence.}
 \end{figure}
 \lstset{language=Matlab,%
     %basicstyle=\color{red},
@@ -245,7 +245,7 @@ Doubling this value yields:
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75 \textwidth]{./img/q1gii.png}
-    \caption{}
+    \caption{Plot of vector field $\underline{u} = \ln\left(y\right)e^{-x}\underline{i} + \ln\left(x\right)e^{-y}\underline{j}$ and its associated divergence.}
 \end{figure}
 \lstset{language=Matlab,%
     %basicstyle=\color{red},
@@ -269,7 +269,7 @@ Doubling this value yields:
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{./img/q1hi.png}
-    \caption{}
+    \caption{Plot of scalar function$z=\tan\left(xy\right)$ and its Laplacian.}
 \end{figure}
 \lstset{language=Matlab,%
     %basicstyle=\color{red},
@@ -292,7 +292,7 @@ Doubling this value yields:
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{./img/q1hii.png}
-    \caption{}
+    \caption{Plot of scalar function $z = xye^{-\sqrt{x^2 + y^2}}$ and its Laplacian.}
 \end{figure}
 \lstset{language=Matlab,%
     %basicstyle=\color{red},
@@ -510,17 +510,52 @@ Code was written to generate a table of data:
     \caption{Table to show values of means and standard deviations of weekly output of vaccines for manufacturer A and B.}
 \end{table}
 \subsection{b}
-Hypothesis test for efficiency, utilising a two tailed z-test as sample size is large. Null hypothesis: efficiencies are not significantly different, alternate hypothesis: efficiencies are significantly different.
+Hypothesis test for efficiency. We can use a two-tailed binomial distribution for this test. A two-tailed test applies here as we are testing for a difference between the efficiencies of each manufacturer. \begin{itemize}
+    \item Null hypothesis - the efficiencies for both manufacturers are the same.
+    \item Alternate hypothesis - the efficiencies for both manufacturers are not the same.
+\end{itemize}
 \begin{align}
     H_0: \; P_a - P_b = 0\\
     H_1: \; P_a - P_b \neq 0
 \end{align}
-Hypothesis test for factory output, utilising a two tailed t-test as sample size is 30. Null hypothesis: factory outputs are not significantly different, alternate hypothesis: factory outputs are significantly different.
+Hypothesis test for factory output. As we do not know the true population standard deviation, we can utilise a two-tailed t-test. As for the efficiency test, a two-tailed test is used as we are testing for a difference between the two manufacturer's weekly output.
+\begin{itemize}
+    \item Null hypothesis - the weekly outputs for both manufacturers are the same.
+    \item Alternate hypothesis - the weekly outputs for both manufacturers are not the same.
+\end{itemize}
 \begin{align}
     H_0: \; \mu_a - \mu_b = 0\\
     H_1: \; \mu_a - \mu_b \neq 0 
 \end{align}
 \subsection{c}
+Test for efficiency. As our sample sizes are larger than 25, we can assume a normal distribution applies and utilise Z-values. Finding total proportion:
+\begin{gather}
+    \hat{p}_A = 0.94 \hspace{1cm} \hat{p}_B = 0.92\\
+    \hat{p}_T = \frac{n_A \hat{p}_A + n_B \hat{p}_B}{n_A + n_B}\\
+    \hat{p}_T = \frac{0.94\cdot 2000 + 0.92 \cdot 500}{2000 + 500}\\
+    \hat{p}_T = 0.936
+\end{gather}
+The corresponding Z-value is ($P_a - P_b = 0$):
+\begin{gather}
+    Z^* = \frac{\left(\hat{p}_A - \hat{p}_B\right) - \left(p_A - p_B\right)}{\sqrt{\hat{p}_T \left(1-\hat{p}_T\right)\left(\frac{1}{n_A} + \frac{1}{n_B}\right)}}\\
+    Z^* = \frac{0.94 -0.92 - 0}{\sqrt{0.936 \left(1-0.936\right)\left(\frac{1}{2000} + \frac{1}{500}\right)}} = 1.634
+\end{gather}
+At 5\% significance in a two-tailed test, our critical Z-value is 1.96:
+\begin{eqnarray}
+    Z^* = 1.634 < Z^*_{crit} = 1.96
+\end{eqnarray}
+We found our Z-value to be smaller than the critical value, hence there is not sufficient data to reject the null hypothesis and there is 95\% confidence that the efficiencies of the vaccine outputs are the same for both manufacturers. 
+
+Test for weekly output. As our sample sizes are larger than 25, we can assume a normal distribution applies and utilise Z-values ($\mu_a - \mu_b = 0$):
+\begin{gather}
+    Z^* = \frac{\left(\hat{x}_A - \hat{x}_R\right)-\left(\mu_A - \mu_R\right)}{\sqrt{\frac{s_A^2}{n_A} + \frac{s_B^2}{n_B}}}\\
+    Z^* = \frac{50991.9 - 50328.27 - 0}{\sqrt{\frac{53.77^2}{30} + \frac{863.99^2}{30}}} = 4.199
+\end{gather}
+At 5\% significance in a two-tailed test, our critical Z-value is 1.96:
+\begin{equation}
+    Z^* = 4.199 > Z^*_{crit/\frac{\alpha}{2}} = 1.96
+\end{equation} 
+The Z-value for the weekly output is higher than the critical value, hence there is sufficient evidence to reject the null hypothesis and there is a 95\% confidence that the weekly outputs are different for both manufacturers. The mean weekly output of manufacturer A is larger than B, hence we can say that the weekly output of A is larger than B. For a one tail test ($\mu_A - \mu_B > 0$), our $Z^*_{crit}$ value would be lower than that of a two-tailed test at 5\% significance.
 \section{Question 4}
 \subsection{a}
 \subsubsection{i}
@@ -541,15 +576,18 @@ Geometric series, hence:
     \sum_{n=1}^{\infty} P(X=n) = \frac{a}{1-r} = \frac{\frac{1}{2}}{1-\frac{1}{2}} = 1
 \end{gather}
 \subsection{b}
-\subsubsection{i}
-\begin{align}
-    f(x) &= \begin{cases}
+\begin{equation}
+    f(x) = \begin{cases}
         \alpha \left(1 - x^2\right)\\
         0 
     \end{cases} \begin{array}{l}
         -1 \leq x \leq 1\\
         \textrm{otherwise}
-    \end{array}\\
+    \end{array}
+\end{equation}
+\subsubsection{i}
+Area under the probability density function equals to 1, hence area under the integral also equals to 1: 
+\begin{align}
     F(x) = 1 &= \int_{-1}^1 \left(\alpha - \alpha x^2\right) \dif x\\
     &= \left[\alpha x - \frac{\alpha x^3}{3}\right]_{-1}^{1}\\
     &= \left(\alpha - \frac{\alpha}{3} + \alpha -\frac{\alpha}{3} \right)\\
@@ -580,7 +618,7 @@ $P(X \leq x) = 0.95$
     \left(\frac{3x}{4} - \frac{x^3}{4} + \frac{3}{4} - \frac{1}{4} \right) &= 0.95\\
     \frac{x^3}{4} -\frac{3x}{4} + \frac{9}{20} &= 0
 \end{align}
-Solving via calculator:
+Solving via calculator and rejecting values outside the range of $-1 \leq x \leq 1$:
 \begin{align}
     x_1 &\neq 1.2481\\
     x_2 &\neq -1.9777\\
@@ -588,27 +626,23 @@ Solving via calculator:
 \end{align}
 \subsection{c}
 \subsubsection{i}
-\begin{align}
-    f(x,y) &= \begin{cases}
-        \alpha e^{-0.1\left(x+y\right)}\\
-        0 
-    \end{cases} \begin{array}{l}
-        x > 0 \; \& \; y > 0 \\
-        \textrm{otherwise}
-    \end{array}\\
-    f_1(x) &= \lim_{t\rightarrow \infty} \int_0^t \left(\alpha e^{-0.1\left(x+y\right)} \right) \dif y\\
-    &= \lim_{t\rightarrow \infty} \left[-\frac{\alpha}{0.1} e^{-0.1\left(x+y\right)}\right]_0^t\\
-    &= \lim_{t\rightarrow \infty} \left[-\frac{\alpha}{0.1} e^{-0.1t} + \frac{\alpha}{0.1} e^{-0.1x}\right]\\
-    &= \left[0 + \frac{\alpha}{0.1} e^{-0.1x}\right]\\
-    f_1(x) &= \frac{\alpha}{0.1} e^{-0.1x}\\
-    f_2(y) &= \lim_{t\rightarrow \infty} \int_0^t \left(\alpha e^{-0.1\left(x+y\right)} \right) \dif x\\
-    &= \lim_{t\rightarrow \infty} \left[-\frac{\alpha}{0.1} e^{-0.1\left(x+y\right)}\right]_0^t\\
-    &= \lim_{t\rightarrow \infty} \left[-\frac{\alpha}{0.1} e^{-0.1t} + \frac{\alpha}{0.1} e^{-0.1y}\right]\\
-    &= \left[0 + \frac{\alpha}{0.1} e^{-0.1y}\right]\\
-    f_2(y) &= \frac{\alpha}{0.1} e^{-0.1y}
-\end{align}
-$f(x,y) \neq f_1(x)f_2(y)$, condition not fulfilled for independence.
+$X$ and $Y$ are independent in the case the following equation is satisfied:
+\begin{equation}
+    f(x,y) = f(x) f(y)
+\end{equation}
+We can express the probability density function as:
+\begin{equation}
+    f(x,y) = \alpha e^{-0.1\left(x+y\right)} = \left(be^{-0.1x}\right)\left(ce^{-0.1y}\right)
+\end{equation}
+where $b\cdot c = \alpha$.
+\begin{gather}
+    f_1(x) = be^{-0.1x} \textrm{ and } f_2(y) = ce^{-0.1y}\\
+    \alpha e^{-0.1\left(x+y\right)} = \left(be^{-0.1x}\right)\left(ce^{-0.1y}\right)\\
+    f(x,y) = f_1(x)f_2(y)
+\end{gather}
+Conditions are satisfied, hence $X$ and $Y$ are independent.
 \subsubsection{ii}
+Area under probability density function equals to 1:
 \begin{align}
     F(x,y) = 1 &= \lim_{t\rightarrow \infty} \int_{y=0}^{t} \int_{x=0}^{t} \left(\alpha e^{-0.1\left(x+y\right)}\right) \dif x \dif y\\
     &= \lim_{t\rightarrow \infty} \int_{y=0}^{t} \left[ -\frac{\alpha}{0.1} e^{-0.1\left(x+y\right)} \right]_{x=0}^t \dif y\\
@@ -618,6 +652,33 @@ $f(x,y) \neq f_1(x)f_2(y)$, condition not fulfilled for independence.
     \frac{\alpha}{0.01} &= 1\\
     \alpha &= 0.01
 \end{align}
+The marginal distributions for $x$ can be found as:
+\begin{align}
+    F(x) &= b \lim_{t\rightarrow \infty} \int_0^t\left(e^{-0.1x}\right)\dif x = \left[b\left(-10 e^{-0.1x}\right)\right]_0^t\\
+    1 &= b\left(0 + 10\right) = 10b \\
+    b &= 0.1
+\end{align}
+Therefore:
+\begin{equation}
+    f_1(x) = \begin{cases}
+        0.1e^{-0.1x}\\
+        0
+    \end{cases} \begin{array}{l}
+        x > 0\\
+        x \leq 0
+    \end{array}
+\end{equation}
+We also know that $b\cdot c = \alpha$, hence:
+\begin{gather}
+    b = 0.1 \hspace{1cm} c = 0.1\\
+    f_2(y) = \begin{cases}
+        0.1e^{-0.1y}\\
+        0
+    \end{cases} \begin{array}{l}
+        y > 0\\
+        y \leq 0
+    \end{array}
+\end{gather}
 \subsubsection{iii}
 $P(X \geq 10)$
 \begin{align}
@@ -626,16 +687,16 @@ $P(X \geq 10)$
     &= \lim_{t\rightarrow \infty} \int_{x=10}^{t} \left[0+0.1 e^{-0.1x}\right] \dif x\\
     &= \lim_{t\rightarrow \infty} \left[- e^{-0.1x}\right]_{10}^t\\
     &= \left[0 + e^{-1}\right]\\
-    &= 36.79\%
+    &= 0.3679 = 36.79\%
 \end{align}
 \subsubsection{iv}
-$P(Y < X)$
+$P(y < x)$
 \begin{align}
-    P(Y < X) &= \lim_{t\rightarrow \infty} \int_{x=0}^{t} \int_{y=0}^{x} \left(0.01 e^{-0.1\left(x + y\right)}\right) \dif y \dif x\\
+    P(y < x) &= \lim_{t\rightarrow \infty} \int_{x=0}^{t} \int_{y=0}^{x} \left(0.01 e^{-0.1\left(x + y\right)}\right) \dif y \dif x\\
     &= \lim_{t\rightarrow \infty} \int_{x=0}^{t} \left[-0.1 e^{-0.1\left(x + y\right)}\right]_{y=0}^x \dif x\\
     &= \lim_{t\rightarrow \infty} \int_{x=0}^{t} \left(-0.1e^{-0.2x}+0.1 e^{-0.1x}\right) \dif x\\
     &= \lim_{t\rightarrow \infty} \left[0.5 e^{-0.2x}- e^{-0.1x}\right]_{0}^t\\
     &= \left[0 - 0 - 0.5 + 1\right]\\
-    &= 50\%
+    &= 0.5 = 50\%
 \end{align}
 \end{document}
