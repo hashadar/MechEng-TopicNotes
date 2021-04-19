@@ -134,6 +134,42 @@ Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(
 }
 \lstinputlisting{./bin/q1ei.m}
 \subsubsection{ii}
+$y =0 \rightarrow y = x^2$ and $x = -1 \rightarrow x = 1 $
+\begin{gather}
+    I = \int_{-1}^{1} \int_{0}^{x^2} \left( y \frac{\sin\left(\pi x\right)}{x} \right) \dif y \dif z\\
+    I = \int_{-1}^{1} \left[y^2 \frac{\sin\left(\pi x\right)}{2x}\right]_0^{x^2} \dif x\\
+    I = \int_{-1}^{1} \left[\frac{x^4 \sin\left(\pi x \right)}{2x} - 0 \right] \dif x\\
+    I = \int_{-1}^{1} \left(\frac{x^3 \sin\left(\pi x \right)}{2} \right) \dif x
+\end{gather}
+Integration by parts thrice: 
+\begin{gather}
+    u_x = \frac{x^3}{2} \hspace{1cm} u_x' = \frac{3x^2}{2}\\
+    v_x = -\frac{\cos \left(\pi x\right)}{\pi} \hspace{1cm} v_x' = \sin \left(\pi x \right)\\
+    I = \left[-\frac{x^3 \cos\left(\pi x\right)}{2\pi}\right]_{-1}^1 + \int_{-1}^1 \left(\frac{3x^2 \cos\left(\pi x\right)}{2\pi}\right) \dif x\\
+    u_x = \frac{3x^2}{2\pi} \hspace{1cm} u_x' = \frac{3x}{\pi}\\
+    v_x = \frac{\sin \left(\pi x\right)}{\pi} \hspace{1cm} v_x' = \cos \left(\pi x \right)\\
+    I = - \frac{\cos \pi}{2\pi} - \frac{\cos(-\pi)}{2\pi} + \left[\frac{3x^2 \sin\left(\pi x\right)}{2x^2}\right]_{-1}^1 - \int_{-1}^1 \left(\frac{3x \sin\left(\pi x \right)}{\pi^2} \right) \dif x\\
+    I = \frac{1}{2\pi} + \frac{1}{2\pi} + 0 - 0 - \int_{-1}^1 \left(\frac{3x \sin\left(\pi x \right)}{\pi^2} \right) \dif x\\
+    u_x = \frac{3x}{\pi^2} \hspace{1cm} u_x' = \frac{3}{\pi^2}\\
+    v_x = -\frac{\cos \left(\pi x\right)}{\pi} \hspace{1cm} v_x' = \sin \left(\pi x \right)\\
+    I = \frac{1}{\pi} + \left[\frac{3x\cos\left(\pi x \right)}{\pi^3}\right]_{-1}^1 - \int_{-1}^1 \left(\frac{3\cos\left(\pi x\right)}{\pi^3}\right) \dif x\\
+    I = \frac{1}{\pi} - \frac{3}{\pi^3} - \frac{3}{\pi^3} - \left[ \frac{3\sin\pi}{\pi^4} - \frac{3\sin(-\pi)}{\pi^4}\right]\\
+    I = \frac{1}{\pi} - \frac{6}{\pi^3} = 0.125
+\end{gather}
+\subsubsection{iii}
+Utilising symmetry, we can select the limits $x = 0, \, x=1$ :
+\begin{align}
+    I &= \int_0^1 \int_{\sqrt{y}}^1 \left(x^2 + y^2\right) \dif x \dif y\\
+    &= \int_0^1 \left[\frac{x^3}{3} + xy^2\right]_{\sqrt{y}}^1 \dif y\\
+    &= \int_0^1 \left(\frac{1}{3} + y^2 - \frac{y^{\frac{3}{2}}}{3} - y^{\frac{5}{2}}\right) \dif y\\
+    &= \left[\frac{y}{3} + \frac{y^3}{3} - \frac{2y^{\frac{5}{2}}}{15} - \frac{2y^{\frac{7}{2}}}{7}\right]_0^1\\
+    &= \frac{1}{3} + \frac{1}{3} - \frac{2}{15} - \frac{2}{7}\\
+    I &= \frac{26}{105}
+\end{align}
+Doubling this value yields:
+\begin{equation}
+    I = \frac{52}{105}
+\end{equation}
 \subsection{f}
 \subsubsection{i}
 \begin{figure}[H]
@@ -277,7 +313,7 @@ Calculating the line integral of \ref{1beq1} from $O\left(0, \, 0\right)$ to $A(
 \lstinputlisting{./bin/q1hii.m}
 \section{Question 2}
 \subsection{a}
-In our series of equations, there are three unknown internal bar forces $N_{12}$, $N_{23}$, $N_{13}$, and three unknown reaction forces, $R_{2x}$, $R_{2y}$, $R_{3y}$. We also have two unknown angles, $\alpha$ and $\beta$, and the force $F$. Given that there are six unknowns that we would like to find and six equations with those variables, the conditions are fulfilled to solve this using matrices. Our answer would be in terms of the variables $\alpha$, $\beta$ and $F$. Values may be assumed for these or we can calculate them, if we have the length of each member.
+In our series of equations, there are three unknown internal bar forces $N_{12}$, $N_{23}$, $N_{13}$, and three unknown reaction forces, $R_{2x}$, $R_{2y}$, $R_{3y}$. We also have two unknown angles, $\alpha$ and $\beta$, and the force $F$. Given that there are six unknowns that we would like to find and six equations with those variables, the conditions are fulfilled to solve this using matrices. Our answer would be in terms of the variables $\alpha$, $\beta$ and $F$. Values may be assumed for these or we can calculate them based on the geometry of the beams. 
 \subsection{b}
 \begin{gather}
     \begin{bmatrix}
@@ -473,6 +509,18 @@ Code was written to generate a table of data:
     \end{tabular}
     \caption{Table to show values of means and standard deviations of weekly output of vaccines for manufacturer A and B.}
 \end{table}
+\subsection{b}
+Hypothesis test for efficiency, utilising a two tailed z-test as sample size is large. Null hypothesis: efficiencies are not significantly different, alternate hypothesis: efficiencies are significantly different.
+\begin{align}
+    H_0: \; P_a - P_b = 0\\
+    H_1: \; P_a - P_b \neq 0
+\end{align}
+Hypothesis test for factory output, utilising a two tailed t-test as sample size is 30. Null hypothesis: factory outputs are not significantly different, alternate hypothesis: factory outputs are significantly different.
+\begin{align}
+    H_0: \; \mu_a - \mu_b = 0\\
+    H_1: \; \mu_a - \mu_b \neq 0 
+\end{align}
+\subsection{c}
 \section{Question 4}
 \subsection{a}
 \subsubsection{i}

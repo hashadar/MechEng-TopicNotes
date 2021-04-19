@@ -11,7 +11,7 @@ z = (sin((pi/2).*x)).*(cos((pi/2).*y));
 
 %gradient function
 [gx,gy] = gradient(z,0.2,0.2);
-contour(m,m,z)
+contour(m,m,z,'showtext','on')
 hold on 
 quiver(m,m,gx,gy)
 hold off
@@ -21,4 +21,3 @@ axis('image');
 xlabel('x-axis')
 ylabel('y-axis')
 title('Plot of scalar function and gradient vectors')
-grid on

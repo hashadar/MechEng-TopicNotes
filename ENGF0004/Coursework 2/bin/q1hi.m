@@ -10,7 +10,7 @@ m = -pi/4:0.05:pi/4;
 z = tan(x.*y);
 
 %laplacian
-L = del2(z);
+L = del2(z,0.05);
 
 %plotting
 subplot(1,2,1)

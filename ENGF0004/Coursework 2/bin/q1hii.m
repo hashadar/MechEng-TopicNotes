@@ -10,7 +10,7 @@ m = -3:0.1:3;
 z = x.*y.*exp(-sqrt(x.^2 + y.^2));
 
 %laplacian
-L = del2(z);
+L = del2(z,0.05);
 
 %plotting
 subplot(1,2,1)
