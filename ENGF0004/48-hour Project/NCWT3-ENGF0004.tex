@@ -151,12 +151,12 @@ Differentiating \ref{eq:1.2a} with respect to $x$ and \ref{eq:1.2b} with respect
 Substituting:
 \begin{align}
     c \left(-\rho \frac{\partial^2 v }{\partial t^2}\right) &= - \frac{\partial^2 v}{\partial x^2}\\
-    c\rho \frac{\partial^2 v }{\partial t^2} &= \frac{\partial^2 v}{\partial x^2}
+    c\rho \frac{\partial^2 v }{\partial t^2} &= \frac{\partial^2 v}{\partial x^2} \label{eq:1.2.2c}
 \end{align}
 \subsubsection{Solution to wave equation and plot}
 Starting with:
 \begin{equation}
-    v=e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}
+    v=e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} \label{eq:1.2.2d}
 \end{equation}
 Differentiating:
 \begin{align}
@@ -168,14 +168,47 @@ Expanding and differentiating \ref{eq:1.2.2a} with respect to $x$:
     \frac{\partial}{\partial x} \left(-2xe^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} + \frac{2t}{\sqrt{cp}}e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}\right) = \\
     -2e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} + 4x\left(x- \frac{1}{\sqrt{cp}t}\right)e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} - \frac{4t}{\sqrt{cp}}\left(x - \frac{1}{\sqrt{cp}}t\right)e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}
 \end{multline}
-Factorising and simplifying
+Factorising and simplifying:
 \begin{align}
     \frac{\partial^2 v}{\partial x^2} &= 4\left(x - \frac{1}{\sqrt{cp}}t\right)^2 e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} -2e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}
 \end{align}
 Expanding and differentiating \ref{eq:1.2.2b} with respect to $y$:
 \begin{multline}
     \frac{\partial}{\partial x} \left(\frac{2x}{\sqrt{cp}}e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} - \frac{2t}{cp}e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}\right) = \\
+    - \frac{4x}{cp}\left(x - \frac{1}{\sqrt{cp}}t\right)e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} - \frac{2}{cp}e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} + \frac{4t}{cp\sqrt{cp}}\left(x - \frac{1}{\sqrt{cp}}t\right)e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}
 \end{multline}
+Factorising and simplifying:
+\begin{equation}
+    \frac{\partial^2v}{\partial t^2} = \frac{4}{cp}\left(x - \frac{1}{\sqrt{cp}}t\right)^2 e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} -\frac{2}{cp}e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}
+\end{equation}
+Multiplying by $cp$:
+\begin{equation}
+    cp\frac{\partial^2v}{\partial t^2} = 4\left(x - \frac{1}{\sqrt{cp}}t\right)^2 e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} -2e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}
+\end{equation}
+Hence, equation \ref{eq:1.2.2c} is satisfied. Plotting \ref{eq:1.2.2d} in MATLAB  for $cp = 1$ and at three discrete time points. 
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{./mCode/q102b.m}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{./img/q102b.png}
+    \caption{Graphs to show and compare the effect of varying $t$ for flow velocity along the vessel.}
+    \label{fig:q306a}
+\end{figure}
 \section{Vector calculus}
 \subsection{Proof that divergence of velocity equals zero}
 \begin{proof}
