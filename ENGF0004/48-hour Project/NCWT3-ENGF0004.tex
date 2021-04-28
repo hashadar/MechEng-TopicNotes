@@ -34,7 +34,104 @@
 \tableofcontents
 \listoffigures
 \section{PDEs, Matrix applications}
+\subsection{Developing mathematical model}
+\subsection{Constant cross-sectional area}
+\subsection{Solving equation}
+\subsection{Finite difference numerical scheme}
+\subsection{Comment on implications of stiffening of blood vessels with age}
+\subsection{Neglecting derivatives of non-linear terms of unknown variables}
 \section{Vector calculus}
+\subsection{Proof that divergence of velocity equals zero}
+\begin{proof}
+If the fluid is incompressible, our total derivative is zero:
+\begin{align}
+    \frac{\textrm{D}\rho}{\textrm{D}t} &= 0\\
+\end{align}
+We can start to derive the divergence of the velocity by rewriting the second term in \ref{eq2.1a}:
+\begin{align}
+    \frac{\partial \rho}{\partial t} + \nabla \cdot \left(\rho \underline{u}\right) &= 0 \label{eq2.1a}\\ 
+    \frac{\partial \rho}{\partial t} + \rho \left(\nabla \cdot \underline{u}\right) + \underline{u} \cdot \left(\nabla \rho\right) &= 0
+\end{align}
+Looking at the $\nabla \rho$ term:
+\begin{align}
+    \nabla \rho = \left(\frac{\partial \rho}{\partial x}, \, \frac{\partial \rho}{\partial y}, \, \frac{\partial \rho}{\partial z}\right)
+\end{align}
+We know that all derivatives of $\rho$ are zero as $\rho$ is a constant, hence:
+\begin{align}
+    0 + \rho \left(\nabla \cdot \underline{u}\right) + 0 &= 0\\
+    \nabla \cdot \underline{u} &= 0
+\end{align}
+\end{proof}
+\subsection{Acceleration of fluid element}
+Fluid element acceleration is given by:
+\begin{equation}
+    \frac{\textrm{D}u}{\textrm{D}t} = \frac{\partial \underline{u}}{\partial t} + \left(\underline{u}\cdot \nabla\right)\underline{u}
+\end{equation}
+Flow is steady, hence
+\begin{align}
+    \frac{\textrm{D}u}{\textrm{D}t} &= 0 + \left(\underline{u}\cdot \nabla\right)\underline{u}\\
+    &= -\omega y\frac{\partial \underline{u}}{\partial x} + -\omega x \frac{\partial \underline{u}}{\partial y} + 0 \frac{\partial \underline{u}}{\partial z}\\
+    &= -\omega y\frac{\partial \underline{u}}{\partial x} + \omega x \frac{\partial \underline{u}}{\partial x} \\
+    &= -\omega y \begin{pmatrix}
+        0\\
+        \omega\\
+        0
+    \end{pmatrix} + \omega x \begin{pmatrix}
+        -\omega\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &= \begin{pmatrix}
+        -\omega^2 x\\
+        -\omega^2 y\\
+        0
+    \end{pmatrix}
+\end{align}
+\subsection{Integral}
+\subsubsection{Area of integration}
+\subsubsection{Find the limits of integration}
+\subsubsection{Calculation of triple integral}
+\begin{align}
+    &= \iiint_V \left(xyz\right)\dif z \dif y \dif x\\
+    &= \int_0^1 \int_0^{1-x} \int_0^{1-x-y} \left(xyz\right)\dif z \dif y \dif x \label{q2.3a}
+\end{align}
+Computing the $z$ integral:
+\begin{align}
+    &= xy\int_0^{1-x-y} \left(z\right)\dif z\\
+    &= xy \left[\frac{z^2}{2}\right]_0^{1-x-y}\\
+    &= xy \left[\frac{(1-x-y)^2}{2}-\frac{0^2}{2}\right]\\
+    &= \frac{xy}{2} \left(y^2 + x^2 + 2xy -2x -2y + 1\right)\\
+    &= \frac{1}{2}\left(xy^3 + x^3y + 2x^2 y^2 -2x^2y - 2y^2x + xy\right) \label{q2.3b}
+\end{align}
+Inputting \ref{q2.3b} into \ref{q2.3a}:
+\begin{align}
+    \int_0^1 \int_0^{1-x} \left(\frac{1}{2}\left(xy^3 + x^3y + 2x^2 y^2 -2x^2y - 2xy^2 + xy\right) \right)\dif y \dif x \label{q2.3d}
+\end{align}
+Computing the $y$ integral:
+\begin{align}
+    &= \frac{1}{2} \int_0^{1-x}\left(xy^3 + x^3y + 2x^2 y^2 -2x^2y - 2xy^2 + xy\right) \dif y\\
+    &= \frac{1}{2}\left[\frac{xy^4}{4} + \frac{x^3y^2}{2} + \frac{2x^2y^3}{3} -x^2y^2-\frac{2xy^3}{3}+ \frac{xy^2}{2}\right]_0^{1-x}\\
+    &= \frac{1}{2}\left[\frac{x\left(1-x\right)^4}{4} + \frac{x^3\left(1-x\right)^2}{2} + \frac{2x^2\left(1-x\right)^3}{3} -x^2\left(1-x\right)^2-\frac{2x\left(1-x\right)^3}{3}+ \frac{x\left(1-x\right)^2}{2}\right]
+\end{align}
+Expanding:
+\begin{multline}
+    = \frac{1}{2}\left[\frac{x - 4x^2 + 6x^3 - 4x^4 + x^5}{4} \right.+ \frac{x^3 - 2x^4 + x^5}{2} + \frac{2x^2-6x^3 + 6x^4 -2x^5}{3}\\ \left. -\left(x^2-2x^3+x^4\right)-\frac{2x-6x^2 +6x^3 -2x^4}{3}+ \frac{x-2x^2 + x^3}{2}\right]
+\end{multline}
+Simplifying
+\begin{align}
+    &= \frac{x^5 -4x^4 + 6x^3 -4x^2 + x}{24}\\
+    &= \frac{1}{24}\left(x^5 -4x^4 +6x^3 -4x^2 + x\right) \label{q2.3c}
+\end{align}
+Inputting \ref{q2.3c} into \ref{q2.3d}:
+\begin{equation}
+    \int_0^1 \left( \frac{1}{24}\left(x^5 -4x^4 +6x^3 -4x^2 + x\right) \right)\dif x 
+\end{equation}
+Computing the $x$ integral:
+\begin{align}
+    &= \frac{1}{24}\left[\frac{x^6}{6}-\frac{4x^5}{5}+\frac{3x^4}{2}-\frac{4x^3}{3} + \frac{x^2}{2}\right]_0^1\\
+    &= \frac{1}{24}\left[\frac{1}{6} - \frac{4}{5} + \frac{3}{2} - \frac{4}{3} + \frac{1}{2}\right]\\
+    &= \frac{1}{720}
+\end{align}
 \section{Transforms}
 \subsection{Plot of data}
 \lstset{language=Matlab,%
@@ -87,7 +184,7 @@
 As seen from Figure \ref{fig:q302a}, we can extract two values from our Fourier transform. The higher peak has a frequency of \SI{0.16}{\hertz} and a period of \SI{6.25}{\second}. This represents the breathing of the subject (9.6 breaths per minute). According to a Cleveland Clinic article on vital signs, the average human breathing rate for adults should be around 12-16 breaths per minute \cite{q3.3.1}. The lower peak has a frequency of \SI{1.2}{\hertz} and a period of \SI{0.83}{\second}. This represents the heartbeat of the subject (72 beats per minute). According to the British Heart Foundation, the average resting heart rate for adults is between 60-100 beats per minute \cite{q3.3.2}.
 \subsection{Frequency filter}
 \subsubsection{Gaussian functions}
-A Gaussian function was generated using MATLAB's "normpdf" function. $\mu = \pm1.2$. The value for $\sigma$ was selected arbitrarily to de-noise the signal to an appropriate level
+A Gaussian function was generated using MATLAB's "gaussmf" function. $\mu = \pm1.2$. The value for $\sigma$ was selected arbitrarily to de-noise the signal to an appropriate level
 \lstset{language=Matlab,%
     %basicstyle=\color{red},
     breaklines=true,%
@@ -204,6 +301,7 @@ Here we can see that adjusting the value of $\sigma$ effects the amount of noise
     \label{fig:q306b}
 \end{figure}
 Here we can see the effect of the residual noise in the $\sigma = 0.1$ case, with relatively large variations in the amplitude of the signal. We can also see the effect of the flared base in the $\sigma = 0.01$ case as a smooth decrease and then increase in the amplitude of the signal. The $\sigma = 0.001$ case represents a virtually perfect signal with a frequency of \SI{1.2}{\hertz}.
+\section{Statistics}
 \begin{thebibliography}{00}
     \bibitem{q3.3.1} Cleveland Clinic, "Vital Signs", \url{https://www.hopkinsmedicine.org/health/conditions-and-diseases/vital-signs-body-temperature-pulse-rate-respiration-rate-blood-pressure#:~:text=Respiration%20rates%20may%20increase%20with,to%2016%20breaths%20per%20minute.} Accessed 27/04/21 14:47
     \bibitem{q3.3.2} British Heart Foundation, "What is a normal pulse rate?", \url{https://www.bhf.org.uk/informationsupport/heart-matters-magazine/medical/ask-the-experts/pulse-rate#:~:text=A%20normal%20resting%20heart%20rate,rich%20blood%20around%20the%20body.} Accessed 27/04/21 14:45

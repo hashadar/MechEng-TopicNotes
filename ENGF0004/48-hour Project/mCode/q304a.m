@@ -8,7 +8,7 @@ y = fft(data(:,2)); %compute discrete Fourier transform of data, (fast Fourier t
 n = length(data(:,2)); %find length of matrix
 Fs = 10; % Sampling frequency (Hz) 
 fshift = (-n/2:n/2-1)*(Fs/n); %defines x-axis range for shifted transform
-z = [normpdf(fshift, 1.2, 0.01)' + normpdf(fshift, -1.2, 0.01)'];%generate and add gaussians
+z = [gaussmf(fshift, [0.01 1.2])' + gaussmf(fshift, [0.01 -1.2])'];%generate and add gaussians
 
 %plot data 
 plot(fshift, z)
