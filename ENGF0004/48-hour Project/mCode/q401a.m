@@ -6,5 +6,11 @@ close all
 rest = readmatrix('Section4_data.xlsx', 'Range', 'A2:A39');
 anti = readmatrix('Section4_data.xlsx', 'Range', 'B2:B43');
 
-muRest = mean(rest);
+nRest = numel(rest); %number of elements
+nAnti = numel(anti);
+
+muRest = mean(rest); %mean 
 muAnti = mean(anti);
+
+sigmaRest = std(rest); %standard deviation 
+sigmaAnti = std(anti);

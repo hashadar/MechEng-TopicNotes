@@ -35,11 +35,147 @@
 \listoffigures
 \section{PDEs, Matrix applications}
 \subsection{Developing mathematical model}
-\subsection{Constant cross-sectional area}
-\subsection{Solving equation}
-\subsection{Finite difference numerical scheme}
-\subsection{Comment on implications of stiffening of blood vessels with age}
-\subsection{Neglecting derivatives of non-linear terms of unknown variables}
+\subsubsection{E1}
+Starting with:
+\begin{equation}
+    \left(S_{t+\Delta t} - S_t\right) = \left(vS\right)_x\Delta t - \left(vS\right)_{x+\Delta x} \Delta t-gpS\Delta x \Delta t
+\end{equation}
+Dividing by $\Delta x \Delta t$:
+\begin{equation}
+    \frac{\left(S_{t+\Delta t} - S_t\right)\Delta x }{\Delta x \Delta t} = \frac{\left(vS\right)_x\Delta t}{\Delta x \Delta t} - \frac{\left(vS\right)_{x+\Delta x}\Delta t}{\Delta x\Delta t} - \frac{gpS\Delta x\Delta t}{\Delta x \Delta t }
+\end{equation}
+Simplifying:
+\begin{gather}
+    \frac{S_{t+\Delta t} - S_t}{\Delta t} = \frac{\left(vS\right)_x}{\Delta x} - \frac{\left(vS\right)_{x+\Delta x}}{\Delta x} - gpS\\
+    \frac{S_{t+\Delta t} - S_t}{\Delta t} = \frac{\left(vS\right)_x - \left(vS\right)_{x+\Delta x}}{\Delta x} - gpS\\
+    \frac{S_{t+\Delta t} - S_t}{\Delta t}+\frac{\left(vS\right)_{x+\Delta x} - \left(vS\right)_x}{\Delta x} + gpS = 0
+\end{gather}
+Applying our limits:
+\begin{gather}
+    \lim_{\Delta x \rightarrow 0, \; \Delta t \rightarrow 0} \left[\frac{S_{t+\Delta t} - S_t}{\Delta t}+\frac{\left(vS\right)_{x+\Delta x} - \left(vS\right)_x}{\Delta x} + gpS \right]= 0 \label{eq:1.1a}
+\end{gather}
+We can see that in the first two terms of \ref{eq:1.1a}, we have the definition of a derivative by first principles. Hence:
+\begin{gather}
+    \frac{\partial S}{\partial t} + \frac{\partial \left(vS\right)}{\partial x} + gpS = 0
+\end{gather}
+\subsubsection{E2}
+Starting with:
+\begin{equation}
+    \frac{\rho S \Delta x \left(\Delta v\right)}{\Delta t} = \left(pS\right)_x - \left(pS\right)_{x+\Delta x} - vrS\Delta x
+\end{equation}
+Dividing by $\Delta x$:
+\begin{gather}
+    \frac{\rho S\Delta x\left(\Delta v\right)}{\Delta x \Delta t} = \frac{\left(pS\right)_x}{\Delta x} - \frac{\left(pS\right)_{x+\Delta x}}{\Delta x} - \frac{vrS\Delta x}{\Delta x}
+\end{gather}
+Simplifying:
+\begin{gather}
+    \rho S\frac{\Delta v}{\Delta t} = - \frac{\left(pS\right)_{x+\Delta x} - \left(pS\right)_x}{\Delta x} - vrS
+\end{gather}
+Applying our limits:
+\begin{equation}
+    \lim_{\Delta x \rightarrow 0, \; \Delta t \rightarrow 0} \left[ \rho S\frac{\Delta v}{\Delta t}\right] = \lim_{\Delta x \rightarrow 0, \; \Delta t \rightarrow 0} \left[ - \frac{\left(pS\right)_{x+\Delta x} - \left(pS\right)_x}{\Delta x} - vrS \right] \label{eq:1.1b}
+\end{equation}
+We can see that in the first two terms of \ref{eq:1.1b}, we have the definition of a derivative by first principles. Hence:
+\begin{equation}
+    \rho S \frac{\partial v}{\partial t} = - \frac{\partial \left(pS\right)}{\partial x} - vrS
+\end{equation}
+\subsubsection{E3 \& E4}
+We know that:
+\begin{equation}
+    c = \frac{1}{S}\frac{\dif S}{\dif p} \label{eq:1.1c}
+\end{equation}
+Given that $S$ is only a function of the pressure $p$ and $p$ is a function of space and time, we can rewrite \ref{eq:1.1c} as:
+\begin{equation}
+    c = \frac{1}{S}\frac{\partial S}{\partial p}
+\end{equation}
+Starting with:
+\begin{equation}
+    \frac{\partial S}{\partial t} + \frac{\partial \left(vS\right)}{\partial x} + gpS = 0
+\end{equation}
+Using product rule on second term:
+\begin{equation}
+    \frac{\partial S}{\partial t} + v\frac{\partial S}{\partial x} + S \frac{\partial v}{\partial x} + gpS = 0
+\end{equation}
+Dividing by $S$:
+\begin{equation}
+    \frac{1}{S}\frac{\partial S}{\partial t} + \frac{v}{S} \frac{\partial S}{\partial x} + \frac{\partial v}{\partial x} + gp = 0
+\end{equation}
+Multiplying the first and second term by "1":
+\begin{equation}
+    \frac{1}{S}\frac{\partial S}{\partial t}\frac{\partial p}{\partial p} + \frac{v}{S} \frac{\partial S}{\partial x}\frac{\partial p}{\partial p} + \frac{\partial v}{\partial x} + gp = 0
+\end{equation}
+Rearranging:
+\begin{equation}
+    \frac{1}{S}\frac{\partial S}{\partial p}\frac{\partial p}{\partial t} + \frac{v}{S} \frac{\partial S}{\partial p}\frac{\partial p}{\partial x} + \frac{\partial v}{\partial x} + gp = 0
+\end{equation}
+Substituting $c$:
+\begin{equation}
+    c \frac{\partial p}{\partial t} + cv\frac{\partial p}{\partial x} + \frac{\partial v}{\partial x} + gp = 0
+\end{equation}
+Repeating again with:
+\begin{equation}
+    \rho S \frac{\partial v}{\partial t} = - \frac{\partial \left(pS\right)}{\partial x} - vrS
+\end{equation}
+Using product rule on second term:
+\begin{equation}
+    \rho S \frac{\partial v}{\partial t} = - p\frac{\partial S}{\partial x} - S \frac{\partial p}{\partial x} - vrS
+\end{equation}
+Dividing by $S$:
+\begin{equation}
+    \rho \frac{\partial v}{\partial t} = - \frac{p}{S}\frac{\partial S}{\partial x} - \frac{\partial p}{\partial x} - vr
+\end{equation}
+Multiplying second term by "1":
+\begin{equation}
+    \rho \frac{\partial v}{\partial t} = - \frac{p}{S}\frac{\partial S}{\partial x}\frac{\partial p}{\partial p} - \frac{\partial p}{\partial x} - vr
+\end{equation}
+Rearranging:
+\begin{equation}
+    \rho \frac{\partial v}{\partial t} + \frac{p}{S}\frac{\partial S}{\partial p}\frac{\partial p}{\partial x} + \frac{\partial p}{\partial x} + vr = 0
+\end{equation}
+Substituting $c$:
+\begin{equation}
+    \rho \frac{\partial v}{\partial t} + cp\frac{\partial p}{\partial x} + \frac{\partial p}{\partial x} + vr = 0
+\end{equation}
+\subsection{Assumption 4}
+\subsubsection{Constant distensibility}
+Starting with:
+\begin{align}
+    c\frac{\partial p}{\partial t} &= - \frac{\partial v}{\partial x} \label{eq:1.2a}\\
+    \rho \frac{\partial v}{\partial t} &= -\frac{\partial p }{\partial x} \label{eq:1.2b}
+\end{align}
+Differentiating \ref{eq:1.2a} with respect to $x$ and \ref{eq:1.2b} with respect to $y$:
+\begin{align}
+    c \frac{\partial^2 p}{\partial x \partial t} = - \frac{\partial^2 v}{\partial x^2}\\
+    \rho \frac{\partial^2 v }{\partial t^2} = - \frac{\partial^2 p}{\partial x \partial t}
+\end{align}
+Substituting:
+\begin{align}
+    c \left(-\rho \frac{\partial^2 v }{\partial t^2}\right) &= - \frac{\partial^2 v}{\partial x^2}\\
+    c\rho \frac{\partial^2 v }{\partial t^2} &= \frac{\partial^2 v}{\partial x^2}
+\end{align}
+\subsubsection{Solution to wave equation and plot}
+Starting with:
+\begin{equation}
+    v=e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}
+\end{equation}
+Differentiating:
+\begin{align}
+    \frac{\partial}{\partial x} \left(e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}\right) &= -2 \left(x - \frac{1}{\sqrt{cp}}t\right)e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} \label{eq:1.2.2a}\\
+    \frac{\partial}{\partial t} \left(e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}\right) &= \frac{2}{\sqrt{cp}}\left(x - \frac{1}{\sqrt{cp}}t\right)e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}\label{eq:1.2.2b}
+\end{align}
+Expanding and differentiating \ref{eq:1.2.2a} with respect to $x$:
+\begin{multline}
+    \frac{\partial}{\partial x} \left(-2xe^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} + \frac{2t}{\sqrt{cp}}e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}\right) = \\
+    -2e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} + 4x\left(x- \frac{1}{\sqrt{cp}t}\right)e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} - \frac{4t}{\sqrt{cp}}\left(x - \frac{1}{\sqrt{cp}}t\right)e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}
+\end{multline}
+Factorising and simplifying
+\begin{align}
+    \frac{\partial^2 v}{\partial x^2} &= 4\left(x - \frac{1}{\sqrt{cp}}t\right)^2 e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} -2e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}
+\end{align}
+Expanding and differentiating \ref{eq:1.2.2b} with respect to $y$:
+\begin{multline}
+    \frac{\partial}{\partial x} \left(\frac{2x}{\sqrt{cp}}e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2} - \frac{2t}{cp}e^{-\left(x- \frac{1}{\sqrt{cp}}t\right)^2}\right) = \\
+\end{multline}
 \section{Vector calculus}
 \subsection{Proof that divergence of velocity equals zero}
 \begin{proof}
@@ -88,13 +224,39 @@ Flow is steady, hence
     \end{pmatrix}
 \end{align}
 \subsection{Integral}
+Considering the volume of an element $V$, where $V$ is the region bounded by the planes $x=0$, $y=0$, $z=0$ and $x+y+z=1$:
+\begin{equation}
+    \iiint\displaylimits_V \left(xyz\right)\dif z \dif y \dif x\\
+\end{equation}
 \subsubsection{Area of integration}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 7cm]{./img/q203a.jpg}
+    \caption{Graph to show area of integration of function.}
+\end{figure}
 \subsubsection{Find the limits of integration}
-\subsubsection{Calculation of triple integral}
+We know the volume is bounded by the $x$-$y$, $x$-$z$ and $y$-$z$ planes. Hence, our lower limits are:
 \begin{align}
-    &= \iiint_V \left(xyz\right)\dif z \dif y \dif x\\
-    &= \int_0^1 \int_0^{1-x} \int_0^{1-x-y} \left(xyz\right)\dif z \dif y \dif x \label{q2.3a}
+    x = 0, \; y = 0, \; z = 0
 \end{align}
+Our upper bound is $x+y+z \leq 1$. Hence, the upper bound for $z$ is:
+\begin{gather}
+    x + y + z \leq 1\\
+    z \leq 1 - x - y
+\end{gather}
+Upper bound for $y$ ($x$-$y$ plane $\rightarrow z = 0$):
+\begin{gather}
+    x + y \leq 1\\
+    y \leq 1 - x
+\end{gather}
+Upper bound for $x$ ($y=z=0$)
+\begin{gather}
+    x \leq 1
+\end{gather}
+\subsubsection{Calculation of triple integral}
+\begin{equation}
+    \int_0^1 \int_0^{1-x} \int_0^{1-x-y} \left(xyz\right)\dif z \dif y \dif x \label{q2.3a}
+\end{equation}
 Computing the $z$ integral:
 \begin{align}
     &= xy\int_0^{1-x-y} \left(z\right)\dif z\\
@@ -302,6 +464,48 @@ Here we can see that adjusting the value of $\sigma$ effects the amount of noise
 \end{figure}
 Here we can see the effect of the residual noise in the $\sigma = 0.1$ case, with relatively large variations in the amplitude of the signal. We can also see the effect of the flared base in the $\sigma = 0.01$ case as a smooth decrease and then increase in the amplitude of the signal. The $\sigma = 0.001$ case represents a virtually perfect signal with a frequency of \SI{1.2}{\hertz}.
 \section{Statistics}
+\subsection{Confidence interval}
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{./mCode/q401a.m}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lll}
+        \toprule
+        & \textbf{Rest} & \textbf{Anticipation}\\
+        \midrule
+        $n$ & 38 & 42\\
+        Mean & 86.7368 & 92.4048 \\
+        Standard deviation & 11.2842 & 16.6177\\
+        \bottomrule
+    \end{tabular}
+    \caption{Table to show values of number of elements, means and standard deviations of heart rate data.}
+\end{table}
+A 95\% confidence interval can be found using \ref{eq:q401a}:
+\begin{equation}
+    CI = \bar{x}_1 - \bar{x}_2 \pm z_{crit} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \label{eq:q401a}
+\end{equation}
+$z_{crit} = 1.96$ for a 95\% confidence interval, hence:
+\begin{gather}
+    CI = 86.7368 - 92.4048 \pm 1.96 \sqrt{\frac{11.2842^2}{38} + \frac{16.6177^2}{42}}\\
+    CI_L = -11.84 \hspace{1cm} CI_H = 0.51
+\end{gather} 
+$\bar{x}_1 - \bar{x}_2 = -5.68$, which lies in our confidence interval. Hence, we can say that there is not a statistical difference between them.
+\subsection{Reasoning for test statistics}
 \begin{thebibliography}{00}
     \bibitem{q3.3.1} Cleveland Clinic, "Vital Signs", \url{https://www.hopkinsmedicine.org/health/conditions-and-diseases/vital-signs-body-temperature-pulse-rate-respiration-rate-blood-pressure#:~:text=Respiration%20rates%20may%20increase%20with,to%2016%20breaths%20per%20minute.} Accessed 27/04/21 14:47
     \bibitem{q3.3.2} British Heart Foundation, "What is a normal pulse rate?", \url{https://www.bhf.org.uk/informationsupport/heart-matters-magazine/medical/ask-the-experts/pulse-rate#:~:text=A%20normal%20resting%20heart%20rate,rich%20blood%20around%20the%20body.} Accessed 27/04/21 14:45
