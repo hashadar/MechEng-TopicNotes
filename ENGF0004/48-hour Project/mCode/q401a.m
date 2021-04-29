@@ -12,5 +12,5 @@ nAnti = numel(anti);
 muRest = mean(rest); %mean 
 muAnti = mean(anti);
 
-sigmaRest = std(rest); %standard deviation 
+sigmaRest = std(rest); % sample standard deviation 
 sigmaAnti = std(anti);
