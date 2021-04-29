@@ -29,18 +29,18 @@ B = [2*V0*exp(-((pi^2)*6)/(4*l^2));
     4*V0*cos((pi*6)/(2*l))];
 
 %solve matrix
-sol = A\B;
+sol = A\B; %estimate solution
 
 %exact answer check
-solution = zeros(9,1); %initalise solution matrix 
+solution = zeros(9,1); %initalise exact solution matrix 
 k = 1; %initialise counter
 
 for j = [6 4 2] %y-values
     for i = [2 4 6] %x-values
-        solution(k) = V0*(cos((pi*i)/(2*l)))*exp(-((pi^2)*j)/(4*l^2)); %equation
+        solution(k) = V0*(cos((pi*i)/(2*l)))*exp(-((pi^2)*j)/(4*l^2)); %equation for exact solution
         k = k+1; %advance counter
     end
 end
 
-%find percentage error
+%find percentage error between estimate and exact
 error = 100.*sqrt((solution - sol).^2)./solution;

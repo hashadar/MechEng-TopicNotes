@@ -226,11 +226,15 @@ We know that $c = 0$, hence:
     \frac{\partial v}{\partial x} + gp &= 0 \label{eq:1.3.2a}\\
     \rho \frac{\partial v}{\partial t} + \frac{\partial p}{\partial x}+ rv &= 0 \label{eq:1.3.2b}
 \end{align}
+We also know the flow velocity $v$ is defined as:
+\begin{equation}
+    v = V e^{-\frac{rt}{\rho}}
+\end{equation}
 Differentiating $v$ with respect to $t$:
 \begin{align}
     \frac{\partial }{\partial t} \left(V e^{-\frac{rt}{\rho}}\right) = \frac{\partial V }{\partial t} e^{-\frac{rt}{\rho}} - \frac{rV}{\rho} e^{-\frac{rt}{\rho}} \label{eq:1.3.2c}
 \end{align}
-Differentiating $v$ with respect to $t$:
+Differentiating $v$ with respect to $x$:
 \begin{equation}
     \frac{\partial }{\partial x} \left(V e^{-\frac{rt}{\rho}}\right) = \frac{\partial V}{\partial x} e^{-\frac{rt}{\rho}} \label{eq:1.3.2d}
 \end{equation}
@@ -255,6 +259,12 @@ Simplifying:
 \end{gather}
 \subsection{Solving E6}
 \subsubsection{Separation of variables}
+Boundary conditions:
+\begin{align}
+    V(x,0) &= V_0 \cos\left(\frac{\pi x}{2l}\right) \textrm{ at } t=0 \textrm{ and for } 0 \leq x \leq l\\
+    V(l,t) &= 0 \textrm{ at } x = l \textrm{ and for } t > 0\\
+    V(0,t) &= V_0e^{-\frac{\pi^2 t}{4l^2}} \textrm{ at } x = 0 \textrm{ and for } t > 0
+\end{align}
 Starting with:
 \begin{equation}
     \frac{\partial V}{\partial t} = \frac{1}{\rho g }\frac{\partial^2 V}{\partial x}
@@ -318,7 +328,7 @@ Consider the third boundary condition:
     V(0,t) = V_0 e^{-\frac{\pi^2 t}{4l^2}}\\
     \left(b_1 + b_2\right)Ae^{\mu^2 t} = V_0 e^{-\frac{\pi^2 t}{4l^2}}\\
     \therefore \mu^2 t = -\frac{\pi^2 t }{4l^2}\\
-    \mu = \sqrt{-\frac{\pi^2 t }{4l^2}}
+    \mu = \sqrt{-\frac{\pi^2 }{4l^2}}
 \end{gather}
 $\mu$ is complex and gives a trivial solution, which does not contribute to the solution.
 
@@ -518,6 +528,7 @@ This gave the following output:
 \end{table}
 From our percentage errors, we can see that no value exceeds an error of 1\%, hence we can say that the approximation is effective.
 \subsection{Implications on stiffening blood vessel walls in the ageing population}
+As a population ages, the stiffness of the blood vessel walls increases. For stretchy blood vessels, we see an effective transfer of blood (and oxygen) through the vessel. The flow velocity profile along the vessel is ideal as it transfers the velocity from one to the other end, as can be seen in Figure \ref{fig:q102a}. For a stiff blood vessel, the ability for the vessel to transfer the velocity of the fluid along its length is greatly reduced. Whereas previously, we had a wave travelling through the vessel, in a stiff blood vessel the blood is 'pushed' through the vessel ineffectively as the flow velocity is strictly decreasing. With time, the flow velocity decreases greatly and blood flow is reduced. In practical terms this lessened blood flow leads to hypertension \cite{q1.6.1}, causing high blood pressure as the heart cannot deliver oxygen to components around the body. This increases the risk of cardiovascular diseases such as strokes and aneurysms \cite{q1.6.2}.
 \section{Vector calculus}
 \subsection{Proof that divergence of velocity equals zero}
 \begin{proof}
@@ -853,7 +864,7 @@ Formula for sample standard deviation:
     \end{tabular}
     \caption{Table to show values of number of elements, means and standard deviations of heart rate data.}
 \end{table}
-A 95\% confidence interval can be found using \ref{eq:q401a}:
+A 95\% confidence interval can be found using \ref{eq:q401a}. A subscript of 1 represents the 'Rest' sample and a subscript of 2 represents the 'Anticipation' sample:
 \begin{equation}
     CI = \bar{x}_1 - \bar{x}_2 \pm z_{crit} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \label{eq:q401a}
 \end{equation}
@@ -864,13 +875,55 @@ $z_{crit} = 1.96$ for a 95\% confidence interval in a two-tailed test, hence:
 \end{gather} 
 We can say with 95\% confidence that the true population mean's difference is in the interval [-11.85, 0.51]. This interval contains 0, hence we can deduce that there is not a significant indication of the means being different in this case. 
 
-However, if we reduce our $z_{crit}$ value o 
+However, if we reduce our $z_{crit}$ value to 90\% ($z_{crit} = 1.65$):
+\begin{gather}
+    CI = 86.7368 - 92.4048 \pm 1.65 \sqrt{\frac{11.2842^2}{38} + \frac{16.6177^2}{42}}\\
+    CI_L = -10.90 \hspace{1cm} CI_H = -0.43
+\end{gather} 
+This confidence interval does not contain 0, hence we could make the deduction that there is a significant difference at 90\% confidence interval.
 \subsection{Reasoning for choice of test statistics}
-We have assumed that a normal distribution applies in this case. Our sample sizes are larger than 30 in both cases, making the normal distribution a good approximation. This allows us to approximate the sample's variance to the population's. Hence, using a $z$ score is justified in this case. The Central Limit Theorem also tells us that our samples are normally distributed around 0, allowing for ease of calculation.
+\begin{itemize}
+    \item We have assumed that a normal distribution applies in this case. Our sample sizes are larger than 30 in both cases, making the normal distribution a good approximation.
+    \item A two-tailed test is used to account for both possibilities of difference. 
+    \item The Central Limit Theorem allows us to approximate the sample's variance to the population's.
+    \item We can use a z-test as our sample sizes are sufficiently large and independent. 
+    \item A t-test does not apply as standard deviation is know and our sample size is not small.
+\end{itemize}
 \subsection{Hypothesis test}
+Despite not knowing the true population standard deviation, we shall use a two-tailed two-sample z-test as our sample size is sufficiently large, as assuming the normal distribution will give us a good approximation. 
+\begin{itemize}
+    \item Null hypothesis: there is no difference between the true populations means of the rest and anticipation heart rates.
+    \item Alternative hypothesis: there is a difference between the true population means of the rest and anticipation heart rates.
+\end{itemize}
+\begin{gather}
+    H_0: \mu_1 - \mu_2 = 0\\
+    H_1: \mu_1 - \mu_2 \neq 0
+\end{gather}
+Using a 95\% confidence interval:
+\begin{equation}
+    z^*_{crit} = z^*_{\alpha/2} = \pm 1.96
+\end{equation}
+$z$-value formula:
+\begin{gather}
+    z^* = \frac{\left(\bar{x}_1 - \bar{x}_2\right) - \left(\mu_1 - \mu_2\right)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}
+\end{gather}
+From $H_0$, we know that $\left(\mu_1 - \mu_2\right) = 0$, hence:
+\begin{align}
+    z^* &= \frac{\left(\bar{x}_1 - \bar{x}_2\right)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}\\
+    z^* &= \frac{\left(86.7368 - 92.4048\right)}{\sqrt{\frac{11.2842^2}{38} + \frac{16.6177^2}{42}}}\\
+    z^* &= -1.792
+\end{align}
+Comparing $z^*$ scores:
+\begin{align}
+    \abs{z^*_{crit}} &> \abs{z^*}\\
+    1.96 &> 1.79
+\end{align}
+This is less than the critical value, hence there is insufficient evidence to reject the null hypothesis and there is no significant indication that the mean heart rate in the rest state is different to the mean heart rate in the anticipation state. This agrees with our result calculated with a 95\% confidence interval. This also agrees with our result calculated with a 90\% confidence interval as the critical value would now be 1.65, leading to a rejection of the null hypothesis. These results are to be expected as between the two tests, our assumptions and methods were similar. 
 \begin{thebibliography}{00}
+    \bibitem{q1.6.1} WHO, "Hypertension", \url{https://www.who.int/health-topics/hypertension/#tab=tab_1} Accessed 29/04/21 05:09
+    \bibitem{q1.6.2} NHS, "High blood pressure (hypertension)", \url{https://www.nhs.uk/conditions/high-blood-pressure-hypertension/} Accessed 29/04/21 05:11
     \bibitem{q3.3.1} Cleveland Clinic, "Vital Signs", \url{https://www.hopkinsmedicine.org/health/conditions-and-diseases/vital-signs-body-temperature-pulse-rate-respiration-rate-blood-pressure#:~:text=Respiration%20rates%20may%20increase%20with,to%2016%20breaths%20per%20minute.} Accessed 27/04/21 14:47
     \bibitem{q3.3.2} British Heart Foundation, "What is a normal pulse rate?", \url{https://www.bhf.org.uk/informationsupport/heart-matters-magazine/medical/ask-the-experts/pulse-rate#:~:text=A%20normal%20resting%20heart%20rate,rich%20blood%20around%20the%20body.} Accessed 27/04/21 14:45
-    \bibitem{q3.4.1} Mathworks, "Gaussian membership function", \url{https://uk.mathworks.com/help/fuzzy/gaussmf.html}
+    \bibitem{q3.4.1} Mathworks, "Gaussian membership function", \url{https://uk.mathworks.com/help/fuzzy/gaussmf.html} Accessed 29/04/21 03:29
 \end{thebibliography}
 \end{document}
