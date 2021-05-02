@@ -1,0 +1,55 @@
+\documentclass[12pt,a4paper, twoside]{report}
+
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+\usepackage{mathtools}
+\usepackage{natbib}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\graphicspath{img/}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[RO,LE]{MECH010 Topic Notes}
+\fancyfoot{}
+\fancyfoot[LO,RE]{\thepage}
+\fancyfoot[CO,CE]{Chapter \thechapter}
+\fancyfoot[LE,RO]{HD \& MD}
+\setlength{\headheight}{15pt}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+\title{
+  {MECH0010 Topic Notes}\\
+  {\large UCL}
+  \author{HD \& MD}
+  \date{\today}
+}
+\maketitle
+\section*{Acknowledgments}
+Notes created jointly by HD and MD. We would like to thank our module coordinator Dr. Ryo Torii, our module tutors, Dr. Helge Wurdemann and Dr. Midhat Talibi and our module administrator, Amy Gent.
+\tableofcontents
+
+\part{Instrumentation}
+\chapter{General Measurement Systems}
+\import{tex/}{MECH0010-002}
+\chapter{Strain Gauges}
+\import{tex/}{MECH0010-004}
+\chapter{Measurements of Displacement}
+\import{tex/}{MECH0010-007}
+\chapter{Laboratory measurement}
+\import{tex/}{MECH0010-008}
+\chapter{Measurement of Force and Acceleration}
+\import{tex/}{MECH0010-0010}
+\chapter{Measurement of Velocity, Torque and other Variables}
+\import{tex/}{MECH0010-0012}
+\chapter{Measurement of Temperature}
+\import{tex/}{MECH0010-0014}
+\end{document}

@@ -1,14 +1,54 @@
 \documentclass[11pt]{article}
 \usepackage{graphicx}
+\usepackage{hyperref}
+%\usepackage{appendix}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{commath}
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.2}
 \usepackage{siunitx}
 \sisetup{detect-all}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
 \usepackage[a4paper,margin=20mm]{geometry}
+\numberwithin{equation}{section}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=black
+}
+\urlstyle{same}
 \begin{document}
-\title{\textbf{UCL Mechanical Engineering 2020/2021}\\MECH0013 Final Coursework}
+\title{\textbf{UCL Mechanical Engineering 2020/2021}\\MECH0013 Final Assessment}
+\author{NCWT3}
 \maketitle
-
+\tableofcontents
+\listoffigures
+\section{Question 1}
+\subsection{i}
+Equilibrium conditions:
+\begin{align}
+    \sum F_x: \; &R_{Ax} = 0\\
+    \sum F_y: \; &R_{Ay} + R_B + P = W\\
+    \sum M_A: \; &-M_A + M_C + 4WL = 2R_B L + 3PL
+\end{align}
+Using Macaulay's method:
+\begin{align}
+    M &= -M_A + R_{Ay}x + R_B <x- 2L> + P<x-3L>\\
+    \theta &= - \frac{1}{EI} \int \left(M\right)\dif x\\
+    \theta &= -\frac{1}{EI} \int \left(-M_A + R_{Ay}x + R_B <x- 2L> + P<x-3L>\right) \dif x\\
+    \theta &= -\frac{1}{EI} \left[-M_A x + \frac{R_{Ay}x^2}{2} + \frac{R_b<x - 2L>^2}{2} + \frac{P<x-3L>^2}{2}\right] + \theta_0\\
+    y &= \int \left(\theta\right) \dif x\\
+    y &= \int \left(-\frac{1}{EI} \left[-M_A x + \frac{R_{Ay}x^2}{2} + \frac{R_b<x - 2L>^2}{2} + \frac{P<x-3L>^2}{2}\right] + \theta_0\right) \dif x\\
+    y &= 
+\end{align}
 \end{document}
