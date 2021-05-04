@@ -145,7 +145,7 @@ Hence:
 Finding $u_i$. Let us start with the general equation for $u$:
 \begin{gather}
     u = \frac{r}{E}\left(\sigma_{\theta} - v \sigma_r\right)\\
-    \rightarrow u_i = \frac{d_0}{E_i}\left[\sigma_{\theta, i} \left(d_0\right) - v_i \sigma_{r,i} (d_0)\right]
+    \rightarrow u_i = \frac{r_o}{E_i}\left[\sigma_{\theta, i} \left(r_o\right) - v_i \sigma_{r,i} (r_o)\right]
 \end{gather}
 Lame's equations:
 \begin{gather}
@@ -154,23 +154,23 @@ Lame's equations:
 \end{gather}
 Boundary conditions:
 \begin{gather}
-    \sigma_{r,i}(d_i) = 0 = A - \frac{B}{d_i^2}\\
-    \sigma_{r,i}(d_0) - -p_{int} = A - \frac{B}{d_0^2}\\
-    A = -p_{int}\frac{d_0^2}{d_0^2 - d_i^2}\\
-    B = -p_{int}\frac{d_i^2 \cdot d_0^2}{d_0^2 - d_i^2}
+    \sigma_{r,i}(r_i) = 0 = A - \frac{B}{r_i^2}\\
+    \sigma_{r,i}(r_o) - -p_{int} = A - \frac{B}{r_o^2}\\
+    A = -p_{int}\frac{r_o^2}{r_o^2 - r_i^2}\\
+    B = -p_{int}\frac{r_i^2 \cdot r_o^2}{r_o^2 - r_i^2}
 \end{gather}
 Substituting:
 \begin{equation}
-    \sigma_{\theta,i} = A + \frac{B}{r^2} = -p_{int}\frac{d_0^2}{d_0^2 - d_i^2} \left(1 + \frac{d_i^2}{r^2}\right)
+    \sigma_{\theta,i} = A + \frac{B}{r^2} = -p_{int}\frac{r_o^2}{r_o^2 - r_i^2} \left(1 + \frac{r_i^2}{r^2}\right)
 \end{equation}
 Therefore:
 \begin{gather}
-    \sigma_{r,i}(d_0) = -p_{int} \hspace{1cm} \sigma_{\theta,i}(d_0) = -p_{int}\frac{d_0^2 + d_i^2}{d_0^2 - d_i^2}\\
-    u_i = -p_{int} \frac{d_0}{E_i} \left(\frac{d_0^2 + d_i^2}{d_0^2 - d_i^2} - v_i\right)
+    \sigma_{r,i}(r_o) = -p_{int} \hspace{1cm} \sigma_{\theta,i}(r_o) = -p_{int}\frac{r_o^2 + r_i^2}{r_o^2 - r_i^2}\\
+    u_i = -p_{int} \frac{r_o}{E_i} \left(\frac{r_o^2 + r_i^2}{r_o^2 - r_i^2} - v_i\right)
 \end{gather}
 Repeating to find $u_o$:
 \begin{gather}
-    u_o = \frac{d_0}{E_o}\left[\sigma_{\theta,o} (d_0) - v_o \sigma_{r,o}(d_0)\right]
+    u_o = \frac{r_o}{E_o}\left[\sigma_{\theta,o} (r_o) - v_o \sigma_{r,o}(r_o)\right]
 \end{gather}
 Lame's equations:
 \begin{gather}
@@ -179,29 +179,47 @@ Lame's equations:
 \end{gather}
 Boundary conditions:
 \begin{gather}
-    \sigma_{r,o}(d_0) = -p_{int} = A - \frac{B}{d_0^2}\\
-    \sigma_{r,o}(d_b) = 0 = A - \frac{B}{d_b^2}\\
-    A = -p_{int} \frac{d_0^2}{d_0^2- d_b^2}\\
-    B = -p_{int} \frac{d_0^2 \cdot d_b^2}{d_b^2 - d_0^2}
+    \sigma_{r,o}(r_o) = -p_{int} = A - \frac{B}{r_o^2}\\
+    \sigma_{r,o}(r_b) = 0 = A - \frac{B}{r_b^2}\\
+    A = -p_{int} \frac{r_o^2}{r_o^2- r_b^2}\\
+    B = -p_{int} \frac{r_o^2 \cdot r_b^2}{r_b^2 - r_o^2}
 \end{gather}
 Substituting:
 \begin{gather}
-    \sigma_{\theta,o} = A + \frac{B}{r^2} = -p_{int} \frac{d_0^2}{d_b^2 - ^2} \left(1+ \frac{d_b^2}{r^2}\right)
+    \sigma_{\theta,o} = A + \frac{B}{r^2} = -p_{int} \frac{r_o^2}{r_b^2 - ^2} \left(1+ \frac{r_b^2}{r^2}\right)
 \end{gather}
 Therefore:
 \begin{gather}
-    \sigma_{r,o}(d_b) = 0 \hspace{1cm} \sigma_{\theta,o}(d_0) = p_{int}\frac{d_b^2 + d_0^2}{d_b^2 -d_0^2}\\
-    u_o = p_{int} \frac{d_0}{E_o}\left(\frac{d_b^2 + d_0^2}{d_b^2 - d_0^2} + v_o\right)
+    \sigma_{r,o}(r_b) = 0 \hspace{1cm} \sigma_{\theta,o}(r_o) = p_{int}\frac{r_b^2 + r_o^2}{r_b^2 -r_o^2}\\
+    u_o = p_{int} \frac{r_o}{E_o}\left(\frac{r_b^2 + r_o^2}{r_b^2 - r_o^2} + v_o\right)
 \end{gather}
 Finding $\delta$:
 \begin{gather}
-    u_i =-p_{int}\frac{d_0}{E_i}\left(\frac{d_0^2 + d_i^2 }{d_0^2 - d_i^2}-v_i\right)\\
-    u_o = p_{int}\frac{d_0}{E_o}\left(\frac{d_b^2 + d_0^2 }{d_b^2 - d_0^2}+v_o\right)\\
-    \delta = p_{int}d_0\left[\frac{1}{E_o}\left(\frac{d_b^2 + d_0^2}{d_b^2 - d_0^2}+v_o\right) + \frac{1}{E_i}\left(\frac{d_0^2 + d_i^2}{d_0^2 - d_i^2}-v_i\right)\right]
+    u_i =-p_{int}\frac{r_o}{E_i}\left(\frac{r_o^2 + r_i^2 }{r_o^2 - r_i^2}-v_i\right)\\
+    u_o = p_{int}\frac{r_o}{E_o}\left(\frac{r_b^2 + r_o^2 }{r_b^2 - r_o^2}+v_o\right)\\
+    \delta = p_{int}r_o\left[\frac{1}{E_o}\left(\frac{r_b^2 + r_o^2}{r_b^2 - r_o^2}+v_o\right) + \frac{1}{E_i}\left(\frac{r_o^2 + r_i^2}{r_o^2 - r_i^2}-v_i\right)\right]
 \end{gather}
 For a single material: $E_i = E_o = E$, and $v_i = v_o = v$:
 \begin{gather}
-    \delta = p_{int} \frac{d_0}{E}\left[\frac{2d_0^2\left(d_b^2-d_i^2\right)}{\left(d_b^2 - d_0^2\right)\left(d_0^2-d_i^2\right)}\right]\\
-    p_{int} = E \delta \left[\frac{\left(d_b^2 + d_0^2\right)\left(d_0^2 - d_b^2\right)}{2d_0^3\left(d_b^2 - d_i^2\right)}\right]
+    \delta = p_{int} \frac{r_o}{E}\left[\frac{2r_o^2\left(r_b^2-r_i^2\right)}{\left(r_b^2 - r_o^2\right)\left(r_o^2-r_i^2\right)}\right] \label{q2idelta}\\
+    p_{int} = E \delta \left[\frac{\left(r_b^2 - r_o^2\right)\left(r_o^2 - r_b^2\right)}{2r_o^3\left(r_b^2 - r_i^2\right)}\right]
 \end{gather}
+Converting radius to diameters:
+\begin{gather}
+    \delta = p_{int} \frac{d_o}{E}\left[\frac{2d_o^2\left(d_b^2-d_i^2\right)}{\left(d_b^2 - d_o^2\right)\left(d_o^2-d_i^2\right)}\right]\\
+    p_{int} = E \delta \left[\frac{\left(d_b^2 - d_o^2\right)\left(d_o^2 - d_b^2\right)}{2d_o^3\left(d_b^2 - d_i^2\right)}\right]
+\end{gather}
+\subsection{ii}
+We can find the internal pressure through the following equation:
+\begin{align}
+    F &\leq \pi d_o L_b p_{int} \mu_s\\
+    p_{int} &\geq \frac{F}{\pi d_o L_b \mu_s}\\
+    p_{int} &\geq \frac{10000}{\pi (20\times 10^{-3})(50\times 10^{-3})(0.8)}\\
+    p_{int} &\geq \SI{3978873.577}{\pascal}
+\end{align}
+For simplicities sake, a value of \SI{4e6}{\mega\pascal} was selected for $p_{int}$. Substituting into \ref{q2idelta}:
+\begin{align}
+    \delta &= \frac{(4\times 10^{6})(20\times 10^{-3})}{210\times 10^9}\left[\frac{2(20\times 10^{-3})^2\left((23\times 10^{-3})^2-(17\times 10^{-3})^2\right)}{\left((23\times 10^{-3})^2 - (20\times 10^{-3})^2\right)\left((20\times 10^{-3})^2-(17\times 10^{-3})^2\right)}\right]\\
+    \delta &= \SI{5.108}{\meter} = \SI{0.0051}{\milli\meter}
+\end{align}
 \end{document}
