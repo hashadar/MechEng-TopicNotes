@@ -201,14 +201,15 @@ Finding $\delta$:
 \end{gather}
 For a single material: $E_i = E_o = E$, and $v_i = v_o = v$:
 \begin{gather}
-    \delta = p_{int} \frac{r_o}{E}\left[\frac{2r_o^2\left(r_b^2-r_i^2\right)}{\left(r_b^2 - r_o^2\right)\left(r_o^2-r_i^2\right)}\right] \label{q2idelta}\\
+    \delta = p_{int} \frac{r_o}{E}\left[\frac{2r_o^2\left(r_b^2-r_i^2\right)}{\left(r_b^2 - r_o^2\right)\left(r_o^2-r_i^2\right)}\right] \\
     p_{int} = E \delta \left[\frac{\left(r_b^2 - r_o^2\right)\left(r_o^2 - r_b^2\right)}{2r_o^3\left(r_b^2 - r_i^2\right)}\right]
 \end{gather}
 Converting radius to diameters:
 \begin{gather}
-    \delta = p_{int} \frac{d_o}{E}\left[\frac{2d_o^2\left(d_b^2-d_i^2\right)}{\left(d_b^2 - d_o^2\right)\left(d_o^2-d_i^2\right)}\right]\\
-    p_{int} = E \delta \left[\frac{\left(d_b^2 - d_o^2\right)\left(d_o^2 - d_b^2\right)}{2d_o^3\left(d_b^2 - d_i^2\right)}\right]
+    \delta = p_{int} \frac{d_o}{E}\left[\frac{d_o^2\left(d_b^2-d_i^2\right)}{\left(d_b^2 - d_o^2\right)\left(d_o^2-d_i^2\right)}\right] \label{q2idelta}\\
+    p_{int} = E \delta \left[\frac{\left(d_b^2 - d_o^2\right)\left(d_o^2 - d_b^2\right)}{d_o^3\left(d_b^2 - d_i^2\right)}\right]
 \end{gather}
+Where $\delta$ is the radial interference.
 \subsection{ii}
 We can find the internal pressure through the following equation:
 \begin{align}
@@ -217,9 +218,10 @@ We can find the internal pressure through the following equation:
     p_{int} &\geq \frac{10000}{\pi (20\times 10^{-3})(50\times 10^{-3})(0.8)}\\
     p_{int} &\geq \SI{3978873.577}{\pascal}
 \end{align}
-For simplicities sake, a value of \SI{4e6}{\mega\pascal} was selected for $p_{int}$. Substituting into \ref{q2idelta}:
+Using a value of \SI{4e6}{\mega\pascal} for $p_{int}$, we can now substitute into \ref{q2idelta}:
 \begin{align}
-    \delta &= \frac{(4\times 10^{6})(20\times 10^{-3})}{210\times 10^9}\left[\frac{2(20\times 10^{-3})^2\left((23\times 10^{-3})^2-(17\times 10^{-3})^2\right)}{\left((23\times 10^{-3})^2 - (20\times 10^{-3})^2\right)\left((20\times 10^{-3})^2-(17\times 10^{-3})^2\right)}\right]\\
-    \delta &= \SI{5.108}{\meter} = \SI{0.0051}{\milli\meter}
+    \delta &= \frac{(4\times 10^{6})(20\times 10^{-3})}{210\times 10^9}\left[\frac{(20\times 10^{-3})^2\left((23\times 10^{-3})^2-(17\times 10^{-3})^2\right)}{\left((23\times 10^{-3})^2 - (20\times 10^{-3})^2\right)\left((20\times 10^{-3})^2-(17\times 10^{-3})^2\right)}\right]\\
+    \delta &= \SI{2.554e-6}{\meter} = \SI{0.00255}{\milli\meter}
 \end{align}
+Where $\delta$ is the radial interference.
 \end{document}
