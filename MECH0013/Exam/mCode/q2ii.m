@@ -23,4 +23,4 @@ r = [ri ro];
 sigmaR = [sigmaRI -sigmaRO];
 sigmaTheta = [sigmaThetaI -sigmaThetaO];
 
-plot(r, sigmaR)
+plot(r, sigmaTheta)

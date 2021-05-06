@@ -36,16 +36,21 @@
 \section{Question 1}
 \subsection{i}
 Straight section analysis:
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{./img/q1i.jpg}
+    \caption{Diagram to show horizontal beam arrangement.}
+    \label{fig:q1i}
+\end{figure}
 Equilibrium conditions:
 \begin{align}
     \sum F_x: \; &R_{Ax} = 0\\
     \sum F_y: \; &R_{Ay} + R_B + P = W \label{q1isumy}\\
-    \sum M_A: \; &-M_A + M_C + 4WL = 2R_B L + 3PL
+    \sum M_A: \; &-M_A + M_C + 4WL = 2R_B L + 3PL \label{q1isumM}
 \end{align}
 Using Macaulay's method:
 \begin{align}
-    M &= -M_A + R_{Ay}x + R_B <x- 2L> + P<x-3L>
+    M &= -M_A + R_{Ay}x + R_B <x- 2L> + P<x-3L> \label{eq:q1i1}
 \end{align}
 Slope:
 \begin{align}
@@ -57,9 +62,15 @@ Deflection:
 \begin{align}
     y &= \int \left(\theta\right) \dif x\\
     y &= \int \left(\frac{1}{EI} \left[-M_A x + \frac{R_{Ay}x^2}{2} + \frac{R_b<x - 2L>^2}{2} + \frac{P<x-3L>^2}{2}\right] + \theta_0\right) \dif x\\
-    y &= \frac{1}{EI} \left[-\frac{M_A x^2}{2} + \frac{R_{Ay}x^3}{6} + \frac{R_B<x- 2L>^3}{6} + \frac{P<x-3L>^3}{6}\right] + \theta_0 x +y_0
+    y &= \frac{1}{EI} \left[-\frac{M_A x^2}{2} + \frac{R_{Ay}x^3}{6} + \frac{R_B<x- 2L>^3}{6} + \frac{P<x-3L>^3}{6}\right] + \theta_0 x +y_0 \label{eq:slope}
 \end{align}
 Curved section analysis:
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 5cm]{./img/q1ii.jpg}
+    \caption{Diagram to show curved beam arrangement.}
+    \label{fig:q1ii}
+\end{figure}
 \begin{align}
     M(\theta) &= WR\left(1 - \cos \theta\right) + H_0 R \sin\theta + M_0\\
     \frac{\partial M}{\partial M_0} &= 1\\
@@ -109,8 +120,12 @@ Substituting \ref{q1iRB}:
     WR^2\left(\frac{\pi}{2}-1\right) &= \frac{16R_{Ay}L^2}{3} + 2WL^2 - 2PL^2 - 2R_AL^2 + \frac{PL^2}{2}\\
     WR^2\left(\frac{\pi}{2}-1\right) &= \frac{10R_{Ay}L^2}{3} + 2WL^2 -\frac{3PL^2}{2}
 \end{align}
+From \ref{q1isumM}, \ref{q1isumy}, \ref{q1iRB}, \ref{q1iMA}: 
 \begin{align}
-    R_{Ay} = \frac{3}{4}\left(P - \frac{WR}{L} - 2W\right) \label{q1iRAy}
+    -\frac{2R_{Ay}L}{3} + WR + 4WL &= 2 \left(W - P - R_{Ay}\right) + 3PL\\
+    -\frac{2R_{Ay}L}{3} + 2R_{Ay}L &= 2WL -2PL + 3PL -WR - 4WL\\
+    \frac{4R_{Ay}L}{3} &= PL - WR -2WL\\
+    R_{Ay} &= \frac{3}{4}\left(P - \frac{WR}{L} - 2W\right) \label{q1iRAy}
 \end{align}
 Substituting \ref{q1iRAy}:
 \begin{align}
@@ -123,11 +138,197 @@ Rearranging for $P$:
     PL^2 &= 3WL^2 + \frac{5WRL}{2} + WR^2 \left(\frac{\pi}{2}-1\right)\\
     P &= 3W + \frac{5WR}{2L} + \frac{WR^2}{L^2} \left(\frac{\pi}{2}-1\right)\\
     P &= 3(42.67) + \frac{5(42.67)(0.3)}{2(0.35)} + \frac{(42.67)(0.3)^2}{(0.35)^2} \left(\frac{\pi}{2}-1\right)\\
-    P &= \SI{237.34}{\newton}
+    P &= \SI{237.34}{\newton} \label{eq:q1i2}
 \end{align}
 \subsection{ii}
+From Figure \ref{fig:q1ii}, the bending moment is:
+\begin{align}
+    M = W\left(R\left(1-\cos\theta\right)\right)+ H_0 \left(R\sin\theta\right) + M_0 \label{eq:q1ii1}
+\end{align}
+The horizontal displacement of the curved beam can be found using \ref{eq:q1ii2}:
+\begin{equation}
+    \delta_H = \int_0^{\theta} \left(R\frac{M}{EI}\frac{\partial M}{\partial H_0}\right)\dif \theta \label{eq:q1ii2}
+\end{equation}
+From \ref{eq:q1ii1}
+\begin{align}
+    \frac{\partial M}{\partial H_0} = R\sin\theta \label{eq:q1ii3}
+\end{align}
+Substituting \ref{eq:q1ii3} and \ref{eq:q1ii1} into \ref{eq:q1ii2}
+\begin{align}
+    \delta_H = \frac{1}{EI}\int_0^{\frac{\pi}{2}} \left(R\left(W\left(R\left(1-\cos\theta\right)\right) + H_0\left(R\sin\theta\right) + M_0\right)R\sin\theta\right)\dif \theta
+\end{align}
+$H_0$ and $M_0$ are dummy forces and can be neglected:
+\begin{align}
+    \delta_H &= \frac{1}{EI}\int_0^{\frac{\pi}{2}} \left(R\left(W\left(R\left(1-\cos\theta\right)\right)\right)R\sin\theta\right)\dif \theta\\
+    \delta_H &= \frac{R^3W}{EI}\int_0^{\frac{\pi}{2}} \left(\left(1-\cos\theta\right)\left(\sin\theta\right)\right)\dif \theta\\
+    \delta_H &= \frac{R^3W}{EI}\int_0^{\frac{\pi}{2}} \left(\sin\theta - \sin\theta\cos\theta\right)\dif \theta\\
+    \delta_H &= \frac{R^3W}{EI}\left[-\cos\theta - \frac{\sin^2\theta}{2}\right]_0^{\frac{\pi}{2}}\\
+    \delta_H &= \frac{R^3W}{EI}\left[-0 -\frac{1}{2}+1 + 0\right]\\
+    \delta_H &= \frac{R^3W}{2EI}
+\end{align}
+Substituting the values of $R$, $W$, $E$, $I = \frac{\pi}{4}\left(\frac{d_0^4}{2^4}-\frac{d_i^4}{2^4}\right)$:
+\begin{align}
+    \delta_H &= \frac{0.3^3\times 42.67}{2\times 210\times 10^{9} \times \left(\frac{\pi}{4}\left(0.01^4 - 0.0085^4\right)\right)}\\
+    \delta_H &= \SI{7.307e-4}{\meter} = \SI{0.731}{\milli \meter}\textrm{ (3sf)}
+\end{align}
+The vertical displacement of the curved beam can be found using \ref{eq:q1ii4}:
+\begin{equation}
+    \delta_V = \int_0^{\theta} \left(R\frac{M}{EI}\frac{\partial M}{\partial W}\right)\dif \theta \label{eq:q1ii4}
+\end{equation}
+From \ref{eq:q1ii1}:
+\begin{equation}
+    \frac{\partial M}{\partial W} = R\left(1-\cos\theta\right) \label{eq:q1ii5}
+\end{equation}
+Substituting \ref{eq:q1ii5} and \ref{eq:q1ii1} into \ref{eq:q1ii4} and neglecting dummy loads:
+\begin{align}
+    \delta_V &= \frac{1}{EI}\int_0^{\frac{\pi}{2}} \left(R\left(W\left(R\left(1-\cos\theta\right)\right)\right)R\left(1-\cos\theta\right)\right)\dif \theta\\
+    \delta_V &= \frac{R^3W}{EI}\int_0^{\frac{\pi}{2}} \left(1-\cos\theta\right)^2\dif \theta\\
+    \delta_V &= \frac{R^3W}{EI}\int_0^{\frac{\pi}{2}} \left(1-2\cos\theta + \cos^2\theta\right)\dif \theta\\
+    \delta_V &= \frac{R^3W}{EI}\int_0^{\frac{\pi}{2}} \left(1-2\cos\theta + \frac{1}{2} + \frac{\cos 2\theta}{2}\right)\dif \theta\\
+    \delta_V &= \frac{R^3W}{EI}\int_0^{\frac{\pi}{2}} \left(\frac{3}{2}-2\cos\theta + \frac{\cos 2\theta}{2}\right)\dif \theta\\
+    \delta_V &= \frac{R^3W}{EI}\left[\frac{3\theta}{2}-2\sin\theta + \frac{\sin 2\theta}{4}\right]_0^{\frac{\pi}{2}}\\
+    \delta_V &= \frac{R^3W}{EI}\left[\frac{3\pi}{4} -2 + 0 - 0 + 2 - 0\right]\\
+    \delta_V &= \frac{R^3W}{EI}\left(\frac{3\pi}{4}-2\right)
+\end{align}
+Substituting the values of $R$, $W$, $E$, $I = \frac{\pi}{4}\left(\frac{d_0^4}{2^4}-\frac{d_i^4}{2^4}\right)$:
+\begin{align}
+    \delta_V &= \frac{0.3^3\times 42.67}{210\times 10^9 \times \left(\frac{\pi}{4}\left(0.01^4 - 0.0085^4\right)\right)}\left(\frac{3\pi}{4}-2\right)\\
+    \delta_V &= \SI{5.205e-4}{\meter} = \SI{0.521}{\milli \meter} \textrm{ (3sf)}
+\end{align}
+From Figure \ref{fig:q1i} and \ref{eq:slope}:
+\begin{align}
+    y &= \frac{1}{EI} \left[-\frac{M_A x^2}{2} + \frac{R_{Ay}x^3}{6} + \frac{R_B<x- 2L>^3}{6} + \frac{P<x-3L>^3}{6}\right] + \theta_0 x +y_0
+\end{align}
+Applying boundary conditions and finding slope at location $x=4L$:
+\begin{align}
+    y &= \frac{1}{EI} \left[-\frac{M_A (4L)^2}{2} + \frac{R_{Ay}(4L)^3}{6} + \frac{R_B(2L)^3}{6} + \frac{PL^3}{6}\right]
+\end{align}
+Substituting values of $M_{A}$, $R_{Ay}$, $R_B$, $P$, $E$, $I$ and $L$:
+\begin{multline}
+    y = \frac{1}{\left(\frac{\pi}{4}\left(0.01^4-0.0085^4\right)\right)} \left[-\frac{20.1995 (4(0.35))^2}{2} + \frac{86.5694(4(0.35))^3}{6} \right. \\ \left. + \frac{-281.2393(2(0.35))^3}{6} + \frac{237(0.35)^3}{6}\right]
+\end{multline}
+\begin{equation}
+    y = \SI{6.864e-3}{\meter} = \SI{6.86}{\milli \meter} \textrm{ (3sf)}
+\end{equation}
+\subsection{iii}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height =5cm]{./img/q1iii.jpg}
+    \caption{Diagram to show cross-section of horizontal beam.}
+\end{figure}
+Where $r_i = \SI{8.5}{\milli \meter}$, $r_o = \SI{10}{\milli \meter}$. The yield moment can be found using \ref{eq:q1iii1}:
+\begin{equation}
+    M_Y = \frac{\sigma_Y I}{h_{max}} \label{eq:q1iii1}
+\end{equation}
+Where $I = \frac{\pi}{4}\left(r_o^4-r_i^4\right)$ and $h_{max} = r_o$. Substituting:
+\begin{align}
+    M_Y &= \frac{480\times 10^6 \times \frac{\pi}{4}\left(0.01^4-0.0085^4\right)}{0.01}\\
+    M_Y &= \SI{180.199}{\newton \meter} = \SI{180}{\newton \meter} \textrm{ (3sf)}
+\end{align}
+We now want to plot the bending moment as a function of $x$. MATLAB was used to plot Figure \ref{fig:q1iii}.
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{./mCode/q1iii.m}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{./img/q1iii2.png}
+    \caption{Graph to show bending moment along the horizontal beam.}
+    \label{fig:q1iii}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ll}
+        \toprule
+        Variable & Value\\
+        \midrule
+        $M_A$ & \SI{20.1995}{\newton\meter}\\
+        $R_{Ay}$ & \SI{86.5694}{\newton}\\
+        $R_B$ & \SI{-281.2393}{\newton}\\
+        \bottomrule
+    \end{tabular}
+    \caption{Table to show values of support reactions from MATLAB.}
+    \label{tab:supportReactions}
+\end{table}
+Hence, we know that the maximum bending moment occurs at $2L$. Let us find the yielding force at this location.
+\begin{equation}
+    M(x = 2L) = -M_A + 2R_{Ay}L
+\end{equation}
+Substituting in $M_A$ and $R_{Ay}$ (\ref{q1iMA} and \ref{q1iRAy}):
+\begin{align}
+    M_A &= \frac{2}{3}R_{Ay}L\\
+    R_{Ay} &= \frac{3}{4}\left(P - \frac{WR}{L}-2W\right)\\
+    M_A &= \frac{2}{3}\left(\frac{3}{4}\left(P - \frac{WR}{L}-2W\right)\right)L\\
+    M_A &= \frac{L}{2} \left(P - \frac{WR}{L}-2W\right)\\
+    M(x=2L) &= -\frac{1}{2}PL + \frac{1}{2}WR + WL + \frac{3}{2}PL - \frac{3}{2}WR - 3WL\\
+    M &= PL - WR - 2WL
+\end{align}
+Let $M = M_Y$ and $P = P_Y$:
+\begin{align}
+    M_Y &= P_Y L - WR - 2WL\\
+    P_Y &= \frac{1}{L}\left(M_Y + WR + 2WL\right)
+\end{align}
+Substituting the values of $M_Y$, $W$, $R$, $L$:
+\begin{align}
+    P_Y &= \frac{1}{0.35}\left(180.199+ 42.67\times 0.3 + 2\times 42.67 \times 0.35\right)\\
+    P_Y &= \SI{636.769}{\newton} = \SI{637}{\newton} \textrm{ (3sf)}
+\end{align}
+From \ref{eq:q1i2}:
+\begin{align}
+    P &= \SI{237}{\newton} \textrm{ (3sf)}
+\end{align}
+Comparing $P$ and $P_Y$:
+\begin{align}
+    P &< P_Y\\
+    \SI{237}{\newton} &< \SI{637}{\newton}
+\end{align}
+Therefore, the corrective load will not result in yielding.
+\subsection{iv}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 10cm]{./img/q1iv1.jpg}
+    \caption{Graph to show arrangement of vertical strut at B.}
+    \label{fig:q1iv}
+\end{figure}
+We can find the critical load using \ref{eq:q1iv1}:
+\begin{equation}
+    S_{cr} = \frac{n^2 \pi^2 EI}{L_e^2} \label{eq:q1iv1}
+\end{equation}
+Where $L_e = 0.7L_s$ for pinned-fixed columns. The second moment of inertia for the strut can be found using \ref{eq:q1iv2}:
+\begin{equation}
+    I = \frac{bh^3}{12} \label{eq:q1iv2}
+\end{equation}
+Where $b = 0.04$ and $h = 0.0045$. Calculating $I$ for each plane:
+\begin{align}
+    I_x &= \frac{bh^3}{12} = \frac{0.04\times 0.0045^3}{12} = \SI{3.0375e-10}{\meter\tothe{4}}\\
+    I_y &= \frac{b^3h}{12} = \frac{0.04^3\times 0.0045}{12} = \SI{2.4e-8}{\meter\tothe{4}}
+\end{align}
+Buckling occurs in the plane with the lowest $I$, hence buckling may occur in the $x$-plane. Testing:
+\begin{align}
+    S_{cr} &= \frac{1\times \pi^2 \times 71\times 10^{9}\times \frac{0.04\times 0.0045^3}{12}}{(0.7\times0.96)^2}\\
+    S_{cr} &= \SI{471.342}{\newton} = \SI{471}{\newton} \textrm{ (3sf)}
+\end{align}
+From Table \ref{tab:supportReactions}, we can compare the value of $R_B$ to our $S_{cr}$ value.
+\begin{align}
+    R_B &< S_{cr}\\
+    \SI{281}{\newton} &< \SI{471}{\newton}
+\end{align}
+Critical load is not reached, hence the strut is suitable and will not fail under these conditions. 
 \section{Question 2}
-\subsection{ii}
+\subsection{i}
 \begin{figure}[H]
     \centering
     \includegraphics[height =5cm]{./img/q2i2.jpg}
@@ -161,7 +362,7 @@ Boundary conditions:
 \end{gather}
 Substituting:
 \begin{equation}
-    \sigma_{\theta,i} = A + \frac{B}{r^2} = -p_{int}\frac{r_o^2}{r_o^2 - r_i^2} \left(1 + \frac{r_i^2}{r^2}\right)
+    \sigma_{\theta,i} = A + \frac{B}{r^2} = -p_{int}\frac{r_o^2}{r_o^2 - r_i^2} \left(1 + \frac{r_i^2}{r^2}\right) \label{eq:q2ii1}
 \end{equation}
 Therefore:
 \begin{gather}
@@ -179,14 +380,14 @@ Lame's equations:
 \end{gather}
 Boundary conditions:
 \begin{gather}
-    \sigma_{r,o}(r_o) = -p_{int} = A - \frac{B}{r_o^2}\\
+    \sigma_{r,o}(r_o) = p_{int} = A - \frac{B}{r_o^2}\\
     \sigma_{r,o}(r_b) = 0 = A - \frac{B}{r_b^2}\\
-    A = -p_{int} \frac{r_o^2}{r_o^2- r_b^2}\\
-    B = -p_{int} \frac{r_o^2 \cdot r_b^2}{r_b^2 - r_o^2}
+    A = p_{int} \frac{r_o^2}{r_o^2- r_b^2}\\
+    B = p_{int} \frac{r_o^2 \cdot r_b^2}{r_b^2 - r_o^2}
 \end{gather}
 Substituting:
 \begin{gather}
-    \sigma_{\theta,o} = A + \frac{B}{r^2} = -p_{int} \frac{r_o^2}{r_b^2 - ^2} \left(1+ \frac{r_b^2}{r^2}\right)
+    \sigma_{\theta,o} = A + \frac{B}{r^2} = p_{int} \frac{r_o^2}{r_b^2 - r_o^2} \left(1+ \frac{r_b^2}{r^2}\right) \label{eq:q2ii2}
 \end{gather}
 Therefore:
 \begin{gather}
@@ -218,10 +419,55 @@ We can find the internal pressure through the following equation:
     p_{int} &\geq \frac{10000}{\pi (20\times 10^{-3})(50\times 10^{-3})(0.8)}\\
     p_{int} &\geq \SI{3978873.577}{\pascal}
 \end{align}
-Using a value of \SI{4e6}{\mega\pascal} for $p_{int}$, we can now substitute into \ref{q2idelta}:
+Using a value of \SI{4e6}{\pascal} for $p_{int}$, we can now substitute into \ref{q2idelta}:
 \begin{align}
     \delta &= \frac{(4\times 10^{6})(20\times 10^{-3})}{210\times 10^9}\left[\frac{(20\times 10^{-3})^2\left((23\times 10^{-3})^2-(17\times 10^{-3})^2\right)}{\left((23\times 10^{-3})^2 - (20\times 10^{-3})^2\right)\left((20\times 10^{-3})^2-(17\times 10^{-3})^2\right)}\right]\\
     \delta &= \SI{2.554e-6}{\meter} = \SI{0.00255}{\milli\meter}
 \end{align}
-Where $\delta$ is the radial interference.
+Where $\delta$ is the radial interference. We need to make sure that this interference value does not result in the engineering failure of the internal or external cylinder. Looking at the internal cylinder, we can find the stress by utilising Lame's equations (\ref{eq:q2ii1} and \ref{eq:q2ii2}):
+\begin{align}
+    \sigma_{ri} \left(r_o\right) &= -p_{int} = \SI{-4e6}{\pascal}\\
+    \sigma_{\theta i} \left(r_o\right) &= -p_{int}\frac{r_o^2 + r_i^2}{r_o^2 - r_i^2} = -4\times 10^6 \cdot \frac{0.01^2 + 0.0085^2}{0.01^2 - 0.0085^2} = \SI{-2.483e7}{\pascal}\\
+    \sigma_{ro} \left(r_o\right) &= p_{int} = \SI{4e6}{\pascal}\\
+    \sigma_{\theta o} \left(r_o\right) &= p_{int}\frac{r_b^2 + r_o^2}{r_b^2 -r_o^2} = 4\times 10^6 \cdot \frac{0.0115^2 + 0.01^2}{0.0115^2 -0.01^2} = \SI{2.881e7}{\pascal}
+\end{align}
+We can use the distortion-energy theory to calculate the strain energy in the tubes. This theory is justified as it is the most reliable method for calculating the stress. The strain energy associated with distortion can be found using \ref{eq:q2ii3} and this must be lower than the yield stress $\sigma_Y$:
+\begin{align}
+    \sigma_i &< \sigma_Y\\
+    \sqrt{\frac{\sigma_{ri}^2 + \sigma_{\theta i}^2 + \left(\sigma_{ri} - \sigma_{\theta i}\right)^2}{2}} &< \sigma_Y \label{eq:q2ii3}\\
+    \sqrt{\frac{(-4\times10^6)^2 + (-2.483\times 10^7)^2 + \left((-4\times 10^6) - (-2.483\times 10^7)\right)^2}{2}} &< 4.8\times 10^8\\
+    2.309\times 10^7 &< 4.8 \times 10^8
+\end{align}
+Hence, inner tube is not subject to yielding stress. Repeating for outer tube:
+\begin{align}
+    \sigma_o &< \sigma_Y\\
+    \sqrt{\frac{\sigma_{ro}^2 + \sigma_{\theta o}^2 + \left(\sigma_{ro} - \sigma_{\theta o}\right)^2}{2}} &< \sigma_Y\\
+    \sqrt{\frac{(4\times10^6)^2 + (2.881\times 10^7)^2 + \left((4\times 10^6) - (2.881\times 10^7)\right)^2}{2}} &< 4.8\times 10^8\\
+    2.703\times 10^7 &< 4.8 \times 10^8
+\end{align}
+Hence, outer tube is not subject to yielding stress.
+\subsection{iii}
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{./mCode/q2iii.m}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 10cm]{./img/q2iii1.png}
+    \caption{Graph to show Mohr's circle.}
+    \label{fig:q2iii}
+\end{figure}
 \end{document}
