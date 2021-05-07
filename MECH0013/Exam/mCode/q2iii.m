@@ -22,7 +22,7 @@ sigmaThetaO = pint.*((c^2 + b^2)/(c^2 - b^2));
 p1 = nsidedpoly(1000,'Center',[sigmaThetaO/2 0],'Radius',abs(sigmaThetaO/2));
 %sigmaRO circle
 p2 = nsidedpoly(1000,'Center',[sigmaRI/2 0],'Radius',abs(sigmaRI/2));
-%third circle
+%RI circle
 p3 = nsidedpoly(1000,'Center',[(sigmaRI + sigmaThetaO)/2 0],'Radius',abs((sigmaThetaO - sigmaRI)/2));
 
 plot(p1)

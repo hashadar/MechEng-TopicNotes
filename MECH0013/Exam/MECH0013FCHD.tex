@@ -321,10 +321,10 @@ Buckling occurs in the plane with the lowest $I$, hence buckling may occur in th
     S_{cr} &= \frac{1\times \pi^2 \times 71\times 10^{9}\times \frac{0.04\times 0.0045^3}{12}}{(0.7\times0.96)^2}\\
     S_{cr} &= \SI{471.342}{\newton} = \SI{471}{\newton} \textrm{ (3sf)}
 \end{align}
-From Table \ref{tab:supportReactions}, we can compare the value of $R_B$ to our $S_{cr}$ value.
+For the value of $P$ which we calculated in part i, $R_B$ is pulling the strut in tension and hence is safe from buckling. We can compare the value of $R_B$ to our $S_{cr}$ value, when $P$ is 0; this value can be found by adjusting the MATLAB code in part iii and generating the output for $R_B$.
 \begin{align}
     R_B &< S_{cr}\\
-    \SI{281}{\newton} &< \SI{471}{\newton}
+    \SI{134}{\newton} &< \SI{471}{\newton}
 \end{align}
 Critical load is not reached, hence the strut is suitable and will not fail under these conditions. 
 \section{Question 2}
@@ -470,4 +470,165 @@ Hence, outer tube is not subject to yielding stress.
     \caption{Graph to show Mohr's circle.}
     \label{fig:q2iii}
 \end{figure}
+\section{Question 3}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 10cm]{./img/q3i1.jpg}
+    \caption{Sketch of portal frame.}
+\end{figure}
+We can now look at the potential modes of collapse of the portal frame. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 10cm]{./img/q3i2.jpg}
+    \caption{Sketch of portal frame undergoing beam collapse.}
+\end{figure}
+Here, work is done in all the joints on the top beam. 
+\begin{align}
+    \sum M_P \theta &= \sum Fd\\
+    M_P \theta + M_P (2\theta) + M_P \theta &= 2P H \theta\\
+    4M_P \theta &= 2PH\theta\\
+    P &= \frac{2M_P}{H} 
+\end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 10cm]{./img/q3i3.jpg}
+    \caption{Sketch of portal frame undergoing sway collapse.}
+\end{figure}
+Here, work is done at both ends of the long column and at the top end of the short column.
+\begin{align}
+    \sum M_P \theta &= \sum Fd\\
+    M_P\theta + M_P \theta + M_P (2\theta) &= PL_v \theta\\
+    4M_P \theta &= PL_v \theta\\
+    P &= \frac{4M_P}{L_v}
+\end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 10cm]{./img/q3i4.jpg}
+    \caption{Sketch of portal frame undergoing column collapse.}
+\end{figure}
+Here, work is done at the top, bottom and middle of the long column.
+\begin{align}
+    \sum M_P \theta &= \sum Fd\\
+    M_P \theta + M_P(2\theta) + M_P\theta &= PL_v \theta\\
+    4M_P \theta &= PL_v\theta\\
+    P &= \frac{4M_P}{L_v}
+\end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 10cm]{./img/q3i6.jpg}
+    \caption{Sketch of portal frame undergoing beam and sway collapse.}
+\end{figure}
+Here, work is done at the base of the long column, the middle of the horizontal beam and the top of the short column. 
+\begin{align}
+    \sum M_P \theta &= \sum Fd\\
+    M_P \theta + M_P (2\theta) + M_P (3\theta) &= 2PH\theta + PL_v\theta\\
+    6M_P\theta &= P\theta \left(2H + L_v\right)\\
+    P &= \frac{6M_P}{2H + L_v}
+\end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 10cm]{./img/q3i7.jpg}
+    \caption{Sketch of portal frame undergoing column and sway collapse.}
+\end{figure}
+Here, work is done at the bottom and middle of the long column, as well as at the top of the short column.
+\begin{align}
+    \sum M_P\theta &= \sum Fd\\
+    M_P\theta + M_P\theta + M_P\theta &= PL_v\theta\\
+    3M_P\theta &= PL_v\theta\\
+    P &= \frac{3M_P}{L_v}
+\end{align}
+\subsection{ii}
+Let us tabulate our investigations in part i:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ll}
+        \toprule
+        Collapse mechanism & Collapse load\\
+        \midrule
+        Beam collapse & $P = \frac{2M_P}{H}$\\
+        Sway collapse & $P = \frac{4M_P}{L_v}$\\
+        Column collapse & $P = \frac{4M_P}{L_v}$\\
+        Beam and sway collapse & $P = \frac{6M_P}{2H + L_v}$\\
+        Column and sway collapse & $P = \frac{3M_P}{L_v}$\\
+        \bottomrule
+    \end{tabular}
+    \caption{Table to show equations of $P$ from possible collapse mechanisms of portal frame.}
+    \label{tab:collapses}
+\end{table} requested mode of collapse is column and sway. Hence, we must select our $H$ value to ensure that column and sway collapse is the most likely to occur (when certain loading conditions are met). Using $L_v = 0.75$:
+\begin{equation}
+    P_{cr} = \frac{3M_P}{0.75} = 4 M_P
+\end{equation}
+Let us check to see if the other collapse mechanisms have a lower $P_{cr}$ value:
+\begin{align}
+    \textrm{Sway collapse: } P_{cr} &= \frac{4M_P}{0.75} = \frac{16M_P}{3}\\
+    \textrm{Column collapse: } P_{cr} &= \frac{4M_P}{0.75} = \frac{16M_P}{3} 
+\end{align}
+Sway and column collapse have higher $P_{cr}$ values than column and sway collapse. Now we can begin to select a H value. Beam collapse:
+\begin{align}
+    4M_P &< \frac{2M_P}{H}\\
+    H &< 0.5
+\end{align}
+Beam and sway collapse:
+\begin{align}
+    4M_P &< \frac{6M_P}{2H + 0.75}\\
+    8H + 3 &< 6\\
+    H &< 0.375
+\end{align}
+Hence, we can see that a suitable value of $H$ may be $H < 0.375$. Let us select a value of $H = \SI{0.35}{\meter}$.
+\subsection{iii}
+We want our collapse to occur at $P_{cr} = \frac{2}{3}P_Y$. $P_Y$ was calculated to be \SI{637}{\newton} in Q1iii. Hence:
+\begin{align}
+    P_{cr} = \SI{425}{\newton}
+\end{align}
+Calculating $M_P$:
+\begin{align}
+    P_{cr} &= \frac{3M_P}{L_v}\\
+    425 &= \frac{3M_P}{0.75}\\
+    M_P &= \SI{106.25}{\newton\meter}
+\end{align}
+Next we can check the columns of the portal frame:
+\begin{align}
+    \frac{2}{3}P_Y &= 4M_P\\
+    P_Y &= 6M_P = \frac{3}{2}P_{cr}\\
+\end{align}
+Left column analysis. We must ensure that our $P_{cr} < S_{cr}$. Since it is a fixed-fixed column, $L_e = 0.5L$:
+\begin{align}
+    P_{cr} &< \frac{n^2 \pi^2 E I}{L_e^2}\\
+    425 &< \frac{1 \times \pi^2 \times 71 \times 10^9 \times I}{0.75^2}\\
+    I &> \SI{3.41e-10}{\meter\tothe{4}} \textrm{ (3sf)}
+\end{align}
+Right column analysis. We must ensure that our $P_{cr} < S_{cr}$. Since it is a pinned-fixed column, $L_e = 0.7L$:
+\begin{align}
+    P_{cr} &< \frac{n^2 \pi^2 E I}{L_e^2}\\
+    425 &< \frac{1 \times \pi^2 \times 71 \times 10^9 \times I}{(0.7\times 0.75)^2}\\
+    I &> \SI{1.67e-10}{\meter\tothe{4}} \textrm{ (3sf)}
+\end{align}
+Our second moment of area must be greater than I > \SI{3.41e-10}{\meter\tothe{4}}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 7cm]{./img/q3iii1.jpg}
+    \caption{Sketch of portal frame undergoing column collapse.}
+\end{figure}
+Calculating the plastic bending moment:
+\begin{align}
+    M_P &= \sigma_Y \frac{bh^2}{4}\\
+    106.25 &= (186\times 10^6)\frac{bh^2}{4}\\
+    bh^2 &= \SI{2.28e-6}{\meter^3}
+\end{align}
+Selecting a value of $b = \SI{0.01}{\meter}$:
+\begin{align}
+    h &= \sqrt{\frac{2.28\times 10^6}{0.01}}\\
+    h &= \SI{0.0151}{\meter}
+\end{align}
+Now we can calculate our second moment of area and compare this to the limiting value we found earlier. 
+\begin{align}
+    I &= \frac{bh^3}{12}\\
+    I &= \frac{0.01 \times 0.0151^3}{12}\\
+    I &= \SI{2.87}{\meter\tothe{4}}
+\end{align}
+\SI{2.87}{\meter\tothe{4}} > \SI{3.41e-10}{\meter\tothe{4}}, hence $P_{cr} < S_{cr}$ is satisfied for both columns and design is suitable. 
+\begin{align}
+    M_P &= (186\times 10^6)\frac{0.01 \times 0.0151^2}{4} = \SI{106}{\newton \meter} \textrm{ (3sf)}
+\end{align}
+The cross-section satisfies that $P_C = \frac{2}{3} P_Y$. 
 \end{document}
