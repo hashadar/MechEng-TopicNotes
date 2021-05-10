@@ -89,4 +89,17 @@ Hence:
     y(t) = -10 \left(e^{-2t}-1\right)\\
     \frac{\dif y(t)}{\dif t} = -2y(t) + 10u(t)
 \end{align}
+\subsection{b}
+\subsubsection{i}
+\begin{align}
+    \frac{\dif \omega(t)}{\dif t} &= -a\omega(t) + kv(t)\\
+    s \Omega(s) - \omega(0) &= -a \Omega(s) + kV(s)\\
+    s\Omega(s) +a\Omega (s) &= kV(s)\\
+    \Omega(s)\left(s+a\right) &= kV(s)\\
+    \frac{\Omega (s)}{V(s)} &= \frac{k}{s+a}\\
+    \frac{\Omega (s)}{V(s)} &= \frac{\frac{k}{a}}{\frac{s}{a}+1} = \frac{\gamma}{\tau s + 1}
+\end{align}
+Where $\gamma$ is the gain and $\tau$ is the time constant.
+\section{Question 2} 
+In order to take a measurement of the air flow in the pipe, we will be utilising a temperature based measurement from a hot wire anemometer. The working principle of a hot wire anemometer is to measure the changes in current of the wire, as air flow past the wire changes its temperature. The wire is heated to a temperature above the ambient through a constant voltage. Current flow increases the temperature of the wire, increasing the electrical resistance. As air flows past the wire, temperature decreases, decreasing electrical resistance. However, this will increase the current for constant voltage and the resistance of the wire will reach equilibrium once again. 
 \end{document}
