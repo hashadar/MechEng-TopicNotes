@@ -1,7 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage{graphicx}
 \usepackage{hyperref}
-%\usepackage{appendix}
+\usepackage{appendix}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
@@ -100,6 +100,46 @@ Hence:
     \frac{\Omega (s)}{V(s)} &= \frac{\frac{k}{a}}{\frac{s}{a}+1} = \frac{\gamma}{\tau s + 1}
 \end{align}
 Where $\gamma$ is the gain and $\tau$ is the time constant.
-\section{Question 2} 
-In order to take a measurement of the air flow in the pipe, we will be utilising a temperature based measurement from a hot wire anemometer. The working principle of a hot wire anemometer is to measure the changes in current of the wire, as air flow past the wire changes its temperature. The wire is heated to a temperature above the ambient through a constant voltage. Current flow increases the temperature of the wire, increasing the electrical resistance. As air flows past the wire, temperature decreases, decreasing electrical resistance. However, this will increase the current for constant voltage and the resistance of the wire will reach equilibrium once again. 
+\section{Question 2}
+To measure the temperature of the gas flow , we can utilise a simple thermistor. A thermistor changes resistance based on the local environmental temperature. The Steinhart-Hart equation provides a precise measurement of temperature from a thermistor (\ref{eq:q2i2}). 
+\begin{equation}
+    \frac{1}{T} = A + B \ln R + C \left(\ln R\right)^3 \label{eq:q2i2}
+\end{equation}
+Thermistors are small and can be positioned in the flow easily. An important design consideration is to make sure that it is placed near the centre of flow for an accurate reading, due to boundary layer effects. 
+
+To measure gas flow, we will be utilising a voltage based measurement from a hot wire anemometer, specifically a constant temperature anemometer. They are small, thin wires suspended in the flow, heated by a current. A circuit diagram is shown in Figure \ref{fig:q2i1}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 5cm]{./img/q2i1.jpg}
+    \caption{Diagram to show basic circuit for a hot wire anemometer working on constant temperature mode.} 
+    \label{fig:q2i1}
+ \end{figure}
+We know that the resistance of a wire is proportional to its temperature and if we can maintain the temperature at a certain value, then we will be able to maintain its resistance. Initially our bridge is balanced and as fluid flows past our wire, there is heat transfer at a constant rate. As the velocity of the fluid changes, the rate of thermal heat transfer also changes. In the case that flow rate increases, the increased heat transfer causes the temperature of the wire to decrease, decreasing its resistance. This causes the bridge to become unbalanced. From Figure \ref{fig:q2i1}, an $e^+$ signal is sent to the op-amp. After amplification, the bridge voltage is increased and current flow through the wire is increased. An increase in current, leads to an increase in temperature and resistance, balancing the bridge \cite{b1}. 
+
+Use of a hot wire anemometer is justified as they are small sensors (millimetre scale) and can be used in high temperature situations. The TSI model 1222 can be used in fluids up to \SI{300}{\celsius} \cite{b3}. They have high frequency response but are fragile, expensive and require clean gas flows to prevent damage \cite{b3}. As stated previously, it should be placed close to the centre of flow. \ref{eq:q2i1} is an equation for the fluid velocity as a function of current $I$, calibration resistance and temperature $R_i$, $T_i$, wire and fluid temperatures $T_w$, $T_f$ and projected surface area of wire $A_w$ \cite{b2}.
+\begin{align}
+    v_f = \left[\frac{I^2 R_{i}\left[1 + \alpha \left(T_w - T_i\right)\right]}{BA_w \left(T_w - T_f\right)}-\frac{A}{B}\right]^{\frac{1}{c}} \label{eq:q2i1}
+\end{align}
+Strain gauges can be used to measure changes in the pipes geometry. A simple Wheatstone bridge arrangement of strain gauges, will allow us to measure the vibrations in the pipe. As the pipe is small and we would like to make accurate measurements of vibration, a semiconductor strain gauge may be used. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 4cm]{./img/q2i3.jpg}
+    \caption{Diagram to show how vibrations in the pipe change the shape of a strain gauge fixed to the outer surface.} 
+    \label{fig:q2i3}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 4cm]{./img/q2i2.png}
+    \caption{Diagram to show basic circuit for a semiconductor strain gauge, with temperature compensation.} 
+    \label{fig:q2i2}
+\end{figure}
+The bridge output is given as:
+\begin{align}
+    V_0 = \frac{V_s x }{2} \left(1 + \nu\right)
+\end{align}
+\begin{thebibliography}{00}
+    \bibitem{b1} Howard Hodson, University of Cambridge, Department of Engineering, Whittle Laboratory "Constant Temperature Anemometers", \url{http://www-g.eng.cam.ac.uk/whittle/current-research/hph/cta-circuit/cta-circuit.html} Accessed 10/05/21 23:05 
+    \bibitem{b3} TSI, "TSI Thermal Anemometry Probes", \url{https://www.tsi.com/getmedia/2e3fafd5-8037-40a9-aa38-4fa05a1d3ef3/Hotwire_Catalog_2980465?ext=.pdf} Accessed 11/05/21 00:43
+    \bibitem{b2} eFunda Inc, "Hot wire theory", \url{https://www.efunda.com/designstandards/sensors/hot_wires/hot_wires_intro.cfm} Accessed 11/05/21 00:09
+\end{thebibliography}
 \end{document}
