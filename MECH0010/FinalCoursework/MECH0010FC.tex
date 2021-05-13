@@ -100,6 +100,47 @@ Hence:
     \frac{\Omega (s)}{V(s)} &= \frac{\frac{k}{a}}{\frac{s}{a}+1} = \frac{\gamma}{\tau s + 1}
 \end{align}
 Where $\gamma$ is the gain and $\tau$ is the time constant.
+\subsection{c}
+\subsubsection{i}
+\begin{align}
+    F(s) &= \frac{\frac{20}{s^2 + s(20k+1)}}{1 + \frac{20}{s^2 + s(20k+1)}}\\
+    F(s) &= \frac{20}{s^2 + s(20k+1) + 20}
+\end{align}
+We know that the coefficient of the $s$ term in the denominator has the standard form: 
+\begin{align}
+    20k+ 1 = 2\zeta \omega_n
+\end{align}
+Where $\omega_n = \sqrt{20}$ and $\zeta = 0.4$. Therefore:
+\begin{align}
+    20 k + 1 &= 2 (0.4)\sqrt{20}\\
+    k &= \frac{-5+8\sqrt{5}}{100} = 0.129 \textrm{ (3sf)}
+\end{align}
+\subsubsection{ii}
+Insert figures
+
+Transfer function of askldkas:
+\begin{align}
+    F(s) &= \frac{\frac{20}{s(s+1)}}{1 + \frac{20}{s(s+1)}}\\
+    F(s) &= \frac{20}{s^2 + s + 20 }
+\end{align}
+Using the standard form:
+\begin{align}
+    \omega_n &= \sqrt{20}\\
+    1&= 2\zeta \sqrt{20}\\
+    \zeta &= \frac{\sqrt{5}}{20}
+\end{align}
+Therefore, the overshoot can be calculated as:
+\begin{align}
+    A &= e^{\frac{-\zeta \pi}{\sqrt{1-\zeta^2}}}\\
+    A &= e^{\frac{-\frac{\sqrt{5}}{20} \pi}{\sqrt{1-\left(\frac{\sqrt{5}}{20}\right)^2}}}\\
+    A &= 0.702 \textrm{ (3sf)}
+\end{align}
+Peak time:
+\begin{align}
+    t_r &= \frac{\pi}{\omega_n \sqrt{1- \zeta^2}}\\
+    t_r &= \frac{\pi}{\sqrt{20} \sqrt{1- \left(\frac{\sqrt{5}}{20}\right)^2}}\\
+    t_r &= \SI{0.71}{\second} \textrm{ (3sf)}
+\end{align}
 \section{Question 2}
 To measure the temperature of the gas flow , we can utilise a simple thermistor. A thermistor changes resistance based on the local environmental temperature. The Steinhart-Hart equation provides a precise measurement of temperature from a thermistor (\ref{eq:q2i2}). 
 \begin{equation}
@@ -136,6 +177,47 @@ Strain gauges can be used to measure changes in the pipes geometry. A simple Whe
 The bridge output is given as:
 \begin{align}
     V_0 = \frac{V_s x }{2} \left(1 + \nu\right)
+\end{align}
+\section{Question 3}
+\subsection{a}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 5cm]{./img/q3i1.jpg}
+    \caption{Diagram to show physical seismic mass accelerometer.} 
+    \label{fig:q3i1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 5cm]{./img/q3i2.jpg}
+    \caption{Diagram to show arrangement of Wheatstone bridge to measure resistance and give an output voltage.} 
+    \label{fig:q3i2}
+\end{figure}
+The seismic mass accelerometer is attached to the outside of the pipe and composes of a mass suspended by a string, with a damper. A wiper is positioned on a potentiometer such that when the seismic mass moves, it moves proportionally. This allows the resistance of the potentiometer to vary proportionally to the displacement of the mass. From Newton's second law and Hooke's law, we know that:
+\begin{align}
+    F &= ma\\
+    F &= kx
+    a = \frac{kx}{m}
+\end{align}
+Looking at forces (neglecting damper).
+\begin{align}
+    f(t) &= f_s(t) + f_m(t)\\
+    f(t) &= kx(t) + m\frac{\dif^2 x(t)}{\dif t^2}\\
+    F(s) &= kX(s) + ms^2 X(s)\\
+    \frac{X(s)}{F(s)} &= \frac{1}{ms^2 + k}
+\end{align}
+Putting into standard form and returning to time domain using tables:
+\begin{align}
+    G(s) &= \frac{1}{k}\cdot\frac{\frac{k}{m}}{s^2 + \frac{k}{m}}\\
+    G(s) &= \frac{\sqrt{k}}{k\sqrt{m}}\cdot \frac{\sqrt{\frac{k}{m}}}{s^2 + \left(\sqrt{\frac{k}{m}}\right)^2}\\
+    x(t) &= \frac{\sqrt{\frac{k}{m}}}{k} \sin\left(\sqrt{\frac{k}{m}} \cdot t\right)\\
+\end{align}
+Differentiating twice:
+\begin{align}
+    a(t) &= -\frac{\sqrt{\frac{k}{m}}\sin\left(\sqrt{\frac{k}{m}}t\right)}{m}
+\end{align}
+We can determine the voltage in each arm using voltage dividers and subtract the two to find our voltage output:
+\begin{align}
+    V_{out} = V_{in}\left(\frac{R_3}{R_p + R_3} - \frac{R_1}{R_2 + R_1}\right)
 \end{align}
 \begin{thebibliography}{00}
     \bibitem{b1} Howard Hodson, University of Cambridge, Department of Engineering, Whittle Laboratory "Constant Temperature Anemometers", \url{http://www-g.eng.cam.ac.uk/whittle/current-research/hph/cta-circuit/cta-circuit.html} Accessed 10/05/21 23:05 
