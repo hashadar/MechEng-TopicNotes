@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{commath}
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.2}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage[a4paper,margin=20mm]{geometry}
+\numberwithin{equation}{section}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=black
+}
+\urlstyle{same}
+\begin{document}
+\title{\textbf{UCL Mechanical Engineering 2020/2021}\\MECH0011 Final Coursework}
+\author{NCWT3}
+\maketitle
+\tableofcontents
+\listoffigures
+\section{Question 1}
+\subsection{a}
+The data was imported into MATLAB and the shape of the hydrofoil, the chord line and the mean camber line were plotted for all four hydrofoils.
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\lstinputlisting{./mCode/q1a.m}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{./img/q1a.png}
+    \caption{Graphs to show hydrofoil shape, chord line and mean camber line for four different hydrofoils.}
+    \label{fig:q1a}
+\end{figure}
+\subsection{b}
+\end{document}
