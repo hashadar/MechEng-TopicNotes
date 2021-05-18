@@ -3,7 +3,7 @@ clear
 close all
 
 %define vars
-i = ["EPPLER 818 Hydrofoil", "NACA 63-412 Aifoil", "RG 8 Airfoil", "YS 930 Hydrofoil"]; %index hydrofoils from sheets
+i = ["EPPLER 818 Hydrofoil", "NACA 63-412 Aifoil", "RG 8 Airfoil", "YS 930 Hydrofoil"]; %index hydrofoil names from sheets for ease
 data = zeros(122,2,4); %initialise matrix
 counter = 0; %initialise counter 
 x = linspace(0,1,100); %interpolation range initialisation
@@ -32,7 +32,7 @@ dataNeg3 = readmatrix('suppFiles.xlsx','Sheet',i(3),'Range','A35:B64');
 dataPos4 = readmatrix('suppFiles.xlsx','Sheet',i(4),'Range','A3:B65');
 dataNeg4 = readmatrix('suppFiles.xlsx','Sheet',i(4),'Range','A66:B124');
 
-%interpolate airfoil shape with 100 data points from 0 to 1
+%interpolate hydrofoil shape with 100 data points from 0 to 1
 %eppler
 dataIntPos1 = interp1(dataPos1(:,1), dataPos1(:,2), x);
 dataIntNeg1 = interp1(dataNeg1(:,1), dataNeg1(:,2), x);
