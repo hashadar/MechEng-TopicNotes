@@ -232,13 +232,63 @@ Therefore our balanced reaction equation is:
     \ce{CH4} + 2\left(\ce{O2} + \ce{3.76N2}\right)\longrightarrow \ce{CO2} + \ce{2H2O} + \ce{7.52N2}
 \end{equation}
 \subsection{b}
-The air-fuel ratio on a mass basis can be found using \label{eq:q4b1}
+The air-fuel ratio on a mass basis can be found using \ref{eq:q4b1}
 \begin{align}
-    AFR &= \frac{\textrm{mass of air}}{\textrm{mass of fuel}} = \frac{x_{air}}{x_{fuel}} = \frac{n_{air}}{n_{fuel}}\frac{M_{air}}{M_{fuel}}\\
-    AFR &= \frac{\left(x+ \dfrac{y}{4}\right)\left(32 + 3.76\times 28\right)}{12x + y}\\
-    AFR &= \frac{\left(1+ \dfrac{4}{4}\right)\left(32 + 3.76\times 28\right)}{12 + 4}\\
-    AFR &= 17.167:1 
+    AF &= \bar{AF} \times \dfrac{M_{air}}{M_{fuel}} \label{eq:q4b1}
 \end{align}
+Where and $\bar{AF}$ is volumetric air ratio and $M$ is the molar mass. Assuming that the air only consists of oxygen and nitrogen, we can input molar masses from the property tables into the \ref{eq:q4b1}:
+\begin{align}
+    AF &= \dfrac{2.2\left(1 + 3.76\right)}{1} \times  \dfrac{\left(\dfrac{32+3.76\left(28.01\right)}{4.76}\right)}{16.04}\\
+    AF &= \SI{18.8}{\kg\of{air}\per\kg\of{fuel}}
+\end{align}
+\subsection{c}
+I selected a temperature of \SI{450}{\kelvin} (\SI{176.85}{\celsius}).
+\section{Question 5}
+\subsection{a}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 8cm]{./img/q5a.jpg}
+    \caption{Graph to show Rankine cycle on T-s diagram.}
+    \label{fig:q5a}
+\end{figure}
+In an ideal Rankine reheat cycle, we would see that the expansion and compression processes are reversible and isentropic. These are shown as straight vertical lines from 6 - 1 (pump compression), 2 - 3 and 4 - 5 (turbine expansion). However, in an actual Rankine reheat cycle, we will have irreversible losses present. For a pump, work must be done to overcome frictional forces. For a turbine, heat transfer from the turbine to the surroundings represents a loss. This process of transfer of energy as work results in entropy being produced within the system, hence we would see the entropy increase for these processes. These have been represented as the curved lines 6 - 1', 2 - 3' and 4 - 5'. 
+\subsection{b}
+All components in the Rankine reheat cycle are steady flow devices. Neglect kinetic and potential energy changes as they are usually small relative to the work and heat transfer terms. Starting with SFEE formula:
+\begin{align}
+    \dot{Q}_{in} + \dot{W}_{in} + \dot{m}_1 h_1 = \dot{Q}_{out} + \dot{W}_{out} + \dot{m}_2 h_2
+\end{align}
+$\dot{m}_1 = \dot{m}_2 = \dot{m}$. Dividing by $\dot{m}$:
+\begin{align}
+    q_{in} + w_{in} + h_1 = q_{out} + w_{out} + h_2
+\end{align}
+The thermal efficiency is given by:
+\begin{equation}
+    \eta_{th} = \dfrac{w_{net}}{q_{in}} = \dfrac{w_{turbines} - w_{pump}}{q_{in}}
+\end{equation}
+We know that the total heat input will come from the primary heating stage and the reheating stage, hence:
+\begin{align}
+    q_{in} = q_{\textrm{primary}} + q_{\textrm{reheat}} = \left(h_2 - h_1\right) + \left(h_4 - h_3\right)
+\end{align}
+Total power output from the turbines can be calculated as:
+\begin{align}
+    w_{turbines} = w_{turb1} + w_{turb2} = \left(h_2 - h_3\right) + \left(h_4 - h_5\right)
+\end{align}
+Pump power can be calculated as:
+\begin{align}
+    w_{pump} = \left(h_1 - h_6\right)
+\end{align}
+Therefore, the thermal efficiency is:
+\begin{align}
+    \eta_{th} = \dfrac{w_{net}}{q_{in}} = \dfrac{\left(h_2 - h_3\right) + \left(h_4 - h_5\right) - \left(h_1 - h_6\right)}{\left(h_2 - h_1\right) + \left(h_4 - h_3\right)}
+\end{align}
+\subsection{c}
+If the HPT and LPT do not expand isentropically, our thermal efficiency will become:
+\begin{align}
+    \eta_{th} = \dfrac{w_{net}}{q_{in}} = \dfrac{\left(h_2 - h_{3'}\right) + \left(h_4 - h_{5'}\right) - \left(h_{1'} - h_6\right)}{\left(h_2 - h_{1'}\right) + \left(h_4 - h_{3'}\right)}
+\end{align}
+As the enthalpies at the actual points is more than those at the ideal points, we see a net decrease in the thermal efficiency.
+\subsection{d}
+
 \begin{thebibliography}{00}
     \bibitem{b1} Pawlowicz, R. (2013) Key Physical Variables in the Ocean: Temperature, Salinity, and Density. Nature Education Knowledge 4(4):13 \url{https://www.nature.com/scitable/knowledge/library/key-physical-variables-in-the-ocean-temperature-102805293/} Accessed: 19/05/2021 00:00
 \end{thebibliography}
