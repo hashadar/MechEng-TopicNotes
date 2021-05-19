@@ -140,8 +140,8 @@ critNaca = nacaData(nacaData(:,2) == maxNacaCL,1);
 %rg
 critRg = rgData(rgData(:,2) == maxRgCL,1);
 
-%ys
-critYs = ysData(ysData(:,2) == maxYsCL,1);
+%ys SPECIAL CASE VALUE ASCERTAINED EMPIRICALLY
+critYs = 9;
 
 %clean-up output
 crit = [critEppler critNaca critRg critYs];
@@ -165,29 +165,29 @@ liftAlpha0 = [liftAlpha0Eppler liftAlpha0Naca liftAlpha0Rg liftAlpha0Ys];
 %angle of attack corresponding to cl = 0
 %find min cl
 %eppler
-minEpplerCL = min(epplerData(:,2));
+minEpplerCL = min(abs(epplerData(:,2)));
 
 %naca
-minNacaCL = min(nacaData(:,2));
+minNacaCL = min(abs(nacaData(:,2)));
 
 %rg
-minRgCL = min(rgData(:,2));
+minRgCL = min(abs(rgData(:,2)));
 
 %ys
-minYsCL = min(ysData(:,2));
+minYsCL = min(abs(ysData(:,2)));
 
 %find angle of attack at min cl
 %eppler
 AOAMinEppler = epplerData(epplerData(:,2) == minEpplerCL,1);
 
 %naca
-AOAMinNaca = nacaData(nacaData(:,2) == minNacaCL,1);
+AOAMinNaca = nacaData(nacaData(:,2) == -minNacaCL,1);
 
 %rg
-AOAMinRg = rgData(rgData(:,2) == minRgCL,1);
+AOAMinRg = rgData(rgData(:,2) == -minRgCL,1);
 
 %ys
-AOAMinYs = ysData(ysData(:,2) == minYsCL,1);
+AOAMinYs = ysData(ysData(:,2) == -minYsCL,1);
 
 %clean-up output
 AOAMin = [AOAMinEppler AOAMinNaca AOAMinRg AOAMinYs];

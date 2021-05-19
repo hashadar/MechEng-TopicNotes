@@ -23,42 +23,10 @@ ysCL = readmatrix('suppFiles.xlsx','Sheet',i(4),'Range','E2:E78');
 ysCD = readmatrix('suppFiles.xlsx','Sheet',i(4),'Range','F2:F78');
 
 %plot data
-subplot(2,2,1)
-plot(epplerCD, epplerCL)
+plot(epplerCL, epplerCD,'r',nacaCL,nacaCD,'g',rgCL,rgCD,'b',ysCL,ysCD,'magenta')
+legend(i(1), i(2), i(3), i(4))
 axis square
 grid on
-xline(0)
-yline(0)
-xlabel('C_D')
-ylabel('C_L')
-title('Plot of lift-to-drag ratio for ' + i(1))
-
-subplot(2,2,2)
-plot(nacaCD, nacaCL)
-axis square
-grid on
-xline(0)
-yline(0)
-xlabel('C_D')
-ylabel('C_L')
-title('Plot of lift-to-drag ratio for ' + i(2))
-
-subplot(2,2,3)
-plot(rgCD, rgCL)
-axis square
-grid on
-xline(0)
-yline(0)
-xlabel('C_D')
-ylabel('C_L')
-title('Plot of lift-to-drag ratio for ' + i(3))
-
-subplot(2,2,4)
-plot(ysCD, ysCL)
-axis square
-grid on
-xline(0)
-yline(0)
-xlabel('C_D')
-ylabel('C_L')
+xlabel('C_L')
+ylabel('C_D')
 title('Plot of lift-to-drag ratio for ' + i(4))

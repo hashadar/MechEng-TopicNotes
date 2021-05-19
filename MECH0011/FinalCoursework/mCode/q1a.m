@@ -64,7 +64,7 @@ camber4 = (dataIntPos4 + dataIntNeg4)./2;
 
 %plot data
 subplot(4,1,1)
-plot(data(:,1,1), data(:,2,1), x, camber1)
+plot(dataPos1(:,1), dataPos1(:,2),'b',dataNeg1(:,1), dataNeg1(:,2),'b', x, camber1,'r')
 axis image
 grid on
 xlabel('Chord')
@@ -72,10 +72,10 @@ ylabel('Z(x)')
 title('Plot of ' + i(1))
 xlim([-0.05 1.05])
 ylim([-0.05 0.1])
-legend('Hydrofoil profile and chord line','Mean camber line')
+legend('Hydrofoil profile','Mean camber line')
 
 subplot(4,1,2)
-plot(data(:,1,2), data(:,2,2), x, camber2)
+plot(dataPos2(:,1), dataPos2(:,2),'b',dataNeg2(:,1), dataNeg2(:,2),'b', x, camber2,'r')
 axis image
 grid on
 xlabel('Chord')
@@ -83,10 +83,10 @@ ylabel('Z(x)')
 title('Plot of ' + i(2))
 xlim([-0.05 1.05])
 ylim([-0.05 0.1])
-legend('Hydrofoil profile and chord line','Mean camber line')
+legend('Hydrofoil profile','Mean camber line')
 
 subplot(4,1,3)
-plot(data(:,1,3), data(:,2,3), x, camber3)
+plot(dataPos3(:,1), dataPos3(:,2),'b',dataNeg3(:,1), dataNeg3(:,2),'b', x, camber3,'r')
 axis image
 grid on
 xlabel('Chord')
@@ -94,10 +94,10 @@ ylabel('Z(x)')
 title('Plot of ' + i(3))
 xlim([-0.05 1.05])
 ylim([-0.05 0.1])
-legend('Hydrofoil profile and chord line','Mean camber line')
+legend('Hydrofoil profile','Mean camber line')
 
 subplot(4,1,4)
-plot(data(:,1,4), data(:,2,4), x, camber4)
+plot(dataPos4(:,1), dataPos4(:,2),'b',dataNeg4(:,1), dataNeg4(:,2),'b', x, camber4,'r')
 axis image
 grid on
 xlabel('Chord')
@@ -105,4 +105,4 @@ ylabel('Z(x)')
 title('Plot of ' + i(4))
 xlim([-0.05 1.05])
 ylim([-0.05 0.1])
-legend('Hydrofoil profile and chord line','Mean camber line')
+legend('Hydrofoil profile','Mean camber line')
