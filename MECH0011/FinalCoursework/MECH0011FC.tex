@@ -4,6 +4,7 @@
 \usepackage{appendix}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage[version=3]{mhchem}
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{multirow}
@@ -208,6 +209,36 @@ MATLAB was used to plot the boundary layer velocity profile.
     \caption{Graph to show boundary layer velocity profile.}
     \label{fig:q3a}
 \end{figure}
+\section{Question 4}
+\subsection{a}
+The balanced reaction equation takes the general form:
+\begin{align}
+    \ce{C_x H_y} + a \left(\ce{O2} + \ce{3.76N2}\right)&\longrightarrow b \ \ce{CO2} + c \ \ce{H2O} + 3.76 d \ \ce{N2}\\
+    \ce{C H4} + a \left(\ce{O2} + \ce{3.76N2}\right)&\longrightarrow b \ \ce{CO2} + c \ \ce{H2O} + 3.76 d \ \ce{N2}
+\end{align}
+where $x = 1$ and $y= 4$. Balancing atoms:
+\begin{align}
+    \ce{C}:& \; x = b\\
+    \ce{H}:& \; y = 2c\\
+    \ce{O}:& \; 2a = 2b + c\\
+    \ce{N}:& \; 2\times 3.76 a = 2\times 3.76 d\\
+    \therefore \; &a = x + \frac{y}{4} = 2\\
+    &b = x = 1\\
+    &c = \frac{y}{2} = 2\\
+    &d = a = 2
+\end{align}
+Therefore our balanced reaction equation is:
+\begin{equation}
+    \ce{CH4} + 2\left(\ce{O2} + \ce{3.76N2}\right)\longrightarrow \ce{CO2} + \ce{2H2O} + \ce{7.52N2}
+\end{equation}
+\subsection{b}
+The air-fuel ratio on a mass basis can be found using \label{eq:q4b1}
+\begin{align}
+    AFR &= \frac{\textrm{mass of air}}{\textrm{mass of fuel}} = \frac{x_{air}}{x_{fuel}} = \frac{n_{air}}{n_{fuel}}\frac{M_{air}}{M_{fuel}}\\
+    AFR &= \frac{\left(x+ \dfrac{y}{4}\right)\left(32 + 3.76\times 28\right)}{12x + y}\\
+    AFR &= \frac{\left(1+ \dfrac{4}{4}\right)\left(32 + 3.76\times 28\right)}{12 + 4}\\
+    AFR &= 17.167:1 
+\end{align}
 \begin{thebibliography}{00}
     \bibitem{b1} Pawlowicz, R. (2013) Key Physical Variables in the Ocean: Temperature, Salinity, and Density. Nature Education Knowledge 4(4):13 \url{https://www.nature.com/scitable/knowledge/library/key-physical-variables-in-the-ocean-temperature-102805293/} Accessed: 19/05/2021 00:00
 \end{thebibliography}
