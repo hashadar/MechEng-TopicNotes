@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[version=3]{mhchem}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{commath}
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.2}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage[a4paper,margin=20mm]{geometry}
+\numberwithin{equation}{section}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=black
+}
+\urlstyle{same}
+\begin{document}
+\title{\textbf{UCL Mechanical Engineering 2021/2022}\\MECH0026 Problem Sheet 1 Solutions}
+\author{HD}
+\maketitle
+\section{}
+\subsection{}
+For plane stress, our assumption is that our stress tensors relating to the $z$-direction are 0. For plane strain, our assumption is that there is no displacement in the $z$-direction.
+\section{}
+\begin{align}
+    \phi      & = \dfrac{P}{20h^3} \left(15h^2x^2y-5x^2y^3-2h^2y^3+y^5\right)                                    \\
+    \sigma_x  & = \dfrac{\partial^2 \phi}{\partial y^2} = \dfrac{P}{20h^3}\left(20y^3 -30x^2y-12h^2y\right)      \\
+    \sigma_y  & = \dfrac{\partial^2 \phi}{\partial x^2} = \dfrac{P}{20h^3}\left(30h^2xy-10xy^3\right)            \\
+    \tau_{xy} & = -\dfrac{\partial^2 \phi}{\partial x\partial y} = - \dfrac{P}{20h^3} \left(20h^2x-30xy^2\right)
+\end{align}
+\end{document}
