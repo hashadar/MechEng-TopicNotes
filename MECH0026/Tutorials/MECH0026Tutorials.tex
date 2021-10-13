@@ -35,7 +35,15 @@
 \maketitle
 \section{}
 \subsection{}
-For plane stress, our assumption is that our stress tensors relating to the $z$-direction are 0. For plane strain, our assumption is that there is no displacement in the $z$-direction.
+For plane stress, our simplification is valid when one dimension of an object (e.g. $z$-direction) is very small compared to others, e.g. a thin sheet, loaded perpendicular to the surface. Stress tensors relating to the $z$-direction are virtually 0 ($\sigma_z = \tau_{yz} = \tau_{xz} =0$) and no loads (body or boundary) in $z$-direction. We can use compliance matrix to find out the components of our stress field.
+
+For plane strain, our simplification is valid when one dimension of an object (e.g. in $z$-direction) is very large compared to others e.g. a long cylindrical or prismatic body loaded perpendicular to the length. The conditions of plane strain are:
+\begin{enumerate}
+    \item Everything is constant in the $z$-direction $\frac{\partial ()}{\partial z} = 0$
+    \item $w = 0$
+    \item No loads (body or boundary) in $z$-direction
+\end{enumerate}
+Hence, $\epsilon_z = \delta_{yz} = \delta_{xz} =0$. We can use stiffness matrix to find components of our strain field
 \section{}
 \begin{align}
     \phi      & = \dfrac{P}{20h^3} \left(15h^2x^2y-5x^2y^3-2h^2y^3+y^5\right)                                    \\
@@ -43,4 +51,5 @@ For plane stress, our assumption is that our stress tensors relating to the $z$-
     \sigma_y  & = \dfrac{\partial^2 \phi}{\partial x^2} = \dfrac{P}{20h^3}\left(30h^2xy-10xy^3\right)            \\
     \tau_{xy} & = -\dfrac{\partial^2 \phi}{\partial x\partial y} = - \dfrac{P}{20h^3} \left(20h^2x-30xy^2\right)
 \end{align}
+satisfies harmonic relationship
 \end{document}
