@@ -46,7 +46,7 @@ For plane strain, our simplification is valid when one dimension of an object (e
 \end{enumerate}
 Hence, $\epsilon_z = \delta_{yz} = \delta_{xz} =0$. We can use stiffness matrix to find components of our strain field.
 \subsubsection{b}
-\begin{table}
+\begin{table}[H]
     \begin{center}
         \begin{tabular}{ c c c }
             \toprule
@@ -69,7 +69,8 @@ Hence, $\epsilon_z = \delta_{yz} = \delta_{xz} =0$. We can use stiffness matrix 
                     \varepsilon_x & \gamma_{xy}   & 0 \\
                     \gamma_{yx}   & \varepsilon_y & 0 \\
                     0             & 0             & 0
-                \end{pmatrix}$
+                \end{pmatrix}$ \\
+            \bottomrule
         \end{tabular}
         \caption{Table to show stress/strain tensors in plane stress/strain.}
     \end{center}
@@ -144,4 +145,115 @@ satisfies harmonic relationship. Boundary conditions:
     \sigma_{xx} & = 0 \textrm{ at } x = 0                                     \\
     u           & = v = \frac{\partial v}{\partial u} = 0 \textrm{ at } x = L
 \end{align}
+\subsection{Question 3}
+Stress function:
+\begin{equation}
+    \phi = A \left(x^3 + y^3 -6xy\right)
+\end{equation}
+Boundary conditions:
+\begin{align}
+    u = v = \frac{\partial u}{\partial y} = 0 \\
+    x = y = 0
+\end{align}
+\subsection{Question 5}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{./img/diagram1.png}
+    \caption{}
+\end{figure}
+Stress function:
+\begin{equation}
+    \phi = Ax^2 y + Bx^2 y^3 + Cy^5
+\end{equation}
+Check stress boundary conditions:
+\begin{gather}
+    \sigma_x = \frac{\partial^2 \phi}{\partial y^2} = 6Bx^2 y + 20Cy^3\\
+    \sigma_y = \frac{\partial^2 \phi}{\partial x^2} = 2Ay + 2By^3\\
+    \tau_{xy} = -\frac{\partial^2 \phi}{\partial x\partial y} = -2x\left(A + 3By^2\right)
+\end{gather}
+Check the boundary conditions. Lower surface:
+\begin{gather}
+    0 \leq x \leq L, \; y = d\\
+    \left. \sigma_y \right|_{y=d} = 2Ad + 2Bd^3 \\
+    \left. \tau_{xy} \right|_{y=d} = -2x(A+3Bd^2) = 0 \rightarrow A + 3Bd^2 = 0 \rightarrow A = -3Bd^2\\
+    \therefore \left. \sigma_y \right|_{y=d} = -6Bd^3 + 2Bd^3 = w \rightarrow -4Bd^3 = w \rightarrow B = - \frac{w}{4d^3}\\
+    \therefore A = \frac{3w}{4d}
+\end{gather}
+Upper surface (do not miss this step, make sure to check all boundaries):
+\begin{gather}
+    \left. \sigma_y\right|_{y=-d} = -2Ad -2Bd^3
+\end{gather}
+Substitute $A$ and $B$:
+\begin{gather}
+    \left. \sigma_y\right|_{y=-d} = -w\\
+    \left. \tau_{xy} \right|_{y=-d} = 0
+\end{gather}
+Left surface:
+\begin{gather}
+    \left. \sigma_{x} \right|_{x=0} = 20Cy^3
+\end{gather}
+Resultant force:
+\begin{gather}
+    \int_{-d}^d \left(\sigma_x\right)\dif y = \int^d_{-d} \left(20Cy^3\right)\dif y = \left[5Cy^4\right]^d_{-d}= 0
+\end{gather}
+Resultant bending moment:
+\begin{gather}
+    \int_{-d}^d \left(\sigma_x \cdot y \right)\dif y =\int_{-d}^d \left(20Cy^4\right)\dif y = \left[4Cy^5\right]_{-d}^d = 8Cd^5 = 0\\
+    \therefore C = 0
+\end{gather}
+Check Biharmonic relationship:
+\begin{gather}
+    \nabla^4 \phi = \frac{\partial^4 \phi}{\partial x^4} + 2\frac{\partial^4\phi}{\partial x^2 \partial y^2} + \frac{\partial^4 \phi}{\partial y^4} = 24By + 120Cy = 0\\
+    C = -\frac{1}{5} B = \frac{w}{20d^3}
+\end{gather}
+We now have 2 values of $C$. Both are valid but we now can see that our stress function is wrong. $\phi$ is not a correct stress function! Refer to Question 2, to see the correct stress function. We do not have a $y^3$ term here.
+\subsection{Question 7}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{./img/diagram1.png}
+    \caption{}
+\end{figure}
+Apply Biharmonic relationship:
+\begin{gather}
+    \phi_1 = \frac{wx^2}{8} \left[\left(\frac{y}{h}\right)^3-\frac{3y}{h} -2 \right] + Ay^3 - \frac{wy^5}{40h^3}\\
+    \sigma_x = \frac{3w}{4}\frac{x^2y}{h^3} + 6Ay - \frac{w}{2}\frac{y^3}{h^3}\\
+    \sigma_y = \frac{w}{4}\left(\frac{y^3}{h^3}-2-\frac{3y}{h}\right)\\
+    \tau_{xy} = -\frac{3wx}{4}\left(\frac{y^2}{h^3} - \frac{1}{h}\right)
+\end{gather}
+Apply boundary condtions. Lower surface:
+\begin{gather}
+    \left. \sigma_y \right|_{y=-h} = \frac{w}{4}\left(-\frac{h^3}{h^3}-2 + \frac{3h}{h}\right) = 0\\
+    \left. \tau_{xy}\right|_{y=-h} = -\frac{3wx}{4}\left(\frac{h^2}{h^3}-\frac{1}{h}\right) = 0
+\end{gather}
+Upper surface:
+\begin{gather}
+    \left. \sigma_y \right|_{y=h} = \frac{w}{4}\left(\frac{h^3}{h^3} - 2 - \frac{3h}{h}\right) = -w\\
+    \left. \tau_{xy}\right|_{y=h} = 0
+\end{gather}
+Right side:
+\begin{gather}
+    \left. \sigma_x \right|_{x = L} = \frac{3w}{4}\frac{L^2y}{h^3} + 6Ay -\frac{w}{2}\frac{y^3}{h^3}
+\end{gather}
+Resultant force:
+\begin{gather}
+    \int_{-h}^h \left(\sigma_x\right)\dif y = \int_{-h}^h \left(\frac{3w}{4}\frac{L^2y}{h^3} + 6Ay -\frac{w}{2}\frac{y^3}{h^3}\right)\dif y = 0
+\end{gather}
+Resultant bending moment:
+\begin{gather}
+    \int_{-h}^h \left(\sigma_x \cdot y\right)\dif y = \int_{-h}^h \left(y\left(\frac{3w}{4}\frac{L^2y}{h^3} + 6Ay -\frac{w}{2}\frac{y^3}{h^3}\right)\right)\dif y = 0 \rightarrow A = ?
+\end{gather}
+Checking shear stress on right side:
+\begin{gather}
+    \left.\tau_{xy}\right|_{x=L} = -\frac{3wL}{4}\left(\frac{y^2}{h^3} - \frac{1}{h}\right)
+\end{gather}
+Resultant shear force:
+\begin{gather}
+    \int_{-h}^h \left(\tau_{xy}\right)\dif y = \int_{-h}^h \left(-\frac{3wL}{4}\left(\frac{y^2}{h^3}-\frac{1}{h}\right)\right)\dif y = wL
+\end{gather}
+Left:
+\begin{gather}
+    \left. \tau_{xy} \right|_{x = -L}\\
+    \int_{-h}^h \left(\tau_{xy}\right)\dif y = - wL
+\end{gather}
+We can see that the shear stress on the left side is in the opposite direction to the external shear force, whereas on the left side it is in the same direction as the external shear force. We can see that we have a parabolic distribution of the shear stress, taking a maximum value of $\tau_{xy} = \frac{3wL}{4h}$.
 \end{document}
