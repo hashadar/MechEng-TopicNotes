@@ -34,7 +34,7 @@
 \author{HD}
 \maketitle
 \section{Problem Sheet 1}
-\subsection{Q1}
+\subsection{Question 1}
 \subsubsection{a}
 For plane stress, our simplification is valid when one dimension of an object (e.g. $z$-direction) is very small compared to others, e.g. a thin sheet, loaded perpendicular to the surface. Stress tensors relating to the $z$-direction are virtually 0 ($\sigma_z = \tau_{yz} = \tau_{xz} =0$) and no loads (body or boundary) in $z$-direction. We can use compliance matrix to find out the components of our stress field.
 
@@ -130,12 +130,12 @@ Stiffness matrix $[C]$:
         \gamma_{zx}   \\
     \end{Bmatrix}
 \end{equation}
-\subsection{Q2}
+\subsection{Question 2}
 \begin{align}
     \phi      & = \dfrac{p}{20h^3} \left(15h^2x^2y-5x^2y^3-2h^2y^3+y^5\right)                                    \\
-    \sigma_x  & = \dfrac{\partial^2 \phi}{\partial y^2} = \dfrac{p}{20h^3}\left(20y^3 -30x^2y-12h^2y\right)      \\
-    \sigma_y  & = \dfrac{\partial^2 \phi}{\partial x^2} = \dfrac{p}{20h^3}\left(30h^2xy-10xy^3\right)            \\
-    \tau_{xy} & = -\dfrac{\partial^2 \phi}{\partial x\partial y} = - \dfrac{p}{20h^3} \left(20h^2x-30xy^2\right)
+    \sigma_x  & = \dfrac{\partial^2 \phi}{\partial y^2} = \dfrac{P}{20h^3}\left(20y^3 -30x^2y-12h^2y\right)      \\
+    \sigma_y  & = \dfrac{\partial^2 \phi}{\partial x^2} = \dfrac{P}{20h^3}\left(30h^2y-10y^3\right)              \\
+    \tau_{xy} & = -\dfrac{\partial^2 \phi}{\partial x\partial y} = - \dfrac{P}{20h^3} \left(30h^2x-30xy^2\right)
 \end{align}
 satisfies harmonic relationship. Boundary conditions:
 \begin{align}
@@ -145,6 +145,41 @@ satisfies harmonic relationship. Boundary conditions:
     \sigma_{xx} & = 0 \textrm{ at } x = 0                                     \\
     u           & = v = \frac{\partial v}{\partial u} = 0 \textrm{ at } x = L
 \end{align}
+Lower surface ($ y = h$, $0 \leq x \leq L$):
+\begin{align}
+    \left. \sigma_y \right|_{y=h}  & = P = \dfrac{P}{20h^3}\left(30h^2\cdot h - 10h^3\right) = P \rightarrow \textrm{satisfied} \\
+    \left. \tau_{xy} \right|_{y=h} & = 0 = \dfrac{-P}{20h^3}\left(30h^2x - 30h^2x\right) = 0 \rightarrow \textrm{satisfied}
+\end{align}
+Upper surface ($ y = - h$, $0 \leq x \leq L$):
+\begin{align}
+    \left. \sigma_y\right|_{y=-h}   & = -P = \dfrac{P}{20h^3}\left( 30h^2\cdot \left( -h\right)+10h^3\right) = -P \rightarrow \textrm{satisfied} \\
+    \left. \tau_{xy} \right|_{y=-h} & = 0 = \dfrac{-P}{20h^3} \left( 30h^2x - 30h^2x \right) = 0 \rightarrow \textrm{satisfied}
+\end{align}
+Left side ($ x = 0$, $-h \leq y \leq h$):
+\begin{align}
+    \left. \sigma_x \right|_{x=0} = 0 & = \dfrac{P}{20h^3}\left(20y^3 - 30\cdot 0 \cdot y - 12h^2 y\right) \\
+                                      & =  \dfrac{P}{20h^3}\left(20y^3 - 12h^2 y\right)
+\end{align}
+Resultant force on left side ($= 0$):
+\begin{align}
+    \dfrac{P}{20h^3}\int_{y=-h}^h \left(20y^3 - 12h^2 y\right)\dif y \rightarrow \textrm{odd powers of } y \therefore\; = 0 \rightarrow \textrm{satisfied}
+\end{align}
+Resultant moment on left side ($= 0$):
+\begin{align}
+     & = \dfrac{P}{20h^3}\int_{y=-h}^h \left(20y^4 - 12h^2 y^2\right)\dif y = 0                                                                             \\
+     & = \dfrac{P}{20h^3}\left[4y^5-4h^2y^3\right]_{-h}^h = \dfrac{P}{20h^3}\left[4h^5 - 4h^2h^3 + 4h^5 - 4h^2h^3\right] = 0 \rightarrow \textrm{satisfied}
+\end{align}
+Utilising simple beam theory:
+\begin{align}
+    M        & = - 2P\dfrac{x^2}{2}                                                                          \\
+    I        & = \dfrac{\left(2h\right)^3}{12}                                                               \\
+    \sigma_x & = \dfrac{My}{I} = -\dfrac{3Px^2y}{2h^3}                                                       \\
+    \sigma_x & = \dfrac{\partial^2 \phi}{\partial y^2} = \dfrac{P}{20h^3}\left(-30x^2 y -12h^2y+20y^3\right)
+\end{align}
+When $x>>h$, then:
+\begin{gather}
+    \sigma_x \rightarrow \dfrac{-3Px^2y}{2h^3}
+\end{gather}
 \subsection{Question 3}
 Stress function:
 \begin{equation}
@@ -154,6 +189,62 @@ Boundary conditions:
 \begin{align}
     u = v = \frac{\partial u}{\partial y} = 0 \\
     x = y = 0
+\end{align}
+Strains:
+\begin{align}
+    \sigma_x  & = \frac{\partial^2 \phi}{\partial y^2} = 6Ay          \\
+    \sigma_y  & = \frac{\partial^2 \phi}{\partial x^2} = 6Ax          \\
+    \tau_{xy} & = \frac{\partial^2 \phi}{\partial x \partial y} = -6A
+\end{align}
+Hooke's law:
+\begin{align}
+    \varepsilon_x & = \frac{1}{E}\left(\sigma_x - \nu \sigma_y\right) = \frac{\partial u}{\partial x}     \\
+    \varepsilon   & = \frac{1}{E}\left(\sigma_y - \nu \sigma_y\right) = \frac{\partial v}{\partial y}     \\
+    \gamma_{xy}   & = \frac{\tau_{xy}}{G} = \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}
+\end{align}
+Substituting:
+\begin{align}
+    \frac{\partial u}{\partial x}                         & = \frac{1}{E}\left(6Ay - \nu \left(6Ax\right)\right)           \\
+    \int\left(\frac{\partial u}{\partial x} \right)\dif x & = \frac{1}{E}\int\left(6Ay - \nu \left(6Ax\right)\right)\dif x \\
+    u                                                     & = \frac{6A}{E}\left(xy - \frac{\nu x^2}{2}\right) + f(y)       \\
+    \frac{\partial v}{\partial y}                         & = \frac{1}{E} \left(6Ax - \nu \left(6Ay\right)\right)          \\
+    \int\left(\frac{\partial v}{\partial y}\right)\dif y  & = \frac{1}{E}\int\left(6Ax - \nu\left(6Ay\right)\right)\dif y  \\
+    v                                                     & = \frac{6A}{E}\left(xy - \frac{\nu y^2}{2}\right) + g(x)
+\end{align}
+Differentiating:
+\begin{align}
+    \frac{\partial u }{\partial y}    & = \frac{6Ax}{E} + \frac{\dif y }{\dif y}                                                                                                                      \\
+    \frac{\partial v}{\partial x}     & = \frac{6Ay}{E} + \frac{\dif g}{\dif x}                                                                                                                       \\
+    \gamma_{xy} = \frac{\tau_{xy}}{G} & = \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} = -\frac{6A}{G}= \frac{6Ax}{E} + \frac{\dif f}{\dif y} + \frac{6Ay}{E}+ \frac{\dif g}{\dif x}
+\end{align}
+The above can only hold if $x$ and $y$ are separately constants:
+\begin{align}
+    \frac{\dif g}{\dif x} & = -\frac{6Ax}{E} + p        \\
+    \frac{\dif f}{\dif y} & = -\frac{6Ay}{E} + q        \\
+    \textrm{where } p+q   & = -\frac{6A}{G}             \\
+    \therefore g(x)       & = -\frac{3Ax^2}{E} + px + r \\
+    \therefore f(y)       & = -\frac{3Ay^2}{E} + qy + s
+\end{align}
+Hence:
+\begin{align}
+    u & = \frac{6A}{E}\left(xy - \frac{\nu x^2}{2}\right)-\frac{3Ay^2}{E} + qy +s  \\
+    v & = \frac{6a}{E}\left(xy - \frac{\nu y^2}{2}\right)-\frac{3Ax^2}{E} + px + r
+\end{align}
+Input boundary conditions:
+\begin{align}
+    u                                  & = \frac{6A}{E} \left(0\right) - 0 + 0+ s= 0 \\
+    \therefore s                       & = 0                                         \\
+    v                                  & = \frac{6A}{E} \left(0\right) - 0 + 0+ r= 0 \\
+    \therefore r                       & = 0                                         \\
+    \frac{\partial u}{\partial y}      & = \frac{6Ax}{E} - \frac{6Ay}{E} + q = 0     \\
+    \therefore q                       & = \frac{6A}{E}\left(y - x\right)            \\
+    P + \frac{6A}{E}\left(y - x\right) & = - \frac{6A}{G}                            \\
+    p = 6A\left(\frac{x-y}{E}-\frac{1}{G}\right)
+\end{align}
+Therefore:
+\begin{align}
+    u & = \frac{6A}{E}\left(xy-\frac{\nu x^2}{2}\right) - \frac{3Ay^2}{E} + 6Ay\left(\frac{y-x}{E}\right)             \\
+    v & = \frac{6A}{E}\left(xy-\frac{\nu y^2}{2}\right) - \frac{3Ax^2}{E} + 6Ax\left(\frac{x-y}{E}-\frac{1}{G}\right)
 \end{align}
 \subsection{Question 5}
 \begin{figure}[H]
@@ -210,7 +301,7 @@ We now have 2 values of $C$. Both are valid but we now can see that our stress f
 \subsection{Question 7}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{./img/diagram1.png}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram2.png}
     \caption{}
 \end{figure}
 Apply Biharmonic relationship:
@@ -220,7 +311,7 @@ Apply Biharmonic relationship:
     \sigma_y = \frac{w}{4}\left(\frac{y^3}{h^3}-2-\frac{3y}{h}\right)\\
     \tau_{xy} = -\frac{3wx}{4}\left(\frac{y^2}{h^3} - \frac{1}{h}\right)
 \end{gather}
-Apply boundary condtions. Lower surface:
+Apply boundary conditions. Lower surface:
 \begin{gather}
     \left. \sigma_y \right|_{y=-h} = \frac{w}{4}\left(-\frac{h^3}{h^3}-2 + \frac{3h}{h}\right) = 0\\
     \left. \tau_{xy}\right|_{y=-h} = -\frac{3wx}{4}\left(\frac{h^2}{h^3}-\frac{1}{h}\right) = 0
