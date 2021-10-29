@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lachaise Assignment
+% LaTeX Template
+% Version 1.0 (26/6/2018)
+%
+% This template originates from:
+% http://www.LaTeXTemplates.com
+%
+% Authors:
+% Marion Lachaise & François Févotte
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\input{structure.tex} % Include the file specifying the document structure and custom commands
+
+%----------------------------------------------------------------------------------------
+%	ASSIGNMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Designing a Lap Simulator for the Shell Eco-Marathon} % Title of the assignment
+
+\author{Supervisor: Tim Baker\\Student: Hasha Dar} % Author name and email address
+
+\date{University College London --- \today} % University, school and/or department name(s) and a date
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+\section{Project Background \& Problem}
+The Shell Eco-Marathon is a competition at the school and university level for students focusing on energy optimisation in vehicles. The aim of the competition is to develop new innovations in energy efficiency for vehicles on the road with the idea of reducing carbon emissions \citep{ShellEco2021}. I will be focusing on the 'Prototype' category for the competition, which involves designing a hydrogen-powered single-seater vehicle with a focus on attaining ultra-efficiency through the optimisation of the aerodynamic and performance characteristics of the vehicle.
+
+For an ultra-energy-efficient vehicle, there are many sources of inefficiency. Some of them are aerodynamic drag (air resistance), friction drag (from the road surface) and losses in the powertrain (electricity generation, mechanical losses) \citep{Wei2019}. The design itself of the car must be optimised to increase its performance such as the weight of the vehicle \citep{Tsirogiannis2019}.
+
+A problem that arises when investigating and modelling these variables is that there is no way of testing certain performance characteristics within the holistic context of the competition virtually. Currently, to test newly designed components and its overall impact on the performance of the vehicle, the part must be prototyped and installed on the vehicle, and then experimentally tested. This presents a problem as this is costly, time-consuming and constrains the number of prototypes that can be made.
+
+A transient, dynamic lap simulator will allow the analysis of the vehicle's various performance characteristics. This will allow the team to optimise and prototype designs much more effectively. The team would be able to test the vehicle on the final test track, without the cost of being there physically.
+\section{Project Aim}
+During the design phase of the vehicle, a lot of work must go into modelling performance variables of the vehicle. This may be done through mathematical analysis and through the use of software such as Computational Fluid Dynamics (CFD) and Finite Element Analysis (FEA). These methods allow us to test whether our design meets our performance criteria (in a virtual sense). This project will focus on bringing together the various performance characteristics of the vehicle to be able to analyse the car in a contextual manner. A lap simulator will allow the team to see how their prototype design will function in a real-world scenario, rather than as a discrete set of performance variables. Hence, with a lap simulator the team will be able to:
+\begin{itemize}
+	\item unify the various computational models that assess parts of the vehicles performance
+	\item see where the primary energy inefficiencies are in a transient, dynamics test, allowing targeted improvement of the vehicle's performance
+	\item reduce the number of physical tests for the vehicle,
+	      \begin{itemize}
+		      \item lowering cost
+		      \item reducing development time
+		      \item minimising the number of prototype parts manufactured
+	      \end{itemize}
+\end{itemize}
+\section{Previous Work, Activities \& Project Potential}
+A lot of analysis and papers have been released pertaining to the Shell Eco-marathon competition and the development of its vehicles. \citep{Stabile2021} presents a detailed numerical model of the power demand of a Shell Eco-marathon vehicle. Here, an in-depth analysis of the power demand around the Shell Eco-marathon circuit is discussed.
+
+\citep{Punov2021} also studies energy management strategies and also uses a generic lap simulation to study the power demand. Both of these models "simulate" the lap in a 1-dimensional sense e.g. by analysing throttle input. They also focus on the 'urban concept' category and not the 'prototype' category.
+
+\citep{Dol2016} looks at the development of the vehicle subsystems but does not simulate each part within the wider context of the vehicle. Analysis on individual components is thorough but a simulation of the full vehicle or its competition environment is neglected.
+
+\citep{Wei2019} also looks at the powertrain efficiency of the vehicle around a specific test track, however only two cases are considered in their transient test, idealising the testing conditions.
+
+This project has the potential of forming part of a wider vehicle development strategy platform, allowing teams to look at their cars in the virtual world and see how they would stack up around a real test track. The modelling of the various performance parameters on a transient, dynamic test track will allow teams to better understand which parameters have the most effect on the performance of the vehicle.
+\section{Budget}
+The project will be utilising software and resources from the Mechanical Engineering department which may be used for free. There are no foreseeable costs for the project.
+\section{Declaration}
+\begin{quote}
+	\textit{I, Hasha Dar, confirm that the work presented in this report is my own. Where information has been derived from	other sources, I confirm that this has been indicated in the report.}
+\end{quote}
+\section{Gantt Chart}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.83 \textwidth]{./img/GanttChartProgressReport.png}
+	\caption{Gantt Chart for the project.}
+\end{figure}
+
+
+\bibliographystyle{agsm}
+\bibliography{./bib/export}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
