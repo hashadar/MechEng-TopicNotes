@@ -19,7 +19,7 @@
 \section{Compressible duct flows}
 \subsection{Problem types}
 We are concerned with flow in ducts or 'long' pipes whose cross-section area is simple (rectangular / circular / conical). There are three types of problems where:
-\begin{enumerate}
+\begin{enumerate}[noitemsep]
     \item changes in cross-sectional area are important ($\dif A \neq 0$).
     \item frictional forces are important (\textbf{momentum is not conserved}) - \textit{Fanno flow} (mass, energy, state).
     \item heating and cooling are important (\textbf{energy is not conserved}) - \textit{Rayleigh flow} (mass, momentum, state).
@@ -27,7 +27,7 @@ We are concerned with flow in ducts or 'long' pipes whose cross-section area is 
 We study these effects separately and then consider them combined.
 \subsection{Influence of changes in cross-section area}
 To understand the physics, we simplify the analysis to gas moving without frictional forces and the addition of heat. There are two approaches to analyse the problem:
-\begin{enumerate}
+\begin{enumerate}[noitemsep]
     \item Differential approach - how flow properties vary along pipe (Rayleigh flow, Laval nozzle) - sometimes called a 1D model.
     \item Integral approach - relationship between two flow states (Fanno flow, isothermal examples) - sometimes called a 0D model.
 \end{enumerate}
@@ -46,11 +46,11 @@ and for adiabatic flows:
 \begin{gather}
     \dfrac{T}{T_0} = \left(1 + \frac{1}{2}\left(\gamma - 1\right)M^2\right)^{-1}
 \end{gather}
-It is important to be aware of what is conserved for adiabatic or isentropic conditions. The reference state of $M = 1$ is useful for flow in pipes where the sonic condition is common. The sonic reference condition is usually referred to as the critical condition and denoted wit ha '*'. Therefore:
+It is important to be aware of what is conserved for adiabatic or isentropic conditions. The reference state of $M = 1$ is useful for flow in pipes where the sonic condition is common. The sonic reference condition is usually referred to as the critical condition and denoted with a '*'. Therefore:
 \begin{align}
-    \dfrac{p_*}{p_0}       & = \left(\frac{1}{2}\left(\gamma - 1\right)M^2\right)^{-\frac{\gamma}{\gamma - 1}} \approx 0.528 \\
-    \dfrac{\rho_*}{\rho_0} & = \left(\frac{1}{2}\left(\gamma - 1\right)M^2\right)^{-\frac{\gamma}{\gamma - 1}}  \approx 0.91 \\
-    \dfrac{T_*}{T_0}       & = \left(\frac{1}{2}\left(\gamma - 1\right)M^2\right)^{-1} \approx 0.833
+    \dfrac{p_*}{p_0}       & = \left(\frac{1}{2}\left(\gamma + 1\right)(M=1)^2\right)^{-\frac{\gamma}{\gamma - 1}} \approx 0.528 \\
+    \dfrac{\rho_*}{\rho_0} & = \left(\frac{1}{2}\left(\gamma + 1\right)(M=1)^2\right)^{-\frac{1}{\gamma - 1}}  \approx 0.91 \\
+    \dfrac{T_*}{T_0}       & = \left(\frac{1}{2}\left(\gamma + 1\right)(M=1)^2\right)^{-1} \approx 0.833
 \end{align}
 In duct flows, the critical state is used. $p_0$, $\rho_0$ are constant when there is no shock. $T_0$ is constant even with a shock.
 \subsection{Conservation of mass}
@@ -64,10 +64,10 @@ or
 \end{gather}
 Substituting for our isentropic and adiabatic parts:
 \begin{gather}
-    \frac{\rho}{\rho^*} = \left(\frac{1 + \frac{1}{2}\left(\gamma - 1\right)M^2}{\frac{1}{2}\left(\gamma + 1 \right)}\right)^{-\frac{1}{\gamma - 1}}\\
-    \frac{u}{u^*} = \frac{M}{M^*} \frac{c}{c^*} = \frac{M}{M^*}\left(\frac{T}{T^*}\right)^{\frac{1}{2}} = M \left(\frac{\frac{1}{2}\left(\gamma + 1\right)}{1 + \frac{1}{2}\left(\gamma - 1\right)M^2}\right)^{\frac{1}{2}}
+    \frac{\rho}{\rho^*} = \left(\frac{1 + \dfrac{1}{2}\left(\gamma - 1\right)M^2}{\dfrac{1}{2}\left(\gamma + 1 \right)}\right)^{-\frac{1}{\gamma - 1}}\\
+    \frac{u}{u^*} = \frac{M}{M^*} \frac{c}{c^*} = \frac{M}{M^*}\left(\frac{T}{T^*}\right)^{\frac{1}{2}} = M \left(\frac{\dfrac{1}{2}\left(\gamma + 1\right)}{1 + \dfrac{1}{2}\left(\gamma - 1\right)M^2}\right)^{\frac{1}{2}}
 \end{gather}
-THe right-hand side is a constant. It is a state that may, or may not, be realised
+The right-hand side is a constant. It is a state that may, or may not, be realised
 \subsection{Relationship between flow state and area}
 We are to explore some of the important relationships between the state of the flow and the cross-sectional area.
 \begin{figure}[H]
@@ -88,7 +88,7 @@ We are to explore some of the important relationships between the state of the f
 \end{table}
 Profound elements - 2 solutions are possible!
 \begin{gather}
-    \frac{A}{A^*} = \frac{1}{M}\left(\frac{1+\frac{1}{2}\left(\gamma - 1\right)M^2}{\frac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma - 1\right)}}\\
+    \frac{A}{A^*} = \frac{1}{M}\left(\frac{1+\dfrac{1}{2}\left(\gamma - 1\right)M^2}{\dfrac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma - 1\right)}}\\
     M = 1 \textrm{ at } \dif A = 0 \textrm{ (point of inflection)}
 \end{gather}
 \subsection{Creating supersonic flows}
@@ -102,7 +102,7 @@ Profound elements - 2 solutions are possible!
     \includegraphics[width = 0.9\textwidth]{../img/diagram54.png}
     \caption{Geometry of supersonic flow generator.}
 \end{figure}
-This requires a converging, throat and diverging sections. The flow is determined by $\frac{p_b}{p_0}$, $\frac{A_e}{A_t}$.
+This requires a converging, throat and diverging sections. The flow is determined by $\dfrac{p_b}{p_0}$, $\dfrac{A_e}{A_t}$.
 \subsection{Differential approach to derivation}
 Conservation of mass shows:
 \begin{gather}
@@ -127,11 +127,11 @@ For an isentropic flow:
 From the conservation of energy:
 \begin{gather}
     \dfrac{T}{T_0} = \left(1 + \dfrac{1}{2}\left(\gamma - 1\right)M^2\right)^{-1}\\
-    \dfrac{\dif T}{T} = \dfrac{\frac{1}{2}\left(\gamma -1\right)\dif M^2}{1 + \frac{1}{2}\left(\gamma -1 \right)M^2}
+    \dfrac{\dif T}{T} = \dfrac{\dfrac{1}{2}\left(\gamma -1\right)\dif M^2}{1 + \dfrac{1}{2}\left(\gamma -1 \right)M^2}
 \end{gather}
 THis gives:
 \begin{gather}
-    \dfrac{\dif M^2}{M^2} = -\dfrac{2\left(1 + \frac{1}{2}\left(\gamma - 1\right)M^2\right)}{1-M^2}\dfrac{\dif A}{A}
+    \dfrac{\dif M^2}{M^2} = -\dfrac{2\left(1 + \dfrac{1}{2}\left(\gamma - 1\right)M^2\right)}{1-M^2}\dfrac{\dif A}{A}
 \end{gather}
 Integrate:
 \begin{gather}
@@ -145,7 +145,7 @@ The mass flux (per unit area) is $\frac{m}{A} = \rho u$. Its derivative w.r.t. $
 \end{gather}
 The maximum occurs when $M=1$, when the flow is choked. The maximum mass flux is:
 \begin{gather}
-    \dot{m}_{max} = \rho^* u^* A^* = \left(\frac{1}{\frac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma -1\right)}}\left(\frac{\gamma}{RT_0}\right)^{\frac{1}{2}}A^* p_0
+    \dot{m}_{max} = \rho^* u^* A^* = \left(\frac{1}{\dfrac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma -1\right)}}\left(\frac{\gamma}{RT_0}\right)^{\frac{1}{2}}A^* p_0
 \end{gather}
 \begin{figure}[H]
     \centering
@@ -156,11 +156,11 @@ where $p_b$ is the back pressure and $p_0$ is the reservoir pressure.
 \subsection{Types of solution available}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.75\textwidth]{../img/diagram56.png}
+    \includegraphics[width = 0.7\textwidth]{../img/diagram56.png}
     \caption{Overview of problem.}
 \end{figure}
 Characteristics depend on the value of the back pressure. There are three types of solution:
-\begin{itemize}
+\begin{itemize}[noitemsep]
     \item Case A: Subsonic in whole flow ($p_e = p_b$)
     \item Case B: Choked but subsonic outlet ($p_e = p_b$)
     \item Case C: Supersonic outlet ($p_e \leq > p_b$)
@@ -176,7 +176,7 @@ The exit Mach number, $M_e$, is determined from the isentropic relationship:
 \end{gather}
 The critical area $A^*$ can be determined from the crib sheet as:
 \begin{gather}
-    A_* = A_e M_e \left(\dfrac{1 + \frac{1}{2}\left(\gamma - 1\right)M^2_e}{\frac{1}{2}\left(\gamma + 1\right)}\right)^{-\frac{\gamma + 1}{2\left(\gamma -1\right)}}
+    A_* = A_e M_e \left(\dfrac{1 + \dfrac{1}{2}\left(\gamma - 1\right)M^2_e}{\dfrac{1}{2}\left(\gamma + 1\right)}\right)^{-\frac{\gamma + 1}{2\left(\gamma -1\right)}}
 \end{gather}
 The mass flux can be determined at any point along the duct. Choosing the outlet plane, then:
 \begin{gather}
@@ -208,14 +208,14 @@ The flow characteristics are separated into three parts:
 
           In this region, since the flow is choked, $A_* = A_t$. The change in Mach number and pressure are:
           \begin{gather}
-              \frac{A}{A_t} = \frac{1}{M}\left(\dfrac{1 + \frac{1}{2}\left(\gamma - 1\right)M^2}{\frac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma -1\right)}}\\
+              \frac{A}{A_t} = \frac{1}{M}\left(\dfrac{1 + \dfrac{1}{2}\left(\gamma - 1\right)M^2}{\dfrac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma -1\right)}}\\[5pt]
               \frac{p}{p_0} = \left(1 + \frac{1}{2}\left(\gamma -1\right)M^2\right)^{-\frac{\gamma}{\gamma -1}}
           \end{gather}
     \item Normal Shock relationship
 
           If the normal shock occurs at $x = x_s$ where $M_1 = M(x_s)$ and $p_1 = p(x_s)$, the Mach number and pressure after the shock are:
           \begin{gather}
-              M^2_2 = \dfrac{1 + \frac{1}{2}\left(\gamma - 1\right)M^2_1}{\gamma M^2_1 - \frac{1}{2}\left(\gamma - 1\right)}\\
+              M^2_2 = \dfrac{1 + \dfrac{1}{2}\left(\gamma - 1\right)M^2_1}{\gamma M^2_1 - \dfrac{1}{2}\left(\gamma - 1\right)}\\[5pt]
               \frac{p_2}{p_1} = \frac{2\gamma}{\gamma + 1}M^2_1 - \frac{\gamma -1}{\gamma + 1}
           \end{gather}
 
@@ -229,15 +229,15 @@ The flow characteristics are separated into three parts:
           \end{gather}
           $F$ is required normal shock in the duct exit. At the back pressure $G$ no single normal shock can be the job and so the flow compresses outside the exit in a complex series of oblique shocks until it matches $p_b$. In state $F$:
           \begin{gather}
-              \frac{A_e}{A_t} = \frac{1}{M_e}\left(\dfrac{1+ \frac{1}{2}\left(\gamma -1\right)M^2_e}{\frac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma - 1\right)}}\\
-              p_b = p_2 = p_1 \left(\frac{2\gamma}{\gamma + 1}M^2_e-\frac{\gamma -1}{\gamma + 1}\right)\\
+              \frac{A_e}{A_t} = \frac{1}{M_e}\left(\dfrac{1+ \dfrac{1}{2}\left(\gamma -1\right)M^2_e}{\dfrac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma - 1\right)}}\\[5pt]
+              p_b = p_2 = p_1 \left(\frac{2\gamma}{\gamma + 1}M^2_e-\frac{\gamma -1}{\gamma + 1}\right)\\[5pt]
               p_1 = p_e = p_0\left(1 + \frac{1}{2}\left(\gamma - 1\right)M_e\right)^{-\frac{\gamma}{\gamma -1}}
           \end{gather}
 \end{enumerate}
 \subsubsection{Case C: Supersonic outlet}
 The final state does not depend on the shape of the throat:
 \begin{gather}
-    \frac{A_e}{A_t} = \frac{1}{M_e}\left(\dfrac{1 + \frac{1}{2}\left(\gamma -1\right)M^2_e}{\frac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma -1\right)}}\\
+    \frac{A_e}{A_t} = \frac{1}{M_e}\left(\dfrac{1 + \dfrac{1}{2}\left(\gamma -1\right)M^2_e}{\dfrac{1}{2}\left(\gamma + 1\right)}\right)^{\frac{\gamma + 1}{2\left(\gamma -1\right)}}\\[5pt]
     \frac{p_e}{p_0} = \left(1 + \frac{1}{2}\left(\gamma -1\right)M^2_e\right)^{-\frac{\gamma}{\gamma - 1}}
 \end{gather}
 \begin{table}[H]
