@@ -50,8 +50,16 @@ The following function:
 \begin{equation}
     \frac{\dif y\left( t\right)}{\dif t} = 150 \cos \left(\theta\left(t\right)\right) - 47
 \end{equation}
-has a non-linear relationship due to $\theta(t)$ being within a cosine function. When we
+has a non-linear relationship due to $\theta(t)$ being within a cosine function. There is also an offset value of $47$ which makes our relationship non-linear as well.
 \subsection{Description of non-linear relationship in a real system}
+An example of a non-linear relationship is car velocity and air resistance. Our input is the velocity of the car and our output is the drag force We can describe this relationship with the following equation.
+\begin{equation}
+    F_D = \frac{1}{2} \rho v^2 C_D A
+\end{equation}
+The relationship between the drag force and velocity is proportionally squared. This means that as velocity increases, our drag force will increase by four times. Non-linearity can also come in the form as headwind or tailwind. Mathematically, this would be represented as a constant term added to our equation. For example:
+\begin{equation}
+    F_D = \frac{1}{2} \rho v^2 C_D A + 100
+\end{equation}
 \section{Linear model performance and stability}
 \subsection{Description of actuator switching on}
 \subsection{Root locus and effect of proportional control}
