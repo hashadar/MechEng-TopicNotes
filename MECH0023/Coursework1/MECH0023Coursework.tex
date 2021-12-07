@@ -71,8 +71,8 @@ has a non-linear relationship due to $\theta(t)$ being within a cosine function.
 \subsection{Description of non-linear relationship in a real system}
 An example of a non-linear relationship is car velocity and air resistance. Our input is the velocity of the car and our output is the drag force We can describe this relationship with the following equation.
 \begin{align}
-    F_D &= \frac{1}{2} \rho v^2 C_D A\\
-    F_D &\propto v^2
+    F_D & = \frac{1}{2} \rho v^2 C_D A \\
+    F_D & \propto v^2
 \end{align}
 The relationship between the drag force and velocity is proportionally squared. This means that as velocity increases, our drag force will increase by four times. Non-linearity can also come in the form as headwind or tailwind. Mathematically, this would be represented as a constant term ($B$) added to our equation. For example:
 \begin{equation}
@@ -84,9 +84,9 @@ The transfer function, $G_p(s)$ is:
 \begin{equation}
     G_p (s) = \frac{Y(s)}{V(s)} = \frac{1}{\left(s^2 - 81\right)}\frac{k}{\left(0.05s + 1\right)}
 \end{equation}
-By looking at the position of the roots ($s = 9$, $s = -9$, $s = -20$), we can check whether our system is unstable. We have a root at $s = 9$, which is on the positive side of the s-plane. This means that our whole system is unstable. 
+By looking at the position of the roots ($s = 9$, $s = -9$, $s = -20$), we can check whether our system is unstable. We have a root at $s = 9$, which is on the positive side of the s-plane. This means that our whole system is unstable.
 
-Our poles lie on the real axis on the positive side of the s-plane. Hence, when we switch our voltage to \SI{5}{\volt}, we will find that our rudder angle will exponentially rise. We will not see any oscillation as our response will have no sine term. The rudder angle will continually to increase until it reaches its mechanical limit and potentially damage itself. The rudder angle may go in either direction (positive or negative/left or right) until it reaches this limit. 
+Our poles lie on the real axis on the positive side of the s-plane. Hence, when we switch our voltage to \SI{5}{\volt}, we will find that our rudder angle will exponentially rise. We will not see any oscillation as our response will have no sine term. The rudder angle will continually to increase until it reaches its mechanical limit and potentially damage itself. The rudder angle may go in either direction (positive or negative/left or right) until it reaches this limit.
 \subsection{Root locus and effect of proportional control}
 Using the following MATLAB code, the root locus of the system was plotted in Figure \ref{q3b}.
 \lstinputlisting{./mCode/q3b.m}
@@ -96,7 +96,7 @@ Using the following MATLAB code, the root locus of the system was plotted in Fig
     \caption{Root locus of system.}
     \label{q3b}
 \end{figure}
-This root locus diagram shows us that the system would be unstable in closed-loop operation for all possible values of gain $K$, hence rendering proportional control ineffective for stabilising the system. 
+This root locus diagram shows us that the system would be unstable in closed-loop operation for all possible values of gain $K$, hence rendering proportional control ineffective for stabilising the system.
 \subsection{Negative velocity feedback controller}
 \subsubsection{Plot of root locus}
 Our new transfer function is:
@@ -158,10 +158,15 @@ Here, we find that the maximum gain value that we can have is 15.2 at pole value
 \end{equation}
 \section{Controller techniques}
 \subsection{Description of closed loop position control system}
-The system I have chosen to describe is a drone autopilot system. The drone I have picked as part of this analysis is a DJI Mavic 3. This drone is used to take high quality aerial video footage, hence stability and control are important for this particular drone. In a simple case, let us try and make our drone hover in a fixed position above the ground (in a fixed reference frame). Our desired output response is to keep the drone's coordinates fixed. To further simplify our example, let us only consider the motion in the $z$-axis (altitude). 
+The system I have chosen to describe is a drone autopilot system. The drone I have picked as part of this analysis is a DJI Mavic 3. This drone is used to take high quality aerial video footage, hence stability and control are important for this particular drone. In a simple case, let us try and make our drone hover in a fixed position above the ground (in a fixed reference frame). Our desired output response is to keep the drone's coordinates fixed. To further simplify our example, let us only consider the motion in the $z$-axis (altitude).
 
-The actuator is the motors attached to the drone propellers. The physical position to be controlled is the altitude of the drone. According to the drone specifications, the drone has a hovering accuracy range of $\pm\SI{0.1}{\metre}$ in the vertical (with Vision Positioning). Using GPS data, we have a lower hovering accuracy at $\pm \SI{0.5}{\metre}$ \citep{dji}. As this is a video recording drone, the ability to stay at a fixed altitude and to not `drift' is important to prevent the footage from looking shaky/blurry/distracting. 
+The actuator is the motors attached to the drone propellers. The physical position to be controlled is the altitude of the drone. According to the drone specifications, the drone has a hovering accuracy range of $\pm\SI{0.1}{\metre}$ in the vertical (with Vision Positioning). Using GPS data, we have a lower hovering accuracy at $\pm \SI{0.5}{\metre}$ \citep{dji}. As this is a video recording drone, the ability to stay at a fixed altitude and to not `drift' is important to prevent the footage from looking shaky/blurry/distracting.
 \subsection{Specify disturbances}
+As the ground which the drone flies above is rough, we will find that there are perturbations, peaks and valleys in the terrain. In order to determine the distance to the ground, we have to measure the instantaneous vertical distance from the drone to the ground.
+
+Some disturbances our drone will experience is wind, changing its position in the air. This will manifest as noise as the position of the drone will always be changing. Control is needed to keep the drone in a fixed position.
+
+The DJI Mavic 3 uses GPS to determine its distance from the ground \citep{dji}. If the drone is using GPS to determine its distance from the ground, there will be measurement noise. This will come from the signal power varying (the signal gain of the radio signals used to communicate with GPS satellites), the method of analog-to-digital conversion will produce signal noise, and the design of the antennas will also produce signal noise. The position data from the GPS receivers then needs to be processed and denoised, in order for an accurate measurement to be made. The position data then needs to be referenced against pre-existing terrain data. This terrain data should have a resolution high enough to accurately determine the distance to the ground over any point, but also the data should be processed to be `smooth'. Details such as rocks/small boulders or trees do not necessarily have to be in the terrain data, as the drone also uses Vision Positioning to determine the distance to smaller objects at closer distances \citep{dji}.
 \section{Inverted pendulum}
 \subsection{Identification and description of assumptions and limitations for the model of a rotary inverted pendulum}
 \subsection{Moving rocket to final position}
