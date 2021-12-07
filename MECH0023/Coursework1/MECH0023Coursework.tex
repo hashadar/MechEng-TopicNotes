@@ -169,9 +169,30 @@ Some disturbances our drone will experience is wind, changing its position in th
 The DJI Mavic 3 uses GPS to determine its distance from the ground \citep{dji}. If the drone is using GPS to determine its distance from the ground, there will be measurement noise. This will come from the signal power varying (the signal gain of the radio signals used to communicate with GPS satellites), the method of analog-to-digital conversion will produce signal noise, and the design of the antennas will also produce signal noise. The position data from the GPS receivers then needs to be processed and denoised, in order for an accurate measurement to be made. The position data then needs to be referenced against pre-existing terrain data. This terrain data should have a resolution high enough to accurately determine the distance to the ground over any point, but also the data should be processed to be `smooth'. Details such as rocks/small boulders or trees do not necessarily have to be in the terrain data, as the drone also uses Vision Positioning to determine the distance to smaller objects at closer distances \citep{dji}.
 \section{Inverted pendulum}
 \subsection{Identification and description of assumptions and limitations for the model of a rotary inverted pendulum}
+For the inverted pendulum system, we are considering the angle to be small. Hence, we can use the small angle approximation:
+\begin{equation}
+    \sin \theta \approx \theta
+\end{equation}
+Next, we have constrained our pendulum to only move in a 2D-plane ($x$- and $z$- axes), simplifying our model. We can make further simplifications by neglecting frictional forces and drag acting on the pendulum during movement.
 \subsection{Moving rocket to final position}
+There are a few steps to steering the rocket to minimise the $x$-position.
+\begin{enumerate}
+    \item The rocket is vertical but a distance $x$ from the centre of the base.
+    \item Let us first gimbal our engine to produce a thrust which will move the base of the rocket to the right. This will happen if we gimbal the engine to the left.
+    \item Now the centre of mass of the rocket is to the left of the long axis and it will start to move.
+    \item Now we can gimbal our engine in-line with the long axis of the rocket, and our rocket will start to translate left.
+    \item When we have reached the $x = 0$ position, we can gimbal our engine to the right, which will move the centre of mass back in line with long axis of the rocket and the engine, straightening out our rocket.
+    \item Rocket is stable and stationary above the pad.
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{./img/q5b.png}
+    \caption{Stages of rocket aligning with base pad.}
+    \label{q5b}
+\end{figure}
 \section{Multi-Degree-of-Freedom systems}
 \subsection{Example of a system with multiple degrees-of-freedom}
+The system that I have chosen to describe is a hydraulic car suspension setup.
 \bibliographystyle{agsm}
 \bibliography{references}
 \end{document}
