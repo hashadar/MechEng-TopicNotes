@@ -55,7 +55,127 @@
 \listoffigures
 \section{Satellite model}
 \subsection{Description of model and assumptions}
+We are given some information about some parameters of the system. They are:
+\begin{itemize}
+    \item Beam cross-section is rectangular.
+    \item Beam width is \SI{5}{\centi\meter}.
+    \item Beam material is high-grade aluminium alloy with modulus of elasticity \SI{70}{\giga\pascal}.
+    \item Beam length is \SI{1.1}{\meter}.
+    \item Sensor weight is \SI{1.2}{\kilo\gram}.
+\end{itemize}
+Hence, we can begin to start modelling our system. Our first assumption is that the satellite is oscillating only in the $x$-axis as show in Figure \ref{q1a}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{./img/q1a.png}
+    \caption{Satellite oscillation.}
+    \label{q1a}
+\end{figure}
+We can now simplify our supporting beam to a fixed cantilever beam with a mass at the free end. The vibrating base seen in Figure \ref{q1a2} is in reference to the oscillations that would be transmitted through the satellite frame to the base of the cantilever beam.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.6\textwidth]{./img/q1a2.png}
+    \caption{Supporting beam diagram.}
+    \label{q1a2}
+\end{figure}
+Finally, we can model the sensor system as a mass attached to a base via a spring and a damper. As our satellite's environment will drastically change during the course of its journey to space (atmosphere $\rightarrow$ vacuum of space), we will see a change in the way viscous damping (atmospheric drag) will affect our system. We also have frictional losses from the cantilever support and material damping in our system. We can simplify our model by considering the damping force to be constant throughout the operational timeframe of the satellite.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{./img/q1a3.png}
+    \caption{Model of system.}
+    \label{q1a3}
+\end{figure}
 \subsection{Minimum thickness of beam}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{./img/q1b.png}
+    \caption{Diagram to show beam dimensions.}
+    \label{q1b}
+\end{figure}
+The relative motion of the mass from the base can be set as:
+\begin{gather}
+    z = x - y\label{eq:q1b.1}
+\end{gather}
+Next we can look at the equation of motion for the system:
+\begin{gather}
+    m\ddot{x} + c \left(\dot{x} - \dot{y}\right) + k \left(x- y \right) = 0\label{eq:q1b.2}
+\end{gather}
+Substituting \ref{eq:q1b.1} into \ref{eq:q1b.2}:
+\begin{gather}
+    m \ddot{z} + m\ddot{y} + c\dot{z} + kz = 0\label{eq:q1b.3}
+\end{gather}
+We are given that $\zeta = 0.003$, hence our system is underdamped. The standard solution for \ref{eq:q1b.3} for underdamped conditions is:
+\begin{gather}
+    z\left(t\right) = Ae^{-\zeta \omega_n t} \sin\left(\omega_d t + \phi\right) \label{eq:q1b.9}
+\end{gather}
+where:
+\begin{align}
+    A    & = \frac{\sqrt{\left(\dot{z_0}^2 + \zeta \omega_n z_0 \right)^2 + \left(\omega_d z_0\right)^2}}{\omega_d} \label{eq:q1b.4} \\
+    \phi & = \arctan \left(\frac{z_0 \omega_d}{\dot{z_0} + \zeta \omega_n z_0}\right) \label{eq:q1b.5}
+\end{align}
+Boundary conditions:
+\begin{align}
+    \dot{z_0}                           & = \SI{0.04}{\meter\per\second} \\
+    z_0                                 & = \SI{0}{\meter}               \\
+    z\left(t = \SI{900}{\second}\right) & < \SI{0.0001}{\meter}
+\end{align}
+Inputting boundary conditions into \ref{eq:q1b.4} and \ref{eq:q1b.5}:
+\begin{align}
+    A    & = \frac{\sqrt{\left(0.04^2 + 0.0003 \cdot \omega_n \cdot 0 \right)^2 + \left(\omega_d \cdot 0 \right)^2}}{\omega_d} \\
+    A    & = \frac{0.04}{\omega_d}\label{eq:q1b.6}                                                                             \\
+    \phi & = \arctan \left(\frac{0 \cdot \omega_d}{0.04 + 0.0003 \cdot \omega_n \cdot 0}\right)                                \\
+    \phi & = 0\label{eq:q1b.7}
+\end{align}
+We know that:
+\begin{align}
+    \omega_d = \omega_n \sqrt{1 - \zeta^2} \label{eq:q1b.8}
+\end{align}
+Substituting \ref{eq:q1b.6}, \ref{eq:q1b.7}, \ref{eq:q1b.8} into \ref{eq:q1b.9}:
+\begin{align}
+    z\left(t\right) = \dfrac{0.04e^{-\zeta \omega_n t}}{\omega_n \sqrt{1 - \zeta^2}} \sin\left(\omega_n \sqrt{1 - \zeta^2} t\right) \label{eq:q1b.10}
+\end{align}
+Next, we must determine $\omega_n$, we can find the natural frequency of the cantilever beam with simulated load at free end from our work in the MECH0013 module. The deflection at the free end $\delta_{fe}$ is given by:
+\begin{gather}
+    \delta_{fe} = \frac{mgl^3}{3EI}
+\end{gather}
+We also know:
+\begin{gather}
+    k = \frac{mg}{\delta_{fe}} = \frac{3EI}{l^3}
+\end{gather}
+Moment of inertia:
+\begin{gather}
+    I = \frac{w_b t_b^3}{12}
+\end{gather}
+Therefore:
+\begin{gather}
+    k = \frac{E w_b t_b^3}{4l^3}
+\end{gather}
+$k$ is related to the natural frequency through:
+\begin{gather}
+    \omega_n = \sqrt{\frac{k}{m}}
+\end{gather}
+Looking at the amplitude term of \ref{eq:q1b.10}, we know this must be less than \SI{0.0001}{\meter} at $t = \SI{900}{\second}$:
+\begin{gather}
+    \dfrac{0.04e^{-\zeta \omega_n t}}{\omega_n \sqrt{1 - \zeta^2}} < 0.0001
+\end{gather}
+Solving:
+\begin{gather}
+    \dfrac{0.04}{\sqrt{\dfrac{E w_b t_b^3}{4l^3m}} \sqrt{1 - \zeta^2}} \cdot e^{-\zeta \sqrt{\dfrac{E w_b t_b^3}{4l^3m}} t}                                                                                                                     < 0.0001 \label{eq:q1b.11} \\
+    \dfrac{0.04}{\sqrt{\dfrac{70\cdot 10^9 \cdot 0.05\cdot  t_b^3}{4\cdot 1.1^3\cdot 1.2}} \sqrt{1 - 0.003^2}}\cdot  e^{\left(-0.003 \sqrt{\dfrac{70\cdot 10^9 \cdot 0.05\cdot  t_b^3}{4\cdot 1.1^3\cdot 1.2}} \cdot 900\right)}  < 0.0001
+\end{gather}
+The result was inputted into MATLAB and a numerical answer for $t_b$ was obtained. The MATLAB code used is below.
+\lstinputlisting{./mCode/q1b.m}
+This generated the plot shown in Figure \ref{q1b2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{./img/q1b2.png}
+    \caption{Plot to show \ref{eq:q1b.11}.}
+    \label{q1b2}
+\end{figure}
+Using MATLAB's \lstinline{vpasolve} function, we can numerically solve our equation. This function can take an \lstinline{init_param} variable. This allows MATLAB to solve for values close to the variable. By visually observing the plot, we can see that our solution is in the vicinity of 0.001. Hence, this was chosen as the initial parameter. This yielded:
+\begin{gather}
+    t_b \approx \SI{0.00192}{\meter}\\
+    t_b \approx \SI{1.92}{\milli\meter}
+\end{gather}
 \subsection{Amplitude of displacement for steady-state oscillation of the sensor during rocket function}
 \subsection{Limitations of analysis}
 \subsection{Manoeuvre}
@@ -192,7 +312,30 @@ There are a few steps to steering the rocket to minimise the $x$-position.
 \end{figure}
 \section{Multi-Degree-of-Freedom systems}
 \subsection{Example of a system with multiple degrees-of-freedom}
-The system that I have chosen to describe is a hydraulic car suspension setup.
+The system that I have chosen to describe is a hydraulic vehicle suspension system. This system's primary purpose is to reduce transmitted vibrations from the road surface to the car body and maximise tyre contact with the ground. It can achieve different characteristics by utilising oil or compressed air to change the stiffness and damping of the system. In one model, we can model the system as such:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{./img/q61.png}
+    \caption{Physical model of suspension system.}
+    \label{q61}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{./img/q62.png}
+    \caption{Model of MDOF system.}
+    \label{q62}
+\end{figure}
+Our inputs are forces applied (and hence motion relative to the rest of the system) to the tyres from the ground. We know that tyres themselves have a certain stiffness and certain deformation characteristics, which can be modelled.
+
+The output of our system is the overall displacement of the driver sitting in the car. We could model each individual component from the ground to the driver separately, but for simplicity's sake, the seat and driver have been modelled as one system (the seat is directly attached to the frame of the vehicle).
+
+The forces transmitted from the ground can vary due to perturbations in the road surface, its smoothness and any obstacles in the path of the tyre. The ground may also not be homogeneous and each wheel may be receiving different displacements (for example on off-road terrain). Another external influence could be weather and damage to the components. Rainy/snowy weather would affect how the tyres interact with the ground, possibly preventing a good contact between tyre and ground. Damage to the components could be failed shocks/bushings (dampers) or corroded bolts. These would result in components being able to move in ways in which vibrations could be transmitted through the car in unwanted ways.
+
+In vehicle suspension systems, the springs and shocks are not directly connected to the tyres, instead they are connected to the (lower) control arms. Similarly, the vehicle is a large object and the suspension struts are connected in the corners of the car, whereas the driver sits (roughly) in the middle of the vehicle. The flexure and stiffness of the car body may be negligible in this case, we may also consider the flexure in the control arms to be negligible as they are rigid components.
+
+The main sensors would be a suspension spring displacement sensor and an accelerometer placed on the car body. This will give the onboard computer information about how the tyre is deforming and how the car body is reacting. There may be a supplementary sensor installed in the car seat to fine tune the response of the hydraulic suspension. Certain programmes can be installed on the computer which can tell the hydraulic suspension components to either stiffen or relax the damping within the shocks. This would have the effect of improving vehicle handling for a variety of scenarios. For example, for a high-performance scenario, a stiffer suspension system would allow for the tyres to have a better contact patch with the ground, allowing more power to be transmitted to the ground from the engine. On the other hand, a relaxed suspension system would smoothen out and reduce vibrations from the ground as experienced by the driver.
+
+The controller to be used in this case would have to utilise some form of PID control. Proportional control would be used to control the vehicle vibrations (displacement). Integral control would be used to keep the vehicle stable after oscillatory action. This could be in the form of stabilising the ride height (distance between car body and ground) of the vehicle after a large displacement. Derivative control would be needed to prevent large overshoots, which would result in an overly `bouncy' suspension response, with many oscillations after an initial displacement. Together, proportional, integral and derivative control would be necessary to stabilise the car body from the various forces exerted upon it by the road through the tyres.
 \bibliographystyle{agsm}
 \bibliography{references}
 \end{document}
