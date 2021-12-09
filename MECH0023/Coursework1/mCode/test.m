@@ -1,5 +1,3 @@
-%HD
-
 clc
 clear
 close all 

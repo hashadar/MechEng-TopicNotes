@@ -64,4 +64,6 @@ Cx = 0.2; %drag coefficient
 %grade resistance
 g = 9.81; %gravitational constant
 
-
+%make plots of the turning angles
+%smoothing filter
+%track recogniser

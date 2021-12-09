@@ -177,10 +177,87 @@ Using MATLAB's \lstinline{vpasolve} function, we can numerically solve our equat
     t_b \approx \SI{1.92}{\milli\meter}
 \end{gather}
 \subsection{Amplitude of displacement for steady-state oscillation of the sensor during rocket function}
+This is a case of base excitation. The equation to describe the motion of our base excitation takes the standard form:
+\begin{gather}
+    y(t) = Y\sin\left(\omega t\right)\label{eq:q1c.1}
+\end{gather}
+Therefore:
+\begin{gather}
+    m \ddot{x} + c\left(\dot{x} - \dot{y}\right) + k\left(x-y\right)=0\\
+    m\ddot{x} + c\ddot{x} + kx = c\dot{y} + ky
+\end{gather}
+Substituting \ref{eq:q1c.1}:
+\begin{align}
+    m\ddot{x} + c\dot{x} + kx & = c\omega Y \cos \left(\omega t\right) + kY\sin \left(\omega t\right) \\
+                              & = A \sin \left(\omega t - \alpha \right)
+\end{align}
+where
+\begin{gather}
+    A = Y \sqrt{k^2 + \left(c \omega\right)^2}\\
+    \alpha = \arctan \left(-\frac{c\omega}{k}\right)
+\end{gather}
+Our solution is then:
+\begin{gather}
+    x_p (t) = \dfrac{Y\sqrt{k^2 + \left(c\omega\right)^2}}{\sqrt{\left(k - m\omega^2\right)^2 + \left(c \omega\right)^2}}\cdot \sin\left(\omega t - \alpha - \phi_1\right)
+\end{gather}
+where
+\begin{gather}
+    \phi_1 = \arctan\left(\frac{c\omega}{k - m\omega^2 }\right)
+\end{gather}
+We can reduce our equation further to:
+\begin{gather}
+    x_p = X \sin \left(\omega t - \phi\right)
+\end{gather}
+where
+\begin{gather}
+    \frac{X}{Y} = \left[\dfrac{1+\left(2\zeta r\right)^2}{\left(1-r^2\right)^2 + \left(2\zeta r\right)^2}\right]^{\frac{1}{2}}
+\end{gather}
+The frequency of base excitation from the power spectrum graph is approximately:
+\begin{gather}
+    f \approx \SI{240}{\hertz}
+\end{gather}
+Reading the gain from our power spectrum graph, we can find $Y$:
+\begin{gather}
+    10^{\frac{-60}{20}} = \frac{Y\sqrt{2}}{2}\\
+    Y = 0.001\sqrt{2}
+\end{gather}
+Using MATLAB, the various parameters were filled and the equation was solved to find $X$:
+\lstinputlisting{./mCode/q1c.m}
+This yielded:
+\begin{gather}
+    X = \SI{1.12e-8}{\meter}
+\end{gather}
 \subsection{Limitations of analysis}
+One limitation of our model may be the sample size selected. If we do not utilise a high enough sampling rate, we may not fully capture the extent of our FRF. Our signal is also noisy, which could affect our data. We could also check a higher range of frequencies to make sure that we do not have peaks in those frequency ranges (due to the potential of a MDOF system).
 \subsection{Manoeuvre}
 \subsubsection{Description of obtaining sensor response to the thrust force}
-\subsubsection{Dispalcement response}
+As the thrust acts on the satellite frame, we can use force transmissibility to find the force on the sensor. We can then use convolution to find the response at the sensor.
+\subsubsection{Displacement response}
+The force transmitted to the base of a SDOF system would be:
+\begin{gather}
+    m\ddot{x} + c\dot{x} + kx = F \cos \omega t \\
+    F_T = kx + c\dot{x}\\
+    \left| \frac{F_T}{F} \right| = \left[\dfrac{1 + \left(2\zeta r\right)^2}{\left(1-r^2\right)^2 + \left(2\zeta r\right)^2}\right]^{\frac{1}{2}}
+\end{gather}
+The total response of the system would be the sum of all impulse responses:
+\begin{gather}
+    x(t) = \sum F(\tau) \Delta \tau h \left( t - \tau\right)
+\end{gather}
+Using the limit $\Delta \tau \rightarrow 0$, we can then use convolution:
+\begin{gather}
+    x(t) = \int_0^t \left(F(\tau)h(t-\tau)\right)\dif \tau
+\end{gather}
+Substituting impulse response function:
+\begin{gather}
+    x(t) = \frac{1}{m\omega_d}\int_0^t \left(F(\tau)e^{-\zeta \omega_n (t - \tau)}\sin \left(\omega_d\left(t-\tau\right)\right)\right)\dif \tau
+\end{gather}
+The following MATLAB code was used to produce the following plots:
+\lstinputlisting{./mCode/q1e.m}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{./img/q1e.png}
+    \caption{Response of sensor.}
+\end{figure}
 \section{Linear modelling}
 \subsection{Description of non-linearity between $y(t)$ \& $\theta(t)$}
 The following function:
