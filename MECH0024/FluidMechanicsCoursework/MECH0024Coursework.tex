@@ -6,7 +6,6 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage[moderate]{savetrees}
-\usepackage{natbib}
 \usepackage{float}
 \usepackage{multirow}
 \usepackage{commath}
@@ -58,7 +57,14 @@
 \part{SpaceX rocket engine essay}
 SpaceX has been developing rocket engines for nearly two decades. The two primary engine families in use today are the Merlin series and the Raptor series. The Draco and SuperDraco series of engines have also been developed by SpaceX, however their role as Reaction Control System (RCS) thrusters and Launch Abort System engines respectively leave them to be not considered in this essay. SpaceX has developed these rocket engines to power a variety of booster rockets, including the Falcon 9, Falcon Heavy and Starship. The roles of these rockets include delivering crew and cargo to space, as well as interplanetary travel. SpaceX places a strong emphasis on reusability and a reduction of `cost to launch'. Hence, the engines powering these flights must be efficient, powerful and reliable to facilitate multiple missions.
 
-The Merlin series of engines power the Falcon 9 and Falcon Heavy rocket boosters. These are two-stage rockets, primarily designed to place cargo and crew into earth orbit. The first stage is powered by nine Merlin `sea level' engines and the second stage is powered by one Merlin `vacuum' engine. There have been a variety of developments over the past years and the current generation of Merlin engines are the Merlin 1D. The Merlin 1D uses Rocket Propellant 1 (RP-1) and liquid oxygen for combustion in a gas-generator staged combustion cycle.
+The Merlin series of engines power the Falcon 9 and Falcon Heavy rocket boosters. These are two-stage rockets, primarily designed to place cargo and crew into earth orbit. The first stage is powered by nine Merlin `sea level' engines and the second stage is powered by one Merlin `vacuum' engine. There have been a variety of developments over the past years and the current generation of Merlin engines are the Merlin 1D. The Merlin 1D uses an open-cycle gas-generator cycle with Rocket Propellant 1 (RP-1) and liquid oxygen (LOX) as propellants.
+
+The fuel choice for the Merlin engine is due to a large variety of factors. The Merlin engine uses liquid propellants for combustion. RP-1 is a refined kerosene with low amounts of impurities. This is to prevent stray chemical elements from reacting with engine components and causing a breakdown. RP-1 is a liquid at room temperature, safe to handle, cheap and available in large quantities. This makes it ideal for rockets which need to fly frequently (as the Falcon rockets do). However, RP-1 is not the most efficient fuel as liquid Hydrogen has a far greater specific impulse (\SI{289}{\second} vs \SI{381}{\second}) but RP-1 has greater density (\SI{0.071}{\gram\per\mol} vs \SI{0.82}{\gram\per\mol}) \cite{b1}. A disdvantage of RP-1 is that it is a hydrocarbon, resulting in carbon deposits when burnt at the improper fuel-oxidiser ratio. This can lead to a build up of carbon deposits in the engine, decreasing the lifetime of the engine. Some alternatives to RP-1 include liquid Hydrogen and liquid Methane. These two fuels are sometimes referred to as cryogenic fuels as their boiling points are far below room temperature and require more complex pressurised tanks and plumbing within the engine. 
+
+To dissect the combustion cycle of the Merlin engine, let us take a look at how the engine is designed. In Figure \ref{gasGeneratorCycle}, we see that RP-1 and LOX is fed through turbopumps powered by an impeller on a single shaft. This shaft is powered by a turbine. This is driven by gases from a `preburner', where some of the propellants are combusted and the hot gas is used to turn the shaft, powering the fuel and oxidiser pumps. The products of the preburner combustion are not used in the main combustion chamber and hence these products are lost. This is referred to as an open-cycle cycle. 
+
+To improve the efficiency of this cycle, we can feed the exhaust from the preburner into our main combustion chamber `closing our cycle'. This presents an engineering problem in the form of higher back-pressures within the whole system. When the main combustion chamber exerts pressure through to the turbine and pre-burner, this can damage components. To solve this, the preburner needs to generate more energy and higher pressures. The turbine will need withstand higher temperatures and larger stresses. Typically, the preburner is run either fuel or oxidiser rich to lower combustion temperature and reducing the stress on the turbine. This all adds weight and complexity, hence a balance must be struck to ensure that the cycle is more efficient. Depending on the fuel, running fuel rich may result in the formation of carbon deposits within the engine. Running oxidiser rich presents an exhaust which is chemically corrosive, due to the presence of high temperature oxygen. 
+
 \part{Sea Level and Vacuum Merlin 1D rocket engines analysis}
 \section{}
 \subsection{Estimation of ideal OF ratio \& comparison with typical value}
@@ -77,4 +83,7 @@ The Merlin series of engines power the Falcon 9 and Falcon Heavy rocket boosters
 \subsection{At sea level}
 \subsection{At an altitude of \SI{5.5}{\kilo\meter}}
 \section{Description of other technologies (and their working principles), which accommodate the change in back-pressure on thrust performance}
+\begin{thebibliography}{00}
+    \bibitem{b1} Robert A. Braeunig. (2008) `Rocket Propellants' \url{http://www.braeunig.us/space/propel.htm} Accessed: 14/12/2021
+\end{thebibliography}
 \end{document}
