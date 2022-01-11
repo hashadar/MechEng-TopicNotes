@@ -61,8 +61,13 @@ Cx = 0.2; %drag coefficient
 
 %Fd = 0.5*rho*A*Cx*v^2;
 
-%grade resistance
+%load from cornering
+cR = 1;%road load coefficient
 g = 9.81; %gravitational constant
+
+Fr = mVeh*g*cR.*cos(angleTheta);
+
+%grade resistance
 
 %make plots of the turning angles
 %smoothing filter

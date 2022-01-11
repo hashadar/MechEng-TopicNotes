@@ -1,0 +1,17 @@
+clc
+clear
+close all
+
+%motor parameters
+motor.NMaxTq = 3500; %motor speed for max torque (rpm)
+motor.NMaxPwr = 6500; %motor speed for max power (rpm)
+motor.tqFullLoad = [500 500 500 500 500 500]; %motor torque curve at full load (Nm)
+motor.Nmax = 10000; %max motor speed (rpm)
+motor.Nmax = 0; %min motor speed (rpm)
+
+%transmission
+gearbox.gearMin = 1; %lowest gear
+gearbox.gearMax = 8; %highest gear
+gearbox.gearRatio = [3 2 1 0.8]; %gear ratios
+gearbox.i0 = 2; %final drive ratio at the differential
+gearbox.effic = 0.9; 
