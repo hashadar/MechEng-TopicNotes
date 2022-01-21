@@ -35,6 +35,8 @@
 
 %----------------------------------------------------------------------------------------
 \usepackage{listings}
+\usepackage{float}
+\usepackage{siunitx}
 \usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
@@ -100,7 +102,46 @@ During the design phase of the vehicle, a lot of work must go into modelling per
 \subsection{Track data and vehicle parameters}
 The following MATLAB code takes racetrack racing line coordinate data and turns adjacent points into vectors. The angle between adjacent vectors are then calculated and stored in an array. This gives us the instantaneous racing line track curvature at any point. Next, we see that the performance parameters for the various vehicle subsystems are stored. 
 \lstinputlisting{../MCode/model1.m}
-Next, a Simulink model was created to model the various performance parameters
+Next, a Simulink model was created to model the various performance parameters:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{./img/simulink1.jpg}
+	\caption{Current Simulink Model.}
+\end{figure}
+Here we can see that our motor torque (following a traditional DC motor power curve) is inputted into the transmission subsystem:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{./img/simulink3.png}
+	\caption{Drivetrain model.}
+\end{figure}
+Here, we see that the drivetrain ratios and efficiency is inputted. This outputs our transmission torque.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{./img/simulink4.png}
+	\caption{Vehicle model.}
+\end{figure}
+This subsystem starts by converting the transmission torque into the force exerted by the tyre onto the road. This is then cross-checked with the tyre friction limit with a `min' statement (as the tyre friction limit cannot be exceeded.) The resistive forces are then summed (cornering force is yet to be modelled) and subtracted from the driving force. We can then calculate vehicle acceleration and velocity (which is looped back into our aerodynamic drag force). 
+
+The track data is also yet to be implemented and will be part of another subsystem, that will take in information such as displacement and output trajectory. The trajectory data will be used within this subsystem to calculate the limits on cornering force and whether the tyres start to slip. 
+
+Currently the motor torque has been modelled as a variable controlled by the user. The motor model being developed will fully simulate a 3-phase BLDC motor using PWM control. Thus, our only input to the system will become the throttle position. A model of the DC motor subsystem is shown below. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{./img/simulink2.png}
+	\caption{DC motor model.}
+\end{figure}
+\section{Results}
+As a test, I inputted a simple step command as the motor torque (50 seconds on, 50 seconds off at \SI{5}{\newton\meter}). This yields the following straight line performance of the vehicle.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.75 \textwidth]{./img/results1.png}
+	\caption{Straight Line Performance ($x$ axis - time (s), $y$ axis -velocity (m/s) and torque (Nm)).}
+\end{figure}
+Currently, the data has not been validated with empirical testing, but this is something I hope to do soon. The true values for the vehicle performance parameters are also to be confirmed, but have been ball-parked using online data and reports from previous years. Once, these are confirmed, the model can be evaluated against empirical data from the current Shell Eco Car. 
+\section{Declaration}
+\begin{quote}
+	\textit{I, Hasha Dar, confirm that the work presented in this report is my own. Where information has been derived from	other sources, I confirm that this has been indicated in the report.}
+\end{quote}
 \bibliographystyle{agsm}
 \bibliography{./bib/export}
 
