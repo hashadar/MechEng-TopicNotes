@@ -34,6 +34,18 @@ end
 
 %plot(linspace(0,4206,numel(angleTheta)),angleTheta)
 
+%find radius of curvature
+%initialise array
+cornerRadii = zeros(numel(raceTrackXY(:,1))-2,1);
+
+for i = 1:(numel(raceTrackXY(:,1))-2)
+    ma = (raceTrackXY(i+1,2) - raceTrackXY(i,2))/(raceTrackXY(i+1,1) - raceTrackXY(i,1));
+    mb = (raceTrackXY(i+2,2) - raceTrackXY(i+1,2))/(raceTrackXY(i+2,1) - raceTrackXY(i+1,1));
+    circleXCoord = (ma*mb*(raceTrackXY(i,2) - raceTrackXY(i+2,2)) + mb*(raceTrackXY(i,1) + raceTrackXY(i+1,1)) - ma*(raceTrackXY(i+1,1) + raceTrackXY(i+2,1)))/(2*(mb-ma));
+    circleYCoord = ma*(circleXCoord - raceTrackXY(i,1)) + raceTrackXY(i,2);
+    cornerRadii(i) = sqrt((raceTrackXY(i,1) - circleXCoord)^2 + (raceTrackXY(i,2) - circleYCoord)^2);
+end
+
 %define time
 t = linspace(0,10,0.01)';
 
@@ -43,7 +55,7 @@ motor.NMaxPwr = 500; %motor speed for max power (rpm)
 motor.MaxPower = 1000; %motor max rated power (W)
 motor.MaxTorque = 10; %motor rated torque (Nm)
 motor.NtqFullLoad = linspace(0,1000,100); %motor speed axis (rpm)
-motor.tqFullLoad = [linspace(0,100,100); linspace(10,0,100)]'; %motor torque curve at full load (Nm)
+motor.tqFullLoad = [linspace(0,100,100); linspace(5,0,100)]'; %motor torque curve at full load (Nm)
 motor.Nmax = 1000; %max motor speed (rpm)
 motor.Nmin = 0; %min motor speed (rpm)
 for i = 1:numel(motor.NtqFullLoad)

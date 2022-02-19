@@ -347,4 +347,53 @@ Left:
     \int_{-h}^h \left(\tau_{xy}\right)\dif y = - wL
 \end{gather}
 We can see that the shear stress on the left side is in the opposite direction to the external shear force, whereas on the left side it is in the same direction as the external shear force. We can see that we have a parabolic distribution of the shear stress, taking a maximum value of $\tau_{xy} = \frac{3wL}{4h}$.
-\end{document}
+\section{Problem Sheet 4}
+\subsection{Question 1}
+\subsubsection{a}
+\begin{gather}
+    \sigma = \frac{E}{180}\varepsilon^{0.25}
+\end{gather}
+We know that the total strain is:
+\begin{gather}
+    \varepsilon = \left(1 + \frac{1}{4}\right)\varepsilon_e = \frac{5}{4}\varepsilon_e
+\end{gather}
+At the yield point:
+\begin{gather}
+    \sigma_y = E\varepsilon_e \\ 
+    \sigma_y = \frac{E}{180}\varepsilon^{0.25}
+\end{gather}
+Solving:
+\begin{gather}
+    E\varepsilon_e = \frac{E}{180}\left(\frac{5}{4}\varepsilon_e\right)^{0.25}\\
+    \varepsilon_e^{0.75} = \frac{1}{180}\left(\frac{5}{4}\right)^{0.25} = \frac{\sqrt[4]{5}}{180\sqrt{2}}\\ 
+    \varepsilon_e \approx 0.00106
+\end{gather}
+Substituting into $\sigma_y$ equation:
+\begin{gather}
+    \sigma_y \approx 0.00106 E \approx \frac{E}{943}
+\end{gather}
+\subsubsection{b}
+Differentiating:
+\begin{gather}
+    \sigma  = \frac{E}{180}\varepsilon^{0.25}\\
+    \frac{\dif \sigma}{\dif \varepsilon} = \sigma\\
+    \frac{\dif \sigma}{\dif \varepsilon} = \frac{E}{180}\cdot 0.25 \cdot \varepsilon^{-0.75}\\
+    \frac{E}{180}\cdot 0.25 \cdot \varepsilon^{-0.75} = \frac{E}{180}\varepsilon^{0.25}\\
+    \varepsilon = \frac{1}{4}
+\end{gather}
+Substituting:
+\begin{gather}
+    \sigma = \frac{E}{180}\left(\frac{1}{4}\right)^{0.25} \approx 0.003928E\\
+    \frac{\sigma}{\sigma_y} = \frac{0.003928E}{\left(\frac{E}{943}\right)}\\
+    \sigma \approx 3.704 \sigma_y
+\end{gather}
+\subsubsection{c}
+We know that the relationship between the nominal (engineering) stress and the true stress (and strain) is:
+\begin{gather}
+    \sigma_n = \sigma e^{-\varepsilon}
+\end{gather}
+Therefore:
+\begin{gather}
+    \sigma_n = 3.704\sigma_y e^{-\frac{1}{4}} \approx 2.89\sigma_y
+\end{gather}
+\end{document} 
