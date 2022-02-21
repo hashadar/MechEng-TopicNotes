@@ -46,6 +46,31 @@ for i = 1:(numel(raceTrackXY(:,1))-2)
     cornerRadii(i) = sqrt((raceTrackXY(i,1) - circleXCoord)^2 + (raceTrackXY(i,2) - circleYCoord)^2);
 end
 
+for i = 1:(numel(raceTrackXY(:,1))-2)
+    matrixA = [raceTrackXY(i,1), raceTrackXY(i,2), 1;raceTrackXY(i+1,1), raceTrackXY(i+1,2), 1;raceTrackXY(i+2,1), raceTrackXY(i+2,2), 1;];
+    matrixB = - [(raceTrackXY(i,1)^2 + raceTrackXY(i,2)^2), raceTrackXY(i,2), 1; (raceTrackXY(i,1)^2 + raceTrackXY(i+1,2)^2), raceTrackXY(i+1,2), 1; (raceTrackXY(i+2,1)^2 + raceTrackXY(i+2,2)^2), raceTrackXY(i+2,2), 1; ];
+    matrixC = - [(raceTrackXY(i,1)^2 + raceTrackXY(i,2)^2), raceTrackXY(i,1), 1; (raceTrackXY(i,1)^2 + raceTrackXY(i+1,2)^2), raceTrackXY(i+1,1), 1; (raceTrackXY(i+2,1)^2 + raceTrackXY(i+2,2)^2), raceTrackXY(i+2,1), 1; ];
+    matrixD = - [(raceTrackXY(i,1)^2 + raceTrackXY(i,2)^2), raceTrackXY(i,1), raceTrackXY(i,2); (raceTrackXY(i,1)^2 + raceTrackXY(i+1,2)^2), raceTrackXY(i+1,1), raceTrackXY(i+1,2); (raceTrackXY(i+2,1)^2 + raceTrackXY(i+2,2)^2), raceTrackXY(i+2,1), raceTrackXY(i+2,2); ];
+    A = det(matrixA);
+    B = det(matrixB);
+    C = det(matrixC);
+    D = det(matrixD);
+    cornerRadii(i) = sqrt((B^2 + C^2 - 4*A*D)/4*A^2);
+end
+cornerRadii = cat(1,cornerRadii(1),cornerRadii);
+cornerRadii = cat(1,cornerRadii,cornerRadii(numel(cornerRadii)));
+
+%track length
+%initialise vars
+trackLength = zeros(numel(raceTrackXY(:,1))-1,1);
+for i = 1:(numel(raceTrackXY(:,1)) -1)
+    L = sqrt((raceTrackXY(i+1,1) - raceTrackXY(i,1))^2 + (raceTrackXY(i+1,2) - raceTrackXY(i,2))^2);
+    trackLength(i+1) = trackLength(i)+ L;
+end
+
+%track curvature with length of track
+TCL = cat(2,cornerRadii,trackLength);
+
 %define time
 t = linspace(0,10,0.01)';
 
