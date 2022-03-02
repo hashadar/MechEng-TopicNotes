@@ -1,0 +1,120 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{commath}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\renewcommand{\arraystretch}{1.2}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage[a4paper,margin=20mm]{geometry}
+\numberwithin{equation}{section}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=black
+}
+\urlstyle{same}
+\begin{document}
+\title{\textbf{UCL Mechanical Engineering 2021/2022}\\MECH0026 Coursework Two}
+\author{Hasha Dar}
+\date{\today}
+\maketitle
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\section{Calculation and definition of the material properties from experimental data}
+\subsection{Young's modulus}
+The Young's Modulus of a material is a measure of stiffness of an elastic material. It has the following formula:
+\begin{gather}
+    E = \dfrac{\sigma}{\varepsilon} = \dfrac{\frac{F}{A}}{\frac{\Delta L}{L_0}}
+\end{gather}
+where $\sigma$ is the stress and $\varepsilon$ is the strain of the material. 
+
+The Young's Modulus of the material can be calculated by finding the gradient of the elastic region on the engineering stress-strain curve. Using MATLAB, the following value for the slope of the curve was found:
+\begin{gather}
+    E = \SI{67.12}{\giga\pascal}   
+\end{gather}
+\subsection{Yield point}
+The Yield Point is the stress at which a predetermined amount of permanent deformation occurs. To find the yield point of our material, we can use the offset method \cite{b1}. This is a recommended method of finding the yield point as stated in ASTM E8 \cite{b2}. The offset method involves plotting a line with gradient $E$ with an offset from the origin, typically in the range of 0.1\% - 0.2\% strain. Using MATLAB, we can find the yield stress and strain:
+\begin{align}
+    \sigma_y &= \SI{119.98}{\mega\pascal} \textrm{ at 0.2\% offset}\\
+    \varepsilon_y &= \SI{3.78e-3}{} \textrm{ at 0.2\% offset}
+\end{align}
+\subsection{True stress-strain}
+We can find the true stress and strain of our material by using the following equations:
+\begin{gather}
+    \sigma_t = \sigma_n e^{\varepsilon_n}\label{trueStress} \\
+    \varepsilon_t = \ln\left(1 + \varepsilon_n\right) \label{trueStrain}
+\end{gather}
+The true stress-strain is a good fit until necking occurs, after which we have an instability in the material. After necking, three things happen:
+\begin{itemize}
+    \item volume does not remain constant.
+    \item material is no longer homogeneous.
+    \item material is no longer continuous.
+\end{itemize}
+Hence, \ref{trueStress} and \ref{trueStrain} represent the stress-strain of the damaged sample. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{./img/engVsTrueStressStrain.png}
+    \caption{Graph to show engineering vs true stress-strain response of material.}
+    \label{engVsTrueStressStrainCurve}
+\end{figure}
+\subsection{Necking point/UTS}
+To find the necking point, we need to find the ultimate tensile strength of our material, which can be found by indexing the largest stress value in our data.
+
+Ultimate tensile strength (engineering):
+\begin{gather}
+    \sigma_{e,uts} = \SI{126.52}{\mega\pascal} \textrm{ at } \varepsilon = \SI{0.019}{}
+\end{gather}
+Ultimate tensile strength (true):
+\begin{gather}
+    \sigma_{t,uts} = \SI{136.51}{\mega\pascal} \textrm{ at } \varepsilon = \SI{0.186}{}
+\end{gather}
+We take the value from our true stress-strain curve as this accurately represents the stress-strain of our material until necking occurs.
+\subsection{Effective stress-strain}
+The effective stress-strain allows us to model the true undamaged stress-strain of the material. This is useful as ABAQUS requires this to model the behaviour of our material. This can be calculated by assuming a perfectly plastic response after the onset of necking:
+\begin{gather}
+    \widetilde{\sigma}_t = \begin{cases}
+        \sigma_t & \textrm{for } \varepsilon_n \leq \varepsilon_{n,uts}\\
+        \sigma_{n,uts}\left(1 + \varepsilon_n\right) & \textrm{for } \varepsilon_n > \varepsilon_{n,uts}
+    \end{cases}\\
+    \widetilde{\varepsilon}_t = \varepsilon_t
+\end{gather}
+A plot of the effective stress-strain curve is shown below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{./img/engVsTrueVsEffectiveStressStrain.png}
+    \caption{Graph to show engineering vs true vs effective stress-strain response of material.}
+    \label{engVsTrueVsEffectiveStressStrainCurve}
+\end{figure}
+\subsection{Damage parameter}
+The damage of the material is a measure of the area of voids in a material. The effective true stress can be written in terms of the damage variable:
+\begin{align}
+    \widetilde{\sigma}_t = \frac{F}{A-A_D} = \frac{F}{A\left(1 - \frac{A_D}{A}\right)} = \frac{\sigma_t}{1 - D}
+\end{align}
+Rewriting Hooke's Law:
+\begin{gather}
+    \widetilde{\sigma}_t = E \varepsilon_t \rightarrow \sigma_t = E\left(1-D\right)\varepsilon_t
+\end{gather}
+\newpage
+\begin{thebibliography}{00}
+    \bibitem{b1} Illinois Tool Works, (2022) `Offset Yield Strength' \url{https://www.instron.com/en-gb/our-company/library/glossary/o/offset-yield-strength} Accessed: 01/03/22
+    \bibitem{b2} ASTM, (2022) `Standard Test Methods for Tension Testing of Metallic Materials' \url{https://www.astm.org/e0008_e0008m-21.html} Accessed: 01/03/22
+\end{thebibliography}
+\end{document}
