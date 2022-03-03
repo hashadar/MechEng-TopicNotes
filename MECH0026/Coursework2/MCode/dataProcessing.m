@@ -51,13 +51,13 @@ trueUTSStrain = trueStrain(trueIndexStress); %max true strain
 
 %effective stress-strain
 %calc effective stress vals
-n = numel(trueStress);
-effectiveStress = zeros(n - trueIndexStress, 1);
-for i = 1:n-trueIndexStress
-    effectiveStress(i) = trueUTSStress*(1 + trueStrain(i+trueIndexStress)-trueUTSStrain);
+effectiveStrain = trueStrain;
+n = numel(trueStrain);
+effectiveStress = trueStress;
+for i = engindexStress(2):n
+    effectiveStress(i) = engUTSStress*(1 + data(i,1));
 end
-effectiveStress = cat(1, trueStress(1:trueIndexStress), effectiveStress);
-plot(trueStrain, effectiveStress)
+plot(effectiveStrain, effectiveStress)
 xlabel('Strain')
 ylabel('Stress/MPa')
 grid on
@@ -73,6 +73,6 @@ n = numel(effectiveStress)-idx; %intialise index
 plasticYield = zeros(n -idx,2); %intialise array
 for i = 1:n
     plasticYield(i,2) = effectiveStress(i+idx-1); %plastic stress
-    plasticYield(i,1) = trueStrain(i+idx-1) - yieldPointTruei; %plastic strain
+    plasticYield(i,1) = effectiveStrain(i+idx-1) - yieldPointTruei; %plastic strain
 end
 plasticYield(1,1) = 0;
