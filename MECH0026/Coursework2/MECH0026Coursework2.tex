@@ -11,6 +11,7 @@
 \usepackage{booktabs}
 \usepackage{subcaption}
 \renewcommand{\arraystretch}{1.2}
+\newcommand{\code}[1]{\texttt{#1}}
 \usepackage{siunitx}
 \sisetup{detect-all}
 \usepackage{listings}
@@ -112,6 +113,52 @@ Rewriting Hooke's Law:
 \begin{gather}
     \widetilde{\sigma}_t = E \varepsilon_t \rightarrow \sigma_t = E\left(1-D\right)\varepsilon_t
 \end{gather}
+ABAQUS requires that damage evolution be inputted as a function fo the equivalent plastic displacement after necking, as strains are mesh dependent.
+\begin{gather}
+    \overline{u}_{pl} = L*\left(\overline{\varepsilon}^{pl}_t - \overline{\varepsilon}^{pl}_{t,uts}\right)
+\end{gather}
+where $L$ is the element size, $\overline{\varepsilon}^{pl}_t$ is the equivalent plastic strain and $\overline{\varepsilon}^{pl}_{t,uts}$ is the equivalent true plastic strain at the onset of necking. 
+\section{Description of FEM setup}
+\subsection{Boundary and loading conditions}
+The test sample was sketched and modelled in ABAQUS.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{./img/Sketch1.png}
+    \caption{Sketch of test sample in ABAQUS.}
+    \label{sampleSketch}
+\end{figure} 
+The following boundary and loading conditions were applied:
+\begin{itemize}
+    \item Bottom fixed in U1, U2, UR3.
+    \item Top displaced in U2 10 units upwards and fixed in U1 and UR3.
+\end{itemize}
+\subsection{Element type and justification}
+Since we are looking at a relatively thin plate undergoing stresses in the $x$- and $y$- directions, we can model the plate in a 2D configuration with thickness \SI{1.5}{\milli\m}. We can assume here that through thickness stresses are zero and the in-plane stresses are constant through thickness in the component. We can make this assumption due to the relatively small thickness of the plate in comparison to its other dimensions. Hence, we can choose to focus on plane stress for our simulation.
+\begin{gather}
+    \sigma_z = \sigma_{zx} = \sigma_{zy} = \varepsilon_{zx} = \varepsilon_{zy} = 0
+\end{gather}
+\subsection{Material models employed}
+A new material (labeled `alu') was created in ABAQUS with the following properties:
+\begin{itemize}
+    \item Elastic
+    \begin{itemize}
+        \item Young's modulus: \SI{67114.97}{\giga\pascal} (MATLAB variable \texttt{`YM'})
+        \item Poission's ratio: 0.3 (given)
+    \end{itemize}
+    \item Plastic
+    \begin{itemize}
+        \item Yield stress and plastic strain: tabular data (MATLAB variable \texttt{`plasticYield'})
+    \end{itemize}
+    \item Ductile damage
+    \begin{itemize}
+        \item Fracture strain: 0.015 (MATLAB variable \texttt{`equivTrueUTSPlasticStrain'})
+        \item Stress triaxiality: 0.333 (given)
+        \item Strain rate: 0
+    \end{itemize}
+    \item Damage evolution: type - displacement, softening - linear, displacement at failure: 0.3212 (MATLAB tabular data \texttt{`equivPlasticDisp'})
+\end{itemize}
+\subsection{Mesh configuration and convergence}
+As our model involves variables which are sensitive to mesh size, choosing an appropriate mesh size is important to ensure accurate results. The Von-Mises stress was used as a convergence criterion: 
 \newpage
 \begin{thebibliography}{00}
     \bibitem{b1} Illinois Tool Works, (2022) `Offset Yield Strength' \url{https://www.instron.com/en-gb/our-company/library/glossary/o/offset-yield-strength} Accessed: 01/03/22
