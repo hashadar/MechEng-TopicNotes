@@ -1,7 +1,3 @@
-clc
-clear
-close all
-
 %import data
 data = readmatrix('data.xlsx');
 
@@ -76,3 +72,22 @@ for i = 1:n
     plasticYield(i,1) = effectiveStrain(i+idx-1) - yieldPointTruei; %plastic strain
 end
 plasticYield(1,1) = 0;
+
+n = numel(effectiveStress);
+damage = zeros(n,1);
+for i = 1:n
+    damage(i) = effectiveStress(i) - trueStress(i);
+    damage(i) = damage(i)/effectiveStress(i);
+end
+damage = cat(2,damage, effectiveStrain-yieldPointTruei);
+
+n = numel(damage(:,1));
+for i = 1:n
+    if damage(i,2) < 0
+        damage(i,2) = NaN;
+    end
+    if damage(i,1) < 0
+        damage(i,1) = 0;
+    end
+end
+damage = rmmissing(damage);

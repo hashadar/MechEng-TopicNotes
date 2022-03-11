@@ -117,7 +117,18 @@ ABAQUS requires that damage evolution be inputted as a function fo the equivalen
 \begin{gather}
     \overline{u}_{pl} = L*\left(\overline{\varepsilon}^{pl}_t - \overline{\varepsilon}^{pl}_{t,uts}\right)
 \end{gather}
-where $L$ is the element size, $\overline{\varepsilon}^{pl}_t$ is the equivalent plastic strain and $\overline{\varepsilon}^{pl}_{t,uts}$ is the equivalent true plastic strain at the onset of necking. 
+where $L$ is the element size, $\overline{\varepsilon}^{pl}_t$ is the equivalent plastic strain and $\overline{\varepsilon}^{pl}_{t,uts}$ is the equivalent true plastic strain at the onset of necking. We also can see from the graph, that our damage parameter can easily be calculated as the difference between the damaged and undamaged stress-strain curves represents $D\widetilde{\sigma}_t$.
+\subsection{Failure point}
+As can be seen from the curves above, our failure point occurs at the strain where stress drops to 0. The engineering stress-strain is:
+\begin{gather}
+    \sigma_{n,f} = 0\\
+    \varepsilon_{n,f} = 0.42
+\end{gather}
+True stress-strain:
+\begin{gather}
+    \sigma_{t,f} = 0\\
+    \varepsilon_{t,f} = 0.3507
+\end{gather}
 \section{Description of FEM setup}
 \subsection{Boundary and loading conditions}
 The test sample was sketched and modelled in ABAQUS.
@@ -137,6 +148,7 @@ Since we are looking at a relatively thin plate undergoing stresses in the $x$- 
 \begin{gather}
     \sigma_z = \sigma_{zx} = \sigma_{zy} = \varepsilon_{zx} = \varepsilon_{zy} = 0
 \end{gather}
+A quad element type was used to mesh the sample. This is because our sample requires a high degree of precision in the test region. Quad elements can accurately break down the geometry of the sample in the analysis, as it has a rectangular section. Using quad elements will also allow us to have a small aspect ratio and create a structured mesh. 
 \subsection{Material models employed}
 A new material (labeled `alu') was created in ABAQUS with the following properties:
 \begin{itemize}
@@ -155,13 +167,121 @@ A new material (labeled `alu') was created in ABAQUS with the following properti
         \item Stress triaxiality: 0.333 (given)
         \item Strain rate: 0
     \end{itemize}
-    \item Damage evolution: type - displacement, softening - linear, displacement at failure: 0.3212 (MATLAB tabular data \texttt{`equivPlasticDisp'})
+    \item Damage evolution: 
+    \begin{itemize}
+        \item type - displacement, softening - linear, displacement at failure: 0.3212 (MATLAB tabular data \texttt{`equivPlasticDisp'}). Used for testing mesh convergence
+        \item type - displacement, softening - tabular, damage variables calculated in MATLAB (\texttt{`damage'} variable). Used to test properties of material failure.
+    \end{itemize}
 \end{itemize}
+Since we need to input true plastic strain values into ABAQUS, we need to calculate it by using the following formula:
+\begin{gather}
+    \varepsilon^{pl}_t = \varepsilon_t - \varepsilon_{t,yield}
+\end{gather}
+We can also calculate the aforementioned fracture strain (\texttt{`equivTrueUTSPlasticStrain'}:
+\begin{gather}
+    \varepsilon^{pl}_{t,UTS} = 0.015 
+\end{gather}
+The calculations were made in MATLAB and a plot is shown below. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9\textwidth]{./img/plasticYield.png}
+    \caption{Graph to show plastic yield.}
+\end{figure}
+We also need to generate the tabular data for our damage parameter, which can be found by finding the difference in value between our damaged and undamaged stress-strain curves. Calculation was done in MATLAB and a plot is shown below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9\textwidth]{./img/damage.png}
+    \caption{Graph to show damage parameter.}
+\end{figure}
 \subsection{Mesh configuration and convergence}
-As our model involves variables which are sensitive to mesh size, choosing an appropriate mesh size is important to ensure accurate results. The Von-Mises stress was used as a convergence criterion: 
+As our model involves variables which are sensitive to mesh size, choosing an appropriate mesh size is important to ensure accurate results. The main parameters to focus on are the parameter of interest (stress) and the computational run time. The table below shows how varying the mesh size affects our simulation results. A linear damage model was used to simplify the results. 
+\begin{table}[H]
+    \resizebox*{\textwidth}{!}{
+    \begin{tabular}{@{}llllllll@{}}
+    \toprule
+    Mesh size & no. of elements & Run time/s & Type of break    & LE22 max & S22 max/MPa & Mises max/MPa & error/\% \\ \midrule
+    4         & 216             & 3.5        & Horizontal crack & 0.3775   & 128.877     & 128.862       & 0.52     \\ 
+    2         & 770             & 5.4        & Cup and cone     & 0.3339   & 129.352     & 128.815       & 0.08     \\ 
+    1         & 3080            & 33.8       & Cup and cone     & 0.3507   & 129.502     & 128.909       & 0.20     \\ 
+    0.8       & 4752            & 47.5       & Cup and cone     & 0.3478   & 129.121     & 128.908       & 0.10     \\ 
+    0.5       & 12364           & 99.9       & Cup and cone     & 0.3443   & 129.448     & 128.902       & 0.15     \\
+    0.3       & 35100           & 397.3      & Cup and cone     & 0.3406   & 129.773     & 128.916       & 0.38     \\
+    0.2       & 78030           & 1013.1     & Cup and cone     & 0.3674   & 129.248     & 128.908       & 0        \\ \bottomrule
+    \end{tabular}
+    }
+\end{table}
+A mesh size of 0.8 was selected as it offers accurate results for a relatively low computational time. 
+\section{Post-Processing and examination of results from FEA}
+The simulation was run and the results extracted. Using the timeline view, we can see that elements are deleted from the centre of the specimen and gradually propagates to a crack and split of the specimen into two. The logarithmic strain in LE22 and true stress in S22 was outputted from ABAQUS and plotted below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{./img/s22Strain.png}
+    \caption{Field output from ABAQUS (LE22, S22)}
+\end{figure}
+LE22 is a valid field output as it takes into account the deformation per increment which incorporates the strain path. This means that it accurately represents our longitudinal strain. 
+\subsection{Elastic region}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{./img/elastic.png}
+    \caption{Field output of elastic state}
+\end{figure}
+\subsection{Onset of plasticity}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{./img/onset1.png}
+    \caption{Field output from before onset of plasticity}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{./img/onset2.png}
+    \caption{Field output from after onset of plasticity}
+\end{figure}
+\subsection{Plastic hardening}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{./img/plasticHardening.png}
+    \caption{Field output of plastic hardening state}
+\end{figure}
+\subsection{Onset of necking}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{./img/necking.png}
+    \caption{Field output of necking state}
+\end{figure}
+\subsection{Softening and formation of voids}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{./img/softening.png}
+    \caption{Field output from softening state}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{./img/softening2.png}
+    \caption{Field output from softening state (crack propagation)}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{./img/softening3.png}
+    \caption{Field output from softening state (failure)}
+\end{figure}
+\section{Discussion}
+\subsection{Analytical vs FEA data}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{./img/comparisonData.png}
+    \caption{Graph to show analytical vs FEA data. Orange analytical, blue FEA.}
+\end{figure}
+The Mises stress was pulled from ABAQUS and plotted against the LE22 strain. This is because ABAQUS uses Mises stress to define the plastic yielding properties \cite{b3}. We can see that the curves follow quite closely initially but after the onset of necking our results differ. This could be due to the damage model used in ABAQUS. We find that the ABAQUS model has more true stress for the same true strain compared to the analytical data.
+\subsection{Material model}
+We find that FEA accurately portrays the phases from elastic to plastic hardening reasonably well. This tells us that our initial calculations for Young's Modulus, yield point and UTS were correct and accurate. This also shows that our assumptions about yield stress were correct (using a 0.2\% offset). 
+
+However, towards the hardening and softening phases of our FEA model, we see our results start to differ. This may be due to the damage model used, which incorporates a damage function derived from the effective and true stress-strain curves. We have also made assumptions about our sample in our analysis. In FEA, our material will be `perfect' in the sense that it will not have microvoids and stress concentrators. These naturally serve to decrease the stress tolerable by a real life sample. Hence, this could be why we see FEA giving us higher values for a given strain. 
+\subsection{Failure initiation and propagation}
+We see that our crack forms towards the top of the thin part of the sample. First, we see that our material starts to thin (necking) and the shear lines are clearly visible and the first voids form. We then see that our crack propagates outwards and horizontally. However, this should not be the case for ductile materials like aluminium. We should see a \SI{45}{\degree} crack propagation from the initial void. This is because shear stress is the dominant force and this occurs at \SI{45}{\degree}. The crack propagates from the centre and progresses outwards, which is accurate as the void in the centre would act as a stress concentrator and fractures would form from there. 
 \newpage
 \begin{thebibliography}{00}
     \bibitem{b1} Illinois Tool Works, (2022) `Offset Yield Strength' \url{https://www.instron.com/en-gb/our-company/library/glossary/o/offset-yield-strength} Accessed: 01/03/22
     \bibitem{b2} ASTM, (2022) `Standard Test Methods for Tension Testing of Metallic Materials' \url{https://www.astm.org/e0008_e0008m-21.html} Accessed: 01/03/22
+    \bibitem{b3} ABAQUS Documentation, (2022) `Post Processing Plasticity data ABAQUS' \url{https://abaqus-docs.mit.edu/2017/English/SIMACAEGSARefMap/simagsa-c-matpostprocess2.htm} Accessed: 02/03/22
 \end{thebibliography}
 \end{document}

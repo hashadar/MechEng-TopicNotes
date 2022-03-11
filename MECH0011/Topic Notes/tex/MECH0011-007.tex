@@ -19,239 +19,211 @@ line/.style={-latex}
 \setlength{\parindent}{0pt}
 \begin{document}
 \begin{center}
-    27/10/2020
+    01/12/2020
 \end{center}
-\section{Uniform Flow}
-Cartesian Coordinates:
-\begin{gather}
-  \phi = V_{\infty} \left[ x\cos(\alpha) + y\sin(\alpha) \right]\\
-  \psi = V_{\infty} \left[ y\cos(\alpha) - x\sin(\alpha) \right]
-\end{gather}
-The conservation of mass is balanced:
-\begin{equation}
-  \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0
-\end{equation}
-The flow is irrotational:
-\begin{equation}
-  \omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = 0
-\end{equation}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram16.png}
-\end{figure}
-Cylindrical Coordinates:
-\begin{gather}
-  \phi (r, \theta) = V_{\infty} r \cos(\theta - \alpha)\\
-  \psi (r, \theta) = V_{\infty} r \sin(\theta - \alpha)
-\end{gather}
-The conservation of mass is satisfied for cylindrical coordinates:
-\begin{gather}
-  \nabla \cdot \overrightarrow{V} = \frac{1}{r}\frac{\partial ru_r}{\partial r} + \frac{1}{r}\frac{\partial u_{\theta}}{\partial \theta} \\
-  = \frac{\partial r(v_{\infty}\cos(\theta-\alpha))}{\partial r} - \frac{\partial v_{\infty}\sin(\theta-\alpha)}{\partial \theta} \\
-  v_{\infty}\cos(\theta-\alpha) - v_{\infty}\cos(\theta-\alpha) = 0
-\end{gather}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram17.png}
-\end{figure}
-\section{Source/Sink Flow}
-Cartesian Coordinates:
-\begin{gather}
-  \phi = \frac{\Lambda}{2\pi} \ln(\sqrt{x^2 +y^2})\\
-  \psi = \frac{\Lambda}{2\pi}\arctan\left(\frac{y}{x}\right)
-\end{gather}
-Cylindrical Coordinates:
-\begin{gather}
-  \phi = \frac{\Lambda}{2\pi}\ln(r)\\
-  \psi = \frac{\Lambda}{2\pi}\theta
-\end{gather}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram18.png}
-\end{figure}
-In cylindrical coordinates, we do not have a $\theta$ component as it is moving radially outwards from a source.
-\begin{gather}
-  u_r = \frac{\partial \phi}{\partial r} = \frac{\Lambda}{2\pi r}\\
-  u_{\theta} = \frac{1}{r} \frac{\partial \phi}{\partial \theta} = 0
-\end{gather}
-Here we can see the magnitude of the velocity is dependent on $\frac{1}{r}$. If $\Lambda > 0$, we have a source and if $\Lambda < 0$, we have a sink.
-\section{Uniform Flow + Source}
-\begin{gather}
-  \phi (r,\theta) = \frac{\Lambda}{2\pi} \ln(r) + V_{\infty} r \cos \theta \\
-  \psi (r,\theta) = \frac{\Lambda}{2\pi}\theta + V_{\infty} r \sin \theta
-\end{gather}
-Stream function $\psi (r,\theta)$ of:
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram19.png}
-\end{figure}
-\section{Uniform Flow + Source + Sink}
-\begin{gather}
-  \phi - V_{\infty} r \cos \theta + \frac{\Lambda}{2\pi}(\ln (r_1) - \ln (r_2))\\
-  \psi = V_{\infty} r \sin \theta + \frac{\Lambda}{2\pi} (\theta_1 - \theta_2)
-\end{gather}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram20.png}
-\end{figure}
-\section{Doublet}
-Consider a pair of source and sink of $\pm \Lambda$ who are $l$ apart and $l\times\Lambda = $ constant.
-\begin{gather}
-  \psi =\lim_{l\rightarrow 0} \frac{\Lambda}{2\pi} (\theta_1 - \theta_2) = -\frac{k}{2\pi} \frac{\sin \theta}{r} \\
-  \phi = \frac{k}{2\pi} \frac{\cos \theta}{r}
-\end{gather}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram21.png}
-\end{figure}
-\section{Cylinder (Uniform Flow + Doublet)}
-\begin{gather}
-  \phi = V_{\infty}r\cos\theta + \frac{k}{2\pi} \frac{\cos\theta}{r}\\
-  \psi = V_{\infty} r\sin\theta - \frac{k}{2\pi}\frac{\sin\theta}{r}
-\end{gather}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram22.png}
-\end{figure}
-The radius of the cylinder can be derived as so:
-\begin{gather}
-  u_r = \frac{1}{r}\frac{\partial \psi}{\partial \theta} = V_{\infty} \cos\theta - \frac{k}{2\pi}\frac{\cos\theta}{r^2}\\
-  u_{\theta} = -\frac{\partial \psi}{\partial r} = - \left( V_{\infty} \sin\theta + \frac{k}{2\pi}\frac{\sin\theta}{r^2} \right)
-\end{gather}
-On the cylinder, $\vec{u}\cdot\hat{n} = 0$
-\begin{gather}
-  \hat{n} = \hat{i}_r \rightarrow u_r(R)=0\\
-  V_{\infty}\cos\theta - \frac{k}{2\pi}\frac{\cos\theta}{R^2} = 0\\
-  R = \sqrt{\frac{k}{2\pi V_{\infty}}}
-\end{gather}
-We can rewrite $\phi$ and $\psi$
-\begin{gather}
-  \phi = V_{\infty}r\cos\theta\left(1+\frac{R^2}{r^2}\right)\\
-  \psi = V_{\infty}r\sin\theta\left(1-\frac{R^2}{r^2}\right)
-\end{gather}
-On the cylinder surface, $r =R$ and inputting this into $\psi$:
-\begin{equation}
-  \psi = 0
-\end{equation}
-\section{Uniform Stream with Varying Direction}
-All we need to do to generalise our equations a bit more is to rewrite our equations with an extra angular term, $\alpha$:
-\begin{gather}
-  \phi = V_{\infty}r\cos(\theta-\alpha)\left(1+\frac{R^2}{r^2}\right)\\
-  \psi = V_{\infty}r\sin(\theta-\alpha)\left(1-\frac{R^2}{r^2}\right)
-\end{gather}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram23.png}
-\end{figure}
-\section{Adding Circulation with a Vortex Flow}
-\begin{gather}
-  \phi = -\frac{\Gamma}{2\pi}\theta\\
-  \psi = \frac{\Gamma}{2\pi}\ln\left(\frac{r}{R}\right)\\
-  u_r = \frac{1}{r}\frac{\partial \psi}{\partial \theta} = 0\\
-  u_{\theta} = -\frac{\partial \psi}{\partial r} = -\frac{\Gamma}{2\pi r}
-\end{gather}
-Where $\Gamma < 0$ is anti-clockwise motion and $\Gamma > 0$ is clockwise motion.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram24.png}
-\end{figure}
-\section{Cylinder with a Vortex Flow}
-\begin{gather}
-  \psi = V_{\infty}r\sin\theta\left(1-\frac{R^2}{r^2}\right) + \frac{\Gamma}{2\pi}\ln\left(\frac{r}{R}\right)\\
-  \phi = V_{\infty}r\cos\theta\left(1+\frac{R^2}{r^2}\right)-\frac{\Gamma}{2\pi}\theta\\
-  u_r = \frac{1}{r}\frac{\partial \psi}{\partial \theta} = V_{\infty}\cos\theta\left(1-\frac{R^2}{r^2}\right)\\
-  u_{\theta} = -\frac{\partial \psi}{\partial r} = - V_{\infty}\sin\theta\left(1+\frac{R^2}{r^2}\right)
-\end{gather}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram25.png}
-\end{figure}
-\section{Lift and Drag of a Cylinder with Circulation}
-Apply Bernoulli:
-\begin{gather}
-  p_{\infty} + \frac{1}{2}\rho V_{\infty}^2 = p(r,\theta) + \frac{1}{2}\rho(u_r^2+u_{\theta}^2)\\
-  c_p = \frac{p - p_{\infty}}{\frac{1}{2}\rho V_{\infty}^2} = 1 - \frac{u_r^2 + u_{\theta}^2}{V_{\infty}^2}
-\end{gather}
-On the cylinder surface: $u_r = 0$
-\begin{gather}
-  c_p (R,\theta) = 1 - \frac{u_{\theta}^2}{V_{\infty}^2}=1-\frac{(2V_{\infty}\sin\theta + \frac{\Gamma}{2\pi R})^2}{V_{\infty}^2} \\
-  = 1-\left(4\sin^2(\theta)+\frac{\Gamma^2}{4\pi^2V_{\infty}^2R^2}+\frac{2\Gamma\sin(\theta)}{V_{\infty}\pi R}\right)
-\end{gather}
-\section{Lift of the Cylinder}
-We need to calculate $c_p$ on the surface of the cylinder.
+\section{Boundary Layer Theory}
+x-direction:
 \begin{align}
-  L &= -\frac{1}{2}\rho V_{\infty}^2\int_{0}^{2\pi} \left(c_p \cdot \hat{n}\cdot\hat{j}R\right)\dif \theta \\
-  &= - \frac{1}{2}\rho V_{\infty}^2 \int_{0}^{2\pi} \left(c_p \sin\theta R\right) \,\mathrm{d}\theta \\
-  L &= -\frac{1}{2}\rho V_{\infty}^2 \int_{0}^{2\pi} \left(1-\frac{(2V_{\infty}\sin\theta + \frac{\Gamma}{2\pi R})^2}{V_{\infty}^2}\right) \sin\theta R \,\mathrm{d}\theta 
+  u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = - \frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \frac{\partial^2 u}{\partial y^2}
 \end{align}
-Expanding the integral out, we arrive at:
-$$
-  L = -\frac{1}{2} \rho V_\infty^2 \left[ \int_{0}^{2\pi} \left(1 - \frac{\Gamma^2}{4\pi^2R^2V_\infty^2}\right)\cdot \sin{\theta} \cdot R \,\mathrm{d}\theta + \int_{0}^{2\pi} -4\sin{\theta}^3 \cdot R \,\mathrm{d}\theta + \right.
-$$
+y-direction:
 \begin{align}
-  \left. \int_{0}^{2\pi} -\frac{2\Gamma}{\pi RV_\infty}\cdot \sin{\theta}^2 \cdot R \,\mathrm{d}\theta \right]
+  \frac{\partial p}{\partial y} = 0
 \end{align}
-Because the first term and the second term have an odd power of $\sin{}$, when we integrate these, they will have negligible outcome on the lift of the cylinder. We can reduce our equation to:
+Pressure does no change along the thickness of the boundary layer. Therefore, I can estimate the pressure outside of boundary layer using Bernoulli (inviscid flow theory), and then apply that pressure on the body wall. By definition, outside of the boundary layer:
+\begin{gather}
+  \frac{\partial}{\partial y} = 0 \ \& \ v = 0\\
+  U(x) = \frac{\partial U(x)}{\partial x} = \frac{\partial \frac{1}{2} U(x)^2}{\partial x} = - \frac{1}{\rho} \frac{\partial p}{\partial x}\\
+  p + \frac{1}{2} \rho U(x)^2 = \textrm{const (from } \frac{\partial \frac{1}{2} U(x)^2}{\partial x}\textrm{)}
+\end{gather}
+\section{Flat plate boundary layer}
+Inside the boundary layer:
 \begin{align}
-  L &= -\frac{1}{2} \rho V_\infty^2 \left[ \int_{0}^{2\pi} -\frac{2\Gamma}{\pi RV_\infty}\cdot \sin{\theta}^2 \cdot R \,\mathrm{d}\theta \right]\\
-  &= \frac{\rho V_\infty \Gamma}{\pi} \int_{0}^{2\pi} \sin{\theta}^2 \,\mathrm{d}\theta \\
-  &= \frac{\rho V_\infty \Gamma}{\pi} \left[ \frac{1}{2}\theta - \frac{1}{2}\sin{2\theta} \right]_0^{2\pi}\\
-  L &= \rho V_\infty \Gamma 
+  u \frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} = -\frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \frac{\partial^2 u}{\partial y^2}\\
+  \frac{\partial p}{\partial y} = 0
 \end{align}
-We can see here that our vortex factor $\Gamma$ has a proportional effect on our lift force. We can see an example of this in real life when a football is kicked. When the ball is kicked in such a way that it has a spin, we see the ball curves in certain directions.
+Pressure does not change along boundary layer thickness:
+\begin{align}
+  U_\infty = \frac{\partial U_\infty}{\partial x} = 0 = -\frac{1}{\rho} \frac{\partial p}{\partial x}
+\end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram26.png}
-  \caption{We can see that when the ball spins, the velocity from the free stream and the vortex combine to create regions of low and high pressure. This creates a net force, leading to a suction effect.}
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram67.png}
 \end{figure}
-\section{Drag of a cylinder}
+\subsection{Analysis of order of magnitude}
+\begin{align}
+  v << u\\
+  \left| \frac{\partial}{\partial x} \right| \approx \frac{1}{L}\\
+  \left| \frac{\partial}{\partial y} \right| \approx \frac{1}{\delta}
+\end{align}
+Inside the boundary layer, viscous diffusion is large and of the same order of magnitude of inertial terms, therefore:
+\begin{align}
+  \frac{u\frac{\partial u}{\partial x}}{\nu\frac{\partial^2 u}{\partial y^2}} \approx 1 \begin{cases}
+    u\approx U_\infty\\
+    y \approx \delta\\
+    x \approx L
+  \end{cases} \rightarrow \frac{\frac{U_\infty^2}{L}}{\frac{\nu U_\infty}{\delta^2}} = \frac{\delta^2}{L^2} Re \approx 1
+\end{align}
+\section{Blasius solution}
+In 1908, Blasius found the analytical solution to the flat plate boundary layer problem. The velocity profiles are self-similar at different axial distances from the leading edge.
+\begin{gather}
+  \eta = \frac{y}{\delta (x)} = \frac{y\sqrt{Re_x}}{x} = \frac{y}{x} \sqrt{\frac{U_\infty x}{\nu}} = y\sqrt{\frac{U_\infty}{x\nu}}\\
+  \frac{u}{U_\infty} = f'(\eta)\\
+  \frac{v}{U_\infty} = \frac{1}{2} \left( \frac{\nu}{x U_\infty} \right)^{0.5} \left(\eta f'(\eta) - f (\eta)\right)\\
+  u \frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} = \nu \frac{\partial^2 u}{\partial y^2} \rightarrow \frac{1}{2} f(\eta) f''(\eta)+f'''(\eta) = 0
+\end{gather}
+Boundary conditions:
+\begin{gather}
+  \begin{cases}
+    u = v = 0 & @\  y = 0\\
+    u = U_\infty & @\ y = \infty
+  \end{cases}\rightarrow \begin{cases}
+    f = f' = 0 & @ \ \eta = 0\\
+    f' = 1 & @ \ \eta = \infty
+  \end{cases}\\
+  \frac{\delta}{x} = \frac{A}{\sqrt{Re_x}} \rightarrow A = ?
+\end{gather}
+Blasius solved this problem and derived the analytical solution, which is shown below:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.3\textwidth]{../img/diagram27.png}
+  \includegraphics[width = 0.6 \textwidth]{../img/diagram68.png}
 \end{figure}
+The boundary layer corresponds to when we have $0.99 U_\infty$, we have $A = 5$, hence:
 \begin{align}
-  D &= -\frac{1}{2} \rho V_\infty^2 \int_{0}^{2\pi} c_p \vec{n}\cdot\hat{i} R \,\mathrm{d}\theta\\
-  &= - \frac{1}{2} \rho V_\infty^2 \int_{0}^{2\pi} c_p \cos{\theta} R \,\mathrm{d}\theta \\
-  D &= - \frac{1}{2} \rho V_\infty^2 \int_{0}^{2\pi} \left(1 - \frac{\left(2V_\infty \sin{\theta} + \frac{\Gamma}{2\pi R}\right)^2}{V_\infty^2}\right)\cos{\theta} R \,\mathrm{d}\theta 
+  \frac{\delta}{x} = \frac{5}{\sqrt{Re_x}}
 \end{align}
-The first term has an odd power of cosine, and so is negligible. The second term of the drag integral is:
+Let us look at the shear stress and the friction coefficient:
 \begin{align}
-  \int_{0}^{2\pi} -4\sin{\theta}^2 \cos{\theta} R \,\mathrm{d}\theta = -4R \left(\frac{1}{3} \sin{\theta}^3\right)_p^{2\pi} = 0 
+  \tau (x) = \mu \left. \frac{\partial u}{\partial y}\right|_{y=0} \rightarrow c_f = \frac{\tau (x)}{\frac{1}{2}\rho U^2_\infty} = \frac{0.664}{\sqrt{Re_x}}
 \end{align}
-The third term of the drag integral is:
-\begin{align}
-  \frac{1}{2}\rho V_\infty^2 \int_{0}^{2\pi} -\frac{2\Gamma}{\pi R V_\infty}\sin{\theta}\cos{\theta} R \,\mathrm{d}\theta = - \frac{\rho V_\infty \Gamma}{\pi} \left(-\frac{1}{2} \cos{2\theta}\right)_0^{2\pi} = 0
-\end{align}
-Therefore, we see that our drag is in fact:
-\begin{align}
-  D = 0
-\end{align}
-This is due to our assumption that our flow is inviscid and that the pressure forces are symmetrical to the left and right sides to the y axis. Therefore the net forces acting on the x direction is zero. This is where our model starts failing and is called the D'Alambert Paradox.
-\section{Inviscid and Viscous Flow past a body}
-High $Re$ implies that the magnitude of the inertia forces are much greater than the magnitudes of the viscous forces in a system. This might imply that the effects of viscosity are insignificant compared with the inertia forces, but this would be a dangerous conclusion. Compare theory for zero viscosity with experiment for high $Re$ flow past a cylinder:
+How does the shear stress, $\tau (x)$, vary with distance from the leading edge? If we look at our $Re_x$ term, we see that as $x$ increases $c_f$ decreases. Looking at the gradients of $\frac{\partial u}{\partial y}$ along our boundary layer, we see that the gradient is steeper at $y = 0$. We can also plot $\tau (x)$ against $x$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/diagram28.png}
-  \caption{We have a net force in our experiment due to the fact that a net force is created from the low pressure wake region and the high pressure front side of the cylinder.}
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram69.png}
 \end{figure}
-\section{Flow past a cylinder - pressure coefficient}
+Let us look at the friction drag on the flat plate:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/diagram29.png}
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram70.png}
 \end{figure}
-We can plot the pressure coefficient and see the difference between the inviscid theory and an experiment at high $Re$.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.9\textwidth]{../img/diagram30.png}
-\end{figure}
-For a long circular cylinder, the lift coefficient $c_L$ and the form drag coefficient to $c_D$ are related to $c_p$ by:
+What is the friction drag on the flat plate per unit of span?
 \begin{align}
-  c_L &= \frac{1}{2} \int_{0}^{2\pi} c_p \sin{\theta} \,\mathrm{d}\theta \\
-  c_D &= \frac{1}{2} \int_{0}^{2\pi} c_p \cos{\theta} \,\mathrm{d}\theta 
+  D = \int_{0}^{L} \tau(x) \,\mathrm{d}x = 0.664 \rho U_\infty^2 \frac{L}{\sqrt{Re_L}}\\
+  c_D = \frac{D}{\frac{1}{2}\rho U_\infty^2 L} = \frac{1.328}{\sqrt{Re_L}} = 2 c_f (L)
 \end{align}
-Some examples of viscous flow past bodies:
+\section{Laminar and turbulent profiles}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/diagram31.png}
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram71.png}
+  \label{lamturbpfs}
+\end{figure}
+Our parabolic approximation is given by the Karman approximation:
+\begin{align}
+  \frac{u}{U_\infty} = \left( 2 \frac{y}{\delta} - \frac{y^2}{\delta^2}\right)
+\end{align}
+Turbulent flow can be described as:
+\begin{align}
+  \frac{u}{U_\infty} = \left(\frac{y}{\delta}\right)^{\frac{1}{5}}
+\end{align}
+The Prandtl approximation is given as:
+\begin{align}
+  \frac{u}{U_\infty} = \left(\frac{y}{\delta}\right)^{\frac{1}{7}}
+\end{align}
+In Figure (\ref{lamturbpfs}), we see that with increasing $Re$, the bulge in our curve also increases. This also means that $\frac{\partial u}{\partial y}$ is also increasing, meaning our shear stress also increases with $Re$.
+\subsection{Turbulent friction and drag coefficients}
+For $n = \frac{1}{5}$ (fully turbulent flow):
+\begin{align}
+  \frac{\delta}{x} &= \frac{0.385}{(Re_x)^{\frac{1}{5}}}\\
+  c_f &= \frac{\tau (x)}{\frac{1}{2}\rho U_\infty^2} = \frac{0.0594}{(Re_x)^\frac{1}{5}}\\
+  c_D &= \frac{D}{\frac{1}{2} \rho U_\infty^2 L} = \frac{0.074}{(Re_L)^{\frac{1}{5}}} = \frac{5}{4} c_f (L)
+\end{align}
+For $n = \frac{1}{7}$ (fully turbulent flow):
+\begin{align}
+  \frac{\delta}{x} &= \frac{0.16}{(Re_x)^{\frac{1}{7}}}\\
+  c_f &= \frac{\tau (x)}{\frac{1}{2} \rho U_\infty^2} = \frac{0.027}{(Re_x)^{\frac{1}{7}}}\\
+  c_D &= \frac{D}{\frac{1}{2}\rho U_\infty^2 L} = \frac{0.031}{(Re_L)^{\frac{1}{7}}} = \frac{7}{6} c_f (L)
+\end{align}
+\section{Displacement thickness}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram72.png}
+\end{figure}
+Based on the conservation of mass; the outer streamline must displace outwards to conserve the mass flow rate. The displacement thickness measure the streamline displacement for different $x$:
+\begin{gather}
+  \rho U h = \int_{0}^{\delta} \rho u \,\mathrm{d}y = \int_{0}^{\delta} \rho \left(u + U - U\right) \,\mathrm{d}y\\
+  Uh = U(h + \delta^*) + \int_{0}^{\delta} \left(u - U\right) \,\mathrm{d}y\\
+  \delta^* = \int_{0}^{\delta} \left(1 - \frac{u}{U}\right) \,\mathrm{d}y
+\end{gather}
+\section{Momentum thickness}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram73.png}
+\end{figure}
+Based on momentum loss; the total loss os momentum is equivalent to the loss of momentum occurring over a distance $\theta$, denoted as the "momentum thickness."
+\begin{gather}
+  \rho U^2 \theta = \int_{0}^{\delta} \rho u (U - u) \,\mathrm{d}y\\
+  \theta = \int_{0}^{\delta} \frac{u}{U} \left(1 - \frac{u}{U}\right) \,\mathrm{d}y
+\end{gather}
+\begin{itemize}
+  \item The "momentum thickness" measures the deficit in the rate of transport momentum in the layer compared with the rate of transport of momentum in the absence of the layer.
+  \item Alternatively it can be seen as the thickness of a completely stagnant layer of fluid giving the same deficit in momentum as the actual profile.
+\end{itemize}
+For a flat plate (zero pressure gradient), the momentum loss is also equal to the friction drag along the flat plate. 
+\begin{gather}
+  D = \int_{0}^{\delta} \rho u (U_\infty - u) \,\mathrm{d}y\\
+  D = \int_{0}^{x} \tau_w \,\mathrm{d}x\\
+  \tau_w = \frac{dD}{dx} = \rho U_\infty^2 \frac{d\theta}{dx}\\
+  \frac{\tau_w}{\rho U_\infty^2} = \frac{d\theta}{dx}
+\end{gather}
+The following equations are valid:
+\begin{align}
+  c_f = \frac{\tau_w}{\frac{1}{2}\rho U_\infty^2} = 2\frac{d\theta}{dx}
+\end{align}
+If we know the momentum thickness, I can find the shear stress/friction coefficient on the plate and vice versa.
+\section{General case with pressure gradient \& shape factor}
+The shape factor is the ratio between the displacement thickness and the momentum thickness.
+\begin{align}
+  H = \frac{\delta^*}{\theta} = \frac{\int_{0}^{\delta} \left(1 - \frac{u}{U}\right) \,\mathrm{d}y}{\int_{0}^{\delta} \frac{u}{U} \left(1 - \frac{u}{U}\right) \,\mathrm{d}y} > 1
+\end{align}
+This leads to:
+\begin{align}
+  \frac{\tau_w}{\rho U_\infty^2} = \frac{d\theta}{dx} + U \frac{dU}{dx} (H + 2)\theta
+\end{align}
+where $U \frac{dU}{dx} (H + 2)\theta$ is an extra term added due to the presence of a pressure gradient. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5 \textwidth]{../img/diagram74.png}
+\end{figure}
+For laminar flow (flat plate)
+\begin{align}
+  H = 2.59
+\end{align}
+For turbulent flow (flat plate)
+\begin{align}
+  H = 1.29
+\end{align}
+A large shape factor is indicative of boundary layer separation.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5 \textwidth]{../img/diagram75.png}
+\end{figure}
+\section{Laminar - turbulent flow transition}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram76.png}
+\end{figure}
+$x_c$ is defined as the point along our plate where our flow turns turbulent.
+\begin{gather}
+  Re = \frac{U_\infty x_c}{\nu}
+\end{gather}
+This is normally in the region where $Re = 5 \times 10^5 - 8\times 10^7$.
+\begin{align}
+  D = \int_{0}^{x_c} \tau_{\textrm{lam}} (x) \,\mathrm{d}x + \int_{x_c}^{L} \tau_{\textrm{turb}} (x) \,\mathrm{d}x\\
+  c_D = \frac{1}{L} \left( \int_{0}^{x_c} c_{fl} (x) \,\mathrm{d}x + \int_{x_c}^{L} c_{ft} (x) \,\mathrm{d}x  \right)  
+\end{align}
+\section{Flat plate drag coefficient}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram77.png}
 \end{figure}
 \end{document}

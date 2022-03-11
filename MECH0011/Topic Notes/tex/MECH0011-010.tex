@@ -11,224 +11,200 @@
 \usepackage{array}
 \usepackage{natbib}
 \usepackage{tikz}
+\usepackage{cancel}
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\usetikzlibrary{positioning, fit, calc}   
-\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
-line/.style={-latex}     
-}  
+\allowdisplaybreaks
 \setlength{\parindent}{0pt}
+\numberwithin{equation}{section}
 \begin{document}
-\section*{Boundary layer theory (Prandtl)}
-The flow domain can be subdivided into two parts:
-\begin{itemize}
-  \item \textbf{Irrotational flow region}, outside of the boundary layer, Bernoulli equation, potential flow and stream function apply
-  \item \textbf{Boundary layer} where all vorticity is confined, The friction shear at the airfoil surface acts as a source of vorticity. 
+\begin{center}
+  26/01/2021
+\end{center}
+The study of systems involving \textbf{moist air (dry air + water vapour)} is called psychrometrics.
+\section{Air-Water Vapour Mixtures}
+Moist air is found in:
+\begin{itemize}[noitemsep]
+  \item Nature;
+  \item HVAC (heating, ventilation and air-conditioning) processes, where moisture (water vapour) is added or removed from the air;
+  \item Steam turbines; and so on.
 \end{itemize}
+Moist air is a mixture of dry air and water vapour, where the \textbf{amount of dry air} is usually kept \textbf{constant} and the \textbf{amount of water vapour} may \textbf{change}. Two assumption are employed for air-water vapour properties :
+\begin{enumerate}[noitemsep]
+  \item \textbf{Dalton’s law} applies for the mixture, i.e. partial pressure $\longrightarrow p = p_a + p_v$
+  \item Air and water vapour are each treated as \textbf{ideal gases, so is their mixture}.
+\end{enumerate}
+\section{Moist Air}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram48.png}
+  \includegraphics[width = 0.9 \textwidth]{../img/diagram98.png}
+  \caption{}
 \end{figure}
-\section{Boundary layer concept}
-Immediately adjacent to a solid surface, the fluid particles are slowed by the strong shear force between the fluid particles and the surface. This relatively slower moving layer of fluid is the boundary layer.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram49.png}
-  \caption{In turbulent flow, you have a higher shear stress due to the higher velocity close to the boundary. This produces more frictional drag against the motion of the solid surface. ($\tau = \mu \frac{\partial u}{\partial y}$)}
-\end{figure}
-\section{Boundary layer theory}
-Prandtl's concept of the boundary layer in high $Re$ flow is that although viscous forces can be considered small, their effects are not negligible.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram50.png}
-\end{figure}
-Let us see what happens when we consider the Navier stokes equations for a steady - 2D flow with $Re >> 1$. Continuity equation (conservation of mass):
-\begin{align}
-  \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0
-\end{align}
-Conservation of momentum equations:
-\begin{align}
-  \textrm{x-direction: } u\frac{\partial u}{\partial x} + v \frac{\partial u }{\partial y} &= - \frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right)\\
-  \textrm{y-direction: } u \frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} &= -\frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \left(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2}\right)
-\end{align}
-Remember that:
-\begin{equation}
-  Re = \frac{U_\infty L}{\nu}
-\end{equation}
-Where $L$ is the length of the airfoil being analysed, $U_\infty$ is the velocity of the free stream and $\nu$ the kinematic viscosity. Inside the boundary layer, one thing we can assume that the inertial forces and the viscous forces are comparable, because viscous diffusion is large and of the same order of magnitude of the inertial terms. Therefore:
-\begin{align}
-  \frac{u\frac{\partial u}{\partial x}}{\nu \frac{\partial^2 u}{\partial y^2}} \approx 1
-\end{align}
-We need to exploit this relationship in order to derive an expression for $\delta$ in comparison to $L$. Some approximations we can make below are:
-\begin{align}
-  u &\approx U_\infty\\
-  x &\approx L \rightarrow \frac{\partial}{\partial x} \propto \frac{1}{L}\\
-  y &\approx \delta \rightarrow \frac{\partial}{\partial y} \propto \frac{1}{\delta}
-\end{align}
-Combining this with our above assumption:
-\begin{align}
-  \frac{\frac{U_\infty^2}{L}}{\nu \frac{U_\infty}{\delta^2}} &= \frac{\delta^2}{L^2} Re \approx 1\\
-  \delta^2 &\approx \frac{L^2}{Re}
-\end{align}
-Looking at the continuity equation:
-\begin{align}
-  \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} &= 0\\
-  \frac{U_\infty}{L} + \frac{v}{\delta} &= 0\\
-  v &= \frac{\delta}{L}U_\infty\\
-  v &= \frac{1}{\sqrt{Re}} U_\infty
-\end{align}
-(signs were ignored). Looking at the momentum equation in the x-direction:
-\begin{align}
-  u\frac{\partial u}{\partial x} + v \frac{\partial u }{\partial y} &= - \frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right)\\
-  \textrm{First term: } u\frac{\partial u}{\partial x} &\propto \frac{U_\infty^2}{L}\\
-  \textrm{Second term: } v\frac{\partial u}{\partial y} &\propto \frac{1}{\sqrt{Re}} \frac{U_\infty}{\delta} U_\infty = \frac{U_\infty^2}{\sqrt{Re}} \frac{\sqrt{Re}}{L} = \frac{U_\infty^2}{L}\\
-  \textrm{Fourth term: } \nu \frac{\partial^2 u}{\partial x^2} &\propto \nu \frac{U_\infty}{L^2} = \frac{\nu}{L U_\infty} \frac{U_\infty^2}{L} = \frac{1}{Re} \frac{U_\infty^2}{L}\\
-  \textrm{Fifth term: } \nu \frac{\partial^2 u}{\partial y^2} &\propto \nu \frac{I_\infty}{\delta^2} = \frac{\nu}{L U_\infty} \frac{U_\infty^2 L}{\delta^2} = \frac{1}{Re} \frac{U_\infty^2 Re}{L} = \frac{U_\infty^2}{L}
-\end{align}
-We can see in the fourth term that $Re >> 1$, hence it is neglected i.e. there will not be a viscous term due to the variation of the velocity in the x direction w.r.t x. Looking at the momentum equation in the y-direction:
-\begin{align}
-  u \frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} &= -\frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \left(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2}\right)\\
-  \textrm{First term: } u \frac{\partial v}{\partial x} &\propto U_\infty^2\frac{\delta}{L^2} = \frac{1}{\sqrt{Re}}\frac{U_\infty^2}{L}\\
-  \textrm{Second term: } v\frac{\partial v}{\partial y} &\propto \frac{U_\infty^2}{L^2} \frac{\delta^2}{\delta} = \frac{1}{\sqrt{Re}} \frac{U_\infty^2}{L}\\
-  \textrm{Fourth term: } \nu \frac{\partial^2 v}{\partial x^2} &\propto \nu \frac{U_\infty \delta}{L} \frac{1}{L^2} = \frac{\nu}{L U_\infty} \frac{U_\infty^2 \delta}{L^2} = \frac{1}{Re} \frac{U_\infty^2}{L\sqrt{Re}} = \frac{1}{\sqrt{Re}^3} \frac{U_\infty^2}{L}\\
-  \textrm{Fifth term: } \nu \frac{\partial^2 v}{\partial y^2} &\propto \nu \frac{U_\infty \delta}{L} \frac{1}{\delta^2} = \frac{\nu}{LU_\infty} \frac{U_\infty^2}{\delta} = \frac{1}{Re} \frac{U_\infty^2 \sqrt{Re}}{L} = \frac{1}{\sqrt{Re}} \frac{U_\infty^2}{L}
-\end{align}
-We see that in the first, second, fourth and fifth terms, $Re >> 1$, hence they are neglected. Let us see what this analysis tells us:
-\begin{align}
-  \textrm{x-direction: } u\frac{\partial u}{\partial x} + v \frac{\partial u }{\partial y} &= - \frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \frac{\partial^2 u}{\partial y^2}\\
-  \textrm{y-direction: } \frac{\partial p}{\partial y} &= 0
-\end{align}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram51.png}
-\end{figure}
-Pressure does not change along thickness of the boundary layer. Therefore I can estimate the pressure outside of the boundary layer using Bernoulli (inviscid flow theory), and then apply that pressure on the body wall. Outside of the boundary layer, we know:
+Equation of state of ideal gases:
 \begin{gather}
-  \frac{\partial}{\partial y} = 0 \ \& \ v = 0\\
-  U(x) = \frac{\partial U(x)}{\partial x} = \frac{\partial \frac{1}{2}U(x)^2}{\partial x} = -\frac{1}{\rho} \frac{\partial p}{\partial x}\\
-  p + \frac{1}{2} \rho U(x)^2 = \textrm{const}
+  p = \frac{n R_u T}{V} = \frac{m(\frac{R_u}{M})T}{V} \\[5pt]
+  p_a = \frac{n_a R_u T}{V} = \frac{m_a(\frac{R_u}{M_a})T}{V} \ \ \ \ \ p_a = y_ap\\[5pt]
+  p_v = \frac{n_v R_u T}{V} = \frac{m_v(\frac{R_u}{M_v})T}{V} \ \ \ \ \ p_v = y_vp
 \end{gather}
-\section{Flow separation}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram52.png}
-  \caption{Formation of a vortex, due to flow separation and flow reversal.}
-\end{figure}
-Favourable pressure gradient:
-\begin{align}
-  \frac{\partial U(x)}{\partial x} > 0, \ \frac{\partial p}{\partial x} <0
-\end{align}
-Adverse pressure gradient:
-\begin{align}
-  \frac{\partial U(x)}{\partial x} < 0, \ \frac{\partial p}{\partial x} > 0
-\end{align}
-Adverse pressure gradient produces further retardation of fluid (which is already slowed down close to wall). The fluid near to the wall is eventually brought to rest, flow reverse and separated. Separation occurs at or near the point where $\frac{dp}{dx}$ first becomes zero; at the first point of separation, at $y = 0$, $\frac{du}{du} =0$. The formation of separation occurs as the fluid accelerates from the centre to get round the cylinder (it must accelerate as it has further to go than the surround fluid). It reaches a maximum at $Y-Y$, where it has also dropped in pressure. The adverse pressure gradient between here and the downstream side of the cylinder will cause separation if the flow is fast enough ($Re > 2$).
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/diagram53.png}
-\end{figure}
-\section{Laminar and turbulent flow separation}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/diagram54.png}
-  \caption{Left: laminar, right: turbulent}
-\end{figure}
-The boundary layer has a high momentum deficit and in the case of laminar flow, it is unable to adjust to the increasing pressure and separates. A turbulent boundary layer is more resistant to separation than a laminar one. Due to the chaotic nature of turbulence, a turbulent boundary layer has a great capacity for mixing and absorbing energy from the free stream (this is obvious from its profile and its rate of growth compared with a laminar layer). The effect of increased mixing is increased transport of momentum (due to turbulent stresses) between the free-stream and the flow near the wall. This increased transport of momentum from the free-stream to the wall increases the stream-wise momentum in the boundary layer allowing the flow to overcome $\frac{dp}{dx}$ for longer and to separate further downstream (larger velocities near the wall are not so easily halted). 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = \textwidth]{../img/diagram55.png}
-\end{figure}
-\section{Flow past a cylinder - Drag coefficient}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram56.png}
-\end{figure}
-For a cylinder, 
-\begin{itemize}
-  \item $c_D$ is nearly constant when $Re = 10^3 - 10^5$, but varies considerably as the boundary layer becomes turbulent between $Re = 10^5 - 10^6$
-  \item At $Re \approx 2000$, $c_D$ reaches minimum of $\approx 0.9$
-  \item At $Re \approx 30000$, $c_D$ rises to $\approx 1.2$ (partly due to increasing turbulence in the wake)
-  \item At $Re \approx 200000$, $c_D$ drops suddenly to $\approx 0.3$
-  \item At $Re > 200000$, $c_D$ increases slowly. 
-  \item The form drag is $\approx 50\%$ of the profile drag as $Re \rightarrow 0$
-  \item By $Re \approx 200$ the form drag is $\approx 90\%$ of the profile drag
-  \item At $Re \approx 30000$, skin friction is insignificant.
+$p_v$ and $T$:
+\begin{itemize}[noitemsep]
+  \item Typical state: vapor is superheated;
+  \item At $p_v = p_g$ (saturation pressure at $T$) $\longrightarrow$ Saturated Air (mixture of dry air and saturated water vapour); the mixture is said to be \textbf{saturated}.
 \end{itemize}
-\section{Flow past a sphere}
-The flow over a sphere starts to separate from the surface at $Re \approx 20$. As $Re$ increases, a pair of recirculating vortices becomes visible in the wake region. At flows up to $Re \approx 200$ the flow is still steady but beyond this value oscillations start to appear and the separation point moves upstream of the top of the sphere, increasing the drag. 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = \textwidth]{../img/diagram57.png}
-\end{figure}
-\subsection{Drag coefficient}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram58.png}
-\end{figure}
-For a sphere, $c_D$ is nearly constant for $Re = 10^3 - 10^5$ but varies considerably as the boundary layer becomes turbulent between $Re = 10^5 - 10^6$ and, in fact, this transition causes $c_D$ to dramatically increase. As $Re \rightarrow 0$, $c_D$ is given by Stokes's law ($c_D = \frac{24}{Re}$)
-\subsection{Drag reduction}
-Deliberately tripping the boundary layer from laminar to turbulent (i.e. by a trip wire) results in an increase in skin drag (due to increased shear stresses), but a decrease in form drag (due to delayed separation point). The reduction in form drag more than compensates for the increased drag due to turbulent shearing, resulting in a greatly reduced overall drag coefficient $c_D$. Drag reduction can also be accomplished by roughening the surface and, thereby, lowering $Re$ at which transition occurs. However, the drag coefficient for a roughened surface will typically rise faster in comparison to a smooth surface, once the transition point is passed. 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = \textwidth]{../img/diagram59.png}
-\end{figure}
-\section{Flow past an aerofoil - stalling}
-If the angle of attack becomes too great and boundary layer separation occurs on top of the aerofoil, the pressure pattern will change dramatically. In such a case, the lift component is insufficient to overcome the weight of one aircraft and disaster is imminent. This phenomenon is known as \textbf{stalling}. When stalling occurs, all, or most, of the 'suction' pressure is lost, and the plane will suddenly drop from the sky. The solution to this is to put the plane into a dive to regain the boundary layer. A transverse lift force is then exerted on the wing which gives the pilot some control and allows the plane to be pulled out of the dive.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = \textwidth]{../img/diagram60.png}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width =0.7 \textwidth]{../img/diagram61.png}
-\end{figure}
-\section{Boundary layer control}
-There are mechanisms for preventing the boundary layer from separating in the first place.
-\begin{itemize}
-  \item Surface roughening
-  \begin{itemize}
-    \item To initiate turbulent boundary layer, thus delay separation and achieve a narrower wake of higher pressure
-  \end{itemize}
-  \item Shape variation
-  \begin{itemize}
-    \item Putting a flap at the end of the wing and tilting it before separation occurs increases the velocity over the top of the wing, reduces the pressure and chance of separation 
-  \end{itemize}
-  \item Fluid injection
-  \begin{itemize}
-    \item Accelerate boundary layer in direction of flow (but this will produce very turbulent flow and more skin friction)
-  \end{itemize}
-  \item Fluid removal
-  \begin{itemize}
-    \item Suction through small holes or a porous surface
-    \item Downstream of suction position, boundary layer is thinner and faster thus better able to withstand adverse pressure gradient. Suction delays laminar to turbulent transition and leads to less skin friction
-  \end{itemize}
-  \item Slotted wing
-  \begin{itemize}
-    \item Slower moving air on the upper surface can be accelerated by bringing air from the high-pressure area on the bottom of the wing through slots. Pressure decreases on the top and adverse pressure gradient reduces
-  \end{itemize}
-  \item Engine arrangement
-  \begin{itemize}
-    \item Engine intakes draw slow air from the boundary layer at the rear of the wing through small holes. This keeps the boundary layer close to the wing and greater pressure gradients can be maintained before separation
+\subsection{Moist Air Properties}
+For a single component:
+\begin{itemize}[noitemsep]
+  \item \textbf{Two} independent, intrinsic properties are needed to define the state
+\end{itemize}
+For a two-component mixture (e.g. air-water vapor):
+\begin{itemize}[noitemsep]
+  \item \textbf{Three} independent, intrinsic properties are needed to define the state
+  \begin{itemize}[noitemsep]
+    \item Usually, two out of temperature, pressure
+    and specific volume.
+    \item Plus humidity ratio $\omega$ or relative humidity $\phi$ 
   \end{itemize}
 \end{itemize}
-Control systems are often costly and difficult to install. Advantages for some conditions, hindrance of others (advantages maybe offset by the added drag). Planes take advantage of the cambered aerofoil's high lift characteristics by enabling shape variation of the basic wing. Leading edge 'Krüger' flaps or slats and trailing edge 'Fowler' flaps are extended from the wing and change the aerofoil's shape into a cambered form, generating greater lift during low-speed flight.
+\section{Specific Humidity}
+The \textbf{specific humidity} or \textbf{humidity ratio} $\mathbf{\omega}$ is defined as:
+\begin{gather}
+  \omega = \frac{m_v}{m_a} = \frac{\text{mass of water vapour}}{\text{mass of dry air}}
+\end{gather}
+Using ideal gas law for both water vapour and dry air:
+\begin{gather}
+  \omega = \frac{R_u T}{M_a p_a V}\frac{M_v p_v V}{R_u T} = \frac{M_v p_v}{M_a p_a}
+\end{gather}
+Where, $T$ is temperature of the mixture measured by a convetional thermometer, called the dry bulb temperature denoted by $T_{db}$. \\\\
+The molecular weights:
+\begin{gather}
+  M_v = 18 \ \ \ \ \ M_a = 28.96 \\[5pt]
+  \frac{M_v}{M_a} \approx 0.622
+\end{gather}
+Dalton’s Law:
+\begin{gather}
+  p = p_a + p_v \\[5pt]
+  \therefore p_a = p - p_v
+\end{gather}
+Specific Humidity:
+\begin{gather}
+  \omega = 0.622\frac{p_v}{p-p_v}
+\end{gather}
+\subsection{Moist Air Properties}
+The humidity ratio is a parameter for determining other quantities: \\\\
+Mass:
+\begin{gather}
+  m = m_m = m_a + m_v = m_a + \omega m_a \\[5pt]
+  \therefore m = (1+\omega)m_a
+\end{gather}
+Energy:
+\begin{gather}
+  H = H_m = m_ah_a + m_vh_v \\[5pt]
+  \therefore H = m_a(h_a + \omega h_v) \\[5pt]
+  h = h_m = \frac{H}{m_a} = h_a + \omega h_v
+\end{gather}
+Humidity ratio is measured by a \textbf{hygrometer} in which a moist air sample is exposed to suitable chemicals until the moisture present is absorbed. The amount of water vapour is determined by weighing the chemicals.
+\section{Relative Humidity}
+\begin{gather}
+  \phi = \frac{\text{partial pressure of water vapour at a temperature $T$ (in superheated state)}}{\text{saturation pressure of water vapour at the same temperature $T$ (or $T_{db}$)}} \\[5pt]
+  \phi = \frac{p_v}{p_g}
+\end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width =0.5 \textwidth]{../img/diagram63.png}
+  \includegraphics[width = 0.45 \textwidth]{../img/diagram99.png}
+  \caption{}
 \end{figure}
+Consider ideal gas mixture:
+\begin{gather}
+  \phi = \frac{p_v}{p_g} = \frac{R_v T_v}{v_v}\frac{v_g}{R_v T_v} = \frac{v_g}{v_v} \\[5pt]
+  \phi = \frac{v_g}{v_v} = \frac{p_v}{p_g} \leq 1.0 \ \ \ \text{always}
+\end{gather}
+\subsection{An Alternative Definition}
+\begin{gather}
+  \phi = \frac{\text{mole fraction of water vapour at a given $T$ and $P$ (in superheated state)}}{\text{mole fraction of water vapour at saturation at the same $T$ and $P$}} \\[5pt]
+  \phi = \frac{y_v}{y_{v,sat}} = \frac{y_vp}{y_{v,sat}p} = \frac{p_v}{p_g}
+\end{gather}
+Relative humidity can be measured by \textbf{transducers} whose electrical characteristics change with relative humidity.
+\subsection{Condensation of Moist Air}
+Partial condensation of moist air can occur when temperature is reduced below a certain level:
 \begin{figure}[H]
   \centering
-  \includegraphics[width =0.8 \textwidth]{../img/diagram62.png}
+  \includegraphics[width = 0.8 \textwidth]{../img/diagram100.png}
+  \caption{Left: Condensate on windowpanes \ \ | \ \ Right: Dew on grass}
 \end{figure}
+The condensation process can be divided into the following stages:
+\begin{itemize}[noitemsep]
+  \item Superheated water vapour (state 1) is \textbf{cooled under constant system pressure} (thus the composition of moist air and partial pressure of vapour remain constant), until it reaches \textbf{the dew point} (state d);
+  \begin{itemize}[noitemsep]
+    \item The saturation temperature corresponding to pv is called the dew point temperature $(T_{dp})$.
+  \end{itemize}
+  \item Vapour starts to \textbf{condense when the moist air is cooled below} $\mathbf{T_{dp}}$.
+  \item Further cooling leads to more condensate until the dry air, saturated vapour and liquid water \textbf{reach equilibrium}.
+  \item At the final state, the system consists of \textbf{saturated air} (state 2) and \textbf{saturated liquid} (state 3) at the final temperature. The saturated vapour (state 2) has a partial pressure of the saturation pressure $p_{g2}$
+\end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width =0.7 \textwidth]{../img/diagram64.png}
+  \includegraphics[width = 1 \textwidth]{../img/diagram101.png}
+  \caption{}
 \end{figure}
+\section{Adiabatic Saturation Temperature $T_{as}$}
 \begin{figure}[H]
   \centering
-  \includegraphics[width =0.7 \textwidth]{../img/diagram65.png}
+  \includegraphics[width = 1 \textwidth]{../img/diagram102.png}
+  \caption{}
 \end{figure}
+The idea of the above \textbf{Adiabatic Saturator} is to determine the unknown humidity ratio at the inlet based on values of $p$, $T$ and \textbf{Adiabatic Saturation Temperature} $\mathbf{T_{as}}$.
+\subsection{The Adiabatic Saturation Analysis}
+Assumptions:
+\begin{itemize}[noitemsep]
+  \item Steady state
+  \item $\Delta$KE = $\Delta$PE = 0
+  \item Adiabatic process
+  \item Constant pressure process
+  \item Air and water vapor are ideal gases
+\end{itemize}
+Mass Balances:
+\begin{align}
+  \text{Dry air balance:} \ \ \ &\dot{m}_{a,1} = \dot{m}_{a,2} = \dot{m}_a \\[5pt]
+  \text{Water balance:} \ \ \ &\dot{m}_{v,1} + \dot{m}_L = \dot{m}_{v,2} \\[5pt]
+  \longrightarrow \ \ \ &\omega\dot{m}_a + \dot{m}_L = \omega'\dot{m}_a \\[5pt]
+  \longrightarrow \ \ \ &\dot{m}_L = \dot{m}_a(\omega'-\omega) = \dot{m}_a(\omega_2-\omega_1)
+\end{align}
+1st Law for Open System, energy balance:
+\begin{gather}
+  \frac{\dif E_{CV}}{\dif t} = \dot{Q} + \dot{W} + \sum_{in}\dot{m}_{in}\left(h+\frac{v^2}{2}+gz\right)_{in} - \sum_{out}\dot{m}_{out}\left(h+\frac{v^2}{2}+gz\right)_{out} \\[5pt]
+  \cancel{\frac{\dif E_{CV}}{\dif t}} = \cancel{\dot{Q}} + \cancel{\dot{W}} + \sum_{in}\dot{m}_{in}\left(h+\cancel{\frac{v^2}{2}}+\cancel{gz}\right)_{in} - \sum_{out}\dot{m}_{out}\left(h+\cancel{\frac{v^2}{2}}+\cancel{gz}\right)_{out} \\[5pt]
+  0 = \dot{m}_{a}h_{a,1} + \dot{m}_{v,1}h_{v,1} + \dot{m}_{L}h_{L} - \dot{m}_{a}h_{a,2} - \dot{m}_{v,2}h_{v,2} \\[5pt]
+  0 = \dot{m}_{a}h_{a,1} + \omega_{1}\dot{m}_{a}h_{v,1} + \dot{m}_{a}(\omega_2 - \omega_1)h_{L} - \dot{m}_{a}h_{a,2} - \omega_2\dot{m}_{a}h_{v,2} \\[5pt]
+  0 = h_{a,1} + \omega h_{v,1} + (\omega'-\omega)h_{f,2} - h_{a,2} - \omega'h_{v,2} \\[5pt]
+  \longrightarrow \omega h_{v,1} - \omega h_{f,2} = (h_{a,2} - h_{a,1}) + \omega'(h_{v,2} - h_{f,2}) \\[5pt]
+  \longrightarrow \omega = \frac{(h_{a,2} - h_{a,1}) + \omega'(h_{v,2} - h_{f,2})}{h_{v,1} - h_{f,2}} \\[5pt]
+  h_v \approx h_g(T) \\[5pt]
+  \omega = \frac{[h_a(T_{as}) - h_a(T)] + \omega'[h_g(T_{as}) - h_f(T_{as})]}{h_g(T) - h_f(T_{as})} \\[5pt]
+  \omega' = 0.622\frac{p_g(T_{as})}{p - p_g(T_{as})}
+\end{gather}
+\section{Wet-bulb Temperature $T_{wb}$}
+\subsubsection{Dry-bulb Temperature $T_{db}$}
+\begin{itemize}[noitemsep]
+  \item Measured by a normal thermometer placed in the mixture.
+\end{itemize}
+\subsubsection{Wet-bulb Temperature $T_{wb}$}
+\begin{itemize}[noitemsep]
+  \item Measured by a wet-bulb thermometer, which is an ordinary liquid-in-glass thermometer whose bulb is enclosed by a wick moistened with water.
+  \item $T_{wb}$ is a close approximation of the adiabatic saturation temperature.
+  \item $T_{wb}$ is used in place of $T_{as}$ to determine $\omega$ in the adiabatic saturator.
+\end{itemize}
+\begin{gather}
+  \omega = \frac{[h_a(T_{wb}) - h_a(T_{db})] + \omega'[h_g(T_{wb}) - h_f(T_{wb})]}{h_g(T_{db}) - h_f(T_{wb})}
+\end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width =0.7 \textwidth]{../img/diagram66.png}
+  \includegraphics[width = 0.95 \textwidth]{../img/diagram103.png}
+  \caption{}
 \end{figure}
+\section{Psychrometers}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9 \textwidth]{../img/diagram104.png}
+  \caption{(a) Sling Psychrometers \ \ | \ \ (b) Aspirating Psychrometers}
+\end{figure}
+These are the devices to measure temperature and provide the humidity ratio.
 \end{document}

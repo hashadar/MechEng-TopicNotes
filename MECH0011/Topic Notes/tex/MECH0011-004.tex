@@ -1,89 +1,257 @@
 \documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
 \usepackage{enumitem}
-\usepackage{float}
-\usepackage[normalem]{ulem}
+\usepackage{multicol}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{siunitx}
 \usepackage{commath}
+\usepackage{array}
+\usepackage{natbib}
 \usepackage{tikz}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
 \usetikzlibrary{positioning, fit, calc}   
 \tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
 line/.style={-latex}     
 }  
+\setlength{\parindent}{0pt}
 \begin{document}
-\section{Exercise 2 - Fluid tutorial group B}
-A viscous fluid of constant density, $\rho$, and kinematic viscosity, $\nu$, flows over a flat plate inclined at an angle $\alpha$ and moving with a constant velocity $V_w$. The flow is stationary and no pressure gradients are applied. The only body force acting on the fluid is due to gravity, $g$. You can assume zero velocity component in the direction orthogonal to the plate and negligible air resistance at the interface between the viscous fluid and air $(y = h)$.
-\subsection{Determine by means of the Navier-Stokes equation the velocity profile, $u(y)$}
-NSE (x,y):
+\begin{center}
+    27/10/2020
+\end{center}
+\section{Uniform Flow}
+Cartesian Coordinates:
 \begin{gather}
-  \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} = -\frac{1}{\rho}\frac{\partial p}{\partial x} +\nu \left[ \frac{\partial^2 u}{\partial x^2} +\frac{\partial^2 u}{\partial y^2} \right] + f_x\\
-  \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} = -\frac{1}{\rho} \frac{\partial p}{\partial y} +\nu \left[ \frac{\partial^2 v}{\partial x^2} +\frac{\partial^2 v}{\partial y^2} \right] + f_y
+  \phi = V_{\infty} \left[ x\cos(\alpha) + y\sin(\alpha) \right]\\
+  \psi = V_{\infty} \left[ y\cos(\alpha) - x\sin(\alpha) \right]
 \end{gather}
-\begin{itemize}
-  \item $\frac{\partial}{\partial t} = 0 $ steady flow
-  \item $v=0$ negligible
-  \item $\frac{\partial}{\partial x}$ no variation in flow along plate length
-\end{itemize}
-\begin{align}
-  0 + 0 + 0 &= 0 + \nu \frac{\partial^2 u}{\partial y^2} + g\sin{\alpha}\\
-  0+0+0 &= -\frac{1}{\rho}\frac{\partial p}{\partial y} -g\cos{\alpha}\\
-  \frac{\partial^2 u }{\partial y^2} &= -\frac{g \sin(\alpha)}{\nu} \label{doublediffuy}\\
-  \frac{\partial p}{\partial y} &= - \rho g \cos{\alpha}
-\end{align}
-Integrating equation (\ref{doublediffuy}) once:
+The conservation of mass is balanced:
 \begin{equation}
-  \int \left( \frac{\partial^2 u}{\partial y^2} \right) \dif y = \int \left( -\frac{g\sin{\alpha}}{\nu} \right)\dif y \\
-  \frac{\partial u}{\partial y} = -\frac{g\sin{\alpha}}{\nu}y + C
+  \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0
 \end{equation}
-Apply the following boundary equation, due to 0 air resistance at $y=h$ boundary:
+The flow is irrotational:
 \begin{equation}
-  \tau(h) = \left. \mu \frac{\partial u}{\partial y} \right|_{y=h} = 0 \\
-  \therefore 0 = -\frac{g\sin{\alpha}}{\nu}h + C\\
-  C = \frac{g\sin{\alpha}}{\nu}h \label{singlediffuy}
+  \omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = 0
 \end{equation}
-Integrate equation (\ref{singlediffuy}) once more:
-\begin{align}
-  \int \left( \frac{\partial u}{\partial y} \right)\dif y &= \int \left( -\frac{g\sin{\alpha}}{\nu}y + \frac{g\sin{\alpha}}{\nu}h \right)\dif y \\
-  u(y) &= -\frac{g\sin{\alpha}}{2\nu}y^2 + \frac{g\sin{\alpha}}{\nu}hy + D\\
-  y(0) &= -V_w = D\\
-  u(y) &= -\frac{g\sin{\alpha}}{2\nu}y^2 + \frac{g\sin{\alpha}}{\nu}hy - V_w\\
-  u(y) &= \frac{g\sin{\alpha}}{\nu}y \left(h - \frac{1}{2}y\right) - V_w
-\end{align}
-\subsection{If the net flow rate across the fluid height is zero, determine the corresponding plate velocity, $V_{wo}$, as a function of $\alpha$}
-Volume flow rate:
-\begin{align}
-  \int_o^h u(y)\dif y &= \int_o^h \left( \frac{g\sin{\alpha}}{\nu} \left(hy - \frac{1}{2}y^2\right) - V_w \right) \dif y\\
-  &= \left[ \frac{g\sin{\alpha}}{\nu}y \left(\frac{hy^2}{2} - \frac{1}{6}y^3\right) - V_wy \right]_0^h\\
-  &= \frac{g\sin{\alpha} h^3}{3\nu} - V_wh
-\end{align}
-This is equal to 0 for $V_{wo}$, hence:
-\begin{equation}
-  V_{wo} = \frac{g\sin{\alpha}h^2}{3\nu}
-\end{equation}
-\subsection{For the condition found above determine the $y$ coordinate corresponding to $y=0$. Sketch three velocity profiles for $V_{wo} < V_w $, $V_{w0} = V_w$ and $V_{wo} > V_w$ and comment them}
-Combining above equations for $u(y)$, we get:
-\begin{equation}
-  u(y) = \frac{g\sin{\alpha}}{\nu}y\left(-\frac{1}{2}y^2 + hy - \frac{1}{3}h^2\right)
-\end{equation}
-Set this equal to 0 and solve:
-\begin{align}
-  0 &= -\frac{1}{2}y^2 + hy - \frac{1}{3}h^2\\
-  y &= \frac{3-\sqrt{3}}{3}\cdot h
-\end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/velocityprofile004001.png}
-  \caption{We can see that in the blue one velocity is increased towards the air boundary. As we move along to the point where $V_w = V_{wo}$, we see that the point where $u=0$ is $\frac{1}{2}h$. Finally we see the velocity highest close to the plate boundary.}
+  \includegraphics[width = 0.4\textwidth]{../img/diagram16.png}
 \end{figure}
-\subsection{If the flat plate surface is $S$, determine the force, $F$, and power, $P$, required to move it with constant velocity $V_{wo}$}
-Using tensor equation:
+Cylindrical Coordinates:
+\begin{gather}
+  \phi (r, \theta) = V_{\infty} r \cos(\theta - \alpha)\\
+  \psi (r, \theta) = V_{\infty} r \sin(\theta - \alpha)
+\end{gather}
+The conservation of mass is satisfied for cylindrical coordinates:
+\begin{gather}
+  \nabla \cdot \overrightarrow{V} = \frac{1}{r}\frac{\partial ru_r}{\partial r} + \frac{1}{r}\frac{\partial u_{\theta}}{\partial \theta} \\
+  = \frac{\partial r(v_{\infty}\cos(\theta-\alpha))}{\partial r} - \frac{\partial v_{\infty}\sin(\theta-\alpha)}{\partial \theta} \\
+  v_{\infty}\cos(\theta-\alpha) - v_{\infty}\cos(\theta-\alpha) = 0
+\end{gather}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.4\textwidth]{../img/diagram17.png}
+\end{figure}
+\section{Source/Sink Flow}
+Cartesian Coordinates:
+\begin{gather}
+  \phi = \frac{\Lambda}{2\pi} \ln(\sqrt{x^2 +y^2})\\
+  \psi = \frac{\Lambda}{2\pi}\arctan\left(\frac{y}{x}\right)
+\end{gather}
+Cylindrical Coordinates:
+\begin{gather}
+  \phi = \frac{\Lambda}{2\pi}\ln(r)\\
+  \psi = \frac{\Lambda}{2\pi}\theta
+\end{gather}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram18.png}
+\end{figure}
+In cylindrical coordinates, we do not have a $\theta$ component as it is moving radially outwards from a source.
+\begin{gather}
+  u_r = \frac{\partial \phi}{\partial r} = \frac{\Lambda}{2\pi r}\\
+  u_{\theta} = \frac{1}{r} \frac{\partial \phi}{\partial \theta} = 0
+\end{gather}
+Here we can see the magnitude of the velocity is dependent on $\frac{1}{r}$. If $\Lambda > 0$, we have a source and if $\Lambda < 0$, we have a sink.
+\section{Uniform Flow + Source}
+\begin{gather}
+  \phi (r,\theta) = \frac{\Lambda}{2\pi} \ln(r) + V_{\infty} r \cos \theta \\
+  \psi (r,\theta) = \frac{\Lambda}{2\pi}\theta + V_{\infty} r \sin \theta
+\end{gather}
+Stream function $\psi (r,\theta)$ of:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram19.png}
+\end{figure}
+\section{Uniform Flow + Source + Sink}
+\begin{gather}
+  \phi = V_{\infty} r \cos \theta + \frac{\Lambda}{2\pi}(\ln (r_1) - \ln (r_2))\\
+  \psi = V_{\infty} r \sin \theta + \frac{\Lambda}{2\pi} (\theta_1 - \theta_2)
+\end{gather}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram20.png}
+\end{figure}
+\section{Doublet}
+Consider a pair of source and sink of $\pm \Lambda$ who are $l$ apart and $l\times\Lambda = $ constant.
+\begin{gather}
+  \psi =\lim_{l\rightarrow 0} \frac{\Lambda}{2\pi} (\theta_1 - \theta_2) = -\frac{k}{2\pi} \frac{\sin \theta}{r} \\
+  \phi = \frac{k}{2\pi} \frac{\cos \theta}{r}
+\end{gather}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram21.png}
+\end{figure}
+\section{Cylinder (Uniform Flow + Doublet)}
+\begin{gather}
+  \phi = V_{\infty}r\cos\theta + \frac{k}{2\pi} \frac{\cos\theta}{r}\\
+  \psi = V_{\infty} r\sin\theta - \frac{k}{2\pi}\frac{\sin\theta}{r}
+\end{gather}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram22.png}
+\end{figure}
+The radius of the cylinder can be derived as so:
+\begin{gather}
+  u_r = \frac{1}{r}\frac{\partial \psi}{\partial \theta} = V_{\infty} \cos\theta - \frac{k}{2\pi}\frac{\cos\theta}{r^2}\\
+  u_{\theta} = -\frac{\partial \psi}{\partial r} = - \left( V_{\infty} \sin\theta + \frac{k}{2\pi}\frac{\sin\theta}{r^2} \right)
+\end{gather}
+On the cylinder, $\vec{u}\cdot\hat{n} = 0$
+\begin{gather}
+  \hat{n} = \hat{i}_r \rightarrow u_r(R)=0\\
+  V_{\infty}\cos\theta - \frac{k}{2\pi}\frac{\cos\theta}{R^2} = 0\\
+  R = \sqrt{\frac{k}{2\pi V_{\infty}}}
+\end{gather}
+We can rewrite $\phi$ and $\psi$
+\begin{gather}
+  \phi = V_{\infty}r\cos\theta\left(1+\frac{R^2}{r^2}\right)\\
+  \psi = V_{\infty}r\sin\theta\left(1-\frac{R^2}{r^2}\right)
+\end{gather}
+On the cylinder surface, $r =R$ and inputting this into $\psi$:
 \begin{equation}
-  \tau = \left. \mu \frac{\partial u}{\partial y}\right|_{y=0} = \rho g h \sin{\alpha}
+  \psi = 0
 \end{equation}
-Power is simply $F \times A \times V$:
-\begin{equation}
-  P = \tau SV_w = \rho g h \sin{\alpha} SV_w
-\end{equation}
+\section{Uniform Stream with Varying Direction}
+All we need to do to generalise our equations a bit more is to rewrite our equations with an extra angular term, $\alpha$:
+\begin{gather}
+  \phi = V_{\infty}r\cos(\theta-\alpha)\left(1+\frac{R^2}{r^2}\right)\\
+  \psi = V_{\infty}r\sin(\theta-\alpha)\left(1-\frac{R^2}{r^2}\right)
+\end{gather}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram23.png}
+\end{figure}
+\section{Adding Circulation with a Vortex Flow}
+\begin{gather}
+  \phi = -\frac{\Gamma}{2\pi}\theta\\
+  \psi = \frac{\Gamma}{2\pi}\ln\left(\frac{r}{R}\right)\\
+  u_r = \frac{1}{r}\frac{\partial \psi}{\partial \theta} = 0\\
+  u_{\theta} = -\frac{\partial \psi}{\partial r} = -\frac{\Gamma}{2\pi r}
+\end{gather}
+Where $\Gamma < 0$ is anti-clockwise motion and $\Gamma > 0$ is clockwise motion.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.4\textwidth]{../img/diagram24.png}
+\end{figure}
+\section{Cylinder with a Vortex Flow}
+\begin{gather}
+  \psi = V_{\infty}r\sin\theta\left(1-\frac{R^2}{r^2}\right) + \frac{\Gamma}{2\pi}\ln\left(\frac{r}{R}\right)\\
+  \phi = V_{\infty}r\cos\theta\left(1+\frac{R^2}{r^2}\right)-\frac{\Gamma}{2\pi}\theta\\
+  u_r = \frac{1}{r}\frac{\partial \psi}{\partial \theta} = V_{\infty}\cos\theta\left(1-\frac{R^2}{r^2}\right)\\
+  u_{\theta} = -\frac{\partial \psi}{\partial r} = - V_{\infty}\sin\theta\left(1+\frac{R^2}{r^2}\right)-\frac{\Gamma}{2\pi r}
+\end{gather}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../img/diagram25.png}
+\end{figure}
+\section{Lift and Drag of a Cylinder with Circulation}
+Apply Bernoulli:
+\begin{gather}
+  p_{\infty} + \frac{1}{2}\rho V_{\infty}^2 = p(r,\theta) + \frac{1}{2}\rho(u_r^2+u_{\theta}^2)\\
+  c_p = \frac{p - p_{\infty}}{\frac{1}{2}\rho V_{\infty}^2} = 1 - \frac{u_r^2 + u_{\theta}^2}{V_{\infty}^2}
+\end{gather}
+On the cylinder surface: $u_r = 0$
+\begin{gather}
+  c_p (R,\theta) = 1 - \frac{u_{\theta}^2}{V_{\infty}^2}=1-\frac{(2V_{\infty}\sin\theta + \frac{\Gamma}{2\pi R})^2}{V_{\infty}^2} \\
+  = 1-\left(4\sin^2(\theta)+\frac{\Gamma^2}{4\pi^2V_{\infty}^2R^2}+\frac{2\Gamma\sin(\theta)}{V_{\infty}\pi R}\right)
+\end{gather}
+\section{Lift of the Cylinder}
+We need to calculate $c_p$ on the surface of the cylinder.
+\begin{align}
+  L &= -\frac{1}{2}\rho V_{\infty}^2\int_{0}^{2\pi} \left(c_p \cdot \hat{n}\cdot\hat{j}R\right)\dif \theta \\
+  &= - \frac{1}{2}\rho V_{\infty}^2 \int_{0}^{2\pi} \left(c_p \sin\theta R\right) \,\mathrm{d}\theta \\
+  L &= -\frac{1}{2}\rho V_{\infty}^2 \int_{0}^{2\pi} \left(1-\frac{(2V_{\infty}\sin\theta + \frac{\Gamma}{2\pi R})^2}{V_{\infty}^2}\right) \sin\theta R \,\mathrm{d}\theta 
+\end{align}
+Expanding the integral out, we arrive at:
+$$
+  L = -\frac{1}{2} \rho V_\infty^2 \left[ \int_{0}^{2\pi} \left(1 - \frac{\Gamma^2}{4\pi^2R^2V_\infty^2}\right)\cdot \sin{\theta} \cdot R \,\mathrm{d}\theta + \int_{0}^{2\pi} -4\sin{\theta}^3 \cdot R \,\mathrm{d}\theta + \right.
+$$
+\begin{align}
+  \left. \int_{0}^{2\pi} -\frac{2\Gamma}{\pi RV_\infty}\cdot \sin{\theta}^2 \cdot R \,\mathrm{d}\theta \right]
+\end{align}
+Because the first term and the second term have an odd power of $\sin{}$, when we integrate these, they will have negligible outcome on the lift of the cylinder. We can reduce our equation to:
+\begin{align}
+  L &= -\frac{1}{2} \rho V_\infty^2 \left[ \int_{0}^{2\pi} -\frac{2\Gamma}{\pi RV_\infty}\cdot \sin{\theta}^2 \cdot R \,\mathrm{d}\theta \right]\\
+  &= \frac{\rho V_\infty \Gamma}{\pi} \int_{0}^{2\pi} \sin{\theta}^2 \,\mathrm{d}\theta \\
+  &= \frac{\rho V_\infty \Gamma}{\pi} \left[ \frac{1}{2}\theta - \frac{1}{2}\sin{2\theta} \right]_0^{2\pi}\\
+  L &= \rho V_\infty \Gamma 
+\end{align}
+We can see here that our vortex factor $\Gamma$ has a proportional effect on our lift force. We can see an example of this in real life when a football is kicked. When the ball is kicked in such a way that it has a spin, we see the ball curves in certain directions.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.65\textwidth]{../img/diagram26.png}
+\end{figure}
+We can see that when the ball spins, the velocity from the free stream and the vortex combine to create regions of low and high pressure. This creates a net force, leading to a suction effect.
+\section{Drag of a cylinder}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.3\textwidth]{../img/diagram27.png}
+\end{figure}
+\begin{align}
+  D &= -\frac{1}{2} \rho V_\infty^2 \int_{0}^{2\pi} c_p \vec{n}\cdot\hat{i} R \,\mathrm{d}\theta\\
+  &= - \frac{1}{2} \rho V_\infty^2 \int_{0}^{2\pi} c_p \cos{\theta} R \,\mathrm{d}\theta \\
+  D &= - \frac{1}{2} \rho V_\infty^2 \int_{0}^{2\pi} \left(1 - \frac{\left(2V_\infty \sin{\theta} + \frac{\Gamma}{2\pi R}\right)^2}{V_\infty^2}\right)\cos{\theta} R \,\mathrm{d}\theta 
+\end{align}
+The first term has an odd power of cosine, and so is negligible. The second term of the drag integral is:
+\begin{align}
+  \int_{0}^{2\pi} -4\sin{\theta}^2 \cos{\theta} R \,\mathrm{d}\theta = -4R \left(\frac{1}{3} \sin{\theta}^3\right)_p^{2\pi} = 0 
+\end{align}
+The third term of the drag integral is:
+\begin{align}
+  \frac{1}{2}\rho V_\infty^2 \int_{0}^{2\pi} -\frac{2\Gamma}{\pi R V_\infty}\sin{\theta}\cos{\theta} R \,\mathrm{d}\theta = - \frac{\rho V_\infty \Gamma}{\pi} \left(-\frac{1}{2} \cos{2\theta}\right)_0^{2\pi} = 0
+\end{align}
+Therefore, we see that our drag is in fact:
+\begin{align}
+  D = 0
+\end{align}
+This is due to our assumption that our flow is inviscid and that the pressure forces are symmetrical to the left and right sides to the y axis. Therefore the net forces acting on the x direction is zero. This is where our model starts failing and is called the D'Alambert Paradox.
+\section{Inviscid and Viscous Flow past a body}
+High $Re$ implies that the magnitude of the inertia forces are much greater than the magnitudes of the viscous forces in a system. This might imply that the effects of viscosity are insignificant compared with the inertia forces, but this would be a dangerous conclusion. Compare theory for zero viscosity with experiment for high $Re$ flow past a cylinder:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram28.png}
+  \caption{We have a net force in our experiment due to the fact that a net force is created from the low pressure wake region and the high pressure front side of the cylinder.}
+\end{figure}
+\section{Flow past a cylinder - pressure coefficient}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram29.png}
+\end{figure}
+We can plot the pressure coefficient and see the difference between the inviscid theory and an experiment at high $Re$.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram30.png}
+\end{figure}
+For a long circular cylinder, the lift coefficient $c_L$ and the form drag coefficient to $c_D$ are related to $c_p$ by:
+\begin{align}
+  c_L &= \frac{1}{2} \int_{0}^{2\pi} c_p \sin{\theta} \,\mathrm{d}\theta \\
+  c_D &= \frac{1}{2} \int_{0}^{2\pi} c_p \cos{\theta} \,\mathrm{d}\theta 
+\end{align}
+Some examples of viscous flow past bodies:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram31.png}
+\end{figure}
 \end{document}

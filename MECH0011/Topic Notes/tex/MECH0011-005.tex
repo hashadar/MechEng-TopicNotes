@@ -1,190 +1,195 @@
 \documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
 \usepackage{enumitem}
-\usepackage{float}
-\usepackage[normalem]{ulem}
+\usepackage{multicol}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{siunitx}
 \usepackage{commath}
+\usepackage{array}
+\usepackage{natbib}
 \usepackage{tikz}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
 \usetikzlibrary{positioning, fit, calc}   
 \tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
 line/.style={-latex}     
 }  
+\setlength{\parindent}{0pt}
 \begin{document}
-\section{Lift and drag}
-Typical forces of interest for bodies in a flow are \textbf{drag} and \textbf{lift}. We can represent these in dimensionless form:
-\begin{gather}
-  \textrm{Drag coefficient: }c_D = \frac{F_D}{\frac{1}{2} \rho U_\infty^2S}\\
-  \textrm{Lift coefficient: }c_L = \frac{F_L}{\frac{1}{2}\rho U_\infty^2S}
-\end{gather}
-Where $S$ is a representative area for the body, determined by convention.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram9.png}
-\end{figure}
-\section{Pressure and frictional force distribution}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram10.png}
-\end{figure}
-\begin{gather}
-  L = - \int_{S}^{} \left( p (\hat{n}\cdot \hat{j}) \right)  \,\mathrm{d}S + \int_{}^{S} \left( \vec{\tau} \cdot \hat{j} \right)  \,\mathrm{d}S\\
-  D = - \int_{}^{} \left(  p (\hat{n} \cdot \hat{j})\right)  \,\mathrm{d}S  + \int_{}^{} \left(\vec{\tau} \cdot \hat{i} \right)  \,\mathrm{d}S 
-\end{gather}
-To determine the lift and drag coefficients $c_L$ and $c_D$, we are interested in the pressure distribution over the airfoil, or more specifically in the local pressure difference from the stream pressure $p_{\infty}$.
-\begin{equation}
-  c_p = \frac{p - p_{\infty}}{\frac{1}{2} \rho V_{\infty}^2}
-\end{equation}
-Free stream pressure and velocity are $p_\infty$ and $V_\infty$.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram11.png}
-\end{figure}
-\begin{itemize}
-  \item Local suction (depression): $c_p < 0$ Vectors point away from the airfoil surface
-  \item Local pushing: $c_p > 0$ Vectors point towards the airfoil surface
-\end{itemize}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram10.png}
-\end{figure}
-\begin{gather}
-  L = - \int_{S}^{} \left(p\hat{n}\cdot \hat{j}\right)  \,\mathrm{d}S = \\
-  c_L = - \frac{1}{S} \int_{S}^{} \left( \frac{p - p_{\infty}}{\frac{1}{2} \rho V_{\infty}^2} \hat{n} \cdot \hat{j} \right) \,\mathrm{d}S = -\frac{1}{S} \int_{S}^{} \left( c_p \hat{n} \cdot \hat{j} \right)  \,\mathrm{d}S  
-\end{gather}
-The lift coefficient per unit of span-wise length is:
-\begin{equation}
-  c_L' - \frac{1}{c}\int_{c}^{0} \left( c_p \hat{n}\cdot\hat{j} \right)  \,\mathrm{d}x 
-\end{equation}
-\section{Rearrangement of momentum equation - x direction}
-\begin{gather}
-  \rho \left( u \frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} \right) = -\frac{\partial p}{\partial x}  + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)\\
-  \left(u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) = \left(u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right) + v \frac{\partial u}{\partial y} - v \frac{\partial u}{\partial y}\\
-  = - v \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) + \frac{1}{2} \left( \frac{\partial u^2}{\partial x} + \frac{\partial v^2}{\partial x} \right)\\
-  = - v \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) + \frac{1}{2} \frac{\partial}{\partial x} (u^2 + v^2)
-\end{gather}
-$(u^2 + v^2)$ is the total kinetic energy of the fluid particle. The derivative is the element that takes into the account the variation of this kinetic energy. $\left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right)$ relates to the rotation of the particle. This rotation is related to the difference of velocity gradient.
-\begin{gather}
-  \rho \left[ -v \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) + \frac{1}{2} \frac{\partial}{\partial x} (u^2 + v^2) \right] = - \frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)\\
-  - v \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) = - \frac{\partial}{\partial x} \left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right) + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)   
-\end{gather}
-Our Bernoulli term in the above equation is $\left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right)$, gravitational energy is negligible. $\left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right)$ is an anti-clockwise rotation. Hence, the vorticity component in the z direction is:
-\begin{equation}
-  \omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
-\end{equation}
-Our final momentum equations in $x$ and $y$ are: 
-\begin{gather}
-  -v \omega_z = - \frac{\partial}{\partial x} \left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right) + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)\\
-  u \omega_z = - \frac{\partial}{\partial y} \left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right) + \nu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right)
-\end{gather}
-We can make some assumptions:
-\begin{itemize}
-  \item Inviscid flow - $\nu = 0$ (this may be realistic in some parts of a fluid domain but in real life, inviscid fluids do not exist)
-  \item Irrotational flow - $\omega_z = 0$
-\end{itemize}
-This reduces our equations to:
-\begin{gather}
-  0 = - \frac{\partial}{\partial x} \left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right) + 0\\
-  0 = - \frac{\partial}{\partial y} \left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right) + 0
-\end{gather}
-\section{Application of Bernoulli}
-\begin{gather}
-  p_\infty + \frac{1}{2} \rho V_\infty^2 = p + \frac{1}{2} \rho (u^2 + v^2) = \textrm{constant}\\
-  c_p = \frac{p - p_{\infty}}{\frac{1}{2} \rho V_{\infty}^2} = 1 - \frac{u^2 + v^2}{V_\infty^2} = 1 - \frac{||V||^2}{V_\infty^2}
-\end{gather}
-If $c_p < 0$, $||V|| > V_\infty$ and vice versa. If a fluid particle enters a region where $c_p$ is negative it is accelerated and when $c_P$ is positive it will lose velocity relative to the free stream.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram12.png}
-\end{figure}
-Extending this to 3D, we can derive the 3D vorticity equation. We sum the momentum equations with the assumptions above and take the $ijk$ components as so:
-\begin{equation}
-  \vec{\omega} = \omega_x \hat{i} + \omega_y \hat{j} + \omega_z \hat{k} = \left( \frac{\partial w}{\partial y} - \frac{\partial v}{\partial z}\right) \hat{i} + \left( \frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}\right) \hat{j} + \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) \hat{k}
-\end{equation}
-If $\vec{\omega} = 0$ then a potential function, $\phi(x, y, z)$ exists such:
-\begin{equation}
-  \begin{cases}
-    u = \frac{\partial \phi (x,y,z)}{\partial x}\\
-    v = \frac{\partial \phi (x,y,z)}{\partial y}\\
-    w = \frac{\partial \phi (x,y,z)}{\partial z}
-  \end{cases}
-\end{equation}
-By plugging in these equations into our continuity equation, we get:
-\begin{equation}
-  \nabla \cdot \vec{V} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y} + \frac{\partial^2 \phi}{\partial z}
-\end{equation}
-Conservation of momentum (Bernoulli term) is simply:
-\begin{equation}
-  p + \frac{1}{2} \rho (u^2 + v^2) = \textrm{constant}
-\end{equation}
-\section{Applicability of irrotational flow}
-The flow domain can be subdivided into two parts.
-\begin{itemize}
-  \item \textbf{Irrotational flow region}, outside of the boundary layer, Bernoulli equation, potential flow and stream function apply.
-  \item \textbf{Boundary layer}, layer where all vorticity is confined. The friction shear the airfoil surface acts as a source of vorticity.
-\end{itemize}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram13.png}
-\end{figure}
-In the case where we consider our fluid inviscid, there is no shear stress being applied on the fluid by the airfoil. We need to understand how the no-slip condition changes. We still need a boundary condition to know the value of $\phi$ in our flow domain.
-\section{No-Slip condition for inviscid flow}
-Viscous fluid
-\begin{equation}
-  \nu \neq 0 \rightarrow \vec{V} = 0
-\end{equation}
-Inviscid flow
-\begin{equation}
-  \nu = 0 \rightarrow V_n = \vec{V} \cdot \hat{n} = \frac{\partial \phi}{\partial n} = 0
-\end{equation}
-In essence, with inviscid flow, we are accepting that there is some movement on the boundary, however this is only parallel to the surface. $n$ is the direction orthogonal to the boundary.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram14.png}
-\end{figure}
-\section{Stream function}
-In a 2D flow a stream function, $\psi(x, y)$, can be defined which is always aligned/parallel with the local velocity vector and visualise a streamline. Different streamlines are identified with different values of $\psi (x,y)$
-\begin{equation}
-  \begin{cases}
-    u = \frac{\partial \psi(x,y)}{\partial x}\\
-    v = \frac{\partial \psi(x,y)}{\partial y}
-  \end{cases}
-\end{equation}
-Iso-potential lines and streamlines are orthogonal to each other. Streamlines visualise the trajectory of a particle in the field.
-\section{Potential flow past bodies}
-Flow fields for which an incompressible fluid is assumed to be frictionless and the motion to be irrotational are commonly referred to as \textbf{potential} flows. Paradoxically, potential flows can be simulated by a slow moving, viscous flow between closely spaced parallel plates.
-\section{Flow around a corner of arbitrary angle, $\beta$}
-Considering a radial coordinate system:
+\begin{center}
+    17/11/2020
+\end{center}
+\section{Conformal mapping}
+\subsection{Joukowsky Transformation}
+The question is how can we transform our cylinder into something that looks like an airfoil? We achieve this by using conformal mapping which maps each part of our coordinate space to a new one. 
 \begin{align}
-  \phi &= A r^n \cos(n\theta)\\
-  \psi &= Ar^n \sin(n\theta)
+  x &= r\cos{\theta}\\
+  y &= r\sin{\theta}\\
+  w &= G(z) = z + \frac{\lambda^2}{z}\\
+  z &= re^{i\theta} = x + yi\\
+  w &= \zeta + \xi i
 \end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram15.png}
+  \includegraphics[width = 0.9\textwidth]{../img/diagram32.png}
 \end{figure}
-\section{Cylindrical coordinates}
-3D vorticity equation:
+\subsection{Flat plate and Ellipse}
+Lets consider a cylinder:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram33.png}
+\end{figure}
+\begin{align}
+  z &= R\cos{\theta} + Ri\sin{\theta}\\
+  w &= G(z) = z + \frac{\lambda^2}{z}\\
+  &=  R\cos{\theta} + Ri\sin{\theta} + \frac{\lambda^2}{R\cos{\theta} + Ri\sin{\theta}}\\
+  &= R\cos{\theta} + Ri\sin{\theta} + \frac{\lambda^2 (R\cos{\theta} - Ri\sin{\theta})}{(R\cos{\theta} + Ri\sin{\theta})(R\cos{\theta} - Ri\sin{\theta})}\\
+  &= R\cos{\theta} + Ri\sin{\theta} + \frac{\lambda^2 (R\cos{\theta} - Ri\sin{\theta})}{R^2}\\
+  w &= R\cos{\theta} \left(1 + \frac{\lambda^2}{R}\right) + Ri\sin{\theta} \left(1 - \frac{\lambda^2}{R}\right)
+\end{align}
+When $\lambda = R$, we achieve a flat plate transformation as our imaginary term is always 0. When $\lambda \neq R$, we achieve an elliptical shape.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram34.png}
+\end{figure}
+\subsection{Aerofoils}
+We can further refine our conformal mapping by adding two elements to our equation, $x_c$ and $y_c$. These two terms effect the center of the cylinder in $x$ and $y$. 
 \begin{gather}
-  \vec{\omega} = \omega_r \hat{i}_r + \omega_{\theta} \hat{i}_{\theta} + \omega_z \hat{i}_z\\
-  \vec{\omega} = \left(\frac{1}{r}\frac{\partial u_z}{\partial \theta} - \frac{\partial u_{\theta}}{\partial z}\right) \hat{i}_r + \left(\frac{\partial u_r}{\partial z} - \frac{\partial u_z}{\partial r}\right) \hat{i}_{\theta} + \frac{1}{r}\left(\frac{\partial (ru_{\theta})}{\partial r}-\frac{\partial u_r}{\partial \theta}\right)\hat{i}_z
+  w = G(z) = z + \frac{\lambda^2}{z}\\
+  \lambda = R - \sqrt{x_c^2 + y_c^2}\\
+  z = x + x_c + (y + y_c)i \rightarrow w = \zeta + \xi i
 \end{gather}
-Potential flow function and stream function:
+Mapping these into their respective planes:
+\begin{align}
+  x_c &\neq 0\\
+  y_c &= 0
+\end{align}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/diagram35.png}
+\end{figure}
+\begin{align}
+  x_c &\neq 0\\
+  y_c &\neq 0 
+\end{align}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/diagram36.png}
+\end{figure}
+\subsection{Cambered airfoil}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \textwidth]{../img/diagram44.png}
+  \caption{$x_c = -0.1$, $y_c = 0.1$, $sin{\beta} = \frac{y_c}{R}$}
+\end{figure}
+\section{Uniform stream + circulation}
+What is the correct relationship between the circulation and the angle of incidence?
+\begin{align}
+  \Gamma &= f(\alpha)\\
+  \textrm{Stagnation points: } u_r &= 0, \ u_\theta = 0\\
+  \phi &= V_\infty r \cos{(\theta - \alpha)}\left(1 + \frac{R^2}{r^2}\right) - \frac{\Gamma}{2\pi}\theta\\
+  \psi &= V_\infty r \sin{(\theta - \alpha)}\left(1 - \frac{R^2}{r^2}\right) + \frac{\Gamma}{2\pi} \log{\left(\frac{r}{R}\right)}
+\end{align}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../img/diagram37.png}
+\end{figure}
+\section{Kutta condition}
+I can apply the Joukowsky Transformation to the streamlines around the cylinder and obtain the streamlines around the airfoil. However I need to carefully select the circulation, $\Gamma$.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram38.png}
+\end{figure}
+We can see that this streamline is unrealistic. This is because to curl around the trailing edge cusp, the speed goes to infinity. This is clearly impossible and flow separation would occur instead. This is the wrong circulation value for the given angle of incidence.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram39.png}
+\end{figure}
+This streamline is more realistic as the velocity is parallel to the trailing edge cusp and its component in the vertical direction is zero. This circulation can be used to predict the lift $F_L$ but still predicts no drag $(F_D = 0)$. The next question is how do we achieve this mapping?
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram40.png}
+\end{figure}
+We can see here that for a given angle of coincidence, the circulation has to be selected by imposing that the back stagnation point (red circle) and the point corresponding to the airfoil trailing edge (black circle) coincide.
+\begin{align}
+  \phi &= V_\infty r \cos{(\theta - \alpha )}\left(1 + \frac{R^2}{r^2}\right) - \frac{\Gamma}{2\pi}\theta\\
+  \psi &= V_\infty r \sin{(\theta - \alpha)}\left(1 - \frac{R^2}{r^2}\right) + \frac{\Gamma}{2\pi} \log{\left(\frac{r}{R}\right)}
+\end{align}
+Velocity components:
+\begin{align}
+  u_r &= \frac{1}{r} \frac{\partial \psi}{\partial \theta} = V_\infty r \cos{(\theta - \alpha)}\left(1-\frac{R^2}{r^2}\right)\\
+  u_\theta &= - \frac{\partial \psi}{\partial r} = -V_\infty \sin{(\theta - \alpha)} \left(1 + \frac{R^2}{r^2}\right) - \frac{\Gamma}{2\pi r}
+\end{align}
+On the cylinder $r = R$:
+\begin{align}
+  u_r &= 0 \\
+  u_\theta &= -2V_\infty \sin{(\theta-\alpha)} - \frac{\Gamma}{2\pi R}
+\end{align}
+Kutta condition:
+\begin{align}
+  u_\theta (\theta = 0) &= 0\\
+  \Gamma = -4\pi V_\infty R \sin{(-\alpha)} &= 4\pi V_\infty R\sin{\alpha}
+\end{align}
+For a cambered aerofoil:
+\begin{align}
+  u_\theta (\theta = -\beta) &= 0\\
+  \Gamma &= -4\pi V_\infty R \sin{(-\beta -\alpha)} = 4\pi V_\infty R \sin{(\beta + \alpha)}
+\end{align}
+\section{Aerofoil lift}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram41.png}
+\end{figure}
+The lift is given by:
+\begin{align}
+  L = \rho V \Gamma = 4 \rho \pi V_\infty^2 R \sin{\alpha}
+\end{align}
+The lift coefficient is:
+\begin{align}
+  c_L = \frac{L}{\frac{1}{2}\rho V_\infty^2 c} = 9\pi \frac{R}{c}\sin{\alpha}
+\end{align}
+Flow is inviscid so zero drag.
+\section{Flow past an Aerofoil}
+\subsection{How was the circulation created?}
+When an airfoil is still on the ground there is no flow and total circulation is zero. As soon as the airfoil takes off a negative circulation is created at the back oft he airfoil and a positive one is stored within the airfoil boundary layer.
+\subsection{Stalling}
+If the angle of attack becomes too great and boundary layer separation occurs on the top of the aerofoil the pressure pattern will change dramatically. In such a case, the lift component is insufficient to overcome the weight of the aircraft and disaster is imminent. This phenomenon is known as stalling. When stalling occurs, all, or most, of the 'suction' pressure is lost and the plane will suddenly drop from the sky. The solution to this is to put the plane into a dive to regain the boundary layer. A transverse lift force is then exerted on the wing which gives the pilot some control and allows the plane to be pulled out of the dive. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram42.png}
+\end{figure}
+Boundary layer separation occurs on the upper surface (where the adverse pressure gradients are large) amd produces a different $c_p$ distribution from the unseparated case. As skin friction is predominant for the unstalled wing, the profile drag is sensitive to any increase in form drag.
+\begin{itemize}
+  \item At a small angle of attack $a$: separation is close to trailing edge, wake is thin, low form of drag
+  \item As the angle of attack $a$ increases: separation moves along the top of the aerofoil, wake width increases, form drag increases
+  \item The critical angle of attack $a_{crit}$: value of $a$ form maximum $c_L$, stall angle
+  \item If the angle of attack $a > a_{crit}$: separation from most of the upper surface, wider wake with turbulence, considerable form drag
+\end{itemize}
+The exact value of the critical angle of attack depends on the type and shape of the aerofoil.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{../img/diagram43.png}
+\end{figure}
+\section{Form drag and skin friction}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram45.png}
+\end{figure}
+Force due to pressure $p$ on element of surface area $\dif s$ is $p \dif s$. The force $p \dif s$ has a component in the stream direction and if this component is integrated over the whole body surface, it gives the drag due to pressure distribution or the form drag. Form drag is the resultant of the forces normal to the surface (pressure distribution: normal stresses). The same element of area $\dif s$ experiences a shear stress $\tau_w$ due ot the velocity of the gradient normal to the surface and the associated shear force is $\tau_w \dif s$. This also has a component in the stream direction which when integrated over the body surface gives the drag due due to skin friction. Skin friction drag is resultant of forces tangential to the surface (shear stresses).
+\section{Total drag}
+Total drag (also known as profile drag) is given by:
 \begin{equation}
-  \textrm{Potential flow}\begin{cases}
-    u_r = \frac{\partial \phi}{\partial r}\\
-    u_{\theta} = \frac{1}{r}\frac{\partial \phi}{\partial \theta}\\
-    u_z = \frac{\partial \phi}{\partial z}
-  \end{cases}
-  \textrm{Stream function}\begin{cases}
-    u_{\theta} = - \frac{\partial \psi}{\partial r}\\
-    u_r = \frac{1}{r} \frac{\partial \psi}{\partial \theta}
-  \end{cases}
+  \textrm{Total drag} = \textrm{Form drag} + \textrm{Skin friction}
 \end{equation}
-Conservation of mass (continuity equation):
-\begin{equation}
-  \nabla \cdot \vec{V} = \frac{1}{r} \frac{\partial (r u_r)}{\partial r} + \frac{1}{r} \frac{\partial u_{\theta}}{\partial \theta} + \frac{\partial u_z}{\partial z} = \frac{\partial^2 \phi}{\partial r^2} + \frac{1}{r}\frac{\partial \phi}{\partial r} +\frac{1}{r^2} \frac{\partial^2 \phi}{\partial \theta^2} + \frac{\partial^2 \phi}{\partial z^2}
-\end{equation}
+Separation is what leads to large form drag. The benefits of streamlining can be considerable.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../img/diagram46.png}
+\end{figure} 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \textwidth]{../img/diagram47.png}
+\end{figure}
 \end{document}
