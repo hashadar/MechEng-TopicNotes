@@ -1,0 +1,101 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[all=normal,floats,leading,paragraphs,charwidths,tracking,wordspacing]{savetrees}
+\usepackage{float}
+\usepackage[version = 4]{mhchem}
+\usepackage{multirow}
+\usepackage{commath}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\renewcommand{\arraystretch}{1.2}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\DeclareSIUnit{\atm}{atm}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage[a4paper,margin=15mm]{geometry}
+\numberwithin{equation}{section}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=black
+}
+\urlstyle{same}
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\begin{document}
+\title{\textbf{UCL Mechanical Engineering 2021/2022}\\MECH0024 Thermodynamics Coursework}
+\author{RFLH9}
+\date{\today}
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\section{Question 1}
+\subsection{Solar power available}
+Solar declination:
+\begin{gather}
+    \theta_d = \SI{-12}{\degree}
+\end{gather}
+Polar angle at latitude \SI{51.5}{\degree}:
+\begin{gather}
+    \theta = 90 - 51.5 = \SI{38.5}{\degree}
+\end{gather}
+Hour angle at 11am:
+\begin{gather}
+    \phi = \frac{11\cdot 360}{24} -90 = \SI{75}{\degree}
+\end{gather}
+Solar azimuth angle:
+\begin{gather}
+    \cos \psi = \cos \theta_d \sin\theta \sin \phi + \sin\theta_d \cos \theta\\
+    \psi = \arccos\left[\cos \left(-12\right)\sin\left(38.5\right)\sin\left(75\right) + \sin\left(-12\right)\cos\left(38.5\right)\right]\\
+    \psi = \SI{64.82}{\degree}
+\end{gather}
+Air mass ratio:
+\begin{gather}
+    M = \frac{L}{h} = \sec\psi\\
+    M = 2.35
+\end{gather}
+\subsection{Viability of proposed provision}
+\section{Question 2}
+\subsection{a}
+\subsubsection{Irreversibility associated with increase in steady flow exergy of steam}
+\subsubsection{Maximum theoretical work available}
+\subsection{Relative advantages and disadvantages of four primary energy sources utilised in thermal power generation}
+\section{Question 3}
+\subsection{a}
+\subsubsection{Mass of methane present}
+\subsubsection{Approximate level of \ce{CO} in exhaust gases}
+\subsection{Effects of fuel molecular composition on ignition, temperatures and formation of exhaust pollutants during combustion}
+\section{Question 4}
+\subsection{a}
+\subsubsection{Ideal operating voltage}
+\subsubsection{Anode area}
+\subsubsection{Heat loss}
+\subsection{Limitations of hydrogen oxygen fuel cell vehicles}
+\end{document}
