@@ -58,6 +58,8 @@
 \newpage
 \section{Question 1}
 \subsection{Solar power available}
+At the time of measurement, the orbital characteristics are as follows.
+
 Solar declination:
 \begin{gather}
     \theta_d = \SI{-12}{\degree}
@@ -74,17 +76,77 @@ Solar azimuth angle:
 \begin{gather}
     \cos \psi = \cos \theta_d \sin\theta \sin \phi + \sin\theta_d \cos \theta\\
     \psi = \arccos\left[\cos \left(-12\right)\sin\left(38.5\right)\sin\left(75\right) + \sin\left(-12\right)\cos\left(38.5\right)\right]\\
-    \psi = \SI{64.82}{\degree}
+    \psi = \SI{64.82}{\degree} \textrm{ or}\\
+    \cos\psi = 0.43;
 \end{gather}
 Air mass ratio:
 \begin{gather}
-    M = \frac{L}{h} = \sec\psi\\
+    M = \sec\psi\\
     M = 2.35
+\end{gather}
+Solar flux:
+\begin{gather}
+    E = 1353\left(0.057+0.83e^{-0.5M}\right) \si{\kilo\watt\per\meter\squared}\\
+    E = \SI{220.18}{\kilo\watt\per\meter\squared}
+\end{gather}
+The orbital characteristics for when the solar panels are orientated normal to the sun's rays are as follows:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Solar declination, $\theta_d$ & \SI{-5}{\degree}    \\
+        Polar angle, $\theta$         & \SI{38.5}{\degree}  \\
+        Hour angle, $\phi$            & \SI{90}{\degree}    \\ 
+        \bottomrule
+    \end{tabular}
+    \caption{Orbital characteristics when panels are normal to sun's rays.}
+\end{table}
+Therefore:
+\begin{gather}
+    \theta + \theta_d + \alpha = \phi\\
+    38.5 - 5 + \alpha = 90\\
+    \alpha = \SI{56.5}{\degree}
+\end{gather}
+Intensity of radiation for collector inclined at $\alpha$ degrees to normal:
+\begin{gather}
+    E_{\alpha} = E\left[\cos \theta_d \sin\left(\theta + \alpha\right)\sin\phi + \sin\theta_d \cos\left(\theta + \alpha\right)\right]
+    E_{\alpha} = \SI{211.23}{\watt\per\square\meter}
+\end{gather}
+Area of collectors ($A_p$) is \SI{920}{\meter\squared}, therefore intensity of radiation for total collector area is:
+\begin{gather}
+    \textrm{Incident solar energy} = 211.23\cdot920\cdot10^{-3} = \SI{194.33}{\kilo\watt}
+\end{gather}
+Looking at the sources of lost energy in our system, we have energy lost due to convection to atmosphere and re-radiated energy. We also have the heat transfer to the working fluid. This must equal the energy in, which is equal to the incident solar energy multiplied by the absorptivity of the collector surface.
+
+Energy absorbed by the collector:
+\begin{gather}
+    \theta_{solar} = \textrm{incident solar energy} \cdot A
+\end{gather}
+where $A$ is absorptivity of the collector surface.
+
+Convection to atmosphere:
+\begin{gather}
+    \theta_{conv} = A_ph\left(T_s - T_a\right)
+\end{gather}
+where where $A_p$ is area of collector, $h$ is convective heat transfer coefficient between the collector surface and the surrounding air, $T_s$ is average temperature of collector surface, $T_a$ is the temperature of the surrounding air. 
+
+Re-radiated energy:
+\begin{gather}
+    \theta_{rad} = A_p \varepsilon\sigma\left(T_s^4\right)
+\end{gather}
+where $\varepsilon$ is emissivity of collector surface, $\sigma$ is Stefan-Boltzmann constant.
+
+The above constants are given in the question. MATLAB was used to calculate the solar power available at the collectors following losses:
+\lstinputlisting{mCode/q1.m}
+Here we can see that our final answer is stored in the variable \texttt{powerAvail}:
+\begin{gather}
+    \texttt{powerAvail} = \SI{188.361}{\kilo\watt}
 \end{gather}
 \subsection{Viability of proposed provision}
 \section{Question 2}
 \subsection{a}
 \subsubsection{Irreversibility associated with increase in steady flow exergy of steam}
+
 \subsubsection{Maximum theoretical work available}
 \subsection{Relative advantages and disadvantages of four primary energy sources utilised in thermal power generation}
 \section{Question 3}
@@ -95,7 +157,60 @@ Air mass ratio:
 \section{Question 4}
 \subsection{a}
 \subsubsection{Ideal operating voltage}
+Applying steady flow energy equation
+\begin{gather}
+    \dot{Q} - \dot{W} = \dot{m}\left(h_{P0} - h_{R0}\right)
+\end{gather}
+where $\dot{Q}$ is our heat loss, $\dot{W}$ is our work done, $\dot{m}$ is the mass flow rate, $h_{P0}$ is enthalpy of products and $h_{R0}$ is enthalpy of reactants. 
+
+Since we are considering an ideal fuel cell, we can utilise the following:
+\begin{gather}
+    \dot{Q} = \dot{m}T_0\left(s_{P0} - s_{R0}\right)
+\end{gather}
+Therefore:
+\begin{gather}
+    \dot{W} = \dot{m}T_0 \left(s_{P0} - s_{R0}\right) - \dot{m}\left(h_{P0}-h_{R0}\right)\\
+    \dot{W} = \dot{m}\left[\left(h_{R0} - T_0s_{R0}\right)-\left(h_{P0}-T_0s_{P0}\right)\right]
+\end{gather}
+We know that:
+\begin{gather}
+    \textrm{Gibbs function} = h- Ts
+\end{gather}
+Therefore:
+\begin{gather}
+    \dot{W} = -\dot{m}\Delta G  
+\end{gather}
+In this case:
+\begin{gather}
+    45 = - \dot{m} \left(-226500\right)\\
+    \dot{m} = \frac{45}{226500} = \SI{1.99e-04}{\kilo\mol\per\second}
+\end{gather}
+We also know:
+\begin{gather}
+    \dot{W} = V\mathcal{F}n\dot{m}
+\end{gather}
+where $V$ is the ideal operating voltage, $\mathcal{F}$ is Faraday's constant and $n$ is number of charge transfers per molecule of fuel. Hence:
+\begin{gather}
+    V = \dfrac{\dot{W}}{\mathcal{F}n\dot{m}}\\
+    V = \dfrac{45\cdot 226500}{96485\cdot 2 \cdot 45} = \SI{1.1738}{\volt}
+\end{gather}
 \subsubsection{Anode area}
+We know that:
+\begin{gather}
+    P = IV\\
+    I = \dfrac{45000}{1.1738} = \SI{38338}{\ampere}
+\end{gather}
+Therefore, the anode area necessary is:
+\begin{gather}
+    \textrm{Anode area} = \dfrac{38338}{6500} = \SI{5.8982}{\meter\squared}
+\end{gather}
 \subsubsection{Heat loss}
+Applying steady flow energy equation (subscript a denotes `actual'):
+\begin{gather}
+    \dot{Q}_a - \dot{W}_a = \dot{m}\Delta H\\
+    \dot{Q}_a = \dot{m}\Delta H + 2 \cdot \dot{m} \mathcal{F}V_{a}\\
+    \dot{Q}_a = \frac{45}{226500}\left(-239800\cdot 10^3 + 2\cdot 96.485\cdot 10^6 \cdot 0.984\right)\\
+    \dot{Q} = \SI{-9.92}{\kilo\watt}
+\end{gather}
 \subsection{Limitations of hydrogen oxygen fuel cell vehicles}
 \end{document}
