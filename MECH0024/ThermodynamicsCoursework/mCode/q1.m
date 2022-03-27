@@ -22,6 +22,7 @@ timeOfDayNorm = 12;
 phiNorm = ((timeOfDayNorm*360)/24 - 90)*(pi/180);
 alpha = phiNorm - thetaDNorm - thetaNorm;
 
+
 EAlpha = E*(cos(thetaD)*sin(theta+alpha)*sin(phi) + sin(thetaD)*cos(theta + alpha));
 Area = 920;
 IncEnergy = EAlpha*Area;
@@ -29,10 +30,10 @@ IncEnergy = EAlpha*Area;
 %losses
 absorp = 0.97;
 epsi = 0.0941;
-sigma = 5.67e-11;
+sigma = 1000*(5.67e-11);
 TA = 8+273.15;
 TS = 45+273.15;
-h = 0.00256;
+h = 1000*0.00256;
 
 %energy bal
 thetaSolar = IncEnergy*absorp;
