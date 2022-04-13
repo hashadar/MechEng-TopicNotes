@@ -111,3 +111,6 @@ veh.mass = veh.curbMass*veh.massFactor + veh.driverMass;
 road.slope = 0; 
 
 input = 1000;
+
+initialPosVector = [raceTrackXY(2,1) - raceTrackXY(1,1); raceTrackXY(2,2) - raceTrackXY(1,2)];
+normInitialPosVector = initialPosVector/norm(initialPosVector);
