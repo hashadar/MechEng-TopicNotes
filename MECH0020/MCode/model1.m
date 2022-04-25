@@ -3,7 +3,7 @@ clear
 close all
 
 %pull racing line data
-raceTrackXY = readmatrix('brandsHatchRaceLineXYData.csv');
+raceTrackXY = 0.5.*readmatrix('brandsHatchRaceLineXYData.csv');
 %plot(raceTrackXY(:,1), raceTrackXY(:,2))
 
 %calculate turning angle
