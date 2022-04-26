@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\usepackage[all=normal,floats,leading,paragraphs,charwidths,tracking,wordspacing]{savetrees}
+\usepackage{float}
+%\usepackage[version = 4]{mhchem}
+\usepackage{multirow}
+\usepackage{commath}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{natbib}
+\renewcommand{\arraystretch}{1.2}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\DeclareSIUnit{\atm}{atm}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage[a4paper,margin=20mm]{geometry}
+\numberwithin{equation}{section}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=black
+}
+\urlstyle{same}
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+             
+        MECH0020 Individual Project\\
+        2021/22
+ 
+        \vspace{1.5cm}
+
+        {\LARGE \textbf{Designing a Lap Simulator for the Shell Eco-marathon} \par}
+             
+        \vspace{1.5cm}
+ 
+        Student: Hasha Humayon Dar
+        
+        \vspace{0.25cm}
+
+        Supervisor: Professor Tim Baker
+
+        \vspace{0.25cm}
+
+        Word count: FILL
+        
+        \vfill
+
+        University College London\\
+        Torrington Place\\
+        LONDON WC1E 7JE
+             
+    \end{center}
+ \end{titlepage}
+\newpage
+\section*{Declaration}
+I, Hasha Humayon Dar, confirm that the work presented in this report is my own. Where information has been derived from other sources, I confirm that this has been indicated in the report.
+\section*{Abstract}
+The development of simulating performance parameters for racing vehicles has become increasingly important in a digital world. Simulations provide highly customisable virtual environments to test components, changes and strategies. Hence, the development of software that can give an accurate idea of a vehicle's performance in a variety of configurations would prove to be an advantage. Traditionally, the UCL Racing Team has conducted in-person testing of their vehicles at race tracks or similar. However, due to COVID-19, this has become difficult in the past two years. Virtual testing can provide a cheaper, more time efficient means of testing. The development of a virtual model of the vehicle would allow the team to test various changes to the vehicle, without having to prototype and arrange for in-person testing. 
+
+This report focuses on building a performance based model of the UCL Racing Shell Eco-marathon vehicle, which generates a lap time for the vehicle. The Shell Eco-marathon is a competition at the school and university level for students focusing on energy optimisation in vehicles. The aim of the competition is to develop new innovations in energy efficiency for vehicles on the road with the idea of reducing carbon emissions \citep{shell1}
+\section*{Acknowledgements}
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\bibliographystyle{agsm}
+\bibliography{./bib/MECH0020refs.bib}
+\end{document}
