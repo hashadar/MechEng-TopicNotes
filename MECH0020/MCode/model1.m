@@ -90,7 +90,7 @@ road.cr = 0.001; %road load coefficient
 veh.mass = veh.curbMass*veh.massFactor + veh.driverMass;
 
 m = veh.mass;
-s1 =  0.5;
+s1 =  0.3;
 s2 =  0;
 lf =  1; 
 lr =  1;

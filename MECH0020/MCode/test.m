@@ -16,9 +16,9 @@ beta = 0.16;
 delta = 0.1;
 delta1 = atan(l/(l/tan(delta)-s1));
 
-p.tyre1.R0   =       0.5;    % Free tyre radius [m]
-p.tyre1.Fz0  =   4000;        % tyre nominal force [N]
-p.tyre1.kz   = 109000;        % Tyre vertical stiffness [N/m]
+p.tyre1.R0   =       0.5;      % Free tyre radius [m]
+p.tyre1.Fz0  =   4000;         % tyre nominal force [N]
+p.tyre1.kz   = 109000;         % Tyre vertical stiffness [N/m]
 p.tyre1.pCx1 =       1.6;      % Shape factor Cfx for longitudinal force         
 p.tyre1.pDx1 =       0.75;     % Longitudinal friction Mux at Fznom         
 p.tyre1.pDx2 =      -0.05;     % Variation of friction Mux with load         
