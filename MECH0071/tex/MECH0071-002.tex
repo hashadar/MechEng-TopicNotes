@@ -180,10 +180,126 @@ In the per unit system five base values are needed. These are \textbf{power, cur
 
 Usually the base values defined are:
 \begin{itemize}
-	\item the Apparent Power (Base VA)
-	\item Voltage (Base V)
+	\item the Apparent Power (Base\_VA)
+	\item Voltage (Base\_V)
 \end{itemize}
 Power Factor is already expressed in per unit form. Once the base values are calculated then `actual values' in the circuit can be expressed in per unit form.
+\subsection{Three-Phase system PU conversion}
+\subsubsection{Step one}
+The per unit relationships for Base\_VA and Base\_V are define and Base\_I and Base\_Z are calculated:
+\begin{align}
+	\textrm{Base\_VA} &= \textrm{Defined by Engineer}\\
+	\textrm{Base\_V} &= \textrm{Defined by Engineer}\\
+	\textrm{Base\_I} &= \dfrac{\textrm{Base\_VA}}{\sqrt{3}\cdot \textrm{Base\_V}}\\
+	\textrm{Base\_Z} &= \dfrac{\textrm{Base\_V}}{\textrm{Base\_I}}
+\end{align}
+\subsubsection{Step two}
+Having calculated the Base Values, these are then defined as being 1 per unit values:
+\begin{itemize}
+	\item Base\_V = 1 per unit Voltage
+	\item Base\_VA = 1 per unit Apparent Power
+	\item Base\_I = 1 per unit Current
+	\item Base\_Z = 1 per unit Impedance
+\end{itemize}
+\subsubsection{Step three}
+In the circuit all apparent powers, voltage, currents and impedances are expressed as per unit values:
+\begin{align}
+	\textrm{Per\_Unit\_S} &= \dfrac{\textrm{Actual\_Value\_S}}{\textrm{Base\_S}}\\
+	\textrm{Per\_Unit\_V} &= \dfrac{\textrm{Actual\_Value\_V}}{\textrm{Base\_V}}\\
+	\textrm{Per\_Unit\_I} &= \dfrac{\textrm{Actual\_Value\_I}}{\textrm{Base\_I}}\\
+	\textrm{Per\_Unit\_Z} &= \dfrac{\textrm{Actual\_Value\_Z}}{\textrm{Base\_Z}}
+\end{align}
+\subsubsection{Step four}
+Sometimes parameters e.g. Z are already expressed in per unit form rather than as SI units but have been calculated to a different base (S and V). These can be converted as follows:
+\begin{gather}
+	\left(\textrm{Per\_Unit\_Z}\right)_{\textrm{new\_base}} = \dfrac{\left(\textrm{Base\_VA}\right)_{\textrm{new\_base}}}{\left(\textrm{Base\_VA}\right)_{\textrm{old\_base}}} \cdot \dfrac{\left(\textrm{Base\_V}\right)^2_{\textrm{old\_base}}}{\left(\textrm{Base\_V}\right)^2_{\textrm{new\_base}}} \cdot \left(\textrm{Per\_Unit\_Z}\right)_{\textrm{old\_base}}
+\end{gather}
+Some manufacturers and engineers prefer to work with the percentage system rather than the per unit system which of course is a simple matter of mulitplying by 100/ Equipment manufacturers use a machine's own S and V to determine base values from which Z pu is then calculated.
+\subsection{Example PU system conversion}
+\subsubsection{Single Line Diagram}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{../img/figure12.png}
+	\caption{Single Line Diagram.}
+\end{figure}
+\subsubsection{Step one - calculating the base current and base impedance}
+Selecting 10 MVA as Base\_S and 3.3 kV as Base\_V (because it seems sensible considering the generators) then we have:
+\begin{align}
+	\textrm{Base\_I} &= \dfrac{10 \time 10^6}{\sqrt{3}\times 3.3 \times 10^6} = \SI{1749.5}{\ampere}\\
+	\textrm{Base\_Z} &- \dfrac{3.3\times 10^3}{1749.5} = \SI{1.886}{\ohm}
+\end{align}
+\subsubsection{Step two - defininng 1 p.u. values}
+\begin{itemize}
+	\item \SI{3.3e3}{\volt} = 1 per unit Voltage = 1 pu V
+	\item \SI{10e6}{VA} = 1 per unit Apparent Power = 1 pu S
+	\item \SI{1749.5}{\ampere} = 1 per unit Current = 1 pu A
+	\item \SI{1.886}{\ohm} = 1 per unit Impedance = 1 pu Z
+\end{itemize}
+Sometimes \% values are preferred by some engineers i.e. 1 pu = 100\%
+\subsubsection{Step three - converting impedances expressed in SI units to per unit form}
+The only `actual values' i.e. expressed in SI units, are the heating load and the DC machine:
+
+For the lighting/heating load:
+\begin{gather}
+	-jXC = -j \left( \dfrac{1}{2\pi\cdot 50 \cdot 10 \times 10^{-3}}\right) = -j0.318\\
+	-jXC = \dfrac{-j0.318}{1.886} = -j0.168\, \si{pu}\\
+	R = \dfrac{100}{1.886} = 53.022\,\si{pu}
+\end{gather}
+For DC motor:
+\begin{gather}
+	R = \dfrac{3}{1.886} = 1.591\, \si{pu}\\
+	S = P + \dfrac{2}{10} = 0.2\, \si{pu}
+\end{gather}
+\subsubsection{Step four - converting impedances expressed in per unit form to another base}
+For the synchronous generators:
+\begin{gather}
+	S = \dfrac{10}{10} = 1\, \si{pu}\\
+	V = \SI{3.3}{\kilo\volt} = 1\, \si{pu}\\
+	X = \dfrac{14}{100} = 0.14\, \si{pu}\\
+	PF = 0.8\, \si{pu}
+\end{gather}
+For the transformer:
+\begin{gather}
+	S = \dfrac{20}{10} = 2\, \si{pu}\\
+	X = \dfrac{3}{100} \times \dfrac{10}{20} = 0.015\,\si{pu}\\
+	R = \dfrac{1}{100} \times \dfrac{10}{20} = 0.005\,\si{pu}\\
+	PF = 0.7\,\si{pu} 
+\end{gather}
+For the induction motors:
+\begin{gather}
+	S = \dfrac{3}{10000} = 0.0003\,\si{pu} \\
+	X = \dfrac{8}{100} \times \dfrac{10000}{3} = 266.667\,\si{pu} \\
+	PF = 0.8
+\end{gather}
+\subsubsection{Step five - drawing the impedance diagram}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{../img/figure13.png}
+	\caption{Impedance Diagram.}
+\end{figure}
+\subsection{Reactance diagram}
+The reactance diagram is a modification to the impedance diagram where only per unit reactances are shown. In a reactance diagram all resistances are ignored. The reactance diagram is useful because it allows `first pass' calculations to be made in a power system without too much mathematical complexity due to having ($R \pm jX$).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{../img/figure13.png}
+	\caption{Reactance Diagram.}
+\end{figure}
+\subsection{Impedance and reactance diagrams}
+Converting the electrical line diagram to an impedance diagram or reactance diagram is essential for:
+\begin{itemize}
+	\item Potential difference (voltage drop) calculations
+	\item Current flows in cables/lines
+	\item Calculations of losses
+	\item Power flows around an electrical system
+	\item Understand transient effects
+	\item Calculate fault level and fault currents
+	\item Waveform distortion and its penetration
+	\item Impacts when adding new equipment to the network
+\end{itemize}
+\section{Summary}
+The per unit system allows powers, voltages, currents and impedances to be expressed relative to each other. This allows the designer to understand the relationships between different parts of the circuit.
+
+Using the per-unit transformer model eliminates the need to scale quantities by the transformer turns ratio, thus eliminating a common source for error in electrical calculations.
 \end{document}
 
 
