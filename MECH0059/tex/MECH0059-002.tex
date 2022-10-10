@@ -157,15 +157,73 @@ Calculate the displacement and stress using the stiffness matrix.
 	\end{Bmatrix}
 \end{gather}
 Leading to (commented in Latex):
-%\begin{gather}
-%	u_1 = 0\\
-%	u_2 = \SI{0.25e-3}{\milli\meter}\\
-%	u_3 = \SI{0.75e-3}{\milli\meter}\\
-%	R_1 = \SI{-10}{\newton}\\
-%	\varepsilon_1 = \frac{\left(-u_1+u_2\right)}{L} = \SI{2.5e-6}\\
-%	\varepsilon_2 = \frac{\left(-u_2+u_3\right)}{L} = \SI{5e-6}\\
-%	\sigma_1 = E\varepsilon_1 = \SI{0.5}{\newton\per\milli\meter}\\
-%	\sigma_2 = E\varepsilon_2 = \SI{1}{\newton\per\milli\meter}
-%\end{gather}
+\begin{gather}
+	u_1 = 0\\
+	u_2 = \SI{0.25e-3}{\milli\meter}\\
+	u_3 = \SI{0.75e-3}{\milli\meter}\\
+	R_1 = \SI{-10}{\newton}\\
+	\varepsilon_1 = \frac{\left(-u_1+u_2\right)}{L} = \SI{2.5e-6}{}\\
+	\varepsilon_2 = \frac{\left(-u_2+u_3\right)}{L} = \SI{5e-6}{}\\
+	\sigma_1 = E\varepsilon_1 = \SI{0.5}{\newton\per\milli\meter}\\
+	\sigma_2 = E\varepsilon_2 = \SI{1}{\newton\per\milli\meter}
+\end{gather}
+\section{1D element - the spring}
+Consider the same 1D linear spring with stiffness $k$ independent of deflection:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{../img/figure5.png}
+	\caption{Spring system.}
+\end{figure}
+\begin{gather}
+	W_{ext} = \int_0^{u_1} \left(F_1(u)\right)\dif u + \int_{0}^{u_2} \left(F_2(u)\right)\dif u\\
+	\delta W_{ext} = F_1 \delta u_1 + F_2 \delta u_2 = \begin{pmatrix}
+		\delta u_1 & \delta u_2 
+	\end{pmatrix} \begin{pmatrix}
+		F_1\\
+		F_2
+	\end{pmatrix}
+\end{gather}
+where $F_1 = F_1\left(u_1\right)$ and $F_2 = F_2\left(u_2\right)$.
+\begin{gather}
+	W_{int} = \frac{1}{2}k\left(u_2- u_1\right)^2 = \frac{1}{2}\begin{pmatrix}
+		u_1 & u_2
+	\end{pmatrix}\begin{bmatrix}
+		k & -k\\
+		-k & k
+	\end{bmatrix}\begin{pmatrix}
+		u_1\\
+		u_2
+	\end{pmatrix}\\
+	\delta W_{int} = k\left(u_2 - u_1\right)\left(\delta u_2 -\delta u_1\right) = \begin{pmatrix}
+		\delta u_1 & \delta u_2
+	\end{pmatrix}\begin{bmatrix}
+		k & -k\\
+		-k & k\\
+	\end{bmatrix}\begin{pmatrix}
+		u_1\\
+		u_2
+	\end{pmatrix}
+\end{gather}
+Applying the principle of virtual work gives:
+\begin{gather}
+	\delta W_{ext} = \delta W_{int} \rightarrow \delta u_1 \left[-k\left(u_2 - u_1\right)-F_1\right] + \delta u_2 \left[k\left(u_2 - u_1\right)-F_2\right] = 0
+\end{gather}
+and since $\delta u_1$ and $\delta u_2$ are arbitrary, one obtains:
+\begin{gather}
+	F_1 = ku_1 - ku_2 \textrm{ and } F_2 = -ku_1 + ku_2
+\end{gather}
+Or, in matrix form:
+\begin{gather}
+	\underline{F} = \begin{pmatrix}
+		F_1\\
+		F_2
+	\end{pmatrix} = \begin{bmatrix}
+		k & -k\\
+		-k & k
+	\end{bmatrix}\begin{pmatrix}
+		u_1\\
+		u_2
+	\end{pmatrix} = \underline{K}\underline{u}
+\end{gather}
 \chapter{Computational Fluid Dynamics}
 \end{document}
