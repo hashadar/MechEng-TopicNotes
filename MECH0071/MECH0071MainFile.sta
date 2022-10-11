@@ -1,8 +1,0 @@
-\standalonepreambles
-\subpreamble{tex/MECH0071-001.tex}
-\usepackage {enumitem}\usepackage {multicol}\usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage {mathtools}\usepackage {siunitx}\usepackage {commath}\usepackage {array}\usepackage {natbib}\usepackage [a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}\setlength {\parindent }{0pt}\setlength {\parskip }{1ex}
-\endsubpreamble
-\subpreamble{tex/MECH0071-002.tex}
-\usepackage {enumitem}\usepackage {multicol}\usepackage {graphicx}\usepackage {float}\usepackage {amsmath}\usepackage {amssymb}\usepackage {mathtools}\usepackage {siunitx}\usepackage {commath}\usepackage {array}\usepackage {natbib}\usepackage [a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}\setlength {\parindent }{0pt}\setlength {\parskip }{1em}\raggedbottom 
-\endsubpreamble
-\endstandalonepreambles
