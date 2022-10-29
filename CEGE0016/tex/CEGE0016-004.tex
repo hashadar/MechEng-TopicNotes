@@ -1,187 +1,229 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{booktabs}
-\usepackage{xcolor}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
 \chapter{Cost-Benefit Analysis}
 \section{What is cost-benefit analysis?}
 \begin{quote}
-	``Assessing costs and benefits across all affected groups or places matters because even a proposal with a relatively low public sector cost such as new regulation, may have significant effects on specific groups in society, places or business''
+  ``Assessing costs and benefits across all affected groups or places matters because even a proposal with a relatively low public sector cost such as new regulation, may have significant effects on specific groups in society, places or business''
 \end{quote}
 \begin{itemize}
-	\item A cost-benefit analysis is the process used to measure the benefits of a decision or taking action relative to the associated costs
-	\item If benefits $>$ costs, the decision or action is a good one to take
-	\item If costs $>$ benefits, the proposed action or decision should be reconsidered
-	\item Cost benefit analysis can also be used to compare altenate decisions or actions
+  \item A cost-benefit analysis is the process used to measure the benefits of a decision or taking action relative to the associated costs
+  \item If benefits $>$ costs, the decision or action is a good one to take
+  \item If costs $>$ benefits, the proposed action or decision should be reconsidered
+  \item Cost benefit analysis can also be used to compare alternate decisions or actions
 \end{itemize}
 Both costs and benefits are required to be expressed in monetary terms, accounting for the time value of money. Costs may be categorised as:
 \begin{itemize}
-	\item Direct - e.g. labour costs, manufacturing costs, material costs
-	\item Indirect - e.g. utilities, rent
-	\item Intangible - e.g. reduced productivity because of a new process
-	\item Opportunity - lost benefits (opportunities) when pursuing one stratey over another 
+  \item Direct - e.g. labour costs, manufacturing costs, material costs
+  \item Indirect - e.g. utilities, rent
+  \item Intangible - e.g. reduced productivity because of a new process
+  \item Opportunity - lost benefits (opportunities) when pursuing one strategy over another
 \end{itemize}
 Benefits may be categorised as:
 \begin{itemize}
-	\item Direct - e.g. increased revenue and sales
-	\item Indirect - e.g. increased consumer interest
-	\item Intangible - e.g. improved employee morale
-	\item Competitive - e.g. being an industry leader
+  \item Direct - e.g. increased revenue and sales
+  \item Indirect - e.g. increased consumer interest
+  \item Intangible - e.g. improved employee morale
+  \item Competitive - e.g. being an industry leader
 \end{itemize}
 \section{The Benefit-Cost Ratio method}
 The Benefit-Cost Ratio (BCR) is defined as the ratio of the equivalent value of benefits to the equivalent value of costs. The equivalent-value measure can be:
 \begin{itemize}
-	\item Annual value (AV)
-	\item Present value (PV)
-	\item Future value (FV)
+  \item Annual value (AV)
+  \item Present value (PV)
+  \item Future value (FV)
 \end{itemize}
 The BCR method has been the accepted procedure for making decisions and comparing projects in the public sector for many decades.
 \begin{quote}
-	if BCR $\geq$ 1, the project is acceptable
+  if BCR $\geq$ 1, the project is acceptable
 \end{quote}
 Several different formulations of the BCR method have been developed. We examine two formulations of the BCR method that are commonly used by government agencies:
 \begin{itemize}
-	\item Conventional BCR method
-	\item Modified BCR method
+  \item Conventional BCR method
+  \item Modified BCR method
 \end{itemize}
-Both formulations will lead to identical project acceptability decisions (i.e. BCR $\geq$ 1 or BCR $<$ 1). 
+Both formulations will lead to identical project acceptability decisions (i.e. BCR $\geq$ 1 or BCR $<$ 1).
 \subsection{Conventional BCR method}
 Present value (PV) formulation:
 \begin{gather}
-	BCR_{PV} = \dfrac{PV_{benefits}}{PV_{costs}}\\
-	BCR_{PV} = \dfrac{PV_{benefits}}{I- PV_{MV}+PV_{O\&M}}
+  BCR_{PV} = \dfrac{PV_{benefits}}{PV_{costs}}\\
+  BCR_{PV} = \dfrac{PV_{benefits}}{I- PV_{MV}+PV_{O\&M}}
 \end{gather}
 Annual value (AV) formulation:
 \begin{gather}
-	BCR_{AV} = \dfrac{AV_{benefits}}{AV_{costs}}\\
-	BCR_{AV} = \dfrac{AV_{benefits}}{CR + AV_{O\&M}}
+  BCR_{AV} = \dfrac{AV_{benefits}}{AV_{costs}}\\
+  BCR_{AV} = \dfrac{AV_{benefits}}{CR + AV_{O\&M}}
 \end{gather}
 Both ratios lead to identical numerical results. Where:
 \begin{itemize}
-	\item $I$ is initial investment in the proposed project
-	\item $MV$ is market value at the end of useful life
-	\item $O\&M$ is operating and maintenance costs
-	\item $CR$ is capital-recovery amount (i.e. equivalent cost of $I$, includance an allowance for market or salvage value)
+  \item $I$ is initial investment in the proposed project
+  \item $MV$ is market value at the end of useful life
+  \item $O\&M$ is operating and maintenance costs
+  \item $CR$ is capital-recovery amount (i.e. equivalent cost of $I$, including an allowance for market or salvage value)
 \end{itemize}
 \subsection{Modified BCR method}
 Present value (PV) formulation:
 \begin{gather}
-	BCR_{PV} = \dfrac{PV_{benefits}}{PV_{costs}}\\
-	BCR_{PV} = \dfrac{PV_{benefits} - PV_{O\&M}}{I - PV_{MV}}
+  BCR_{PV} = \dfrac{PV_{benefits}}{PV_{costs}}\\
+  BCR_{PV} = \dfrac{PV_{benefits} - PV_{O\&M}}{I - PV_{MV}}
 \end{gather}
 Annual value (AV) formulation:
 \begin{gather}
-	BCR_{AV} = \dfrac{AV_{benefits}}{AV_{costs}}\\
-	BCR_{AV} = \dfrac{AV_{benefits}-AV_{O\&M}}{CR}
+  BCR_{AV} = \dfrac{AV_{benefits}}{AV_{costs}}\\
+  BCR_{AV} = \dfrac{AV_{benefits}-AV_{O\&M}}{CR}
 \end{gather}
 Both ratios lead to identical numerical results.
-\subsection{Convential and modified BCRs}
+\subsection{Conventional and modified BCRs}
 Remember the formula for PV:
 \begin{gather}
-	PV = \dfrac{FV}{(1+i)^n}
+  PV = \dfrac{FV}{(1+i)^n}
 \end{gather}
-Present value (PV) of a future value (FV) in $n$ years, for an interest rate $i$. 
+Present value (PV) of a future value (FV) in $n$ years, for an interest rate $i$.
 Remember the formula for AV:
 \begin{gather}
-	AV = PV\dfrac{i(1+i)^n}{(1+i)^n - 1}
+  AV = PV\dfrac{i(1+i)^n}{(1+i)^n - 1}
 \end{gather}
 Value of a series of uniform (annual) receipts (AV) that occur at the end of periods (years) 1 to $n$, given their present value (PV) and an interest rate $i$.
 \subsection{What value of $i$ to use?}
-There are three main considerations when it comnes to what interest rate to use for engineering economy studies of public-sector projects:
+There are three main considerations when it comes to what interest rate to use for engineering economy studies of public-sector projects:
 \begin{itemize}
-	\item the interest rate on borrowed capital
-	\item The opportunity cost of capital to the government agency
-	\item The opportunity cost of capital to the taxpayers
+  \item the interest rate on borrowed capital
+  \item The opportunity cost of capital to the government agency
+  \item The opportunity cost of capital to the taxpayers
 \end{itemize}
 \subsection{Why do conventional and modified BCRs lead to the same decision?}
-Convential BCR formulation:
+Conventional BCR formulation:
 \begin{gather}
-	BCR_V = \frac{V_{benefits}}{I - V_{MV}+V_{O\& M}} = \frac{B}{C}
+  BCR_V = \frac{V_{benefits}}{I - V_{MV}+V_{O\& M}} = \frac{B}{C}
 \end{gather}
 Where subscript $V$ denotes either PV or AV. Modified BCR formulation:
 \begin{gather}
-	BCR_V = \frac{V_{benefits} \textcolor{red}{-V_{O\&M}}}{I - V_{MV} + V_{O\&M} \textcolor{red}{-V_{O\&M}}} = \frac{B\textcolor{red}{-X}}{C\textcolor{red}{-X}}
+  BCR_V = \frac{V_{benefits} \textcolor{red}{-V_{O\&M}}}{I - V_{MV} + V_{O\&M} \textcolor{red}{-V_{O\&M}}} = \frac{B\textcolor{red}{-X}}{C\textcolor{red}{-X}}
 \end{gather}
 Both the numerator and denominator differ by the same constant.
 \begin{gather}
-	\textcolor{red}{\frac{B}{C>1}}\rightarrow B > C \rightarrow B - X > C - X \rightarrow \textcolor{red}{\frac{B-X}{C-X}>1}
+  \textcolor{red}{\frac{B}{C>1}}\rightarrow B > C \rightarrow B - X > C - X \rightarrow \textcolor{red}{\frac{B-X}{C-X}>1}
 \end{gather}
 leading to the same decision.
 \subsection{Example 1}
-The Greater London Authority is considering extending the runways of Stansted Airport so that larger commercial airplanes can use the facility. The land necessary for the runway extension is currently a farmland that can be purchased for £350,000. Construction costs for the runway extension are projected to be £600,000, and the additional annual maintenance costs for the extension are estimated to be £22,500. If the runways are extended, a small terminal will be constructed at a cost of £250,000. The annual operating and maintenance costs for the terminal are estimated at £75,000. Finally, the projected increase in flights will require the addition of two air traffic controllers at an annual cost of £100,000. Annual benefits of the runway extension have been estimated as follows:
+The Greater London Authority is considering extending the runways of Stansted Airport so that larger commercial airplanes can use the facility. The land necessary for the runway extension is currently a farmland that can be purchased for \pounds 350,000. Construction costs for the runway extension are projected to be \pounds 600,000, and the additional annual maintenance costs for the extension are estimated to be \pounds 22,500. If the runways are extended, a small terminal will be constructed at a cost of \pounds 250,000. The annual operating and maintenance costs for the terminal are estimated at \pounds 75,000. Finally, the projected increase in flights will require the addition of two air traffic controllers at an annual cost of \pounds 100,000. Annual benefits of the runway extension have been estimated as follows:
 \begin{table}
-	\centering
-	\begin{tabular}{@{}ll@{}}
-		\toprule
-		\textbf{Description} & \textbf{Annual benefit}\\
-		\midrule
-		Leasing fee receipts from airlines & £325,000\\
-		Passenger airport tax receipts & £65,000\\
-		Convenience benefit for residents near Stansted & £50,000\\
-		Additional tourism money for London & £50,000\\
-		\midrule
-		\textbf{Total} & \textbf{£490,000}\\
-		\bottomrule
-	\end{tabular}
-	\caption{Example 1.}
+  \centering
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Description}                            & \textbf{Annual benefit}  \\
+    \midrule
+    Leasing fee receipts from airlines              & \pounds 325,000          \\
+    Passenger airport tax receipts                  & \pounds 65,000           \\
+    Convenience benefit for residents near Stansted & \pounds 50,000           \\
+    Additional tourism money for London             & \pounds 50,000           \\
+    \midrule
+    \textbf{Total}                                  & \textbf{\pounds 490,000} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Example 1.}
 \end{table}
 Apply the BCR method with a study of 20 years and a MARR of 10\% per year to determine whether the runways at Stansted airport should be extended.
 
 Information provided:
 \begin{gather}
-	i = 0.1\\
-	n = 20\, \textrm{years}\\
-	I = £350000 + £600000 + £250000 = £1200000\\
-	AV_{benefits} = £490000\\
-	PV_{MV} = AV_{MV} = £0\\
-	AV_{O\&M} = £22500 + £75000 + £100000 = £197500
+  i = 0.1\\
+  n = 20\, \textrm{years}\\
+  I = \pounds 350000 + \pounds 600000 + \pounds 250000 = \pounds 1200000\\
+  AV_{benefits} = \pounds 490000\\
+  PV_{MV} = AV_{MV} = \pounds 0\\
+  AV_{O\&M} = \pounds 22500 + \pounds 75000 + \pounds 100000 = \pounds 197500
 \end{gather}
 First, we need to determine PVs and AVs using:
 \begin{gather}
-	PV = AV\frac{\left(1+i\right)^n - 1}{i\left(1 + i\right)^n}\\
-	AV = PV\frac{i\left(1+i\right)^n}{\left(1+i\right)^n - 1}
+  PV = AV\frac{\left(1+i\right)^n - 1}{i\left(1 + i\right)^n}\\
+  AV = PV\frac{i\left(1+i\right)^n}{\left(1+i\right)^n - 1}
 \end{gather}
 \begin{gather}
-	PV_{benefits} = £4171646\\
-	PV_{O\&M} = £1681429\\
-	AV_I = CR = £140951
+  PV_{benefits} = \pounds 4171646\\
+  PV_{O\&M} = \pounds 1681429\\
+  AV_I = CR = \pounds 140951
 \end{gather}
 Conventional BCRs:
 \begin{gather}
-	BCR_{PV} = \frac{PV_{benefits}}{I - PV_{MV}+PV_{O\&M}} = 1.448\\
-	BCR_{AV} = \frac{AV_{benefits}}{CR + AV_{O\&M}} = 1.448
+  BCR_{PV} = \frac{PV_{benefits}}{I - PV_{MV}+PV_{O\&M}} = 1.448\\
+  BCR_{AV} = \frac{AV_{benefits}}{CR + AV_{O\&M}} = 1.448
 \end{gather}
 Modified BCRs:
 \begin{gather}
-	BCR_{PV} = \frac{PV_{benefits} - PV_{O\&M}}{I - PV_{O\&M}} = 2.075\\
-	BCR_{AV} = \frac{AV_{benefits}- AV_{O\&M}}{CR} = 2.075
+  BCR_{PV} = \frac{PV_{benefits} - PV_{O\&M}}{I - PV_{O\&M}} = 2.075\\
+  BCR_{AV} = \frac{AV_{benefits}- AV_{O\&M}}{CR} = 2.075
 \end{gather}
 BCR $\geq$ 1 in all cases, so runway should be extended.
 \subsection{Issues of concern using BCRs}
 \begin{itemize}
-	\item The treatment of disbenefits
-	\begin{itemize}
-		\item Negative consequences to the public resulting from the implementation of a public sector project
-	\end{itemize}
-	\item The treatment of certain cash flows as additional benefits or reduced costs
+  \item The treatment of disbenefits
+        \begin{itemize}
+          \item Negative consequences to the public resulting from the implementation of a public sector project
+        \end{itemize}
+  \item The treatment of certain cash flows as additional benefits or reduced costs
 \end{itemize}
 \subsection{Treatment of disbenefits}
 Disbenefits can be incorporated in BCR calculations by:
 \begin{itemize}
-	\item Reducing benefits accordingly (traditional approach) or
-	\item Increasing costs accordingly
+  \item Reducing benefits accordingly (traditional approach) or
+  \item Increasing costs accordingly
 \end{itemize}
-How do these approaches affect the BCR? How do these approaches affect the final decision? 
-\end{document}
+How do these approaches affect the BCR? How do these approaches affect the final decision?
+\subsection{Example 2}
+Refer back to Example 1. Suppose that there are disbenefits associated with the runway extension project. Specifically, the increased noise level from commercial jet traffic will be a serious nuisance to homeowners living along the approach path Stansted Airport. The annual disbenefit to these citizens is estimated to be \pounds 100,000.
+
+Reapply the conventional BCR method, with equivalent annual worth, to determine whether this disbenefit affects your recommendation on the desirability of this project.
+
+Disbenefit treated as a reduced benefit:
+\begin{gather}
+  BCR_{AV} = \frac{AV_{benefits}-100000}{CR + AV_{O\&M}} = 1.152
+\end{gather}
+Disbenefit treated as an increased cost:
+\begin{gather}
+  BCR_{AV} = \frac{AV_{benefits}}{CR + AV_{O\&M}+100000} = 1.118
+\end{gather}
+BCR $\geq$ 1 in both cases, so runway should be extended. The treatment of disbenefits affects the magnitude of the BCR, but not the decision.
+\subsection{Treatment of certain cash flows}
+Certain cash flows can be incorporated in BCR calculations by:
+\begin{enumerate}
+  \item Increasing benefits accordingly
+  \item Reducing costs accordingly
+\end{enumerate}
+How do these approaches affect the BCR? How do these approaches affect the final decision?
+\subsection{Example 3}
+Transport for London is considering upgrading an ageing bridge across the Thames. The existing two-lane bridge is expensive to maintain and creates a traffic bottleneck because the road is four lanes wide on either side of the bridge. The new bridge can be constructed at a cost of \pounds 300,000, and estimated annual maintenance costs are \pounds 10,000. The existing bridge has annual maintenance costs of \pounds 18,500. The annual benefit of the new four-lane bridge to motorists, due to the removal of the traffic bottleneck, has been estimated to be \pounds 25,000.
+
+Conduct a cost-benefit analysis based on equivalent annual worth, using a MARR of 8\% and a study period of 25 years, to determine whether the new bridge should be constructed.
+
+Information provided:
+\begin{gather}
+  i = 0.08\\
+  n = 25\, \textrm{years}\\
+  I = \pounds 300000\\
+  AV_{benefits} = \pounds 25000\\
+  PV_{MV} = AV_{MV} = \pounds 0\\
+  AV_{O\&M} = \pounds 10000 - \pounds 18500 = \textcolor{red}{-\pounds 8500}
+\end{gather}
+Cost is negative because it represents a reduction with respect to the current cost.
+
+Required information:
+\begin{gather}
+  AV_I = CR = \pounds 28104
+\end{gather}
+Reduced cost treated as a reduced cost (conventional BCR approach):
+\begin{gather}
+  BCR_{AV} = \frac{BCR_{AV}}{CR + AV_{O\&M}} = 1.275
+\end{gather}
+Reduced cost treated as an increased benefit (modified BCR approach):
+\begin{gather}
+  BCR_{AV} = \frac{AV_{benefits} - AV_{O\&M}}{CR} = 1.192
+\end{gather}
+BCR $\geq$ 1 in both cases, so bridge should be constructed. The classification of the cash-flow items affects the magnitude of the BCR, but not the decision.
+\subsection{Treatment of disbenefits/certain cash flows}
+Arbitrary decisions on the classification of benefits and costs has no bearing on project acceptability because if X is classified as an added benefit:
+\begin{gather}
+  BCR = \frac{B \textcolor{red}{+ X }}{C}
+\end{gather}
+and
+\begin{gather}
+  BCR > 1 \rightarrow B + X > C \rightarrow B > C - X \rightarrow \frac{B}{C \textcolor{red}{- X}} > 1
+\end{gather}
+leading to the same decision.
