@@ -227,3 +227,162 @@ and
   BCR > 1 \rightarrow B + X > C \rightarrow B > C - X \rightarrow \frac{B}{C \textcolor{red}{- X}} > 1
 \end{gather}
 leading to the same decision.
+\section{Evaluating independent projects using the BCR method}
+\subsection{What are independent projects?}
+Independent projects are categorised as groupings of projects for which the choice to select any particular project in the group is \textbf{independent} of choices regarding all other projects within the group.
+
+It is therefore acceptable to select:
+\begin{enumerate}
+  \item None of the projects
+  \item A combination of the projects
+  \item All of the projects
+\end{enumerate}
+Formal comparisons of independent projects is unnecessary. The only criterion for selecting each independent project is BCR $\geq$ 1.
+\subsection{Example 4}
+Uncontrolled water flow has increased flow conditions along a river. You have independent options to alleviate the problem of building a reservoir and/or improving the channel. Relevant information is as follows:
+\begin{table}[H]
+  \centering
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+                     & Reservoir construction & Channel improvement \\
+    \midrule
+    $CR + AV_{O\&M}$ & \pounds 1,642,200      & \pounds 1,815,100   \\
+    $AV_{benefits}$  & \pounds 1,742,200      & \pounds 2,856,300   \\
+    \bottomrule
+  \end{tabular}
+  \caption{Example 4 information.}
+\end{table}
+Conduct a cost-benefit analysis using the conventional BCR method and equivalent annual worth to determine the best course of action.
+
+Reservoir construction:
+\begin{gather}
+  BCR_{AV} = \frac{AV_{benefits}}{CR + AV_{O\&M}} = 1.061
+\end{gather}
+Channel improvement:
+\begin{gather}
+  BCR_{AV} = \frac{AV_{benefits}}{CR + AV_{O\&M}} = 1.574
+\end{gather}
+BCR $\geq$ 1 in both cases, so both options should be pursued (the fact that the channel improvement has a higher BCR is irrelevant).
+\section{Evaluating mutually exclusive projects using the BCR method}
+\subsection{What are mutually exclusive projects}
+Mutually exclusive projects are a group of projects from which, \textbf{at most, one project may be selected.} Each mutually exclusive project can be viewed as a feasible design alternative. Because the BCR method provides a ratio of benefits to costs rather than a direct measure of a project's profit potential, \textbf{selecting the project that maximises the BCR does not guarantee that the best project is selected.}
+\subsection{Procedure for evaluating mutually exclusive projects}
+\begin{enumerate}
+  \item Calculate equivalent value (PV, AV or FV) of costs for each mutually exclusive project
+  \item Rank-order mutually exclusive projects by increasing equivalent value of costs (note: the rank-order will be the same for all equivalent value types)
+  \item Calculate the BCR for the project with the lowest equivalent cost ($BCR_L$)
+        \begin{itemize}
+          \item If $BCR_L \geq 1 \rightarrow$ baseline = project with the lowest equivalent cost
+          \item Else $\rightarrow$ baseline = ``do-nothing''
+        \end{itemize}
+  \item Follow the flow chart in Figure \ref{fig:EMEFC}
+\end{enumerate}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.9\textwidth]{./img/figure25.png}
+  \caption{Flow chart for evaluating mutually exclusive projects}
+  \label{fig:EMEFC}
+\end{figure}
+\subsection{Example 5}
+Three mutually exclusive public-works projects are currently under consideration. Their respective costs and benefits are included in the table that follows. Each of the projects has a useful life of 50 years, and MARR is 10\% per year.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+                       & Project A         & Project B          & Project C          \\
+    \midrule
+    Capital investment & \pounds 8,500,000 & \pounds 10,000,000 & \pounds 12,000,000 \\
+    Annual O\&M costs  & \pounds 750,000   & \pounds 725,000    & \pounds 700,000    \\
+    Market value       & \pounds 1,250,000 & \pounds 1,750,000  & \pounds 2,000,000  \\
+    Annual benefit     & \pounds 2,150,000 & \pounds 2,265,000  & \pounds 2,500,000  \\
+    \bottomrule
+  \end{tabular}
+  \caption{Example 5 information.}
+\end{table}
+Which, if any of these projects, should be selected?
+
+Information provided and required information:
+\begin{gather}
+  i = 0.1\\
+  n = 50\, \textrm{years}
+\end{gather}
+Step 1: convert to PV.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+                    & Project A          & Project B          & Project C          \\
+    \midrule
+    I               & \pounds 8,500,000  & \pounds 10,000,000 & \pounds 12,000,000 \\
+    $PV_{O\&M}$     & \pounds 7,436,111  & \pounds 7,188,241  & \pounds 6,940,370  \\
+    $PV_{MV}$       & \pounds 10,648     & \pounds 14,907     & \pounds 17,037     \\
+    $PV_{costs}$    & \pounds 15,925,463 & \pounds 17,173,333 & \pounds 18,923,333 \\
+    $PV_{benefits}$ & \pounds 21,316,851 & \pounds 22,457,055 & \pounds 24,787,036 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Example 5 required information.}
+\end{table}
+Step 2
+\begin{gather}
+  BCR_A = \frac{21316851}{15925463} = 1.339 \geq 1 \rightarrow\, \textrm{Project A is the baseline}
+\end{gather}
+Step 3: establish baseline.
+
+Step 4:
+\begin{gather}
+  \Delta BCR_{B} = \frac{22457055-21316851}{17173333-15925463} = 0.914 < 1 \rightarrow\, \textrm{Project A is still the baseline}
+\end{gather}
+Proceed to Project C
+\begin{gather}
+  \Delta BCR_{C} = \frac{24787036-21316851}{18923333-15925463} = 1.158 \geq 1 \rightarrow\, \textrm{Project C is the preferred option}
+\end{gather}
+\subsection{Mutually exclusive projects with unequal lives}
+It is not uncommon for public projects to have different useful lives. How can we conduct BCR analyses in these cases? In these cases, annual values (AVs) should be used to conduct incremental cost-benefit analyses.
+\subsection{Example 6}
+Two mutually exclusive alternative public-works projects are under consideration. Their respective costs and benefits are included in the table that follows. Project A has an anticipated life of 35 years, and the useful life of Project B has been estimated to be 25 years. The effect of inflation is negligible.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+                       & Project A       & Project B       \\
+    \midrule
+    Capital investment & \pounds 750,000 & \pounds 625,000 \\
+    Annual O\&M costs  & \pounds 120,000 & \pounds 110,000 \\
+    Annual benefit     & \pounds 245,000 & \pounds 230,000 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Example 6 information.}
+\end{table}
+If the MARR is 9\% per year, which, if either, of these projects should be selected?
+
+Information provided and required information:
+\begin{gather}
+  i = 0.09\\
+  n = 35 \textrm{ or } 25\, \textrm{years}
+\end{gather}
+Step 1: convert to AV.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+                    & Project A       & Project B       \\
+    \midrule
+    $AV_I$          & \pounds 70,977  & \pounds 63,629  \\
+    $AV_{O\&M}$     & \pounds 120,000 & \pounds 110,000 \\
+    $AV_{MV}$       & \pounds 0       & \pounds 0       \\
+    $AV_{costs}$    & \pounds 190,977 & \pounds 173,629 \\
+    $AV_{benefits}$ & \pounds 245,000 & \pounds 230,000 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Example 6 required information.}
+\end{table}
+Step 2:
+\begin{gather}
+  BCR_B = \frac{230000}{173629} = 1.325 \geq 1 \rightarrow \, \textrm{Project B is the baseline}
+\end{gather}
+Step 3: establish baseline.
+
+Step 4:
+\begin{gather}
+  \Delta BCR_A = \frac{245000 - 230000}{190977-173629}=0.865<1\rightarrow\,\textrm{Project B is the preferred option}
+\end{gather}
