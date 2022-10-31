@@ -1,19 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
-\chapter{Finite Element Method}
+\chapter{Overview of Finite Element Theory}
 \section{Introduction to the method}
 \begin{itemize}
 	\item Discretisation of the model to elements
@@ -25,7 +10,7 @@
 \section{1D element - the pin jointed bar}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure3.png}
+	\includegraphics[width = \textwidth]{./img/figure3.png}
 	\caption{Pin jointed bar.}
 \end{figure}
 \begin{align}
@@ -116,7 +101,7 @@ Leading to:
 Calculate the displacement and stress using the stiffness matrix.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure4.png}
+	\includegraphics[width = \textwidth]{./img/figure4.png}
 	\caption{Exercise, 3 node 1D problem.}
 \end{figure}
 \begin{gather}
@@ -171,7 +156,7 @@ Leading to (commented in Latex):
 Consider the same 1D linear spring with stiffness $k$ independent of deflection:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure5.png}
+	\includegraphics[width = \textwidth]{./img/figure5.png}
 	\caption{Spring system.}
 \end{figure}
 \begin{gather}
@@ -225,5 +210,3 @@ Or, in matrix form:
 		u_2
 	\end{pmatrix} = \underline{K}\underline{u}
 \end{gather}
-\chapter{Computational Fluid Dynamics}
-\end{document}
