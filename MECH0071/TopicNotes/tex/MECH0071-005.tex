@@ -1,20 +1,3 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{booktabs}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\usepackage{parskip}
-\raggedbottom
-\begin{document}
 \chapter{Full fault analysis}
 \section{Unbalanced impedance}
 \subsection{Impedance and sequence components}
@@ -27,7 +10,7 @@ We have established that in a three-phase unbalanced network there are line and 
 $Z_{delta} = 3\cdot Z_{star}$ for all three phases when the loads in the three-phase system were balanced. This was helpful when looking at symmetrical faults since we normally convert delta connections into star connections and consider an impedance diagram as representing one phase. When loads are unbalanced then we need to consider each phase independently because they are subjected to different voltages, currents and impedances. Consider the two circuits below. The star and delta equivalence must result in the same line voltages and currents. In other words the impedance between any two impedances must be equivalent.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure31.png}
+	\includegraphics[width = \textwidth]{./img/figure31.png}
 	\caption{Star and delta arrangements.}
 \end{figure}
 For example considering phase a and phase b, the impedance equivalence must be:
@@ -80,23 +63,23 @@ Power cables and transmission linse are used to carry power from the source to t
 In a three-phase system interconnected between a three-phase generator and three-phase load the lines/cables usually run close to each so there is always mutual inductance and self-inductance of the lines.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure32.png}
+	\includegraphics[width = \textwidth]{./img/figure32.png}
 	\caption{Trasmission line mutual inductance and self-inductance.}
 \end{figure}
 \subsection{Transmission line representation}
-Hence, we can write the relationship $(V = XI)$: 
+Hence, we can write the relationship $(V = XI)$:
 \begin{gather}
 	\begin{pmatrix}
-		V_a\\
-		V_b\\
+		V_a \\
+		V_b \\
 		V_c
 	\end{pmatrix} = j \omega \begin{pmatrix}
-		L_a & M_{ab} & M_{ac}\\
-		M_{ba} & L_b & M_{bc}\\
+		L_a    & M_{ab} & M_{ac} \\
+		M_{ba} & L_b    & M_{bc} \\
 		M_{ca} & M_{cb} & L_c
 	\end{pmatrix}\begin{pmatrix}
-		I_a\\
-		I_b\\
+		I_a \\
+		I_b \\
 		I_c
 	\end{pmatrix}
 \end{gather}
@@ -110,24 +93,24 @@ Bringing in the relationship between phase and sequence components we have (igno
 Hence:
 \begin{gather}
 	\begin{pmatrix}
-		1 & 1 & 1\\
-		a^2 & a & 1\\
-		a & a^2 & 1
+		1   & 1   & 1 \\
+		a^2 & a   & 1 \\
+		a   & a^2 & 1
 	\end{pmatrix}\begin{pmatrix}
-		V_1\\
-		V_2\\
+		V_1 \\
+		V_2 \\
 		V_3
 	\end{pmatrix} = j\omega\begin{pmatrix}
-		L_a & M_{ab} & M_{ac}\\
-		M_{ba} & L_b & M_{bc}\\
+		L_a    & M_{ab} & M_{ac} \\
+		M_{ba} & L_b    & M_{bc} \\
 		M_{ca} & M_{cb} & L_c
 	\end{pmatrix}\cdot\begin{pmatrix}
-		1 & 1 & 1\\
-		a^2 & a & 1\\
-		a & a^2 & 1
+		1   & 1   & 1 \\
+		a^2 & a   & 1 \\
+		a   & a^2 & 1
 	\end{pmatrix}\begin{pmatrix}
-		I_a\\
-		I_b\\
+		I_a \\
+		I_b \\
 		I_c
 	\end{pmatrix}\\
 	\left[A\right] \left[V_{sequence}\right] = j\omega \left[LM\right]\cdot \left[A\right]\left[I_{sequence}\right]
@@ -140,24 +123,24 @@ Hence by transformation we obtain:
 The part ($\left[A\right]\cdot \left[LM\right]\cdot\left[A\right]^{-1}$) provides the inductance sequence relationship for the transmission line or distribution cable. Resolving gives:
 \begin{gather}
 	\begin{pmatrix}
-		L-M & 0 & 0 \\
-		0 & L- M & 0 \\
-		0 & 0 & L+2M
+		L-M & 0    & 0    \\
+		0   & L- M & 0    \\
+		0   & 0    & L+2M
 	\end{pmatrix}
 \end{gather}
 The relationship between sequence components becomes:
 \begin{gather}
 	\begin{pmatrix}
-		V_1\\
-		V_2\\
+		V_1 \\
+		V_2 \\
 		V_3
 	\end{pmatrix} = j \omega \begin{pmatrix}
-		L-M & 0 & 0 \\
-		0 & L- M & 0 \\
-		0 & 0 & L+2M
+		L-M & 0    & 0    \\
+		0   & L- M & 0    \\
+		0   & 0    & L+2M
 	\end{pmatrix} \begin{pmatrix}
-		I_a\\
-		I_b\\
+		I_a \\
+		I_b \\
 		I_c
 	\end{pmatrix}
 \end{gather}
@@ -174,7 +157,7 @@ The positive, negative and zero sequence reactances of the balanced transmission
 \end{gather}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure33.png}
+	\includegraphics[width = \textwidth]{./img/figure33.png}
 	\caption{Transmission line and cable arrangements.}
 \end{figure}
 \subsection{Lines and cables}
@@ -202,7 +185,7 @@ The symmetrical components are independent with the voltage-current relationship
 In many generators that are tied to ground at the star point will have additional impedance separately added to reduce the level of zero sequence currents.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.6\textwidth]{../img/figure34.png}
+	\includegraphics[width = 0.6\textwidth]{./img/figure34.png}
 	\caption{Grounded star arrangement.}
 \end{figure}
 \subsection{Typical values of sequence impedances for synchronous generators}
@@ -210,31 +193,31 @@ In many generators that are tied to ground at the star point will have additiona
 	\centering
 	\begin{tabular}{@{}llll@{}}
 		\toprule
-		Type of machine & +ve sequence & -ve sequence & zero sequence\\
+		Type of machine                           & +ve sequence  & -ve sequence  & zero sequence \\
 		\midrule
-		\SI{440}{V} \SI{50}{\hertz} \SI{1}{MVA} & \SI{0.16}{pu} & \SI{0.11}{pu} & \SI{0.05}{pu}\\
-		\SI{11}{kV} \SI{50}{\hertz} \SI{75}{MVA} & \SI{0.18}{pu} & \SI{0.14}{pu} & \SI{0.07}{pu}\\ 
-		\SI{16}{kV} \SI{50}{\hertz} \SI{275}{MVA} & \SI{0.21}{pu} & \SI{0.18}{pu} & \SI{0.08}{pu}\\ 
-		\SI{22}{kV} \SI{50}{\hertz} \SI{575}{MVA} & \SI{0.28}{pu} & \SI{0.21}{pu} & \SI{0.12}{pu}\\
+		\SI{440}{V} \SI{50}{\hertz} \SI{1}{MVA}   & \SI{0.16}{pu} & \SI{0.11}{pu} & \SI{0.05}{pu} \\
+		\SI{11}{kV} \SI{50}{\hertz} \SI{75}{MVA}  & \SI{0.18}{pu} & \SI{0.14}{pu} & \SI{0.07}{pu} \\
+		\SI{16}{kV} \SI{50}{\hertz} \SI{275}{MVA} & \SI{0.21}{pu} & \SI{0.18}{pu} & \SI{0.08}{pu} \\
+		\SI{22}{kV} \SI{50}{\hertz} \SI{575}{MVA} & \SI{0.28}{pu} & \SI{0.21}{pu} & \SI{0.12}{pu} \\
 		\bottomrule
 	\end{tabular}
 	\caption{Table to show typical value of sequence impedances for synchronous generators}
 \end{table}
-Manufacturers will test their machines to obtain the relevant data/ The value of the sequence components may differ from country to country, manufacturer to manufacturer. 
+Manufacturers will test their machines to obtain the relevant data/ The value of the sequence components may differ from country to country, manufacturer to manufacturer.
 \subsection{Transformers}
 The positive and negative sequence sequence impedances are the normal values obtained from the per-phase equivalent circuit. ($Z_1 = Z_2$). The zero sequence components depend upon the connection of the windings. Zero sequence currents in the windings on one side of the transformer must produce the corresponding ampere-turns in the other. In delta windings the zero-sequence currents circulate through the three-phase windings but do not leave the transformer.
 \section{Unbalanced faults}
 \subsection{Fortescue's symmetrical component process}
-Symmetrical components are used extensively for fault study calculations. in these calculations the positive, negative and zero-sequence impedance networks are either given by the manufacturer or are calculated by the user using base voltages and base power for the system of interest. Each of the sequence networks are then connected together to calculate fault currents and voltages depending upon the type of fault. Standard circuit arrangements have been derived in this course to keep variation reasonable. 
+Symmetrical components are used extensively for fault study calculations. in these calculations the positive, negative and zero-sequence impedance networks are either given by the manufacturer or are calculated by the user using base voltages and base power for the system of interest. Each of the sequence networks are then connected together to calculate fault currents and voltages depending upon the type of fault. Standard circuit arrangements have been derived in this course to keep variation reasonable.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure35.png}
+	\includegraphics[width = \textwidth]{./img/figure35.png}
 	\caption{Line to ground fault.}
 \end{figure}
 \subsection{Standard fault sequence connections - single line to ground}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.3 \textwidth]{../img/figure36.png}
+	\includegraphics[width = 0.3 \textwidth]{./img/figure36.png}
 	\caption{Single line to ground connection.}
 \end{figure}
 Assumptions:
@@ -255,7 +238,7 @@ Together, these two expressions describe the sequence network connection.
 \subsection{Standard fault sequence connections - line to line}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.4 \textwidth]{../img/figure37.png}
+	\includegraphics[width = 0.4 \textwidth]{./img/figure37.png}
 	\caption{Line to line connection.}
 \end{figure}
 Assumptions. If the fault occurs between phase b and c then we can say:
@@ -271,7 +254,7 @@ Hence, we can use the phase sequence relationships to say:
 \subsection{Standard fault sequence connections - double line to ground}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.7\textwidth]{../img/figure38.png}
+	\includegraphics[width = 0.7\textwidth]{./img/figure38.png}
 	\caption{Double line to ground connection.}
 \end{figure}
 Assumptions. If the fault involves phases b and c to ground then we can say:
@@ -289,7 +272,7 @@ Hence using phase-sequence relationships we can further say that:
 \subsection{Breaker sizing method (most common approach)}
 One of the main purposes of circuit breakers is to arrest large currents that flow when there is a fault. Breaker sizing is achieved by understanding currents flowing under both symmetrical and non-symmetrical fault conditions (to be calculated). Calculations are carried out using symmetrical components i.e. positive, negative and zero sequence. Only one phae needs to be considered \dots but all fault types need to be calculated.
 \subsection{Breaker sizing example}
-Determine the maximum current through the breaker B due to a fault at the location X. Calculate all three types of unbalanced fult and the balanced fault currents. 
+Determine the maximum current through the breaker B due to a fault at the location X. Calculate all three types of unbalanced fult and the balanced fault currents.
 \begin{itemize}
 	\item System base: voltage \SI{138}{kV} (\SI{1}{pu}), Power \SI{100}{MVA} (\SI{1}{pu})
 	\item Transformer $T_1$ leakage reactance j0.1 pu
@@ -299,13 +282,13 @@ Determine the maximum current through the breaker B due to a fault at the locati
 \end{itemize}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure39.png}
+	\includegraphics[width = \textwidth]{./img/figure39.png}
 	\caption{Breaker sizing example.}
 \end{figure}
 \subsection{Sequence component arrangement}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.5\textwidth]{../img/figure40.png}
+	\includegraphics[width = 0.5\textwidth]{./img/figure40.png}
 	\caption{Sequence component arrangement.}
 \end{figure}
 The sequence networks are exactly like what we would expect to have drawn for equivalent single phase networks. A positive, negative and zero sequence arrangmenet has been shown for one phase. Only the positive sequence network has sources, because the infinite bus supplies only positive sequence voltage. The zero sequence network is open at the right hand side because of the delta-wye transformer connection.
@@ -317,13 +300,13 @@ For a symmetrical (three-phase) fault, only the positive sequence network is inv
 \end{gather}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.8\textwidth]{../img/figure41.png}
+	\includegraphics[width = 0.8\textwidth]{./img/figure41.png}
 	\caption{Positive sequence impedance in symmetrical fault.}
 \end{figure}
 \subsection{Single line to ground fault}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.4\textwidth]{../img/figure42.png}
+	\includegraphics[width = 0.4\textwidth]{./img/figure42.png}
 	\caption{Positive sequence impedance in symmetrical fault.}
 \end{figure}
 The three networks are in series and the situation is as shown with the total current given by:
@@ -332,71 +315,71 @@ The three networks are in series and the situation is as shown with the total cu
 \end{gather}
 The sequence currents are:
 \begin{align}
-	\underline{i}_{1B} &= \underline{i}_{2B}\\
-	&= \underline{i} \times \frac{j0.12}{j0.12 + j0.15}\\
-	&= -j1.33
-	\underline{i}_{0B} &= \underline{i}\\
-	&= -j3.0
+	\underline{i}_{1B} & = \underline{i}_{2B}                               \\
+	                   & = \underline{i} \times \frac{j0.12}{j0.12 + j0.15} \\
+	                   & = -j1.33
+	\underline{i}_{0B} & = \underline{i}                                    \\
+	                   & = -j3.0
 \end{align}
 \subsection{Singe line to ground fault}
 Having calculated the sequence currents, the phase currents can be reconstructed:
 \begin{align}
-	\underline{i}_a &= \underline{i}_{1B} + \underline{i}_{2B} + \underline{i}_{0B}\\
-	\underline{i}_b &= \underline{a^2i}_{1B} + \underline{ai}_{2B} + \underline{i}_{0B}\\
-	\underline{i}_c &= \underline{ai}_{1B} + \underline{a^2i}_{2B} + \underline{i}_{0B}
+	\underline{i}_a & = \underline{i}_{1B} + \underline{i}_{2B} + \underline{i}_{0B}     \\
+	\underline{i}_b & = \underline{a^2i}_{1B} + \underline{ai}_{2B} + \underline{i}_{0B} \\
+	\underline{i}_c & = \underline{ai}_{1B} + \underline{a^2i}_{2B} + \underline{i}_{0B}
 \end{align}
 Hence:
 \begin{align}
-	\underline{i}_a &= -j5.66\, \textrm{pu}\\
-	\underline{i}_b &= -j1.67\, \textrm{pu}\\
-	\underline{i}_c &= -j1.67\, \textrm{pu}
+	\underline{i}_a & = -j5.66\, \textrm{pu} \\
+	\underline{i}_b & = -j1.67\, \textrm{pu} \\
+	\underline{i}_c & = -j1.67\, \textrm{pu}
 \end{align}
 \subsection{Double line to ground fault}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure43.png}
+	\includegraphics[width = \textwidth]{./img/figure43.png}
 	\caption{Double line-ground fault configuration.}
 \end{figure}
 For the double line-ground fault, the networks are in parallel.
 \begin{align}
-	\underline{i} &= \frac{1}{j\left(0.15||0.12\right)+ j \left(0.15||0.12||0.2\right)}\\
-	&= -j8.57\\
-	\underline{i}_{1B} &= \underline{i} \times \frac{j0.12}{j0.12 + j0.15}\\
-	&= -j3.81\\
-	\underline{i}_{2B} &= -\underline{i} \times \frac{j0.12 ||j0.2}{j0.12||j0.2 + j0.15}\\
-	&= j2.86\\
-	\underline{i}_{0B} &= \underline{i}\times \frac{j0.12||j0.15}{j0.2 + j0.12||j0.15}\\
-	&= j2.14
+	\underline{i}      & = \frac{1}{j\left(0.15||0.12\right)+ j \left(0.15||0.12||0.2\right)} \\
+	                   & = -j8.57                                                             \\
+	\underline{i}_{1B} & = \underline{i} \times \frac{j0.12}{j0.12 + j0.15}                   \\
+	                   & = -j3.81                                                             \\
+	\underline{i}_{2B} & = -\underline{i} \times \frac{j0.12 ||j0.2}{j0.12||j0.2 + j0.15}     \\
+	                   & = j2.86                                                              \\
+	\underline{i}_{0B} & = \underline{i}\times \frac{j0.12||j0.15}{j0.2 + j0.12||j0.15}       \\
+	                   & = j2.14
 \end{align}
 Having calculated the sequence currents, the phase currents can be reconstructed:
 \begin{align}
-	\underline{i}_a &= j1.19\\
-	\underline{i}_b &= \underline{i}_{0B} - \frac{1}{2}\left(\underline{i}_{1B} + \underline{i}_{2B}\right)-\frac{\sqrt{3}}{2}j\left(\underline{i}_{1B} - \underline{i}_{2B}\right)\\
-	&= j2.67 - 5.87\\
-	\underline{i}_c &= \underline{i}_{0B} - \frac{1}{2}\left(\underline{i}_{1B}+\underline{i}_{2B}\right) + \frac{\sqrt{3}}{2} j \left(\underline{i}_{1B} - \underline{i}_{2B}\right)\\
-	&= j2.67 + 5.87
+	\underline{i}_a & = j1.19                                                                                                                                                          \\
+	\underline{i}_b & = \underline{i}_{0B} - \frac{1}{2}\left(\underline{i}_{1B} + \underline{i}_{2B}\right)-\frac{\sqrt{3}}{2}j\left(\underline{i}_{1B} - \underline{i}_{2B}\right)   \\
+	                & = j2.67 - 5.87                                                                                                                                                   \\
+	\underline{i}_c & = \underline{i}_{0B} - \frac{1}{2}\left(\underline{i}_{1B}+\underline{i}_{2B}\right) + \frac{\sqrt{3}}{2} j \left(\underline{i}_{1B} - \underline{i}_{2B}\right) \\
+	                & = j2.67 + 5.87
 \end{align}
 Hence:
 \begin{align}
-	\left| \underline{i}_{a}\right| &= 1.19\, \textrm{pu}\\
-	\left| \underline{i}_{b}\right| &= 6.43\, \textrm{pu}\\
-	\left| \underline{i}_{c}\right| &= 6.43\, \textrm{pu}
+	\left| \underline{i}_{a}\right| & = 1.19\, \textrm{pu} \\
+	\left| \underline{i}_{b}\right| & = 6.43\, \textrm{pu} \\
+	\left| \underline{i}_{c}\right| & = 6.43\, \textrm{pu}
 \end{align}
 \subsection{Line to line fault}
 Having calculated the sequence currents, the phase currents can be reconstructed:
 \begin{align}
-	\underline{i}_a &= 0\\
-	\underline{i}_b &= -\frac{1}{2}\left(\underline{i}_{1B}+ \underline{i}_{2B}\right) - j\frac{\sqrt{3}}{2}\left(\underline{i}_{1B}-\underline{i}_{2B}\right)
+	\underline{i}_a & = 0                                                                                                                                       \\
+	\underline{i}_b & = -\frac{1}{2}\left(\underline{i}_{1B}+ \underline{i}_{2B}\right) - j\frac{\sqrt{3}}{2}\left(\underline{i}_{1B}-\underline{i}_{2B}\right)
 \end{align}
 Hence:
 \begin{align}
-	\left|\underline{i}_{b}\right| &= 5.77\, \textrm{pu}\\
-	\left|\underline{i}_{c}\right| &= 5.77\, \textrm{pu}
+	\left|\underline{i}_{b}\right| & = 5.77\, \textrm{pu} \\
+	\left|\underline{i}_{c}\right| & = 5.77\, \textrm{pu}
 \end{align}
 There are only two networks at play - positive and negative sequence.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.5\textwidth]{../img/figure44.png}
+	\includegraphics[width = 0.5\textwidth]{./img/figure44.png}
 	\caption{Line to line fault configuration.}
 \end{figure}
 \subsection{Conversion to ampere ratings}
@@ -409,12 +392,12 @@ Hence the fault currents are calculated as being:
 	\centering
 	\begin{tabular}{@{}llll@{}}
 		\toprule
-		& Phase A & Phase B & Phase C\\
+		                                       & Phase A & Phase B & Phase C \\
 		\midrule
-		Three-phase fault & 2791 & 2791 & 2791\\
-		Single line-ground, $\phi_a$ & 2368 & 699 & 699\\
-		Double line-ground, $\phi_b$, $\phi_c$ & 498 & 2690 & 2690\\
-		Line-line, $\phi_b$, $\phi_c$ & 0 & 2414 & 2414\\
+		Three-phase fault                      & 2791    & 2791    & 2791    \\
+		Single line-ground, $\phi_a$           & 2368    & 699     & 699     \\
+		Double line-ground, $\phi_b$, $\phi_c$ & 498     & 2690    & 2690    \\
+		Line-line, $\phi_b$, $\phi_c$          & 0       & 2414    & 2414    \\
 		\bottomrule
 	\end{tabular}
 	\caption{Table to show fault currents.}
@@ -429,11 +412,10 @@ Key information needed for sizing a circuit breaker include:
 	\item Fault current levels
 	\item Withstand voltage levels
 \end{itemize}
-There are three main types of circuit breakers: Air, vacuum and SF6. 
+There are three main types of circuit breakers: Air, vacuum and SF6.
 \subsection{Conclusions}
 \begin{itemize}
 	\item Appreciated the need for positive, negative and zero sequence impedances of different components to make up a power system
 	\item Introduced the concept of positive, negative and zero sequence impedance. Examined this at a component level
 	\item A system analysis method has been applied for `unbalanced faults' in a transmission system and fault current table produced
 \end{itemize}
-\end{document}

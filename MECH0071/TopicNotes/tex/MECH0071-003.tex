@@ -1,28 +1,11 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1em}
-\raggedbottom
-\begin{document}
 \chapter{Using the Impedance Diagram}
 \begin{itemize}
 	\item Using impedance diagrams for load flows
 	\item Using impedance diagrams for fault calculations
 \end{itemize}
-\begin{quote}
+\begin{quoting}
 	By the end of this synchronous session you should be comfortable with how impedance diagrams can be used to calculate load flows and perform fault calculations in an electrical power system
-\end{quote}
+\end{quoting}
 \section{Load Flow Calculation}
 \subsection{Load flow}
 \begin{itemize}
@@ -34,7 +17,7 @@
 \subsection{Load flow analysis example}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.9\textwidth]{../img/figure15.png}
+	\includegraphics[width = 0.9\textwidth]{./img/figure15.png}
 	\caption{Single Line Diagram.}
 \end{figure}
 A \SI{132}{kV} supply feeds two loads; a group of domestic consumers and a group of induction motors which on starting consume five times rated (or design) full load current at zero power factor lagging.
@@ -42,21 +25,21 @@ A \SI{132}{kV} supply feeds two loads; a group of domestic consumers and a group
 Convert the single line diagram into an impedance diagram. We will select a base S of \SI{50}{MVA} and \SI{33}{kV} as the base V. The values selected can be different but must be stated by the designer.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width =  \textwidth]{../img/figure16.png}
+	\includegraphics[width =  \textwidth]{./img/figure16.png}
 	\caption{Single Line Diagram.}
 \end{figure}
 Here is the Impedance Diagram of the Single Line Diagram where all the impedances have been changed into per unit values on a \SI{50}{MVA} base.
 \subsubsection{Part b}
-Calculate the voltage at the domestic busbars prior to induction motor start. 
+Calculate the voltage at the domestic busbars prior to induction motor start.
 \begin{itemize}
 	\item The induction motor load is open circuit so all current flowing from the generator will flow to the domestic load i.e. steady state
 	\item To determine the voltage at the domestic busbar prior to the induction motor start then the equation for $V_L = 1 - IZ$ can be used, where:
-	\begin{itemize}
-		\item $V_L$ is the domestic voltage
-		\item 1 is the pu voltage at the generator
-		\item $I$ is the generator current
-		\item $Z$ is the system impedance between source and load
-	\end{itemize}
+	      \begin{itemize}
+		      \item $V_L$ is the domestic voltage
+		      \item 1 is the pu voltage at the generator
+		      \item $I$ is the generator current
+		      \item $Z$ is the system impedance between source and load
+	      \end{itemize}
 \end{itemize}
 Calculating the impedance of the circuit then:
 \begin{gather}
@@ -148,14 +131,14 @@ Unsymmetrical fault (fault currents are \textbf{not} balanced in each phase)
 \subsection{Balanced three-phase fault}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.8\textwidth]{../img/figure17.png}
+	\includegraphics[width = 0.8\textwidth]{./img/figure17.png}
 	\caption{Balanced three-phase fault.}
 \end{figure}
 An interconnected generator-reactor system is active and suddenly incurs a balanced three-phase short circuit at the Fault indicated. Using a \SI{50}{MVA} base then draw an impedance diagram and hence determine the Fault Level and Fault Current. It is an \SI{11}{kV} three phase system.
 \subsection{Solution}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.8\textwidth]{../img/figure18.png}
+	\includegraphics[width = 0.8\textwidth]{./img/figure18.png}
 	\caption{Impedance diagram.}
 \end{figure}
 \begin{gather}
@@ -167,7 +150,7 @@ An interconnected generator-reactor system is active and suddenly incurs a balan
 \end{gather}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.8\textwidth]{../img/figure19.png}
+	\includegraphics[width = 0.8\textwidth]{./img/figure19.png}
 	\caption{Impedance diagram circuit reduced.}
 \end{figure}
 \begin{gather}
@@ -194,7 +177,6 @@ The MVA Fault Level provides information on the `power at the fault'. The Fault 
 	\item For larger or complex circuits then many more calculations are needed meaning computers are generally used to calculate load flows and faults
 	\item Various computer programmes are available including MATLAB, Simulink Simpower Systems, PSCAD, ERACS, etc
 \end{itemize}
-\end{document}
 
 
 

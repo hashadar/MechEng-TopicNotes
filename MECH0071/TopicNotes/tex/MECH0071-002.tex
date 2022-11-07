@@ -1,20 +1,3 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1em}
-\raggedbottom
-\begin{document}
 \chapter{Developing Impedance Diagram}
 \section{Three Phase Power}
 \subsection{Three-phase alternating voltages}
@@ -35,13 +18,13 @@ $V_m$ is the peak (maximum) voltage, $\omega$ is the angular frequency, $t$ is t
 The are different arrangements for distributing three-phase electrical power. The three phases can be independent of each other as seen below and treated as three separate circuits. This is known as the \textit{three-phase, six-wire system}.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.9\textwidth]{../img/figure6.png}
+	\includegraphics[width = 0.9\textwidth]{./img/figure6.png}
 	\caption{Three-phase, six-wire system.}
 \end{figure}
 \subsection{Three-phase current}
-\begin{quote}
+\begin{quoting}
 	The currents flow in a three-phase circuit when there is a three-phase load. We will initially assume that the three-phase load is balanced i.e. the magnitude of voltage, current and the phase-angle is the same for each phase circuit. This is not true for three-phase circuits with unbalanced loads and the mathematical approach is different and more complex so we will examine this later.
-\end{quote}
+\end{quoting}
 \subsection{Three-phase alternating current}
 The currents associated with a three-phase system that flow from the supply to the load may be described mathematically by:
 \begin{align}
@@ -60,12 +43,12 @@ The zero voltage point is known as the `star point' and this may be grounded or 
 The number of transmission wires can be reduced by connecting the phases in either delta or star configuration.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure7.png}
+	\includegraphics[width = \textwidth]{./img/figure7.png}
 	\caption{Star and delta configurations.}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure8.png}
+	\includegraphics[width = \textwidth]{./img/figure8.png}
 	\caption{Star generator and delta load.}
 \end{figure}
 \subsection{Phase and line voltages}
@@ -104,7 +87,7 @@ Where $I_p$ and $V_p$ are the phase currents and voltages and $I_l$ and $V_l$ ar
 \subsection{Single-phase impedance triangle}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.8\textwidth]{../img/figure9.png}
+	\includegraphics[width = 0.8\textwidth]{./img/figure9.png}
 	\caption{Single-phase impedance triangle.}
 \end{figure}
 \begin{align}
@@ -116,7 +99,7 @@ Where, $Z$ is impedance, $R$ is resistance, $X_L$ is inductive reactance, $X_C$ 
 \subsection{Single-phase power triangle}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.8\textwidth]{../img/figure10.png}
+	\includegraphics[width = 0.8\textwidth]{./img/figure10.png}
 	\caption{Single-phase power triangle.}
 \end{figure}
 \begin{itemize}
@@ -150,7 +133,7 @@ If each coil has a capacitor connected in parallel having capacitive reactance o
 For the purposes of steady-state analysis the Electrical Line Diagram is converted to an `Impedance Line Diagram' where the equipment is represented as an `Equivalent Impedance'. Typical \textit{simple} impedances representing equipment are: (note: not all $R$, $L$ and $C$ values may be given).
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure11.png}
+	\includegraphics[width = \textwidth]{./img/figure11.png}
 	\caption{Equivalent Impedance Representations.}
 \end{figure}
 \subsection{How manufacturers of electrical equipment specify ratings}
@@ -188,10 +171,10 @@ Power Factor is already expressed in per unit form. Once the base values are cal
 \subsubsection{Step one}
 The per unit relationships for Base\_VA and Base\_V are define and Base\_I and Base\_Z are calculated:
 \begin{align}
-	\textrm{Base\_VA} &= \textrm{Defined by Engineer}\\
-	\textrm{Base\_V} &= \textrm{Defined by Engineer}\\
-	\textrm{Base\_I} &= \dfrac{\textrm{Base\_VA}}{\sqrt{3}\cdot \textrm{Base\_V}}\\
-	\textrm{Base\_Z} &= \dfrac{\textrm{Base\_V}}{\textrm{Base\_I}}
+	\textrm{Base\_VA} & = \textrm{Defined by Engineer}                              \\
+	\textrm{Base\_V}  & = \textrm{Defined by Engineer}                              \\
+	\textrm{Base\_I}  & = \dfrac{\textrm{Base\_VA}}{\sqrt{3}\cdot \textrm{Base\_V}} \\
+	\textrm{Base\_Z}  & = \dfrac{\textrm{Base\_V}}{\textrm{Base\_I}}
 \end{align}
 \subsubsection{Step two}
 Having calculated the Base Values, these are then defined as being 1 per unit values:
@@ -204,10 +187,10 @@ Having calculated the Base Values, these are then defined as being 1 per unit va
 \subsubsection{Step three}
 In the circuit all apparent powers, voltage, currents and impedances are expressed as per unit values:
 \begin{align}
-	\textrm{Per\_Unit\_S} &= \dfrac{\textrm{Actual\_Value\_S}}{\textrm{Base\_S}}\\
-	\textrm{Per\_Unit\_V} &= \dfrac{\textrm{Actual\_Value\_V}}{\textrm{Base\_V}}\\
-	\textrm{Per\_Unit\_I} &= \dfrac{\textrm{Actual\_Value\_I}}{\textrm{Base\_I}}\\
-	\textrm{Per\_Unit\_Z} &= \dfrac{\textrm{Actual\_Value\_Z}}{\textrm{Base\_Z}}
+	\textrm{Per\_Unit\_S} & = \dfrac{\textrm{Actual\_Value\_S}}{\textrm{Base\_S}} \\
+	\textrm{Per\_Unit\_V} & = \dfrac{\textrm{Actual\_Value\_V}}{\textrm{Base\_V}} \\
+	\textrm{Per\_Unit\_I} & = \dfrac{\textrm{Actual\_Value\_I}}{\textrm{Base\_I}} \\
+	\textrm{Per\_Unit\_Z} & = \dfrac{\textrm{Actual\_Value\_Z}}{\textrm{Base\_Z}}
 \end{align}
 \subsubsection{Step four}
 Sometimes parameters e.g. Z are already expressed in per unit form rather than as SI units but have been calculated to a different base (S and V). These can be converted as follows:
@@ -219,14 +202,14 @@ Some manufacturers and engineers prefer to work with the percentage system rathe
 \subsubsection{Single Line Diagram}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure12.png}
+	\includegraphics[width = \textwidth]{./img/figure12.png}
 	\caption{Single Line Diagram.}
 \end{figure}
 \subsubsection{Step one - calculating the base current and base impedance}
 Selecting 10 MVA as Base\_S and 3.3 kV as Base\_V (because it seems sensible considering the generators) then we have:
 \begin{align}
-	\textrm{Base\_I} &= \dfrac{10 \time 10^6}{\sqrt{3}\times 3.3 \times 10^6} = \SI{1749.5}{\ampere}\\
-	\textrm{Base\_Z} &- \dfrac{3.3\times 10^3}{1749.5} = \SI{1.886}{\ohm}
+	\textrm{Base\_I} & = \dfrac{10 \time 10^6}{\sqrt{3}\times 3.3 \times 10^6} = \SI{1749.5}{\ampere} \\
+	\textrm{Base\_Z} & - \dfrac{3.3\times 10^3}{1749.5} = \SI{1.886}{\ohm}
 \end{align}
 \subsubsection{Step two - defininng 1 p.u. values}
 \begin{itemize}
@@ -263,7 +246,7 @@ For the transformer:
 	S = \dfrac{20}{10} = 2\, \si{pu}\\
 	X = \dfrac{3}{100} \times \dfrac{10}{20} = 0.015\,\si{pu}\\
 	R = \dfrac{1}{100} \times \dfrac{10}{20} = 0.005\,\si{pu}\\
-	PF = 0.7\,\si{pu} 
+	PF = 0.7\,\si{pu}
 \end{gather}
 For the induction motors:
 \begin{gather}
@@ -274,14 +257,14 @@ For the induction motors:
 \subsubsection{Step five - drawing the impedance diagram}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure13.png}
+	\includegraphics[width = \textwidth]{./img/figure13.png}
 	\caption{Impedance Diagram.}
 \end{figure}
 \subsection{Reactance diagram}
 The reactance diagram is a modification to the impedance diagram where only per unit reactances are shown. In a reactance diagram all resistances are ignored. The reactance diagram is useful because it allows `first pass' calculations to be made in a power system without too much mathematical complexity due to having ($R \pm jX$).
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = \textwidth]{../img/figure13.png}
+	\includegraphics[width = \textwidth]{./img/figure13.png}
 	\caption{Reactance Diagram.}
 \end{figure}
 \subsection{Impedance and reactance diagrams}
@@ -300,7 +283,6 @@ Converting the electrical line diagram to an impedance diagram or reactance diag
 The per unit system allows powers, voltages, currents and impedances to be expressed relative to each other. This allows the designer to understand the relationships between different parts of the circuit.
 
 Using the per-unit transformer model eliminates the need to scale quantities by the transformer turns ratio, thus eliminating a common source for error in electrical calculations.
-\end{document}
 
 
 
