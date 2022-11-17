@@ -2,12 +2,15 @@
 clc
 clear 
 
-data = readmatrix('dataimport.xlsx');
+%import data
+data = readmatrix('dataimport.xlsx','Sheet','q1');
 
+%datasets
 VSource = cat(2,data(:,5),data(:,6));
 VResistor = cat(2,data(:,7),data(:,8));
 VResistor2 = cat(2,data(:,9),data(:,10));
 
+%graph plots
 %plot(VResistor2(:,1),VResistor2(:,2),'LineWidth',1,'color',[0.4940 0.1840 0.5560])
 plot(VResistor(1:40,1),VResistor(1:40,2),VResistor2(1:40,1),VResistor2(1:40,2))
 grid on
