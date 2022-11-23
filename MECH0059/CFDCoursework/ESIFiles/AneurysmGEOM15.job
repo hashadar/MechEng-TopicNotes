@@ -1,0 +1,2 @@
+command line = C:\Program Files\ESI Group\ACE+Suite\2018.0\ACE_SOLVER\bin\CFD-SOLVER -dtf AneurysmGEOM15 -sim 1 -job
+running c:\program files\esi group\ace+suite\2018.0\ace_solver\bin\cfd-ace-solver-mpm-mpi.exe -dtf AneurysmGEOM15.DTF -sim 1

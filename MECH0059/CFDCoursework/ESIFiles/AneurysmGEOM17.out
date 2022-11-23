@@ -1,0 +1,151 @@
+ *******************************************************************************
+ *                                                                             *
+ * CCCCC FFFFF DDDD     AAA  CCCCC EEEEE   SSSS  OOO  L   V       V EEEEE RRR  *
+ * C     F     D   D   A   A C     E       S    O   O L    V     V  E     R  R *
+ * C     FFFF  D   D = AAAAA C     EEEE  = SSSS O   O L     V   V   EEEE  RRR  *
+ * C     F     D   D   A   A C     E          S O   O L      V V    E     R R  *
+ * CCCCC F     DDDD    A   A CCCCC EEEEE   SSSS  OOO  LLLLL   V     EEEEE R  R *
+ *                                                                             *
+ *       Version          : 2020.05.34.186                                     *
+ *       Build Date       : 08/25/2020 11:07:12                                *
+ *       Build OS         : Windows                                            *
+ *       Build OS Release : 10                                                 *
+ *       Build OS Version : 10.0.14393                                         *
+ *       Build Machine    : HUNVSE019                                          *
+ *                                                                             *
+ *      Copyright(C) 1994-2020 ESI Software. All Rights Reserved.              *
+ *                                                                             *
+ *******************************************************************************
+ 
+ 
+  ===============================================================
+     CFD-ACE-SOLVER Run Platform Information :
+  ===============================================================
+     Run Date           : 11/23/2022 10:24:48
+     Run OS             :
+     Run OS Release     :
+     Run OS Version     :
+     Run Machine        : WIN-1
+  ===============================================================
+  ===============================================================
+ 
+    This simulation is running in double precision serial mode
+ 
+  =====================================
+    Summary of Input Information
+  =====================================
+    Problem has been set up using : CFD-ACE-GUI
+  ================
+    Model Options
+  ================
+    Shared
+    -------
+    Model Name        : AneurysmGEOM17
+    Modules           : FLOW
+    DTF File Name     : AneurysmGEOM17.DTF
+    Simulation Number = 1
+    Diagnostic        : OFF
+    Geometry          : Two Dimensional Planar
+    Iterations        =        15000
+    Time Dependence   : Steady
+    Output Controls
+      Output Start    =            0
+      Output End      =     10000000
+      Output Interval =        15000
+ 
+  =======================================
+    Summary of 2D Grid Data
+  =======================================
+    Total No. of nodes       =      33376
+    No. of line faces        =      98677
+    Total No. of faces       =      98677
+    No. of tri cells         =      65302
+    Total No. of cells       =      65302
+ 
+   ====================================================================
+  |                         Summary of Properties                      |
+   ====================================================================
+  |   Key No.   |  Zone No.  |  VC Name  |  Mat. Type  | No. of Cells  |
+   --------------------------------------------------------------------
+  |          55 |      1     | NoName    |    Fluid    |     35812     |
+   --------------------------------------------------------------------
+         | Property Name | Evaluation Method |    Value     |
+   ====================================================================
+         |       Density |   Constant        |    1.060E+03 |
+         |     Viscosity |   PwrLaw Blood    |     -        |
+   ====================================================================
+  |   Key No.   |  Zone No.  |  VC Name  |  Mat. Type  | No. of Cells  |
+   --------------------------------------------------------------------
+  |          58 |      2     | NoName    |    Fluid    |     29490     |
+   --------------------------------------------------------------------
+         | Property Name | Evaluation Method |    Value     |
+   ====================================================================
+         |       Density |   Constant        |    1.060E+03 |
+         |     Viscosity |   PwrLaw Blood    |     -        |
+   ====================================================================
+ 
+   [Restart] : Restart data DTF was run with version 20180021
+   [Restart] : Present DTF is running solver version 20205034
+ 
+ 
+   =============================================================================
+  |                       Summary of Solver Control Parameters                  |
+   =============================================================================
+  | Prop. |  Diff.  |        Solver        |    Relaxation    |      Limits     |
+   -----------------------------------------------------------------------------
+  |       |         |  Name  |Sweep|Criter.| Inertial| Linear |  Min.  |  Max.  |
+   =============================================================================
+  |     U |Central  | AMG    |    5|1.0E-02|  2.0E-01|   -    |-1.0E+20| 1.0E+20|
+  |     V |Central  | AMG    |    5|1.0E-02|  2.0E-01|   -    |-1.0E+20| 1.0E+20|
+  |P-Corr |    -    | AMG    |   10|1.0E-01|  0.00000|   -    |   -    |    -   |
+  |     P |    -    |    -   |  -  |   -   |   -     | 1.0E+00|-1.0E+20| 1.0E+20|
+  |   Rho |    -    |    -   |  -  |   -   |   -     | 1.0E+00| 1.0E-06| 1.0E+20|
+  |    Mu |    -    |    -   |  -  |   -   |   -     | 1.0E+00| 1.0E-10| 1.0E+02|
+   =============================================================================
+ 
+ 
+   =====================================
+   Summary of Geometry Data
+   =====================================
+ 
+   Smallest Volume   :   3.793157E-10
+ 
+   Largest  Volume   :   3.146820E-09
+ 
+   Smallest Angle    :   4.146083E+01 in zone  0 at face =       129
+ 
+   Location of face number       129 is x =   1.4496E-02 y =   3.4500E-03 z =   0.0000E+00
+ 
+ 
+   [Restart] : Reading restart data from the file :
+   C:\Users\dar_h\Documents\MECH0059\CFD Coursework\AneurysmGEOM15.DTF
+ 
+   =============================
+   Start of Iterative Cycle.....
+   =============================
+ 
+  ==================================================
+   Outputting Summaries at Iteration #:        15000
+  ==================================================
+  ========================================
+        Total Mass Flow Rate Summary
+  ----------------------------------------
+  |   Inflow   |   Outflow   |    Sum    |
+  ----------------------------------------
+   4.29300E-01  -4.29300E-01   2.12153E-08
+  ========================================
+ 
+  ==================================================
+   End of Outputting Summaries at Iteration #:        15000
+  ==================================================
+ 
+   =============================
+   End   of Iterative Cycle.....
+   =============================
+ 
+ 
+         Final Time   Elapsed CPU Time=  5.500492E+03 Delta-time=  5.500492E+03
+ 
+         Final Time   Elapsed Wall Clock=  5.500407E+03 Delta-Wall Clock=  5.500407E+03
+ 
+  Normal Termination

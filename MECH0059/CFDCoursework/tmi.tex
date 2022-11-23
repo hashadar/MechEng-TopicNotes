@@ -1,8 +1,10 @@
 \documentclass[journal,twoside,web]{ieeecolor}
 \usepackage{tmi}
 \usepackage{cite}
-\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsmath,amssymb,amsfonts,physics}
 \usepackage{algorithmic}
+\usepackage{caption,subcaption}
+\usepackage{siunitx}
 \usepackage{graphicx}
 \usepackage{textcomp}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -19,7 +21,7 @@
 \maketitle
 
 \begin{abstract}
-    This assignment investigates the use of computational fluid dynamics (CFD) to analyse the haemodynamics of cerebral aneurysyms when treated via endovascular coil emboilsation. I utilise a simplfied model of a basilar bifurcated artery with a saccular aneurysm for this assignment. The area where coils are inserted are modelled as a porous medium and my results show a positive change in the haemodynamics of the artery. Specifically, the flow of blood and pressure is reduced to negligible in the saccular region of the aneurysm and the flow through the bifurcartion is much improved. The results show that coil emboilisation can be an effective treatment for a cerebral aneurysm - preventing it from growing or rupturing. This assignment simplifies the problem as to place emphasis on the ``CFD workflow,'' and to emulate the experience of an industrial engineer or researcher using CFD for a project.
+    This assignment investigates the use of computational fluid dynamics (CFD) to analyse the haemodynamics of cerebral aneurysms when treated via endovascular coil embolisation. I utilise a simplified model of a basilar bifurcated artery with a saccular aneurysm for this assignment. The area where coils are inserted are modelled as a porous medium and my results show a positive change in the haemodynamics of the artery. Specifically, the flow of blood and pressure is reduced to negligible in the saccular region of the aneurysm and the flow through the bifurcation is much improved. The results show that coil embolisation can be an effective treatment for a cerebral aneurysm - preventing it from growing or rupturing. This assignment simplifies the problem as to place emphasis on the ``CFD workflow,'' and to emulate the experience of an industrial engineer or researcher using CFD for a project.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -27,560 +29,167 @@
 \end{IEEEkeywords}
 
 \section{Introduction}
-Cerebral aneurysms are formed due to the detoriation of the normal arterial structure leading to a dilation or bulge in the vessel wall, typically called a sac. The development of a saccular cerebral aneurysm (accounting for 90\% of cases) occurs in approximately 3\% to 5\% of the general population - the majority of which are asymptomatic \cite{saccularAneurysm, doi:10.1161/STROKEAHA.113.002390}. However, there is a risk of rupture of the aneurysm in approximately 2\% to 6\% of cases leading to significant intercranial bleeding \cite{doi:10.1161/01.STR.29.1.251}. In most cases, the diagnosis is a subarachnoid hemmorage (SAH), with mostly fatal or life-altering prognoses: between 25\% to 50\% of SAH are fatal, with another 50\% resulting in disability \cite{intracranialAneurysms}. 
+\IEEEPARstart{C}{erebral} aneurysms are formed due to the deterioration of the normal arterial structure leading to a dilation or bulge in the vessel wall, typically called a sac. This will fill with blood and apply pressure to the surroundings areas; on nerves and adjacent brain tissue. The development of a saccular cerebral aneurysm (accounting for 90\% of cases) occurs in 1\% to 5\% of the general population - the majority of which are asymptomatic \cite{doi:10.1161/STROKEAHA.113.002390}. However, there is a risk that the aneurysm ruptures in approximately 2\% to 6\% of cases leading to significant intracranial bleeding \cite{doi:10.1161/01.STR.29.1.251}. In most cases, the diagnosis is a subarachnoid hemorrhage (SAH) and between 25\% to 50\% of SAH are fatal, with another 50\% resulting in disability \cite{intracranialAneurysms}.
+
+Diagnosis of cerebral aneurysms is mainly done via angiography. The predominant imaging methods are intra-arterial digital subtraction angiography (IADSA), magnetic resonance angiography (MRA), and computed tomography angiography (CTA) \cite{doi:10.1177/1358863X18754693}. Detection of an aneurysm using these methods aim to inform a doctor of a course of treatment, depending on the size and location of the aneurysm. These imaging techniques allow for the treatment of cerebral aneurysms, with the prevailing method being endovascular coil embolisation. This treatment deposits a series of platinum coils into the cerebral aneurysm through the use of a guided microcatheter \cite{Pouratian572}. The result of this is a reduction of blood flow and thrombosis within the aneurysm, preventing a rupture and SAH. This is an effective treatment as the mortality of treated patients is vastly reduced: 1-year mortality rate of 3.1\% \cite{1231234}.
+
+Computational fluid dynamics can be used to model the haemodynamics of cerebral aneurysms. Indeed, the understanding of the flow characteristics is important for the effective of treatment of saccular aneurysms.
 \section{Methods}
-\section{Results and Discussion}
-\section{Conclusion}
-\section*{Acknowledgment}
-The ESI Group (Paris, France), developers of the CFD-ACE+ multiphysics software platform, are kindly acknowledged for allowing the use of the software for this assignment.
+\subsection{Overview}
+In this section, I will introduce the methods used in modelling the haemodynamics of a basilar bifurcated artery with a saccular cerebral aneurysm. Specifically, an investigation into the flow before and after coil embolisation is outlined in this paper. This paper also investigates modelling of the working fluid (blood) as a Newtonian and non-Newtonian fluid. The effects of coil embolisation are characterised through the setting of the saccular region of the aneurysm as a porous medium. This has been performed in previous work such as Kakalis \textit{et al} \cite{30180980813}.
 
-\section{Introduction}
-\label{sec:introduction}
-\IEEEPARstart{T}{his} document is a template for \LaTeX.
-You are encouraged to use it to prepare your manuscript.
-If you are reading a paper or PDF version of this document, please download the
-\LaTeX .zip file from the IEEE Web site at \underline
-{https://www.embs.org/tmi/authors-instructions/} to prepare your manuscript.
-You can also explore using the Overleaf editor at
-\underline
-{https://www.overleaf.com/blog/278-how-to-use-overleaf-with-}\discretionary{}{}{}\underline
-{ieee-collabratec-your-quick-guide-to-getting-started\#.}\discretionary{}{}{}\underline{xsVp6tpPkrKM9}
+Hence, we shall be looking at four cases within this paper. These shall be referred to as `Case x' in this paper. The cases are:
+\begin{enumerate}
+    \item An uncoiled Newtonian case, with physiological flow (the base case)
+    \item A coiled Newtonian case, with physiological flow
+    \item An uncoiled non-Newtonian case, with physiological flow
+    \item A coiled non-Newtonian case, with physiological flow
+\end{enumerate}
 
-\section{Guidelines for Manuscript Preparation}
-Do not change the template font sizes or line spacing to squeeze more text into a limited number of pages.
-The preferred font is 10-pt Times New Roman. Use italics for emphasis; do not underline words.
+The blood flow model is discussed in \ref{flows}. The geometry of the vasculature and its construction is outlined in section \ref{geom}. Meshing and justification of mesh size and type is shown in section \ref{mesh}. Specifics regarding the solver setup are shown in section \ref{solverSetup}.
+\subsection{Modelling of Blood Flow}\label{flows}
+Due to the scope and aims of this assignment, certain assumptions and simplifications have been made. A steady flow scheme was chosen to model the haemodynamics. Pulsatile flow, although a better representation of blood flow along the cardiac cycle, would represent a further complexity. Steady flow modelling is sufficient to explore the relative changes of blood flow before and after coil embolisation. Another assumption made in the interest of simplification are rigid walls - blood vessels are elastic - where a pulsatile flow would show changes in the haemodynamics. There is little relevance of the transient effects (on the cardiac cycle scale) to the scope of this project. Hence, the use of a substantially less computationally intensive steady flow scheme is favourable and justified.
+\subsubsection{Newtonian fluid model}
+The Newtonian fluid model describes that a fluid has a linear viscous flow behaviour - the shear rate is proportional to the shear stress (at constant temperature and pressure). Another assumption is that the flow is incompressible. Equation \eqref{Eq1} describes this mathematical relationship.
+\begin{equation}\label{Eq1}
+    \tau = \mu_d \frac{\textrm{d}u}{\textrm{d}y}
+\end{equation}
+where $\tau$ is the shear stress in \si{\pascal}, $\mu_d$ is the dynamic viscosity in \si{\pascal\second} and $\frac{\textrm{d}u}{\textrm{d}y}$ is the shear rate in \si{\per\second}. In the cases using the Newtonian fluid model, a constant density of $\rho = \SI{1060}{kg\per\meter\cubed}$ and a constant dynamic viscosity of $\mu = \SI{3.57e-3}{kg\per\meter\second}$ were chosen.
 
-Place your figures in the text as you expect them to appear in print. Further instructions
-on figure usage appear in Section VI. Although IEEE will do the final formatting of your paper,
-we expect you to approximate the final form appearance for all versions
-submitted to TMI via ScholarOne\textregistered to the extent possible.
+The flow can be characterised using the Navier-Stokes equations and are shown in \eqref{Eq2} and \eqref{Eq3}.
+\begin{equation}\label{Eq2}
+    \frac{\partial \vb{u}}{\partial t} + \left(\vb{u\cdot \nabla}\right)\vb{u} = - \vb{\nabla}\left(\frac{p}{\rho}\right) + \nu \vb{\nabla^2 u}
+\end{equation}
+\begin{equation}\label{Eq3}
+    \nabla \cdot \vb{u} = 0
+\end{equation}
+where $\vb{u}$ is the flow velocity, $t$ is time, $\nabla$ is the divergence, $p$ is the pressure, $\rho$ is the density and $\nu = \frac{\mu}{\rho_0}$ is the kinematic viscosity.
+\subsubsection{Non-Newtonian fluid model}
+A non-Newtonian fluid is characterised by a viscosity that varies with strain rate. These fluids may not be characterised as having a well-defined viscosity. Hence, other fluid parameters may be utilised to define the fluid, such as oscillatory shear or extensional flow. A key characteristic of our working fluid (blood) is it's shear thinning behaviour i.e. the viscosity of blood reduces as the diameter of the vessel reduces and shear stress reduces. This attribute allows blood to reach even the smallest of blood vessels and capillaries. This is known as the Fahraeus-Lindqvist effect and the behaviour is displayed until the blood vessel diameter reaches to that of individual red blood cells, where the viscosity increases.
 
-\subsection{Abbreviations and Acronyms}
-Define abbreviations and acronyms the first time they are used in the text,
-even after they have already been defined in the abstract. Abbreviations
-such as IEEE, SI, ac, and dc do not have to be defined. Abbreviations that
-incorporate periods should not have spaces: write ``C.N.R.S.,'' not ``C. N.
-R. S.'' Do not use abbreviations in the title unless they are unavoidable
-(for example, ``IEEE'' in the title of this article).
-
-\subsection{Other Recommendations}
-Use one space after periods and colons. Hyphenate complex modifiers:
-``zero-field-cooled magnetization.'' Avoid dangling participles, such as,
-``Using \eqref{eq}, the potential was calculated.'' It is not clear who or what
-used \eqref{eq}. Write instead, ``The potential was calculated by using \eqref{eq},'' or
-``Using \eqref{eq}, we calculated the potential.''
-
-Use a zero before decimal points: ``0.25,'' not ``.25.'' Use
-``cm$^{3}$,'' not ``cc.'' Indicate sample dimensions as ``0.1 cm
-$\times $ 0.2 cm,'' not ``0.1 $\times $ 0.2 cm$^{2}$.'' The
-abbreviation for ``seconds'' is ``s,'' not ``sec.'' Use
-``Wb/m$^{2}$'' or ``webers per square meter,'' not
-``webers/m$^{2}$.'' When expressing a range of values, write ``7 to
-9'' or ``7--9,'' not ``7$\sim $9.''
-
-A parenthetical statement at the end of a sentence is punctuated outside of
-the closing parenthesis (like this). (A parenthetical sentence is punctuated
-within the parentheses.) In American English, periods and commas are located within
-quotation marks, like ``this period.'' Other punctuation is placed ``outside''!
-Avoid contractions; for example, write ``do not'' instead of ``don't.'' The
-serial comma is preferred: ``A, B, and C'' instead of ``A, B and C.''
-
-If you wish, you may write in the first person singular or plural form using
-the active voice (``I observed that $\ldots$'' or ``We observed that $\ldots$''
-instead of ``It was observed that $\ldots$''). Remember to check spelling. If
-your native language is not English, please have a native English-speaking
-colleague to carefully proofread your paper.
-
-\section{Math}
-\subsection{Equations}
-Number equations consecutively with equation numbers in parentheses flush
-with the right margin, as appears in \eqref{eq}. Refer to ``\eqref{eq},'' not ``Eq. \eqref{eq}''
-or ``equation \eqref{eq},'' except at the beginning of a sentence: ``Equation \eqref{eq}
-is $\ldots$ .'' To make your equations more
-compact, you may use the solidus (~/~), the exp function, or appropriate
-exponents. Use parentheses to avoid ambiguities in denominators. Punctuate
-equations when they are part of a sentence, as in
-\begin{equation}E=mc^2.\label{eq}\end{equation}
-
-Be sure to define the symbols in your equation before the equation appears or
-immediately following. Italicize symbols ($T$ might refer
-to temperature, but T is the unit tesla).
-
-\subsection{\LaTeX-Specific Advice}
-
-Use ``soft'' (e.g., \verb|\eqref{Eq}|) cross references instead
-of ``hard'' references (e.g., \verb|(1)|). This will make it possible
-to combine sections, add equations, or change the order of figures or
-citations without having to manually change equation references.
-
-Do not use the \verb|{eqnarray}| equation environment. Use
-\verb|{align}| or \verb|{IEEEeqnarray}| instead. The \verb|{eqnarray}|
-environment leaves unsightly spaces around relation symbols.
-
-Note that the \verb|{subequations}| environment in {\LaTeX}
-will increment the main equation counter even when there are no
-equation numbers displayed.
-
-    {\BibTeX} only functions in conjunction with local .bib files. If you use {\BibTeX} to produce the
-bibliography you must attach the .bib files.
-
-    {\LaTeX} can't read your mind. If you assign the same label to both a
-subsubsection and a table, you may find that Table I has been cross
-referenced as Table IV-B3.
-
-{\LaTeX} does not have precognitive abilities. If you put a
-\verb|\label| command before the command that updates the counter it's
-supposed to be using, the label will pick up the last counter to be
-cross referenced instead. In particular, a \verb|\label| command
-should not go before the caption of a figure or a table.
-
-Do not use \verb|\nonumber| inside the \verb|{array}| environment. It
-will not stop equation numbers inside \verb|{array}| and it might stop a
-wanted equation number in the surrounding equation.
-
-If you are submitting your paper to a colorized journal, you can use
-the following two lines at the start of the article to ensure its
-appearance resembles the final copy:
-
-\smallskip\noindent
-\begin{small}
-    \begin{tabular}{l}
-        \verb+\+\texttt{documentclass[journal,twoside,web]\{ieeecolor\}} \\
-        \verb+\+\texttt{usepackage\{\textit{Journal\_Name}\}}
-    \end{tabular}
-\end{small}
-
-\section{Units}
-Use either SI (MKS) or CGS as primary units. (SI units are strongly
-encouraged.) English units may be used as secondary units (in parentheses).
-For example, write ``1 kg (2.2lb).'' An exception exists for when
-English units are used as identifiers in commercial products, such as a ``3\textonehalf-in
-disk drive.'' Avoid combining SI and CGS units, such as current in amperes
-and magnetic field in oersteds. This often leads to confusion because
-equations do not balance dimensionally. If you must use mixed units, clearly
-state the units for each quantity in an equation.
-
-The SI unit for magnetic field strength $H$ is A/m. However, if you wish to use
-units of T, either refer to magnetic flux density $B$ or magnetic field
-strength symbolized as $\mu _{0}H$. Use the center dot to separate
-compound units, e.g., ``A$\cdot $m$^{2}$.''
-
+One non-Newtonian model for blood is the Blood Power Law and is shown in \eqref{Eq4}, \eqref{Eq5} and \eqref{Eq6}.
+\begin{equation}\label{Eq4}
+    \mu = \delta \left|\gamma \right|^{n-1}
+\end{equation}
+\begin{equation}\label{Eq5}
+    \delta \left(\gamma \right)= \mu_{\infty} + \delta \mu \exp\left[-\left(1 + \left(\frac{\left|\gamma\right|}{a}\right)\right)\exp\left(\frac{-b}{\left|\gamma\right|}\right)\right]
+\end{equation}
+\begin{equation}\label{Eq6}
+    n\left(\gamma\right) = n_{\infty} - \delta n \exp\left[-\left(1 + \left(\frac{\left|\gamma\right|}{c}\right)\right)\exp\left(\frac{-d}{\left|\gamma\right|}\right)\right]
+\end{equation}
+where $\gamma$ is the local calculated shear stress, $\delta$ is the consistency constant, $\mu_{\infty} = 0.035$ is the limiting (Newtonian) viscosity (default value) and $\delta \mu = 0.25$ is the change in viscosity (default value). $a = 50$, $b = 3$, $c = 50$, $d = 4$ are all constants with default values preset by CFD-ACE+.
+\subsection{Geometry to Model Cerebral Aneurysm}\label{geom}
 \begin{figure}[!t]
-    \centerline{\includegraphics[width=\columnwidth]{fig1.png}}
-    \caption{Magnetization as a function of applied field.
-        It is good practice to explain the significance of the figure in the caption.}
+    \centerline{\includegraphics[width=\columnwidth]{img/fig1.png}}
+    \caption{2D geometry of basilar bifurcated artery with saccular aneurysm.}
     \label{fig1}
 \end{figure}
+In Figure \ref{fig1}, we can see the simplified geometry of a basilar bifurcated artery with saccular aneurysm. Here, the vasculature is symmetric to aid in the simplification of the system. Another key simplification is the choice to utilise a 2D geometry. The aim of this paper is to investigate the CFD workflow; 3D modelling the vasculature is a complex task and was not performed.
 
-\section{Guidelines for Graphics Preparation and Submission}
-\label{sec:guidelines}
+The dimensions of the main vasculature are \SI{1.5}{mm} by \SI{10}{mm} and lead into two separate branches with a reduced cross section of \SI{1}{mm}. The sac is modelled as a ellipse with a major radius of \SI{4.5}{mm} and minor radius \SI{3.5}{mm}. CFD-GEOM was used to model the geometry.
+\subsection{Generation of Mesh}\label{mesh}
+The geometry was meshed using an unstructured triangular mesh. This is justified as this mesh structure can reproduce the curvature of the sac to an acceptable level. Modelling the vasculature structure with a structured mesh may prove ideal for the regular sections of the geometry but would pose problems within the saccular section - arguably the most important section of interest within this geometry. An ideal mesh would have been constructed with due consideration for the differences in geometry for different parts of the vasculature. Another advantage of a triangular mesh is the ease in which our mesh density can be changed. This is important as validation of the mesh requires performing a variety of simulations at varying mesh densities to demonstrate grid independence.
 
-\subsection{Types of Graphics}
-The following list outlines the different types of graphics published in
-IEEE journals. They are categorized based on their construction, and use of
-color~/~shades of gray:
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/fig2.png}}
+    \caption{Graph to show percentage difference of velocity and pressure at two different points within the mesh against number of cells in mesh at two points: A \& B.}
+    \label{fig2}
+\end{figure}
 
-\subsubsection{Color/Grayscale figures}
-{Figures that are meant to appear in color, or shades of black/gray. Such
-    figures may include photographs, illustrations, multicolor graphs, and
-    flowcharts.}
+Grid independence simulations were performed using Case 1 - the base case. In Figure \ref{fig2}, we can see that data was collected from 12 simulations with varying mesh densities. Cell counts ranging from below \SI{10e3} to over \SI{10e5} were used. To test whether grid independence had been achieved, two points were indexed within the mesh:
+\begin{enumerate}
+    \item Point A - (\SI{0.1}{mm}, \SI{0}{mm})
+    \item Point B - (\SI{2}{mm}, \SI{0}{mm})
+\end{enumerate}
+where Point A represents an index point close to the inlet of main vasculature and Point B represents an index point along the main vasculature. The significance of choosing points close to the inlet and within the main vasculature is to index a point where the flow is predictable. In the saccular region, the flow may rotate clockwise or anti-clockwise. This discrepancy can be attributed to the fact that in each simulation, the structure of the mesh can cause the flow to deviate slightly early on. These small deviations will manifest throughout the rest of the simulation - one such manifestation is the direction of the vortex. The percentage difference was calculated using the value from the previous simulation (simulations were conducted from small cell count to large cell count).
 
-\subsubsection{Line Art figures}
-{Figures that are composed of only black lines and shapes. These figures
-    should have no shades or half-tones of gray, only black and white.}
+From Figure \ref{fig2}, we can see a clear convergence of the velocity and pressure at both points as the cell count approaches 50,000. The percentage difference in the aforementioned parameters is below 0.1\% when the mesh size is increased further. Hence, a cell count of 65302 (representing a maximum cell size of 0.055) was utilised for all cases. This mesh size also commands a reasonable computational time of approximately 22 minutes.
 
-\subsubsection{Author photos}
-{Not allowed for papers in TMI.}
-
-\subsubsection{Tables}
-{Data charts which are typically black and white, but sometimes include
-    color.}
-
-\begin{table}
-    \caption{Units for Magnetic Properties}
-    \label{table}
-    \setlength{\tabcolsep}{3pt}
-    \begin{tabular}{|p{25pt}|p{75pt}|p{115pt}|}
-        \hline
-        Symbol                                         &
-        Quantity                                       &
-        Conversion from Gaussian and \par CGS EMU to SI $^{\mathrm{a}}$                 \\
-        \hline
-        $\Phi $                                        &
-        magnetic flux                                  &
-        1 Mx $\to  10^{-8}$ Wb $= 10^{-8}$ V$\cdot $s                                   \\
-        $B$                                            &
-        magnetic flux density, \par magnetic induction &
-        1 G $\to  10^{-4}$ T $= 10^{-4}$ Wb/m$^{2}$                                     \\
-        $H$                                            &
-        magnetic field strength                        &
-        1 Oe $\to  10^{3}/(4\pi )$ A/m                                                  \\
-        $m$                                            &
-        magnetic moment                                &
-        1 erg/G $=$ 1 emu \par $\to 10^{-3}$ A$\cdot $m$^{2} = 10^{-3}$ J/T             \\
-        $M$                                            &
-        magnetization                                  &
-        1 erg/(G$\cdot $cm$^{3}) =$ 1 emu/cm$^{3}$ \par $\to 10^{3}$ A/m                \\
-        4$\pi M$                                       &
-        magnetization                                  &
-        1 G $\to  10^{3}/(4\pi )$ A/m                                                   \\
-        $\sigma $                                      &
-        specific magnetization                         &
-        1 erg/(G$\cdot $g) $=$ 1 emu/g $\to $ 1 A$\cdot $m$^{2}$/kg                     \\
-        $j$                                            &
-        magnetic dipole \par moment                    &
-        1 erg/G $=$ 1 emu \par $\to 4\pi \times  10^{-10}$ Wb$\cdot $m                  \\
-        $J$                                            &
-        magnetic polarization                          &
-        1 erg/(G$\cdot $cm$^{3}) =$ 1 emu/cm$^{3}$ \par $\to 4\pi \times  10^{-4}$ T    \\
-        $\chi , \kappa $                               &
-        susceptibility                                 &
-        1 $\to  4\pi $                                                                  \\
-        $\chi_{\rho }$                                 &
-        mass susceptibility                            &
-        1 cm$^{3}$/g $\to  4\pi \times  10^{-3}$ m$^{3}$/kg                             \\
-        $\mu $                                         &
-        permeability                                   &
-        1 $\to  4\pi \times  10^{-7}$ H/m \par $= 4\pi \times  10^{-7}$ Wb/(A$\cdot $m) \\
-        $\mu_{r}$                                      &
-        relative permeability                          &
-        $\mu \to \mu_{r}$                                                               \\
-        $w, W$                                         &
-        energy density                                 &
-        1 erg/cm$^{3} \to  10^{-1}$ J/m$^{3}$                                           \\
-        $N, D$                                         &
-        demagnetizing factor                           &
-        1 $\to  1/(4\pi )$                                                              \\
-        \hline
-        \multicolumn{3}{p{251pt}}{Vertical lines are optional in tables. Statements that serve as captions for
-        the entire table do not need footnote letters. }                                \\
-        \multicolumn{3}{p{251pt}}{$^{\mathrm{a}}$Gaussian units are the same as cg emu for magnetostatics; Mx
-            $=$ maxwell, G $=$ gauss, Oe $=$ oersted; Wb $=$ weber, V $=$ volt, s $=$
-            second, T $=$ tesla, m $=$ meter, A $=$ ampere, J $=$ joule, kg $=$
-            kilogram, H $=$ henry.}
-    \end{tabular}
-    \label{tab1}
-\end{table}
-
-\subsection{Multipart figures}
-Multipart figures are comprised of more than one sub-figure presented together.
-If a multipart figure is made up of multiple figure types (one part is lineart,
-and another is grayscale or color) the figure should meet the strictest applicable guidelines.
-
-\subsection{File Formats For Graphics}
-\label{formats}
-Format and save your graphics as one of the following approved file types:
-PostScript (.PS), Encapsulated PostScript (.EPS), Tagged Image File Format (.TIFF),
-Portable Document Format (.PDF), Portable Network Graphics (.PNG), or Metapost (.MPS).
-After the paper is accepted, any included graphics must be submitted alongside the final manuscript files.
-
-\subsection{Sizing of Graphics}
-Most charts, graphs, and tables are one column wide (3.5 inches~/~88
-millimeters) or page wide (7.16 inches~/~181 millimeters). The maximum
-depth of a graphic is 8.5 inches (216 millimeters). When choosing the depth of a graphic,
-please allow space for a caption. Authors are allowed to size figures between column and
-page widths, but it is recommended not to size figures less than column width unless necessary.
-
-\subsection{Resolution}
-The proper resolution of your figures will depend on the type of figure it
-is as defined in the ``Types of Figures'' section. Author photographs,
-color, and grayscale figures should be at least 300dpi. Lineart, including
-tables should be a minimum of 600dpi.
-
-\subsection{Vector Art}
-While IEEE does accept and even recommends that authors submit artwork
-in vector format, it is our policy is to rasterize all figures for publication. This is done
-in order to preserve figures' integrity across multiple computer platforms.
-
-\subsection{Colorspace}
-The term colorspace refers to the entire sum of colors that can be
-represented within a given medium. For our purposes, the three main colorspaces
-are grayscale, RGB (red/green/blue) and CMYK (cyan/magenta/yellow/black).
-RGB is generally used with on-screen graphics, whereas CMYK is used for printing purposes.
-
-All color figures should be generated in RGB or CMYK colorspace. Grayscale
-images should be submitted in grayscale colorspace. Line art may be
-provided in grayscale OR bitmap colorspace. Note that ``bitmap colorspace''
-and ``bitmap file format'' are not the same thing. When bitmap colorspace
-is selected, .TIF/.TIFF are the recommended file formats.
-
-\subsection{Accepted Fonts Within Figures}
-When preparing your graphics IEEE suggests that you use of one of the
-following Open Type fonts: Times New Roman, Helvetica, Arial, Cambria, and
-Symbol. If you are supplying EPS, PS, or PDF files all fonts must be
-embedded. Some fonts may only be native to your operating system; without
-the fonts embedded, parts of the graphic may be distorted or missing.
-
-A safe option when finalizing your figures is to strip out the fonts before
-you save the files, creating ``outline'' type. This converts fonts to
-artwork that will appear uniformly on any screen.
-
-\subsection{Using Labels Within Figures}
-
-\subsubsection{Figure Axis labels}
-Figure axis labels are often a source of confusion. Use words rather than
-symbols. As an example, write the quantity ``Magnetization,'' or
-``Magnetization M,'' not just ``M.'' Put units in parentheses. Do not label
-axes only with units. As in Fig. 1, for example, write ``Magnetization
-(A/m)'' or ``Magnetization (A$\cdot$m$^{-1}$),'' not just ``A/m.''
-Do not label axes with a ratio of quantities and units.
-For example, write ``Temperature (K),'' not ``Temperature/K.''
-
-Multipliers can be especially confusing. Write ``Magnetization (kA/m)'' or
-``Magnetization (10$^{3}$ A/m).'' Do not write ``Magnetization
-(A/m)$\,\times\,$1000'' because the reader would not know whether the top
-axis label in Fig. 1 meant 16000 A/m or 0.016 A/m. Figure labels should be
-legible, approximately 8 to 10 point type.
-
-\subsubsection{Subfigure Labels in Multipart Figures and Tables}
-Multipart figures should be combined and labeled before final submission.
-Labels should appear centered below each subfigure in 8 point Times New
-Roman font in the format of (a) (b) (c).
-
-\subsection{Referencing a Figure or Table Within Your Paper}
-When referencing your figures and tables within your paper, use the
-abbreviation ``Fig.'' even at the beginning of a sentence. Do not abbreviate
-``Table.'' Tables should be numbered with Roman numerals.
-
-\subsection{Submitting Your Graphics}
-Format your paper with the graphics included within the body of the text
-as you would expect to see the paper in print. Please do this at each stage of the review,
-from first submission to final files. For final files only, after the paper has been accepted
-for publication, figures should also be submitted individually in addition to the manuscript
-file using one of the approved file formats. Place a figure caption below each figure;
-place table titles above the tables. Do not include captions or borders in the uploaded figure files.
-
-\subsection{File Naming}
-Figures (line artwork or images) should be named starting with the
-first 5 letters of the corresponding author's last name. The next characters in the
-filename should be the number that represents the figure's sequential
-location in the article. For example, in author ``Anderson's'' paper,
-the first three figures might be named ander1.tif, ander2.tif, and ander3.ps.
-
-Tables should contain only the body of the table (not the caption) and
-should be named similarly to figures, except that `.t' is inserted
-in-between the author's name and the table number. For example, author
-Anderson's first three tables would be named ander.t1.tif, ander.t2.ps, ander.t3.eps.
-
-Author photographs or biographies are not permitted in IEEE TMI papers.
-
-\subsection{Checking Your Figures: The IEEE Graphics Analyzer}
-The IEEE Graphics Analyzer enables authors to pre-screen their graphics for
-compliance with IEEE Transactions and Journals standards before submission.
-The online tool, located at \underline{http://graphicsqc.ieee.org/},
-allows authors to upload their graphics in order to check that each file is the correct file format,
-resolution, size and colorspace; that no fonts are missing or corrupt;
-that figures are not compiled in layers or have transparency,
-and that they are named according to the IEEE Transactions and Journals naming convention.
-At the end of this automated process, authors are provided with
-a detailed report on each graphic within the web applet, as well as by email.
-
-For more information on using the Graphics Analyzer or any other graphics
-related topic, contact the IEEE Graphics Help Desk by e-mail at
-graphics@ieee.org.
-
-\subsection{Color Processing/Printing in IEEE Journals}
-All IEEE Transactions, Journals, and Letters allow an author to publish
-color figures on IEEE Xplore\textregistered\ at no charge, and automatically
-convert them to grayscale for print versions. In most journals, figures and
-tables may alternatively be printed in color if an author chooses to do so.
-Please note that this service comes at an extra expense to the author. If
-you intend to have print color graphics, include a note with your final
-paper indicating which figures or tables you would like to be handled that way,
-and stating that you are willing to pay the additional fee.
-
-\section{Some Common Mistakes}
-The word ``data'' is plural, not singular. The subscript for the
-permeability of vacuum $\mu _{0}$ is zero, not a lowercase letter
-``o.'' Use the word ``micrometer'' instead of ``micron.'' A graph within a graph is an
-``inset,'' not an ``insert.'' The word ``alternatively'' is preferred to the
-word ``alternately'' (unless you really mean something that alternates). Use
-the word ``whereas'' instead of ``while'' (unless you are referring to
-simultaneous events). Do not use the word ``essentially'' to mean
-``approximately'' or ``effectively.'' Do not use the word ``issue'' as a
-euphemism for ``problem.'' When compositions are not specified, separate
-chemical symbols by en-dashes; for example, ``NiMn'' indicates the
-intermetallic compound Ni$_{0.5}$Mn$_{0.5}$ whereas
-``Ni--Mn'' indicates an alloy of some composition
-Ni$_{x}$Mn$_{1-x}$.
-
-Be aware of the different meanings of the homophones ``affect'' (usually a
-verb) and ``effect'' (usually a noun), ``complement'' and ``compliment,''
-``discreet'' and ``discrete,'' ``principal'' (e.g., ``principal
-investigator'') and ``principle'' (e.g., ``principle of measurement''). Do
-not confuse ``imply'' and ``infer.''
-
-Prefixes such as ``non,'' ``sub,'' ``micro,'' ``multi,'' and ``ultra'' are
-not independent words; they should be joined to the words they modify,
-usually without a hyphen. There is no period after the ``et'' in the Latin
-abbreviation ``\emph{et al.}'' (it is also italicized). The abbreviation ``i.e.,'' means
-``that is,'' and the abbreviation ``e.g.,'' means ``for example'' (these
-abbreviations are not italicized).
-
-A general IEEE styleguide is available at \underline{http://www.ieee.org/web/publications/authors/transjnl/index.ht}
-\discretionary{}{}{}\underline{ml}.
-
-\section{Conclusion}
-A conclusion section is not required. Although a conclusion may review the
-main points of the paper, do not replicate the abstract as the conclusion.
-A conclusion might elaborate on the importance of the work or suggest
-applications and extensions.
-
-\appendices
-
-\section*{Appendix and the Use of Supplemental Files}
-Appendices, if needed, appear before the acknowledgment. If an appendix is not
-critical to the main message of the manuscript and is included only for thoroughness
-or for reader reference, then consider submitting appendices as supplemental materials.
-Supplementary files are available to readers through IEEE \emph{Xplore\textregistered}
-at no additional cost to the authors but they do not appear in print versions.
-Supplementary files must be uploaded in ScholarOne as supporting documents, but for
-accepted papers they should be uploaded as Multimedia documents. Refer readers
-to the supplementary files where appropriate within the manuscript text using footnotes.
-\footnote{Supplementary materials are available in the supporting documents/multimedia tab.
-    Further instructions on footnote usage are in the Footnotes section on the next page.}
-
-\section*{Acknowledgment}
-The preferred spelling of the word ``acknowledgment'' in American English is
-without an ``e'' after the ``g.'' Use the singular heading even if you have
-many acknowledgments. Avoid expressions such as ``One of us (S.B.A.) would
-like to thank $\ldots$ .'' Instead, write ``F. A. Author thanks $\ldots$ .'' In most
-cases, sponsor and financial support acknowledgments are placed in the
-unnumbered footnote on the first page, not here.
-
-\section*{References and Footnotes}
-
-\subsection{References}
-All listed references must be cited in text at least once. Use number citations
-that are placed in square brackets and inside the punctuation.
-
-Multiple references are each numbered with separate brackets.
-When citing a section in a book, please give the relevant page numbers.
-In text, refer simply to the reference number. Do not use ``Ref.'' or
-``reference'' except at the beginning of a sentence:
-``Reference \cite{b3} shows $\ldots$ .'
-
-Reference numbers are set flush left and form a column of their own, hanging
-out beyond the body of the reference. The reference numbers are on the line,
-enclosed in square brackets. In all references, the given name of the author
-or editor is abbreviated to the initial only and precedes the last name.
-List the names of all authors if there are six or fewer co-authors,
-otherwise list the primary author's name followed by \emph{at al.}
-Use commas around Jr., Sr., and III in names. Abbreviate conference titles.
-When citing IEEE transactions, provide the issue number, page range, volume number,
-year, and/or month if available. When referencing a patent, provide the day and
-month of issue or application. References may not include all information;
-please obtain and include relevant information. Do not combine references.
-There must be only one reference with each number. If there is a
-URL included with the print reference, it can be included at the end of the reference.
-
-Other than books, capitalize only the first word in a paper title, except
-for proper nouns and element symbols. For papers published in translation
-journals, please give the English citation first, followed by the original
-foreign-language citation. See the end of this document for formats and
-examples of common references. For a complete discussion of references and
-their formats, see the IEEE style manual at
-\underline{https://journals.ieeeauthorcenter.ieee.org/your-role-in-article-p}
-\discretionary{}{}{}\underline{roduction/ieee-editorial-style-manual/}.
-
-\subsection{Footnotes}
-Number footnotes separately using superscripts.\footnote{Place the actual
-    footnote at the bottom of the column in which it is cited; do not put
-    footnotes in the reference list (endnotes).}
-It is recommended that footnotes be avoided (except for
-the unnumbered footnote with the receipt date on the first page).
-Instead, try to integrate the footnote information into the text.
-Use letters for table footnotes (see Table \ref{table}).
-
-\section{References}
-
+\subsection{Modelling of Coil Embolisation via Porous Media}
+Direct modelling of the coils within the aneurysm is a complex task. Previous work such as Umeda \textit{et al} and Li \textit{et al} have shown that modelling the coils as a porous medium is an effective substitute \cite{10.1371/journal.pone.0190222}, \cite{1231512}. The geometry of the porous region can be seen in Figure \ref{fig2}, as the elliptical sac. Here the boundary between the porous region and the arterial vasculature is modelled as a straight line. An isotropic resistance model was used within CFD-ACE+ with the following parameters:
 \begin{itemize}
-
-    \item \emph{Basic format for books:}\\
-          J. K. Author, ``Title of chapter in the book,'' in \emph{Title of His Published Book, x}th ed. City of Publisher, (only U.S. State), Country: Abbrev. of Publisher, year, ch. $x$, sec. $x$, pp. \emph{xxx--xxx.}\\
-          See \cite{b1,b2}.
-
-    \item \emph{Basic format for periodicals:}\\
-          J. K. Author, ``Name of paper,'' \emph{Abbrev. Title of Periodical}, vol. \emph{x, no}. $x, $pp\emph{. xxx--xxx, }Abbrev. Month, year, DOI. 10.1109.\emph{XXX}.123456.\\
-          See \cite{b3}--\cite{b5}.
-
-    \item \emph{Basic format for reports:}\\
-          J. K. Author, ``Title of report,'' Abbrev. Name of Co., City of Co., Abbrev. State, Country, Rep. \emph{xxx}, year.\\
-          See \cite{b6,b7}.
-
-    \item \emph{Basic format for handbooks:}\\
-          \emph{Name of Manual/Handbook, x} ed., Abbrev. Name of Co., City of Co., Abbrev. State, Country, year, pp. \emph{xxx--xxx.}\\
-          See \cite{b8,b9}.
-
-    \item \emph{Basic format for books (when available online):}\\
-          J. K. Author, ``Title of chapter in the book,'' in \emph{Title of
-              Published Book}, $x$th ed. City of Publisher, State, Country: Abbrev.
-          of Publisher, year, ch. $x$, sec. $x$, pp. \emph{xxx--xxx}. [Online].
-          Available: \underline{http://www.web.com}\\
-          See \cite{b10}--\cite{b13}.
-
-    \item \emph{Basic format for journals (when available online):}\\
-          J. K. Author, ``Name of paper,'' \emph{Abbrev. Title of Periodical}, vol. $x$, no. $x$, pp. \emph{xxx--xxx}, Abbrev. Month, year. Accessed on: Month, Day, year, DOI: 10.1109.\emph{XXX}.123456, [Online].\\
-          See \cite{b14}--\cite{b16}.
-
-    \item \emph{Basic format for papers presented at conferences (when available online): }\\
-          J.K. Author. (year, month). Title. presented at abbrev. conference title. [Type of Medium]. Available: site/path/file\\
-          See \cite{b17}.
-
-    \item \emph{Basic format for reports and handbooks (when available online):}\\
-          J. K. Author. ``Title of report,'' Company. City, State, Country. Rep. no., (optional: vol./issue), Date. [Online] Available: site/path/file\\
-          See \cite{b18,b19}.
-
-    \item \emph{Basic format for computer programs and electronic documents (when available online): }\\
-          Legislative body. Number of Congress, Session. (year, month day). \emph{Number of bill or resolution}, \emph{Title}. [Type of medium]. Available: site/path/file\\
-          \textbf{\emph{NOTE: }ISO recommends that capitalization follow the accepted practice for the language or script in which the information is given.}\\
-          See \cite{b20}.
-
-    \item \emph{Basic format for patents (when available online):}\\
-          Name of the invention, by inventor's name. (year, month day). Patent Number [Type of medium]. Available: site/path/file\\
-          See \cite{b21}.
-
-    \item \emph{Basic format}\emph{for conference proceedings (published):}\\
-          J. K. Author, ``Title of paper,'' in \emph{Abbreviated Name of Conf.}, City of Conf., Abbrev. State (if given), Country, year, pp. \emph{xxxxxx.}\\
-          See \cite{b22}.
-
-    \item \emph{Example for papers presented at conferences (unpublished):}\\
-          See \cite{b23}.
-
-    \item \emph{Basic format for patents}$:$\\
-          J. K. Author, ``Title of patent,'' U.S. Patent \emph{x xxx xxx}, Abbrev. Month, day, year.\\
-          See \cite{b24}.
-
-    \item \emph{Basic format for theses (M.S.) and dissertations (Ph.D.):}
-          \begin{enumerate}
-              \item J. K. Author, ``Title of thesis,'' M.S. thesis, Abbrev. Dept., Abbrev. Univ., City of Univ., Abbrev. State, year.
-              \item J. K. Author, ``Title of dissertation,'' Ph.D. dissertation, Abbrev. Dept., Abbrev. Univ., City of Univ., Abbrev. State, year.
-          \end{enumerate}
-          See \cite{b25,b26}.
-
-    \item \emph{Basic format for the most common types of unpublished references:}
-          \begin{enumerate}
-              \item J. K. Author, private communication, Abbrev. Month, year.
-              \item J. K. Author, ``Title of paper,'' unpublished.
-              \item J. K. Author, ``Title of paper,'' to be published.
-          \end{enumerate}
-          See \cite{b27}--\cite{b29}.
-
-    \item \emph{Basic formats for standards:}
-          \begin{enumerate}
-              \item \emph{Title of Standard}, Standard number, date.
-              \item \emph{Title of Standard}, Standard number, Corporate author, location, date.
-          \end{enumerate}
-          See \cite{b30,b31}.
-
-    \item \emph{Article number in~reference examples:}\\
-          See \cite{b32,b33}.
-
-    \item \emph{Example when using et al.:}\\
-          See \cite{b34}.
-
+    \item Linear resistance porosity: 0.8
+    \item Linear resistance permeability: \SI{1e-8}{m^2}
 \end{itemize}
 
+\subsection{Solver Setup}\label{solverSetup}
+\subsubsection{Boundary Conditions}
+The inlet wall was configured with a fixed velocity condition. The inlet x-direction velocity of \SI{0.27}{\meter\per\second} and temperature \SI{310}{\kelvin} - to represent the incoming blood flow - were chosen. The outlet walls were configured with a fixed pressure condition and a backflow temperature of \SI{310}{\kelvin}. These values were fixed as a constant body temperature can be assumed.
+\subsubsection{Initial Conditions}
+An initial temperature of \SI{310}{\kelvin} was chosen as a constant body temperature can be assumed. Cases 3 and 4 were setup with a previous solution initial condition; cases 1 and 2 respectively.
+\subsubsection{Solver Conditions}
+Some general information regarding the solver settings are listed below:
+\begin{itemize}
+    \item Maximum iterations: 4000 (adjusted to higher values to reach convergence)
+    \item Spatial differencing method for velocity: central method with 0.1 blending factor
+    \item Solvers
+          \begin{itemize}
+              \item Velocity: algebraic multigrid solver with 5 sweeps and 0.01 criterion
+              \item Pressure correction: algebraic multigrid solver with 10 sweeps and 0.1 criterion
+          \end{itemize}
+\end{itemize}
+\section{Results and Discussion}
+Figures \ref{geom15V}, \ref{geom17V}, \ref{geom16V}, \ref{geom18V} show the velocity magnitudes of the flow for each case. In Case 1 and 3, we see that the flow is distributed unequally between the two outlet vasculature. This unequal flow can prove problematic as this can lead to ischaemic problems within other parts of the cerebral vasculature. In Case 2 and 4, we see an equal distribution of the fluid between the two outlet vasculature. We can see a clear stagnation in fluid velocity as the fluid approaches the boundary of the aneurysm, and the flow is redirected to the vasculature equally.
+
+Comparing the uncoiled cases to the coiled cases, we see that the flow is no longer entering the aneurysm sac and the fluid velocity is reduced to below \SI{0.05}{m\per \second}. This is a positive change in the haemodynamics as stagnation of the blood flow within the saccular region would promote thrombosis and prevent further growth of the sac.
+
+Comparing the Newtonian cases with the non-Newtonian cases, we find that there is a small percentage difference between the two simulations. Indexing points close to the boundary of the aneurysm yielded a percentage difference of 0.06\% in velocity magnitudes between the two simulations (index point: (0.009,0)). This shows that modelling the flow using the Blood Power Law yields no significant benefit over a Newtonian model for the additional computational time and complexity.
+
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/geom15Velocity.png}}
+    \caption{Plot of velocity contours for Case 1 - Newtonian Uncoiled.}
+    \label{geom15V}
+\end{figure}
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/geom17Velocity.png}}
+    \caption{Plot of velocity contours for Case 2 - Newtonian Coiled.}
+    \label{geom17V}
+\end{figure}
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/geom16Velocity.png}}
+    \caption{Plot of velocity contours for Case 3 - non-Newtonian Uncoiled.}
+    \label{geom16V}
+\end{figure}
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/geom18Velocity.png}}
+    \caption{Plot of velocity contours for Case 4 - non-Newtonian Coiled.}
+    \label{geom18V}
+\end{figure}
+
+Figures \ref{geom17P}, \ref{geom18P} show the pressure distribution in Case 3 and 4. We see that pressure differential in case 3 is uneven and there is a little variation in the pressure from the latter portion of the inlet vasculature to the saccular region, allowing blood to flow through without losing much energy. We can also see the uneven distribution of pressure between the two outlet vasculature. Comparatively, we see that in the coiled case, the saccular region transitions into a higher pressure region. This serves to stagnate the blood flow and allow any entering blood to thrombose. This would further increase the resistance to flow within the saccular region. We can see that there is a point of very high pressure along the symmetry line, however this would be an artefact of our symmetrical and simplified geometry. In an anatomically correct model, we may see a much more complicated pressure differential on the boundary between the saccular region and the vasculature. Another interesting development is the higher average pressures within the saccular region. This trade-off is favourable to prevent the uneven flow of blood within the vasculature.
+
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/geom17Pressure.png}}
+    \caption{Plot of pressure contours for Case 3 - non-Newtonian Uncoiled.}
+    \label{geom17P}
+\end{figure}
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/geom18Pressure.png}}
+    \caption{Plot of pressure contours for Case 4 - non-Newtonian Coiled.}
+    \label{geom18P}
+\end{figure}
+
+Figure \ref{geom17S}, \ref{geom18S} show the strain rate plots for Case 3 and 4. Here, we see that the maximum strain rate occurs at the inlet wall. This can be considered an artefact of the simulation as in reality, this vasculature would extend much farther. In the region of interest, we see that the strain rate is localised at the boundary between the sac and the outlet wall. In the uncoiled case, this value is approximately \SI{7700}{\per\second}. A significant reduction in the localised strain rate is seen in the coiled simulation, dropping by 66\% to approximately \SI{2600}{\per\second}. In Figure \ref{strain1}, we can see that the strain rate in the uncoiled case at the end of saccular region increases. The coiling process reduces this to negligible. However, we do see an increase in the strain rate in the region of bifurcation. This trade-off is acceptable in order to reduce the risk of growth and subsequent rupture of the saccular region.
+
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/geom17Strain.png}}
+    \caption{Plot of velocity contours for Case 3 - non-Newtonian Uncoiled.}
+    \label{geom17S}
+\end{figure}
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/geom18Strain.png}}
+    \caption{Plot of velocity contours for Case 4 - non-Newtonian Coiled.}
+    \label{geom18S}
+\end{figure}
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=\columnwidth]{img/fig4.png}}
+    \caption{Plot of strain rate along axis of symmetry for Case 3 and 4.}
+    \label{strain1}
+\end{figure}
+\section{Conclusion}
+This paper outlines some of the features of a CFD workflow. The results shown here indicate that coil embolisation is effective in positively altering the haemodynamics of a saccular aneurysm located near a basilar bifurcated vasculature. Further work may include verification of the model via experimentation or to model an aneurysm derived from angiography in 3D.
+\section*{Acknowledgment}
+The ESI Group (Paris, France), developers of the CFD-ACE+ multiphysics software platform, are kindly acknowledged for allowing the use of the software for this assignment.
 \bibliographystyle{vancouver}
 \bibliography{refs}
 \end{document}
