@@ -1,0 +1,33 @@
+<Project name="q3">
+  <hierarchy />
+  <messagelist>
+    <message status="normal" label="build" scope="q3"><![CDATA[Generating network and source code 'C:\Users\dar_h\Desktop\MECH0071\q3.gf42\Main.f'.]]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[Generating 'C:\Users\dar_h\Desktop\MECH0071\q3.gf42\q3.map'.]]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[Time for Compile: 62ms  Make: 0ms]]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[Will execute: call C:\Program Files (x86)\GFortran\4.2.1\bin\gf42vars.bat]]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[Will execute: make -f q3.mak]]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[Will execute: C:\Users\dar_h\Desktop\MECH0071\Q3F100~1.GF4\\Q3MAK~1.BAT]]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[Creating EMTDC executable...]]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[C:\Users\dar_h\Desktop\MECH0071\q3.gf42>call C:\PROGRA~2\GFortran\428484~1.1\bin\gf42vars.bat ]]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[Compiling generated source 'Main.f' into object code.]]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[Linking object code and libraries into binary 'q3.exe']]></message>
+    <message status="normal" label="build" scope="q3"><![CDATA[Solve Time = 47ms]]></message>
+  </messagelist>
+  <emt>
+    <netlist name="Station" call_count="1" ss_count="0">
+      <signals>
+        <signal name="GND" dim="1" ss_id="0" node_map_count="1" local_storage_index="0">
+          <sg_points />
+          <node_number global="0" sg_local="0" sg_callindex="0" />
+        </signal>
+      </signals>
+      <components>
+        <component id="1529288451" />
+      </components>
+    </netlist>
+  </emt>
+  <views>
+    <view name="" zoomlevel="6" scrollx="0" scrolly="0" />
+    <view name="Main" zoomlevel="7" scrollx="0" scrolly="48" />
+  </views>
+</Project>

@@ -6,15 +6,90 @@
     \caption{Circuit diagram to show equivalent transformer.}
     \label{fig:transformerCircuit}
 \end{figure}
-\subsection{RMS Voltage across the load}
-Measuring the voltage across the load over \SI{0.1}{\second}, the voltage values were put into MATLAB (see Appendix \ref{app:q2}). The RMS voltage can be calculated using the following equation.
-\begin{gather}
+\subsection{Resistive load}
+\subsubsection{RMS Voltage }
+The RMS voltage can be calculated using \eqref{VRMS}.
+\begin{gather}\label{VRMS}
     V_{RMS} = \sqrt{\dfrac{\sum_{i=1}^n x_i^2}{n}}
 \end{gather}
 \begin{itemize}
-    \item Number of data points ($n$): 401
-    \item Number of complete AC cycles in time frame: 6
+    \item Simulation time: \SI{0.5}{\second}
+    \item Number of data points ($n$): 2002
 \end{itemize}
+Using MATLAB:
 \begin{gather}
-    V_{RMS,load} = \SI{10.72}{\kilo\volt}
+    V_{RMS,r} = \SI{10.14}{\kilo\volt}
 \end{gather}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/figure8.png}
+    \caption{Voltage across load over time and value of $V_{RMS,r}$.}
+    \label{fig:VRMSResistor}
+\end{figure}
+(see Appendix \ref{app:q2})
+\subsubsection{Power factor}
+The power factor can be calculated using the following equation:
+\begin{gather}
+    PF = \cos \phi
+\end{gather}
+Using MATLAB, the converged value of the power factor was found by averaging the final values in the dataset.
+\begin{gather}
+    PF_{r} = 0.995
+\end{gather}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/figure6.png}
+    \caption{Power factor over time (resistor).}
+    \label{fig:PFResistor}
+\end{figure}
+(see Appendix \ref{app:q2}).
+\subsection{Inductive load}
+\subsubsection{RMS Voltage across the load}
+Using MATLAB:
+\begin{gather}
+    V_{RMS,i} = \SI{2.79}{\kilo\volt}
+\end{gather}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/figure7.png}
+    \caption{Voltage across load over time and value of $V_{RMS,i}$.}
+    \label{fig:VRMSInductor}
+\end{figure}
+(see Appendix \ref{app:q2})
+\subsubsection{Power factor across the load}
+Using MATLAB:
+\begin{gather}
+    PF_{i} = 0.563
+\end{gather}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/figure10.png}
+    \caption{Power factor over time (inductor).}
+    \label{fig:PFInductor}
+\end{figure}
+(see Appendix \ref{app:q2}).
+\subsection{Capacitive load}
+\subsubsection{RMS Voltage}
+Using MATLAB:
+\begin{gather}
+    V_{RMS,c} = \SI{0.262}{\kilo\volt}
+\end{gather}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/figure9.png}
+    \caption{Voltage across load over time and value of $V_{RMS,c}$.}
+    \label{fig:VRMSCapacitor}
+\end{figure}
+(see Appendix \ref{app:q2})
+\subsubsection{Power factor}
+Using MATLAB:
+\begin{gather}
+    PF_{c} = -0.328
+\end{gather}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/figure11.png}
+    \caption{Power factor over time (capacitor).}
+    \label{fig:PFCapacitor}
+\end{figure}
+(see Appendix \ref{app:q2}).
