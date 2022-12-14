@@ -25,7 +25,7 @@ Fontsize=18;
 %% Characteristics of the liquid
 %%
 smax=100;        %% (m) pipe length
-frictionfactor=0;%0.10;
+frictionfactor=0.10;
 diameter=0.79394; %% (m)      pipe diameter
 V_0=1.5;         %% (m/s)    initial flow speed
 p_0=1e6;         %% (Pa)     initial pressure 55 bar
@@ -60,8 +60,8 @@ tperiod=1.0;
 bendinitial=30;
 bendheight=10;
 bendlength=10;
-%%datapointstrack=[0 smax bendinitial (bendinitial+bendheight) (bendinitial+bendheight+bendlength) (bendinitial+2*bendheight+bendlength)];
-datapointstrack=[10 25 50]; %% points which are being tracked
+datapointstrack=[0 smax bendinitial (bendinitial+bendheight) (bendinitial+bendheight+bendlength) (bendinitial+2*bendheight+bendlength)];
+%%datapointstrack=[10 25 50]; %% points which are being tracked
 trackdataM=[];
 trackdatamu=[];
 trackdatatime=[];
@@ -79,7 +79,7 @@ Ntimesteps=round(tperiod/deltat);
 %%
 A=linspace(1,1,Npts)*pi*diameter^2/4;
 V=linspace(1,1,Npts)*V_0;
-p=linspace(1,1,Npts)*p_0;
+%p=linspace(1,1,Npts)*p_0;
 rho=linspace(1,1,Npts)*rho_0;
 s=linspace(0,smax,Npts);
 %%
@@ -108,14 +108,13 @@ S1=0; S2 = 2*frictionfactor*M.^2./(diameter*mu);
 p(1)=p_0;
 mustar(1:end-1) = mu(1:end-1) - (deltat/deltax)*( F1(2:end)-F1(1:end-1)) ; 
 Mstar(1:end-1) = M(1:end-1) -   (deltat/deltax)*( F2(2:end)-F2(1:end-1)) +deltat*S2(1:end-1);
-mustar(end) = mu(end);%% -deltat*resistancecoeff*heaviside(A(end)*rho_0-mu(end))*(mu(end)-A(end)*rho_0);
+mustar(end) = mu(end) -deltat*resistancecoeff*heaviside(A(end)*rho_0-mu(end))*(mu(end)-A(end)*rho_0);
 %% closure
 if (time<closuretime)
 Mstar(end)=mustar(end-1)*V_0*(1-time/closuretime)^powernumber;
 else
     Mstar(end)=0;
-%     Mstar(end)=deltat*resistancecoeff*heaviside(mu(end)-A(end)*rho_0)*(mu(end)-A(end)*rho_0);
-% ;
+    Mstar(end)=deltat*resistancecoeff*heaviside(mu(end)-A(end)*rho_0)*(mu(end)-A(end)*rho_0);
 end
 
 %%
@@ -129,11 +128,11 @@ S1=0; S2star = 2*frictionfactor*Mstar.^2./(diameter*mustar);
 
 munext(2:end) = 0.5*(mustar(2:end)+mu(2:end)) - (deltat/(2*deltax))*( F1(2:end)-F1(1:end-1));
 Mnext(2:end) = 0.5*(Mstar(2:end)+M(2:end)) - (deltat/(2*deltax))*( F2(2:end)-F2(1:end-1)) +deltat*0.5*(S2(2:end)+S2star(2:end));
-% munext(1)=rho_0*A(1);
-% Mnext(1)=munext(1)*V_0;
+munext(1)=rho_0*A(1);
+Mnext(1)=munext(1)*V_0;
 munext(1)=munext(2);
 Mnext(1)=Mnext(2);
-% munext(1)*V_0;
+%munext(1)*V_0;
 
 
 mu=munext;
@@ -145,9 +144,9 @@ else
     M(end)=0;
 end
 
-% M(find(M>20))=20;
-% M(M<-20)=-20;
-% mu(mu<0)=1E-3;
+M(find(M>20))=20;
+M(M<-20)=-20;
+mu(mu<0)=1E-3;
 
 
 U = M./mu;
@@ -191,12 +190,11 @@ for jk=1:Ndatastreams
 U = trackdataM(:,jk)./trackdatamu(:,jk);
 rho = trackdatamu(:,jk)./A(1);
 p = p_0 + (speed^2).*(rho-rho_0);
-trackdatap=[trackdatap p ];
-trackdataU=[trackdataU  U];
-
+trackdatap=[trackdatap p];
+trackdataU=[trackdataU U];
 end
 %%
-%%
+%{
 figure(2)
 plot(trackdatatime,trackdatap(:,1),'k-') ; hold on
 plot(trackdatatime,trackdatap(:,2),'r-') ; hold on
@@ -206,31 +204,37 @@ set(gca,'Fontsize',Fontsize)
 xlabel('$t (s)$','Interpreter','Latex')
 ylabel('$p (Pa)$','Interpreter','Latex')
 grid on
-%% 
+%}
 %% convert tracked data to U and p
 %%
 %%
-% figure(5)
-% F0_1=(smooth(trackdatap(:,3))-p_0)*pi*diameter^2/4;
-% F0_2=(smooth(trackdatap(:,4))-p_0)*pi*diameter^2/4;
-% F0_3=(smooth(trackdatap(:,5))-p_0)*pi*diameter^2/4;
-% F0_4=(smooth(trackdatap(:,6))-p_0)*pi*diameter^2/4;
-% F0_0=zeros(size(F0_4));
-% %%
-% %% The forces and orientation are specific to the problem
-% %%
-% 
-% Forcebend1 = [trackdatatime' F0_1 -F0_1 F0_0];
-% Forcebend2 = [trackdatatime' -F0_2 F0_2 F0_0];
-% Forcebend3 = [trackdatatime' F0_3 F0_3 F0_0];
-% Forcebend4 = [trackdatatime' F0_4 -F0_4 F0_0];
-% 
+figure(5)
+F0_1=(smooth(trackdatap(:,3))-p_0)*pi*diameter^2/4;
+F0_2=(smooth(trackdatap(:,4))-p_0)*pi*diameter^2/4;
+F0_3=(smooth(trackdatap(:,5))-p_0)*pi*diameter^2/4;
+F0_4=(smooth(trackdatap(:,6))-p_0)*pi*diameter^2/4;
+F0_0=zeros(size(F0_4));
+%%
+%% The forces and orientation are specific to the problem
+%%
+
+Forcebend1 = [trackdatatime' F0_1 -F0_1 F0_0];
+Forcebend2 = [trackdatatime' -F0_2 F0_2 F0_0];
+Forcebend3 = [trackdatatime' F0_3 F0_3 F0_0];
+Forcebend4 = [trackdatatime' F0_4 -F0_4 F0_0];
+
 % %%
 % %% Data saved to csv files
 % %% so easy to paste into ANSYS workbench
 % %%
-% outputfiledata('Fbend1.csv',Forcebend1);
-% outputfiledata('Fbend2.csv',Forcebend2);
-% outputfiledata('Fbend3.csv',Forcebend3);
-% outputfiledata('Fbend4.csv',Forcebend4);
+outputfiledata('Fbend1.csv',Forcebend1);
+outputfiledata('Fbend2.csv',Forcebend2);
+outputfiledata('Fbend3.csv',Forcebend3);
+outputfiledata('Fbend4.csv',Forcebend4);
 % 
+
+%plot
+plot(trackdatatime,F0_1,'k-') ; hold on
+plot(trackdatatime,F0_1,'r-') ; hold on
+plot(trackdatatime,F0_1,'b-') ; hold on
+plot(trackdatatime,F0_1,'g-') ; hold on
