@@ -6,7 +6,7 @@ The calculation for maximum magnitude of the water hammer pulse is \eqref{jk1}. 
 \begin{gather}\label{jk1}
     \Delta p = \rho a_0 \Delta v\, (\si{\pascal})
 \end{gather}
-where $\Delta p$ is the change in pressure, $\rho$ is the fluid density, $a_0$ is the sonic velocity in the pipe and $\Delta v$ is the change in fluid velocity. The sonic velocity $a$ can be determined through \eqref{sonic1}, which is a modified version of Hooke's law. This allows to take into account the stiffness of the fluid and pipe wall. This assumes that our flow is free of of bubbles and is uniformly LNG and the pipe is sufficiently thin ($D/\tau > 40$) \cite{Watters1984AnalysisAC}.
+where $\Delta p$ is the change in pressure, $\rho$ is the fluid density, $a_0$ is the sonic velocity in the pipe and $\Delta v$ is the change in fluid velocity. The sonic velocity $a$ can be determined through \eqref{sonic1}, which is a modified version of Hooke's law. This allows to take into account the stiffness of the fluid and pipe wall. This assumes that our flow is free of of bubbles and is uniformly LNG and the pipe is sufficiently thin ($D/\tau > 40$). [Referenced from `Analysis and Control of Unsteady Flow in Pipelines' by Gary Z. Watters, 1984].
 \begin{gather}\label{sonic1}
     \frac{1}{a^2} = \frac{1}{c^2} + \frac{\rho D }{\tau E}
 \end{gather}
@@ -67,7 +67,7 @@ The Joukowski prediction makes assumptions in order to calculate a value for our
     \label{matlabResults}
 \end{table}
 \subsubsection{Frequencies associated with pressure fluctiation and analytical prediction}
-An analytical result for the frequencies of the pressure fluctuation can be found using \eqref{freq1} \cite{piping}.
+An analytical result for the frequencies of the pressure fluctuation can be found using \eqref{freq1}. [Referenced from `Piping Handbook Seventh Edition' by Mohinder L. Nayyar, page 1266, publisher: McGraw-Hill]
 \begin{gather}\label{freq1}
     T = \frac{1}{f} = \frac{2L}{c} = \frac{2\cdot s}{1100}
 \end{gather}
@@ -89,12 +89,12 @@ Indexing the values found in our MATLAB result, we can find the frequencies of t
 \end{table}
 \subsection{Force analysis}
 \subsubsection{Force acting on bend due to reflection of pressure wave}
-Using MATLAB, the forces acting on each bend of the loop were calculated. Figure \ref{force1} shows a plot of the forces from the first reflection of the pressure wave. Figure \ref{force2} shows the forces on each bend for the given time period from each reflection of the pressure wave.
+Using MATLAB, the forces acting on each bend of the loop were calculated. Figure \ref{force2} shows the modulus of the magnitude of the force acting on each bend for the given time period. Figure \ref{force1} shows a plot of the forces from the first reflection of the pressure wave. We see that the waves are reflected multiple times through the expansion loop, decreasing in magnitude on each reflection. For the purposes of finding the force exterted on the bend due to the relfection of the pressure wave, the peak forces from the first reflection were chosen. Analysing the MATLAB script given, the force components and directions were determined. Figure \ref{force3} shows the direction of the force acting on each bend. Table \ref{force4} shows the magnitude and direction of the force acting at each bend, and the overall force exerted on the expansion loop. We find that the expansion loop experience a net force pushing it to the left with a slight downwards push. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.9 \textwidth]{img/fig6.png}
-    \caption{Forces on each bend from reflections of pressure wave over the time period.}
+    \caption{Modulus of magnitude of force on each bend from reflections of pressure wave over the time period.}
     \label{force2}
 \end{figure}
 
@@ -104,6 +104,19 @@ Using MATLAB, the forces acting on each bend of the loop were calculated. Figure
     \caption{Forces on each bend from first reflection of pressure wave.}
     \label{force1}
 \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Schematic showing forces acting on expansion loop.}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}llll@{}}
+        
+    \end{tabular}
+    \caption{Table to show magnitude and direction of forces acting on the expansion loop.}
+\end{table}
 
 \subsubsection{Direction of total force on expansion loop}
 \section{Modal analysis of expansion loop}
@@ -186,5 +199,3 @@ We find that for lower $L$- values the modal frequencies are higher in our ANSYS
 As we are using the Euler-Bernoulli theorem to calculate our theory values, the assumptions made can potentially explain the discrepancy between our modal frequency values. One such assumption is that plane sections remain plane. We know that for higher modes, the beam undergoes a larger displacement, as more sections of the beam are displaced from the normal axis. This large displacement results in plane sections no longer remaining plane, making our assumption invalid for higher modes.
 \subsection{Modal analysis of an expansion loop}
 \section{Discussion and context}
-\bibliographystyle{unsrtnat}
-\bibliography{RefsB.bib}

@@ -223,6 +223,19 @@ Forcebend2 = [trackdatatime' -F0_2 F0_2 F0_0];
 Forcebend3 = [trackdatatime' F0_3 F0_3 F0_0];
 Forcebend4 = [trackdatatime' F0_4 -F0_4 F0_0];
 
+FMag1 = zeros(numel(Forcebend1(:,2)),1);
+FMag2 = zeros(numel(Forcebend1(:,2)),1);
+FMag3 = zeros(numel(Forcebend1(:,2)),1);
+FMag4 = zeros(numel(Forcebend1(:,2)),1);
+
+%magnitude of force
+for i = 1:numel(Forcebend1(:,2))
+    FMag1(i) = sqrt((Forcebend1(i,2))^2 + (Forcebend1(i,3))^2);
+    FMag2(i) = sqrt((Forcebend2(i,2))^2 + (Forcebend2(i,3))^2);
+    FMag3(i) = sqrt((Forcebend3(i,2))^2 + (Forcebend3(i,3))^2);
+    FMag4(i) = sqrt((Forcebend4(i,2))^2 + (Forcebend4(i,3))^2);
+end
+
 % %%
 % %% Data saved to csv files
 % %% so easy to paste into ANSYS workbench
