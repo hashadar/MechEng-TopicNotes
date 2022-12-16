@@ -6,11 +6,13 @@ The calculation for maximum magnitude of the water hammer pulse is \eqref{jk1}. 
 \begin{gather}\label{jk1}
     \Delta p = \rho a_0 \Delta v\, (\si{\pascal})
 \end{gather}
-where $\Delta p$ is the change in pressure, $\rho$ is the fluid density, $a_0$ is the sonic velocity in the pipe and $\Delta v$ is the change in fluid velocity. The sonic velocity $a$ can be determined through \eqref{sonic1}, which is a modified version of Hooke's law. This allows to take into account the stiffness of the fluid and pipe wall. This assumes that our flow is free of of bubbles and is uniformly LNG and the pipe is sufficiently thin ($D/\tau > 40$). [Referenced from `Analysis and Control of Unsteady Flow in Pipelines' by Gary Z. Watters, 1984].
-\begin{gather}\label{sonic1}
-    \frac{1}{a^2} = \frac{1}{c^2} + \frac{\rho D }{\tau E}
-\end{gather}
-where $c$ is the speed of sound in the fluid, $\rho$ is fluid density, $D$ is pipe internal diameter, $\tau$ is wall thickness of pipe and $E$ is Young's Modulus of pipe. Running the MATLAB script with the values shown in Table \ref{matlabScriptVals}, Figure \ref{pressure1} was generated.
+where $\Delta p$ is the change in pressure, $\rho$ is the fluid density, $a_0$ is the sonic velocity in the pipe and $\Delta v$ is the change in fluid velocity.
+%The sonic velocity $a$ can be determined through \eqref{sonic1}, which is a modified version of Hooke's law. This allows to take into account the stiffness of the fluid and pipe wall. This assumes that our flow is free of of bubbles and is uniformly LNG and the pipe is sufficiently thin ($D/\tau > 40$)\footnote{Referenced from `Analysis and Control of Unsteady Flow in Pipelines' by Gary Z. Watters, 1984}.
+%\begin{gather}\label{sonic1}
+%    \frac{1}{a^2} = \frac{1}{c^2} + \frac{\rho D }{\tau E}
+%\end{gather}
+%where $c$ is the speed of sound in the fluid, $\rho$ is fluid density, $D$ is pipe internal diameter, $\tau$ is wall thickness of pipe and $E$ is Young's Modulus of pipe. 
+Running the MATLAB script with the values shown in Table \ref{matlabScriptVals}, Figure \ref{pressure1} was generated.
 
 The pressure values at the first peak of the rise were chosen to find the maximum pressure differential. A settled pressure differential value was also found (shown in Figure \ref{pressure2}). Table \ref{matlabResults} shows the maximum pressure differentials for each index point ($s$- value: point along length of pipe from valve) and the pressure differential of the settled value.
 
@@ -22,14 +24,15 @@ The Joukowski prediction makes assumptions in order to calculate a value for our
         \toprule
         \textbf{Parameter}     & \textbf{Value}                       \\
         \midrule
-        $c$                    & \SI{1100}{\meter\per\second}         \\
+        %$c$                    & \SI{1100}{\meter\per\second}         \\
+        $a_0$                  & \SI{1100}{\meter\per\second}         \\
         $\rho$                 & \SI{455}{\kilo\gram\per\meter\cubed} \\
-        $D$                    & \SI{793.94}{\milli\meter}            \\
-        $\tau$                 & \SI{19.06}{\milli\meter}             \\
-        $E$                    & \SI{200}{\giga\pascal}               \\
+        %$D$                    & \SI{793.94}{\milli\meter}            \\
+        %$\tau$                 & \SI{19.06}{\milli\meter}             \\
+        %$E$                    & \SI{200}{\giga\pascal}               \\
         $\Delta v$             & \SI{1.5}{\meter\per\second}          \\
-        $a_0$                  & \SI{1041.89}{\meter\per\second}      \\
-        $\Delta p_{joukowski}$ & \SI{711087}{\pascal}                 \\
+        %$a_0$                  & \SI{1041.89}{\meter\per\second}      \\
+        $\Delta p_{joukowski}$ & \SI{750750}{\pascal}                 \\
         \bottomrule
     \end{tabular}
     \caption{Values for Joukowski Prediction and calculated pressure differential.}
@@ -57,17 +60,17 @@ The Joukowski prediction makes assumptions in order to calculate a value for our
         \textbf{$s$- value} & \textbf{Maximum pressure }         & \textbf{Percentage difference}  \\
                             & \textbf{differential}/\si{\pascal} & \textbf{compared to analytical} \\
         \midrule
-        10                  & 823160                             & 15.76\%                         \\
-        25                  & 879600                             & 23.70\%                         \\
-        50                  & 897690                             & 26.24\%                         \\
-        Settled value       & 751260                             & 5.64\%                          \\
+        10                  & 823160                             & 8.80\%                          \\
+        25                  & 879600                             & 14.65\%                         \\
+        50                  & 897690                             & 16.37\%                         \\
+        Settled value       & 751260                             & 0.08\%                          \\
         \bottomrule
     \end{tabular}
     \caption{Pressure differentials for indexed $s$- values and settled values.}
     \label{matlabResults}
 \end{table}
 \subsubsection{Frequencies associated with pressure fluctiation and analytical prediction}
-An analytical result for the frequencies of the pressure fluctuation can be found using \eqref{freq1}. [Referenced from `Piping Handbook Seventh Edition' by Mohinder L. Nayyar, page 1266, publisher: McGraw-Hill]
+An analytical result for the frequencies of the pressure fluctuation can be found using \eqref{freq1}\footnote{Referenced from `Piping Handbook Seventh Edition' by Mohinder L. Nayyar, page 1266, publisher: McGraw-Hill}.
 \begin{gather}\label{freq1}
     T = \frac{1}{f} = \frac{2L}{c} = \frac{2\cdot s}{1100}
 \end{gather}
@@ -89,12 +92,12 @@ Indexing the values found in our MATLAB result, we can find the frequencies of t
 \end{table}
 \subsection{Force analysis}
 \subsubsection{Force acting on bend due to reflection of pressure wave}
-Using MATLAB, the forces acting on each bend of the loop were calculated. Figure \ref{force2} shows the modulus of the magnitude of the force acting on each bend for the given time period. Figure \ref{force1} shows a plot of the forces from the first reflection of the pressure wave. We see that the waves are reflected multiple times through the expansion loop, decreasing in magnitude on each reflection. For the purposes of finding the force exterted on the bend due to the relfection of the pressure wave, the peak forces from the first reflection were chosen. Analysing the MATLAB script given, the force components and directions were determined. Figure \ref{force3} shows the direction of the force acting on each bend. Table \ref{force4} shows the magnitude and direction of the force acting at each bend, and the overall force exerted on the expansion loop. We find that the expansion loop experience a net force pushing it to the left with a slight downwards push. 
+Using MATLAB, the forces acting on each bend of the loop were calculated. Figure \ref{force2} shows the modulus of the magnitude of the force acting on each bend for the given time period. Figure \ref{force1} shows a plot of the forces from the first reflection of the pressure wave. We see that the waves are reflected multiple times through the expansion loop, decreasing in magnitude on each reflection. For the purposes of finding the force exterted on the bend due to the relfection of the pressure wave, the peak forces from the first reflection were chosen. Analysing the MATLAB script given, the force components and directions were determined. Figure \ref{force3} shows the direction of the force acting on each bend. Table \ref{force4} shows the magnitude and direction of the force acting at each bend, and the overall force exerted on the expansion loop. We find that the expansion loop experience a net force pushing it to the left with a slight downwards push.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.9 \textwidth]{img/fig6.png}
-    \caption{Modulus of magnitude of force on each bend from reflections of pressure wave over the time period.}
+    \caption{Magnitude of force on each bend from reflections of pressure wave over the time period.}
     \label{force2}
 \end{figure}
 
@@ -108,14 +111,15 @@ Using MATLAB, the forces acting on each bend of the loop were calculated. Figure
 \begin{figure}[H]
     \centering
     \caption{Schematic showing forces acting on expansion loop.}
+    \label{force3}
 \end{figure}
 
 \begin{table}[H]
     \centering
     \begin{tabular}{@{}llll@{}}
-        
     \end{tabular}
     \caption{Table to show magnitude and direction of forces acting on the expansion loop.}
+    \label{force4}
 \end{table}
 
 \subsubsection{Direction of total force on expansion loop}
@@ -198,4 +202,90 @@ We find that for lower $L$- values the modal frequencies are higher in our ANSYS
 
 As we are using the Euler-Bernoulli theorem to calculate our theory values, the assumptions made can potentially explain the discrepancy between our modal frequency values. One such assumption is that plane sections remain plane. We know that for higher modes, the beam undergoes a larger displacement, as more sections of the beam are displaced from the normal axis. This large displacement results in plane sections no longer remaining plane, making our assumption invalid for higher modes.
 \subsection{Modal analysis of an expansion loop}
+The geometry was constructed within ANSYS as shown in Figure \ref{expansionLoopGeometry}. A circular tube profile was used and its geometry is shown in Figure \ref{crossSection}. A number of constraints were applied to the geometry and are shown in Figure \ref{constraints}. At the ends of the pipe, we use fixed supports as we are investigating the modal frequencies of this specific section. For the lateral constraints, the justification for such a support is that the piping section should be allowed to slide back and forth within the support. This is because the pipe will thermally expand and contract under normal operation. Hence, this sliding motion will reduce the stress on the piping section, reducing cyclic fatigue. This lateral constraint also allows the pipe some degree of movement in the case of a water hammer, where if it was fixed laterally, may excessively wear (or even) damage the joint. A basic mesh sensitivity test was completed and the results are shown in Figure \ref{mesh2}. A mesh size of \SI{0.01}{\meter} was chosen as the percentage error is mostly converged and negligible.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/fig7.png}
+    \caption{Geometry used for expansion loop modal analysis.}
+    \label{expansionLoopGeometry}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =0.6 \textwidth]{img/fig9.png}
+    \caption{Geometry used for circular tube profile.}
+    \label{crossSection}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/fig8.png}
+    \caption{Constraints used for geometry. \texttt{A} \& \texttt{B}: fixed constraints. \texttt{C} \& \texttt{D}: y- and z- dimensions fixed, x-dimension free.}
+    \label{constraints}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9 \textwidth]{img/fig10.png}
+    \caption{Mesh sensitivity test results for expansion loop.}
+    \label{mesh2}
+\end{figure}
+\subsubsection{Results}
+The results from the simulation are shown in the following figures.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9 \textwidth]{img/fig11.png}
+    \caption{Modal frequency: \SI{0.68}{\hertz}. Out-of-plane deformation.}
+    \label{sim1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9 \textwidth]{img/fig12.png}
+    \caption{Modal frequency: \SI{2.11}{\hertz}. In-plane deformation.}
+    \label{sim2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9 \textwidth]{img/fig13.png}
+    \caption{Modal frequency: \SI{2.66}{\hertz}. Out-of-plane deformation.}
+    \label{sim3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9 \textwidth]{img/fig14.png}
+    \caption{Modal frequency: \SI{2.87}{\hertz}. In-plane deformation.}
+    \label{sim4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9 \textwidth]{img/fig16.png}
+    \caption{Modal frequency: \SI{3.38}{\hertz}. In-plane deformation.}
+    \label{sim6}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9 \textwidth]{img/fig17.png}
+    \caption{Modal frequency: \SI{4.04}{\hertz}. Out-of-plane deformation.}
+    \label{sim7}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9 \textwidth]{img/fig19.png}
+    \caption{Modal frequency: \SI{7.31}{\hertz}. In-plane deformation.}
+    \label{sim9}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9 \textwidth]{img/fig22.png}
+    \caption{Modal frequency: \SI{11.62}{\hertz}. In-plane deformation.}
+    \label{sim12}
+\end{figure}
+Figure \ref{sim1} shows the loop section bending backwards and forwards out-of-plane.
 \section{Discussion and context}

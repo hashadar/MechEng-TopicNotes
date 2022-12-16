@@ -25,8 +25,8 @@ for i = 1:numel(A(:,1))
 end
 xticklabels(elSize);
 grid on
-axis tickaligned
+axis auto
 xlabel('Element size/m');
-ylabel('Percentage difference of modal frequency');
+ylabel('Percentage difference of modal frequency/%');
 title('Graph to show mesh sensitivity of cantilever beam')
 hold off

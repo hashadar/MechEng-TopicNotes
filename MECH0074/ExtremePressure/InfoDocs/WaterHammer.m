@@ -26,7 +26,7 @@ Fontsize=18;
 %%
 smax=100;        %% (m) pipe length
 frictionfactor=0.10;
-diameter=0.79394; %% (m)      pipe diameter
+diameter=0.79394;%% (m)      pipe diameter
 V_0=1.5;         %% (m/s)    initial flow speed
 p_0=1e6;         %% (Pa)     initial pressure 55 bar
 rho_0=455;       %% (kg/m^3) initial density 
@@ -79,7 +79,7 @@ Ntimesteps=round(tperiod/deltat);
 %%
 A=linspace(1,1,Npts)*pi*diameter^2/4;
 V=linspace(1,1,Npts)*V_0;
-%p=linspace(1,1,Npts)*p_0;
+p=linspace(1,1,Npts)*p_0;
 rho=linspace(1,1,Npts)*rho_0;
 s=linspace(0,smax,Npts);
 %%
@@ -115,6 +115,7 @@ Mstar(end)=mustar(end-1)*V_0*(1-time/closuretime)^powernumber;
 else
     Mstar(end)=0;
     Mstar(end)=deltat*resistancecoeff*heaviside(mu(end)-A(end)*rho_0)*(mu(end)-A(end)*rho_0);
+% ;
 end
 
 %%
@@ -132,7 +133,7 @@ munext(1)=rho_0*A(1);
 Mnext(1)=munext(1)*V_0;
 munext(1)=munext(2);
 Mnext(1)=Mnext(2);
-%munext(1)*V_0;
+munext(1)*V_0;
 
 
 mu=munext;
@@ -190,11 +191,12 @@ for jk=1:Ndatastreams
 U = trackdataM(:,jk)./trackdatamu(:,jk);
 rho = trackdatamu(:,jk)./A(1);
 p = p_0 + (speed^2).*(rho-rho_0);
-trackdatap=[trackdatap p];
-trackdataU=[trackdataU U];
+trackdatap=[trackdatap p ];
+trackdataU=[trackdataU  U];
+
 end
 %%
-%{
+%%
 figure(2)
 plot(trackdatatime,trackdatap(:,1),'k-') ; hold on
 plot(trackdatatime,trackdatap(:,2),'r-') ; hold on
@@ -204,7 +206,7 @@ set(gca,'Fontsize',Fontsize)
 xlabel('$t (s)$','Interpreter','Latex')
 ylabel('$p (Pa)$','Interpreter','Latex')
 grid on
-%}
+%% 
 %% convert tracked data to U and p
 %%
 %%
@@ -223,31 +225,11 @@ Forcebend2 = [trackdatatime' -F0_2 F0_2 F0_0];
 Forcebend3 = [trackdatatime' F0_3 F0_3 F0_0];
 Forcebend4 = [trackdatatime' F0_4 -F0_4 F0_0];
 
-FMag1 = zeros(numel(Forcebend1(:,2)),1);
-FMag2 = zeros(numel(Forcebend1(:,2)),1);
-FMag3 = zeros(numel(Forcebend1(:,2)),1);
-FMag4 = zeros(numel(Forcebend1(:,2)),1);
-
-%magnitude of force
-for i = 1:numel(Forcebend1(:,2))
-    FMag1(i) = sqrt((Forcebend1(i,2))^2 + (Forcebend1(i,3))^2);
-    FMag2(i) = sqrt((Forcebend2(i,2))^2 + (Forcebend2(i,3))^2);
-    FMag3(i) = sqrt((Forcebend3(i,2))^2 + (Forcebend3(i,3))^2);
-    FMag4(i) = sqrt((Forcebend4(i,2))^2 + (Forcebend4(i,3))^2);
-end
-
-% %%
-% %% Data saved to csv files
-% %% so easy to paste into ANSYS workbench
-% %%
+%%
+%% Data saved to csv files
+%% so easy to paste into ANSYS workbench
+%%
 outputfiledata('Fbend1.csv',Forcebend1);
 outputfiledata('Fbend2.csv',Forcebend2);
 outputfiledata('Fbend3.csv',Forcebend3);
 outputfiledata('Fbend4.csv',Forcebend4);
-% 
-
-%plot
-plot(trackdatatime,F0_1,'k-') ; hold on
-plot(trackdatatime,F0_1,'r-') ; hold on
-plot(trackdatatime,F0_1,'b-') ; hold on
-plot(trackdatatime,F0_1,'g-') ; hold on
