@@ -91,8 +91,11 @@ Indexing the values found in our MATLAB result, we can find the frequencies of t
     \label{freq2}
 \end{table}
 \subsection{Force analysis}
-\subsubsection{Force acting on bend due to reflection of pressure wave}
-Using MATLAB, the forces acting on each bend of the loop were calculated. Figure \ref{force2} shows the modulus of the magnitude of the force acting on each bend for the given time period. Figure \ref{force1} shows a plot of the forces from the first reflection of the pressure wave. We see that the waves are reflected multiple times through the expansion loop, decreasing in magnitude on each reflection. For the purposes of finding the force exterted on the bend due to the relfection of the pressure wave, the peak forces from the first reflection were chosen. Analysing the MATLAB script given, the force components and directions were determined. Figure \ref{force3} shows the direction of the force acting on each bend. Table \ref{force4} shows the magnitude and direction of the force acting at each bend, and the overall force exerted on the expansion loop. We find that the expansion loop experience a net force pushing it to the left with a slight downwards push.
+Using MATLAB, the forces acting on each bend of the loop were calculated. Figure \ref{force2} shows the magnitude of the force acting on each bend for the given time period. This was calculated by taking the component forces in each direction and using \eqref{resultantForce} to calculate the magnitude. The force orientations are specific to the problem and it is assumed that the total force applied from the pressure wave can be averaged over the entire bend i.e. assumed as a single concentrated force acting normal to the centre of the bend. For the purposes of calculation, the positive x-axis was taken as \SI{0}{\degree} with counter-clockwise taken as positive.
+\begin{gather}\label{resultantForce}
+    F = \sqrt{F_x^2 + F_y^2}
+\end{gather}
+Figure \ref{force1} shows a plot of the forces from the first reflection of the pressure wave. We see that the waves are reflected multiple times through the expansion loop, decreasing in magnitude on each reflection. For the purposes of finding the force exterted on the bend due to the reflection of the pressure wave, the peak forces from the first reflection were chosen. Figure \ref{force3} shows the direction of the force acting on each bend. Table \ref{force4} shows the magnitude and direction of the force acting at each bend, and the overall force exerted on the expansion loop. We find that the expansion loop experience a net force pushing it to the left with a slight downwards push.
 
 \begin{figure}[H]
     \centering
@@ -110,19 +113,33 @@ Using MATLAB, the forces acting on each bend of the loop were calculated. Figure
 
 \begin{figure}[H]
     \centering
+    \includegraphics[width = \textwidth]{img/fig23.jpg}
     \caption{Schematic showing forces acting on expansion loop.}
     \label{force3}
 \end{figure}
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}rrr@{}}
+        \toprule
+        \textbf{Bend location} & \textbf{Magnitude of force/\si{\newton}} & \textbf{Direction/\si{degrees}}\\
+        \midrule
+        1 ($s = \SI{35}{\meter}$) & 32047 & 225\\
+        2 ($s = \SI{45}{\meter}$) & 31856 & 45\\
+        3 ($s = \SI{55}{\meter}$) & 31867 & 135\\
+        4 ($s = \SI{65}{\meter}$) & 31731 & 315\\
+        \bottomrule
     \end{tabular}
     \caption{Table to show magnitude and direction of forces acting on the expansion loop.}
     \label{force4}
 \end{table}
-
-\subsubsection{Direction of total force on expansion loop}
+The total force on the entire expansion loop was found to be:
+\begin{gather}
+    F_{total,x} = \SI{-231.2}{\newton}\\
+    F_{total,y} = \SI{-38.9}{\newton}\\
+    F_{total} = \SI{234.4}{\newton}\\
+    F_{orientation} = \SI{9.55}{\degree}
+\end{gather}
 \section{Modal analysis of expansion loop}
 \subsection{Modal analysis of a cantilevered pipe}
 In order to conduct our ANSYS analysis, we need to find the effective pipe density, we can use \eqref{rhoEff}.
@@ -230,7 +247,7 @@ The geometry was constructed within ANSYS as shown in Figure \ref{expansionLoopG
     \caption{Mesh sensitivity test results for expansion loop.}
     \label{mesh2}
 \end{figure}
-\subsubsection{Results}
+
 The results from the simulation are shown in the following figures.
 \begin{figure}[H]
     \centering
@@ -287,5 +304,5 @@ The results from the simulation are shown in the following figures.
     \caption{Modal frequency: \SI{11.62}{\hertz}. In-plane deformation.}
     \label{sim12}
 \end{figure}
-Figure \ref{sim1} shows the loop section bending backwards and forwards out-of-plane.
-\section{Discussion and context}
+Figure \ref{sim1} shows the loop section bending backwards and forwards out-of-plane. Figure \ref{sim2} shows the loop bending upwards and downwards in-plane. Figure \ref{sim3} shows the loop section twisting out-of-plane. Figure \ref{sim4} shows the expansion loop twisting in-plane. Figure \ref{sim6} shows the top section of the loop oscillating horizontally leftwards and rightwards. Figure \ref{sim7} also shows a twisting motion within the loop section at a higher frequency (mroe sections of the loop are twisting). Figure \ref{sim9} shows just the straight sections of the expansion loop oscillating in-plane. Figure \ref{sim12} shows just the expansion loop oscillating in-plane at a higher mode frequency.
+%\section{Discussion and context}
