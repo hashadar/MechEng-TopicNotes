@@ -1,44 +1,43 @@
 \chapter{Network Analysis}
-\section{Network analysis}
-\subsection{Electrical networks}
+\section{Electrical networks}
 Note that the system interconnects in a complex pattern allowing for multiple current paths. How to determine voltage and current flows?
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = \textwidth]{./img/figure45.png}
 	\caption{Network at a works.}
 \end{figure}
-\subsection{Split distribution system - high integrity}
+\section{Split distribution system - high integrity}
 Non-essential loads (NE) are divided equally between two generators. Essential loads (E) have a cross-over connection capability either manual or automatic. This system ensures the integrity of the electrical system in case of generator failure.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = \textwidth]{./img/figure46.png}
 	\caption{Split distribution system - high integrity.}
 \end{figure}
-\subsection{Tree distribution}
+\section{Tree distribution}
 Electrical power is generated (generators can be used in parallel) by the main generators to supply loads distributed around the vessel. A small emergency generator is used as back-up to supply the emergency switchboard, which is usually supplied by the main board.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = \textwidth]{./img/figure47.png}
 	\caption{Tree distribution.}
 \end{figure}
-\subsection{Ring networks - grids}
+\section{Ring networks - grids}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = \textwidth]{./img/figure48.png}
 	\caption{Ring networks - grids.}
 \end{figure}
-\subsection{Network analysis}
+\section{Network analysis}
 It is essential to be able to analyse the performance of power systems whatever their design both during normal operating conditions and under fault (short-circuit) conditions. The analysis in normal steady-state operation is called a \textbf{power-flow study (load-flow study)} and it involves determining the voltages, current and real and reactive power flows in system under given load conditions. Earlier in the course, we examined the impact of an induction motor start. However, that was a single network and relatively straight forward. For more complex system, matrix methods are best used.
 
 Today most power-flow studies are done by computer. The purpose of power flow studies is to plan ahead to be able to account for various hypothetical situations and understand steady-state, transient and faulted conditions. For instance, what if a transmission line within the power system properly supplying loads must be taken offline for maintenance. Can the remaining lines in the system handle the required loads without exceeding their rated parameters? For instance, what happens if a switchboard in a ship becomes faulty and need to be isolated or what happens when new equipment is fitted to an existing network?
-\subsection{Techniques for power-flow studies}
+\section{Techniques for power-flow studies}
 A power-flow study (load-flow study) is an analysis of the voltages, currents and power flows in a power system and we will consider steady-state conditions. In such a study, we make an assumption:
 \begin{enumerate}
 	\item Either a \textbf{voltage} at a bus or the \textbf{power} being supplied to a bus for each bus in the power system
 	\item We then determine the magnitude and phase angles of the bus voltages, line currents, etc. that would result from the assumed combination of voltages and power flows
 	\item We use iterative methods of analysis to resolve
 \end{enumerate}
-\subsection{Power flow calculations}
+\section{Power flow calculations}
 The simplest way to perform power-flow calculations is by iteration.
 \begin{enumerate}
 	\item Create a bus admittance matrix $Y_{bus}$ for the power system.
@@ -62,21 +61,21 @@ There are three types of defined bus:
 	\item Slack bus
 \end{itemize}
 The process involves defining these buses and then sticking with that definition.
-\subsection{Basic techniques for power-flow studies}
+\section{Basic techniques for power-flow studies}
 The equations used to update the estimates differ for different types of buses. Each bus in a power system can be classified to one of three types.
 \begin{enumerate}
 	\item \textbf{\underline{Load bus}} (PQ bus) - a bus at which the real and reactive power are specified, and for which the bus voltage will be calculated. \textbf{Real and reactive powers supplied to a power system are defined to be positive}, while the \textbf{powers consumed from the system are defined to be negative. All busses having no generators are load busses}
 	\item \textbf{\underline{Generator bus}} (PV bus) - a bus at which the magnitude of the voltage is kept constant by adjusting the field current of a synchronous generator on the bus (\textbf{remember} - increasing the field current of the generator increases both the reactive power supplied by the generator and the terminal voltage of the system). We assume that the field current is adjusted to maintain a constant voltage $V_T$. We also know that increasing the prime mover's governor set points increases the power that the generator supplies to the power system and the frequency. Therefore, we can \textit{specify} the magnitude of the bus voltage and real power supplied
 	\item \textbf{\underline{Slack bus}} (swing bus) - a \underline{special generator bus} serving as the reference bus for the power system. Its voltage is assumed to be fixed in both magnitude and phase (for instance, $1\angle\SI{0}{\degree}\, \si{pu}$). The real and reactive powers are uncontrolled: the bus supplies whatever real or reactive power is necessary to make the power flows in the system balance.
 \end{enumerate}
-\subsection{Approach to analysis}
+\section{Approach to analysis}
 The most common approach to power-flow analysis is based on the bus admittance matrix $Y_{bus}$. However, this matrix is slightly different from the system previously since the internal impedances of generators and loads connected to the system are not included in the $Y_{bus}$. Instead, they are accounted for as specified real and reactive powers input and output from the buses.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.5\textwidth]{./img/figure49.png}
 	\caption{Transmission line: only L and R are used in the $Y_{bus}$.}
 \end{figure}
-\subsection{Constructing $Y_{bus}$ for power-flow analysis}
+\section{Constructing $Y_{bus}$ for power-flow analysis}
 Example 1: A simple power system has 4 busses, 5 transmission lines, 1 generator and 3 loads.
 \begin{table}[H]
 	\centering
@@ -110,7 +109,7 @@ Example 1: A simple power system has 4 busses, 5 transmission lines, 1 generator
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.7\textwidth]{./img/figure50.png}
-	\caption{Transmission line: only L and R are used in the $Y_{bus}$.}
+	\caption{Example 1 diagram.}
 \end{figure}
 The shunt admittances of the transmission lines are ignored. In this case, the $Y_{ii}$ terms of the bus admittance matrix can be constructed by summing the admittances of all transmission lines connected to each bus, and the $Y_{ij}\, (i \neq j)$ terms are just the negative of the line admittances stretching between busses $i$ and $j$. Therefore, for instance, the term $Y_{11}$ will be the sum of the admittances of all transmission lines connected to bus 1. which are the lines 1 and 5, so:
 \begin{gather}
@@ -131,7 +130,7 @@ The complete bus admittance matrix can be obtained by repeating these calculatio
 		-1.1765+j4.7059   & -0.5882 + j2.3529 & -1.1765 + j4.7059 & 2.9412 - j11.7647
 	\end{bmatrix}
 \end{gather}
-\subsection{Power-flow analysis equations}
+\section{Power-flow analysis equations}
 The basic equation for power-flow analysis is derived from the nodal analysis equations for the power system:
 \begin{gather}
 	Y_{bus}V = I
@@ -178,7 +177,7 @@ Implementing for $V_2$, yields\dots
 	V_2 = \frac{1}{Y_{22}}\left[\frac{P_2-jQ_2}{V_2^*}-\left(Y_{21}V_1+Y_{23}V_3+Y_{24}V_4\right)\right]
 \end{gather}
 Similar equations can be created for each load bus in the power system.
-\subsubsection{Gauss-Siedel iterative method}
+\subsection{Gauss-Siedel iterative method}
 Basic procedure:
 \begin{enumerate}
 	\item Calculate the bus admittance matrix $Y_{bus}$ including the admittances of all transmission lines, transformers, etc., between busses but excludes the admittances of the loads or generators themselves.
@@ -191,7 +190,7 @@ Basic procedure:
 	\item Compare the differences between the old and new voltage estimates: if the differences are less than some specified tolerance for all busses, stop. Otherwise, repeat step 5.
 	\item Confirm that the resulting solution is reasonable.
 \end{enumerate}
-\subsection{Example 2}
+\section{Example 2}
 In a 2-bus power system, a generator attached to bus 1 and loads attached to bus 2. The series impedance of a single transmission line connecting them is $0.1 +j0.5\, \si{pu}$. The shunt admittance of the line may be neglected. Assume that bus 1 is the slack bus and that it has a voltage $V_1 = 1.0\angle\SI{0}{\degree}\,\si{pu}$. Real and reactive powers \underline{supplied} to the loads from the system at bus 2 are $P_2 = \SI{-0.3}{pu}$, $Q_2 = \SI{0.2}{pu}$. Determine voltages at each bus for the specified load conditions.
 \begin{table}[H]
 	\centering
@@ -269,7 +268,7 @@ In a 2-bus power system, a generator attached to bus 1 and loads attached to bus
 		      I_1 = \frac{V_1-V_2}{Z_{line1}} = \frac{1.0\angle\SI{0}{\degree} - 1.0534\angle\SI{-9.2873}{\degree}}{0.1+j0.5} = 0.3389\angle\SI{24.77}{\degree}
 	      \end{gather}
 \end{enumerate}
-\subsection{Conclusions}
+\section{Conclusions}
 \begin{itemize}
 	\item Networks can be small, medium or large however flows are important to understand especially for steady-state operation for various load scenarios
 	\item The method of analysis shown here with examples addresses typical yet simple issues. In large networks computer based systems are used but the mathematics behind the code is similar i.e. based on iteration methods
