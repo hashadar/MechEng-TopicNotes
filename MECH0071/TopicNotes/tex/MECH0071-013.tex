@@ -1,0 +1,228 @@
+\chapter{Quiz R1}
+\section{Question 1}
+In a DC electrical circuit, a voltage source having an emf of \SI{12}{\volt} is connected to a load having two resistances in series, one resistance is \SI{10}{\ohm} and the other is \SI{5}{\ohm}. Determine the following:
+\subsection{a}
+Current flowing in the circuit:
+\begin{align}
+    V &= IR\\
+    I &= \frac{V}{R}\\
+    I &= \frac{12}{15}\\
+    I &= \SI{0.8}{\ampere}
+\end{align}
+\subsection{b}
+Voltage across the \SI{10}{\ohm} resistor:
+\begin{align}
+    V &= IR\\
+    V &= 0.8\times 10\\
+    V &= \SI{8}{\volt}
+\end{align}
+\subsection{c}
+Voltage across the \SI{5}{\ohm} resistor:
+\begin{align}
+    V &= IR\\
+    V &= 0.8\times 5\\
+    V &= \SI{4}{\volt}
+\end{align}
+\subsection{d}
+Power dissipated in the \SI{10}{\ohm} resistor:
+\begin{align}
+    P &= IV\\
+    P &= 0.8\times 8\\
+    P &= \SI{6.4}{\watt}
+\end{align}
+\subsection{e}
+Power dissipated in the \SI{5}{\ohm} resistor:
+\begin{align}
+    P &= IV\\
+    P &= 0.8\times 4\\
+    P &= \SI{3.2}{\watt}
+\end{align}
+\subsection{f}
+Total energy supplied in 10 minutes:
+\begin{align}
+    E &= Pt\\
+    E &= \left(6.4+3.2\right)\left(60\times 10\right)\\
+    E &= \SI{5760}{\joule}
+\end{align}
+\chapter{Quiz 1 - Per Unit Impedance}
+\section{Question 1}
+The base impedance and base voltage for a given single-phase power system are \SI{10}{\ohm} and \SI{400}{\volt} respectively. Calculate the base kVA and the base current.
+\begin{align}
+    I_{base} &= \frac{V_{base}}{Z_{base}} = \frac{400}{10} = \SI{40}{\ampere}\\
+    VA_{base} &= V_{base}\times I_{base} = 400\times 40 = \SI{16}{kVA}
+\end{align}
+\section{Question 2}
+The base current and base voltage of a single-line \SI{345}{\kilo\volt} system are chosen as \SI{3000}{\ampere} and \SI{300}{\kilo\volt}. Determine the pu voltage and the base impedance.
+\begin{align}
+    V &= \frac{V_{actual}}{V_{base}} = \frac{345}{300} = \SI{1.15}{pu}\\
+    Z_{base} &= \frac{V_{base}}{I_{base}} = \frac{300}{3} = \SI{100}{\ohm}
+\end{align}
+\section{Question 3}
+If the $S$ rating for Question 2 is \SI{1380}{MVA}, calculate the current in amperes and express the current in pu using those base quantities.
+\begin{align}
+    S &= \SI{1380}{MVA}\\
+    V &= \SI{345}{\kilo\volt}\\
+    I &= \frac{1380\times 10^3}{345} = \SI{4000}{\ampere}\\
+    I &= \frac{4000}{3000} = \SI{1.33}{pu}
+\end{align}
+\section{Question 4}
+Express \SI{100}{\ohm} impedance, \SI{60}{\ampere} current and \SI{220}{\volt} voltage as pu quantities using base values obtained in Question 1.
+\begin{align}
+    Z_{base} &= \SI{10}{\ohm}\\
+    Z &= \frac{100}{10} = \SI{10}{pu}\\
+    I_{base} &= \SI{40}{\ampere}\\
+    I &= \frac{60}{40} = \SI{1.5}{pu}\\
+    V_{base} &= \SI{400}{\volt}\\
+    V &= \frac{220}{400} = \SI{0.55}{pu}
+\end{align}
+\section{Question 5}
+Let a \SI{5}{kVA} 400/200 V three-phase transformer be approximately represented by a \SI{2}{\ohm} reactance per phase referred to the low voltage side. Consider the rated values as base quantities and ignore $\sqrt{3}$ in your calculations. Calculate the base current, the base impedance and express the transformer reactance as a per unit quantity.
+\begin{align}
+    VA_{base} &= \SI{5}{kVA}\\
+    V_{base} &= \SI{200}{V}\\
+    I_{base} &= \frac{5000}{200} = \SI{25}{\ampere}\\
+    Z_{base} &= \frac{200}{25} = \SI{8}{\ohm}\\
+    Z &= \frac{2}{8} = \SI{0.25}{pu}
+\end{align}
+\section{Question 6}
+Repeat Question 5 expressing the following quantities in terms of the high voltage side: base impedance and per unit impedance.
+\begin{align}
+    VA_{base} &= \SI{5}{kVA}\\
+    V_{base} &= \SI{400}{V}\\
+    I_{base} &= \frac{5000}{400} = \SI{12.5}{\ohm}\\
+    Z_{base} &= \frac{400}{12.5} = \SI{32}{\ohm}
+\end{align}
+Note that $Z_{base}$ is now for the HV side. The impedance reflected across the windings of a transformer can be stated as:
+\begin{gather}
+    Z_{primary} = \left(\frac{N_{primary}}{N_{secondary}}\right)^2\times Z_{secondary}
+\end{gather}
+where $N$ is the number of winding turns. The pu reactance of a transformer does not change across the windings so pu reactance on the secondary is \SI{0.25}{pu}. Reactance at secondary:
+\begin{gather}
+    Z_{secondary} = 0.25 \times 32 = \SI{8}{\ohm}
+\end{gather}
+\section{Question 7}
+A three-phase \SI{13}{\kilo\volt} transmission line delivers \SI{8}{MVA} of load. The per phase impedance of the line is $\left(0.01+j0.05\right)$ pu referred to a \SI{13}{\kilo\volt}, \SI{8}{MVA} base. What is the voltage drop across the transmission line?
+
+The per unit base VA and V are the same as the transmission line rating and the transmission line is delivering rated VA to the load so the current flowing must be:
+\begin{gather}
+    I = \SI{1}{pu}
+\end{gather}
+Transmission line pu impedance:
+\begin{align}
+    Z &= \left(0.01+j0.05\right)\, \si{pu}\\
+    Z &= \left(0.01^2+0.05^2\right)^2 = \SI{0.051}{pu}
+\end{align}
+Potential difference across the transmission line:
+\begin{gather}
+    V_{line} = I_{pu}Z_{pu} = 1\times 0.051 = \SI{0.051}{pu}
+\end{gather}
+We know that:
+\begin{gather}
+    V_{base} = \SI{13}{kV}
+\end{gather}
+Therefore:
+\begin{gather}
+    V_{line} = 0.051\times 13000 = \SI{663}{\volt}
+\end{gather}
+\section{Question 8}
+Draw an impedance diagram for the system shown below expresing the results as percentage values to a \SI{10}{MVA}, \SI{66}{kV} base.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{img/figure148.png}
+    \caption{Quiz 1, Question 8. Diagram.}
+\end{figure}
+\begin{align}
+    VA_{base} &= \SI{10}{MVA}\\
+    V_{base} &= \SI{66}{kV}\\
+    I_{base} &= \frac{10\times10^3}{\sqrt{3}\times 66} = \SI{87.5}{\ampere}\\
+    Z_{base} &= \frac{66\times 10^3}{87.5} = \SI{754.3}{\ohm}
+\end{align}
+Since the two machines are on the \SI{33}{kV} side of the transformer. 10\% is to a \SI{10}{MVA}, \SI{33}{kV} base while the 8\% is to a \SI{5}{MVA}, \SI{33}{kV} base. This may be the manufacturer's rating for per unit purposes. They each have to use their own manufacturer MVA rating for per unit reactance determination or the value would be meaningless. The transformer would be to a \SI{15}{MVA}, \SI{33}{kV} base on the primary side and the transmission line per unit would need to be based on whatever the ohmic per unit value is on the secondary (\SI{66}{kV}) side.
+
+\SI{10}{MVA} machine:
+\begin{align}
+    S &= \SI{10}{MVA}\\
+    V &= \SI{33}{kV}\\
+    Z &= 10\%
+\end{align}
+Referring to the system base:
+\begin{align}
+    S &= \frac{10}{10} = \SI{1}{pu}\\
+    V &= \frac{33}{66} = \SI{0.5}{pu}\\
+    Z &= \frac{10}{10}\times \frac{33^2}{66^2}\times 0.1 = \SI{0.025}{pu}
+\end{align}
+\SI{5}{MVA} machine:
+\begin{align}
+    S &= \SI{5}{MVA}\\
+    V &= \SI{33}{kV}\\
+    Z &= 8\%
+\end{align}
+Referring to the system base:
+\begin{align}
+    S &= \frac{5}{10} = \SI{0.5}{pu}\\
+    V &= \frac{33}{66} = \SI{0.5}{pu}\\
+    Z &= \frac{10}{5}\times \frac{33^2}{66^2} \times 0.08 = \SI{0.04}{pu}
+\end{align}
+Transformer:
+\begin{align}
+    S &= \frac{15}{10} = \SI{1.5}{pu}\\
+    V &= \frac{0.5}{1} = \SI{0.5}{pu}\\
+\end{align}
+It is not clear whether the two machines are generators or motors, if the power comes in from the right side and the machines are motors, then the high voltage side would be the primary side? If on transformer HV side:
+\begin{align}
+    Z &= \frac{10}{15}\times \frac{33^2}{66^2} \times 0.06 = \SI{0.01}{pu}
+\end{align}
+Line: 
+\begin{gather}
+    Z = \frac{4+j4}{754.3} = 0.005 + j0.005\,\si{pu}
+\end{gather}
+\section{Question 9}
+In a power system, two generators G1 and G2 supply motor load M1, M2 and M3 via transformers T1 and T2 and transmission line L1. Using \SI{100}{MVA}, \SI{33}{kV} base, determine the reactance diagram. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{img/figure149.png}
+    \caption{Quiz 1, Question 9. Diagram.}
+\end{figure}
+System base:
+\begin{align}
+    VA_{base} &= \SI{100}{MVA}\\
+    V_{base} &= \SI{33}{kV}\\
+    I_{base} &= \frac{100\times 10^3}{\sqrt{3}\times 33} = \SI{1749.55}{pu}\\
+    Z_{base} &= \frac{33000}{1749.55} = \SI{18.86}{pu}
+\end{align}
+G1:
+\begin{align}
+    S &= \frac{100}{100} = \SI{1}{pu}\\
+    V &= \frac{33}{33} = \SI{1}{pu}\\
+    Z &= j\SI{0.12}{pu}
+\end{align}
+G2:
+\begin{align}
+    S &= \frac{50}{100} = \SI{0.5}{pu}\\
+    V &= \frac{33}{33} = \SI{1}{pu}\\
+    Z &= \frac{100}{50}\times \frac{33^2}{33^2}\times 0.1 = j\SI{0.12}{pu}
+\end{align}
+M1:
+\begin{align}
+    S &= \frac{30}{100} = \SI{0.3}{pu}\\
+    V &= \frac{30}{33} = \SI{0.91}{pu}\\
+    Z &= \frac{100}{30}\times \frac{30^2}{33^2}\times 0.2 = j\SI{0.551}{pu}
+\end{align}
+M2:
+\begin{align}
+    S &= \frac{20}{100} = \SI{0.2}{pu}\\
+    V &= \frac{30}{33} = \SI{0.91}{pu}\\
+    Z &= \frac{100}{20}\times \frac{30^2}{33^2}\times 0.15 = j\SI{0.62}{pu}
+\end{align}
+M3:
+\begin{align}
+    S &= \frac{50}{100} = \SI{0.5}{pu}\\
+    V &= \frac{30}{33} = \SI{0.91}{pu}\\
+    Z &= \frac{100}{50}\times \frac{30^2}{33^2}\times 0.15 = j\SI{0.25}{pu}
+\end{align}
+T1 and T2 are already rated at base system values.
+
+Line voltage is \SI{110}{kV}, therefore:
+\begin{gather}
+    Z = \frac{100}{100}\times \frac{33^2}{110^2}\times \frac{60}{18.86} = j\SI{0.286}{pu}
+\end{gather}
