@@ -1,6 +1,7 @@
 %% MECH0059 FEA Assignment 2022/2023
 %  UCL Mechanical Engineering
 %  Hasha Dar
+%  week7
 
 clc
 clear
