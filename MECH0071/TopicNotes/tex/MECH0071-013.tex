@@ -49,7 +49,7 @@ Total energy supplied in 10 minutes:
 The base impedance and base voltage for a given single-phase power system are \SI{10}{\ohm} and \SI{400}{\volt} respectively. Calculate the base kVA and the base current.
 \begin{align}
     I_{base} &= \frac{V_{base}}{Z_{base}} = \frac{400}{10} = \SI{40}{\ampere}\\
-    VA_{base} &= V_{base}\times I_{base} = 400\times 40 = \SI{16}{kVA}
+    S_{base} &= V_{base}\times I_{base} = 400\times 40 = \SI{16}{kVA}
 \end{align}
 \section{Question 2}
 The base current and base voltage of a single-line \SI{345}{\kilo\volt} system are chosen as \SI{3000}{\ampere} and \SI{300}{\kilo\volt}. Determine the pu voltage and the base impedance.
@@ -78,7 +78,7 @@ Express \SI{100}{\ohm} impedance, \SI{60}{\ampere} current and \SI{220}{\volt} v
 \section{Question 5}
 Let a \SI{5}{kVA} 400/200 V three-phase transformer be approximately represented by a \SI{2}{\ohm} reactance per phase referred to the low voltage side. Consider the rated values as base quantities and ignore $\sqrt{3}$ in your calculations. Calculate the base current, the base impedance and express the transformer reactance as a per unit quantity.
 \begin{align}
-    VA_{base} &= \SI{5}{kVA}\\
+    S_{base} &= \SI{5}{kVA}\\
     V_{base} &= \SI{200}{V}\\
     I_{base} &= \frac{5000}{200} = \SI{25}{\ampere}\\
     Z_{base} &= \frac{200}{25} = \SI{8}{\ohm}\\
@@ -87,7 +87,7 @@ Let a \SI{5}{kVA} 400/200 V three-phase transformer be approximately represented
 \section{Question 6}
 Repeat Question 5 expressing the following quantities in terms of the high voltage side: base impedance and per unit impedance.
 \begin{align}
-    VA_{base} &= \SI{5}{kVA}\\
+    S_{base} &= \SI{5}{kVA}\\
     V_{base} &= \SI{400}{V}\\
     I_{base} &= \frac{5000}{400} = \SI{12.5}{\ohm}\\
     Z_{base} &= \frac{400}{12.5} = \SI{32}{\ohm}
@@ -132,7 +132,7 @@ Draw an impedance diagram for the system shown below expresing the results as pe
     \caption{Quiz 1, Question 8. Diagram.}
 \end{figure}
 \begin{align}
-    VA_{base} &= \SI{10}{MVA}\\
+    S_{base} &= \SI{10}{MVA}\\
     V_{base} &= \SI{66}{kV}\\
     I_{base} &= \frac{10\times10^3}{\sqrt{3}\times 66} = \SI{87.5}{\ampere}\\
     Z_{base} &= \frac{66\times 10^3}{87.5} = \SI{754.3}{\ohm}
@@ -185,7 +185,7 @@ In a power system, two generators G1 and G2 supply motor load M1, M2 and M3 via 
 \end{figure}
 System base:
 \begin{align}
-    VA_{base} &= \SI{100}{MVA}\\
+    S_{base} &= \SI{100}{MVA}\\
     V_{base} &= \SI{33}{kV}\\
     I_{base} &= \frac{100\times 10^3}{\sqrt{3}\times 33} = \SI{1749.55}{pu}\\
     Z_{base} &= \frac{33000}{1749.55} = \SI{18.86}{pu}
@@ -225,4 +225,39 @@ T1 and T2 are already rated at base system values.
 Line voltage is \SI{110}{kV}, therefore:
 \begin{gather}
     Z = \frac{100}{100}\times \frac{33^2}{110^2}\times \frac{60}{18.86} = j\SI{0.286}{pu}
+\end{gather}
+\chapter{Quiz 2 - Fundamentals}
+\section{Question 1}
+A balanced delta-connected load whose branch impedances are 45$\angle$\SI{70}{\degree\ohm}; a three-phase motor that draws a total of \SI{10}{kVA} at 0.65 power factor lagging, and a star load with branch resistance of \SI{10}{\ohm} are all supplied from the same \SI{208}{\volt}, \SI{60}{\hertz} source. Sketch the circuit and then determine the line currents to each three-phase load.
+\chapter{Quiz 3 - Faults}
+For the single line diagram shown below and using \SI{480}{\volt}, \SI{20}{kVA} base, determine the `equivalent impedance' of the whole circuit in pu and the current flowing from the generatior in pu.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{img/figure150.png}
+    \caption{Quiz 3, Question 1. Diagram.}
+\end{figure}
+G1, T1 and T2 have negligible impedances and can be set to $Z = 0$.
+
+System base:
+\begin{align}
+    S_{base} &= \SI{20}{kVA}\\
+    V_{base} &= \SI{480}{V}\\
+    I_{base} &= \frac{20\times 20^3}{\sqrt{3}\times 480} = \SI{24.06}{\ampere}\\
+    Z_{base} &= \frac{480}{24.06} = \SI{19.95}{\ohm}
+\end{align}
+Line 1:
+\begin{gather}
+    Z = \frac{480^2}{960^2}\times \frac{1+j3}{19.95} = 0.0125 + j0.0376\,\si{pu}
+\end{gather}
+Load 1:
+\begin{gather}
+    Z = \frac{480^2}{96^2}\times \frac{2+j5}{19.95} = 2.506+j6.266\,\si{pu}
+\end{gather}
+Total impedance:
+\begin{gather}
+    Z_t = 0.0125 + j0.0376 + 2.506 + j6.266 = 2.5186 + j6.3036 = 6.79\angle\SI{68.22}{\degree pu}
+\end{gather}
+Total current (pu):
+\begin{gather}
+    I = 0.147\angle\SI{-68.22}{\degree pu} = \SI{0.28}{pu}
 \end{gather}
