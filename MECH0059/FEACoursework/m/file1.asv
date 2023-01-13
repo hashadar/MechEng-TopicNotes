@@ -92,11 +92,10 @@ tempE = [
 ];
 
 jacobian1 = zeros(2,4);
-jacobian1 = sym(jacobian1);
 
 for i = 1:2
+    i
     for j = 1:4
         jacobian1(i,j) = diff(N(j),tempE(i));
     end
 end
-
