@@ -26,6 +26,7 @@ theta = deg2rad(30); %angle of crack in degrees
 % length2Crack = 0.035; %length to crack in m
 heightCrack = 0.015; %height of crack
 gap = heightCrack*tan(theta/2);
+gap = 0.04; %redefined for accuracy within `double' calcs
 
 %% definition of elements and nodes
 % 4 4-noded elements in 3D matrix
@@ -57,46 +58,62 @@ A(:,:,4) = [
 
 %% shape functions
 
-syms xi nu
+syms xi nu % define xi nu as symbolic variables for differentiation
 
-tempA = [
+%defintion of shape functions 
+
+B1 = [
     1;
     xi;
 ];
 
-tempB = [
+B2 = [
     1,-1;
     1,1;
     1,1;
     1,-1;
 ];
 
-tempC = [
+B3 = [
     1;
     nu;
 ];
 
-tempD = [
+B4 = [
     1,-1;
     1,-1;
     1,1;
     1,1;
 ];
 
-N = (1/4).*(tempB*tempA.*tempD*tempC); % shape function matrix
+N = (1/4).*(B2*B1.*B4*B3); % shape function matrix
 
-% jacobian
+%% jacobian
 
-tempE = [
+% define matrix of xi and nu
+
+C1 = [
     xi,nu;
 ];
 
-jacobian1 = zeros(2,4);
-jacobian1 = sym(jacobian1);
+% initialise matrix of differentials
+
+jacobian1 = sym(zeros(2,4));
+
+% create matrix of differentials
 
 for i = 1:2
     for j = 1:4
-        jacobian1(i,j) = diff(N(j),tempE(i));
+        jacobian1(i,j) = diff(N(j),C1(i));
     end
 end
 
+% initalise jacobian matrix
+
+jacobian2 = sym(zeros(2,2,4));
+
+% create jacobian matrix
+
+for i = 1:4
+    jacobian2(:,:,i) = jacobian1*A(:,:,i)
+end
