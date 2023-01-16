@@ -98,22 +98,44 @@ C1 = [
 
 % initialise matrix of differentials
 
-jacobian1 = sym(zeros(2,4));
+jacobianB = sym(zeros(2,4));
 
 % create matrix of differentials
 
 for i = 1:2
     for j = 1:4
-        jacobian1(i,j) = diff(N(j),C1(i));
+        jacobianB(i,j) = diff(N(j),C1(i));
     end
 end
 
 % initalise jacobian matrix
 
-jacobian2 = sym(zeros(2,2,4));
+jacobianA = sym(zeros(2,2,4));
 
 % create jacobian matrix
 
 for i = 1:4
-    jacobian2(:,:,i) = jacobian1*A(:,:,i)
+    jacobianA(:,:,i) = jacobianB*A(:,:,i);
+end
+
+xi2 = [
+    -1/sqrt(3);
+    1/sqrt(3);
+    -1/sqrt(3);
+    1/sqrt(3);
+];
+
+nu2 = [
+    -1/sqrt(3);
+    -1/sqrt(3);
+    1/sqrt(3);
+    1/sqrt(3);
+];
+
+jacobian1 = sym(zeros(2,2,4,4)); % 3rd dimension = node, 4th dimension = element
+
+for i = 1:4
+    for j = 1:4
+        jacobian1(:,:,j,i) = subs(jacobianA(:,:,i),[xi,nu],[xi2(j),nu2(j)]);
+    end
 end
