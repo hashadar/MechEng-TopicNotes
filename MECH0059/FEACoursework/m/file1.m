@@ -25,7 +25,7 @@ close all
 theta = deg2rad(30); %angle of crack in degrees
 % length2Crack = 0.035; %length to crack in m
 heightCrack = 0.015; %height of crack
-gap = heightCrack*tan(theta/2);
+% gap = heightCrack*tan(theta/2);
 gap = 0.04; %redefined for accuracy within `double' calcs
 
 %% definition of elements and nodes
@@ -62,37 +62,37 @@ syms xi nu % define xi nu as symbolic variables for differentiation
 
 %defintion of shape functions 
 
-B1 = [
+C1 = [
     1;
     xi;
 ];
 
-B2 = [
+C2 = [
     1,-1;
     1,1;
     1,1;
     1,-1;
 ];
 
-B3 = [
+C3 = [
     1;
     nu;
 ];
 
-B4 = [
+C4 = [
     1,-1;
     1,-1;
     1,1;
     1,1;
 ];
 
-N = (1/4).*(B2*B1.*B4*B3); % shape function matrix
+N = (1/4).*(C2*C1.*C4*C3); % shape function matrix
 
 %% jacobian
 
 % define matrix of xi and nu
 
-C1 = [
+D1 = [
     xi,nu;
 ];
 
@@ -104,7 +104,7 @@ jacobianB = sym(zeros(2,4));
 
 for i = 1:2
     for j = 1:4
-        jacobianB(i,j) = diff(N(j),C1(i));
+        jacobianB(i,j) = diff(N(j),D1(i));
     end
 end
 
@@ -137,5 +137,95 @@ jacobian1 = sym(zeros(2,2,4,4)); % 3rd dimension = node, 4th dimension = element
 for i = 1:4
     for j = 1:4
         jacobian1(:,:,j,i) = subs(jacobianA(:,:,i),[xi,nu],[xi2(j),nu2(j)]);
+    end
+end
+
+%% b matrix 
+
+B1 = [
+    1,0,0,0;
+    0,0,0,1;
+    0,1,1,0;
+];
+
+B2 = zeros(4,4,4,4);
+
+for i = 1:4
+    for j = 1:4
+        BTemp1 = inv(jacobian1(:,:,j,i));
+        B2(1:2,1:2,j,i) = BTemp1;
+        B2(3:4,3:4,j,i) = BTemp1;
+    end
+end
+
+jacobianC = zeros(2,4,4,4);
+
+B3 = zeros(4,8,4,4);
+for i = 1:4
+    for j = 1:4
+        jacobianC(:,:,j,i) = subs(jacobianB(:,:),[xi,nu],[xi2(j),nu2(j)]);
+    end
+end
+BTemp2 = [1,3,5,7];
+BTemp3 = [2,4,6,8];
+BTemp4 = [3,4];
+
+% top half
+for k = 1:4
+    for l = 1:4
+        for i = 1:2
+            for j = 1:4
+                B3(i,BTemp2(j),l,k) = jacobianC(i,j,l,k);
+            end
+        end
+    end
+end
+
+% bottom half
+for k = 1:4
+    for l = 1:4
+        for i = 1:2
+            for j = 1:4
+                B3(BTemp4(i),BTemp3(j),l,k) = jacobianC(i,j,l,k);
+            end
+        end
+    end
+end
+
+B = zeros(3,8,4,4);
+
+for i = 1:4
+    for j = 1:4
+        B(:,:,j,i) = B1*B2(:,:,j,i)*B3(:,:,j,i);
+    end
+end
+
+%% d matrix 
+
+poisson = 0.3;
+thickness = 0.002;
+E = 40e9;
+D1 = [
+    1,poisson,0;
+    poisson,1,0;
+    0,0,(1-poisson)/2;
+];
+D = (E/1-poisson^2)*D1;
+
+%% stiffness matrix
+
+K1 = zeros(8,8,4,4);
+
+for i = 1:4
+    for j = 1:4
+        K1(:,:,j,i) = thickness*B(:,:,j,i)'*D*B(:,:,j,i)*det(jacobian1(:,:,j,i));
+    end
+end
+
+K2 = zeros(8,8,4);
+
+for i = 1:4
+    for j = 1:4
+        K2(:,:,i) = K2(:,:,i) + K1(:,:,j,i);
     end
 end
