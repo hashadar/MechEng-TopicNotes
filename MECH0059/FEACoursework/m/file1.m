@@ -1,29 +1,14 @@
-%% MECH0059 FEA Assignment 2022/2023
-%  UCL Mechanical Engineering
-%  Hasha Dar
-%  week7
-
 clc
 clear
 close all
 
 %% geometry of plate
 
-% SpppppppppppppppppppppppppppppppppF
-%  p      2               3        pF
-%  p              p                pF
-%  p             p p               pF
-%  p      1     p   p     4        pF
-% S0pppppppppppp     pppppppppppppppF
-
 % 0 = origin
 % S = pinned support
 % F = 200MPa tension force applied to right side of plate
 
-% height = 0.030;% height of plate in m
-% width = 0.070; %width of plate in m
 theta = deg2rad(30); %angle of crack in degrees
-% length2Crack = 0.035; %length to crack in m
 heightCrack = 0.015; %height of crack
 % gap = heightCrack*tan(theta/2);
 gap = 0.04; %redefined for accuracy within `double' calcs
@@ -108,7 +93,7 @@ for i = 1:2
     end
 end
 
-% initalise jacobian matrix
+% initialise jacobian matrix
 
 jacobianA = sym(zeros(2,2,4));
 
@@ -170,22 +155,11 @@ BTemp2 = [1,3,5,7];
 BTemp3 = [2,4,6,8];
 BTemp4 = [3,4];
 
-% top half
 for k = 1:4
     for l = 1:4
         for i = 1:2
             for j = 1:4
                 B3(i,BTemp2(j),l,k) = jacobianC(i,j,l,k);
-            end
-        end
-    end
-end
-
-% bottom half
-for k = 1:4
-    for l = 1:4
-        for i = 1:2
-            for j = 1:4
                 B3(BTemp4(i),BTemp3(j),l,k) = jacobianC(i,j,l,k);
             end
         end
@@ -229,3 +203,131 @@ for i = 1:4
         K2(:,:,i) = K2(:,:,i) + K1(:,:,j,i);
     end
 end
+
+% assembly of stiffness matrix
+
+ElementIndex(:,:,1) = [
+    1,1;
+    1,3;
+    1,17;
+    1,19;
+    3,3;
+    3,17;
+    3,19;
+    17,17;
+    17,19;
+    19,19;
+];
+
+ElementIndex(:,:,2) = [
+    2,2;
+    2,3;
+    2,4;
+    2,9;
+    3,3;
+    3,4;
+    3,9;
+    4,4;
+    4,9;
+    9,9;
+];
+
+ElementIndex(:,:,2) = ElementIndex(:,:,2).*2-1;
+
+ElementIndex(:,:,3) = [
+    9,9;
+    4,9;
+    5,9;
+    6,9;
+    4,4;
+    4,5;
+    4,6;
+    5,5;
+    5,6;
+    6,6;
+];
+
+ElementIndex(:,:,3) = ElementIndex(:,:,3).*2-1;
+
+ElementIndex(:,:,4) = [
+    8,8;
+    8,9;
+    6,8;
+    7,8;
+    9,9;
+    6,9;
+    7,9;
+    6,6;
+    6,7;
+    7,7;
+];
+
+ElementIndex(:,:,4) = ElementIndex(:,:,4).*2-1;
+
+Indexer = [
+    1,1;
+    1,3;
+    1,5;
+    1,7;
+    3,3;
+    3,5;
+    3,7;
+    5,5;
+    5,7;
+    7,7;
+];
+
+test = ones(8,8);
+
+K = zeros(20,20);
+
+for j = 1:4
+    for i = 1:numel(ElementIndex(:,1))
+        K(ElementIndex(i,1,j):ElementIndex(i,1,j)+1,ElementIndex(i,2,j):ElementIndex(i,2,j)+1) = K(ElementIndex(i,1,j):ElementIndex(i,1,j)+1,ElementIndex(i,2,j):ElementIndex(i,2,j)+1) + K2(Indexer(i,1),Indexer(i,2),j);
+    end
+end
+
+for i = 1:19
+    K(i+1,i) = 0;
+end
+
+%% nodal forces
+
+F1 = 200e6;
+alpha = pi/2; %degrees positive y = 0, clockwise +ve
+height = 0.03;
+F2x = (F1*(sin(alpha))*height)/3;
+F2y = (F1*(cos(alpha))*height)/3;
+
+if F2y <= 0.001
+    F2y = 0;
+elseif F2x <= 0.001
+    F2x = 0;
+else
+end
+
+F3 =[
+    0;
+    0;
+    0;
+    0;
+    0;
+    0;
+    0;
+    0;
+    F2x;
+    F2y;
+    F2x;
+    F2y;
+    F2x;
+    F2y;
+    0;
+    0;
+    0;
+    0;
+    0;
+    0;
+];
+
+displacements = K\F3;
+displacements(abs(displacements)< 1e-10) = 0;
