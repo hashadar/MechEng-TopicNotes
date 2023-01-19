@@ -4,10 +4,6 @@ close all
 
 %% geometry of plate
 
-% 0 = origin
-% S = pinned support
-% F = 200MPa tension force applied to right side of plate
-
 theta = deg2rad(30); %angle of crack in degrees
 heightCrack = 0.015; %height of crack
 % gap = heightCrack*tan(theta/2);
