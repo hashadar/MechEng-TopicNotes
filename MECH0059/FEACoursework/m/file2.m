@@ -1,5 +1,3 @@
-clc
-clear
 close all
 %% definition of elements and nodes
 % 4 4-noded elements implemented into 3D matrix
@@ -11,10 +9,10 @@ A(:,:,3) = [0.035,0.015;0.035,0.030;0.070,0.030;0.070,0.015;];
 A(:,:,4) = [0.039,0;0.035,0.015;0.07,0.015;0.07,0;];
 %% shape function + jacobian
 % define matrix of xi and nu
-syms xi nu
-D1 = [xi,nu;];
-N = [(1/4)*(1-xi)*(1-nu);(1/4)*(1-xi)*(1+nu);
-    (1/4)*(1+xi)*(1+nu);(1/4)*(1+xi)*(1-nu);]; % shape function matrix
+syms xi eta
+D1 = [xi,eta;];
+N = [(1/4)*(1-xi)*(1-eta);(1/4)*(1-xi)*(1+eta);
+    (1/4)*(1+xi)*(1+eta);(1/4)*(1+xi)*(1-eta);]; % shape function matrix
 jacobianB = sym(zeros(2,4)); % initialise
 for i = 1:2 %row
     for j = 1:4 % column
@@ -34,7 +32,7 @@ nu2 = [-1/sqrt(3);1/sqrt(3);1/sqrt(3);-1/sqrt(3);];
 jacobian1 = sym(zeros(2,2,4,4)); % initialise
 for i = 1:4 % element
     for j = 1:4 % node
-        jacobian1(:,:,j,i) = subs(jacobianA(:,:,i),[xi,nu],[xi2(j),nu2(j)]); 
+        jacobian1(:,:,j,i) = subs(jacobianA(:,:,i),[xi,eta],[xi2(j),nu2(j)]); 
         % jacobian with values of xi and nu inputted. 
         % 3rd dimension: node, 4th dimension: element
     end
@@ -53,7 +51,7 @@ B3 = zeros(4,8,4,4); %initialise
 jacobianC = zeros(2,4,4,4); %initialise
 for i = 1:4 % element
     for j = 1:4 % node
-        jacobianC(:,:,j,i) = subs(jacobianB(:,:),[xi,nu],[xi2(j),nu2(j)]); 
+        jacobianC(:,:,j,i) = subs(jacobianB(:,:),[xi,eta],[xi2(j),nu2(j)]); 
         % matrix of shape function derviatives with values of xi and nu inputted
     end
 end
@@ -75,6 +73,12 @@ for i = 1:4 % element
     for j = 1:4 % node
         B(:,:,j,i) = B1*B2(:,:,j,i)*B3(:,:,j,i);
         % multiplication to form B matrix per node per element
+    end
+end
+B3 = zeros(3,8,4); % initialise
+for i = 1:4 % element
+    for j = 1:4 % node
+        B3(:,:,i) = B3(:,:,i) + B(:,:,j,i); 
     end
 end
 %% D matrix 
@@ -99,104 +103,16 @@ for i = 1:4 % element
         % element stiffness matrix
     end
 end
-% assembly of stiffness matrix
-ElementIndex(:,:,1) = [
-    1,1;
-    1,3;
-    1,17;
-    1,19;
-    3,1;
-    3,3;
-    3,17;
-    3,19;
-    17,1;
-    17,3;
-    17,17;
-    17,19;
-    19,1;
-    19,3;
-    19,17;
-    19,19;
-];
-
-ElementIndex(:,:,2) = [
-    3,3;
-    3,5;
-    3,7;
-    3,17;
-    5,3;
-    5,5;
-    5,7;
-    5,17;
-    7,3;
-    7,5;
-    7,7;
-    7,17;
-    17,3;
-    17,5;
-    17,7;
-    17,17;
-];
-
-ElementIndex(:,:,3) = [
-    17,17;
-    17,7;
-    17,9;
-    17,11;
-    7,17;
-    7,7;
-    7,9;
-    7,11;
-    9,17;
-    9,7;
-    9,9;
-    9,11;
-    11,7;
-    11,7;
-    11,9;
-    11,11;
-];
-
-ElementIndex(:,:,4) = [
-    15,15;
-    15,17;
-    15,11;
-    15,13;
-    17,15;
-    17,17;
-    17,11;
-    17,13;
-    11,15;
-    11,17;
-    11,11;
-    11,13;
-    13,15;
-    13,17;
-    13,11;
-    13,13;
-];
-
-Indexer = [
-    1,1;
-    1,3;
-    1,5;
-    1,7;
-    3,1;
-    3,3;
-    3,5;
-    3,7;
-    5,1;
-    5,3;
-    5,5;
-    5,7;
-    7,1;
-    7,3;
-    7,5;
-    7,7;
-];
-
-K = zeros(20,20);
-
+% assembly of stiffness matrix using global index values
+ElementIndex(:,:,1) = [1,1;1,3;1,17;1,19;3,1;3,3;3,17;3,19;17,1;17,3;17,17;17,19;
+19,1;19,3;19,17;19,19;];
+ElementIndex(:,:,2) = [3,3;3,5;3,7;3,17;5,3;5,5;5,7;5,17;7,3;7,5;7,7;7,17;17,3;17,5;17,7;17,17;];
+ElementIndex(:,:,3) = [17,17;17,7;17,9;17,11;7,17;7,7;7,9;7,11;9,17;9,7;9,9;9,11;11,7;11,7;11,9;11,11;];
+ElementIndex(:,:,4) = [15,15;15,17;15,11;15,13;17,15;17,17;17,11;17,13;11,15;11,17;11,11;11,13;
+13,15;13,17;13,11;13,13;];
+% local index values
+Indexer = [1,1;1,3;1,5;1,7;3,1;3,3;3,5;3,7;5,1;5,3;5,5;5,7;7,1;7,3;7,5;7,7;];
+K = zeros(20,20); % initialise
 for j = 1:4
     for i = 1:numel(ElementIndex(:,1))
         ii = ElementIndex(i,1,j);
@@ -204,34 +120,25 @@ for j = 1:4
         kk = Indexer(i,1);
         ll = Indexer(i,2);
         K(ii:ii+1,jj:jj+1) = K2(kk:kk+1,ll:ll+1,j);
+        % global stiffness matrix
     end
 end
-
-K(:,[1,2,5,6]) = [];
+K(:,[1,2,5,6]) = []; % remove fixed displacements
 K([1,2,5,6],:) = [];
 %% nodal forces
-Fu3 = 3000; % (N)
-Fv3 = 0; % (N)
+force1 = 3000; % (N)
+force2 = 6000; % (N)
+alpha = pi/2; % (rad)
+Fu3 = force1*sin(alpha); % (N)
+Fv3 = force1*cos(alpha); % (N)
 Fu5 = Fu3;
 Fv5 = Fv3;
-Fu4 = 6000; % (N)
-Fv4 = 0; % (N)
-
-F = [
-    zeros(4,1);
-    Fu3;
-    Fv3;
-    Fu4;
-    Fv4;
-    Fu5;
-    Fv5;
-    zeros(6,1);
-];
-
-displacements = K\F;
+Fu4 = force2*sin(alpha); % (N)
+Fv4 = force2*cos(alpha); % (N)
+F = [zeros(4,1);Fu3;Fv3;Fu4;Fv4;Fu5;Fv5;zeros(6,1)];
+displacements = K\F; % find nodal displacements
 displacements = [0;0;displacements(1:2);0;0;displacements(3:end)];
-displaced = [
-    0,0;
+D2 = [0,0;
     0+displacements(3),0.015+displacements(4);
     0,0.030;
     0.035+displacements(7),0.030+displacements(8);
@@ -240,6 +147,16 @@ displaced = [
     0.070+displacements(13),0+displacements(14);
     0.039+displacements(15),0+displacements(16);
     0.035+displacements(17),0.015+displacements(18);
-    0.031+displacements(19),0+displacements(20);
-];
-displacements(abs(displacements)< 1e-10) = 0;
+    0.031+displacements(19),0+displacements(20);]; % global coordinate system with displacement
+D3(:,:,1) = [D2(1),D2(2),D2(3),D2(4),D2(17),D2(18),D2(19),D2(20)]'; % displacement vectors
+D3(:,:,2) = [D2(3),D2(4),D2(5),D2(6),D2(7),D2(8),D2(17),D2(18)]';
+D3(:,:,3) = [D2(17),D2(18),D2(7),D2(8),D2(9),D2(10),D2(11),D2(12)]';
+D3(:,:,4) = [D2(15),D2(16),D2(17),D2(18),D2(11),D2(12),D2(13),D2(14)]';
+S4 = zeros(3,4); % initialise
+for i = 1:4
+    S4(:,i) = B3(:,:,i)*D3(:,:,i);
+    % strain
+end
+displacements(abs(displacements)< 1e-10) = 0; % cleaning
+disp4(:,1) = displacements(1:2:end);
+disp4(:,2) = displacements(2:2:end);
