@@ -160,3 +160,41 @@ The process is known as heat line technique or line heating method of plate bend
     \includegraphics[width = 0.8\textwidth]{img/figure51.png}
     \caption{Plate heating.}
 \end{figure}
+\section{Rapid changes in temperature}
+When a material is cooled or heated very rapidly over a small region, thermal stresses can be generated. This occurs due to uneven heating/cooling. Assume top thin layer is rapidly cooled from $T_1$ to $T_2$, the stress generated is:
+\begin{equation}
+    \sigma = - E \alpha \left(T_1 - T_2\right)
+\end{equation}
+The rate of heating is characterised by the Biot number,
+\begin{equation}
+    Bi = \frac{hH}{k}
+\end{equation}
+In contrast to small temperature changes, a hot shock is not the same as a cold shock since the highest stress occurs in different locations. Rapid cooling and heating is used to generate a stress in safety glass that causes it to fracture catastrophically (and safely).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{img/figure52.png}
+    \caption{Rapid changes in temperature characterised.}
+\end{figure}
+\subsection{Thermal shock}
+Thermal shock occurs when a thermal gradient causes different parts of an object to expand by different amounts. This differential expansion can be understood in terms of stress or of strain, equivalently. At some point, this stress can exceed the strength of the material, causing a crack to form. If nothing stops this crack from propagating through the material, it will cause the object's structure to fail (read Lu \& Fleck 1998).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{img/figure53.png}
+    \caption{Thermal shock.}b
+\end{figure}
+\subsection{Stress criterion}
+The usual measure is the thermal shock resistance parameter:
+\begin{equation}
+    TSR = \frac{\sigma_fk}{E\alpha}
+\end{equation}
+where:
+\begin{itemize}
+    \item $\sigma_f$ is fracture strength of a material
+    \item $\alpha$ is the expansivity
+    \item $k$ is the thermal conductivity of material
+    \item $E$ is Young's modulus of elasticity
+\end{itemize}
+When $TSR>$ critical value, there is a failure. The stress distribution in a thin sheet is:
+\begin{equation}
+    \sigma_{xx} = -E\alpha\left(T-T_i\right) + \frac{E\alpha}{2H}\int_{-H}^H\left(T-T_i\right)\textrm{d}z
+\end{equation}
