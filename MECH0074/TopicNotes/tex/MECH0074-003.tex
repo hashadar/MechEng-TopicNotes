@@ -180,7 +180,7 @@ Thermal shock occurs when a thermal gradient causes different parts of an object
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.8\textwidth]{img/figure53.png}
-    \caption{Thermal shock.}b
+    \caption{Thermal shock.}
 \end{figure}
 \subsection{Stress criterion}
 The usual measure is the thermal shock resistance parameter:
@@ -198,3 +198,91 @@ When $TSR>$ critical value, there is a failure. The stress distribution in a thi
 \begin{equation}
     \sigma_{xx} = -E\alpha\left(T-T_i\right) + \frac{E\alpha}{2H}\int_{-H}^H\left(T-T_i\right)\textrm{d}z
 \end{equation}
+Kingery (1995) derived two relations.
+\begin{equation}
+    R = \frac{\sigma_f \left(1- v\right)}{E\alpha}
+\end{equation}
+Useful for instantaneous change in surface temperature (infinite $h$).
+\begin{equation}
+    R' = \frac{\sigma_f \left(1-v\right)k}{E\alpha}
+\end{equation}
+Relatively low Biot modulus. For constant heating:
+\begin{equation}
+    R' = \frac{\sigma_f\left(1-v\right)a}{E\alpha}
+\end{equation}
+Where $a$ is the thermal diffusivity.
+\subsection{Strain criterion}
+One way to look at for brittle materials is to define:
+\begin{equation}
+    \theta = \frac{\epsilon_c}{\alpha}
+\end{equation}
+where $\epsilon_c$ is the critical strain for failure. This is appropriate for a uniform temperature and high conductivity. If this is not available, then we would use:
+\begin{equation}
+    \epsilon_c = \frac{\sigma_u}{E}
+\end{equation}
+\subsubsection{Reducing failure from shocking}
+Failure due to thermal shock can be prevented by reducing the thermal gradient seen by the object, by changing its temperature more slowly or increasing the material's thermal conductivity ($k$).
+\begin{itemize}
+    \item Reducing the material's coefficient of thermal expansion ($\alpha$)
+    \item Increasing its strength ($\sigma_f$)
+    \item Introducing built-in compressive stress, as for example in tempered glass
+    \item Decreasing its Young's modulus ($E$)
+    \item Increasing its toughness, by crack tip blunting (i.e., plasticity or phase transformation) or crack deflection (smaller cracks)
+\end{itemize}
+\subsection{Fraction criterion}
+Hasselman (1969) developed a unified theory of thermal shock for brittle ceramics. It was `unified' in the sense that the conditions for the fracture initiation were combined with a consideration of crack propagation. For an infinitely fast quench, from a higher temperature, a thermal stress, $\sigma_{TS}$, is generated in the ceramic and is given by:
+\begin{equation}
+    \sigma_{TS} = \frac{\alpha E \Delta T}{\left(1-2v\right)}
+\end{equation}
+where $E$ is the Young's modulus, $\Delta T$ is the difference in temperature between the initial temperature of the ceramic and the quenching medium, $\alpha$ is the coefficient of linear thermal expansion and $v$ is the Poisson's ratio.
+
+Mechanical model is based on an energy argument. For Griffith microcracks ($N$ per unit volume), spread uniformly in the material,
+\begin{equation}
+    W_t = \frac{3\left(\alpha\Delta T\right)^2E}{2\left(1-2v\right)}\left(1 + \frac{16\left(1-v^2\right)Nl^3}{9\left(1-2v\right)}\right)^{-1} + 2\pi Nl^2 G
+\end{equation}
+where $l$ is the crack length and $2\pi Nl^2 G$ is the energy associated with circular crack of radius $l$. According to Griffith, the limit of the cracks that are unstable are those where:
+\begin{equation}
+    \frac{\dif W_t}{\dif l} = 0
+\end{equation}
+Energy of a crack is:
+\begin{equation}
+    \int \sigma \dif \epsilon = \frac{3\sigma^2}{2\epsilon} \qquad \epsilon = \alpha \Delta T
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.6\textwidth]{img/figure54.png}
+    \caption{Crack lengths against temperature difference.}
+\end{figure}
+For short cracks:
+\begin{equation}
+    \Delta T_c = \sqrt{\frac{\pi G \left(1 - 2v\right)^2}{2E_0\alpha^2\left(1-v^2\right)l}}
+\end{equation}
+For long cracks:
+\begin{equation}
+    \Delta T_c = \sqrt{\frac{128\pi G \left(1-v^2\right)N^2l^5}{81\alpha^2 E_0}}
+\end{equation}
+The results can be expressed in terms of the critical fracture stress:
+\begin{equation}
+    S_t = \sqrt{\frac{GE_0}{2l_0\left(1-v^2\right)}}
+\end{equation}
+The dimensionless group is:
+\begin{equation}
+    \frac{S_t}{\sqrt{GE}}
+\end{equation}
+The temperature difference inside the material is:
+\begin{equation}
+    \Delta T_i \sim \Delta T \frac{k}{ah}
+\end{equation}
+Then:
+\begin{equation}
+    \frac{\alpha \Delta T E k \sqrt{l}}{ha\sqrt{\pi G E}} \sim 1
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/figure55.png}
+    \caption{Crack lengths , temperature difference, strength and fracture stress.}
+\end{figure}
+\subsection{Material selection}
+Among the best thermomechanical materials, there are alumina, zirconia, tungsten alloys, silicon nitride, silicon carbide, boron carbide, and some stainless steels. Reinforced carbon-carbon is extremely resistant to thermal shock, due to graphite's extremely high thermal conductivity and low expansion coefficient, the high strength of carbon fibre and a reasonable ability to deflect cracks within the structure.
+\section{Conclusions}
+The influence of large changes in temperature can be exploited to change the properties of materials and as part of a manufacturing process. In some instances, sudden changes in temperature, can lead to failure either through a yield, strain or cracking. There are approximate models of these processes.
