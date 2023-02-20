@@ -22,9 +22,8 @@
     filecolor=teal,      
     urlcolor=teal,
     citecolor=teal,
-    pdftitle={MECH0074 Topic Notes},
-    pdfauthor={HD},
-    pdfpagemode=FullScreen,
+    pdftitle={MECH0074 Extreme Temperature Coursework},
+    pdfauthor={Hasha Dar},
 }
 
 \renewcommand\bibname{References}
@@ -32,15 +31,14 @@
 %%%%%%%%%%%%   Header and Footer  %%%%%%%%%%%%%
 \pagestyle{fancy}
 \fancypagestyle{plain}{%
-  \renewcommand{\headrulewidth}{0pt}%
-  \fancyhf{}%
-  \addtolength{\topmargin}{-1.8pt}
+  \setlength{\headheight}{20pt}
 }
 
 \title{%
   }
 \author{Hasha Dar\\
-Student number: 1909799
+\textit{Student number:}\\ 
+19090799
 }
 
 \begin{document}
@@ -56,6 +54,8 @@ Student number: 1909799
 \listoffigures
 \listoftables
 \newpage
+
+\input{tex/part1.tex}
 
 \newpage
 \bibliographystyle{unsrtnat}
