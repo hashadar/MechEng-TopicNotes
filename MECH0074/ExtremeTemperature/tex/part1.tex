@@ -1,9 +1,65 @@
 \section{Influence of temperature on the response of a straight pipe}
 \subsection{Meaning and significance of stress terms}
 \subsubsection{Principal stress}
-Principal stress is a measure which defines the maximum normal stress which may be applied to a body of interest and where that stress is located. Principal stress acts on the principal plane (an oblique plane at some angle $\theta$) and has the condition that there is zero shear stress on this plane. The resultant normal stresses acting on the principal plane, $\sigma_n$, is the principal stress. The normal stress can take a maximum or minimum value.
+Principal stress is a measure which defines the maximum normal stress which may be applied to a body of interest and where that stress is located. %Principal stress acts on the principal plane (an oblique plane at some angle $\theta$) and has the condition that there is zero shear stress on this plane. The resultant normal stresses acting on the principal plane, $\sigma_n$, is the principal stress. The normal stress can take a maximum or minimum value.
+In the 3D case, we find that there exist three principal planes (where the shear stress is zero), which are orthogonal and each have their own maximum / minimum normal stresses. From this, we can also find locations and magnitude for the maximum shear stress.
 
-In the 3D case, we find that there exist three principal planes (where the shear stress is zero), which are orthogonal and each have their own maximum / minimum normal stresses. 
+Consider the six components of the 3D solid stress tensor:
+\begin{equation}
+    \sigma_{ij} = \begin{bmatrix}
+        \sigma_x & \tau_{yx} & \tau_{zx}\\
+        \tau_{xy} & \sigma_y & \tau_{zy}\\
+        \tau_{xz} & \tau_{yz} & \sigma_z
+    \end{bmatrix}
+\end{equation}
+where the first subscript denotes the direction of the surface normal and the second the direction of the stress. For static equilibrium:
+\begin{equation}
+    \tau_{xy} = \tau_{yx} \qquad \tau_{xz} = \tau_{zx} \qquad \tau_{zy} = \tau_{yz}
+\end{equation}
+By rotating the coordinate axes of our 3D body, we can change the components of the solid stress tensor, whilst representing the same state of stress on the body. As our matrix is symmetric, we can calculate a set of orthogonal axes which result in all $\tau$ elements equalling zero. This set of axes is called the principal axes and by applying this transformation to our solid stress tensor, we find the eigenvalues of the matrix and the principal stresses. Hence:
+\begin{equation}
+    \sigma_{ij} = \begin{bmatrix}
+        \sigma_x & \tau_{yx} & \tau_{zx}\\
+        \tau_{xy} & \sigma_y & \tau_{zy}\\
+        \tau_{xz} & \tau_{yz} & \sigma_z
+    \end{bmatrix} \xrightarrow{eigenvalues} \sigma_{ij}' = \begin{bmatrix}
+        \sigma_1 & 0 & 0\\
+        0 & \sigma_2 & 0\\
+        0 & 0 & \sigma_3
+    \end{bmatrix}
+\end{equation}
+Similarly, the angles between the original (or base) coordinate axes and the new (or transformed) coordinate axes gives us the eigenvectors. 
+\begin{align}
+    \cos \alpha = \cos\left(n, \, x\right) & = l\\
+    \cos \beta = \cos\left(n, \, y\right) & = m\\
+    \cos \gamma = \cos\left(n, \, z\right) & = n
+\end{align}
+where $n$ is the unit normal to the plane. We can now define the normal stress acting on any oblique plane:
+\begin{equation}
+    \sigma_{x'} = \sigma_xl^2 + \sigma_y m^2 +\sigma_zn^2 + 2\left(\tau_{xy}lm + \tau_{xy}mn + \tau_{xz}ln\right)
+\end{equation}
+We are interested in the maximum and / or minimum values of the normal stress acting on our body throughout the range of oblique planes. These maxima / minima are the principal stresses. This is determined via the differentiation of the above equation with respect to the direction cosines. We find that the principal stresses occur on planes where the shear stress is zero. The equations for in-plane principal stresses are shown below. The third stress is zero in plane stress conditions.
+\begin{gather}
+    \sigma_1 = \left(\frac{\sigma_x + \sigma_y}{2}\right)+ \sqrt{\left(\frac{\sigma_x - \sigma_y}{2} \right)^2+ \tau^2_{xy} }
+    \sigma_2 = \left(\frac{\sigma_x + \sigma_y}{2}\right)- \sqrt{\left(\frac{\sigma_x - \sigma_y}{2} \right)^2+ \tau^2_{xy} }
+\end{gather}
+
+The determination of the principal stresses (and maximum shear stress) is important for design purposes as it tells us
+
+\iffalse
+Plane stress is a state of stress in which two faces of our 3D element are free of stress. We can define this stress state mathematically with:
+\begin{gather}
+    \sigma_x, \, \sigma_y, \, \tau_{xy}\\
+    \sigma_z = \tau_{zx} = \tau_{zy} = 0
+\end{gather}
+The sum of the normal stresses acting on perpendicular faces of plane stress elements is constant and independent of the angle $\theta$.
+\begin{gather}
+    \sigma_{x1} = \sigma_x \cos^2 \theta + \sigma_y \sin^2 \theta + 2\tau_{xy}\sin\theta\cos\theta\\
+    \sigma_{y1} = \sigma_x \sin^2 \theta + \sigma_y \cos^2 \theta - 2\tau_{xy}\sin\theta\cos\theta\\
+    \sigma_{x1} + \sigma_{y1} = \sigma_x + \sigma_y
+\end{gather}
+With changing $\theta$, the normal and shear stress will have a maximum or minimum value.  these maxima / minima are the principal stresses. These maxima / minima are the principal stresses. We calculate this by taking the derivative of $\sigma_{x1}$ with respect to $\theta$ and equalling this to zero. $\theta_p$ is the angle at which the principal stress occurs and has two values, offset at \SI{90}{\degree}.
+\fi
 
 \url{https://www.informit.com/articles/article.aspx?p=1729271&seqNum=4}
 \url{https://mechcontent.com/principal-stress/#What_is_Principal_stress}
