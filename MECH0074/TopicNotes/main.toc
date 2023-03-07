@@ -116,3 +116,8 @@
 \contentsline {subsubsection}{Reduction reaction}{67}{section*.47}%
 \contentsline {subsection}{\numberline {5.2.5}Galvanic couple}{67}{subsection.5.2.5}%
 \contentsline {section}{\numberline {5.3}Standard hydrogen reference probe}{68}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Standard emf series}{68}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}Classification of corrosion types}{69}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Group 1: corrosion you can see}{69}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Group 2: multiple mechanisms}{69}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Group 3: microscope corrosion viewed by microscope}{70}{subsection.5.4.3}%
