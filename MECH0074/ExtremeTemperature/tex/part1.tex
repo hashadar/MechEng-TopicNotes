@@ -17,17 +17,23 @@ where the first subscript denotes the direction of the surface normal and the se
     \tau_{xy} = \tau_{yx} \qquad \tau_{xz} = \tau_{zx} \qquad \tau_{zy} = \tau_{yz}
 \end{equation}
 By rotating the coordinate axes of our 3D body, we can change the components of the solid stress tensor, whilst representing the same state of stress on the body. As our matrix is symmetric, we can calculate a set of orthogonal axes which result in all $\tau$ elements equalling zero. This set of axes is called the principal axes and by applying this transformation to our solid stress tensor, we find the eigenvalues of the matrix and the principal stresses. Hence:
-\begin{equation}
-    \sigma_{ij} = \begin{bmatrix}
+\begin{gather}
+    \boldsymbol{\sigma}_{ij} = \begin{bmatrix}
         \sigma_x & \tau_{yx} & \tau_{zx}\\
         \tau_{xy} & \sigma_y & \tau_{zy}\\
         \tau_{xz} & \tau_{yz} & \sigma_z
-    \end{bmatrix} \xrightarrow{eigenvalues} \sigma_{ij}' = \begin{bmatrix}
+    \end{bmatrix} \xrightarrow{eigenvalues} \boldsymbol{\sigma}_{ij}' = \begin{bmatrix}
         \sigma_1 & 0 & 0\\
         0 & \sigma_2 & 0\\
         0 & 0 & \sigma_3
-    \end{bmatrix}
+    \end{bmatrix}\\
+    \det(\boldsymbol{\sigma} - \sigma \boldsymbol{I}) = 0
+\end{gather}
+where $\boldsymbol{I}$ is the identity matrix and $\sigma$ is the eigenvalue. The eigenvectors of the stress tensor, which correspond to the principal directions, can be found by solving the equation:
+\begin{equation}
+    (\boldsymbol{\sigma} - \sigma \boldsymbol{I})\boldsymbol{v} = \boldsymbol{0}
 \end{equation}
+where $\boldsymbol{v}$ is the eigenvector. 
 Similarly, the angles between the original (or base) coordinate axes and the new (or transformed) coordinate axes gives us the eigenvectors. 
 \begin{align}
     \cos \alpha = \cos\left(n, \, x\right) & = l\\
@@ -38,32 +44,37 @@ where $n$ is the unit normal to the plane. We can now define the normal stress a
 \begin{equation}
     \sigma_{x'} = \sigma_xl^2 + \sigma_y m^2 +\sigma_zn^2 + 2\left(\tau_{xy}lm + \tau_{xy}mn + \tau_{xz}ln\right)
 \end{equation}
-We are interested in the maximum and / or minimum values of the normal stress acting on our body throughout the range of oblique planes. These maxima / minima are the principal stresses. This is determined via the differentiation of the above equation with respect to the direction cosines. We find that the principal stresses occur on planes where the shear stress is zero. The equations for in-plane principal stresses are shown below. The third stress is zero in plane stress conditions.
+We are interested in the maximum and / or minimum values of the normal stress acting on our body throughout the range of oblique planes. These maxima / minima are the principal stresses. This is determined by calculating the differentials of the above equations with respect to the direction cosines. We find that the principal stresses occur on planes where the shear stress is zero, as mentioned previously. The equations for in-plane principal stresses are shown below. The third stress is zero in plane stress conditions.
 \begin{gather}
-    \sigma_1 = \left(\frac{\sigma_x + \sigma_y}{2}\right)+ \sqrt{\left(\frac{\sigma_x - \sigma_y}{2} \right)^2+ \tau^2_{xy} }
+    \sigma_1 = \left(\frac{\sigma_x + \sigma_y}{2}\right)+ \sqrt{\left(\frac{\sigma_x - \sigma_y}{2} \right)^2+ \tau^2_{xy} }\\
     \sigma_2 = \left(\frac{\sigma_x + \sigma_y}{2}\right)- \sqrt{\left(\frac{\sigma_x - \sigma_y}{2} \right)^2+ \tau^2_{xy} }
 \end{gather}
 
-The determination of the principal stresses (and maximum shear stress) is important for design purposes as it tells us
-
-\iffalse
-Plane stress is a state of stress in which two faces of our 3D element are free of stress. We can define this stress state mathematically with:
-\begin{gather}
-    \sigma_x, \, \sigma_y, \, \tau_{xy}\\
-    \sigma_z = \tau_{zx} = \tau_{zy} = 0
-\end{gather}
-The sum of the normal stresses acting on perpendicular faces of plane stress elements is constant and independent of the angle $\theta$.
-\begin{gather}
-    \sigma_{x1} = \sigma_x \cos^2 \theta + \sigma_y \sin^2 \theta + 2\tau_{xy}\sin\theta\cos\theta\\
-    \sigma_{y1} = \sigma_x \sin^2 \theta + \sigma_y \cos^2 \theta - 2\tau_{xy}\sin\theta\cos\theta\\
-    \sigma_{x1} + \sigma_{y1} = \sigma_x + \sigma_y
-\end{gather}
-With changing $\theta$, the normal and shear stress will have a maximum or minimum value.  these maxima / minima are the principal stresses. These maxima / minima are the principal stresses. We calculate this by taking the derivative of $\sigma_{x1}$ with respect to $\theta$ and equalling this to zero. $\theta_p$ is the angle at which the principal stress occurs and has two values, offset at \SI{90}{\degree}.
-\fi
-
-\url{https://www.informit.com/articles/article.aspx?p=1729271&seqNum=4}
-\url{https://mechcontent.com/principal-stress/#What_is_Principal_stress}
+A key characterisation of the principal stress is that it acts in the normal direction to the principal plane - this is important to note as a distinction. The determination of the principal stresses (and maximum shear stress) is important for design purposes as it tells us whether a body would be able to withstand a design load at a given location.
 \subsubsection{Von Mises stress}
+Von Mises stress, also known as von Mises criterion or equivalent stress, is a measure of the stress experienced by a material under a given load. It takes into account all three principal stresses (tensile, compressive, and shear) that act on a material at a particular point and provides a measure of the overall stress state at that point. 
+
+The von Mises stress is calculated by finding the square root of the sum of the squares of the differences between the principal stresses and the mean stress. Mathematically, the von Mises stress is given by:
+\begin{equation}
+    \sigma_{VM} = \sqrt{\frac{3}{2}\sum_{i=1}^{3}(\sigma_i-\sigma_{avg})^2}
+\end{equation}
+where $\sigma_i$ is the $i$-th principal stress, and $\sigma_{avg}$ is the average of the three principal stresses, given by:
+\begin{equation}
+    \sigma_{avg} = \frac{1}{3}\sum_{i=1}^{3}\sigma_i
+\end{equation}
+The mean stress $\sigma_{avg}$ is simply the average of the three principal stresses, given by:
+\begin{equation}
+    \sigma_{avg} = \frac{1}{3}(\sigma_1 + \sigma_2 + \sigma_3)
+\end{equation}
+Substituting these equations into the von Mises stress equation gives:
+\begin{equation}
+    \sigma_{VM} = \sqrt{\frac{3}{2}\left[(\sigma_1-\sigma_{avg})^2 + (\sigma_2-\sigma_{avg})^2 + (\sigma_3-\sigma_{avg})^2\right]}
+\end{equation}
+This equation shows that the von Mises stress depends only on the six independent components of the stress tensor, which are the normal stresses $\sigma_{11}$, $\sigma_{22}$, and $\sigma_{33}$, and the shear stresses $\sigma_{12}$, $\sigma_{23}$, and $\sigma_{31}$. It is independent of the coordinate system and is therefore a useful measure of the overall stress state of a material.
+
+The von Mises stress is often used in engineering design to determine whether a material will fail under a given load. If the von Mises stress exceeds the yield strength of the material, plastic deformation is expected to occur. Therefore, designers can use the von Mises stress to ensure that their designs remain within the elastic limit of the material.
+
+In summary, the von Mises stress is a measure of the overall stress state of a material, taking into account all three principal stresses. It is calculated by finding the square root of the sum of the squares of the differences between the principal stresses and the mean stress. In the 3D case, the von Mises stress depends only on the six independent components of the stress tensor, and is a useful measure of the likelihood of plastic deformation in a material.
 \subsubsection{Stress magnitude}
 \subsection{Relationship between axial stress and temperature of length constrained 3D pipe}\label{part1b}
 \subsection{3D pipe ANSYS}\label{part1c}
