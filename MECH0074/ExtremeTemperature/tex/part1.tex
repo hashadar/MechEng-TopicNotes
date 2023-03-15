@@ -1,14 +1,15 @@
 \section{Influence of temperature on the response of a straight pipe}
 \subsection{Meaning and significance of stress terms}
 \subsubsection{Principal stress}
+\url{https://www.continuummechanics.org/principalstress.html}
 Principal stress is a measure which defines the maximum normal stress which may be applied to a body of interest and where that stress is located. %Principal stress acts on the principal plane (an oblique plane at some angle $\theta$) and has the condition that there is zero shear stress on this plane. The resultant normal stresses acting on the principal plane, $\sigma_n$, is the principal stress. The normal stress can take a maximum or minimum value.
 In the 3D case, we find that there exist three principal planes (where the shear stress is zero), which are orthogonal and each have their own maximum / minimum normal stresses. From this, we can also find locations and magnitude for the maximum shear stress.
 
 Consider the six components of the 3D solid stress tensor:
 \begin{equation}
     \sigma_{ij} = \begin{bmatrix}
-        \sigma_x & \tau_{yx} & \tau_{zx}\\
-        \tau_{xy} & \sigma_y & \tau_{zy}\\
+        \sigma_x  & \tau_{yx} & \tau_{zx} \\
+        \tau_{xy} & \sigma_y  & \tau_{zy} \\
         \tau_{xz} & \tau_{yz} & \sigma_z
     \end{bmatrix}
 \end{equation}
@@ -19,13 +20,13 @@ where the first subscript denotes the direction of the surface normal and the se
 By rotating the coordinate axes of our 3D body, we can change the components of the solid stress tensor, whilst representing the same state of stress on the body. As our matrix is symmetric, we can calculate a set of orthogonal axes which result in all $\tau$ elements equalling zero. This set of axes is called the principal axes and by applying this transformation to our solid stress tensor, we find the eigenvalues of the matrix and the principal stresses. Hence:
 \begin{gather}
     \boldsymbol{\sigma}_{ij} = \begin{bmatrix}
-        \sigma_x & \tau_{yx} & \tau_{zx}\\
-        \tau_{xy} & \sigma_y & \tau_{zy}\\
+        \sigma_x  & \tau_{yx} & \tau_{zx} \\
+        \tau_{xy} & \sigma_y  & \tau_{zy} \\
         \tau_{xz} & \tau_{yz} & \sigma_z
     \end{bmatrix} \xrightarrow{eigenvalues} \boldsymbol{\sigma}_{ij}' = \begin{bmatrix}
-        \sigma_1 & 0 & 0\\
-        0 & \sigma_2 & 0\\
-        0 & 0 & \sigma_3
+        \sigma_1 & 0        & 0        \\
+        0        & \sigma_2 & 0        \\
+        0        & 0        & \sigma_3
     \end{bmatrix}\\
     \det(\boldsymbol{\sigma} - \sigma \boldsymbol{I}) = 0
 \end{gather}
@@ -35,8 +36,8 @@ where $\boldsymbol{I}$ is the identity matrix and $\sigma$ is the eigenvalue. Th
 \end{equation}
 where $\boldsymbol{v}$ is the eigenvector. This may also be written as:
 \begin{align}
-    \cos \alpha = \cos\left(n, \, x\right) & = l\\
-    \cos \beta = \cos\left(n, \, y\right) & = m\\
+    \cos \alpha = \cos\left(n, \, x\right) & = l \\
+    \cos \beta = \cos\left(n, \, y\right)  & = m \\
     \cos \gamma = \cos\left(n, \, z\right) & = n
 \end{align}
 where $n$ is the unit normal to the plane. We can now define the normal stress acting on any oblique plane:
@@ -53,31 +54,94 @@ A key characterisation of the principal stress is that it acts in the normal dir
 \subsubsection{Von Mises stress}
 \url{https://www.continuummechanics.org/vonmisesstress.html}
 
-Von Mises stress can be used to determine whether an isotropic and ductile material will yield under a complex loading condition. It takes into account all three principal stresses (tensile, compressive, and shear) that act on a material at a particular point and provides a measure of the overall stress state at that point. A comparison between the material's yield stress and the von Mises stress allows the calculation of the von Mises Stress Criterion.
+Von Mises stress can be used to determine whether an isotropic and ductile material will yield under a complex loading condition. The von Mises stress equation is based on the principle that the failure of a material is dependent on the total amount of energy that is being absorbed by the material, rather than the individual stresses in each direction. The equation simplifies the complex stress state of a material, which is often composed of multiple stresses acting in different directions, into a single numerical value that is used to determine whether the material is likely to fail. A comparison between the material's yield stress and the von Mises stress allows the calculation of the von Mises Stress Criterion.
 
-The von Mises stress is calculated by finding the square root of the sum of the squares of the differences between the principal stresses and the mean stress. Mathematically, the von Mises stress is given by:
+An equation for the von Mises stress is shown below.
 \begin{equation}
-    \sigma_{VM} = \sqrt{\frac{3}{2}\sum_{i=1}^{3}(\sigma_i-\sigma_{avg})^2}
+    \sigma_{VM} = \sqrt{\frac{1}{2}\left[\left(\sigma_{x}-\sigma_y\right)^2 + \left(\sigma_y - \sigma_z\right)^2+\left(\sigma_z - \sigma_x\right)^2\right] + 3\left(\tau^2_{xy} + \tau^2_{yz}+\tau_{zx}^2\right)}
 \end{equation}
-where $\sigma_i$ is the $i$-th principal stress, and $\sigma_{avg}$ is the average of the three principal stresses, given by:
+However, we can also calculate the von Mises stress directly from the principal stresses (note that we may not do the reverse).
 \begin{equation}
-    \sigma_{avg} = \frac{1}{3}\sum_{i=1}^{3}\sigma_i
+    \sigma_{VM} = \sqrt{\frac{1}{2}\left[\left(\sigma_1 - \sigma_2\right)^2 +\left(\sigma_2 - \sigma_3\right)^2 + \left(\sigma_3 - \sigma_1\right)^2 \right]}
 \end{equation}
-The mean stress $\sigma_{avg}$ is simply the average of the three principal stresses, given by:
-\begin{equation}
-    \sigma_{avg} = \frac{1}{3}(\sigma_1 + \sigma_2 + \sigma_3)
-\end{equation}
-Substituting these equations into tqhe von Mises stress equation gives:
-\begin{equation}
-    \sigma_{VM} = \sqrt{\frac{3}{2}\left[(\sigma_1-\sigma_{avg})^2 + (\sigma_2-\sigma_{avg})^2 + (\sigma_3-\sigma_{avg})^2\right]}
-\end{equation}
-This equation shows that the von Mises stress depends only on the six independent components of the stress tensor, which are the normal stresses $\sigma_{ii}$, $\sigma_{jj}$, and $\sigma_{33}$, and the shear stresses $\sigma_{12}$, $\sigma_{23}$, and $\sigma_{31}$. It is independent of the coordinate system and is therefore a useful measure of the overall stress state of a material.
 
 The von Mises stress is often used in engineering design to determine whether a material will fail under a given load. If the von Mises stress exceeds the yield strength of the material, plastic deformation is expected to occur. Therefore, designers can use the von Mises stress to ensure that their designs remain within the elastic limit of the material.
-
-In summary, the von Mises stress is a measure of the overall stress state of a material, taking into account all three principal stresses. It is calculated by finding the square root of the sum of the squares of the differences between the principal stresses and the mean stress. In the 3D case, the von Mises stress depends only on the six independent components of the stress tensor, and is a useful measure of the likelihood of plastic deformation in a material.
 \subsubsection{Stress magnitude}
 \subsection{Relationship between axial stress and temperature of length constrained 3D pipe}\label{part1b}
+\url{http://www.civil.iisc.ernet.in/~manohar/Fire/Part-25_Fundamental%20Behaviour.pdf}
+
+For a 3D pipe constrained against an increase in length (longitudinal strain being zero), we can draw the following schematic.
+
+INSERT GRAPHIC
+
+The derivation presented here concerns the thermal bowing of a laterally restrained beam or pipe subjected to a uniform temperature gradient. The derivation aims to obtain an equation that describes the lateral displacement of the beam due to the thermal load.
+
+The starting point of the derivation is the expression for the displacement of a point in the beam. The displacement can be expressed as a function of the position along the beam, $x$, and two lateral coordinates, $y$ and $z$, as:
+\begin{equation}
+    u(x,y,z) = f(x) + yf_1(x) + zf_2(x)
+\end{equation}
+where $f(x)$ is the longitudinal displacement, $f_1(x)$ is the lateral slope, and $f_2(x)$ is the curvature.
+
+The longitudinal strain in the beam can be expressed as the partial derivative of the displacement with respect to the longitudinal coordinate, $x$, as:
+\begin{equation}
+    \epsilon_{xx} = \frac{\partial u}{\partial x} = f'(x) + yf_1'(x) + zf_2'(x)
+\end{equation}
+The stress field in the beam can be expressed as a function of the longitudinal strain and the temperature distribution in the beam. Assuming that the temperature distribution is uniform and the longitudinal strain is solely due to thermal expansion, the stress field can be expressed as:
+\begin{equation}
+    \sigma_{xx} = E \left(\epsilon_{xx} - \alpha T\right)
+\end{equation}
+where $E$ is the modulus of elasticity of the material, $\alpha$ is the coefficient of thermal expansion, and $T$ is the temperature in the beam.
+
+The equilibrium of forces and moments in the beam requires that the stress field integrates to zero over the cross-sectional area of the beam. Assuming that the temperature distribution is uniform, this condition can be expressed as:
+\begin{align}
+    \int \sigma_{xx} \dif A   & = 0 \\
+    \int \sigma_{xx} y \dif A & = 0 \\
+    \int \sigma_{xx} z \dif A & = 0
+\end{align}
+where $\dif A$ is an element of the cross-sectional area of the beam, and $y$ and $z$ are the lateral coordinates of the element.
+
+The geometrical constraint is that the center of gravity of the cross-pipe must be located at the origin:
+\begin{equation}
+    \int y \dif A = \int z \dif A = 0
+\end{equation}
+Next, we consider the cross-pipe variation of temperature. The stress field in x-direction can be expressed as:
+\begin{equation}
+    \sigma_{xx} = -\alpha E\left(T - \bar{T}\right) + \frac{I_yM_{Tz}-I_{yx}M_{Ty}}{I_yI_z-I^2_{yz}}y + \frac{I_yM_{Tz}-I_{yx}M_{Ty}}{I_yI_z-I^2_{yz}}z
+\end{equation}
+where $T$ is the temperature at any given point, and $\bar{T}$ is the average temperature of the pipe. $I_z$, $I_y$ and $I_{yz}$ are the moments of inertia of the cross-sectional area with respect to yz, zx and xy planes respectively. $M_{Ty}$ and $M_{Tz}$ are the moments due to the variation of temperature.
+
+For a pipe with a circular cross-section, $I_z$ and $I_y$ are equal, and $I_{yz}$ is zero. Hence, the stress field in the x-direction reduces to:
+\begin{equation}
+    \sigma_{xx} = -\alpha E \left(T - \bar{T}\right) + \frac{M_{Tz}}{I_y}y
+\end{equation}
+We can now derive the equation for lateral displacement of the pipe. The lateral displacement is obtained by taking the second derivative of the displacement function with respect to $x$:
+\begin{gather}
+    \frac{\dif^2 v}{\dif x^2} = - \frac{M_{Tz}}{EI_z}\\
+    \frac{\dif}{\dif x^2}\left(EI_z\frac{\dif^2 v}{\dif x^2}\right) + \frac{\dif^2 M_{Tz}}{\dif x^2} = F
+\end{gather}
+The tensile force $P$ and a tensile $P-\delta$ moment $Py$ over the length of the beam give us the equation governing the displacement of the beam:
+\begin{equation}
+    \frac{\dif^2 y}{\dif x^2} = \phi + \frac{Py}{EI}
+\end{equation}
+where $y(x)$ is the displacement of the beam at position $x$, $\phi$ is the lateral displacement due to the uniform thermal gradient, $E$ is the Young's modulus, $I$ is the second moment of area.
+
+Using the expression for the moment, $M = EI \phi = EI\alpha T_{,y}$, where $\alpha$ is the coefficient of thermal expansion and $T_{,y}$ is the temperature gradient, we can obtain the value of $P$ as:
+\begin{equation}
+    P = \frac{EI\alpha T_{,y}}{y}
+\end{equation}
+Substituting this expression for $P$ into the equation for the displacement, we get:
+\begin{equation}
+    \frac{\dif^2 y}{\dif x^2} - k^2 y = \phi
+\end{equation}
+where $k = \sqrt{P/EI}$. The solution to this differential equation is given by:
+\begin{equation}
+    y(x) = -\frac{\phi}{k^2}\left(\frac{\cosh(kl) - 1}{\sinh(kl)}\sinh(kx)\cosh(kx)+1\right)
+\end{equation}
+where $l$ is the length of the beam. This equation gives the displacement of the beam at any point $x$ due to the uniform thermal gradient, and it shows that the maximum displacement occurs at the mid-span of the beam, where
+\begin{equation}
+    y(l/2) = \frac{\phi}{k^2 \tanh(kl/2)}
+\end{equation}
+Some approximations and limitations in this analysis come from the constrains used in this application. Usmani \textit{et al} outline that assuming that the axial restraints being perfectly rigid is practically impossible. Hence, an approach using axial restraints modelled with a spring with stiffness $k_s$ are more likely to be observed in real-world beams.
 \subsection{3D pipe ANSYS}\label{part1c}
 \subsubsection{Relationship between maximum stress in temperature range}
 \subsubsection{Comparison against theoretical result and discussion}
