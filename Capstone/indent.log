@@ -1,7 +1,7 @@
 INFO: latexindent.exe version 3.8.3, 2020-11-06, a script to indent .tex files
       latexindent.exe lives here: C:/texlive/2020/bin/win32/
-      Sun Dec  4 19:34:34 2022
-      Filename: c:/Users/picku/Documents/GitHub/ME-Latex/MECH0074/ExtremePressure/tex/__latexindent_temp_partB.tex
+      Mon Mar 20 18:33:17 2023
+      Filename: c:/Users/picku/Documents/GitHub/ME-Latex/MECH0074/ExtremeTemperature/Title/__latexindent_temp_title.tex
 INFO: Processing switches:
       -y|--yaml: YAML settings specified via command line
       -c|--cruft: cruft directory
@@ -14,7 +14,7 @@ INFO: YAML settings read: indentconfig.yaml or .indentconfig.yaml
       To specify user settings you would put indentconfig.yaml here: C:\Users\picku/indentconfig.yaml
       Alternatively, you can use the hidden file .indentconfig.yaml as: C:\Users\picku/.indentconfig.yaml
 INFO: YAML settings read: -y switch
-      Updating masterSettings with defaultIndent:     
+      Updating masterSettings with defaultIndent:   
 INFO: Phase 1: searching for objects
 INFO: Phase 2: finding surrounding indentation
 INFO: Phase 3: indenting objects

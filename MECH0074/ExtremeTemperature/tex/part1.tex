@@ -68,8 +68,6 @@ However, we can also calculate the von Mises stress directly from the principal 
 The von Mises stress is often used in engineering design to determine whether a material will fail under a given load. If the von Mises stress exceeds the yield strength of the material, plastic deformation is expected to occur. Therefore, designers can use the von Mises stress to ensure that their designs remain within the elastic limit of the material.
 \subsubsection{Stress magnitude}
 \subsection{Relationship between axial stress and temperature of length constrained 3D pipe}\label{part1b}
-\url{http://www.civil.iisc.ernet.in/~manohar/Fire/Part-25_Fundamental%20Behaviour.pdf}
-
 For a 3D pipe constrained against an increase in length (longitudinal strain being zero), we can draw the following schematic.
 
 INSERT GRAPHIC
@@ -141,11 +139,63 @@ where $l$ is the length of the beam. This equation gives the displacement of the
 \begin{equation}
     y(l/2) = \frac{\phi}{k^2 \tanh(kl/2)}
 \end{equation}
-Some approximations and limitations in this analysis come from the constrains used in this application. Usmani \textit{et al} outline that assuming that the axial restraints being perfectly rigid is practically impossible. Hence, an approach using axial restraints modelled with a spring with stiffness $k_s$ are more likely to be observed in real-world beams.
+Some approximations and limitations in this analysis come from the constrains used in this application. Usmani \textit{et al} outline that assuming that the axial restraints being perfectly rigid is practically impossible. Hence, an approach using axial restraints modelled with a spring with stiffness $k_s$ are more likely to be observed in real-world beams \cite{USMANI2001721}.
 \subsection{3D pipe ANSYS}\label{part1c}
 \subsubsection{Relationship between maximum stress in temperature range}
+ANSYS was used to conduct analysis on a 3D pipe to determine the relationship between maximum stress $\sigma_m$ and $T-T_0$ over the temperature range specified as $T = \SI{-160}{\degree C}$ and $T = \SI{240}{\degree C}$ with $T_0 = \SI{22}{\degree C}$. The pipe external and internal diameters and length were specified as $D_e = \SI{813}{\milli\meter}$, $D_i = \SI{793.94}{\milli\meter}$ and $L = \SI{50}{\meter}$.
+
+The constraints used in the analysis were carefully chosen to ensure that the resulting simulation was accurate. The use of `remote displacements' proved to provide the best representation of the support required for this analysis. These remote displacements were fixed in all axes and rotations. They were applied on the surfaces of both ends of the pipe. The remote point was chosen as the geometric centre of the pipe in the same plane (x-y). The support setup is shown in Figure \ref{supports}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/part1c-support.png}
+    \caption{Setup for remote displacement applied on the surface of both ends of 3D pipe.}
+    \label{supports}
+\end{figure}
+Using fixed supports gave results with abnormal edge cases. ANSYS documentation has noted this issue with fixed supports applied on surfaces, edges and vertices. Fixed supports lead to singular stresses i.e. the stress approaches infinity near the fixed edge or vertex \cite{ansysDocumentation}. Another problem with fixed surfaces is the non-compliance in deformation in the x-y plane. We expect to see the pipe expand/contract in this plane due to thermal effects. Running the simulation with fixed supports showed that the main body of the pipe does expand and contract but the fixed surface ends of the pipe do not, leading to an abnormal results at the ends of the pipe.
+
+In comparison, remote displacements allowed the ends of the pipe to expand contract in the x-y plane, but did not allow the pipe to move in the z-axis. This manifests in a variation in the stress at the ends of the pipe which can be seen in Figure \ref{part1c2} as different coloured rings. This variation is relatively small, with variation of around 1\% from the average.
+
+To determine the maximum stress $\sigma_m$, `Normal stress' was indexed in the solution. This was configured to determine the maximum normal stress in the z-axis. The simulation utilised 21 steps, resulting in linear temperature steps of \SI{20}{\degree C}. The results are shown in Figures \ref{part1cSimResults}, \ref{part1c2}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/part1ci.eps}
+    \caption{Plot of $\sigma_m$ in 3D pipe.}
+    \label{part1cSimResults}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/part1c-neg160-2.png}
+    \caption{3D pipe at time-step 1, \SI{-160}{\degree C}.}
+    \label{part1c2}
+\end{figure}%
 \subsubsection{Comparison against theoretical result and discussion}
+The theoretical result was calculated using \ref{stressxx}. MATLAB was used to plot the results. Figure \ref{part1c3} shows the results from ANSYS and MATLAB plotted on the same graph. The variables used in the equation are shown in Table \ref{part1ciiVars}. The value of $M_{Tz}$ was set to zero in this case, as the bending moment
+\begin{equation}
+    \sigma_{xx} = -\alpha E \left(T - \bar{T}\right) + \frac{M_{Tz}}{I_y}y\label{stressxx}
+\end{equation}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        \textbf{Variable} & \textbf{Value}                 & \textbf{Source}        \\
+        \midrule
+        $\alpha$          & \SI{1.196e-05}{\degree C^{-1}} & ANSYS Engineering Data \\
+        $E$               & \SI{2.1e11}{\pascal}           & ANSYS Engineering Data \\
+        $\bar{T}$         & \SI{22}{\degree C}             & User-defined           \\
+        \bottomrule
+    \end{tabular}
+    \caption{Values of variables used for theoretical calculation of 3D pipe stress.}
+    \label{part1ciiVars}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{img/part1cii.eps}
+    \caption{Plot of $\sigma_m$ in 3D pipe from ANSYS and theoretical calculation.}
+    \label{part1c3}
+\end{figure}
+The results show a virtually identical stress magnitude. An average percentage of difference of \SI{8.46e-6}{\percent} was calculated for the results.
 \subsection{1D pipe ANSYS}\label{part1d}
+\url{https://forum.ansys.com/forums/topic/ansys-1d-2d-3d-results-variation/}
 \subsubsection{Relationship between maximum stress in temperature range}
 \subsubsection{Comparison against theoretical result and discussion}
 \subsection{Discussion}
