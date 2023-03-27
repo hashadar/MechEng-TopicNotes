@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{crop,graphicx,amsmath,array,color,amssymb,fancyhdr,lineno,float,booktabs}
-\usepackage{flushend,stfloats,amsthm,chngpage,times,,lipsum,lastpage,parskip,adjustbox} 
+\usepackage{flushend,stfloats,amsthm,chngpage,times,lipsum,lastpage,parskip,adjustbox} 
 \usepackage{calc,listings,color,wrapfig,tabularx,longtable,multirow,enumitem,commath,siunitx,subcaption}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage[version = 4]{mhchem}
@@ -24,6 +24,27 @@
     citecolor=teal,
     pdftitle={MECH0074 Extreme Temperature Coursework},
     pdfauthor={Hasha Dar},
+}
+
+
+\lstset{
+  language=Matlab,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  frame=none, % remove the border
+  framesep=1pt, % reduce the spacing around the code
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
+  showspaces=false,
+  showstringspaces=false
 }
 
 \renewcommand\bibname{References}
@@ -56,6 +77,7 @@
 \newpage
 
 \input{tex/part1.tex}
+\input{tex/part2.tex}
 
 \newpage
 \bibliographystyle{unsrtnat}

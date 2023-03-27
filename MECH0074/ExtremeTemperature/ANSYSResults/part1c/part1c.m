@@ -6,7 +6,7 @@ close all
 
 %% import data
 
-ansys = readmatrix('avg-stress-x-direction-int-temp-22-v3.txt');
+ansys = readmatrix('avg-stress-x-direction-3D.txt');
 % step | time | min Pa | max Pa | avg Pa
 ansys(1,:) = [];
 
@@ -20,14 +20,16 @@ intTempPipe = 22; %degC
 T = linspace(-160,240,21)'; %degC
 stressxx = -alpha*E*(T - intTempPipe);
 
+T2 = linspace(-160-22,240-22,21)';
+
 %% plot
 
-plot(T,ansys(:,5),T,stressxx)
+plot(T2,ansys(:,5),T2,stressxx)
 grid on
-xlabel(['Temperature/' char(176) 'C']);
+xlabel(['Temperature T-T_0/' char(176) 'C']);
 ylabel('Stress \sigma_m /Pa');
-xlim([-165,245])
-xticks(-160:20:240)
+xlim([-185,220])
+xticks(-160-22:20:240-22)
 ylim([-6e8,5e8])
 yticks(-6e8:1e8:5e8)
 legend('ANSYS','Theoretical')
