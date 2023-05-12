@@ -1,20 +1,8 @@
-\documentclass[class=report, crop=false, 12pt,a4paper, tikz, border=4mm]{standalone}
-\usepackage{enumitem}
-\usepackage{tikz}
-\usepackage{float}
-\usepackage[normalem]{ulem}
-\usepackage{graphicx}
-\usepackage{siunitx}
-\usepackage{tikz}
-\usetikzlibrary{positioning, fit, calc}   
-\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
-line/.style={-latex}     
-}   
-\begin{document}
-A measurement system has to be devised such that the relationship between the real value of a variable and the value actually measured is unambiguously known. For example, when placing a weight on a scale, we must know the relationship between the \textbf{true} weight and the \textbf{measured} weight. 
+\chapter{General Measurement Systems}
+A measurement system has to be devised such that the relationship between the real value of a variable and the value actually measured is unambiguously known. For example, when placing a weight on a scale, we must know the relationship between the \textbf{true} weight and the \textbf{measured} weight.
 \begin{figure}
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/rsbetweentrueandmeasured.png}
+  \includegraphics[width = 0.6\textwidth]{./img/rsbetweentrueandmeasured.png}
   \caption{The scales work well up to 100kg, however it may not be able to measure heavier weights effectively.}
 \end{figure}
 The measurement system must allow:
@@ -24,12 +12,12 @@ The measurement system must allow:
 \end{itemize}
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{../img/electricscalegraphs.png}
+  \includegraphics[width=0.6\textwidth]{./img/electricscalegraphs.png}
   \caption{On the red graph we can see the effect that noise has on our measurement - a source of an inaccuracy. This must be dealt with to have an effective measurement system.}
 \end{figure}
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../img/generalmeasurementsystem.png}
+  \includegraphics[width=0.8\textwidth]{./img/generalmeasurementsystem.png}
   \caption{Block diagram to show a general measurement system.}
 \end{figure}
 
@@ -42,8 +30,8 @@ The measurement system must allow:
     \node[block] (d) at ([yshift = -3cm]$(a)!1.0!(a)$) {Transmission path \\ \textbf{Wires}};
     \node[block] (e) at ([yshift = -3cm]$(c)!1.0!(c)$) {Display, recording, data logging \textbf{Multimeter}};
 
-    \draw[line] (a)-- (b);  
-    \draw[line] (b)-- (c);  
+    \draw[line] (a)-- (b);
+    \draw[line] (b)-- (c);
     \draw[line] (c)-- (d);
     \draw[line] (d)-- (e);
   \end{tikzpicture}
@@ -85,14 +73,14 @@ Here are how the other fundamental quantities are defined.
   \item Metre - Length of the path travelled by light in a vacuum in $1/299792458$ of a second
   \item Time - Duration of $9192631770$ periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom
   \item Mass - \sout{Equal to the mass of the International Prototype of the Kilogram}
-  \begin{itemize}
-    \item Equal to h / (Metre standard$^2$ / Time standard) … since 2019
-    $h$: Plank constant (in $e = hf, \ h = 6.626 \times 10^{-34} \si{\kg\m\squared\per\second}$)
-  \end{itemize}
+        \begin{itemize}
+          \item Equal to h / (Metre standard$^2$ / Time standard) … since 2019
+                $h$: Plank constant (in $e = hf, \ h = 6.626 \times 10^{-34} \si{\kg\m\squared\per\second}$)
+        \end{itemize}
   \item Temperature - $1/273.16$ of the thermodynamic temperature
-  of the triple point of water (exactly 0.01 \si{\celsius})
+        of the triple point of water (exactly 0.01 \si{\celsius})
   \item Electric current - The flow of electric charges through
-  a surface at the rate of one coulomb per second
+        a surface at the rate of one coulomb per second
 \end{itemize}
 The fundamental standards are protected by such organisations such organisations as the National Institute of Standard and Technology (NIST) in the US. They set up the National Reference Standards and below these in accuracy, the Working Standards (and more below these).
 \section{Units and dimensions}
@@ -108,4 +96,3 @@ SI units are now commonly used worldwide. The fundamental dimensions are:
   \item Time [$\tau$]
   \item Temperature [T]
 \end{itemize}
-\end{document}

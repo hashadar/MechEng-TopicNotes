@@ -1,23 +1,8 @@
-\documentclass[class=report, crop=false, 12pt,a4paper, tikz, border=4mm]{standalone}
-\usepackage{enumitem}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage[normalem]{ulem}
-\usepackage{graphicx}
-\usepackage{commath}
-\usepackage{siunitx}
-\usepackage{tikz}
-\usetikzlibrary{positioning, fit, calc}   
-\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
-line/.style={-latex}     
-}
-\newcommand{\Lagr}{\mathcal{L}}
-\begin{document}
+\chapter{Modelling Linear Systems}
 Previously, we have considered systems in the general sense, with a generic function block approach.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram5.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram5.png}
 \end{figure}
 Now we will investigate how we model physical systems and obtain the function block $F(x)$ for electrical and mechanical components.
 \section{Linear Term Invariant (LTI) systems}
@@ -31,34 +16,34 @@ The focus of this course and indeed much of control theory itself focuses on mod
 If input $x_1(t)$ produces output $y_1(t)$ and input $x_2(t)$ produces $y_2(t)$, then input $x_1(t) + x_2(t)$ produces output $y_1(t) + y_2(t)$
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram6.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram6.png}
 \end{figure}
 Say for a system which doubles the input $F(x) = 2x$
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/graphs1.png}
+  \includegraphics[width = 0.8\textwidth]{./img/graphs1.png}
 \end{figure}
 \subsection{Homogeneity}
 If the input to the system $x(t)$ is scaled by a magnitude scale factor $A$, then the output $y(t)$ is also scaled by the same factor.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram7.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram7.png}
 \end{figure}
 For example, consider a system which generates a sine wave at a given amplitude, with a set frequency:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/graphs2.png}
+  \includegraphics[width = 0.8\textwidth]{./img/graphs2.png}
 \end{figure}
 \subsection{Time invariance}
 If input is applied at time $t=0$ or $T \ \si{\second}$ from now, the output is identical with the exception of a delay of $T \ \si{\second}$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram8.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram8.png}
 \end{figure}
 \subsection*{Are these models suitable for physical systems?}
 These three requirements, whilst simple, are so stringent that \textbf{almost no physical LTI system truly exists}. Consider a car engine - the performance deteriorates over time, to stretch it further, would you expect a system to give the same output after a time delay $T$ of 10 years? Even simple systems such as a resistor in an electrical circuit have non-linearities - a scaling factor $A$ could be chosen for $x(t)$ which would mean too much current flows and the resistor melts.
 
-Most practical systems are not linear, but often we can assume they behave linearly \textbf{under certain conditions/assumptions}. Linear systems are \textbf{much} easier to solve! There are \textbf{analytic} solutions with standard tools used solve the equations. Whereas for non-linear problems it is often necessary to solve them numerically. 
+Most practical systems are not linear, but often we can assume they behave linearly \textbf{under certain conditions/assumptions}. Linear systems are \textbf{much} easier to solve! There are \textbf{analytic} solutions with standard tools used solve the equations. Whereas for non-linear problems it is often necessary to solve them numerically.
 \subsection{Linearisation: Example 1}
 For a simple system such as a spring, across all possible compressions or extensions the response is non-linear:
 \begin{equation}
@@ -69,12 +54,12 @@ Hookes law is only a linear approximation of the true response. However, if we c
 Similarly an op-amp has a \textbf{linear region} where the output signals are between supple voltages $V_S$
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/graphs4.png}
+  \includegraphics[width = 0.8\textwidth]{./img/graphs4.png}
 \end{figure}
 Keep signals within these regions and the linear assumption holds:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram9.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram9.png}
 \end{figure}
 Add LTI example
 \section{Dynamic systems - Laplace Transform}
@@ -82,12 +67,12 @@ Add LTI example
 Ideal systems would respond \textbf{instantaneously} to inputs, however real world systems require some time to adjust to changes and are thus known as \textbf{dynamic systems} as the output changes over time.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/graphs5.png}
+  \includegraphics[width = 0.8\textwidth]{./img/graphs5.png}
 \end{figure}
 As we are intersected in describing something that \textbf{changes} with time, it is useful to express the function block of the system $F(t)$ as an ordinary differential equation (ODE).
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram10.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram10.png}
 \end{figure}
 \begin{equation}
   \frac{\dif^n y}{\dif t^n} + a_{n-1}\frac{\dif^{n-1}y}{\dif t^{n-1}} + ... + a_2 \frac{\dif^2y}{\dif t^2} + a_1 \frac{\dif y}{\dif t} + a_0 = bx
@@ -136,7 +121,7 @@ Constant or \textbf{unit step} $x(t) =1$ (for $t \geq 0$)
   x(t) = \frac{1}{2} e^{i \omega t} + \frac{1}{2} e^{-i \omega t} \textrm{ (Euler's formula)}\\
   X(s) = \int_{0^-}^\infty e^{-st} \left( \frac{1}{2} e^{i \omega t} + \frac{1}{2} e^{-i \omega t} \right) \dif t\\
   X(s) = \frac{1}{2} \int_{0^-}^\infty e^{(-s + i \omega)t}\dif t + \frac{1}{2} \int_{0^-}^\infty e^{(-s - i \omega)t} \dif t\\
-  X(s) = \frac{1}{2} \frac{1}{s - i \omega} + \frac{1}{2} \frac{1}{s + i \omega} = \frac{s}{s^s + \omega^s} 
+  X(s) = \frac{1}{2} \frac{1}{s - i \omega} + \frac{1}{2} \frac{1}{s + i \omega} = \frac{s}{s^s + \omega^s}
 \end{gather}
 You can look up these transforms in a table. The Laplace variable, s, can be considered to represent the differential operator (very useful for control engineering):
 \begin{gather}
@@ -168,17 +153,17 @@ So more generally, with all initial conditions set to zero:
 After we have taken the Laplace transform of the differential equation of a system, it's useful to rearrange to give the system \textbf{output} as the product of the system \textbf{input} and the system \textbf{transfer function}.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/blockdiagram11.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/blockdiagram11.png}
 \end{figure}
-The transfer function of a linear system is defined as the \textbf{ratio} of the Laplace transform of the output variable to the Laplace transform of the input variable, with all the initial conditions assumed to be zero. 
+The transfer function of a linear system is defined as the \textbf{ratio} of the Laplace transform of the output variable to the Laplace transform of the input variable, with all the initial conditions assumed to be zero.
 \subsection{Transfer Functions of Mechanical Components}
 \subsubsection{Spring}
 Convention is input force, output displacement. Balance \textbf{forces}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram1.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/diagram1.png}
 \end{figure}
-Time domain equation (Hooke's Law): 
+Time domain equation (Hooke's Law):
 \begin{equation}
   f(x) - kx
 \end{equation}
@@ -192,13 +177,13 @@ Transfer function:
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram12.png}
+  \includegraphics[width = 0.5\textwidth]{./img/blockdiagram12.png}
 \end{figure}
 \subsubsection{Mass}
 Inertial load - mass
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.3\textwidth]{../img/diagram2.png}
+  \includegraphics[width = 0.3\textwidth]{./img/diagram2.png}
 \end{figure}
 Time domain equation from Newton's 2nd law of motion
 \begin{equation}
@@ -214,7 +199,7 @@ Transfer function
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram13.png}
+  \includegraphics[width = 0.5\textwidth]{./img/blockdiagram13.png}
 \end{figure}
 \subsubsection{Damper}
 Below is a dashpot - a viscous damper. They resist motion through friction. The damping coefficient is in terms of $c$ with units \si{\newton\per\meter\per\second}. Time domain equation:
@@ -231,7 +216,7 @@ Transfer function
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/blockdiagram14.png}
+  \includegraphics[width = 0.6\textwidth]{./img/blockdiagram14.png}
 \end{figure}
 \subsection{Combining components}
 \subsubsection{Springs}
@@ -247,11 +232,11 @@ Springs in series
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram4.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram4.png}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/blockdiagram15.png}
+  \includegraphics[width = 0.6 \textwidth]{./img/blockdiagram15.png}
 \end{figure}
 Dashpots behave in a similar way to springs. Parallel:
 \begin{equation}
@@ -277,11 +262,11 @@ Transfer function:
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram5.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram5.png}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram16.png}
+  \includegraphics[width = 0.5\textwidth]{./img/blockdiagram16.png}
 \end{figure}
 \subsubsection{Capacitor}
 Either definition of current/voltage relationship gives same result. Time domain:
@@ -300,11 +285,11 @@ Transfer function:
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram6.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram6.png}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram17.png}
+  \includegraphics[width = 0.5\textwidth]{./img/blockdiagram17.png}
 \end{figure}
 \subsubsection{Inductor}
 An inductor resists changes of current by generating a voltage in opposition via magnetic induction. From Faraday's Law:
@@ -321,10 +306,9 @@ Transfer function:
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram7.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram7.png}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/blockdiagram18.png}
+  \includegraphics[width = 0.5\textwidth]{./img/blockdiagram18.png}
 \end{figure}
-\end{document} 

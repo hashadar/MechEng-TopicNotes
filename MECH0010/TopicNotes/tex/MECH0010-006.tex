@@ -1,30 +1,16 @@
-\documentclass[class=report, crop=false, 12pt,a4paper, tikz, border=4mm]{standalone}
-\usepackage{enumitem}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage[normalem]{ulem}
-\usepackage{graphicx}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{tikz}
-\usetikzlibrary{positioning, fit, calc}   
-\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
-line/.style={-latex}     
-}
-\begin{document}
+\chapter{System Time Response - 1st order}
 \section{Impulse functions/responses}
 \subsection{Impulse response of a system: Dirac delta function}
 A useful tool in analysing the transient response of a system is the impulse signal, a unit (amplitude = 1) pulse infinitesimally small, with area = 1. Formally this is known as the \textbf{Dirac delta function (impulse function)}.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram23.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram23.png}
 \end{figure}
 The Dirac delta function is a non-physical, singularity function with the follow definition:
 \begin{equation}
   \delta (t) = \begin{cases}
-    0 \textrm{ for } t \neq 0\\
-    \textrm{undefined for } t = 0 
+    0 \textrm{ for } t \neq 0 \\
+    \textrm{undefined for } t = 0
   \end{cases}
 \end{equation}
 but with the requirement that
@@ -33,14 +19,14 @@ but with the requirement that
 \end{equation}
 so taking the Laplace transform of this is also just 1
 \begin{equation}
-  \mathcal{L} (\delta (t)) = \int_{0^-}^{\infty} \delta (t) e^{-st} \,\mathrm{d}t = 1 
+  \mathcal{L} (\delta (t)) = \int_{0^-}^{\infty} \delta (t) e^{-st} \,\mathrm{d}t = 1
 \end{equation}
 Thus, the impulse response of the system is equal to the transfer function and from this it can be shown that \textbf{any} arbitrary signal can be described as a summation of impulse responses.
 \subsection{Impulse response on a first order system}
 Take a first order response for example, the transfer function and thus the impulse response looks like this:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram24.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram24.png}
 \end{figure}
 Due to our LTI assumptions:
 \begin{itemize}
@@ -51,12 +37,12 @@ Due to our LTI assumptions:
 \subsection{Impulse response of a system}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram25.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram25.png}
 \end{figure}
 \subsubsection{Time vs Frequency Domain}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram26.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram26.png}
 \end{figure}
 \begin{itemize}
   \item $u$ is the impulse function to the system
@@ -64,7 +50,7 @@ Due to our LTI assumptions:
   \item $H$ is called the transfer function (TF) of the system
 \end{itemize}
 \begin{equation}
-  y(t) = \int_{0}^{\infty} h(\tau) u (t-\tau) \,\mathrm{d}\tau = \int_{0}^{\infty} h(\tau - t)u(\tau) \,\mathrm{d}\tau  
+  y(t) = \int_{0}^{\infty} h(\tau) u (t-\tau) \,\mathrm{d}\tau = \int_{0}^{\infty} h(\tau - t)u(\tau) \,\mathrm{d}\tau
 \end{equation}
 with $0\leq \tau \leq t$
 \begin{equation}
@@ -79,7 +65,7 @@ This is called multiplication.
 Essentially, the steps for convolving two signals are to first reflect the signal $g$, then offset the reflected signal. Then calculate the area under the graph for every offset, by sliding $-g$. The convolution at each time point is equal to the area under the intersection of functions. For two pulses, the result is a triangle wave:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram27.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram27.png}
 \end{figure}
 However, the calculations to obtain this result in the time domain are complicated, but are only multiplication in the Laplace domain.
 \subsubsection{Getting the Time Response}
@@ -93,9 +79,9 @@ The procedure to describe the time response for LTI systems is thus:
 Now we will consider some standard inputs and look at the response of first and second order systems:
 \begin{itemize}
   \item Impulse
-  \begin{itemize}
-    \item The Laplace transform is 1, so the response to an impulse is by the definition the transfer function
-  \end{itemize}
+        \begin{itemize}
+          \item The Laplace transform is 1, so the response to an impulse is by the definition the transfer function
+        \end{itemize}
   \item Step
   \item Ramp
 \end{itemize}
@@ -104,17 +90,17 @@ There are many others, particularly sinusoidal inputs or other discontinuous inp
 A step input is a discontinuous function, which is zero for all negative values of $t$ and 1 for all positive values.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram28.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram28.png}
 \end{figure}
 \subsubsection{Laplace transform}
 \begin{gather}
   x(t) = U(t)\\
-  \mathcal{L} \left\{ U(t) \right\} = \int_{0^-}^{\infty} e^{-st} \,\mathrm{d}t = \left[-\frac{1}{s} e^{-st}\right]_{0^-}^{\infty} \rightarrow \frac{1}{s}\\    
+  \mathcal{L} \left\{ U(t) \right\} = \int_{0^-}^{\infty} e^{-st} \,\mathrm{d}t = \left[-\frac{1}{s} e^{-st}\right]_{0^-}^{\infty} \rightarrow \frac{1}{s}\\
 \end{gather}
 Or for a gain of A
 \begin{gather}
   x(t) = AU(t) \\
-  \mathcal{L} \left\{ AU(t) \right\} = \frac{A}{s} 
+  \mathcal{L} \left\{ AU(t) \right\} = \frac{A}{s}
 \end{gather}
 \subsubsection{Applications}
 The step response is extremely useful in control theory for describing the behaviour of the system. In part because it incorporates the "transient" behaviour - from the sudden change from zero to one, as well as the "steady state" behaviour as the system settles down to a single value. IT also replicates many real world control applications such as:
@@ -128,13 +114,13 @@ Also, unlike the Dirac impulse - it is physically realisable.
 A ramp input has a value of $t$ for all $t$ values above zero and zero elsewhere, often is scaled by a gain A.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram29.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram29.png}
 \end{figure}
 \subsubsection{Laplace transform}
 \begin{gather}
   x(t) = at\\
   \mathcal{L} \left\{ at \right\} \int_{0^-}^{\infty} ate^{-st} \,\mathrm{d}t = -a \left[ \frac{t}{s}e^{-st} \right]_{0}^{\infty} + a\int_{0}^{\infty} \frac{1}{s} e^{-st} \,\mathrm{d}t\\
-  = a \left[ -\frac{1}{s^2}e^{-st} \right] \rightarrow \frac{a}{s^2}   
+  = a \left[ -\frac{1}{s^2}e^{-st} \right] \rightarrow \frac{a}{s^2}
 \end{gather}
 \subsubsection{Applications}
 Ramp inputs are useful in understanding the steady state behaviour of a system i.e. when $t$ goes to infinity. Practical examples of control applications using ramp inputs are
@@ -152,7 +138,7 @@ Ramp inputs are useful in understanding the steady state behaviour of a system i
 For a \textbf{unit} response, $A=1$. We can apply these inputs to the LTI system by multiplying the transfer function by the input, both in terms of $s$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram30.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram30.png}
 \end{figure}
 \section{First Order System Step Response}
 Electromagnets are used in motors both rotary and linear, as well as in power transfer and also magnetic levitation in trains. First obtain the transfer function.
@@ -195,7 +181,7 @@ where
 Looking at $s=0$
 \begin{equation}
   k_1 \frac{R}{L} = \frac{1}{L} \rightarrow k_1 = \frac{1}{R}\\
-\end{equation} 
+\end{equation}
 Looking at $s= -\frac{R}{L}$
 \begin{equation}
   -k_2 \frac{R}{L} = \frac{1}{L} \rightarrow k_2 = -\frac{1}{R}
@@ -211,18 +197,18 @@ Looking at the Laplace tables, we can now use entries for $\frac{1}{s}$ and $\fr
 Which has the familiar form of a first order exponential rise, with a steady state gain of $\frac{1}{R}$. Time constant $\tau = \frac{L}{R}$. For now assume that $L$ and $R = 1$, so gain and time constant are 1.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram31.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram31.png}
 \end{figure}
 Thus for a known time constant, it is possible to calculate the response at any point after the step. A common parameter of a first order system is the \textbf{settling time} which is the time taken to reach 95\% of the desired value, or $3\tau$. The inverse process is also used in system identification, because the response is so simple - we can measure the step response and calculate the time constant of the system. If we do convolution in the time domain you get the same too.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram32.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram32.png}
   \caption{Area under $f(\tau)g(1-\tau)$, blue line $f(\tau)$, red line $g(t-\tau)$, black line $(f+g)t$.}
 \end{figure}
 These "step responses" can be repeated for different values of $V$ and for different starting values of $I(t)$. The response will always be behind the input for all time constant $>0$, and thus these systems are referred to as \textbf{first order lags}.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram33.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram33.png}
 \end{figure}
 \section{First Order System Ramp Response}
 For a \textbf{ramp} input of gain 1 (unit ramp)
@@ -237,7 +223,7 @@ Again, this is not in the Laplace tables, so rearrange use partial fractions, gi
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram34.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram34.png}
 \end{figure}
 After 4 time constants, we can say that the system is in the \textbf{steady state} where the difference between the input and output is no longer changing. The steady state lag is then equal to $\tau$
 \section{Understanding Poles and Zeros}
@@ -265,22 +251,22 @@ A linear system is described by the differential equation:
   \mathcal{L} \left\{ 3\frac{\dif u}{\dif t} + 12u \right\} = 3sU(s) + 12U(s)\\
   N(s) = 3s + 12 = 0 \rightarrow z_1 = -4\\
   D(s) = s^2 + 2s + 5 \rightarrow p_{1/2} = \frac{-2 \pm \sqrt{2^2 - 4\times 5}}{2} = -1 \pm j2\\
-  G(s) = \frac{N(s)}{D(s)} = 3 \frac{(s-(-4))}{(s-(-1+j2))(s-(-1-j2))} 
+  G(s) = \frac{N(s)}{D(s)} = 3 \frac{(s-(-4))}{(s-(-1+j2))(s-(-1-j2))}
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram35.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram35.png}
 \end{figure}
 \subsection{s-Plane}
 We can see how the time domain representation changes as we move around the s-plane. The imaginary axis corresponds to the sinusoidal component, and the real axis corresponds to the exponential.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram36.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram36.png}
 \end{figure}
 \section{Open Loop Motor Speed Control}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram37.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram37.png}
 \end{figure}
 For a DC motor connected to an inertial load, there is a combination of electrical and mechanical system equations determining the transfer function for angular position with respect to voltage.
 \begin{equation}
@@ -304,7 +290,7 @@ Which gives the following in Laplace:
 \end{equation}
 The electrical and mechanical sides are connected by motor constant which describe the characteristics of the motor (and given by manufacturer).
 \begin{gather}
-  e_m = K_e \frac{\dif \theta_m}{\dif t} \\ 
+  e_m = K_e \frac{\dif \theta_m}{\dif t} \\
   T = K_t i_a
 \end{gather}
 Or in the Laplace domain:
@@ -344,4 +330,3 @@ Where $K$ is the remaining leftover constants. This looks \textbf{much} simpler 
   \frac{\omega_m (s)}{V_a (s)} = \frac{K}{(\tau s +1)}
 \end{gather}
 This is now just a first order system.
-\end{document}

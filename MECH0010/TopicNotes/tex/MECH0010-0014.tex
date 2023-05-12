@@ -1,20 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{tikz}
-\usepackage{float}
-\usepackage{graphicx}
-\usepackage{multicol}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{commath}
-\usepackage[normalem]{ulem}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\begin{document}
-\begin{center}
-  30/11/2020
-\end{center}
+\chapter{Measurement of Temperature}
 There are many ways to measure temperature, including changes of:
 \begin{enumerate}
   \item Pressure/volume (thermal expansion) – generic thermometer;
@@ -24,45 +8,45 @@ There are many ways to measure temperature, including changes of:
 \end{enumerate}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/Mdiagram57.png}
+  \includegraphics[width = 0.8\textwidth]{./img/Mdiagram57.png}
 \end{figure}
 Note: None of the properties of materials used for temperature sensing varies strictly linearly with temperature. Thus, calibration is very important for temperature transducers.
 \section{Standard Temperature for Calibration}
 In the IPTS (the International Practical Temperature Scale), values of temperature are assigned to the eleven reproducible fixed points shown below.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/Mdiagram59.png}
+  \includegraphics[width = 0.9\textwidth]{./img/Mdiagram59.png}
 \end{figure}
 \section{Measurement Using Changes in Volume/Pressure}
 Thermal expansion is the key.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/Mdiagram60.png}
+  \includegraphics[width = 0.8\textwidth]{./img/Mdiagram60.png}
 \end{figure}
 \section{Thermoelectric Temperature Sensors (Thermocouples)}
 A thermocouple consists of two wires of different metals joined at both ends. If the junctions between the metals are at different temperatures, an electric current will flow around the circuit. This phenomenon is called \textbf{thermoelectric or Seebeck effect}.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1\textwidth]{../img/Mdiagram61.png}
+  \includegraphics[width = 1\textwidth]{./img/Mdiagram61.png}
 \end{figure}
 Across the junction of any two dissimilar metals, there always appear a difference in electric potential called the ‘contact potential’. The contact potential varies with the temperature at the junction between the two metals, increasing in magnitude with an increase in temperature.
 \subsection{Thermocouples in practice}
 Contact potential could also occur at the junction between metal B and the wires leading to the voltmeter, unless the wire is made of metal B (very unlikely), generating contact potential $V_3$ and $V_4$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/Mdiagram62.png}
+  \includegraphics[width = 0.6\textwidth]{./img/Mdiagram62.png}
 \end{figure}
 In practice, it does not matter as long as the junctions are kept under the same temperature (i.e. $V_3 = V_4$).
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/Mdiagram63.png}
+  \includegraphics[width = 0.6\textwidth]{./img/Mdiagram63.png}
 \end{figure}
 An alternative configuration is the one in the bottom panel. Here, the net contact potential is $V_1+V_3-V_2$.
 \subsection{Thermocouple materials and construction}
 Various standards have been developed for thermocouples, with the relevant British Standard being BS4937, part of which is shown below.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/Mdiagram64.png}
+  \includegraphics[width = 0.9\textwidth]{./img/Mdiagram64.png}
 \end{figure}
 The choice of the right thermocouple for any application depends on:
 \begin{itemize}
@@ -74,7 +58,7 @@ The choice of the right thermocouple for any application depends on:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/Mdiagram65.png}
+  \includegraphics[width = 0.9\textwidth]{./img/Mdiagram65.png}
 \end{figure}
 \subsection{Thermocouple structure}
 Thermocouples can have 2 different types of probe ends:
@@ -84,26 +68,26 @@ Thermocouples can have 2 different types of probe ends:
 \end{enumerate}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/Mdiagram66.png}
+  \includegraphics[width = 0.8\textwidth]{./img/Mdiagram66.png}
 \end{figure}
 The main differences between the two different types:
 \begin{itemize}
   \item With a metallic sheath, the probe can touch conductive surfaces
-  \begin{itemize}
-    \item Sheath has electric insulation inside, so the reading won't be affected
-  \end{itemize}
+        \begin{itemize}
+          \item Sheath has electric insulation inside, so the reading won't be affected
+        \end{itemize}
   \item Longer response time
-  \begin{itemize}
-    \item The metallic sheath and the electric insulation must be heated up first before reaching the joint inside
-  \end{itemize}
+        \begin{itemize}
+          \item The metallic sheath and the electric insulation must be heated up first before reaching the joint inside
+        \end{itemize}
   \item Insulation material needs to be high electric resistance + high thermal conductivity
 \end{itemize}
 \section{Basic Metallic Resistance Thermometers}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.25\textwidth]{../img/Mdiagram68.png}
+  \includegraphics[width = 0.25\textwidth]{./img/Mdiagram68.png}
 \end{figure}
-The resistance of certain metals varies with temperature. The resistance $R_T$ at temperature $T$ is approximately shown relative to the resistance $R_0$ at $\ang{0}$C, using the following equation: 
+The resistance of certain metals varies with temperature. The resistance $R_T$ at temperature $T$ is approximately shown relative to the resistance $R_0$ at $\ang{0}$C, using the following equation:
 \begin{gather}
   R_T = R_0 (1+\alpha T)
 \end{gather}
@@ -118,7 +102,7 @@ This could be described more generally:
 taking $T_0$ as the reference temperature fro $R_0$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/Mdiagram67.png}
+  \includegraphics[width = 0.6\textwidth]{./img/Mdiagram67.png}
 \end{figure}
 The figure shows the relative resistance variation of certain metals over temperature (using $R_0$ at $\ang{0}$C). Although the sensitivity of platinum is the smallest, it has advantage of:
 \begin{itemize}
@@ -133,7 +117,7 @@ Typical resistance thermometer construction includes:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1\textwidth]{../img/Mdiagram69.png}
+  \includegraphics[width = 1\textwidth]{./img/Mdiagram69.png}
 \end{figure}
 Errors can be caused by:
 \begin{itemize}
@@ -144,7 +128,7 @@ Errors can be caused by:
 THERM-ally sensitive res-ISTOR
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/Mdiagram70.png}
+  \includegraphics[width = 0.6\textwidth]{./img/Mdiagram70.png}
 \end{figure}
 The resistance against temperature curve for a thermistor (semiconductor) is very different from that for metallic resistance thermometers. It decreases with temperature rather than increase, and the negative temperature coefficient of resistance in this case is much larger than that of metals. \\\\
 The relationship between $R_T$ and temperature $T$ for thermistor can be modelled as:
@@ -153,7 +137,7 @@ The relationship between $R_T$ and temperature $T$ for thermistor can be modelle
 \end{gather}
 Where:
 \begin{itemize}
-  \item A and B are constants. 
+  \item A and B are constants.
   \item B is called the characteristic temperature of the thermistor (material constant) whose value is normally between 2000 K and 4000 K.
 \end{itemize}
 If the resistance at a temperature $T_0$ is known (for example, base resistance at room temperature),
@@ -168,7 +152,7 @@ Thermistors can be made \textbf{much smaller} than metallic resistance thermomet
 \subsection{Measuring circuits for resistive sensors}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/Mdiagram71.png}
+  \includegraphics[width = 0.5\textwidth]{./img/Mdiagram71.png}
 \end{figure}
 We use Wheatstone bridge for resistive sensors and the output voltage from the bridge is:
 \begin{gather}
@@ -199,12 +183,12 @@ Radiation = travel of energy wave (like X-ray)
 A body at a certain temperature emits a certain amount of energy with a certain spectrum (see figure below). Note: An ideal body, blackbody, emits radiation in all wavelengths. This is used to measure temperature in approximate manner.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/Mdiagram72.png}
+  \includegraphics[width = 0.9\textwidth]{./img/Mdiagram72.png}
 \end{figure}
 \subsection{Radiation pyrometers}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.75\textwidth]{../img/Mdiagram73.png}
+  \includegraphics[width = 0.75\textwidth]{./img/Mdiagram73.png}
 \end{figure}
 \subsubsection{Working principle:}
 Temperature transducer is used in the detector (e.g. thermopile), the detected temperature is converted to the radiation energy using Stefan-Boltzmann law.
@@ -223,7 +207,7 @@ The energy is then converted to temperature of the measured surface using the bl
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1\textwidth]{../img/Mdiagram74.png}
+  \includegraphics[width = 1\textwidth]{./img/Mdiagram74.png}
 \end{figure}
 \section{Temperature Response}
 A challenge of temperature measurement $\longrightarrow$ \textbf{no thermometer can respond instantly to a change in temperature}. The response is expressed mathematically as:
@@ -232,17 +216,17 @@ A challenge of temperature measurement $\longrightarrow$ \textbf{no thermometer 
 \end{gather}
 Where:
 \begin{itemize}
-  \item $K$ is a constant 
+  \item $K$ is a constant
   \item $T_f$ is the temperature to be measured
 \end{itemize}
-The general solution is: 
+The general solution is:
 \begin{gather}
   T = A\cdot e^{-Kt}+T_f = (T_0-T_f)\cdot e^{-Kt} + T_f
 \end{gather}
 The speed of change is characterised by the time constant $\tau (=1/K)$ which is the time interval in which the temperature varies 63.2\% of the difference between initial and final temperatures.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/Mdiagram75.png}
+  \includegraphics[width = 0.5\textwidth]{./img/Mdiagram75.png}
 \end{figure}
 \subsection{Transient temperature response}
 If the transducer is subjected to a sinusoidally varying input temperature, the differential equation becomes:
@@ -259,6 +243,5 @@ Where:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/Mdiagram76.png}
+  \includegraphics[width = 0.9\textwidth]{./img/Mdiagram76.png}
 \end{figure}
-\end{document}

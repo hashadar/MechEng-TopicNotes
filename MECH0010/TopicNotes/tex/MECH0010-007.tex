@@ -1,20 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{tikz}
-\usepackage{float}
-\usepackage{graphicx}
-\usepackage{multicol}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{commath}
-\usepackage[normalem]{ulem}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\begin{document}
-\begin{center}
-  26/10/2020
-\end{center}
+\chapter{Measurements of Displacement}
 \textbf{Displacement measurements:}
 \begin{itemize}
   \item Most frequent in manufacturing and process-control applications
@@ -24,7 +8,7 @@
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/Mdiagram1.PNG}
+  \includegraphics[width = 0.8 \textwidth]{./img/Mdiagram1.PNG}
 \end{figure}
 \section{Capacitance-Based Displacement Transducers}
 \subsection{Capacitive Displacement Transducers}
@@ -41,7 +25,7 @@ Where:
 Example: The capacitance of the two metal cylinders is proportional to the area of overlap.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5 \textwidth]{../img/Mdiagram2.PNG}
+  \includegraphics[width = 0.5 \textwidth]{./img/Mdiagram2.PNG}
 \end{figure}
 Variable capacitance can be introduced by an insulator between the plates. If the insulation is as thick as the plate separation, the overall capacitance is:
 \begin{gather}
@@ -53,7 +37,7 @@ Where:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45 \textwidth]{../img/Mdiagram3.PNG}
+  \includegraphics[width = 0.45 \textwidth]{./img/Mdiagram3.PNG}
   \caption{The orange part of the figure represents the 1st bit of the capacitance equation, when no insulator is inserted. The green part of the figure shows the 2nd part of the equation, where an insulator is introduced}
 \end{figure}
 \subsection{Measurement of Capacitance}
@@ -83,14 +67,14 @@ Changes in capacitance caused by changes in displacement can be measured by dete
 One way to get around the problem is to use either one of the differential forms of variable-separation or variable-area type transducer.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/Mdiagram4.PNG}
+  \includegraphics[width = 0.6 \textwidth]{./img/Mdiagram4.PNG}
 \end{figure}
 In each of the cases, two capacitors are formed which have equal capacitances when the transducer is geometrically centred.
 \subsection{Capacitive Bridge}
 The two capacitors are connected to a capacitive bridge. Here, difference in capacitance caused by the displacement unbalances the bridge and an AC output voltage $V_o$ occurs.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/Mdiagram5.PNG}
+  \includegraphics[width = 0.6 \textwidth]{./img/Mdiagram5.PNG}
 \end{figure}
 To derive $V_o$, we start with the voltages across each capacitor:
 \begin{gather}
@@ -115,7 +99,7 @@ In the variable-separation type, the capacitances must be equal if the plate is 
 where $d$ is the balance separation. When the plate is displaced by a distance $\delta$ to the left as in the figure, we have:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.15 \textwidth]{../img/Mdiagram6.PNG}
+  \includegraphics[width = 0.15 \textwidth]{./img/Mdiagram6.PNG}
 \end{figure}
 \begin{gather}
   C_1 = \frac{\epsilon_0A}{d-\delta} = C_0\frac{d}{d-\delta} \\
@@ -133,7 +117,7 @@ There is a linear relationship between the voltage output and the displacement, 
 For the variable-area type, the capacitances are proportional to their active areas, so if the movable cylinder is displaced to the left, we have:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5 \textwidth]{../img/Mdiagram7.PNG}
+  \includegraphics[width = 0.5 \textwidth]{./img/Mdiagram7.PNG}
 \end{figure}
 \begin{gather}
   C_1 = \frac{L+\delta}{L}C_0 \\
@@ -151,7 +135,7 @@ In both cases, the output voltage can be expressed as:
 \subsection{Linear Variable Differential Transformer (LVDT)}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5 \textwidth]{../img/Mdiagram8.PNG}
+  \includegraphics[width = 0.5 \textwidth]{./img/Mdiagram8.PNG}
 \end{figure}
 LVDT is one of the magnetic displacement transducers. An LVDT consists of:
 \begin{itemize}
@@ -164,7 +148,7 @@ LVDT is one of the magnetic displacement transducers. An LVDT consists of:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.85 \textwidth]{../img/Mdiagram9.PNG}
+  \includegraphics[width = 0.85 \textwidth]{./img/Mdiagram9.PNG}
   \caption{The working principle (with displacement to the right) of LVDTs}
 \end{figure}
 The working principle follows these steps:
@@ -174,7 +158,7 @@ The working principle follows these steps:
   \item Induced magnetic field in opposite
   \item Induced current (voltage)
 \end{enumerate}
-If there is no displacement, the output voltage will be 0. When a displacement occurs, the electro-magnetic field around one of the secondary coils (the one the ferromagnetic core moves towards) will be stronger. Hence, the induced current and voltage on that coil will be larger than the other one. 
+If there is no displacement, the output voltage will be 0. When a displacement occurs, the electro-magnetic field around one of the secondary coils (the one the ferromagnetic core moves towards) will be stronger. Hence, the induced current and voltage on that coil will be larger than the other one.
 \begin{gather}
   V_o = V_1-V_2 \neq 0 \rightarrow \propto displacement
 \end{gather}
@@ -187,7 +171,7 @@ The postivie of negative value of $V_0$ can indicate the displacement of the cor
 A very common and simple form of displacement transducer.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/Mdiagram10.PNG}
+  \includegraphics[width = 0.55 \textwidth]{./img/Mdiagram10.PNG}
 \end{figure}
 Resistor is typically a \textbf{coil winding}. Wiper displacement $\rightarrow$ change of $\alpha \ (0<\alpha<1)$. We assume the pot is wound uniformly with resistance wire and $\alpha$ varies linearly with the position of the wiper. With the internal resistance of the meter, the effective resistance $R_{eff}$ to determine $V_o$ is given as:
 \begin{gather}
@@ -200,7 +184,7 @@ The two vertical lines $||$ indicate that $\alpha R$ and $R_m$ are in parallel. 
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/Mdiagram11.PNG}
+  \includegraphics[width = 0.55 \textwidth]{./img/Mdiagram11.PNG}
 \end{figure}
 \begin{itemize}
   \item If $R_m>>R$, then $\frac{V_o}{V_s}$ is approximated as linear.
@@ -222,18 +206,18 @@ could also be used. These also reduce the friction between the wiper and the res
 The output signals here, i.e. voltage output from the photosensor, depend on the angular displacement of the shaft.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/Mdiagram12.PNG}
+  \includegraphics[width = 0.6 \textwidth]{./img/Mdiagram12.PNG}
 \end{figure}
 The pattern of the grating allow/disallow the light to reach the photosensor. The signal output varies depending on the \textbf{relative position} of the grating. Sinusoidal signal outputs are expected. \\\\
 More elaborated version of incremental shaft encoder includes one with two discs (Moiré fringes) and two sensors.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/Mdiagram13.PNG}
+  \includegraphics[width = 0.7 \textwidth]{./img/Mdiagram13.PNG}
 \end{figure}
 Differential output can be taken for clear signal.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.75 \textwidth]{../img/Mdiagram14.PNG}
+  \includegraphics[width = 0.75 \textwidth]{./img/Mdiagram14.PNG}
 \end{figure}
 Advantage of the differential systems:
 \begin{itemize}
@@ -242,18 +226,18 @@ Advantage of the differential systems:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45 \textwidth]{../img/Mdiagram15.PNG}
+  \includegraphics[width = 0.45 \textwidth]{./img/Mdiagram15.PNG}
 \end{figure}
 The pairs of light source and sensor may be placed 90\si{\degree} apart, in order to sense the direction of rotation .
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/Mdiagram16.PNG}
+  \includegraphics[width = 0.55 \textwidth]{./img/Mdiagram16.PNG}
 \end{figure}
 \subsection{Optical Absolute Shaft Encoder}
 Similar mechanism can be used as to measure an \textbf{absolute} rotary displacement by using binary code on the disc.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/Mdiagram17.PNG}
+  \includegraphics[width = 0.55 \textwidth]{./img/Mdiagram17.PNG}
 \end{figure}
 The four track disc above can have $2^4 = 16$ patterns $\longrightarrow$ 16 segments around the disc (resolution: $\frac{360}{16} = 22.5$\si{\degree}). In general, the resolution is:
 \begin{gather}
@@ -265,7 +249,7 @@ and the detector output ranges from 0 to $2^{(number \ of \ tracks)}-1$.
 The linear displacement transducers studied so far measure displacements of up to 1m. In order to measure larger displacements, other method are used. The simplest form of these is:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.85 \textwidth]{../img/Mdiagram18.PNG}
+  \includegraphics[width = 0.85 \textwidth]{./img/Mdiagram18.PNG}
 \end{figure}
 Commercial transducers of this type are available for displacements ranging from 50 mm to over 50m.
 \subsection{Wave Propagation Methods}
@@ -273,7 +257,7 @@ Non-contact displacement measurements over long distances are possible by using 
 \subsubsection{Pulse Reflection (Time of Flight)}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.75 \textwidth]{../img/Mdiagram19.PNG}
+  \includegraphics[width = 0.75 \textwidth]{./img/Mdiagram19.PNG}
 \end{figure}
 \begin{gather}
   D = V_{wave} \cdot \Delta t
@@ -295,7 +279,7 @@ Other points to be considered:
 A continuous radio wave is emitted instead of pulses. The phase difference between the transmitted sine wave and the reflected sine wave is used to measure displacement.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/Mdiagram20.PNG}
+  \includegraphics[width = 1 \textwidth]{./img/Mdiagram20.PNG}
 \end{figure}
 \subsubsection{Some Examples of Laser Distance Measurement}
 \textbf{Laser range finders}
@@ -314,13 +298,13 @@ A continuous radio wave is emitted instead of pulses. The phase difference betwe
   \item Detects objects shape or motion
   \item The projection from a light source is projected onto the object, and a number of cameras are used to detect and capture the image, based on the angle difference of the captured images.
   \item Applicable Range: 1.2-3.5 m (50 cm to 5 m)
-  \item Depth Resolution: 
+  \item Depth Resolution:
 \end{itemize}
 \subsection{Global Positioning System (GPS)}
 Location service with GPS
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.35 \textwidth]{../img/Mdiagram21.PNG}
+  \includegraphics[width = 0.35 \textwidth]{./img/Mdiagram21.PNG}
 \end{figure}
 The distances between GPS satelites, $r_1$ and $r_2$, are measured by time of flight of radio waves. The location of the person $(x,y,z)$ is determined by solving:
 \begin{gather}
@@ -338,4 +322,3 @@ Datasheets are documents providing the specifications for a particular product. 
   \item \textbf{Output smoothness:} Maximum resolution error
   \item \textbf{Tolerance:} Uncertainty in manufacturing of the resistance element
 \end{itemize}
-\end{document}

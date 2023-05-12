@@ -1,11 +1,5 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{tikz}
-\usepackage{float}
-\usepackage{graphicx}
-\usepackage{siunitx}
-\begin{document}
-A \textbf{control system} is a mechanism which alters the future state of a particular system. \textbf{Control theory} is the method of selecting appropriate inputs. Control theory usually concerns dynamic behaviour of physical systems - the goal is to design a controller which leads to the system exhibiting the desired behaviour. Control systems have a large range of applications throughout engineering such as autopilot systems for ships and aircraft, radar tracking, robotics, machinery plant control and machine tools. 
+\chapter{Introduction to Control Systems}
+A \textbf{control system} is a mechanism which alters the future state of a particular system. \textbf{Control theory} is the method of selecting appropriate inputs. Control theory usually concerns dynamic behaviour of physical systems - the goal is to design a controller which leads to the system exhibiting the desired behaviour. Control systems have a large range of applications throughout engineering such as autopilot systems for ships and aircraft, radar tracking, robotics, machinery plant control and machine tools.
 \subsection*{Methodology}
 \begin{itemize}
   \item \textbf{Modelling} - Mathematical model of a system or "transfer function." Comes from detailed analysis of a system and often involves simplifications
@@ -15,21 +9,21 @@ A \textbf{control system} is a mechanism which alters the future state of a part
   \item \textbf{Iterate} - Improve controller design through updated models
 \end{itemize}
 \section{Open loop control}
-In an \textbf{open loop} control system, the input to the system is not dependant on any previous outputs. The output of the system is not being observed to confirm whether the desired output has been achieved. 
+In an \textbf{open loop} control system, the input to the system is not dependant on any previous outputs. The output of the system is not being observed to confirm whether the desired output has been achieved.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/openloopcontrol.png}
+  \includegraphics[width = 0.8\textwidth]{./img/openloopcontrol.png}
 \end{figure}
-These control systems are simple and low cost. They are used in systems where feedback is not important. For example, a washing machine runs for 90 minutes, regardless of whether the clothes are dry after 60 minutes. 
+These control systems are simple and low cost. They are used in systems where feedback is not important. For example, a washing machine runs for 90 minutes, regardless of whether the clothes are dry after 60 minutes.
 \subsection*{3D Printer example}
-Consider the stepper motors used to move the print head in x and y with belt and pulley system. Here, open loop control is used because the stepper motors are simple to control and have a relationship between input and output. For example, consider a stepper motor which moves 0.2\si{\milli\m} each step (S) for an integer number of steps. 
+Consider the stepper motors used to move the print head in x and y with belt and pulley system. Here, open loop control is used because the stepper motors are simple to control and have a relationship between input and output. For example, consider a stepper motor which moves 0.2\si{\milli\m} each step (S) for an integer number of steps.
 \begin{verbatim}
   Plant model: X = 0.2 S
   Control strategy: S = X/0.2
 \end{verbatim}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/controlstrat3dprinter.png}
+  \includegraphics[width = 0.8\textwidth]{./img/controlstrat3dprinter.png}
 \end{figure}
 Implementing such a controller could be done with the following pseudocode:
 \begin{verbatim}
@@ -39,19 +33,19 @@ Implementing such a controller could be done with the following pseudocode:
   //send step command to motor
   Stepper.step(Steps_S)
 \end{verbatim}
-However, the assumption used to model our system is only valid if the stepper motors is within its specification i.e. friction, load, temperature, power are all nominal. As stated before, the system does not observe if the steps were successful or not. 
+However, the assumption used to model our system is only valid if the stepper motors is within its specification i.e. friction, load, temperature, power are all nominal. As stated before, the system does not observe if the steps were successful or not.
 \section{Closed loop control}
 By observing the output and comparing it against your desired output, it is possible to update the input to the system. The observed output is called the \textbf{feedback signal}.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/closedloopcontrol.png}
+  \includegraphics[width = 0.8\textwidth]{./img/closedloopcontrol.png}
 \end{figure}
 The difference between the desired output and the feedback signal is known as the \textbf{error signal}. This is the signal that the controller uses. Feedback signals allow powerful controllers to be designed.
 
 Taking our 3D printer for example, we can add a position sensor on the x-axis.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/controlstrat3dprinterclosed.png}
+  \includegraphics[width = 0.8\textwidth]{./img/controlstrat3dprinterclosed.png}
 \end{figure}
 The pseudocode for this system could look like this
 \begin{verbatim}
@@ -66,44 +60,44 @@ The pseudocode for this system could look like this
     Stepper.Step(Steps_S)
   end
 \end{verbatim}
-We must consider whether this extra complexity is required or necessary in our system. Closed loop systems are not a magic bullet; they require careful modelling to predict system behaviour and a considered choice of parameters to prevent the system becoming unstable. 
+We must consider whether this extra complexity is required or necessary in our system. Closed loop systems are not a magic bullet; they require careful modelling to predict system behaviour and a considered choice of parameters to prevent the system becoming unstable.
 \section{Block diagram representation of control loops}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram1.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram1.png}
 \end{figure}
 Control systems are often represented by block diagrams which show the information flow.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram2.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram2.png}
 \end{figure}
 \textbf{Flow path} indicates the direction of data flow (from left to right). Values are maintained at a branch.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/flowpath.png}
+  \includegraphics[width = 0.5\textwidth]{./img/flowpath.png}
   \caption{Flow path}
 \end{figure}
 \textbf{Function block}. The functions acts on the input to to produce the output. $x_{out} = f(x_{in})$
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/functionblock.png}
+  \includegraphics[width = 0.5\textwidth]{./img/functionblock.png}
   \caption{Function block}
 \end{figure}
 \textbf{Comparator}. The signals $\theta_1$ and $\theta_2$ are compared according to the signs (+ or -) and the result is $\theta_3$. They \textbf{must} have the same units. In this case $+\theta_1 - \theta_2 = \theta_3$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/comparator.png}
+  \includegraphics[width = 0.5\textwidth]{./img/comparator.png}
   \caption{Comparator}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram3.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram3.png}
 \end{figure}
 \section{Basic definitions/concepts}
 The following definitions are based on the standards of the IEEE (Institute of Electrical and Electronics Engineers)
 \begin{itemize}
   \item A \textbf{system} is an arrangement, set or collection of components connected or related in such a manner as to form an entirety or whole.
-  \item A \textbf{control system} is an arrangement of physical components connected or related in such a manner as to command, direct or regulate itself or another system. The components act together to perform a function not possible with any of the individual parts. 
+  \item A \textbf{control system} is an arrangement of physical components connected or related in such a manner as to command, direct or regulate itself or another system. The components act together to perform a function not possible with any of the individual parts.
   \item The \textbf{input} is the stimulus or excitation applied to a system usually in order to produce a specified response.
   \item The \textbf{output} is the actual response obtained.
   \item An \textbf{open loop control system} is one in which the input is independent of the output.
@@ -111,21 +105,21 @@ The following definitions are based on the standards of the IEEE (Institute of E
   \item \textbf{Error signal} (or \textbf{actuating signal}) is the difference between the reference input and the feedback, in closed loop control systems it is this signal which is sent to the plant not the reference signal.
 \end{itemize}
 \section{Notation}
-Large complex systems can be broken down into interconnected smaller ones and reduced further into a number of blocks. 
+Large complex systems can be broken down into interconnected smaller ones and reduced further into a number of blocks.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/quadcopterexampleblock.png}
+  \includegraphics[width = 0.8\textwidth]{./img/quadcopterexampleblock.png}
   \caption{A quadcopter with lots of PID controllers running in parallel. Each colour represents a control loop for position, altitude, yaw etc.}
 \end{figure}
 Complex systems can be abstracted to a signal block if the behaviour can be adequately modelled. Consider modelling the stepper motor from the 3D printer, in reality a complex device, as a single block. This is analogous to representing a complex op-amp circuit as a single unit.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/blockdiagram4.png}
+  \includegraphics[width = 0.8\textwidth]{./img/blockdiagram4.png}
 \end{figure}
 \section{Control system design process}
 \begin{figure}
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/controlstrat3dprinterclosed.PNG}
+  \includegraphics[width = 0.8\textwidth]{./img/controlstrat3dprinterclosed.PNG}
 \end{figure}
 \begin{enumerate}
   \item Establish control goals
@@ -147,18 +141,17 @@ Complex systems can be abstracted to a signal block if the behaviour can be adeq
 \subsubsection*{The positioning of the print head is in open loop. Considering the comparative advantages of open and closed loop control, what would have lead the designers to make this choice?}
 Open loop control is used where the observation of the output is not necessary/relevant to the control of the system. Considering the accuracies required for 3D printing, which is around $\pm 0.05 \si{\milli\m}$, we need to make sure that our print head moves to distances within this tolerance, otherwise our prints will be warped and misshaped. We must also consider that in an open system, small errors may lead to large errors over a certain period of operation, despite the print head moving distances within tolerance. There are also external factors affecting the belt and pulley system of the print head e.g. heat, dust, friction, load. These must all be within specification for the system to work properly.
 
-Stepper motors are simple electronic components and can be manufactured to have a relationship between input and output. Hence, the need to observe whether the print head has moved a certain distance may be inconsequential. In applications where an extremely accurate print is required, a closed loop system would allow for a self calibrating system, which could allow the printer to work in different operational environments without the need to recalibrate or change components. However, this adds complexity to the controller and requires additional components to be added to the controller, increasing cost. 
+Stepper motors are simple electronic components and can be manufactured to have a relationship between input and output. Hence, the need to observe whether the print head has moved a certain distance may be inconsequential. In applications where an extremely accurate print is required, a closed loop system would allow for a self calibrating system, which could allow the printer to work in different operational environments without the need to recalibrate or change components. However, this adds complexity to the controller and requires additional components to be added to the controller, increasing cost.
 \subsubsection*{How might the designers overcome the problems mentioned without closed loop control?}
-Maintenance of the components in the system is important to make sure that everything is in the correct working order. When everything is kept clean and within the specification that the system is designed to work in, the controller will be able to work optimally. For example, calibrating the "0" position of the print head after cleaning the belts and pulleys from dust. 
+Maintenance of the components in the system is important to make sure that everything is in the correct working order. When everything is kept clean and within the specification that the system is designed to work in, the controller will be able to work optimally. For example, calibrating the "0" position of the print head after cleaning the belts and pulleys from dust.
 
 The designers may also implement a calibration operation into the controller before each phase. This may include implementing a "0" point into the hardware of the rails that the print head is attached to. The controller would move the print head to this position simply by moving the maximum distance left and down. Using this as a reference for each print would eliminate systematic distance errors.
 \subsection*{Washing machine}
 \subsubsection*{Think of the control loops inside are they open or closed loop? Why? What could the sensors be?}
 Let us consider the possible subsystems inside a washing machine.
 \begin{itemize}
-  \item Timer - controls how long the washing machine operates. Open loop system. We only need a simple timing circuit with a minimum accuracy of around $\pm 1 \si{\minute}$. Even if the washing machine runs for 85 minutes instead of 90 (some degree of inaccuracy), this is insignificant. 
-  \item Motor - this is to spin the tub. Open loop system. Motors are simple electronic components with a relationship between input and output. An error signal provides no useful information for the operation of the motor. 
+  \item Timer - controls how long the washing machine operates. Open loop system. We only need a simple timing circuit with a minimum accuracy of around $\pm 1 \si{\minute}$. Even if the washing machine runs for 85 minutes instead of 90 (some degree of inaccuracy), this is insignificant.
+  \item Motor - this is to spin the tub. Open loop system. Motors are simple electronic components with a relationship between input and output. An error signal provides no useful information for the operation of the motor.
   \item Temperature control - controls how hot or cold the water in the washing machine is. Open loop system. Most washing machines simply have a hot water connection for hot water and cold water. A solenoid valve can control the proportion of hot water to cold water that enters the tub. For washing machines with a heating element, the amount of power put through the coil will determine the final temperature of the water (relationship between input and output is known). Adding a thermistor to measure the output water temperature may be possible but ultimately unnecessary as the tolerance for the temperature can be quite high ($\pm 5 \si{\celsius}$)
   \item Water valve control - controls how much water enters and leaves the drum. Closed loop control. The level of water in the drum needs to only be measured when the drum is full of water. Knowing the level of water at any given moment is unnecessary, thus using a simple pressure switch, will be sufficient in letting the controller know that the tub has reached capacity and close the input valve. After a set amount of time, the drain valve may open and since the amount of water in the tub when it is full is known, the drain time can simply be calculated as a function of its volume. This means that we do not need to check whether the water has drained from the tub.
 \end{itemize}
-\end{document}

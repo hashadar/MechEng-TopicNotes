@@ -1,34 +1,18 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows}
-\usepackage{float}
-\usepackage{graphicx}
-\usepackage{multicol}
-\usepackage{tabularx}
-\renewcommand{\arraystretch}{1.5}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{commath}
-\usepackage[normalem]{ulem}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\begin{document}
+\chapter{Laboratory measurement}
 \subsection*{Stages in a measurement system}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram38.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/diagram38.png}
 \end{figure}
 \section{Amplifiers}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram39.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram39.png}
 \end{figure}
 The voltage output from a transducer tends to be weak and this needs to be amplified. Operational amplifiers are normally around 1\si{\centi\meter} in size.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram40.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram40.png}
 \end{figure}
 \begin{equation}
   V_0 = A_v (V_p - V_n) = A_v (V_2 - V_1)
@@ -36,16 +20,16 @@ The voltage output from a transducer tends to be weak and this needs to be ampli
 Where $A_v$ is the gain and $(V_p - V_n)$ can be from a Wheatstone bridge. Operational amplifiers are quite an old technology (since WW2) and are still used because they are cheap and convenient.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram41.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram41.png}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram42.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram42.png}
 \end{figure}
 \subsection{Equivalent op-amp circuit and conditions of an ideal op-amp}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram43.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram43.png}
 \end{figure}
 Terminology:
 \begin{itemize}
@@ -56,34 +40,34 @@ Terminology:
   \item Differential voltage gain: $A_v$
 \end{itemize}
 \begin{center}
-  \begin{tabular}{ |c|c| } 
+  \begin{tabular}{ |c|c| }
     \hline
-    \textbf{Conditions of an ideal op-amp} & \textbf{In reality} \\
+    \textbf{Conditions of an ideal op-amp}                             & \textbf{In reality}            \\
     \hline
     \hline
-    No current into input terminals: $I_p = I_n = 0$ & \\
+    No current into input terminals: $I_p = I_n = 0$                   &                                \\
     \hline
-    Infinite input resistance: $r_{in} \rightarrow \infty$ & $r_{in} > 200 \si{\kilo \ohm}$\\
+    Infinite input resistance: $r_{in} \rightarrow \infty$             & $r_{in} > 200 \si{\kilo \ohm}$ \\
     \hline
-    Zero Output resistance $r_{out} = 0$ & $r_{out} < 1 \si{\kilo\ohm}$\\
+    Zero Output resistance $r_{out} = 0$                               & $r_{out} < 1 \si{\kilo\ohm}$   \\
     \hline
-    Infinite differential (or open-loop) gain $A_v \rightarrow \infty$ & $A_v > 100000$\\
+    Infinite differential (or open-loop) gain $A_v \rightarrow \infty$ & $A_v > 100000$                 \\
     \hline
-    Zero common-mode voltage gain $A_{cm} = 0$ & $A_v$ also frequency dependant\\
+    Zero common-mode voltage gain $A_{cm} = 0$                         & $A_v$ also frequency dependant \\
     \hline
   \end{tabular}
 \end{center}
 \subsection{Non-zero voltage with zero current?}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram44.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram44.png}
 \end{figure}
 A question that is often asked is if the current is zero, how can we still have a voltage? When you connect a battery to a meter, where the meter resistance is normally huge. We can still measure the voltage. This is due to Ohm's law $I = \frac{V}{R_m}$. A good analogy to make is a plunger system, where the other end is covered. When you push down, increasing the pressure, this can still be felt on the tip of the thumb, despite there being no flow. In the same way, we can still 'feel' the voltage with 'no' current flow.
 \subsection{Saturation}
 In a practical scenario, we want to strengthen the weak signal from the sensor. Let us connect an input to the non-inverting terminal and the inverting input to the ground.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram45.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram45.png}
 \end{figure}
 We can see that the signal is not infinitely amplified, as we are limited by the energy provided by our supply voltage. This is reflected in the graph above as the straight portion of the amplified line. This is called saturation. Due to $A_v$ being quite large, our linear region is normally tiny. This may be a problem if we want to measure the linear region.
 \subsection{Negative feedback}
@@ -93,26 +77,26 @@ So op-amps seem to be a useful device but also seem to be a bit tricky. They are
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram46.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram46.png}
 \end{figure}
 Negative feedback trades a reduction in gain with one that is smaller, stable and predictable, whilst giving the designer control over operational characteristics.
 \subsection{Basic feedback amplifier configurations}
 Only 2 resistors are required to construct a negative feedback amplifier. Note that output signal is always fed-back to the inverting input terminal.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram47.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram47.png}
   \caption{Inverting feedback amplifier arrangement.}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram48.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram48.png}
   \caption{Non-inverting feedback amplifier arrangement.}
 \end{figure}
 We can see the difference between an inverting and non-inverting feedback amplifier is which input the source signal is connected to.
 \subsection{Basic inverting feedback amplifier}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram49.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram49.png}
 \end{figure}
 Let us derive its closed loop gain $G$. By definition:
 \begin{gather}
@@ -124,7 +108,7 @@ Apply KCL to Node 1:
   \frac{V_{in}-V_n}{R_1} - I_n - \frac{V_n - V_0}{R_2} = 0 \Longrightarrow \frac{R_2}{R_1}V_{in} + v_n \left( 1 + \frac{R_2}{R_1} \right) = V_0 \label{invertingfb2}
 \end{gather}
 $I_n$ is 0 from our model assumptions.
-Combining equations (\ref{invertingfb1}) and (\ref{invertingfb2}), we arrive at: 
+Combining equations (\ref{invertingfb1}) and (\ref{invertingfb2}), we arrive at:
 \begin{gather}
   G \equiv \frac{V_0}{V_{in}} = -\frac{R_2}{R_1} \frac{1}{1 + \frac{1}{A_v}\left( 1 + \frac{R_2}{R_1}\right)}
 \end{gather}
@@ -135,7 +119,7 @@ For an ideal op-amp, $A_v \rightarrow \infty$:
 \subsection{Basic non-inverting feedback amplifier}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram50.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram50.png}
 \end{figure}
 Derive its closed-loop gain $G$. By definition:
 \begin{equation}
@@ -157,19 +141,19 @@ This is positive and always greater than 1.
 \subsection{Summary}
 \subsubsection*{Ideal feedback amplifier characteristics}
 \begin{center}
-  \begin{tabularx}{0.8\textwidth} { 
-    | >{\centering\arraybackslash}X 
-    | >{\centering\arraybackslash}X 
-    | >{\centering\arraybackslash}X | }
+  \begin{tabularx}{0.8\textwidth} {
+      | >{\centering\arraybackslash}X
+      | >{\centering\arraybackslash}X
+      | >{\centering\arraybackslash}X |}
     \hline
-    & \textbf{Inverting amplifier} & \textbf{Non-inverting amplifier} \\
+                             & \textbf{Inverting amplifier} & \textbf{Non-inverting amplifier} \\
     \hline
     \hline
-    $G = \frac{V_0}{V_{in}}$ & $-\frac{R_2}{R_1}$ & $1 + \frac{R_2}{R_1}$\\
+    $G = \frac{V_0}{V_{in}}$ & $-\frac{R_2}{R_1}$           & $1 + \frac{R_2}{R_1}$            \\
     \hline
-    $R_{in}$ & $R_1$ & $\infty$\\
+    $R_{in}$                 & $R_1$                        & $\infty$                         \\
     \hline
-    $R_{out}$ & 0 & 0\\
+    $R_{out}$                & 0                            & 0                                \\
     \hline
   \end{tabularx}
 \end{center}
@@ -183,10 +167,10 @@ Operational amplifier:
 To reduce these effects, we use negative feedback.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram51.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram51.png}
   \caption{$V_1$ and $V_2$ could come from a Wheatstone bridge.}
 \end{figure}
-The output voltage $V_0$ is given as: 
+The output voltage $V_0$ is given as:
 \begin{gather}
   V_0 = \frac{R_F}{R_1}(V_2 - V_1)
 \end{gather}
@@ -195,7 +179,7 @@ Only when $\frac{R_3}{R_2} = \frac{R_F}{F_1}$. This is independent of $A_v$ and 
 Combining a non-inverting and inverting op-amp to take the difference between two inputs:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram52.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram52.png}
 \end{figure}
 \begin{gather}
   \frac{V_0}{A_v} = V_+ - V_- \rightarrow 0 \textrm{ as } A_v \rightarrow \infty\\
@@ -218,7 +202,7 @@ If we can make sure that $\frac{R_f}{R_1} = \frac{R_3}{R_2}$ is satisfied, we ca
 \subsection{On a bread board}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram53.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram53.png}
 \end{figure}
 \begin{equation}
   V_0 = \frac{R_f}{R_i}(R_2 - R_1)
@@ -227,18 +211,18 @@ if $\frac{R_f}{R_1} = \frac{R_3}{R_2}$ can be satisfied.
 \section{Analogue-Digital (AD) conversion}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram54.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram54.png}
 \end{figure}
 \subsection{Comparator}
 We are using an op-amp here, because when we have a high $A_v$, we have a very small linear region. Hence, when we look at a signal graph, we can see this as a sort of switching device:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram55.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram55.png}
 \end{figure}
 With very large $A_v$, output $V_0$ would be: $V_0 = A_v (V_p - V_n)$. Hence:
 \begin{equation}
   V_0 \begin{cases}
-    = VCC \textrm{ ... if } V_p > V_n\\
+    = VCC \textrm{ ... if } V_p > V_n \\
     = VEE \textrm{ ... if } V_p < V_n
   \end{cases}
 \end{equation}
@@ -250,7 +234,7 @@ This essentially makes comparisons based on $V_p$ and $V_n$
 A circuit to compare voltages:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram56.png}
+  \includegraphics[width = 0.4\textwidth]{./img/diagram56.png}
   \caption{\textbf{Flash ADC:} number of comparisons done in parallel.}
 \end{figure}
 Setting up these comparators in parallel and setting a reference voltage for each, we can compare a single input and produce a digital binary signal, which tells us the range of voltages that $V_{in}$ may occupy. In this case we can see that:
@@ -263,17 +247,17 @@ Hence, $V_{in}$ may be 2.1\si{\volt}, but other options are possible. When we st
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram57.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram57.png}
 \end{figure}
 A more practical form of a flash ADC circuit can be achieved using voltage dividers, for the k-th comparator:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.2\textwidth]{../img/diagram58.png}
+  \includegraphics[width = 0.2\textwidth]{./img/diagram58.png}
 \end{figure}
 \begin{equation}
-  V_{o, k} = A_v \left(V_{in} - \frac{\left(k + \frac{1}{2}\right)R}{nR} V_{REF}\right) \textrm{, } k = 1, \ 2, \ ..., \ n-1 
+  V_{o, k} = A_v \left(V_{in} - \frac{\left(k + \frac{1}{2}\right)R}{nR} V_{REF}\right) \textrm{, } k = 1, \ 2, \ ..., \ n-1
 \end{equation}
-$n$ comparators allow judgement of YES/NO per every $V_{REF} / n$ volt $\rightarrow$ \textbf{resolution} of conversion. 
+$n$ comparators allow judgement of YES/NO per every $V_{REF} / n$ volt $\rightarrow$ \textbf{resolution} of conversion.
 \begin{itemize}
   \item 8-bit quantisation requires $2^8 = 256$ comparators.
   \item 16-bit quantisation requires $2^{16} = 25536$ comparators.
@@ -289,7 +273,7 @@ There are other types of conversion:
 Ramp-comparison utilises a saw tooth wave and the time period of switching to work out what $V_{in}$ is.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram59.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram59.png}
 \end{figure}
 \begin{equation}
   V_{in} = \frac{\Delta t}{T} V_{max}
@@ -308,13 +292,13 @@ Some methods (e.g. integrating) are good for noisy data.
 \subsection{Arduino}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram60.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram60.png}
   \caption{Can be linked up with MATLAB or any other language.}
 \end{figure}
 \subsection{NI products and LabVIEW}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram61.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram61.png}
 \end{figure}
 \section{Experimental Errors}
 Because of the inherent limitations of measurement equipment of techniques, there will always be some 'uncertainty' associated with experimental results. This uncertainty of error conveys significant information about the experiment and the result obtained, so you will be expected to assess the error in the measurements that you perform.
@@ -326,7 +310,7 @@ We want to know the volume of a cylinder based on diameter and height measuremen
 We must ask how accurate are $d$ and $h$, and also how they can be measured in the calculation of $V$? Suppose you are measuring a variable $x$:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram62.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram62.png}
   \caption{Actual error is mostly combination of both types of errors.}
 \end{figure}
 \subsection{Systematic errors}
@@ -334,35 +318,35 @@ Depends on:
 \begin{itemize}
   \item Equipment
   \item Environment
-    \begin{itemize}
-      \item For example temperature may affect the measurement results, e.g. strain gauges. We deal with this by introducing temperature compensation.
-    \end{itemize}
+        \begin{itemize}
+          \item For example temperature may affect the measurement results, e.g. strain gauges. We deal with this by introducing temperature compensation.
+        \end{itemize}
   \item Operator
-    \begin{itemize}
-      \item Consider measuring a sample with length $L$ and mass $M$. These are well defined variables, however the thickness $h$ will require sampling.
-    \end{itemize}
+        \begin{itemize}
+          \item Consider measuring a sample with length $L$ and mass $M$. These are well defined variables, however the thickness $h$ will require sampling.
+        \end{itemize}
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram63.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram63.png}
   \caption{Sampling needs to be done carefully to ensure good representation.}
 \end{figure}
 Looping back to our cylinder example earlier, let us say:
 \begin{align}
-  d &= 8.2 \pm 0.5 \si{\centi\meter}\\
-  h &= 9.5 \pm 0.2 \si{\centi\meter}
+  d & = 8.2 \pm 0.5 \si{\centi\meter} \\
+  h & = 9.5 \pm 0.2 \si{\centi\meter}
 \end{align}
 \subsection{Combining errors in a single quantity}
 Uncertainty analysis / error propagation - Estimating the overall error in the measurement system. For example, when two resistors are connected in series, what is the expected uncertainty of the total resistance?
 \begin{align}
-  R_1 &= 1000 \pm 1.5 \si{\ohm}\\
-  R_2 &= 500 \pm 1.0 \si{\ohm}
+  R_1 & = 1000 \pm 1.5 \si{\ohm} \\
+  R_2 & = 500 \pm 1.0 \si{\ohm}
 \end{align}
 The straightforward option is to simply add them directly $\rightarrow 2.5\si{\ohm}$
 \begin{equation}
   R_{total} = R_1 + R_2 = 1500 \pm 2.5 \si{\ohm}
 \end{equation}
-The error in $R_1$ and $R_2$ are a statistical indication, whereby the error is assumed to follow a Gaussian (normal) distribution. However, simple addition of the errors is too pessimistic! The two errors are independent and unlikely to show their maximum at the same time. If the errors are \textbf{independent} and in the same \textbf{quantity}, they can be combined as: 
+The error in $R_1$ and $R_2$ are a statistical indication, whereby the error is assumed to follow a Gaussian (normal) distribution. However, simple addition of the errors is too pessimistic! The two errors are independent and unlikely to show their maximum at the same time. If the errors are \textbf{independent} and in the same \textbf{quantity}, they can be combined as:
 \begin{equation}
   E = \pm \sqrt{e_1^2 + e_2^2}
 \end{equation}
@@ -373,16 +357,16 @@ and for this resistor example, overall error is $1.8 \si{\ohm}$. The rule above 
 \subsection{Various combinations of quantities}
 Assuming independent measurements $A$ and $B$, which have total errors $\Delta A$ and $\Delta B$ associated with them, are combined t o give the result $X$, which has error $\Delta X$, then:
 \begin{align}
-  \textrm{if } X = A + B \textrm{ or } X = A - B &\longrightarrow \Delta X = \sqrt{(\Delta A)^2 + (\Delta B)^2}\\ \label{addsuberror}
-  \textrm{if } X = AB \textrm{ or } X = \frac{A}{B} &\longrightarrow \frac{\Delta X}{X} = \sqrt{\left(\frac{\Delta A}{A}\right)^2 + \left(\frac{\Delta B}{B}\right)^2}\\
-  \textrm{if } X = A^n &\longrightarrow \frac{\Delta X}{X} = n \frac{\Delta A}{A}\\
+  \textrm{if } X = A + B \textrm{ or } X = A - B    & \longrightarrow \Delta X = \sqrt{(\Delta A)^2 + (\Delta B)^2}                                                     \\ \label{addsuberror}
+  \textrm{if } X = AB \textrm{ or } X = \frac{A}{B} & \longrightarrow \frac{\Delta X}{X} = \sqrt{\left(\frac{\Delta A}{A}\right)^2 + \left(\frac{\Delta B}{B}\right)^2} \\
+  \textrm{if } X = A^n                              & \longrightarrow \frac{\Delta X}{X} = n \frac{\Delta A}{A}                                                         \\
 \end{align}
-Note for equation (\ref{addsuberror}), we always use plus in our square root because the error only increases with addition or subtraction. When more than two quantities are involved, the equations are extended in a straightforward way: 
+Note for equation (\ref{addsuberror}), we always use plus in our square root because the error only increases with addition or subtraction. When more than two quantities are involved, the equations are extended in a straightforward way:
 \begin{align}
-  \textrm{if } &X = A + B - C + D ... \longrightarrow \Delta X = \sqrt{(\Delta A)^2 + (\Delta B)^2 + (\Delta C)^2 + (\Delta D)^2}\\
-  \textrm{if } &X = \frac{AB}{CD} \longrightarrow \frac{\Delta X}{X} = \sqrt{\left(\frac{\Delta A}{A}\right)^2 + \left(\frac{\Delta B}{B}\right)^2 + \left(\frac{\Delta C}{C}\right)^2 + \left(\frac{\Delta D}{D}\right)^2}
+  \textrm{if } & X = A + B - C + D ... \longrightarrow \Delta X = \sqrt{(\Delta A)^2 + (\Delta B)^2 + (\Delta C)^2 + (\Delta D)^2}                                                                                           \\
+  \textrm{if } & X = \frac{AB}{CD} \longrightarrow \frac{\Delta X}{X} = \sqrt{\left(\frac{\Delta A}{A}\right)^2 + \left(\frac{\Delta B}{B}\right)^2 + \left(\frac{\Delta C}{C}\right)^2 + \left(\frac{\Delta D}{D}\right)^2}
 \end{align}
-Adding errors in summation (A+B) and subtraction (A-B) are simpler because they must be the same physical quantity (mass, length, etc.) with the same unit. Products and divisions are usually in different quantity and the errors need to be added in normalised fashion. Let us use these in our cylinder example now: 
+Adding errors in summation (A+B) and subtraction (A-B) are simpler because they must be the same physical quantity (mass, length, etc.) with the same unit. Products and divisions are usually in different quantity and the errors need to be added in normalised fashion. Let us use these in our cylinder example now:
 \begin{gather}
   V = \pi r^2 h = \frac{\pi h d^2}{4}\\
   d = 8.2 \pm 0.5 \si{\centi\meter}\\
@@ -421,7 +405,7 @@ The resistance of a certain size of copper wire is given as
 \begin{equation}
   R = R_0 [1 + \alpha (T-20)]
 \end{equation}
-Where $R_0 = 6\si{\ohm} \pm 0.3\%$ is the resistance at 20\si{\celsius}, $\alpha = 0.004 \si{\per\celsius} \pm 1\%$ is the temperature coefficient of resistance, and the temperature of the wire is $T = 30 \pm 1 \si{\celsius}$. Calculate the resistance of the wire and its uncertainty. 
+Where $R_0 = 6\si{\ohm} \pm 0.3\%$ is the resistance at 20\si{\celsius}, $\alpha = 0.004 \si{\per\celsius} \pm 1\%$ is the temperature coefficient of resistance, and the temperature of the wire is $T = 30 \pm 1 \si{\celsius}$. Calculate the resistance of the wire and its uncertainty.
 
 The nominal resistance is:
 \begin{equation}
@@ -433,14 +417,14 @@ The uncertainty is from the equation earlier,
 \end{equation}
 Here,
 \begin{align}
-  \frac{\partial R}{\partial R_0} &= 1 + \alpha (T-20)\\
-  &= 1 + 0.004 \times (30 -20) = 1.04\\
-  \frac{\partial R}{\partial \alpha} &= R_0 (T-20)\\
-  &= 6 \times (30-20) = 60\\
-  \frac{\partial R}{\partial T} &= R_0 \alpha\\
-  &= 6 \times 0.004 = 0.024
+  \frac{\partial R}{\partial R_0}    & = 1 + \alpha (T-20)                \\
+                                     & = 1 + 0.004 \times (30 -20) = 1.04 \\
+  \frac{\partial R}{\partial \alpha} & = R_0 (T-20)                       \\
+                                     & = 6 \times (30-20) = 60            \\
+  \frac{\partial R}{\partial T}      & = R_0 \alpha                       \\
+                                     & = 6 \times 0.004 = 0.024
 \end{align}
-And, 
+And,
 \begin{gather}
   \Delta R_0 = 6 \times 0.003 = 0.018 \si{\ohm}\\
   \Delta \alpha = 0.004 \times 0.01 = 4 \times 10^{-5} \si{\per\celsius}\\
@@ -461,7 +445,7 @@ Simply add relevant errors up based on the specification sheet as a safety measu
 The least squares method is often used to establish the functional relationship between the dependent measured variable and the independent process variable. In most situations, the anticipated relationship is polynomial. The variation found in the measured variable is assumed to follow a normal (Gaussian) distribution about each fixed value of the independent variable.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram64.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram64.png}
 \end{figure}
 Suppose two variables $x$ and $y$ are measured over a range of values. We want to find their mathematical relationship. The simplest polynomial function is linear: $y = ax + b$. Least square analysis is done by minimising the quantity:
 \begin{equation}
@@ -473,11 +457,11 @@ This is the same as finding:
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram65.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram65.png}
 \end{figure}
 \begin{align}
-  \frac{\partial S}{\partial a} = \sum_{i = 1}^n (2 ax_i^2 + 2bx_i - 2x_i y_i) = 0 &\rightarrow a\sum_{i=1}^n x_i^2 + b\sum_{i +1}^n x_i = \sum_{i=1}^n x_i y_i\\
-  \frac{\partial S}{\partial b} = \sum_{i=1}^n (2ax_i + 2b - 2y_i) &\rightarrow a\sum_{i=1}^n x_i + nb = \sum_{i=1}^n y_i
+  \frac{\partial S}{\partial a} = \sum_{i = 1}^n (2 ax_i^2 + 2bx_i - 2x_i y_i) = 0 & \rightarrow a\sum_{i=1}^n x_i^2 + b\sum_{i +1}^n x_i = \sum_{i=1}^n x_i y_i \\
+  \frac{\partial S}{\partial b} = \sum_{i=1}^n (2ax_i + 2b - 2y_i)                 & \rightarrow a\sum_{i=1}^n x_i + nb = \sum_{i=1}^n y_i
 \end{align}
 \begin{gather}
   a = \frac{n \sum_{i=1}^n x_i y_i - \left(\sum_{i=1}^n x_i\right)\left(\sum_{i=1}^n y_i\right)}{n\sum_{i=1}^n x_i^2 - \left(\sum_{i=1}^n x_i\right)^2}\\
@@ -494,6 +478,5 @@ We can define quantity
 for minimisation.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram66.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram66.png}
 \end{figure}
-\end{document}

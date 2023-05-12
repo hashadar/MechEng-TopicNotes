@@ -1,18 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{tikz}
-\usepackage{commath}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\begin{document}
-\begin{center}
-  19/10/2020
-\end{center}
+\chapter{First and Second Order Systems}
 \section{First Order Systems}
 All first order systems i.e. those with only $\frac{\dif x}{\dif t}$ take the following “standard” forms:
 \begin{gather}
@@ -28,7 +14,7 @@ This function is commonly known as an exponential time delay, or lag.
 To get the response of the system in the time domain we need to convert the transfer function from the Laplace domain. Tables of common inverse Laplace functions have already been created; all we need to do arrange our transfer function into one of these standard forms.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/laplacetransformationtable.png}
+  \includegraphics[width = 1 \textwidth]{./img/laplacetransformationtable.png}
   \caption{Laplace Transformation Table}
 \end{figure}
 \subsubsection*{Example: Parallel Spring \& Damper (Laplace Domain found previously)}
@@ -49,25 +35,25 @@ Hence:
 This is an exponential decay – the only variable needed to define the system is the time constant. The gain merely scales the response.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/graphs6.PNG}
+  \includegraphics[width = 0.9 \textwidth]{./img/graphs6.PNG}
 \end{figure}
 Having a negative time constant makes no physical sense, so the exception of $T=0$, the response will always be an exponential decay.
 \subsection{Unit Step Response}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.65 \textwidth]{../img/graphs7.PNG}
+  \includegraphics[width = 0.65 \textwidth]{./img/graphs7.PNG}
 \end{figure}
 If a step input is given to a first order system, this will result in an exponential increase. This might be something like changing the room temperature. When talking about unit step input, the amplitude of the input will vary from 0 to 1. Some important definitions are:
 \begin{itemize}
-  \item Initial slope = $\frac{1}{time \ constant} = a$ 
+  \item Initial slope = $\frac{1}{time \ constant} = a$
   \item $T_r =$ Raising time = how quick the exponential function achieves 90\% of the final value
   \item $\tau$ = Time constant = how quick the exponential function achieves 63\% of the final value
   \item $T_s$ = Settling time = how quick the exponential function becomes constant
 \end{itemize}
-Remember, we have modelled mechanical and electrical systems, and arrived at the same equations. This could be biological, financial, meteorological… This is good, because you only need to understand one system to understand hundreds. However, this means the models can appear abstract (or possibly arbitrary), so it is important to keep in mind the physical systems we are trying to model. 
+Remember, we have modelled mechanical and electrical systems, and arrived at the same equations. This could be biological, financial, meteorological… This is good, because you only need to understand one system to understand hundreds. However, this means the models can appear abstract (or possibly arbitrary), so it is important to keep in mind the physical systems we are trying to model.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/blockdiagram19.png}
+  \includegraphics[width = 0.9 \textwidth]{./img/blockdiagram19.png}
   \caption{Left: Rate of decay determined by ratio of spring return force to viscous friction | Right: Rate of decay determined by total impedance of $R$ and $C$}
 \end{figure}
 \section{Second Order Systems}
@@ -85,7 +71,7 @@ This function is known as a damped oscillator, in that it produces harmonic sinu
 \subsubsection*{Example – Mass Spring Damper}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.3 \textwidth]{../img/massspringdamper.PNG}
+  \includegraphics[width = 0.3 \textwidth]{./img/massspringdamper.PNG}
 \end{figure}
 Consider a simple mechanical system Mass/Spring/Damper (MSD). As before, we wish to relate the input force to the output displacement i.e. Transfer function desired:
 \begin{gather}
@@ -144,7 +130,7 @@ It is an exponential function, which depending on whether $-\zeta \omega_n$ is p
 $\omega_n \ \zeta$ are just constants, so assuming $\zeta < 1$, this is just a sine wave.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/graphs8.PNG}
+  \includegraphics[width = 0.55 \textwidth]{./img/graphs8.PNG}
 \end{figure}
 This is an exponentially decaying sinusoidal oscillation, with:
 \begin{itemize}
@@ -155,7 +141,7 @@ This is an exponentially decaying sinusoidal oscillation, with:
 \subsection{Unit Step Response}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.65 \textwidth]{../img/graphs9.PNG}
+  \includegraphics[width = 0.65 \textwidth]{./img/graphs9.PNG}
 \end{figure}
 Some properties that should be known, but will be investigated later are:
 \begin{itemize}
@@ -169,7 +155,7 @@ Some properties that should be known, but will be investigated later are:
 \subsection*{LRC Filter}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.25 \textwidth]{../img/lrcfilter.PNG}
+  \includegraphics[width = 0.25 \textwidth]{./img/lrcfilter.PNG}
 \end{figure}
 A more complex filtering circuit is an LRC filter, also known as a harmonic oscillator circuit, which allows for a narrower range of frequencies to be amplified or attenuated. These circuits are used in analogue radios with a variable capacitor or inductor connected to the dial to select the frequency. To describe the relationship between the input voltage $V_i$, and the voltage across the capacitor $V_C$:
 \begin{gather}
@@ -217,6 +203,3 @@ Where:
   \item $\zeta = \frac{R}{2}\sqrt{\frac{C}{L}}$
   \item $\gamma = 1$
 \end{itemize}
-
-
-\end{document}

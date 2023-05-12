@@ -1,13 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{float}
-\usepackage{graphicx}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{commath}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\begin{document}
+\chapter{System Time Response - 2nd order}
 \section{Understanding poles and zeros}
 As defined, the transfer function is a rational function in the complex variable $s = \sigma + j \omega$, that is:
 \begin{align}
@@ -19,7 +10,7 @@ It is often convenient to factor the polynomials in the numerator and denominato
 \end{align}
 where the numerator and denominator polynomials, $N(s)$ and $D(s)$, have real coefficients defined by the system's differential equation and $K = \frac{b_m}{a_n}$. Poles and zeros are found by
 \begin{align}
-  N(s) = 0 \textrm{ and } D(s) = 0 
+  N(s) = 0 \textrm{ and } D(s) = 0
 \end{align}
 All of the coefficients of polynomials $N(s)$ and $D(s)$ are real, therefore the poles and zeros must be either purely real, or appear in complex conjugate pairs.
 \begin{quote}
@@ -28,22 +19,22 @@ All of the coefficients of polynomials $N(s)$ and $D(s)$ are real, therefore the
 \subsection{Example}
 A linear system is described by the differential equation:
 \begin{align}
-  \frac{\dif^2 y}{\dif t^2} + 2 \frac{\dif y}{\dif t} + 5y &= 3 \frac{\dif u}{\dif t} + 12 u\\
-  \mathcal{L} \left\{ \frac{\dif^2 y}{\dif t^2} + 2 \frac{\dif y}{\dif t} + 5y \right\} &= s^2 Y(s) + 2s Y(s) + 5Y(s)\\
-  \mathcal{L} \left\{ 3 \frac{\dif u}{\dif t} + 12 u \right\} &= 3sU(s) + 12U(s)\\
-  N(s) = 3s + 12 = 0 \rightarrow z_1 &= -4\\
-  D(s) = s^2 + 5s + 5 \rightarrow p_{\frac{1}{2}} &= \frac{-2\pm\sqrt{2^2 - 4\times 5}}{2} &= -1 \pm j2\\
-  G(s) = \frac{N(s)}{D(s)} &= 3\frac{s-(-4)}{(s-(-1+j2))(s-(-1-j2))}
+  \frac{\dif^2 y}{\dif t^2} + 2 \frac{\dif y}{\dif t} + 5y                              & = 3 \frac{\dif u}{\dif t} + 12 u                       \\
+  \mathcal{L} \left\{ \frac{\dif^2 y}{\dif t^2} + 2 \frac{\dif y}{\dif t} + 5y \right\} & = s^2 Y(s) + 2s Y(s) + 5Y(s)                           \\
+  \mathcal{L} \left\{ 3 \frac{\dif u}{\dif t} + 12 u \right\}                           & = 3sU(s) + 12U(s)                                      \\
+  N(s) = 3s + 12 = 0 \rightarrow z_1                                                    & = -4                                                   \\
+  D(s) = s^2 + 5s + 5 \rightarrow p_{\frac{1}{2}}                                       & = \frac{-2\pm\sqrt{2^2 - 4\times 5}}{2}  & = -1 \pm j2 \\
+  G(s) = \frac{N(s)}{D(s)}                                                              & = 3\frac{s-(-4)}{(s-(-1+j2))(s-(-1-j2))}
 \end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram67.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram67.png}
 \end{figure}
 \subsection{s-Plane}
 We can see how the time domain representation changes as we move around the s-plane. The imaginary axis corresponds to the sinusoidal component, and the real axis corresponds to the exponential.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram68.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram68.png}
 \end{figure}
 \section{Effect of damping ratio on the transfer function of a 2nd order system}
 \subsection{2nd order transfer function}
@@ -79,7 +70,7 @@ Thus it is clear that the roots of the characteristic equations and thus the beh
   \item Underdamped: $0 < \zeta < 1, \ s = -\zeta \omega_n \pm j \omega_n \sqrt{1-\zeta^2}$
   \item Undamped: $\zeta = 0, \ s = \pm j\omega_n$
 \end{itemize}
-Normally, only the underdamped case is given directly in the Laplace tables, so we need a bit of manipulation to get the others. 
+Normally, only the underdamped case is given directly in the Laplace tables, so we need a bit of manipulation to get the others.
 \subsection{Overdamped 2nd order system}
 The characteristic equation has two real and negative roots
 \begin{gather}
@@ -98,9 +89,9 @@ which gives the following in the time domain:
 \end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram69.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram69.png}
 \end{figure}
-There is no sinusoidal term anymore, the response is only a combination of exponential decays, a more complex but similar response to a first order system. 
+There is no sinusoidal term anymore, the response is only a combination of exponential decays, a more complex but similar response to a first order system.
 \subsection{Critically damped 2nd order system}
 Special case with a single repeated root:
 \begin{gather}
@@ -123,7 +114,7 @@ $\frac{1}{s^2}$ is the standard form of a ramp, or more generally from the Lapla
 \end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram70.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram70.png}
 \end{figure}
 The result is an exponential decay, multiplied by a ramp $= \omega_n^2 e^{-\omega_n t} t$.
 \subsection{Undamped 2nd order system}
@@ -139,7 +130,7 @@ Which, using the standard form for an oscillator is:
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram71.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram71.png}
 \end{figure}
 So the response is now just a sinusoid, with no exponential components.
 \section{Applying a step input to 2nd order systems - damping}
@@ -156,9 +147,9 @@ All of the following can be found through partial fraction decomposition and the
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram72.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram72.png}
 \end{figure}
-The slowest rise from the $\beta$ exponential dominates, as $\zeta$ increases the $\alpha$ term becomes negligible, and system becomes first order. 
+The slowest rise from the $\beta$ exponential dominates, as $\zeta$ increases the $\alpha$ term becomes negligible, and system becomes first order.
 \subsection{Critically damped step input response of 2nd order systems}
 \begin{gather}
   \zeta = 1\\
@@ -166,7 +157,7 @@ The slowest rise from the $\beta$ exponential dominates, as $\zeta$ increases th
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram73.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram73.png}
 \end{figure}
 Fastest possible rise without oscillating.
 \subsection{Underdamped step input response of 2nd order systems}
@@ -176,7 +167,7 @@ Fastest possible rise without oscillating.
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram74.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram74.png}
 \end{figure}
 It is sometimes written in terms of the damped natural frequency:
 \begin{gather}
@@ -195,19 +186,19 @@ As damping ratio reaches zero, the oscillations no longer decay
 So oscillations are at natural frequency with pi phase shift.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram75.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram75.png}
 \end{figure}
 \section{Underdamped step input responses}
 \subsection{Performance Criteria}
 Rise time $t_r$ is the time to reach steady state value (for first time). Peak time $t_p$ is the time to initial overshoot.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram76.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram76.png}
 \end{figure}
 Peak overshoot - value of overshoot above steady state: $ y(t_p) - y_{ss} = A$. Settling time $t_s$. Time for response to reach and maintain a certain ratio of the steady state value. Commonly $\pm 5\%$ or $\pm 2\%$
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram77.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram77.png}
 \end{figure}
 These criteria can be read from the graph, but having equations for them allows for a system parameters $\zeta$ and $\omega_n$ to be estimated. It is also useful for quantifying the effect of $\zeta$ on the response. Rise time can be found by setting the response $y$ to 1 and then rearranging:
 \begin{equation}
@@ -237,7 +228,7 @@ This can be rearranged to find the required damping ratio for a required oversho
 The envelope of the oscillation is described by the decaying exponential term, so to find the settling time, we can just consider this term alone.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram78.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram78.png}
 \end{figure}
 For example, the common target is 5\%:
 \begin{gather}
@@ -257,7 +248,7 @@ Previously, we saw for a step of $A$ the output can be calculated from:
   Y(s) = \frac{A}{s^2} G(s)\\
   Y(s) = \frac{1}{s^2} \frac{\omega_n^2}{s^2 + 2\zeta \omega_n s + \omega_n^2}
 \end{gather}
-All the following can be found through partial fraction decomposition and the standard Laplace tables (and loads more manipulation!). All these expressions are pretty complicated, but the important thing is to understand how the response changes with damping ratio, which follows a similar trend to the step response. 
+All the following can be found through partial fraction decomposition and the standard Laplace tables (and loads more manipulation!). All these expressions are pretty complicated, but the important thing is to understand how the response changes with damping ratio, which follows a similar trend to the step response.
 \subsection{Undamped response}
 $\zeta = 0$: undamped - sustained oscillations around ramp input $y = t$.
 \begin{equation}
@@ -265,17 +256,17 @@ $\zeta = 0$: undamped - sustained oscillations around ramp input $y = t$.
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram79.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram79.png}
 \end{figure}
 \subsection{Underdamped response}
 $\zeta < 1$: underdamped - exponential decaying oscillatory response around delayed ramp function.
 \begin{multline}
-  y(t) = \frac{1}{\omega_n} \left( \omega_n t - 2\zeta + e^{-\zeta \omega_n t} \left( 2\zeta \cos\left( \omega_n t\sqrt{1 - \zeta^2} \right) \right. \right. \\ 
+  y(t) = \frac{1}{\omega_n} \left( \omega_n t - 2\zeta + e^{-\zeta \omega_n t} \left( 2\zeta \cos\left( \omega_n t\sqrt{1 - \zeta^2} \right) \right. \right. \\
   \left. \left. - \frac{1}{\sqrt{1-\zeta^2}} \left( 1 - 2\zeta^2 \right) \sin \left( \omega_n t\sqrt{1-\zeta^2} \right) \right) \right)
 \end{multline}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram80.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram80.png}
 \end{figure}
 \subsection{Critically damped response}
 $\zeta = 1$: Critically damped - fastest response with no overshoot, still lagging input.
@@ -284,7 +275,7 @@ $\zeta = 1$: Critically damped - fastest response with no overshoot, still laggi
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram81.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram81.png}
 \end{figure}
 \subsection{Overdamped response}
 $\zeta > 1$: overdamped - cannot overshoot, lag increases.
@@ -293,7 +284,7 @@ $\zeta > 1$: overdamped - cannot overshoot, lag increases.
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram82.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram82.png}
 \end{figure}
 \subsection{Summary}
 Much more complicated response! but follows the same pattern as with the step response with changing damping ratio. The most important thing to notice here, is that the system does not match desired value - there is still a lag:
@@ -305,7 +296,7 @@ So a low damping ratio is needed to closely match the input value, but this come
 Recall the block diagram for a closed loop feedback system, in this case with 'unity' feedback - i.e. the error signal is passed directly to the summation junction:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/diagram83.png}
+  \includegraphics[width = 0.9\textwidth]{./img/diagram83.png}
 \end{figure}
 $G(s)$ is referred to as the \textbf{forward loop transfer function}, i.e. the combined transfer function of all the amplifiers controller, plant, systems in the feedforward path. In the case of unity feedback, it is also the \textbf{open loop transfer function}. We can find the overall transfer function $F(s)$ or \textbf{closed loop transfer function} through a bit of manipulation:
 \begin{gather}
@@ -317,7 +308,7 @@ $G(s)$ is referred to as the \textbf{forward loop transfer function}, i.e. the c
 Or more generally for a non unity gain system:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram84.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram84.png}
 \end{figure}
 \begin{equation}
   F_1 = \frac{\theta_0}{\theta_i} = \frac{G_1}{1 + G_1 H}
@@ -326,17 +317,17 @@ Lets take an example to show how this transfer function can relate to the system
 \section{Summary}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram85.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram85.png}
 \end{figure}
 The overdamped ($\zeta > 1$) and critically damped ($\zeta = 1$) responses are seldom desirable for control systems due to their long settling time. $\zeta = 0.7$ gives a fast response without excessive overshoot or oscillations.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram86.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram86.png}
 \end{figure}
 The response of second order systems is much more complicated than that of a first order system, with considerably different responses arising from changes in damping ratio.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram84.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram84.png}
 \end{figure}
 Negative feedback systems have a transfer function of the form:
 \begin{equation}
@@ -347,4 +338,3 @@ Which for a remote position servo is equal to:
   F(s) = \frac{\Theta_0 (s)}{\Theta_i (s)} = \frac{\frac{k}{I}}{s^2 + \frac{f}{I}s + \frac{k}{I}}
 \end{equation}
 Where $\omega_n = \sqrt{\frac{k}{I}}$ and $\zeta = \frac{f}{2\sqrt{kI}}$. The gain determines the damping ratio, and this the characteristics of the response of the system.
-\end{document}
