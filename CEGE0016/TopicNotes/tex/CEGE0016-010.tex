@@ -1,0 +1,58 @@
+\chapter{Sample Exam Paper 1}
+\section{Question 1}
+A manufacturer makes 1,000,000 chips per year, using a 1.5 Watt machine. Each chip takes 10 minutes to make, and energy is currently priced at \pounds 0.60 per Watt-hour. A new process would reduce the unit production time by 1 minute and energy consumption by 50\%. If all other costs remain the same, what is the maximum amount of money you would pay for this new process? Assume that the new process must pay for itself by the end of the first year.
+
+\textbf{5 marks}
+
+Old process:
+\begin{gather}
+    \SI{10e6}{\minute}\times \frac{1}{60} = \SI{166666.67}{\hour}\\
+    \SI{166666.67}{\hour} \times \SI{1.5}{\watt} = \SI{250000}{\watt\hour}\\
+    \SI{250000}{\watt\hour} \times \pounds 0.6 = \pounds 150000
+\end{gather}
+New process:
+\begin{gather}
+    \SI{9e6}{\minute}\times \frac{1}{60} = \SI{150000}{\hour}\\
+    \SI{150000}{\hour} \times \SI{0.75}{\watt} = \SI{112500}{\watt\hour}\\
+    \SI{112500}{\watt\hour} \times \pounds 0.6 = \pounds 67500
+\end{gather}
+Maximum amount that should be paid:
+\begin{gather}
+    \pounds 150000 - \pounds 67500 = \pounds 82500
+\end{gather}
+\section{Question 2}
+Two mutually exclusive investment alternatives are being considered by an automotive engineering manufacturer, and one of them must be selected.
+Alternative A requires an initial investment of \pounds 13,000 in equipment. Annual operating and maintenance costs are anticipated to be normally distributed, with a mean of \pounds 5,000 and a standard deviation of \pounds 500. The terminal salvage value at the end of the eight-year planning horizon is anticipated to be normally distributed, with a mean of \pounds 2,000 and a standard deviation of \pounds 800. Alternative B requires end-of-year annual expenditures over the eight-year planning horizon, with the annual expenditure being normally distributed with a mean of \pounds 7,500 and a standard deviation of \pounds 750. Using a MARR of 15\% per year, what is the probability that Alternative A is the most economic alternative (i.e., the least costly)?
+
+Hint: The addition or subtraction of two normally distributed random variables is a normally distributed random variable.
+
+\textbf{25 marks}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}llllll@{}}
+        \toprule
+        Alternative A &                   &                 & Alternative B &                   &                 \\
+        \midrule
+        Initial costs & \pounds 13000     &                 & Annual O\&M   & \pounds 7500 mean & \pounds 750 STD \\
+        Annual O\&M   & \pounds 5000 mean & \pounds 500 STD &               &                   &                 \\
+        Salvage value & \pounds 2000 mean & \pounds 800 STD &               &                   &                 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Mean NPV Alternative A:
+\begin{gather}
+    -13000 - 5000\times \frac{\left(1.15\right)^8 - 1}{0.15\left(1.15\right)^8} + 2000\times \frac{1}{1.15^8} = -34782.80 \pounds
+\end{gather}
+Variance of NPV Alternative A:
+\begin{gather}
+    500^2 \sum_{k=1}^8 \frac{1}{1.15^{2k}} + 800^2 \times \frac{1}{1.15^16} = 760746\pounds
+\end{gather}
+Mean NPV Alternative B
+\begin{gather}
+    -7500\times \frac{\left(1.15\right)^8 - 1}{0.15\left(1.15\right)^8} = -33655\pounds
+\end{gather}
+Variance of NPV Alternative B
+\begin{gather}
+    750^2\sum_{k=1}^8 \frac{1}{1.15^{2k}} = 1557794\pounds
+\end{gather}
