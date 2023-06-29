@@ -1,24 +1,11 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{float}
-\usepackage[normalem]{ulem}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{tikz}
-\usetikzlibrary{positioning, fit, calc}   
-\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
-line/.style={-latex}     
-}  
-\begin{document}
+\chapter{Centrifugal pumps and Blade design}
 \section{Centrifugal pumps}
 \subsection{Functional principle}
 Centrifugal pump's working principle can be understood very simply if you think about what happens to the liquid level when you steer a liquid in a glass: the free surface of the liquid becomes concave, and rises from the centre to the periphery - you are raising the flow head at the periphery.
 \subsection{Functional components}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram1.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram1.png}
 \end{figure}
 The fluid enters axially and receives tangential and radial velocity by momentum transfer from rotating blades. The centrifugal force provides further radial velocity. Then the flow is collected and decelerated, in order to increase its pressure before it leaves the pump. The process produces depression at the pump axis, which sucks new fluid. The functional components of centrifugal pumps are:
 \begin{itemize}
@@ -39,32 +26,32 @@ These limitations can be overcome by using two or more pumps in \textbf{parallel
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.3\textwidth]{../img/diagram2.png}
+  \includegraphics[width = 0.3\textwidth]{./img/diagram2.png}
 \end{figure}
 \subsection{End-suction pump}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram3.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram3.png}
 \end{figure}
 The different operating requirements have produced a large number of possible centrifugal pump designs. We will consider the most common version, which is called \textbf{end-suction centrifugal pump}, and consists of the following parts:
 \begin{itemize}
   \item A rotating component called rotor (red)
-  \begin{itemize}
-    \item Impeller blades, hub and shroud
-    \item Shaft
-  \end{itemize}
+        \begin{itemize}
+          \item Impeller blades, hub and shroud
+          \item Shaft
+        \end{itemize}
   \item A stationary component (green)
-  \begin{itemize}
-    \item Suction nozzle
-    \item Scroll casing (or volute casing)
-    \item Pump casing
-    \item Back cover
-    \item Bearings
-  \end{itemize}
+        \begin{itemize}
+          \item Suction nozzle
+          \item Scroll casing (or volute casing)
+          \item Pump casing
+          \item Back cover
+          \item Bearings
+        \end{itemize}
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram4.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram4.png}
   \caption{End-suction centrifugal pump}
 \end{figure}
 \subsection{The Impeller}
@@ -123,7 +110,7 @@ Efficient designs are aimed at accommodating the fluid flow into the impeller. T
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram5.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram5.png}
 \end{figure}
 \textbf{Velocities of the flow relative to the blades}, we know the radial component and the direction. Due to conservation of mass and incompressibility assumption. The flow rate at each radius has to be the same (equal to the suction flow rate).
 \begin{gather}
@@ -134,7 +121,7 @@ Efficient designs are aimed at accommodating the fluid flow into the impeller. T
 where subscript $n$ signifies the normal component.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram6.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram6.png}
 \end{figure}
 \begin{itemize}
   \item Direction: due to no-separation condition, direction is parallel to the blade surfaces
@@ -142,7 +129,7 @@ where subscript $n$ signifies the normal component.
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/diagram7.png}
+  \includegraphics[width = 0.5\textwidth]{./img/diagram7.png}
 \end{figure}
 The leading edge angle $\beta_1$ is defined as the blade angle relative to the reverse tangential direction at radius $r_1$ and the trailing edge angle $\beta_2$ as the blade angle relative to the reverse tangential direction at radius $r_2$. We can combine all information and apply the parallelogram rule to calculate
 \begin{itemize}
@@ -151,7 +138,7 @@ The leading edge angle $\beta_1$ is defined as the blade angle relative to the r
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram10.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram10.png}
 \end{figure}
 The normal and tangential components of the absolute velocity are:
 \begin{gather}
@@ -172,7 +159,7 @@ We define a vector $\vec{L}$ called angular momentum as vector product of the ra
 \begin{equation}
   \vec{L} = \vec{r} \times m \vec{v}
 \end{equation}
-Upon taking the temporal differential of $\vec{L}$, we have: 
+Upon taking the temporal differential of $\vec{L}$, we have:
 \begin{equation}
   \frac{d\vec{L}}{dt} = \frac{d\vec{r}}{dt} \times m\vec{v} + \vec{r} \times \frac{d}{dt}(m\vec{v})
 \end{equation}
@@ -184,7 +171,7 @@ The rate of change of angular momentum of an object about a fixed point is equal
 \subsection{Flow into the impeller}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram9.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram9.png}
   \caption{Consider the control volume described by the rotating impeller blades.}
 \end{figure}
 We can calculate the torque $T_{\textrm{shaft}}$ on the rotating shaft from the Euler turbomachine equation:
@@ -193,7 +180,7 @@ We can calculate the torque $T_{\textrm{shaft}}$ on the rotating shaft from the 
 \end{equation}
 Assuming no losses, the efficiency is equal to one and therefore the ideal net head of the pump can be calculated as:
 \begin{gather}
-  \eta_{\textrm{pump}} = \frac{\rho g Q}{\omega T_{\textrm{shaft}}}H = 1\\ 
+  \eta_{\textrm{pump}} = \frac{\rho g Q}{\omega T_{\textrm{shaft}}}H = 1\\
   \rho g QH = \omega T_{\textrm{shaft}} = \omega\rho Q (r_2v_{2,t} - r_1 v_{1,t})\\
   H = \frac{1}{g}(\omega r_2 v_{2,t} - \omega r_1 v_{1,t})
 \end{gather}
@@ -208,4 +195,3 @@ Since the flow velocities into the impeller depend on the blades angles (e.g. le
   v_{1,2,n} = (v_{1,2,\textrm{blade}} - v_{1,2,rel} \cos{\beta_{1,2}}) = \omega r_{1,2} - v_{1,2,rel} \cos{\beta_{1,2}}
 \end{gather}
 $Q, \ H, \ v_n, \ v_t$ are in terms of $r, \ b, \ \omega, \ \beta, \ v_{rel}$
-\end{document}

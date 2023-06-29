@@ -1,54 +1,32 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage{tikz}
-\usepackage{cancel}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\allowdisplaybreaks
-\setlength{\parindent}{0pt}
-\numberwithin{equation}{section}
-\begin{document}
-\begin{center}
-  02/03/2021
-\end{center}
 \section{Overview of a Steam Power Plant}
 \subsection{Schematic of A Steam Power System}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram136.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram136.png}
   \caption{}
 \end{figure}
 \subsection{Pressurised-water Reactor Nuclear Steam Power Plant}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram137.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram137.png}
   \caption{}
 \end{figure}
 \subsection{Concentrating Solar Thermal Steam Power Plant}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram138.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram138.png}
   \caption{}
 \end{figure}
 \subsection{Geothermal Vapour Power Plant}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram139.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram139.png}
   \caption{}
 \end{figure}
 \subsection{Main Components of a Steam Power System}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.65 \textwidth]{../img/diagram140.png}
+  \includegraphics[width = 0.65 \textwidth]{./img/diagram140.png}
   \caption{}
 \end{figure}
 \begin{itemize}[noitemsep]
@@ -78,7 +56,7 @@
 \section{The Carnot Vapour Power Cycle}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram141.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram141.png}
   \caption{}
 \end{figure}
 \begin{itemize}[noitemsep]
@@ -98,7 +76,7 @@ Thus, the idealised Carnot Vapour Cycle is not practical!
 \section{Rankine Vapour Power Cycle}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram142.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram142.png}
   \caption{}
 \end{figure}
 \begin{itemize}[noitemsep]
@@ -111,7 +89,7 @@ Area 1–b–c–4–a–1 represents the heat transfer to the working fluid pas
 \begin{gather}
   q_{in}=(h_1-h_4)
 \end{gather}
-Area 2–b–c–3–2, is the heat transfer from the working fluid passing through the condenser, each per unit of mass flowing: 
+Area 2–b–c–3–2, is the heat transfer from the working fluid passing through the condenser, each per unit of mass flowing:
 \begin{gather}
   q_{out}=(h_2-h_3)
 \end{gather}
@@ -155,7 +133,7 @@ Low temperature:
 \begin{gather}
   \left(\frac{\dot{Q}_{out}}{\dot{m}}\right)\mathop{_{int}}_{rev} = T_{out}(s_1-s_4)
 \end{gather}
-For internally reversible cycle: 
+For internally reversible cycle:
 \begin{gather}
   \eta_{ideal} = 1-\frac{\left(\frac{\dot{Q}_{out}}{\dot{m}}\right)\mathop{_{int}}_{rev}}{\left(\frac{\dot{Q}_{in}}{\dot{m}}\right)\mathop{_{int}}_{rev}} = 1-\frac{T_{out}}{\overline{T}_{in}}
 \end{gather}
@@ -163,7 +141,7 @@ For internally reversible cycle:
 \subsection*{Lowering the Condenser Pressure (Lowering the Low temperature):}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45 \textwidth]{../img/diagram143.png}
+  \includegraphics[width = 0.45 \textwidth]{./img/diagram143.png}
   \caption{}
 \end{figure}
 The colored area on this diagram represents the increase in net work output as a result of lowering the condenser pressure. \\\\
@@ -173,7 +151,7 @@ The heat input requirements also increase but this increase is very small. \\\\
 \subsection*{Superheating the Steam to Higher Temperatures:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45 \textwidth]{../img/diagram144.png}
+  \includegraphics[width = 0.45 \textwidth]{./img/diagram144.png}
   \caption{}
 \end{figure}
 Both the net work and heat input increase, however, the overall effect is an increase in thermal efficiency since the \textbf{average high temperature} increases. \\\\
@@ -187,18 +165,18 @@ The temperature to which steam can be superheated is limited by metallurgical co
 \subsection*{Increasing the Boiler Pressure:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.85 \textwidth]{../img/diagram145.png}
+  \includegraphics[width = 0.85 \textwidth]{./img/diagram145.png}
   \caption{A supercritical Rankine cycle}
 \end{figure}
 Raises the average temperature at which heat is transferred to the steam and thus raises the thermal efficiency of the cycle. \\\\
 Notice that for a fixed turbine inlet temperature, the cycle shifts to the left and \textbf{the moisture content of steam at the turbine exit increases}. This undesirable side effect can be corrected, however, by reheating the steam, as discussed in the next section. \\\\
 Today advanced modern steam power plants operate at \textbf{supercritical pressures (up to 30 MPa)} and have thermal efficiencies of up to \textbf{47 percent} for fossil fuel plants and \textbf{35 percent} for nuclear plants.
 \subsection{The Ideal Reheat Rankine Cycle}
-Superheat the steam to very high temperatures before it enters the turbine. 
-Expand the steam in the turbine in two stages, and reheat it in between. 
+Superheat the steam to very high temperatures before it enters the turbine.
+Expand the steam in the turbine in two stages, and reheat it in between.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram146.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram146.png}
   \caption{}
 \end{figure}
 Total heat input:
@@ -216,13 +194,13 @@ The incorporation of a single reheat stage in a modern power plant improves the 
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45 \textwidth]{../img/diagram147.png}
+  \includegraphics[width = 0.45 \textwidth]{./img/diagram147.png}
   \caption{}
 \end{figure}
 \subsection{Principal Irreversibilities and Losses}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45 \textwidth]{../img/diagram148.png}
+  \includegraphics[width = 0.45 \textwidth]{./img/diagram148.png}
   \caption{}
 \end{figure}
 \subsubsection{Turbine:}
@@ -232,7 +210,7 @@ The principal irreversibility experienced by the working fluid is associated wit
   \eta_t = \frac{\left(\frac{\dot{W}_t}{\dot{m}}\right)}{\left(\frac{\dot{W}_t}{\dot{m}}\right)_s} = \frac{h_1-h_2}{h_1-h_{2s}}
 \end{gather}
 \subsubsection{Pump:}
-The work input to the pump required to overcome frictional effects also reduces the net power output of the plant. The isentropic pump efficiency is: 
+The work input to the pump required to overcome frictional effects also reduces the net power output of the plant. The isentropic pump efficiency is:
 \begin{gather}
   \eta_p = \frac{\left(\frac{\dot{W}_p}{\dot{m}}\right)_s}{\left(\frac{\dot{W}_p}{\dot{m}}\right)} = \frac{h_{4s}-h_3}{h_4-h_3}
 \end{gather}
@@ -244,12 +222,11 @@ Frictional effects resulting in \textbf{pressure drops} are sources of \textbf{i
 \section{Regenerative Vapour Power Cycle}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram149.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram149.png}
   \caption{Regenerative vapour power cycle with one open feedwater heater}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram150.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram150.png}
   \caption{Regenerative vapour power cycle with one closed feedwater heater}
 \end{figure}
-\end{document}

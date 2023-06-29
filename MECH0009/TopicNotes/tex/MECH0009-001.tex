@@ -1,17 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{float}
-\usepackage[normalem]{ulem}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{tikz}
-\usetikzlibrary{positioning, fit, calc}   
-\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
-line/.style={-latex}     
-}  
-\begin{document}
+\chapter{Fluid machines and performance of pumps}
 \section{Fluid Machines}
 Fluid machines are devices that operate by exchanging energy with a fluid. Fluid is a phase of matter unable to support a shear stress in static equilibrium. Fluids do not resist to deformation and take the shape of the containers (they flow). Fluids are also divided into liquids and gases. \textbf{Pumps} add energy to the fluid, resulting in an increase in fluid pressure across the machine. \textbf{Turbines} extract energy from the fluid, resulting in a decrease in fluid pressure across the machine.
 
@@ -48,7 +35,7 @@ Disadvantages
 Advantages
 \begin{itemize}
   \item They are mechanically simple - because of their simplicity, they are relatively economic and low maintenance
-  \item Tolerances are not critical - since they are momentum based, they operate with a large range of mechanical tolerances. For the same reason, they are suitable for low viscosity fluids. 
+  \item Tolerances are not critical - since they are momentum based, they operate with a large range of mechanical tolerances. For the same reason, they are suitable for low viscosity fluids.
   \item Provide a steady flow at the outlet - contrary to many positive displacement pumps
 \end{itemize}
 Disadvantages
@@ -59,7 +46,7 @@ Disadvantages
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/tabletocomparepumps.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/tabletocomparepumps.png}
 \end{figure}
 \subsection{Positive-displacement reciprocation pumps}
 Positive-displacement pumps supply energy to the fluid by the movement of the boundaries of a closed volume: Fluid is sucked into an expanding volume and then pushed along as that volume contracts, producing an increase in fluid pressure.
@@ -82,7 +69,7 @@ Technical characteristics
 \subsection{Positive-displacement rotary pumps}
 Positive displacement pumps supply energy to the fluid by the movement of the boundaries of a closed volume. Fluid is sucked into an expanding volume and then pushed along as that volume contracts, producing an increase in fluid pressure.
 
-Lobe, gear and screw rotary pumps: volumes of fluid are trapped in the pockets between the lobes (or the gear tooth spaces) and the casing. With the rotation of the loves (or gears) the liquid is forced to travel in one direction around the interior of the casing and is pushed through the outlet port under pressure. Lobes are driven by external timing gears and as a result the lobes do not make contact. Liquid travels around the interior of the casing in the pockets between the lobes and the casing, meshing of the lobes forces liquid through the outlet port under pressure. Energy is supplied by the movement of rotating components acting on a closed volume of fluid. 
+Lobe, gear and screw rotary pumps: volumes of fluid are trapped in the pockets between the lobes (or the gear tooth spaces) and the casing. With the rotation of the loves (or gears) the liquid is forced to travel in one direction around the interior of the casing and is pushed through the outlet port under pressure. Lobes are driven by external timing gears and as a result the lobes do not make contact. Liquid travels around the interior of the casing in the pockets between the lobes and the casing, meshing of the lobes forces liquid through the outlet port under pressure. Energy is supplied by the movement of rotating components acting on a closed volume of fluid.
 
 Technical characteristics
 \begin{itemize}
@@ -101,13 +88,13 @@ Positive-displacement pumps supply energy to the fluid by the movement of the bo
 
 Peristaltic pumps: It is based on the principle of "peristalsis" (alternating contraction and relaxation of muscles around a tube). A smooth wall flexible tube is squeezed along its length, positively displacing the fluid contained within the tube. The tube's restitution after the squeeze creates a vacuum, which sucks more fluid into the tube, causing a gentle pumping action with minimal damage to the media inside the tube.
 \subsection{Roto-dynamic pumps}
-Dynamic pumps supply energy to an open volume of fluid. In the case of roto-dynamic pumps, this is done by imparting to the flowing fluid a momentum through the rotation of the blades (impeller blades or rotor blades). (There are also non rotary dynamic pumps such as jet pumps or electromagnetic pumps.) The rotating blades are called \textbf{impeller blades} (or \textbf{rotor blades}) in the case of pumps. If the blades have a casing around the turbomachine it is called \textbf{enclosed} or \textbf{ducted}. If there is no casing, it is called \textbf{open}. 
+Dynamic pumps supply energy to an open volume of fluid. In the case of roto-dynamic pumps, this is done by imparting to the flowing fluid a momentum through the rotation of the blades (impeller blades or rotor blades). (There are also non rotary dynamic pumps such as jet pumps or electromagnetic pumps.) The rotating blades are called \textbf{impeller blades} (or \textbf{rotor blades}) in the case of pumps. If the blades have a casing around the turbomachine it is called \textbf{enclosed} or \textbf{ducted}. If there is no casing, it is called \textbf{open}.
 
 Axial flow pumps: pressure is developed by the propelling or lifting action of the blades of the impeller on the liquid. These act as rotating wings, and produce force through application of both Bernoulli's principle and Newton's third law, generating a difference in pressure the forward and rear surfaces of the airfoil-shaped blades. Axial pumps give much lower pressures than centrifugal pumps.
 
-Radial flow pumps: radial flow pumps are centrifugal pumps in which the pressure is developed wholly by centrifugal force: the fluid enters the pump near the centre of the impeller and is moved to its outside diameter by the rotating motion of the impeller. This allows centrifugal pumps to produce continuous flows at high pressure. 
+Radial flow pumps: radial flow pumps are centrifugal pumps in which the pressure is developed wholly by centrifugal force: the fluid enters the pump near the centre of the impeller and is moved to its outside diameter by the rotating motion of the impeller. This allows centrifugal pumps to produce continuous flows at high pressure.
 
-Mixed flow pump: are intermediate between the previous two cases. The pressure is developed partly by centrifugal force and partly by the lift of the vanes of the impeller on the liquid. 
+Mixed flow pump: are intermediate between the previous two cases. The pressure is developed partly by centrifugal force and partly by the lift of the vanes of the impeller on the liquid.
 
 Technical characteristics
 \begin{itemize}
@@ -156,7 +143,7 @@ Tje value of total energy is constant and is therefore a straight line (Energy G
 The Bernoulli equation can also be expressed as: the sum of the pressure, velocity and elevation heads along a streamline is constant during steady flow (when the compressibility and the frictional effects are negligible).
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/gradelines.png}
+  \includegraphics[width = 0.8\textwidth]{./img/gradelines.png}
 \end{figure}
 If a pump is present in the circuit, it will deliver energy to the fluid, raising the total head of a quantity $H$, corresponding to the net head of the pump. The Bernoulli equation between the inlet and the outlet of the pump can be written as:
 \begin{equation}
@@ -187,24 +174,24 @@ THe \textbf{pump efficiency} ($\eta_{\textrm{pump}}$) is defined as the ratio of
 The pump's \textbf{free delivery} corresponds to the maximum flow rate and occurs when there is no flow restriction at the pump inlet or outlet (there is no load on the pump). This condition is associated with largest capacity but zero head.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/freedelivery.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/freedelivery.png}
 \end{figure}
 At the other extreme, the pump's \textbf{shut-off head} corresponds to a large head (not necessarily the highest) and occurs when the outlet pressure is so high as to block off the outlet port (there is no flow rate). This condition is associated with zero capacity but with a large net head. Efficiency depends on the pump size, type, design and finishes. Larger pumps and smoother impeller finishes increase the efficiency.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/shutoffhead.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/shutoffhead.png}
 \end{figure}
 Consider a specific rotational speed of the pump. The curve of the net head as a function of the capacity is equal to the shut-off head for $Q=0$ and equal 0 for at free delivery. The curve of the efficiency (green) as function of the capacity is equal to zero at zero capacity (shut-off head) and free delivery, and reaches the maximum somewhere in between, at a point called \textbf{best efficiency point} (BEP). Commonly, the curve of the of the brake horsepower is included in the diagram that is provided by the pump manufacturer.
 \begin{figure}[H]
   \centering
-  \includegraphics[width= 0.5\textwidth]{../img/BEPgraph.png}
+  \includegraphics[width= 0.5\textwidth]{./img/BEPgraph.png}
 \end{figure}
 The diagram, generated by experimental tests performed by the pump manufacturer at a specific speed, describes the operating properties of the pump and is known as the pump's \textbf{characteristic curves}. Under steady conditions, the pump can operate along its performance curves.
 
-Commonly, the pump is used  to provide a required head to a specific system, including all the piping and equipment from an inlet section (often the fluid surface of the suction) to an outlet section (often the fluid surface of the discharge tank). 
+Commonly, the pump is used  to provide a required head to a specific system, including all the piping and equipment from an inlet section (often the fluid surface of the suction) to an outlet section (often the fluid surface of the discharge tank).
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/BEPgraph2.png}
+  \includegraphics[width = 0.6 \textwidth]{./img/BEPgraph2.png}
 \end{figure}
 Each piping system is characterised by hydraulic losses, due to pipe friction, valves and other fittings, entrance and exit losses and variation of pipe diameters. Losses depend on the flow conditions (in general, the increase with the square of the flow rate). Therefore, the required pump head varies with the capacity, describing a plot called the \textbf{system curve}. The system operating conditions may change over time, therefore all possible system curves should be considered in order to select the most suitable pump.
 

@@ -1,48 +1,41 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{gensymb}
-\usepackage{siunitx}
-\sisetup{detect-all}
-\begin{document}
 \section{Properties}
 \subsection{Stress and strain}
-Stress a.k.a load, strain a.k.a deflection. Doubling the stress will double the deflection. Deflection will depend on the specimen size. In order to compare these properties, we need to normalise for differences in dimension e.g. \(\delta L / L = \epsilon\) - strain. For stress, we divide the force by the area its being applied over i.e. \(F/A = \sigma \). Strain is sometimes represented as percentage. 
+Stress a.k.a load, strain a.k.a deflection. Doubling the stress will double the deflection. Deflection will depend on the specimen size. In order to compare these properties, we need to normalise for differences in dimension e.g. \(\delta L / L = \epsilon\) - strain. For stress, we divide the force by the area its being applied over i.e. \(F/A = \sigma \). Strain is sometimes represented as percentage.
 
 Note: stress is a variable. Strength is not, it is a fixed property of a material.
 \subsection{Hardness}
-Often quoted for metals as a design parameter as it is easy to measure and can be related to strength. Dimensions of indent can be related to the strength in compression, which can be measured in various ways. In the UK, Vickers hardness \(H_v\) (triangular indenter) is a test for the hardness of the material. Other systems, such as Rockwell and Brinell hardness (circular indenter) exist. Scratching a specimen can also be used to test the hardness of a material e.g. Mohs scale, where diamond is at 10 and arbitrary hardness at the other end of the scale. 
+Often quoted for metals as a design parameter as it is easy to measure and can be related to strength. Dimensions of indent can be related to the strength in compression, which can be measured in various ways. In the UK, Vickers hardness \(H_v\) (triangular indenter) is a test for the hardness of the material. Other systems, such as Rockwell and Brinell hardness (circular indenter) exist. Scratching a specimen can also be used to test the hardness of a material e.g. Mohs scale, where diamond is at 10 and arbitrary hardness at the other end of the scale.
 
-Indentation techniques are not suitable for brittle materials and is normally used for metals as they slip (plastically deform). They are also difficult to use on elastomers, where we use abrasion test or "bouncing ball" tests. 
+Indentation techniques are not suitable for brittle materials and is normally used for metals as they slip (plastically deform). They are also difficult to use on elastomers, where we use abrasion test or "bouncing ball" tests.
 \subsection{Stiffness}
 Also known as - Elastic Modulus, Modulus of Elasticity or the Young's Modulus (tension). May also be referred to as the opposite of floppiness. Refers to the flexibility of a material. Units are in Pascals \si{\pascal} or \si{\newton\per\meter\squared}. The following equation gives us the Young's Modulus of a material.
 \begin{equation}
   E = \frac{\sigma}{\epsilon}
 \end{equation}
-This equation relates the normalised load and its normalised deflection. It measures how far something deflects per unit load. These only apply in the elastic regime of a material's behaviour i.e. only for elastic strain. 
+This equation relates the normalised load and its normalised deflection. It measures how far something deflects per unit load. These only apply in the elastic regime of a material's behaviour i.e. only for elastic strain.
 \subsection{Strength}
-Defined as the stress required to "break" a material (there are different types of break, hence different strengths definable). 
+Defined as the stress required to "break" a material (there are different types of break, hence different strengths definable).
 \subsubsection{Tensile strength}
 Defined as the stress required to fracture a material in tension into two bits. Symbol used is \(\sigma_{UTS}\), where UTS stands for ultimate tensile strength. This has units \si{\pascal}.
 \subsubsection{Compressive strength}
 In most cases, this is similar to \(\sigma_{UTS}\), but its often difficult to measure. This is because materials such as metals don't break into two pieces under a compressive force - they just squash. Other materials such as ceramics will shatter or crush at a specific load. Hence, a compressive strength is definable for such materials.
 
-Metals and polymers often "fail" at much lower stresses than \(\sigma_{UTS}\) e.g. they will suffer plastic deformation before fracture. This is always less than \(\sigma_{UTS}\), if slip can occur, slip will occur first - this is a form of failure. The stress at which this happens is called the yield strength \(\sigma_y\), defined as the stress required to induce plasticity in a material. 
+Metals and polymers often "fail" at much lower stresses than \(\sigma_{UTS}\) e.g. they will suffer plastic deformation before fracture. This is always less than \(\sigma_{UTS}\), if slip can occur, slip will occur first - this is a form of failure. The stress at which this happens is called the yield strength \(\sigma_y\), defined as the stress required to induce plasticity in a material.
 
 In a ceramic, there is no easy mechanism for slip and thus no noticeable plastic deformation. We define \(\sigma_f\) or fracture strength for such materials. As there is no plasticity, \(\sigma_{UTS}\ = \sigma_y = \sigma_f\).
 \subsection{Ductility}
 Defined as the degree of plastic deformation achievable in a material before it breaks into two/fractures. It is a materials parameter and so a strain (plastic strain to fracture). It is often seen as a percentage of strain. Often 0.1\% for most metals and up to even 2000\% for some polymers. Ductility is very important if we want to create/shape materials through plastic deformation - extrusion, drawing, forging, bending. Ceramics have almost no observable ductility (no slip). These need to be sintered from powder.
 \subsection{Toughness}
-Related to the work/energy required to fracture a material, the amount of "damage" a material can take before fracturing. Very different to strength - which is the \emph{force} required to fracture. Strength and toughness are not absolutely related from an atomic viewpoint. The opposite of tough is \emph{brittle}, where very little energy is required to fracture. 
+Related to the work/energy required to fracture a material, the amount of "damage" a material can take before fracturing. Very different to strength - which is the \emph{force} required to fracture. Strength and toughness are not absolutely related from an atomic viewpoint. The opposite of tough is \emph{brittle}, where very little energy is required to fracture.
 
-Fractured surfaces tend to be "clean" and fit back together again. Brittle is often confused with being 'weak' i.e. a low force to break. It is true that brittle materials often appear to be weak in practice but not necessarily intrinsically weak. They behave 'weakly' due to the presence of defects - some can be visible (scratches, cracks) while others can be minute (micro-cracking at the atomic level, porosity). Defects determine the failure load (stress) of brittle materials. These act as stress concentrators, raising the globally applied load to much higher values on a local level, so much so that local bonds are broken i.e. the intrinsic strength is exceeded. so failure occurs at an apparently lower stress. Manufacturing has a huge role to play in determining the presence and severity of defects. However, if there are mechanisms for plastic deformation e.g. slip (which occurs below tensile strength), then as the stress rises at the defect, slip will begin to occur at the tip of the stress concentration and smooth it out, reducing its severity. Thus, in metals fracture at low loads is unlikely - they are tough. 
+Fractured surfaces tend to be "clean" and fit back together again. Brittle is often confused with being 'weak' i.e. a low force to break. It is true that brittle materials often appear to be weak in practice but not necessarily intrinsically weak. They behave 'weakly' due to the presence of defects - some can be visible (scratches, cracks) while others can be minute (micro-cracking at the atomic level, porosity). Defects determine the failure load (stress) of brittle materials. These act as stress concentrators, raising the globally applied load to much higher values on a local level, so much so that local bonds are broken i.e. the intrinsic strength is exceeded. so failure occurs at an apparently lower stress. Manufacturing has a huge role to play in determining the presence and severity of defects. However, if there are mechanisms for plastic deformation e.g. slip (which occurs below tensile strength), then as the stress rises at the defect, slip will begin to occur at the tip of the stress concentration and smooth it out, reducing its severity. Thus, in metals fracture at low loads is unlikely - they are tough.
 
 THIS IS THE SAME THING REWRITTEN:
 
-In a 'tough' material, local stress concentrators exist, so \(\sigma_{\textrm{global}}\) rises ahead of the crack to reach the point at which \emph{plastic} deformation occurs, such that yield will occur (slip (in metals) absorbs energy because work is consumed). 
+In a 'tough' material, local stress concentrators exist, so \(\sigma_{\textrm{global}}\) rises ahead of the crack to reach the point at which \emph{plastic} deformation occurs, such that yield will occur (slip (in metals) absorbs energy because work is consumed).
 
 Slip can slow down a crack or stop it. This work is demanded from an external load in order for the crack to propagate. It can change the shape of \(\sigma\)'s concentration i.e. smooth it out. Slippage and sliding can open up a defect and extra surface area is generated (blunting). Thus, in a plastically deformable material, existing defects are tolerated (no longer critical to strength). These materials are described as \emph{tough}.
 
 Note one: "bad" stress concentrators are sharp and long e.g. cracks and holes (which are still stress concentrators, just not to the same degree).
 
-Note two: toughness is related to ductility: high ductility = ease of slip = high toughness. A lot of energy is absorbed in attempting to propagate a defect line or crack. 
-\end{document}
+Note two: toughness is related to ductility: high ductility = ease of slip = high toughness. A lot of energy is absorbed in attempting to propagate a defect line or crack.

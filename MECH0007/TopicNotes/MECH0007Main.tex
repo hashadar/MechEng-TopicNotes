@@ -1,46 +1,9 @@
-\documentclass[12pt,a4paper, twoside]{report}
-
-\usepackage[subpreambles=true]{standalone}
-\usepackage{import}
-\usepackage{mathtools}
-\usepackage{natbib}
-\usepackage{blindtext}
-\usepackage{graphicx}
-\graphicspath{img/}
-\usepackage{amssymb}
-\usepackage{siunitx}
-\sisetup{detect-all}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-
-\fancyhead{}
-\fancyhead[RO,LE]{MECH007 Topic Notes}
-\fancyfoot{}
-\fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Chapter \thechapter}
-\fancyfoot[CO,RE]{HD}
-\setlength{\headheight}{15pt}
-
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
-
+\documentclass{hdnotes}
 \begin{document}
-\title{
-  {MECH0007 Topic Notes}\\
-  {\large UCL}
-  \author{HD}
-  \date{\today}
-}
-\maketitle
-\tableofcontents
-\chapter{Course Outline}
-\import{tex/}{MECH0007200115}
-\chapter{Properties of materials}
-\import{tex/}{MECH0007200116}
-\import{tex/}{MECH0007200123}
-\import{tex/}{MECH0007200129}
-\import{tex/}{MECH0007200205}
-%insert missing tex file here
-\import{tex/}{MECH0007200304}
+\input{tex/MECH0007200115}
+\input{tex/MECH0007200116}
+\input{tex/MECH0007200123}
+\input{tex/MECH0007200129}
+\input{tex/MECH0007200205}
+\input{tex/MECH0007200304}
 \end{document}

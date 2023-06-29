@@ -1,25 +1,3 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage{tikz}
-\usepackage{cancel}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\allowdisplaybreaks
-\setlength{\parindent}{0pt}
-\numberwithin{equation}{section}
-\begin{document}
-\begin{center}
-  02/02/2021
-\end{center}
 \section{Psychrometric Chart}
 \subsection{Air-Water Vapour Properties}
 How to evaluate air-water vapour properties?
@@ -30,7 +8,7 @@ How to evaluate air-water vapour properties?
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5 \textwidth]{../img/diagram105.png}
+  \includegraphics[width = 0.5 \textwidth]{./img/diagram105.png}
   \caption{}
 \end{figure}
 \subsubsection{Psychrometric Chart:}
@@ -41,13 +19,13 @@ How to evaluate air-water vapour properties?
   \item Useful for visualizing air-water vapour processes at constant pressure
   \item The specific volume $(v=V/m_a)$ has the unit of $\si{\metre\cubed\per\kilogram}$ dry air
   \item $h$ gives the mixture enthalpy per unit mass of dry air in the mixture:
-  \begin{gather}
-    h = \frac{H}{m_a} = h_a + \omega h_v \ (\si{\kilo\joule\per\kilogram} \ \text{dry air})
-  \end{gather}
+        \begin{gather}
+          h = \frac{H}{m_a} = h_a + \omega h_v \ (\si{\kilo\joule\per\kilogram} \ \text{dry air})
+        \end{gather}
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.85 \textwidth]{../img/diagram106.png}
+  \includegraphics[width = 0.85 \textwidth]{./img/diagram106.png}
   \caption{}
 \end{figure}
 \section{Psychrometric Applications}
@@ -56,7 +34,7 @@ How to evaluate air-water vapour properties?
 \textbf{Air-conditioning:} To change the temperature and water vapour fraction in the moist air
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/diagram107.png}
+  \includegraphics[width = 0.55 \textwidth]{./img/diagram107.png}
   \caption{}
 \end{figure}
 \subsection{List of Psychrometric Applications}
@@ -78,7 +56,7 @@ The first 5 of these applications are known of \textbf{Refrigerant, Air-Conditio
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/diagram108.png}
+  \includegraphics[width = 0.55 \textwidth]{./img/diagram108.png}
   \caption{}
 \end{figure}
 \subsubsection{Mass and Energy Balance for Open Systems:}
@@ -97,24 +75,24 @@ Steady state:
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5 \textwidth]{../img/diagram109.png}
+  \includegraphics[width = 0.5 \textwidth]{./img/diagram109.png}
   \caption{}
 \end{figure}
 \subsubsection{Air-Conditioning Processes:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.65 \textwidth]{../img/diagram110.png}
+  \includegraphics[width = 0.65 \textwidth]{./img/diagram110.png}
   \caption{}
 \end{figure}
 \begin{itemize}[noitemsep]
   \item On control volume basis;
   \item Steady State;
-  \item Assume 
-  \begin{itemize}[noitemsep]
-    \item $W_{cv} = 0$
-    \item $\Delta KE = 0$
-    \item $\Delta PE = 0$
-  \end{itemize}
+  \item Assume
+        \begin{itemize}[noitemsep]
+          \item $W_{cv} = 0$
+          \item $\Delta KE = 0$
+          \item $\Delta PE = 0$
+        \end{itemize}
   \item Heat transfer between the control volume and its surroundings;
   \item Liquid water (mist) or vapour added
 \end{itemize}
@@ -135,7 +113,7 @@ The $(h_{a1} + \omega_1h_{v1})$ term represents the \textbf{total specific entha
 Alternatively, enthalpies of the water vapour can be treated as the saturated vapour enthalpies at the corresponding temperatures:
 \begin{gather}
   h_{v1} \approx h_{g1} \\[5pt]
-  0 = \dot{Q}_{cv} + \dot{m}_{a}\left[(h_{a1} - h_{a2}) + \omega_1h_{g1} + (\omega_2-\omega_1)h_{w} - \omega_2h_{g2}\right] 
+  0 = \dot{Q}_{cv} + \dot{m}_{a}\left[(h_{a1} - h_{a2}) + \omega_1h_{g1} + (\omega_2-\omega_1)h_{w} - \omega_2h_{g2}\right]
 \end{gather}
 All the properties above can be found from the relevant tables:
 \begin{itemize}
@@ -165,17 +143,17 @@ Assumptions:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.75 \textwidth]{../img/diagram111.png}
+  \includegraphics[width = 0.75 \textwidth]{./img/diagram111.png}
   \caption{}
 \end{figure}
 \begin{align}
-  \text{Dry air mass balance:} \ \ \ \ \ &\dot{m}_{a,1} = \dot{m}_{a,2} = \dot{m}_{a} \\[5pt]
-  \text{Water mass balance:} \ \ \ \ \ &\dot{m}_{a}\omega_1 = \dot{m}_{a}\omega_2 \\[5pt]
-  \text{Energy balance:} \ \ \ \ \ &\dot{Q} = \dot{m}_{a}(h_2-h_1)
+  \text{Dry air mass balance:} \ \ \ \ \  & \dot{m}_{a,1} = \dot{m}_{a,2} = \dot{m}_{a} \\[5pt]
+  \text{Water mass balance:} \ \ \ \ \    & \dot{m}_{a}\omega_1 = \dot{m}_{a}\omega_2   \\[5pt]
+  \text{Energy balance:} \ \ \ \ \        & \dot{Q} = \dot{m}_{a}(h_2-h_1)
 \end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.72 \textwidth]{../img/diagram112.png}
+  \includegraphics[width = 0.72 \textwidth]{./img/diagram112.png}
   \caption{}
 \end{figure}
 \subsection*{Cooling with Dehumidification}
@@ -187,20 +165,20 @@ Assumptions:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5 \textwidth]{../img/diagram113.png}
+  \includegraphics[width = 0.5 \textwidth]{./img/diagram113.png}
   \caption{}
 \end{figure}
 \begin{align}
-  \text{Dry air mass balance:} \ \ \ \ \ &\dot{m}_{a,1} = \dot{m}_{a,2} = \dot{m}_{a} \\[5pt]
-  \text{Water mass balance:} \ \ \ \ \ &\dot{m}_{a}\omega_1 = \dot{m}_{a}\omega_2 + \dot{m}_{w} \\[5pt]
-  \longrightarrow \ \ &\dot{m}_{w} = \dot{m}_{a}(\omega_1-\omega_2)\\[5pt]
-  \text{Energy balance:} \ \ \ \ \ &\dot{Q} = \dot{m}_{a}(h_2-h_1) + \dot{m}_{w}h_{w} \\[5pt]
-  &= \dot{m}_{a}\left[(h_2-h_1) + (\omega_1-\omega_2)h_{w}\right]
+  \text{Dry air mass balance:} \ \ \ \ \  & \dot{m}_{a,1} = \dot{m}_{a,2} = \dot{m}_{a}                    \\[5pt]
+  \text{Water mass balance:} \ \ \ \ \    & \dot{m}_{a}\omega_1 = \dot{m}_{a}\omega_2 + \dot{m}_{w}        \\[5pt]
+  \longrightarrow \ \                     & \dot{m}_{w} = \dot{m}_{a}(\omega_1-\omega_2)                   \\[5pt]
+  \text{Energy balance:} \ \ \ \ \        & \dot{Q} = \dot{m}_{a}(h_2-h_1) + \dot{m}_{w}h_{w}              \\[5pt]
+                                          & = \dot{m}_{a}\left[(h_2-h_1) + (\omega_1-\omega_2)h_{w}\right]
 \end{align}
 Note - Outlet state is saturated: $\phi_2 = 1.0$
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/diagram114.png}
+  \includegraphics[width = 0.7 \textwidth]{./img/diagram114.png}
   \caption{}
 \end{figure}
 \textbf{Real} air coil with dehumidification:
@@ -211,17 +189,17 @@ Note - Outlet state is saturated: $\phi_2 = 1.0$
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/diagram115.png}
+  \includegraphics[width = 0.7 \textwidth]{./img/diagram115.png}
   \caption{}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/diagram116.png}
+  \includegraphics[width = 0.7 \textwidth]{./img/diagram116.png}
   \caption{}
 \end{figure}
 \subsection{Humidification}
 Difference with respect to evaporative cooling (Use water vapour (steam) instead of liquid water to humidify the air) \\\\
-Assumptions: 
+Assumptions:
 \begin{itemize}[noitemsep]
   \item $\Delta KE = \Delta PE = 0$
   \item Steady state
@@ -229,7 +207,7 @@ Assumptions:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.65 \textwidth]{../img/diagram117.png}
+  \includegraphics[width = 0.65 \textwidth]{./img/diagram117.png}
   \caption{}
 \end{figure}
 Mass Balances:
@@ -251,14 +229,14 @@ For Evaporative Cooler:
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/diagram118.png}
+  \includegraphics[width = 0.6 \textwidth]{./img/diagram118.png}
   \caption{}
 \end{figure}
 \subsection{Humidification with Heating}
 During winter time, when the outdoor humidity is low, typically \textbf{both} heating and humidification are needed in door.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.85 \textwidth]{../img/diagram119.png}
+  \includegraphics[width = 0.85 \textwidth]{./img/diagram119.png}
   \caption{}
 \end{figure}
 Heating Coil:
@@ -287,7 +265,7 @@ Energy balance on humidification:
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/diagram120.png}
+  \includegraphics[width = 0.6 \textwidth]{./img/diagram120.png}
   \caption{}
 \end{figure}
 \subsection{Evaporative Cooling}
@@ -301,7 +279,7 @@ Assumptions:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.75 \textwidth]{../img/diagram121.png}
+  \includegraphics[width = 0.75 \textwidth]{./img/diagram121.png}
   \caption{}
 \end{figure}
 Mass Balances:
@@ -321,22 +299,22 @@ The $(\omega_2-\omega_1)h_f$ term is much smaller than the other two terms:
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/diagram122.png}
+  \includegraphics[width = 0.7 \textwidth]{./img/diagram122.png}
   \caption{}
 \end{figure}
 \subsection{Adiabatic Mixing of Two Moist Air Streams}
 \textbf{Adiabatic Mixing} of state 1 and state 2:
 \begin{itemize}[noitemsep]
   \item Assume:
-  \begin{itemize}[noitemsep]
-    \item $\dot{Q} = 0$
-    \item $\dot{W} = 0$
-  \end{itemize}
+        \begin{itemize}[noitemsep]
+          \item $\dot{Q} = 0$
+          \item $\dot{W} = 0$
+        \end{itemize}
   \item Mixing state is \textbf{on a straight line} between the two inlet state points
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5 \textwidth]{../img/diagram123.png}
+  \includegraphics[width = 0.5 \textwidth]{./img/diagram123.png}
   \caption{}
 \end{figure}
 Dry air mass balance:
@@ -354,22 +332,22 @@ Energy balance:
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/diagram124.png}
+  \includegraphics[width = 0.6 \textwidth]{./img/diagram124.png}
   \caption{}
 \end{figure}
 \subsection{Cooling Towers}
 \begin{itemize}[noitemsep]
   \item Cooling towers are used to:
-  \begin{enumerate}[noitemsep]
-    \item Release power plant waste heat at acceptable $T$ to surroundings
-    \item Provide chilled water
-  \end{enumerate}
+        \begin{enumerate}[noitemsep]
+          \item Release power plant waste heat at acceptable $T$ to surroundings
+          \item Provide chilled water
+        \end{enumerate}
   \item Operate by natural or forced convection of air
   \item Counterflow, cross flow or hybrid configuration
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/diagram125.png}
+  \includegraphics[width = 0.9 \textwidth]{./img/diagram125.png}
   \caption{Left: An induced-draft counterflow cooling tower \ \ | \ \ Right: A natural-draft cooling tower}
 \end{figure}
 \begin{itemize}[noitemsep]
@@ -379,7 +357,6 @@ Energy balance:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.53 \textwidth]{../img/diagram126.png}
+  \includegraphics[width = 0.53 \textwidth]{./img/diagram126.png}
   \caption{}
 \end{figure}
-\end{document}

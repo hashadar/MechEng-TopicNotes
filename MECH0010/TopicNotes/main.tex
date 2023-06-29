@@ -1,78 +1,5 @@
-\documentclass[]{report}
-%% Useful packages
-\usepackage[utf8]{inputenc}
-\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-\usepackage{crop,graphicx,amsmath,array,color,amssymb,fancyhdr,lineno,float,booktabs}
-\usepackage{flushend,stfloats,amsthm,chngpage,times,,lipsum,lastpage,parskip} 
-\usepackage{calc,listings,color,wrapfig,tabularx,longtable,multirow,enumitem,commath,siunitx,ulem}
-\usepackage[table,xcdraw]{xcolor}
-\usepackage[font=itshape]{quoting}
-%\usepackage[numbers]{natbib}
-%\usepackage[subtle]{savetrees}
-\usepackage[
-  nottoc
-  %notlot
-  %notlof
-]{tocbibind}
-
-\usepackage{tikz}
-\usetikzlibrary{positioning, fit, calc}   
-\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
-line/.style={-latex}     
-}
-
-\usepackage{titlesec}
-
-\titleformat{\chapter}[display]
-{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
-
-% this alters "before" spacing (the second length argument) to 0
-\titlespacing*{\chapter}{0pt}{0pt}{40pt}
-
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=teal,      
-    urlcolor=teal,
-    citecolor=teal,
-    pdftitle={MECH0010 Topic Notes},
-    pdfauthor={HD},
-}
-
-\renewcommand\bibname{References}
-\usepackage{lineno}
-%%%%%%%%%%%%   Header and Footer  %%%%%%%%%%%%%
-\pagestyle{fancy}
-\title{%
-  Topic Notes}
-\author{HD
-}
-
-\newcommand{\Lagr}{\mathcal{L}}
-
+\documentclass{hdnotes}
 \begin{document}
-\input{Title/title.tex}
-
-\fancyhf{}
-\fancyhead[L]{MECH0010}
-\fancyfoot[L]{HD}
-\fancyfoot[R]{ \bf\thepage\ \rm }%
-
-\fancypagestyle{plain}{%
-  \fancyhf{}%
-  \fancyfoot[L]{HD}
-  \fancyfoot[R]{ \bf\thepage\ \rm }%
-  \renewcommand{\headrulewidth}{0pt}% Line at the header invisible
-  \renewcommand{\footrulewidth}{0pt}% Line at the footer visible
-}
-
-\newpage
-\tableofcontents
-\newpage
-\listoffigures
-\listoftables
-\newpage
 \part{Control}
 \input{tex/MECH0010-001.tex}
 \input{tex/MECH0010-003.tex}
@@ -81,7 +8,6 @@ line/.style={-latex}
 \input{tex/MECH0010-009.tex}
 \input{tex/MECH0010-0011.tex}
 \input{tex/MECH0010-0013.tex}
-
 \part{Instrumentation}
 \input{tex/MECH0010-002.tex}
 \input{tex/MECH0010-004.tex}
@@ -90,10 +16,4 @@ line/.style={-latex}
 \input{tex/MECH0010-0010.tex}
 \input{tex/MECH0010-0012.tex}
 \input{tex/MECH0010-0014.tex}
-
-%\newpage
-%\bibliographystyle{unsrtnat}
-%\bibliography{Refs.bib}
-%\input{Appendix/Appendix.tex}
-
 \end{document}

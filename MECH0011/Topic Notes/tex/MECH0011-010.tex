@@ -1,25 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage{tikz}
-\usepackage{cancel}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\allowdisplaybreaks
-\setlength{\parindent}{0pt}
-\numberwithin{equation}{section}
-\begin{document}
-\begin{center}
-  26/01/2021
-\end{center}
+\chapter{Boundary layer theory, separation and control}
 The study of systems involving \textbf{moist air (dry air + water vapour)} is called psychrometrics.
 \section{Air-Water Vapour Mixtures}
 Moist air is found in:
@@ -36,7 +15,7 @@ Moist air is a mixture of dry air and water vapour, where the \textbf{amount of 
 \section{Moist Air}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/diagram98.png}
+  \includegraphics[width = 0.9 \textwidth]{./img/diagram98.png}
   \caption{}
 \end{figure}
 Equation of state of ideal gases:
@@ -58,11 +37,11 @@ For a single component:
 For a two-component mixture (e.g. air-water vapor):
 \begin{itemize}[noitemsep]
   \item \textbf{Three} independent, intrinsic properties are needed to define the state
-  \begin{itemize}[noitemsep]
-    \item Usually, two out of temperature, pressure
-    and specific volume.
-    \item Plus humidity ratio $\omega$ or relative humidity $\phi$ 
-  \end{itemize}
+        \begin{itemize}[noitemsep]
+          \item Usually, two out of temperature, pressure
+                and specific volume.
+          \item Plus humidity ratio $\omega$ or relative humidity $\phi$
+        \end{itemize}
 \end{itemize}
 \section{Specific Humidity}
 The \textbf{specific humidity} or \textbf{humidity ratio} $\mathbf{\omega}$ is defined as:
@@ -109,7 +88,7 @@ Humidity ratio is measured by a \textbf{hygrometer} in which a moist air sample 
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45 \textwidth]{../img/diagram99.png}
+  \includegraphics[width = 0.45 \textwidth]{./img/diagram99.png}
   \caption{}
 \end{figure}
 Consider ideal gas mixture:
@@ -127,28 +106,28 @@ Relative humidity can be measured by \textbf{transducers} whose electrical chara
 Partial condensation of moist air can occur when temperature is reduced below a certain level:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram100.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/diagram100.png}
   \caption{Left: Condensate on windowpanes \ \ | \ \ Right: Dew on grass}
 \end{figure}
 The condensation process can be divided into the following stages:
 \begin{itemize}[noitemsep]
   \item Superheated water vapour (state 1) is \textbf{cooled under constant system pressure} (thus the composition of moist air and partial pressure of vapour remain constant), until it reaches \textbf{the dew point} (state d);
-  \begin{itemize}[noitemsep]
-    \item The saturation temperature corresponding to pv is called the dew point temperature $(T_{dp})$.
-  \end{itemize}
+        \begin{itemize}[noitemsep]
+          \item The saturation temperature corresponding to pv is called the dew point temperature $(T_{dp})$.
+        \end{itemize}
   \item Vapour starts to \textbf{condense when the moist air is cooled below} $\mathbf{T_{dp}}$.
   \item Further cooling leads to more condensate until the dry air, saturated vapour and liquid water \textbf{reach equilibrium}.
   \item At the final state, the system consists of \textbf{saturated air} (state 2) and \textbf{saturated liquid} (state 3) at the final temperature. The saturated vapour (state 2) has a partial pressure of the saturation pressure $p_{g2}$
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram101.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram101.png}
   \caption{}
 \end{figure}
 \section{Adiabatic Saturation Temperature $T_{as}$}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram102.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram102.png}
   \caption{}
 \end{figure}
 The idea of the above \textbf{Adiabatic Saturator} is to determine the unknown humidity ratio at the inlet based on values of $p$, $T$ and \textbf{Adiabatic Saturation Temperature} $\mathbf{T_{as}}$.
@@ -163,10 +142,10 @@ Assumptions:
 \end{itemize}
 Mass Balances:
 \begin{align}
-  \text{Dry air balance:} \ \ \ &\dot{m}_{a,1} = \dot{m}_{a,2} = \dot{m}_a \\[5pt]
-  \text{Water balance:} \ \ \ &\dot{m}_{v,1} + \dot{m}_L = \dot{m}_{v,2} \\[5pt]
-  \longrightarrow \ \ \ &\omega\dot{m}_a + \dot{m}_L = \omega'\dot{m}_a \\[5pt]
-  \longrightarrow \ \ \ &\dot{m}_L = \dot{m}_a(\omega'-\omega) = \dot{m}_a(\omega_2-\omega_1)
+  \text{Dry air balance:} \ \ \  & \dot{m}_{a,1} = \dot{m}_{a,2} = \dot{m}_a                            \\[5pt]
+  \text{Water balance:} \ \ \    & \dot{m}_{v,1} + \dot{m}_L = \dot{m}_{v,2}                            \\[5pt]
+  \longrightarrow \ \ \          & \omega\dot{m}_a + \dot{m}_L = \omega'\dot{m}_a                       \\[5pt]
+  \longrightarrow \ \ \          & \dot{m}_L = \dot{m}_a(\omega'-\omega) = \dot{m}_a(\omega_2-\omega_1)
 \end{align}
 1st Law for Open System, energy balance:
 \begin{gather}
@@ -197,14 +176,13 @@ Mass Balances:
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.95 \textwidth]{../img/diagram103.png}
+  \includegraphics[width = 0.95 \textwidth]{./img/diagram103.png}
   \caption{}
 \end{figure}
 \section{Psychrometers}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/diagram104.png}
+  \includegraphics[width = 0.9 \textwidth]{./img/diagram104.png}
   \caption{(a) Sling Psychrometers \ \ | \ \ (b) Aspirating Psychrometers}
 \end{figure}
 These are the devices to measure temperature and provide the humidity ratio.
-\end{document}

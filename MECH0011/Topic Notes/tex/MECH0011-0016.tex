@@ -1,29 +1,8 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage{tikz}
-\usepackage{cancel}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\allowdisplaybreaks
-\setlength{\parindent}{0pt}
-\numberwithin{equation}{section}
-\begin{document}
-\begin{center}
-  09/02/2021
-\end{center}
+\chapter{Elementary Combustion}
 \subsection*{Importance of Combustion}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/diagram127.png}
+  \includegraphics[width = 0.9 \textwidth]{./img/diagram127.png}
   \caption{}
 \end{figure}
 Combustion is predominant source of useful energy, and predominant source of pollutant and CO$_2$ emissions.
@@ -60,7 +39,7 @@ Chemical Kinetics: Study of mechanisms and rates of chemical change.
 \textbf{Reality:} Detailed chemical mechanisms involve a huge number of elementary reactions and intermediate species.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/diagram128.png}
+  \includegraphics[width = 0.7 \textwidth]{./img/diagram128.png}
   \caption{}
 \end{figure}
 \subsection{Fuel and Oxidizer}
@@ -80,20 +59,20 @@ Oxidizer:
 \subsection{Fuel Composition}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.65 \textwidth]{../img/diagram129.png}
+  \includegraphics[width = 0.65 \textwidth]{./img/diagram129.png}
   \caption{}
 \end{figure}
 \section{Combustion in Air}
 \subsubsection{Combustion in Dry Air:}
 \begin{align*}
-  \text{Fuel (F)} + &\text{Dry Air (A)} \longrightarrow \text{Carbon Dioxide} \ (CO_2) + \text{Water} \ (H_2O) + \text{Nitrogen} \ (N_2) \\[5pt]
-  \text{Dry Air (A)} &= 21\% \ \text{by volume of Oxygen} \ (O_2) + 79\% \ \text{by volume of Nitrogen} \ (N_2) \\[5pt]
-  &= 1 \ \text{unit volume of Oxygen} \ (O_2) + 3.76 \ \text{unit volume of Nitrogen} \ (N_2)
+  \text{Fuel (F)} +  & \text{Dry Air (A)} \longrightarrow \text{Carbon Dioxide} \ (CO_2) + \text{Water} \ (H_2O) + \text{Nitrogen} \ (N_2) \\[5pt]
+  \text{Dry Air (A)} & = 21\% \ \text{by volume of Oxygen} \ (O_2) + 79\% \ \text{by volume of Nitrogen} \ (N_2)                           \\[5pt]
+                     & = 1 \ \text{unit volume of Oxygen} \ (O_2) + 3.76 \ \text{unit volume of Nitrogen} \ (N_2)
 \end{align*}
 \subsubsection{Combustion in Moist Air:}
 \begin{gather*}
   \text{Fuel (F)} + \text{Moist Air (A)} \longrightarrow \text{Carbon Dioxide} \ (CO_2) + \text{Water} \ (H_2O) + \text{Nitrogen} \ (N_2) \\[5pt]
-  \text{Moist Air (A)} = 1 \ \text{unit mass of Oxygen} \ (O_2) + 3.29 \ \text{unit mass of Nitrogen} \ (N_2) \\ 
+  \text{Moist Air (A)} = 1 \ \text{unit mass of Oxygen} \ (O_2) + 3.29 \ \text{unit mass of Nitrogen} \ (N_2) \\
   + 4.29\omega \ \text{unit mass of Water Vapour} \ (H_2O)
 \end{gather*}
 \subsection{Air/Fuel Ratio and Fuel/Air Ratio}
@@ -122,17 +101,17 @@ Chemically exact proportion of fuel and air for complete burning of fuel.
 \end{gather}
 Balance of atom number for each element:
 \begin{align}
-  C: \ \ \ &x = b \\[5pt]
-  H: \ \ \ &y = 2c \\[5pt]
-  O: \ \ \ &2a = 2b + c \\[5pt]
-  N: \ \ \ &2\cdot 3.76a = 2\cdot 3.76d
+  C: \ \ \  & x = b                       \\[5pt]
+  H: \ \ \  & y = 2c                      \\[5pt]
+  O: \ \ \  & 2a = 2b + c                 \\[5pt]
+  N: \ \ \  & 2\cdot 3.76a = 2\cdot 3.76d
 \end{align}
 Therefore, the stoichiometric coefficients:
 \begin{align}
-  b &= x \\[5pt]
-  c &= \frac{y}{2} \\[5pt]
-  a &= x + \frac{y}{4} \\[5pt]
-  d &= a
+  b & = x               \\[5pt]
+  c & = \frac{y}{2}     \\[5pt]
+  a & = x + \frac{y}{4} \\[5pt]
+  d & = a
 \end{align}
 The mass balance equation for stoichiometric combustion:
 \begin{gather}
@@ -168,9 +147,9 @@ Equivalence Ratio (by Volume):
   \overline{\phi} = \frac{(\overline{FA})_{actual}}{(\overline{FA})_{stoi}} = \frac{(\overline{AF})_{stoi}}{(\overline{AF})_{actual}}
 \end{gather}
 \begin{align*}
-  \phi > 1.0 &\longrightarrow \text{fuel-rich mixture/combustion} \\[5pt]
-  \phi = 1.0 &\longrightarrow \text{stoichiometric mixture/combustion} \\[5pt]
-  \phi < 1.0 &\longrightarrow \text{fuel-lean mixture/combustion}
+  \phi > 1.0 & \longrightarrow \text{fuel-rich mixture/combustion}      \\[5pt]
+  \phi = 1.0 & \longrightarrow \text{stoichiometric mixture/combustion} \\[5pt]
+  \phi < 1.0 & \longrightarrow \text{fuel-lean mixture/combustion}
 \end{align*}
 \subsection{Actual Combustion Process}
 In an actual process:
@@ -179,12 +158,12 @@ In an actual process:
   \item Usually a \textbf{huge number of intermediate species} are generated.
   \item A combustion process is almost always \textbf{incomplete}.
   \item In addition to the usual products $CO_2$ and $H_2O$, there are \textbf{harmful emissions} from combustion such as unburned $HC$, $CO$, $NO_x$ and soot.
-  \item The combustion process is strongly affected by fluid dynamics (in particular, \textbf{turbulence}) and \textbf{mixing}. 
+  \item The combustion process is strongly affected by fluid dynamics (in particular, \textbf{turbulence}) and \textbf{mixing}.
 \end{itemize}
 \section{Open System Energy Analysis of Combustion Processes}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/diagram130.png}
+  \includegraphics[width = 0.9 \textwidth]{./img/diagram130.png}
   \caption{}
 \end{figure}
 Assumptions:
@@ -209,7 +188,7 @@ Combustion heat release (on a molar basis):
 \subsection{Energy Change in a Chemical Reaction}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/diagram131.png}
+  \includegraphics[width = 0.9 \textwidth]{./img/diagram131.png}
   \caption{}
 \end{figure}
 $\Delta H_r^\circ$ is enthalpy change in combustion at standard reference temperature $T_o$. \\
@@ -232,11 +211,11 @@ In the following reactions:
 \begin{gather}
   C + O_2 \longrightarrow CO_2 + (-393.5 \si{\kilo\joule\per\mole}) \ \ \ \ \ \ \ \overline{h}_{f,CO_2}^\circ = -393.5 \si{\kilo\joule\per\mole} \\[5pt]
   H_2 + \frac{1}{2}O_2 \longrightarrow H_2O + (-241.8 \si{\kilo\joule\per\mole}) \ \ \ \ \ \ \ \overline{h}_{f,H_2O(v)}^\circ = -241.8 \si{\kilo\joule\per\mole} \\[5pt]
-  C + \frac{1}{2}O_2 \longrightarrow CO + (-110.5 \si{\kilo\joule\per\mole}) \ \ \ \ \ \ \ \overline{h}_{f,CO}^\circ = -110.5 \si{\kilo\joule\per\mole} 
+  C + \frac{1}{2}O_2 \longrightarrow CO + (-110.5 \si{\kilo\joule\per\mole}) \ \ \ \ \ \ \ \overline{h}_{f,CO}^\circ = -110.5 \si{\kilo\joule\per\mole}
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 1 \textwidth]{../img/diagram132.png}
+  \includegraphics[width = 1 \textwidth]{./img/diagram132.png}
   \caption{Table A-25 | Thermochemical Properties of Selected Substances at 298K and 1 atm}
 \end{figure}
 \subsection{Evaluating Enthalpy of Ideal Gases}
@@ -248,23 +227,23 @@ Enthalpy of any ideal gas $i$ at temperature $T$ (independent of $P$):
 \begin{itemize}[noitemsep]
   \item Enthalpy of formation from its elements (see Table A-25 in text book)
   \item Enthalpy change from reference temperature of 298.15 K
-  \begin{enumerate}[noitemsep]
-    \item Evaluated from ideal gas Table A-22, A-23 in text book OR
-    \item By calculation:
-    \begin{gather}
-      \Delta \overline{h}_i(T) = \overline{h}_i(T) - \overline{h}_i(T_{ref}) = \int_{298.15K}^{T}\overline{C}_{p}\dif T
-    \end{gather}
-  \end{enumerate}
+        \begin{enumerate}[noitemsep]
+          \item Evaluated from ideal gas Table A-22, A-23 in text book OR
+          \item By calculation:
+                \begin{gather}
+                  \Delta \overline{h}_i(T) = \overline{h}_i(T) - \overline{h}_i(T_{ref}) = \int_{298.15K}^{T}\overline{C}_{p}\dif T
+                \end{gather}
+        \end{enumerate}
 \end{itemize}
 \section{Closed System Energy Analysis of Combustion}
 \subsubsection{Closed Systems:}
 In the absence of kinetic and potential energy changes as well as mechanical work, the energy balance equation can be written as:
 \begin{align}
-  Q + \cancel{W} &= \Delta U_{CM} + \Delta\cancel{KE}_{CM} + \Delta\cancel{PE}_{CM} \\[5pt]
-  Q &= U_P - U_R \\[5pt]
-  Q &= \sum_{P}n_i\overline{u}_i - \sum_{R}n_i\overline{u}_i \\[5pt]
-  Q &= \sum_{P}n_i\left(\overline{h}_i - R_uT\right) - \sum_{R}n_i\left(\overline{h}_i - R_uT\right) \\[5pt]
-  Q &= \sum_{P}n_i\left(\overline{h}_{f,i}^\circ + \Delta\overline{h}_{i} - R_uT\right) - \sum_{R}n_i\left(\overline{h}_{f,i}^\circ + \Delta\overline{h}_{i} - R_uT\right)
+  Q + \cancel{W} & = \Delta U_{CM} + \Delta\cancel{KE}_{CM} + \Delta\cancel{PE}_{CM}                                                                                                     \\[5pt]
+  Q              & = U_P - U_R                                                                                                                                                           \\[5pt]
+  Q              & = \sum_{P}n_i\overline{u}_i - \sum_{R}n_i\overline{u}_i                                                                                                               \\[5pt]
+  Q              & = \sum_{P}n_i\left(\overline{h}_i - R_uT\right) - \sum_{R}n_i\left(\overline{h}_i - R_uT\right)                                                                       \\[5pt]
+  Q              & = \sum_{P}n_i\left(\overline{h}_{f,i}^\circ + \Delta\overline{h}_{i} - R_uT\right) - \sum_{R}n_i\left(\overline{h}_{f,i}^\circ + \Delta\overline{h}_{i} - R_uT\right)
 \end{align}
 \section{Heat of Reaction}
 \textbf{The heat of reaction (or heat of combustion or chemical heat release)} is the energy released by the oxidation of a fuel under a specified (constant) temperature. \\\\
@@ -287,7 +266,7 @@ In a constant-pressure process, the \textbf{heat of reaction} is the enthalpy ch
 In reality, reactants and products are rarely at the same temperature, not to mention the reference temperature.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/diagram133.png}
+  \includegraphics[width = 0.55 \textwidth]{./img/diagram133.png}
   \caption{}
 \end{figure}
 \subsection{Hess’s Law}
@@ -295,8 +274,8 @@ The enthalpy of reaction for a given reaction is the same whether it takes one o
 That is, the enthalpy of reaction is independent of the path of the reaction, but only dependent on the initial and final states. \\\\
 For example:
 \begin{align}
-  (1) &\ C+\frac{1}{2}O_2 \longrightarrow CO + (-110.5 \si{\kilo\joule\per\mole}) \\[5pt]
-  (2) &\ CO + \frac{1}{2}O_2 \longrightarrow CO_2 + (-283.0 \si{\kilo\joule\per\mole})
+  (1) & \ C+\frac{1}{2}O_2 \longrightarrow CO + (-110.5 \si{\kilo\joule\per\mole})      \\[5pt]
+  (2) & \ CO + \frac{1}{2}O_2 \longrightarrow CO_2 + (-283.0 \si{\kilo\joule\per\mole})
 \end{align}
 is equilave to:
 \begin{gather}
@@ -306,7 +285,7 @@ is equilave to:
 For a reaction of reactants at $T_1$ and products at $T_2$, the enthalpy of reaction can be determined as follows:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/diagram133.png}
+  \includegraphics[width = 0.55 \textwidth]{./img/diagram133.png}
   \caption{}
 \end{figure}
 \begin{gather}
@@ -319,7 +298,7 @@ On a mass basis:
 \end{gather}
 On a molar basis:
 \begin{gather}
-  = \sum_{P}\int_{T_o}^T{T_2}n_i \overline{C}_{p,i} \dif T + \Delta\overline{H}_r^\circ + \sum_{R}\int_{T_1}^{T_o}n_i \overline{C}_{p,i} \dif T 
+  = \sum_{P}\int_{T_o}^T{T_2}n_i \overline{C}_{p,i} \dif T + \Delta\overline{H}_r^\circ + \sum_{R}\int_{T_1}^{T_o}n_i \overline{C}_{p,i} \dif T
 \end{gather}
 The enthalpy of reaction at standard reference conditions:
 \begin{gather}
@@ -340,7 +319,7 @@ Note that in text books, $\Delta h_f^\circ$ and $h_f^\circ$ are used interchange
 The heating value of a fuel is the magnitude of heat of reaction of a unit composite fuel usually measured in a calorimeter under standard reference conditions (298.15K, 1 atm).
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/diagram134.png}
+  \includegraphics[width = 0.55 \textwidth]{./img/diagram134.png}
   \caption{}
 \end{figure}
 \begin{enumerate}[noitemsep]
@@ -358,10 +337,10 @@ The heating value of a fuel is the magnitude of heat of reaction of a unit compo
 \end{gather}
 The values for HHV and LHV for specific substances can be found from Table A-25 | Thermochemical Properties of Selected Substances at 298K and 1 atm.
 \section{Adiabatic Flame Temperature}
-If all heat evolved during the reaction is used \textbf{solely} for raising the products temperature without heat loss, the final temperature $T_2$ is called the adiabatic flame temperature $T_F$. 
+If all heat evolved during the reaction is used \textbf{solely} for raising the products temperature without heat loss, the final temperature $T_2$ is called the adiabatic flame temperature $T_F$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.55 \textwidth]{../img/diagram135.png}
+  \includegraphics[width = 0.55 \textwidth]{./img/diagram135.png}
   \caption{}
 \end{figure}
 The adiabatic flame temperature is obtained by setting:
@@ -374,4 +353,3 @@ And solving the following equation iteratively,
 \end{gather}
 $T_{F,P}$ is constant-pressure adiabatic flame temperature. \\
 $T_{F,V}$ is constant-volume adiabatic flame temperature.
-\end{document}

@@ -1,63 +1,18 @@
-\documentclass[12pt,a4paper, twoside]{report}
-
-\usepackage[subpreambles=true]{standalone}
-\usepackage{import}
-\usepackage{mathtools}
-\usepackage{natbib}
-\usepackage{blindtext}
-\usepackage{graphicx}
-\graphicspath{img/}
-\usepackage{amssymb}
-\usepackage{siunitx}
-\sisetup{detect-all}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-
-\fancyhead{}
-\fancyhead[RO,LE]{MECH011 Topic Notes}
-\fancyfoot{}
-\fancyfoot[LO,RE]{Mert Develioglu}
-\fancyfoot[CO,CE]{\thepage}
-\fancyfoot[LE,RO]{HD}
-\setlength{\headheight}{15pt}
-
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
-
+\documentclass{hdnotes}
 \begin{document}
-\title{
-  {MECH0011 Topic Notes}\\
-  {\large UCL}
-  \author{HD}
-  \date{\today}
-}
-\maketitle
-\tableofcontents
 \part{Fluids}
-\chapter{Differential equations of mass, momentum and energy}
-\import{tex/}{MECH0011-001}
-\chapter{Navier-Stokes equations}
-\import{tex/}{MECH0011-003}
-\chapter{Inviscid and Irrotational flow}
-\import{tex/}{MECH0011-005}
-\chapter{Modelling the flow around a bluff body}
-\import{tex/}{MECH0011-007}
-\chapter{Modelling the flow around a streamlined body}
-\import{tex/}{MECH0011-008}
-\chapter{Boundary layer theory, separation and control}
-\import{tex/}{MECH0011-010}
-\chapter{Boundary layer of a flat plate}
-\import{tex/}{MECH0011-0011}
-\chapter{Boundary Layer and Flow in Pipes}
-\import{tex/}{MECH0011-0012}
+\input{tex/MECH0011-001}
+\input{tex/MECH0011-003}
+\input{tex/MECH0011-005}
+\input{tex/MECH0011-007}
+\input{tex/MECH0011-008}
+\input{tex/MECH0011-010}
+\input{tex/MECH0011-0011}
+\input{tex/MECH0011-0012}
 \part{Thermodynamics}
-\chapter{Review}
-\import{tex/}{MECH0011-0013}
-\chapter{Psychrometrics}
-\import{tex/}{MECH0011-0014}
-\import{tex/}{MECH0011-0015}
-\chapter{Elementary Combustion}
-\import{tex/}{MECH0011-0016}
-\import{tex/}{MECH0011-0017}
+\input{tex/MECH0011-0013}
+\input{tex/MECH0011-0014}
+\input{tex/MECH0011-0015}
+\input{tex/MECH0011-0016}
+\input{tex/MECH0011-0017}
 \end{document}

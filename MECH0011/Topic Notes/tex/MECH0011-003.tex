@@ -1,26 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage{tikz}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\usetikzlibrary{positioning, fit, calc}   
-\tikzset{block/.style={draw, thick, text width=3cm ,minimum height=1.3cm, align=center},   
-line/.style={-latex}     
-} 
-\setlength{\parindent}{0pt}
-\begin{document}
-\begin{center}
-  20/10/2020
-\end{center}
+\chapter{Navier-Stokes equations}
 \section{Lift and drag}
 Typical forces of interest for bodies in a flow are \textbf{drag} and \textbf{lift}. We can represent these in dimensionless form:
 \begin{gather}
@@ -30,16 +8,16 @@ Typical forces of interest for bodies in a flow are \textbf{drag} and \textbf{li
 Where $S$ is a representative area for the body, determined by convention.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram9.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram9.png}
 \end{figure}
 \section{Pressure and frictional force distribution}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram10.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram10.png}
 \end{figure}
 \begin{gather}
   L = - \int_{S}^{} \left( p (\hat{n}\cdot \hat{j}) \right)  \,\mathrm{d}S + \int_{}^{S} \left( \vec{\tau} \cdot \hat{j} \right)  \,\mathrm{d}S\\
-  D = - \int_{}^{} \left(  p (\hat{n} \cdot \hat{j})\right)  \,\mathrm{d}S  + \int_{}^{} \left(\vec{\tau} \cdot \hat{i} \right)  \,\mathrm{d}S 
+  D = - \int_{}^{} \left(  p (\hat{n} \cdot \hat{j})\right)  \,\mathrm{d}S  + \int_{}^{} \left(\vec{\tau} \cdot \hat{i} \right)  \,\mathrm{d}S
 \end{gather}
 To determine the lift and drag coefficients $c_L$ and $c_D$, we are interested in the pressure distribution over the airfoil, or more specifically in the local pressure difference from the stream pressure $p_{\infty}$.
 \begin{equation}
@@ -48,7 +26,7 @@ To determine the lift and drag coefficients $c_L$ and $c_D$, we are interested i
 Free stream pressure and velocity are $p_\infty$ and $V_\infty$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram11.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram11.png}
 \end{figure}
 \begin{itemize}
   \item Local suction (depression): $c_p < 0$ Vectors point away from the airfoil surface
@@ -56,15 +34,15 @@ Free stream pressure and velocity are $p_\infty$ and $V_\infty$.
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram10.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram10.png}
 \end{figure}
 \begin{gather}
   L = - \int_{S}^{} \left(p\hat{n}\cdot \hat{j}\right)  \,\mathrm{d}S = \\
-  c_L = - \frac{1}{S} \int_{S}^{} \left( \frac{p - p_{\infty}}{\frac{1}{2} \rho V_{\infty}^2} \hat{n} \cdot \hat{j} \right) \,\mathrm{d}S = -\frac{1}{S} \int_{S}^{} \left( c_p \hat{n} \cdot \hat{j} \right)  \,\mathrm{d}S  
+  c_L = - \frac{1}{S} \int_{S}^{} \left( \frac{p - p_{\infty}}{\frac{1}{2} \rho V_{\infty}^2} \hat{n} \cdot \hat{j} \right) \,\mathrm{d}S = -\frac{1}{S} \int_{S}^{} \left( c_p \hat{n} \cdot \hat{j} \right)  \,\mathrm{d}S
 \end{gather}
 The lift coefficient per unit of span-wise length is:
 \begin{equation}
-  c_L' = - \frac{1}{c}\int_{c}^{0} \left( c_p \hat{n}\cdot\hat{j} \right)  \,\mathrm{d}x 
+  c_L' = - \frac{1}{c}\int_{c}^{0} \left( c_p \hat{n}\cdot\hat{j} \right)  \,\mathrm{d}x
 \end{equation}
 \section{Rearrangement of momentum equation - x direction}
 \begin{gather}
@@ -76,13 +54,13 @@ The lift coefficient per unit of span-wise length is:
 $(u^2 + v^2)$ is the total kinetic energy of the fluid particle. The derivative is the element that takes into the account the variation of this kinetic energy. $\left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right)$ relates to the rotation of the particle. This rotation is related to the difference of velocity gradient.
 \begin{gather}
   \rho \left[ -v \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) + \frac{1}{2} \frac{\partial}{\partial x} (u^2 + v^2) \right] = - \frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)\\
-  - v \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) = - \frac{\partial}{\partial x} \left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right) + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)   
+  - v \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) = - \frac{\partial}{\partial x} \left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right) + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)
 \end{gather}
 Our Bernoulli term in the above equation is $\left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right)$, gravitational energy is negligible. $\left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right)$ is an anti-clockwise rotation. Hence, the vorticity component in the z direction is:
 \begin{equation}
   \omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
 \end{equation}
-Our final momentum equations in $x$ and $y$ are: 
+Our final momentum equations in $x$ and $y$ are:
 \begin{gather}
   -v \omega_z = - \frac{\partial}{\partial x} \left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right) + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)\\
   u \omega_z = - \frac{\partial}{\partial y} \left( \frac{p}{\rho} + \frac{u^2 + v^2}{2} \right) + \nu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right)
@@ -105,7 +83,7 @@ This reduces our equations to:
 If $c_p < 0$, $||V|| > V_\infty$ and vice versa. If a fluid particle enters a region where $c_p$ is negative it is accelerated and when $c_P$ is positive it will lose velocity relative to the free stream.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram12.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/diagram12.png}
 \end{figure}
 Extending this to 3D, we can derive the 3D vorticity equation. We sum the momentum equations with the assumptions above and take the $ijk$ components as so:
 \begin{equation}
@@ -114,8 +92,8 @@ Extending this to 3D, we can derive the 3D vorticity equation. We sum the moment
 If $\vec{\omega} = 0$ then a potential function, $\phi(x, y, z)$ exists such:
 \begin{equation}
   \begin{cases}
-    u = \frac{\partial \phi (x,y,z)}{\partial x}\\
-    v = \frac{\partial \phi (x,y,z)}{\partial y}\\
+    u = \frac{\partial \phi (x,y,z)}{\partial x} \\
+    v = \frac{\partial \phi (x,y,z)}{\partial y} \\
     w = \frac{\partial \phi (x,y,z)}{\partial z}
   \end{cases}
 \end{equation}
@@ -135,7 +113,7 @@ The flow domain can be subdivided into two parts.
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram13.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/diagram13.png}
 \end{figure}
 In the case where we consider our fluid inviscid, there is no shear stress being applied on the fluid by the airfoil. We need to understand how the no-slip condition changes. We still need a boundary condition to know the value of $\phi$ in our flow domain.
 \section{No-Slip condition for inviscid flow}
@@ -150,13 +128,13 @@ Inviscid flow
 In essence, with inviscid flow, we are accepting that there is some movement on the boundary, however this is only parallel to the surface. $n$ is the direction orthogonal to the boundary.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram14.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/diagram14.png}
 \end{figure}
 \section{Stream function}
 In a 2D flow a stream function, $\psi(x, y)$, can be defined which is always aligned/parallel with the local velocity vector and visualise a streamline. Different streamlines are identified with different values of $\psi (x,y)$
 \begin{equation}
   \begin{cases}
-    u = \frac{\partial \psi(x,y)}{\partial x}\\
+    u = \frac{\partial \psi(x,y)}{\partial x} \\
     v = \frac{\partial \psi(x,y)}{\partial y}
   \end{cases}
 \end{equation}
@@ -166,12 +144,12 @@ Flow fields for which an incompressible fluid is assumed to be frictionless and 
 \section{Flow around a corner of arbitrary angle, $\beta$}
 Considering a radial coordinate system:
 \begin{align}
-  \phi &= A r^n \cos(n\theta)\\
-  \psi &= Ar^n \sin(n\theta)
+  \phi & = A r^n \cos(n\theta) \\
+  \psi & = Ar^n \sin(n\theta)
 \end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagram15.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/diagram15.png}
 \end{figure}
 \section{Cylindrical coordinates}
 3D vorticity equation:
@@ -182,12 +160,12 @@ Considering a radial coordinate system:
 Potential flow function and stream function:
 \begin{equation}
   \textrm{Potential flow}\begin{cases}
-    u_r = \frac{\partial \phi}{\partial r}\\
-    u_{\theta} = \frac{1}{r}\frac{\partial \phi}{\partial \theta}\\
+    u_r = \frac{\partial \phi}{\partial r}                        \\
+    u_{\theta} = \frac{1}{r}\frac{\partial \phi}{\partial \theta} \\
     u_z = \frac{\partial \phi}{\partial z}
   \end{cases}
   \textrm{Stream function}\begin{cases}
-    u_{\theta} = - \frac{\partial \psi}{\partial r}\\
+    u_{\theta} = - \frac{\partial \psi}{\partial r} \\
     u_r = \frac{1}{r} \frac{\partial \psi}{\partial \theta}
   \end{cases}
 \end{equation}
@@ -195,4 +173,3 @@ Conservation of mass (continuity equation):
 \begin{equation}
   \nabla \cdot \vec{V} = \frac{1}{r} \frac{\partial (r u_r)}{\partial r} + \frac{1}{r} \frac{\partial u_{\theta}}{\partial \theta} + \frac{\partial u_z}{\partial z} = \frac{\partial^2 \phi}{\partial r^2} + \frac{1}{r}\frac{\partial \phi}{\partial r} +\frac{1}{r^2} \frac{\partial^2 \phi}{\partial \theta^2} + \frac{\partial^2 \phi}{\partial z^2}
 \end{equation}
-\end{document}

@@ -1,23 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage{tikz}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\allowdisplaybreaks
-\setlength{\parindent}{0pt}
-\begin{document}
-\begin{center}
-    19/01/2021
-\end{center}
+\chapter{Review}
 \section{Review on Thermodynamics}
 \subsection{System, Surroundings and Boundary}
 \textbf{Thermodynamic system} - An amount of matter “or” a region of space chosen for study \\
@@ -30,7 +11,7 @@
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4 \textwidth]{../img/diagram92.png}
+  \includegraphics[width = 0.4 \textwidth]{./img/diagram92.png}
   \caption{}
 \end{figure}
 Identification of system and its surroundings is the most critical first step to begin thermodynamic analysis.
@@ -39,36 +20,36 @@ Different types of systems can be found, depending on whether work, heat or mass
 \begin{table}[H]
   \centering
   \begin{tabular}{|c|c|c|c|c|}
-  \hline
-  \multicolumn{2}{|c|}{\textbf{Definition}} & \textbf{Work} & \textbf{Heat} & \textbf{Mass} \\ \hline
-  \multicolumn{2}{|c|}{Isolated System}     & No            & No            & No            \\ \hline
-  Closed System      & (Control Mass)       & Yes           & Yes           & No            \\ \hline
-  Open System        & (Control Volume)     & Yes           & Yes           & Yes           \\ \hline
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Definition}} & \textbf{Work}    & \textbf{Heat} & \textbf{Mass}       \\ \hline
+    \multicolumn{2}{|c|}{Isolated System}     & No               & No            & No                  \\ \hline
+    Closed System                             & (Control Mass)   & Yes           & Yes           & No  \\ \hline
+    Open System                               & (Control Volume) & Yes           & Yes           & Yes \\ \hline
   \end{tabular}
 \end{table}
 \subsection{Thermodynamic Properties - Extensive vs. Intensive}
 Extensive properties are additive (i.e. depending on size/mass of system)
 \begin{itemize}[noitemsep]
-  \item U: internal energy \ [kJ] 
-  \item H: enthalpy \ [kJ] 
+  \item U: internal energy \ [kJ]
+  \item H: enthalpy \ [kJ]
   \item S: entropy \ [kJ/K]
   \item V: volume \ [$\si{\metre\cubed}$]
 \end{itemize}
 Intensive properties are non-additive (i.e. independent of size/mass of system)
 \begin{itemize}[noitemsep]
-  \item T: temperature \ [K] 
+  \item T: temperature \ [K]
   \item h: specific enthalpy \ [kJ/kg]
-  \item P: pressure \ [Pa] 
+  \item P: pressure \ [Pa]
   \item s: specific entropy \ [kJ/(kg K)]
-  \item x: quality \ [-] 
+  \item x: quality \ [-]
   \item v: specific volume \ [$\si{\metre\cubed}$/kg]
-  \item u: specific internal energy \ [kJ/kg] 
+  \item u: specific internal energy \ [kJ/kg]
   \item $\rho$: density \ [kg/$\si{\metre\cubed}$]
 \end{itemize}
 Extensive properties per unit mass or mole are called specific properties, which become intensive properties.
 \subsection{State, Equilibrium State, Steady State}
 \textbf{State} of a system is the condition characterized by a given set of properties, as well as their distributions in space. For a simple system of pure homogeneous substance, the state is uniquely specified by just two properties such as T and P or V and S. \\\\
-\textbf{Thermodynamic equilibrium (state)} implies that a system state cannot change in the absence of unbalanced driving \textbf{forces”} between the system and surroundings. It requires the following equilibrium within the system: 
+\textbf{Thermodynamic equilibrium (state)} implies that a system state cannot change in the absence of unbalanced driving \textbf{forces”} between the system and surroundings. It requires the following equilibrium within the system:
 \begin{itemize}[noitemsep]
   \item Thermal equilibrium (constant temperature)
   \item Mechanical equilibrium (no pressure difference without gravity)
@@ -77,7 +58,7 @@ Extensive properties per unit mass or mole are called specific properties, which
 \end{itemize}
 \textbf{Steady state} requires none of its properties changes with time, but within the system, the properties at different locations can be different.
 \section{Ideal Gas}
-Ideal gas is an imaginary substance whose properties satisfy the following state equation: 
+Ideal gas is an imaginary substance whose properties satisfy the following state equation:
 \begin{gather}
   PV = nRT
 \end{gather}
@@ -95,7 +76,7 @@ On a molar basis:
 \end{gather}
 On a mass basis:
 \begin{gather}
-  PV = mRT \\[5pt] 
+  PV = mRT \\[5pt]
   Pv = RT
 \end{gather}
 Where:
@@ -132,7 +113,7 @@ Examples:
 State of a mixture is fully determined by:
 \begin{itemize}
   \item Composition: mass $m_i$ or number of moles $n_1$ of each component;
-  \item Two independent intensive properties (such as $p$ and $T$ or $v$ and $T$).  
+  \item Two independent intensive properties (such as $p$ and $T$ or $v$ and $T$).
 \end{itemize}
 Mass $m_i$, number of moles $n_i$ and molecular weight $M_i$ of each component $i$ are related by:
 \begin{gather}
@@ -156,7 +137,7 @@ Apparent or Average molecular weight, $M$:
 \begin{gather}
   M = \frac{m}{n} = \frac{\sum_{i=1}^{k}m_i}{n} = \frac{\sum_{i=1}^{k}n_i M_i}{n} = \sum_{i=1}^{k}y_i M_i
 \end{gather}
-Total mass of the mixture: 
+Total mass of the mixture:
 \begin{gather}
   m = m_1 + m_2 + \dots + m_k = \sum_{i=1}^{k}m_i
 \end{gather}
@@ -172,7 +153,7 @@ Mole fraction of $i^{\text{th}}$ component:
 \begin{gather}
   y_i = \frac{n_i}{n} \longrightarrow \sum_{i=1}^{k}y_i = 1
 \end{gather}
-Molar mass: 
+Molar mass:
 \begin{gather}
   M_i = \frac{m_i}{n_i} \ \text{(single component)} \ \ \ \ \ M = \frac{m}{n} \ \text{(mixture)} \\[5pt]
   m = n_1M_1 + n_2M_2 + \dots + n_kM_k = nM
@@ -182,12 +163,12 @@ In practical calculations, air can be assumed to consist of $21\%$ oxygen and $7
 \begin{table}[]
   \centering
   \begin{tabular}{|c|c|c|c|c|}
-  \hline
-  Constituent & Mass Fraction $x_i$ & Molar Mass $M_i$                                                               & \begin{tabular}[c]{@{}c@{}}Moles $n_i$ \\ per kg of mixture\end{tabular}         & Mole Fraction $y_i$ \\ \hline
-  O$_2$       & 0.232               & 32                                                                             & 0.00725                                                                          & 0.210               \\ \hline
-  N$_2$       & 0.756               & 28.01                                                                          & 0.02699                                                                          & 0.781               \\ \hline
-  Ar          & 0.012               & 39.94                                                                          & 0.00300                                                                          & 0.009               \\ \hline
-  Air         & 1                   & \begin{tabular}[c]{@{}c@{}}28.96 \\ $\si{\kilogram\per\kilo\mole}$\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.03454 \\ $\si{\kilo\mole\per\kilogram_{air}}$\end{tabular} & 1.0                 \\ \hline
+    \hline
+    Constituent & Mass Fraction $x_i$ & Molar Mass $M_i$           & \begin{tabular}[c]{@{}c@{}}Moles $n_i$ \\ per kg of mixture\end{tabular} & Mole Fraction $y_i$ \\ \hline
+    O$_2$       & 0.232               & 32                         & 0.00725                    & 0.210               \\ \hline
+    N$_2$       & 0.756               & 28.01                      & 0.02699                    & 0.781               \\ \hline
+    Ar          & 0.012               & 39.94                      & 0.00300                    & 0.009               \\ \hline
+    Air         & 1                   & \begin{tabular}[c]{@{}c@{}}28.96 \\ $\si{\kilogram\per\kilo\mole}$\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.03454 \\ $\si{\kilo\mole\per\kilogram_{air}}$\end{tabular} & 1.0                 \\ \hline
   \end{tabular}
 \end{table}
 \begin{gather}
@@ -197,13 +178,13 @@ In practical calculations, air can be assumed to consist of $21\%$ oxygen and $7
 \subsection{Dalton's Law}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4 \textwidth]{../img/diagram93.png}
+  \includegraphics[width = 0.4 \textwidth]{./img/diagram93.png}
   \caption{}
 \end{figure}
 The pressure of a gas mixture is equal to the sum of the pressures each gas would exert if it existed alone at the mixture temperature and volume.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/diagram94.png}
+  \includegraphics[width = 0.7 \textwidth]{./img/diagram94.png}
   \caption{}
 \end{figure}
 Ideal gas law and the universal gas constant are, respectively:
@@ -222,13 +203,13 @@ The pressure of each component occupying the whole volume of the mixture at the 
 \subsection{Amagat’s Law}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4 \textwidth]{../img/diagram95.png}
+  \includegraphics[width = 0.4 \textwidth]{./img/diagram95.png}
   \caption{}
 \end{figure}
 The volume of a gas mixture is equal to the sum of the volumes each gas would occupy if it existed alone at the mixture temperature and pressure.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.65 \textwidth]{../img/diagram96.png}
+  \includegraphics[width = 0.65 \textwidth]{./img/diagram96.png}
   \caption{}
 \end{figure}
 Ideal gas law and the universal gas constant are, respectively:
@@ -236,7 +217,7 @@ Ideal gas law and the universal gas constant are, respectively:
   pV_i = n_i\overline{R}T \\[5pt]
   \overline{R} = R_u = R_0 = 8.314 \si{\kilo\joule\per\kilo\mole\per\kelvin}
 \end{gather}
-The volume occupied by each component at the same pressure $p$ and temperature $T$ of the mixture is a \textbf{partial volume}: 
+The volume occupied by each component at the same pressure $p$ and temperature $T$ of the mixture is a \textbf{partial volume}:
 \begin{gather}
   V_i = \frac{n_i \overline{R} T}{p} \\[5pt]
   V = \frac{n \overline{R} T}{p} \\[5pt]
@@ -274,7 +255,7 @@ For all extensive (depending on system size) properties:
 \begin{gather}
   A = ma = n\overline{a} = \sum_{i=1}^{k}A_i = \sum_{i=1}^{k}m_i a_i = \sum_{i=1}^{k}n_1\overline{a_i}
 \end{gather}
-For all specific ($u$, $h$, $s$, $V$, $\phi$, $\psi$) properties: 
+For all specific ($u$, $h$, $s$, $V$, $\phi$, $\psi$) properties:
 \begin{gather}
   a = \sum_{i=1}^{k}x_i a_i \\[5pt]
   \overline{a} = \sum_{i=1}^{k}y_i \overline{a_i}
@@ -339,7 +320,7 @@ Therefore:
 \subsection{Change in Properties of Mixture (non-reacting)}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45 \textwidth]{../img/diagram97.png}
+  \includegraphics[width = 0.45 \textwidth]{./img/diagram97.png}
   \caption{}
 \end{figure}
 \begin{gather}
@@ -354,7 +335,7 @@ Changes in mixture properties are written in terms of the respective property ch
 Changes in properties for component $i$ can be evaluated by:
 \begin{itemize}[noitemsep]
   \item Either integration of the relevant equations or
-  \item Tabulation of ideal gas properties 
+  \item Tabulation of ideal gas properties
 \end{itemize}
 \subsection{Change in Entropy of Ideal Gas Mixtures}
 At fixed composition:
@@ -387,4 +368,3 @@ On a molar basis:
 \begin{gather}
   \Delta\overline{s} = \sum_{i=1}^{k}y_i \Delta \overline{s}_i^\circ - \sum_{i=1}^{k}y_i R_u \ln\left(\frac{p_{i,2}}{p_{i,1}}\right)
 \end{gather}
-\end{document}

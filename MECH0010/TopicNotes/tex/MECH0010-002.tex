@@ -21,22 +21,8 @@ The measurement system must allow:
   \caption{Block diagram to show a general measurement system.}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \begin{tikzpicture}
-    \node[block] (a) {Physical quantity (measurand) \textbf{Temperature}};
-    \node[block, right= of a] (b) {Transducer \textbf{Thermocouple}};
-    \node[block, right= of b] (c) {Signal processing or conditioning (maybe) \textbf{Amplification}};
-    \node[block] (d) at ([yshift = -3cm]$(a)!1.0!(a)$) {Transmission path \\ \textbf{Wires}};
-    \node[block] (e) at ([yshift = -3cm]$(c)!1.0!(c)$) {Display, recording, data logging \textbf{Multimeter}};
+There was a figure here titled ``How the workflow of a measurement can be constructed.''
 
-    \draw[line] (a)-- (b);
-    \draw[line] (b)-- (c);
-    \draw[line] (c)-- (d);
-    \draw[line] (d)-- (e);
-  \end{tikzpicture}
-  \caption{How the workflow of a measurement can be constructed.}
-\end{figure}
 \section{Transducers}
 A transducer converts the sensed variable into a detectable signal form. Sometimes the device changes a mechanical quantity into a change in an  electrical quantity. For example, a strain gauge converts a change in strain in the specimen to a change in electrical resistance in the gauge. Another example is a thermometer which converts thermal expansion of the liquid (due to a rise in temperature) into a mechanical translation.
 \section{Signal condition circuits}
@@ -72,7 +58,7 @@ Here are how the other fundamental quantities are defined.
 \begin{itemize}
   \item Metre - Length of the path travelled by light in a vacuum in $1/299792458$ of a second
   \item Time - Duration of $9192631770$ periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom
-  \item Mass - \sout{Equal to the mass of the International Prototype of the Kilogram}
+  \item Mass - No longer equal to the mass of the International Prototype of the Kilogram
         \begin{itemize}
           \item Equal to h / (Metre standard$^2$ / Time standard) … since 2019
                 $h$: Plank constant (in $e = hf, \ h = 6.626 \times 10^{-34} \si{\kg\m\squared\per\second}$)

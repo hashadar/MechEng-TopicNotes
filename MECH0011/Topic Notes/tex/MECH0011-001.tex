@@ -1,61 +1,44 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
-\begin{center}
-    06/10/2020
-\end{center}
+\chapter{Differential equations of mass, momentum and energy}
 In order to understand a fluid flow completely, we want to know:
 \begin{itemize}[noitemsep]
-    \item Velocity Field
-    \item Pressure
-    \item Density
-    \item Temperature
+  \item Velocity Field
+  \item Pressure
+  \item Density
+  \item Temperature
 \end{itemize}
 at any time ($t$) and any place ($x,y,z$). All the variables mentioned are going to be a function of space and time. A mathematical model, based on the mass-conservation equation and momentum-conservation equation, will be formulated to obtain the flow around an object.
 \subsubsection{List of Variables:}
 \begin{center}
-    \begin{tabular}{ |c|c|c|c|c| } 
-     \hline
-     Name & Variable & Type & Unit & Variables \\ 
-     \hline
-     Velocity & $\vec{V} = u\hat{i}+v\hat{j}+w\hat{k}$ & Vector & (\si{\meter\per\second}) & 3 \\
-     \hline
-     Pressure & $p$ & Scalar & (\si{\newton\per\meter\squared}) & 1 \\
-     \hline
-     Temperature & $T$ & Scalar & (\si{\celsius}) & 1 \\
-     \hline
-     Density & $\rho$ & Scalar & (\si{\kilogram\per\meter\cubed}) & 1 \\
-     \hline
-     Stress Tensor & $T = \left[ \begin{array}{ccc} \tau_{xx} & \tau_{xy} & \tau_{xz} \\ \tau_{yx} & \tau_{yy} & \tau_{yz} \\ \tau_{zx} & \tau_{zy} & \tau_{zz} \end{array}\right]$ & & (\si{\newton\per\meter\squared}) & 6 \\
-     \hline
-    \end{tabular}
+  \begin{tabular}{ |c|c|c|c|c| }
+    \hline
+    Name          & Variable                                      & Type   & Unit                             & Variables \\
+    \hline
+    Velocity      & $\vec{V} = u\hat{i}+v\hat{j}+w\hat{k}$        & Vector & (\si{\meter\per\second})         & 3         \\
+    \hline
+    Pressure      & $p$                                           & Scalar & (\si{\newton\per\meter\squared}) & 1         \\
+    \hline
+    Temperature   & $T$                                           & Scalar & (\si{\celsius})                  & 1         \\
+    \hline
+    Density       & $\rho$                                        & Scalar & (\si{\kilogram\per\meter\cubed}) & 1         \\
+    \hline
+    Stress Tensor & $T = \left[ \begin{array}{ccc} \tau_{xx} & \tau_{xy} & \tau_{xz} \\ \tau_{yx} & \tau_{yy} & \tau_{yz} \\ \tau_{zx} & \tau_{zy} & \tau_{zz} \end{array}\right]$ &        & (\si{\newton\per\meter\squared}) & 6         \\
+    \hline
+  \end{tabular}
 \end{center}
 For most of this course, the fluid will be assumed to be incompressible. Hence, the $\rho$ will stay constant most of the time. The stress tensor takes into account of the forces which are extered on the surface of an infinitesimal particle. It has 6 variables; those who are on the opposite side of the diagonal (such as $\tau_{xy}$ and $\tau_{yx}$) are the same. Overall, there are 12 variables; hence, 12 equations are needed to fully understand a specific flow.
 \section{Conservation of Mass - Continuity Equation}
 Control Volume Analysis can be done with the following equation:
 \begin{gather}
-    \frac{\partial}{\partial t} \int_{V}{\rho dV} + \oint_{S}{\rho \vec{V} \cdot \hat{n}dS} = 0
-    \label{conservationofmass}
+  \frac{\partial}{\partial t} \int_{V}{\rho dV} + \oint_{S}{\rho \vec{V} \cdot \hat{n}dS} = 0
+  \label{conservationofmass}
 \end{gather}
 The $\frac{\partial}{\partial t} \int_{V}{\rho dV}$ part of the equation describes the mass in the control volume and how it changes with time. \\\\
 The $\oint_{S}{\rho \vec{V} \cdot \hat{n}dS}$ part of the equation takes in the account the mass going in and out of the control volume (crossing the control surface). \\\\
 The equation is equal to 0 as the mass has to be conserved.
 \begin{figure}[H]
-    \centering
-    \includegraphics[width = 0.7 \textwidth]{../img/Control Volume.PNG}
-    \caption{A control volume with a flow, velocity field $\vec{V}$ and the normal vectors $\hat{n}$}
+  \centering
+  \includegraphics[width = 0.7 \textwidth]{./img/Control Volume.PNG}
+  \caption{A control volume with a flow, velocity field $\vec{V}$ and the normal vectors $\hat{n}$}
 \end{figure}
 On the right side of the control volume, the angle between $\vec{V}$ and $\hat{n}$ is greater than 90$\si{\degree}$. Therefore, $\vec{V} \cdot \hat{n} > 0$, meaning a net mass is going out of the control volume.
 On the left side of the control volume, the angle between $\vec{V}$ and $\hat{n}$ is less than 90$\si{\degree}$. Therefore, $\vec{V} \cdot \hat{n} < 0$, meaning a net mass is going into the control volume.
@@ -63,18 +46,18 @@ On the left side of the control volume, the angle between $\vec{V}$ and $\hat{n}
 Let us consider an infinitesimally small cube:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/infinitesimalcube.png}
+  \includegraphics[width = 0.7\textwidth]{./img/infinitesimalcube.png}
 \end{figure}
 Consider Term 1 - the mass variation inside the control volume
 \begin{gather}
-    \frac{\partial \rho}{\partial t} \cdot dV = \frac{\partial \rho}{\partial t} \cdot\dif x \cdot \dif y \cdot \dif z
-    \label{massvariation}
+  \frac{\partial \rho}{\partial t} \cdot dV = \frac{\partial \rho}{\partial t} \cdot\dif x \cdot \dif y \cdot \dif z
+  \label{massvariation}
 \end{gather}
 Consider Term 2 - the contribution of mass from the sides of the cube
 \subsubsection{$x$ Orthogonal Contribution:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/infinitesimalcubewithorthox.png}
+  \includegraphics[width = 0.8\textwidth]{./img/infinitesimalcubewithorthox.png}
 \end{figure}
 Left Side:
 \begin{gather}
@@ -94,12 +77,12 @@ The net contribution from the orthogonal $x$ direction is
 \subsubsection{$y$ Orthogonal Contribution:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/infinitesimalcubewithorthoy.png}
+  \includegraphics[width = 0.8\textwidth]{./img/infinitesimalcubewithorthoy.png}
 \end{figure}
 Front Side:
 \begin{align}
-  \rho \vec{V} \cdot \hat{n} \dif S &= \rho \vec{V} \cdot (- \hat{j}) \dif x \dif z\\
-  &= -\rho v \dif x \dif z
+  \rho \vec{V} \cdot \hat{n} \dif S & = \rho \vec{V} \cdot (- \hat{j}) \dif x \dif z \\
+                                    & = -\rho v \dif x \dif z
 \end{align}
 Back Side:
 \begin{gather}
@@ -108,17 +91,17 @@ Back Side:
 Final Contribution:
 \begin{gather}
   \frac{\partial \rho v}{\partial y} \dif y \dif z \dif x
-  \label{yorthogonalcontribution} 
+  \label{yorthogonalcontribution}
 \end{gather}
 \subsubsection{$z$ Orthogonal Contribution:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.35 \textwidth]{../img/infinitesimalcubewithorthoz.png}
+  \includegraphics[width = 0.35 \textwidth]{./img/infinitesimalcubewithorthoz.png}
 \end{figure}
 Bottom Side:
 \begin{align}
-  \rho \vec{V} \cdot \hat{n} \dif S &= \rho \vec{V} \cdot (- \hat{k}) \dif x \dif y\\
-  &= -\rho w \dif x \dif y
+  \rho \vec{V} \cdot \hat{n} \dif S & = \rho \vec{V} \cdot (- \hat{k}) \dif x \dif y \\
+                                    & = -\rho w \dif x \dif y
 \end{align}
 Top Side:
 \begin{gather}
@@ -126,7 +109,7 @@ Top Side:
 \end{gather}
 Final Contribution:
 \begin{gather}
-  \frac{\partial \rho w}{\partial z} \dif z \dif x \dif y 
+  \frac{\partial \rho w}{\partial z} \dif z \dif x \dif y
   \label{zorthogonalcontribution}
 \end{gather}
 \subsubsection{Conservation of Mass For an Infinitesimal Volume:}
@@ -160,7 +143,7 @@ For steady flow:
 \end{equation}
 For incompressible flow, the density is constant. This means all derivatives of $\rho$ are 0. Hence, our equation reduces to:
 \begin{equation}
-  \rho = \textrm{const} \rightarrow \nabla \cdot \vec{V} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0 
+  \rho = \textrm{const} \rightarrow \nabla \cdot \vec{V} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
   \label{velocitydivergence}
 \end{equation}
 Each of these derivatives represent the stretch or compression of the fluid particle in the orthogonal direction. When these are all added up, it gives the variation in volume. If this is positive, it shows that the volume has increased with time. If $\rho$ is constant, then the volume cannot change. Which is why equation (\ref{velocitydivergence}) must equal 0.
@@ -169,11 +152,11 @@ Each of these derivatives represent the stretch or compression of the fluid part
   \frac{\partial}{\partial t} \int_V \rho \vec{V} \dif V + \oint_S \rho \vec{V}(\vec{V} \cdot \hat{n}) \dif S = \sum \vec{F}
   \label{conservationofmomentum}
 \end{equation}
-We have two types of external force that can act on our infinitesimal fluid element, \textbf{volumetric} forces (e.g. gravity) and \textbf{surface} forces (shear, pressure). The 2 terms of the conservation of momentum equation are investigated. In the example below, only the momentum in the $x$ direction is being looked into. \\\\ 
+We have two types of external force that can act on our infinitesimal fluid element, \textbf{volumetric} forces (e.g. gravity) and \textbf{surface} forces (shear, pressure). The 2 terms of the conservation of momentum equation are investigated. In the example below, only the momentum in the $x$ direction is being looked into. \\\\
 Consider Term 1 - the momentum in 3D changing with time
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/momentuminx.png}
+  \includegraphics[width = 0.7 \textwidth]{./img/momentuminx.png}
 \end{figure}
 \begin{gather}
   \frac{\partial}{\partial t} \int_V \rho \vec{V} \dif V = \frac{\partial \rho u}{\partial t}\dif x \dif y \dif z
@@ -183,7 +166,7 @@ Consider Term 2 - the flux of momentum through the sides of the control volume \
 \subsubsection{Momentum Contribution in $x$ Entering from $x$ Orthogonal:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/fluxinx.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/fluxinx.png}
 \end{figure}
 Left Side:
 \begin{gather}
@@ -201,7 +184,7 @@ Final Contribution:
 \subsubsection{Momentum Contribution in $x$ Entering from $z$ Orthogonal:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.45 \textwidth]{../img/fluxthroughxy.png}
+  \includegraphics[width = 0.45 \textwidth]{./img/fluxthroughxy.png}
 \end{figure}
 Bottom Side:
 \begin{gather}
@@ -219,7 +202,7 @@ Final Contribution:
 \subsubsection{Momentum Contribution in $x$ Entering from $y$ Orthogonal:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/fluxthroughxz.png}
+  \includegraphics[width = 0.8 \textwidth]{./img/fluxthroughxz.png}
 \end{figure}
 Front Side:
 \begin{gather}
@@ -244,7 +227,7 @@ Pressure is always exerted orthogonal to a face. We also have our $\tau$ stresse
 \subsubsection{$x$ Orthogonal Shear Force}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/forcesinx.png}
+  \includegraphics[width = 0.6 \textwidth]{./img/forcesinx.png}
 \end{figure}
 \begin{equation}
   - \left( \frac{\partial p}{\partial x} \right) \dif x \dif y \dif z + \left( \frac{\partial \tau_{xx}}{\partial x} \right) \dif x \dif y \dif z
@@ -252,7 +235,7 @@ Pressure is always exerted orthogonal to a face. We also have our $\tau$ stresse
 \subsubsection{$z$ Orthogonal Shear Force}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.3 \textwidth]{../img/forceinxz.png}
+  \includegraphics[width = 0.3 \textwidth]{./img/forceinxz.png}
 \end{figure}
 \begin{equation}
   \left( \frac{\partial \tau_{zx}}{\partial z} \right) \dif x \dif y \dif z
@@ -260,7 +243,7 @@ Pressure is always exerted orthogonal to a face. We also have our $\tau$ stresse
 \subsubsection{$y$ Orthogonal Shear Force}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/forceinxy.png}
+  \includegraphics[width = 0.6 \textwidth]{./img/forceinxy.png}
 \end{figure}
 \begin{equation}
   \left( \frac{\partial \tau_{yx}}{\partial y} \right) \dif x \dif y \dif z
@@ -304,7 +287,7 @@ These can be added to find that we arrive with two terms, one being the continui
 To identify a stress component we use a double subscript notation (tensor notation). The first subscript indicates the direction of the normal to the plane on which stress acts. Second subscript indicates the direction of the stress. Thus, the symbol $\tau_{ij}$ denotes a stress in $j$ direction on a face normal to the $i$-axis.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/tensorforces.png}
+  \includegraphics[width = 0.7 \textwidth]{./img/tensorforces.png}
 \end{figure}
 The normal stresses two contributions are pressure $p$ and viscous stress $\tau$. Pressure is always negative due to it acting against the surface (if we take the arrow coming out of the surface as positive). $\tau$ accounts for the extra stress coming from viscosity.
 \begin{gather}
@@ -314,4 +297,3 @@ The normal stresses two contributions are pressure $p$ and viscous stress $\tau$
 \end{gather}
 Parts on the opposite sides of a stress tensor are equal.
 $$ \tau_{xy} = \tau_{yx}, \ \tau_{xz} = \tau_{zx}, \ \tau_{yz} = \tau_{zy} $$
-\end{document}
