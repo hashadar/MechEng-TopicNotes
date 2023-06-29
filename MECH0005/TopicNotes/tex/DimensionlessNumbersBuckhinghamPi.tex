@@ -1,15 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{etoolbox}
-\AtBeginEnvironment{quote}{\singlespacing\small}
-\usepackage{setspace}
-\onehalfspacing
-\usepackage{graphicx}
-\usepackage{siunitx}
-\usepackage{amsmath}
-\sisetup{detect-all}
-\begin{document}
+\chapter{Dimensionless Numbers and Buckingham Pi}
 \section{Dimensionless Numbers}
 \subsection{Notation}
 We denote a dimension by using a capital letter in square brackets. Here are some common dimensions.
@@ -25,13 +14,13 @@ Thus, we can derive that the dimensions of acceleration (which has units \si{\me
   \item Energy - [M][L]\(^2\)[T]\(^{-2}\).
 \end{itemize}
 We use dimensional analysis to check derivations. The dimensions of both sides of any equation must match. Physical constants also often have units associated with them - these must also be considered. Some variables are dimensionless such as the Reynolds number.
-\begin{gather} 
+\begin{gather}
   Re = \frac{\rho l u}{\mu}\\
-  [Re] = \frac{[M][L]^{-3}\cdot [L] \cdot [L][T]^{-1}}{[L][M][T]^{-2}\cdot [T][L]^{-2}} = \frac{[M][L]^{-1}[T]^{-1}}{[M][L]^{-1}[T]^{-1}} 
+  [Re] = \frac{[M][L]^{-3}\cdot [L] \cdot [L][T]^{-1}}{[L][M][T]^{-2}\cdot [T][L]^{-2}} = \frac{[M][L]^{-1}[T]^{-1}}{[M][L]^{-1}[T]^{-1}}
 \end{gather}
 Hence, we can see that the Reynolds number is a dimensionless quantity as all the dimensions cancel.
 \subsection{Example}
-We can use dimensional analysis to derive basic forms of equations. We want to work out the pressure drop as oil flows though a pipe. Let us consider the parameters this may depend on. 
+We can use dimensional analysis to derive basic forms of equations. We want to work out the pressure drop as oil flows though a pipe. Let us consider the parameters this may depend on.
 \begin{itemize}[noitemsep]
   \item Viscosity - [M][L]\(^{-1}\)[T]\(^{-1}\).
   \item Pipe length - [L].
@@ -40,7 +29,7 @@ We can use dimensional analysis to derive basic forms of equations. We want to w
   \item Pressure - [M][L]\(^{-1}\)[T]\(^{-2}\).
 \end{itemize}
 Next we can assume that the pressure is a function of the other four. Some combination of the others must have the same dimension as the quantity we want.
-\begin{gather} 
+\begin{gather}
   [M][L]^{-1}[T]^{-2} = ([M][L]^{-1}[T]^{-1})^\alpha \cdot ([L])^\beta \cdot ([L])^\gamma \cdot ([L][T]^{-1})^\delta \\
   [L]: -1 = -\alpha + \beta + \gamma + \delta\\
   [M]: 1 = \alpha \\
@@ -48,12 +37,12 @@ Next we can assume that the pressure is a function of the other four. Some combi
   \alpha =1, \ \delta =1, \ \beta + \gamma = -1
 \end{gather}
 So it must be true that:
-\begin{equation} 
+\begin{equation}
   \Delta P = \mu \cdot v \cdot I^{\beta} \cdot D^{\gamma}
-\end{equation} 
+\end{equation}
 Where \(\beta + \gamma = -1\)
 The actual answer for laminar flow is:
-\begin{equation} 
+\begin{equation}
   \Delta P = \frac{2\mu L v}{D^2}
 \end{equation}
 This sort of analysis is useful for checking on the functional form of relationships, but it won't give you the exact relationship, or the value of any dimensionless constants involved.
@@ -63,18 +52,18 @@ This sort of analysis is useful for checking on the functional form of relations
   \item Kinematic similarity: fixed ratio of velocities.
   \item Dynamic similarity - fixed ratio of forces.
 \end{itemize}
-Note on inertia: Inertia is not a force. However, for considering its importance to dynamic similarity, we can use the force needed to slow down a moving object. So we quantify inertia for these purposes as \(ma\), from \(F = ma\). Since the forces on flow change fluid motion, we use this often. 
+Note on inertia: Inertia is not a force. However, for considering its importance to dynamic similarity, we can use the force needed to slow down a moving object. So we quantify inertia for these purposes as \(ma\), from \(F = ma\). Since the forces on flow change fluid motion, we use this often.
 \subsubsection{Dynamic similarity: viscosity}
 Compare the inertia "force" and the viscous force for a fluid:
-\begin{equation} 
-  \frac{[Inertia \ force]}{[Viscous \ force]} = \frac{\rho L^2 u^2}{\mu u L} = \frac{\rho L u }{\mu} 
+\begin{equation}
+  \frac{[Inertia \ force]}{[Viscous \ force]} = \frac{\rho L^2 u^2}{\mu u L} = \frac{\rho L u }{\mu}
 \end{equation}
 The Reynolds number is something very specific - it allows us to calculate the ratio of inertial and viscous forces in order to check for dynamical similarity.
 \begin{itemize}[noitemsep]
   \item Honey: Re \(\approx 1.3 \times 10^{-4}\)
   \item Tea: Re \(\approx 1100 \)
 \end{itemize}
-Therefore, they are not dynamically similar with respect to viscosity. 
+Therefore, they are not dynamically similar with respect to viscosity.
 For complete dimensional similarity, we must match the Reynolds number with the Froude number. If the same working fluid is used for the model and the prototype it is not possible to match the Reynolds number and the Froude number except if the model and the prototype have the same length. To achieve complete dynamic similarity between geometrically similar flows, it is necessary to duplicate the values of the independent dimensionless groups; by so doing the value of the dependent parameter is then duplicated. This is important because measured values of drag from model test could be scaled to predict drag for the operating conditions of the prototype. INSERT EXAMPLE MERT
 \subsection{Dimensionless groups}
 We have identified some dimensionless groups such as Reynolds number and Froude number. There are many more such as:
@@ -98,7 +87,7 @@ Where $x_0$ and $x_1$ are the lower and upper limits respectively. If our functi
 The product $dxdy$ is the area of a small element on the x-y plane and we may also label it $dA$, where $A$ represents the area.
 \begin{figure}
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/doubleintegration}
+  \includegraphics[width = 0.7\textwidth]{./img/doubleintegration}
   \caption{The resulting area $dA$ when utilising double integration.}
 \end{figure}
 Because $A$ represents the area, you may also see this written like this:
@@ -107,7 +96,7 @@ Because $A$ represents the area, you may also see this written like this:
 \end{equation}
 These two notations are equivalent. The subscript $\int_A$ just means an integration over all $A$, just as $\int_x$ means an integration over all x.
 In most of the problems you will deal with, the order of the integration is not important – it doesn’t matter whether you integrate over x first or y first.
-By convention, the inner one is done first, so 
+By convention, the inner one is done first, so
 \begin{equation}
   I = \int \int_x^y F(x, \ y) dxdy
 \end{equation}
@@ -127,13 +116,13 @@ We carry out the inner integration first, treating y as though it were a constan
 \end{equation}
 Then we integrate this with respect to dy:
 \begin{align}
-  I &= \int_{Y_0}^{Y_1} \left( (X^3_1 - X^3_0) + 2y(X_1 - X_0) \right) dy = \left( y(X^3_1 - X^3_0) + y^2(X_1 - X_0) \right)^{Y_1}_{Y_0}\\
-  I &= (Y_1 - Y_0)(X^3_1 - X^3_0) + (Y^2_1 - Y^2_0)(X_1 - X_0)
+  I & = \int_{Y_0}^{Y_1} \left( (X^3_1 - X^3_0) + 2y(X_1 - X_0) \right) dy = \left( y(X^3_1 - X^3_0) + y^2(X_1 - X_0) \right)^{Y_1}_{Y_0} \\
+  I & = (Y_1 - Y_0)(X^3_1 - X^3_0) + (Y^2_1 - Y^2_0)(X_1 - X_0)
 \end{align}
 This is not always the most efficient way to integrate over an area. We can construct elements dA in whatever shape is most convenient.
 \begin{figure}
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/areaofrectangle}
+  \includegraphics[width = 0.5\textwidth]{./img/areaofrectangle}
   \caption{A rectangle.}
 \end{figure}
 To find the area of a rectangle, we could integrate over all the elements dA = dxdy.
@@ -145,7 +134,7 @@ This means adding up all the strips, each one of area $O dx$.
 For a circle, we can split the area into concentric rings:
 \begin{figure}
   \centering
-  \includegraphics[width = 0.5\textwidth]{../img/areaofcircle}
+  \includegraphics[width = 0.5\textwidth]{./img/areaofcircle}
   \caption{A circle.}
 \end{figure}
 The area of this ring is $2\pi dr$. To calculate the area of the circle, we can just add up all the rings out to same radius R:
@@ -168,10 +157,9 @@ We want to find the total volume flowing through the pipe per unit time, so we w
 \end{equation}
 We know that $dA = 2\pi r dr$, and we know $v(r)$:
 \begin{align}
-  F &= \int_0^R ((r^2 - 2Rr + R^2)2\pi r) dr\\
-  &= 2\pi \int (r^3 - 2Rr^2 + R^2r) dr\\
-  &= 2\pi \left[ \frac{1}{4} r^4 - \frac{2}{3} R r^3 + \frac{1}{2} R^2 r^2 \right]^R_0\\
-  &= \frac{\pi R^4}{6}
+  F & = \int_0^R ((r^2 - 2Rr + R^2)2\pi r) dr                                             \\
+    & = 2\pi \int (r^3 - 2Rr^2 + R^2r) dr                                                 \\
+    & = 2\pi \left[ \frac{1}{4} r^4 - \frac{2}{3} R r^3 + \frac{1}{2} R^2 r^2 \right]^R_0 \\
+    & = \frac{\pi R^4}{6}
 \end{align}
 By choosing dA appropriately, we can integrate quantities over specific areas. You’ll learn to choose the most efficient dA with experience.
-\end{document}

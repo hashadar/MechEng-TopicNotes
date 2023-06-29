@@ -1,64 +1,18 @@
-\documentclass[12pt,a4paper, twoside]{book}
-
-\usepackage[subpreambles=true]{standalone}
-\usepackage{verbatim}
-\usepackage{import}
-\usepackage{mathtools}
-\usepackage{etoolbox}
-\begin{comment}
-\preto{\section}{\clearpageafterfirst}
-\preto{\subsection}{\filbreak}
-\newcommand{\clearpageafterfirst}{%
-  \gdef\clearpageafterfirst{\clearpage}%
-}
-\end{comment}
-\usepackage{natbib}
-\usepackage{blindtext}
-\usepackage{amssymb}
-\numberwithin{equation}{section}
-\usepackage{siunitx}
-\sisetup{detect-all}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
-\usepackage{fancyhdr}
-\usepackage{emptypage}
-\pagestyle{fancy}
-
-\fancyhead{}
-\fancyhead[RO,LE]{MECH005 Topic Notes}
-\fancyfoot{}
-\fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Chapter \thechapter}
-\fancyfoot[CO,RE]{HD}
-\setlength{\headheight}{15pt}
-
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
-
+\documentclass{hdnotes}
 \begin{document}
-\title{
-  {MECH0005 Topic Notes}\\
-  {\large UCL}\\
-  {\large First Edition}
-  \author{HD}
-}
-\maketitle
-{\pagestyle{plain}
-\tableofcontents
-\cleardoublepage}
 \section*{Acknowledgements}
 I would like to thank Mert Aydin Develioglu and Yarkin Saltik for helping me proof read these notes. I would also like to thank the department staff for this module: Dr. Helen Czerski, Prof. Mehrdad Zangeneh, Dr. Rama Balachandran, Dr Midhat Talibi and the PGTAs. \thispagestyle{plain}
-\chapter{Fluids}
-\import{tex/}{IntroToBasicFluidConcepts}
-\import{tex/}{DimensionlessNumbersBuckhinghamPi}
-\import{tex/}{MECH0005FluidsLecture3}
-\import{tex/}{MECH0005Fluids4}
-\import{tex/}{MECH0005Week6}
-\import{tex/}{MECH0005FluidsFormulaSheet}
-\chapter{Thermodynamics}
-\import{tex/}{MECH0005Lecture1}
-\import{tex/}{MECH0005Entropy}
-\import{tex/}{MECH0005GasPowerCycles}
-\import{tex/}{MECH0005VapourPowerCycles}
-\import{tex/}{MECH0005RefrigerationCycles}
-\listoffigures
+\part{Fluids}
+\input{tex/IntroToBasicFluidConcepts.tex}
+\input{tex/DimensionlessNumbersBuckhinghamPi.tex}
+\input{tex/MECH0005FluidsLecture3}
+\input{tex/MECH0005Fluids4}
+\input{tex/MECH0005Week6}
+\input{tex/MECH0005FluidsFormulaSheet}
+\part{Thermodynamics}
+\input{tex/MECH0005Lecture1}
+\input{tex/MECH0005Entropy}
+\input{tex/MECH0005GasPowerCycles}
+\input{tex/MECH0005VapourPowerCycles}
+\input{tex/MECH0005RefrigerationCycles}
 \end{document}

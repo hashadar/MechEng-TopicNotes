@@ -1,17 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{etoolbox}
-\AtBeginEnvironment{quote}{\singlespacing\small}
-\usepackage{setspace}
-\onehalfspacing
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{siunitx}
-\sisetup{detect-all}
-\begin{document}
+\chapter{Vapour and Combined Power Cycles}
 \section{Vapour and combined power cycles}
 Vapour cycle:
 \begin{itemize}[noitemsep]
@@ -25,22 +12,22 @@ Steam is the most common working fluid used in vapour power cycles:
   \item High enthalpy of vaporisation.
 \end{itemize}
 \subsection{The Carnot vapour cycle}
-The Carnot cycle is the most efficient cycle operating between two specified temperature levels - it is adopted as an ideal cycle. Steam is the working fluid in the Carnot vapour cycle. Below we contemplated why this cycle is not a suitable model for a power cycle. Consider a steady flow Carnot cycle is executed within the saturation dome of a pure substance as shown in Figure (\ref{CarnotVapourCycle}). 
+The Carnot cycle is the most efficient cycle operating between two specified temperature levels - it is adopted as an ideal cycle. Steam is the working fluid in the Carnot vapour cycle. Below we contemplated why this cycle is not a suitable model for a power cycle. Consider a steady flow Carnot cycle is executed within the saturation dome of a pure substance as shown in Figure (\ref{CarnotVapourCycle}).
 \begin{itemize}[noitemsep]
-  \item Process 1-2: reversible isothermal heat addition in a boiler. 
+  \item Process 1-2: reversible isothermal heat addition in a boiler.
   \item Process 2-3: isentropic expansion in a turbine.
   \item Process 3-4: isothermal heat rejection (condensation occurs in a condenser).
   \item Process 4-1: isentropic compression in a compressor, to the initial state.
 \end{itemize}
 \begin{figure}
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/CarnotVapourCycleTSPV}
+  \includegraphics[width = 0.8 \textwidth]{./img/CarnotVapourCycleTSPV}
   \caption{Ts and Pv diagrams for the Carnot vapour cycle.}
   \label{CarnotVapourCycle}
 \end{figure}
 \subsection{Impracticalities of the Carnot vapour cycle}
 \begin{enumerate}[noitemsep]
-  \item Isothermal heat transfer to or from a two-phase system is not difficult to achieve in practice, since maintaining a constant pressure in the device automatically fixes the temperature at the saturation value. Thus, processes 1-2 and 3-4 can be approached closely by actual boilers and condensers. However, limiting the heat transfer process to two phase systems, severely limits the maximum temperature that can be used in the cycle as it has to remain under the critical point value (turning point) which is 374 \si{\celsius} for water. Limiting the maximum temperature leads to limiting the maximum efficiency. you could do a single phase heat transfer, but it is difficult to achieve this isothermally. 
+  \item Isothermal heat transfer to or from a two-phase system is not difficult to achieve in practice, since maintaining a constant pressure in the device automatically fixes the temperature at the saturation value. Thus, processes 1-2 and 3-4 can be approached closely by actual boilers and condensers. However, limiting the heat transfer process to two phase systems, severely limits the maximum temperature that can be used in the cycle as it has to remain under the critical point value (turning point) which is 374 \si{\celsius} for water. Limiting the maximum temperature leads to limiting the maximum efficiency. you could do a single phase heat transfer, but it is difficult to achieve this isothermally.
   \item The isentropic expansion process (2-3) can be approximated closely by a well-designed turbine. However, the quality of the steam decreases during this process. Thus, the steam has a higher moisture content. Water droplets can cause erosion on turbine blades. Thus, steam with $x<90\% $ cannot be tolerated in the operation of power plants. This can be eliminated by using a working fluid with a very steep saturated vapour line.
   \item Process 3-4 is an isothermal heat rejection and condensation process. It is difficult to end up with the desired quality at state 4.
   \item Process 4-1 is an adiabatic, isentropic (reversible compression) process. However, it is not practical to design a compressor that handles two phases.
@@ -48,11 +35,11 @@ The Carnot cycle is the most efficient cycle operating between two specified tem
 Some of these problems can be eliminated by executing the carnot cycle as shown in Figure (\ref{BetterCarnot}).
 \begin{figure}
   \centering
-  \includegraphics[width = 0.6 \textwidth]{../img/BetterCarnotTS}
+  \includegraphics[width = 0.6 \textwidth]{./img/BetterCarnotTS}
   \caption{Ts diagram for an alternative Carnot vapour cycle.}
   \label{BetterCarnot}
 \end{figure}
-However, this cycle presents other problems such as isentropic compression to extremely high pressures and isothermal heat transfer at variable pressures. This cycle however presents other problems such as isentropic compression to extremely high pressures and isothermal heat transfer at variable pressures. Thus, we conclude that the Carnot cycle cannot by approximated in actual devices and is not a realistic model for vapour power cycles. 
+However, this cycle presents other problems such as isentropic compression to extremely high pressures and isothermal heat transfer at variable pressures. This cycle however presents other problems such as isentropic compression to extremely high pressures and isothermal heat transfer at variable pressures. Thus, we conclude that the Carnot cycle cannot by approximated in actual devices and is not a realistic model for vapour power cycles.
 \subsection{Rankine cycle: the ideal cycle for vapour power cycles}
 The Rankine cycle is the ideal cycle to represent vapour power plants. It does not involve any internal irreversibilities and consists of the following four processes:
 \begin{itemize}[noitemsep]
@@ -63,7 +50,7 @@ The Rankine cycle is the ideal cycle to represent vapour power plants. It does n
 \end{itemize}
 \begin{figure}
   \centering
-  \includegraphics[width = 0.9\textwidth]{../img/RankineCycle}
+  \includegraphics[width = 0.9\textwidth]{./img/RankineCycle}
   \caption{Component diagram and Ts Pv diagrams for the Rankine cycle.}
 \end{figure}
 \subsection{Qualitative description of the Rankine cycle}
@@ -111,17 +98,16 @@ The pump handles liquid (water) which is incompressible. Its density or v, speci
 \end{equation}
 For reversible adiabatic compression, $ds = 0$
 \begin{align}
-  Tds = 0 &= dh - vdP\\
-  dh &= vdP\\
-  \Delta h &= v\Delta P\\
-  h_2 - h_1 &= v_1 (P_2 - P_1)\\
-  \textrm{remember } w_{pump,\  in} &= h_2 - h_1 = v_1 (P_2 - P_1)
+  Tds = 0                           & = dh - vdP                    \\
+  dh                                & = vdP                         \\
+  \Delta h                          & = v\Delta P                   \\
+  h_2 - h_1                         & = v_1 (P_2 - P_1)             \\
+  \textrm{remember } w_{pump,\  in} & = h_2 - h_1 = v_1 (P_2 - P_1)
 \end{align}
 where $h_1 = h_{f@P_1}$ and $v_1 = v_{f@P_1}$.
 
 Isentropic efficiencies:
 \begin{align}
-  \eta_T &= \frac{w_a}{w_s} = \frac{h_3 - h_{4a}}{h_3 - h_{4s}}\\
-  \eta_P &= \frac{w_s}{w_a} = \frac{h_{2s} - h_{1}}{h_{2a} - h_{1}}
+  \eta_T & = \frac{w_a}{w_s} = \frac{h_3 - h_{4a}}{h_3 - h_{4s}}     \\
+  \eta_P & = \frac{w_s}{w_a} = \frac{h_{2s} - h_{1}}{h_{2a} - h_{1}}
 \end{align}
-\end{document}

@@ -1,18 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{etoolbox}
-\AtBeginEnvironment{quote}{\singlespacing\small}
-\usepackage{setspace}
-\onehalfspacing
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\sisetup{detect-all}
-\begin{document}
+\chapter{Fluids Formulas}
 \section{Fluids formulas}
 \subsection{Density}
 \begin{equation*}
@@ -28,9 +14,9 @@
 \end{equation*}
 \subsection{Ideal gas law}
 \begin{align*}
-  P &= \rho R T\\
-  Pv &= RT\\
-  PV &= n R_u T
+  P  & = \rho R T \\
+  Pv & = RT       \\
+  PV & = n R_u T
 \end{align*}
 \subsection{Kinematic viscosity}
 \begin{equation*}
@@ -46,8 +32,8 @@
 \end{equation*}
 \subsection{Centre of mass}
 \begin{align*}
-  \bar{x} &= \frac{\int_m (x) dm}{m}\\
-  &= \frac{\int_m (x)dm}{\int_m dm}
+  \bar{x} & = \frac{\int_m (x) dm}{m}        \\
+          & = \frac{\int_m (x)dm}{\int_m dm}
 \end{align*}
 \subsection{Stable equilibrium}
 The centre of gravity is directly below the centre of buoyancy.
@@ -59,21 +45,21 @@ The centre of gravity is directly below the centre of buoyancy.
 \[ Re > 2000 \rightarrow \textrm{ Turbulent} \]
 \subsection{Material derivative}
 \begin{align*}
-  \frac{D}{Dt}() &= \frac{\partial}{\partial t}() + u \frac{\partial()}{\partial x} + v \frac{\partial ()}{\partial y} + w\frac{\partial ()}{\partial z}\\
-  \underline{a} = \frac{D}{Dt}(\underline{v}) &= \frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} 
+  \frac{D}{Dt}()                              & = \frac{\partial}{\partial t}() + u \frac{\partial()}{\partial x} + v \frac{\partial ()}{\partial y} + w\frac{\partial ()}{\partial z} \\
+  \underline{a} = \frac{D}{Dt}(\underline{v}) & = \frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z}
 \end{align*}
 \subsection{Streamline coordinates}
 \begin{align*}
-  \underline{a} = \frac{Dv}{Dt} &= a_s\hat{s} + a_n\hat{n}\\
-  &= v\frac{\partial v}{\partial s} \hat{s} + \frac{v^2}{R} \hat{n}\\
-  a_s &= \frac{-v\sin \theta - \frac{\partial P}{\partial s}}{\rho} = v\frac{\partial v}{\partial s}\\
-  a_n &= \frac{-v\cos \theta -\frac{\partial P}{\partial n}}{\rho} = \frac{v^2}{R}
+  \underline{a} = \frac{Dv}{Dt} & = a_s\hat{s} + a_n\hat{n}                                                                     \\
+                                & = v\frac{\partial v}{\partial s} \hat{s} + \frac{v^2}{R} \hat{n}                              \\
+  a_s                           & = \frac{-v\sin \theta - \frac{\partial P}{\partial s}}{\rho} = v\frac{\partial v}{\partial s} \\
+  a_n                           & = \frac{-v\cos \theta -\frac{\partial P}{\partial n}}{\rho} = \frac{v^2}{R}
 \end{align*}
 \subsection{RTT}
 \begin{align*}
-  \left( \frac{DB}{Dt} \right)_{sys} &= \frac{\partial}{\partial t}\int_{cv}(\rho b) d\forall + \int_{cs} (\rho b(\underline{v} \cdot \underline{\hat{n}})) dA\\
-  \textrm{When B=M} \rightarrow 0 &= \frac{\partial}{\partial t}\int_{cv}(\rho) d\forall + \int_{cs} (\rho(\underline{v} \cdot \underline{\hat{n}})) dA\\
-  \textrm{When \underline{B} = m\underline{v}} \rightarrow \sum F_{sys} &= \frac{\partial}{\partial t}\int_{cv}(\rho \underline{v}) d\forall + \int_{cs} (\rho \underline{v} (\underline{v} \cdot \underline{\hat{n}})) dA\\
+  \left( \frac{DB}{Dt} \right)_{sys}                                    & = \frac{\partial}{\partial t}\int_{cv}(\rho b) d\forall + \int_{cs} (\rho b(\underline{v} \cdot \underline{\hat{n}})) dA                          \\
+  \textrm{When B=M} \rightarrow 0                                       & = \frac{\partial}{\partial t}\int_{cv}(\rho) d\forall + \int_{cs} (\rho(\underline{v} \cdot \underline{\hat{n}})) dA                              \\
+  \textrm{When \underline{B} = m\underline{v}} \rightarrow \sum F_{sys} & = \frac{\partial}{\partial t}\int_{cv}(\rho \underline{v}) d\forall + \int_{cs} (\rho \underline{v} (\underline{v} \cdot \underline{\hat{n}})) dA \\
 \end{align*}
 \subsection{Propeller stages}
 \begin{enumerate}
@@ -82,11 +68,11 @@ The centre of gravity is directly below the centre of buoyancy.
   \item \( P_1 = P_4 \). \[ \therefore \Delta P = P_3 - P_2 = 0.5 \rho (v_4^2 - v_1^2) \]
   \item \( F=\Delta P \times A \). \[ \therefore F_{thrust} = \Delta P \times A = 0.5 \rho A (v_4^2 - v_1^2) \]
   \item Apply momentum equation.
-    \begin{align*}
-      \sum F_x &= \int_{inlet}\rho v_1 (-v_1)dA + \int_{outlet}\rho v_4 (v_4)dA\\
-      &= -\dot{m}_1 v_1 + \dot{m}_2 v_4\\
-      &= \dot{m}(v_4 - v_1) \textrm{ (assume steady state, no viscous force, neglect g)}
-    \end{align*}
+        \begin{align*}
+          \sum F_x & = \int_{inlet}\rho v_1 (-v_1)dA + \int_{outlet}\rho v_4 (v_4)dA                   \\
+                   & = -\dot{m}_1 v_1 + \dot{m}_2 v_4                                                  \\
+                   & = \dot{m}(v_4 - v_1) \textrm{ (assume steady state, no viscous force, neglect g)}
+        \end{align*}
   \item At the propeller, \( \dot{m} = \rho A_P v_p = \rho A v_p \). \[ \therefore F_{\textrm{thrust}} = \rho A v_P(v_4 - v_1) \]
   \item \( 0.5 \rho A (v_4^2 - v_1^2) = \rho A v_p (v_4 - v_1) \). \[ \therefore v_P = 0.5 (v_4 + v_1) \]
   \item Work out \(v_P\) and use it to work out thrust.
@@ -110,40 +96,40 @@ When steady flow and only one stream,
 \end{multline*}
 In the Bernoulli form:
 \begin{align*}
-  \frac{P_{out}}{\rho} + \frac{v_{out}^2}{2} + gz_{out} &= \frac{P_{in}}{\rho} + \frac{v_{in}^2}{2} + gz_{in} + W_{\textrm{shaft net in}} - \textrm{loss, which is:}\\
-  \textrm{loss} &= u_{out} - u{in} - q_{\textrm{net in}}
+  \frac{P_{out}}{\rho} + \frac{v_{out}^2}{2} + gz_{out} & = \frac{P_{in}}{\rho} + \frac{v_{in}^2}{2} + gz_{in} + W_{\textrm{shaft net in}} - \textrm{loss, which is:} \\
+  \textrm{loss}                                         & = u_{out} - u{in} - q_{\textrm{net in}}
 \end{align*}
 \subsection{Shaft work efficiency}
 \begin{align*}
-  \eta &= \frac{W_{\textrm{shaft net in}} - \textrm{loss}}{W_{shaft net in}} 
-  \textrm{Where loss} &= u_{out} - u_{in} - q_{\textrm{net in}}
+  \eta                & = \frac{W_{\textrm{shaft net in}} - \textrm{loss}}{W_{shaft net in}}
+  \textrm{Where loss} & = u_{out} - u_{in} - q_{\textrm{net in}}
 \end{align*}
 \subsection{Laminar flow and boundary layers}
 \begin{align*}
-  u_y(0) &= 0\\
-  u_y(D) &= v\\
-  \tau &= \mu \frac{du_y}{dx} \\ 
-  \frac{\tau}{\mu}\int du &= \int du_y\\
-  \frac{\tau}{\mu}x + k &= u_y\\
-  \textrm{When } x=0, \ u_y &= 0 \rightarrow k = 0\\
-  \therefore u_y &= \frac{\tau}{\mu} x\\
-  u_y &= \frac{v}{D} x
+  u_y(0)                    & = 0                   \\
+  u_y(D)                    & = v                   \\
+  \tau                      & = \mu \frac{du_y}{dx} \\
+  \frac{\tau}{\mu}\int du   & = \int du_y           \\
+  \frac{\tau}{\mu}x + k     & = u_y                 \\
+  \textrm{When } x=0, \ u_y & = 0 \rightarrow k = 0 \\
+  \therefore u_y            & = \frac{\tau}{\mu} x  \\
+  u_y                       & = \frac{v}{D} x
 \end{align*}
 \subsection{Flow through porous media}
 \[ \overline{u} = -C \frac{\partial P}{\partial x} \]
 \subsection{Newtonian fluids}
-\[ \overline{u} \propto \frac{1}{\mu} \] 
+\[ \overline{u} \propto \frac{1}{\mu} \]
 \subsection{Hagen-Poiseulle law}
 \begin{align*}
-  \Delta P &= \frac{dP}{dx} L\\
-  \tau &= \mu \frac{du_y}{dx} = \mu \frac{du_y}{dr}\\
-  F &= \tau \cdot 2\pi r \cdot L\\
-  F &= \left( \frac{dP}{dx} \cdot L \right) \pi r^2\\
-  u &= - \frac{1}{4\mu} \frac{dP}{dx}(R^2 - r^2)\\
-  u_{mean} = \overline{u} &= \frac{Q}{\textrm{Area}} = -\frac{R^2}{8\mu}\frac{dP}{dx}\\
-  u_{mean} &= -\frac{1}{4\mu} \frac{dP}{dx} R^2\\
-  Q &= -\frac{\pi R^4}{8\mu}\frac{dP}{dx}\\
-  \textrm{note } u_{mean} &= \overline{u} = \frac{u_{max}}{2}
+  \Delta P                & = \frac{dP}{dx} L                                          \\
+  \tau                    & = \mu \frac{du_y}{dx} = \mu \frac{du_y}{dr}                \\
+  F                       & = \tau \cdot 2\pi r \cdot L                                \\
+  F                       & = \left( \frac{dP}{dx} \cdot L \right) \pi r^2             \\
+  u                       & = - \frac{1}{4\mu} \frac{dP}{dx}(R^2 - r^2)                \\
+  u_{mean} = \overline{u} & = \frac{Q}{\textrm{Area}} = -\frac{R^2}{8\mu}\frac{dP}{dx} \\
+  u_{mean}                & = -\frac{1}{4\mu} \frac{dP}{dx} R^2                        \\
+  Q                       & = -\frac{\pi R^4}{8\mu}\frac{dP}{dx}                       \\
+  \textrm{note } u_{mean} & = \overline{u} = \frac{u_{max}}{2}
 \end{align*}
 \subsection{Boundary layer}
 \begin{itemize}
@@ -155,4 +141,3 @@ In the Bernoulli form:
 \[ S^* = \int_0^\infty \left( 1 - \frac{u}{u_m} \right) dy \]
 \subsection{Momentum thickness}
 \[ \theta = \int_0^\infty \frac{u}{u_m} \left( 1 - \frac{u}{u_m} \right) dy \]
-\end{document}
