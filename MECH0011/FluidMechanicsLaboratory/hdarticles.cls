@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hdnotes}[2023/06/29 hdnotes Custom Class]
-\LoadClass[11pt,a4paper]{report}
+\ProvidesClass{hdarticles}[2023/06/29 hdarticles Custom Class]
+\LoadClass[11pt,a4paper]{article}
 
 %% Margins and page sizing
 \RequirePackage{calc}
@@ -26,16 +26,16 @@
 \newcommand{\setmodulename}[1]{\def\@modulename{#1}}
 \newcommand{\setauthorname}[1]{\def\@authorname{#1}}
 \newcommand{\setcoordinatorname}[1]{\def\@coordinatorname{#1}}
-\newcommand{\mytitle}{\@modulecode\ Topic Notes}
+\newcommand{\mytitle}{\@modulecode\ Fluid Mechanics Laboratory}
 \newcommand{\myauthor}{\@authorname}
 \newcommand{\mymodulename}{\@modulecode\ \@modulename}
 \newcommand{\myprof}{\@coordinatorname}
 \makeatother
 
-\setmodulecode{MECH0071}
-\setmodulename{Electrical Power Systems and Electrical Propulsion}
+\setmodulecode{MECH0011}
+\setmodulename{Intermediate Thermodynamics and Fluid Mechanics}
 \setauthorname{HD}
-\setcoordinatorname{Prof. Richard Bucknall}
+\setcoordinatorname{Dr. Andrea Ducci}
 
 %% Packages
 \RequirePackage{adjustbox}
@@ -55,7 +55,6 @@
 \RequirePackage{listings}
 \RequirePackage{longtable}
 \RequirePackage{multirow}
-\RequirePackage[version=4]{mhchem}
 \RequirePackage[numbers]{natbib}
 \RequirePackage{parskip}
 \RequirePackage[font=itshape]{quoting}
@@ -77,6 +76,9 @@
   pdfauthor={\myauthor},
 }
 
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
 \renewcommand\bibname{References}
 \RequirePackage{lineno}
 %%%%%%%%%%%%   Header and Footer  %%%%%%%%%%%%%
@@ -91,7 +93,7 @@
 \AtBeginDocument{
   \input{Title/title.tex}
   \fancyhf{}
-  \fancyhead[L]{\mymodulename}
+  \fancyhead[L]{\mytitle}
   \fancyfoot[L]{\myauthor}
   \fancyfoot[R]{ \bf\thepage\ \rm }%
   \newpage
