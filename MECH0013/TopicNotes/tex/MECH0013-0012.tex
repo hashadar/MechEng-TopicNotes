@@ -1,26 +1,12 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
+\chapter{Failure criteria}
 \section{Failure modes}
-Structural failure occurs when a structural component is unable to fulfil its designed purpose. 
+Structural failure occurs when a structural component is unable to fulfil its designed purpose.
 \subsection{Forms of failure}
 \begin{itemize}
   \item Elastic failure - excessive elastic deformation (e.g. buckling)
   \item Brittle failure - sudden fracture of the component
   \item Plastic failure - permanent variation of geometry
-  \item Progressive failure - sudden fracture due to fatigue loading 
+  \item Progressive failure - sudden fracture due to fatigue loading
   \item Creep - ductile failure due to high loads prolonged in time
   \item Corrosion - loss of surface integrity due to environmental factors
   \item Wearing - loss of surface integrity due to abrasive contact
@@ -33,17 +19,17 @@ At microscopic level, most forms of mechanical failure occur according to two ma
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 7cm]{../img/diagram71.png}
+  \includegraphics[height = 7cm]{./img/diagram71.png}
   \caption{}
 \end{figure}
 \textbf{Failure criteria} have the function to give indication on the possibility that one of these mechanisms may occur, for a known state of stress.
 \subsection{Ductile and brittle materials}
-It is essential, first, to identify which of the two failing mechanisms is going to occur! In static conditions, the selection is simple: it depends essentially on the material subject to the stress state. There are materials that fail according to the brittle failure mechanism in the most of the cases, called \textbf{brittle materials}. There are materials that fail according to the plastic failure mechanism in the most of the cases, called ductile materials. 
+It is essential, first, to identify which of the two failing mechanisms is going to occur! In static conditions, the selection is simple: it depends essentially on the material subject to the stress state. There are materials that fail according to the brittle failure mechanism in the most of the cases, called \textbf{brittle materials}. There are materials that fail according to the plastic failure mechanism in the most of the cases, called ductile materials.
 \subsection{Brittle materials}
 In brittle materials, atoms have low mobility. Failure occurs without visible permanent deformations, when energy is sufficient to break the atomic bonds.
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 5cm]{../img/diagram72.png}
+  \includegraphics[height = 5cm]{./img/diagram72.png}
   \caption{}
 \end{figure}
 \subsection{Ductile materials}
@@ -52,27 +38,27 @@ In ductile materials, for energy lower than the one producing the spreading of d
   \begin{center}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram73.png}
+      \includegraphics[width = \textwidth]{./img/diagram73.png}
       \caption{}
     \end{minipage}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram74.png}
+      \includegraphics[width = \textwidth]{./img/diagram74.png}
       \caption{}
     \end{minipage}
   \end{center}
 \end{figure}
 \subsection{Brittle - ductile}
-Brittle and ductile materials are only ideal extremes: All materials have an intermediate behaviour. Moreover, under specific states of stress, typically ductile materials can undergo brittle failure and typically brittle materials can fail plastically. 
+Brittle and ductile materials are only ideal extremes: All materials have an intermediate behaviour. Moreover, under specific states of stress, typically ductile materials can undergo brittle failure and typically brittle materials can fail plastically.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8\textwidth]{../img/diagram75.png}
+  \includegraphics[width = 0.8\textwidth]{./img/diagram75.png}
   \caption{}
 \end{figure}
 \subsection{Hydrostatic stress state}
 \begin{figure}[H]
   \centering
-  \includegraphics[width =\textwidth]{../img/diagram76.png}
+  \includegraphics[width =\textwidth]{./img/diagram76.png}
   \caption{}
 \end{figure}
 \section{Failure criteria}
@@ -83,12 +69,12 @@ Experience has shown that failure consistently occurs when the \textit{component
 Once the appropriate failure criterion has been identified, the \textit{limit for the effective stress} can be easily measured by determining when failure occurs in a simplified case, e.g. unidirectional tensile or compressive test.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\textwidth]{../img/diagram77.png}
+  \includegraphics[width = 0.6\textwidth]{./img/diagram77.png}
   \caption{}
 \end{figure}
-For ductile materials, failure is commonly associated with yielding. For brittle materials it is associated with brittle fracture. 
+For ductile materials, failure is commonly associated with yielding. For brittle materials it is associated with brittle fracture.
 \section{Maximum principal stress theory}
-The first failure criterion can be attributed to Galileo Galilei who observed (from the studies on stone ties) that there is a limit to the maximum principal stress. 
+The first failure criterion can be attributed to Galileo Galilei who observed (from the studies on stone ties) that there is a limit to the maximum principal stress.
 \begin{quotation}
   \textbf{Failure occurs whenever the maximum principal stress equals the strength of the material.}
 \end{quotation}
@@ -100,21 +86,21 @@ The structure is safe if at all points it is:
 The \textit{maximum and minimum principal stress theory,} usually attributed to Rankine, includes in the previous criterion a limit to the compressive stress.
 \begin{quotation}
   \textbf{Failure occurs whenever the maximum principal stress equals the tensile strength or the minimum principal stress equals the compressive strength.}
-\end{quotation} 
+\end{quotation}
 \begin{equation}
-  \sigma_{fc} < \sigma_1 < \sigma_{ft} \, \& \, \sigma_{fc} < \sigma_2 < \sigma_{ft} \, \& \, \sigma_{fc} < \sigma_3 < \sigma_{ft} 
+  \sigma_{fc} < \sigma_1 < \sigma_{ft} \, \& \, \sigma_{fc} < \sigma_2 < \sigma_{ft} \, \& \, \sigma_{fc} < \sigma_3 < \sigma_{ft}
 \end{equation}
 Representing the points of safety in a plane $\sigma_1$, $\sigma_2$, a square is described. Representing the points of safety in a space $\sigma_1$, $\sigma_2$, $\sigma_3$, a cube is described.
 \begin{figure}
   \begin{center}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram78.png}
+      \includegraphics[width = \textwidth]{./img/diagram78.png}
       \caption{}
     \end{minipage}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram79.png}
+      \includegraphics[width = \textwidth]{./img/diagram79.png}
       \caption{}
     \end{minipage}
   \end{center}
@@ -122,13 +108,13 @@ Representing the points of safety in a plane $\sigma_1$, $\sigma_2$, a square is
 In the Mohr's representation, all circles between two vertical lines of abscissas $\sigma_{ft}$ and $\sigma_{fc}$ described safe states of stress.
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 7cm]{../img/diagram80.png}
+  \includegraphics[height = 7cm]{./img/diagram80.png}
   \caption{}
 \end{figure}
 The main limitations of the maximum principle stress theory are:
 \begin{itemize}
   \item interaction between the principal stress is not considered
-  \item does not predict unlimited resistance under hydrostatic compression. 
+  \item does not predict unlimited resistance under hydrostatic compression.
 \end{itemize}
 Applicability:
 \begin{quotation}
@@ -145,9 +131,9 @@ The structure is safe if at all points it is:
 \end{equation}
 Since:
 \begin{align}
-  \epsilon_1 &= \frac{1}{E} \left[\sigma_1 - \nu \left(\sigma_2 + \sigma_3\right)\right]\\
-  \epsilon_1 &= \frac{1}{E} \left[\sigma_2 - \nu \left(\sigma_1 + \sigma_3\right)\right]\\
-  \epsilon_1 &= \frac{1}{E} \left[\sigma_3 - \nu \left(\sigma_1 + \sigma_2\right)\right]
+  \epsilon_1 & = \frac{1}{E} \left[\sigma_1 - \nu \left(\sigma_2 + \sigma_3\right)\right] \\
+  \epsilon_1 & = \frac{1}{E} \left[\sigma_2 - \nu \left(\sigma_1 + \sigma_3\right)\right] \\
+  \epsilon_1 & = \frac{1}{E} \left[\sigma_3 - \nu \left(\sigma_1 + \sigma_2\right)\right]
 \end{align}
 and, from a uni-axial tensile test:
 \begin{equation}
@@ -155,21 +141,21 @@ and, from a uni-axial tensile test:
 \end{equation}
 We can derive that:
 \begin{align}
-  \sigma_1 - \nu \left(\sigma_2 + \sigma_3\right) &< \sigma_f\\
-  \sigma_2 - \nu \left(\sigma_1 + \sigma_3\right) &< \sigma_f\\
-  \sigma_3 - \nu \left(\sigma_1 + \sigma_2\right) &< \sigma_f
+  \sigma_1 - \nu \left(\sigma_2 + \sigma_3\right) & < \sigma_f \\
+  \sigma_2 - \nu \left(\sigma_1 + \sigma_3\right) & < \sigma_f \\
+  \sigma_3 - \nu \left(\sigma_1 + \sigma_2\right) & < \sigma_f
 \end{align}
 Representing the points of safety in the plane $\sigma_1$, $\sigma_2$, a triangle is obtained. Representing the points of safety in a space $\sigma_1$, $\sigma_2$, $\sigma_3$, a pyramid of triangular equilateral section is obtained.
 \begin{figure}
   \begin{center}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram81.png}
+      \includegraphics[width = \textwidth]{./img/diagram81.png}
       \caption{}
     \end{minipage}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram82.png}
+      \includegraphics[width = \textwidth]{./img/diagram82.png}
       \caption{}
     \end{minipage}
   \end{center}
@@ -186,22 +172,22 @@ Applicability:
 It was the first principle to consider the interaction between principal stresses.
 \section{Maximum shear stress theory}
 \subsection{Criteria for ductile materials}
-Previous criteria were developed when the materials of main interest were brittle (stones, bricks and timbers); and therefore they are suitable to describe brittle failure. When the use of metals became more relevant, new criteria had to be developed, in order to better describe the ductile failure due to yielding. 
+Previous criteria were developed when the materials of main interest were brittle (stones, bricks and timbers); and therefore they are suitable to describe brittle failure. When the use of metals became more relevant, new criteria had to be developed, in order to better describe the ductile failure due to yielding.
 \begin{figure}
   \begin{center}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram83.png}
+      \includegraphics[width = \textwidth]{./img/diagram83.png}
       \caption{}
     \end{minipage}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram84.png}
+      \includegraphics[width = \textwidth]{./img/diagram84.png}
       \caption{}
     \end{minipage}
   \end{center}
 \end{figure}
-The maximum-shear-stress theory (also called Tresca theory) assumes that plastic failure (yielding) is produced by the shear stresses. 
+The maximum-shear-stress theory (also called Tresca theory) assumes that plastic failure (yielding) is produced by the shear stresses.
 \begin{quotation}
   \textbf{Yielding occurs whenever the maximum shear stress equals the maximum shear stress $\tau_y$ produced in a tension-test specimen of the same material when that specimen begins to yield.}
 \end{quotation}
@@ -217,23 +203,23 @@ The maximum shear stress $\tau_Y$ produced in a tension-test specimen when that 
   \begin{center}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = 0.8 \textwidth]{../img/diagram85.png}
+      \includegraphics[width = 0.8 \textwidth]{./img/diagram85.png}
       \caption{}
     \end{minipage}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = 0.8\textwidth]{../img/diagram86.png}
+      \includegraphics[width = 0.8\textwidth]{./img/diagram86.png}
       \caption{}
     \end{minipage}
   \end{center}
 \end{figure}
 Maximum shear stresses in the principal planes of the component will be the maximum of:
 \begin{equation}
-  \left(\tau_{max}\right)_3 = \frac{\left| \sigma_1 - \sigma_2 \right| }{2} \ \left(\tau_{max}\right)_1 = \frac{\left| \sigma_2 - \sigma_3 \right| }{2} \ \left(\tau_{max}\right)_2 = \frac{\left| \sigma_3 - \sigma_1 \right| }{2} 
+  \left(\tau_{max}\right)_3 = \frac{\left| \sigma_1 - \sigma_2 \right| }{2} \ \left(\tau_{max}\right)_1 = \frac{\left| \sigma_2 - \sigma_3 \right| }{2} \ \left(\tau_{max}\right)_2 = \frac{\left| \sigma_3 - \sigma_1 \right| }{2}
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 5cm]{../img/diagram87.png}
+  \includegraphics[height = 5cm]{./img/diagram87.png}
   \caption{}
 \end{figure}
 Therefore:
@@ -245,17 +231,17 @@ For a plane stress state $\left(\sigma_3 = 0\right)$:
   \tau_{max} < \tau_Y \rightarrow \left| \sigma_1 - \sigma_2 \right| ; \, \left| \sigma_2 - \sigma_3 \right| ; \, \left| \sigma_3 - \sigma_1 \right| < \sigma_Y
 \end{equation}
 \begin{align}
-  \left| \sigma_1 - \sigma_2 \right| < \sigma_Y &\rightarrow \begin{array}{l}
-    \sigma_2 - \sigma_Y < \sigma_1 < \sigma_2 + \sigma_Y\\
+  \left| \sigma_1 - \sigma_2 \right| < \sigma_Y & \rightarrow \begin{array}{l}
+    \sigma_2 - \sigma_Y < \sigma_1 < \sigma_2 + \sigma_Y \\
     \sigma_1 - \sigma_Y < \sigma_2 < \sigma_1 + \sigma_Y
-  \end{array}\\
-  \left| \sigma_2 \right| < \sigma_Y &\rightarrow - \sigma_Y < \sigma_2 < \sigma_Y\\
-  \left| \sigma_1 \right| < \sigma_Y &\rightarrow - \sigma_Y < \sigma_1 < \sigma_Y
+  \end{array}       \\
+  \left| \sigma_2 \right| < \sigma_Y            & \rightarrow - \sigma_Y < \sigma_2 < \sigma_Y \\
+  \left| \sigma_1 \right| < \sigma_Y            & \rightarrow - \sigma_Y < \sigma_1 < \sigma_Y
 \end{align}
 An irregular hexagon is described.
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 5cm]{../img/diagram88.png}
+  \includegraphics[height = 5cm]{./img/diagram88.png}
   \caption{}
 \end{figure}
 For a tri-axial stress state:
@@ -265,13 +251,13 @@ For a tri-axial stress state:
 Representing the points of safety in a space $\sigma_1$, $\sigma_2$, $\sigma_3$, a prism of regular hexagonal section, with axis along the trisector to the planes is described.
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 5cm]{../img/diagram89.png}
+  \includegraphics[height = 5cm]{./img/diagram89.png}
   \caption{}
 \end{figure}
 In the Mohr's representation, all circles between the two horizontal lines of ordinate $\frac{1}{2}\sigma_Y$ and $-\frac{1}{2}\sigma_Y$ describe the safe state of stress.
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 5cm]{../img/diagram90.png}
+  \includegraphics[height = 5cm]{./img/diagram90.png}
   \caption{}
 \end{figure}
 Applicability:
@@ -286,13 +272,13 @@ The criterion proposed by Beltrami assumes that a material can store a limited a
   \textbf{Yielding occurs whenever the strain energy density equals the strain energy density that produces yielding in a tension-test specimen of the same material.}
 \end{quotation}
 \begin{align}
-  \frac{\dif W}{\dif V} &= \frac{1}{2} \left( \sigma_1 \cdot \epsilon_1 + \sigma_2 \cdot \epsilon_2 + \sigma_3 \cdot \epsilon_3 \right)\\
-  &= \frac{1}{2E} \left[ \sigma_1^2 + \sigma_2^2 - 2\nu\left(\sigma_1 \cdot \sigma_2 + \sigma_2 \cdot \sigma_3 + \sigma_3 \cdot \sigma_1 \right) \right]
+  \frac{\dif W}{\dif V} & = \frac{1}{2} \left( \sigma_1 \cdot \epsilon_1 + \sigma_2 \cdot \epsilon_2 + \sigma_3 \cdot \epsilon_3 \right)                                        \\
+                        & = \frac{1}{2E} \left[ \sigma_1^2 + \sigma_2^2 - 2\nu\left(\sigma_1 \cdot \sigma_2 + \sigma_2 \cdot \sigma_3 + \sigma_3 \cdot \sigma_1 \right) \right]
 \end{align}
 \begin{equation}
   \begin{array}{l}
-    \epsilon_1 = \frac{1}{E} \left[\sigma_1 - \nu \left(\sigma_2 + \sigma_3\right)\right]\\
-    \epsilon_1 = \frac{1}{E} \left[\sigma_2 - \nu \left(\sigma_1 + \sigma_3\right)\right]\\
+    \epsilon_1 = \frac{1}{E} \left[\sigma_1 - \nu \left(\sigma_2 + \sigma_3\right)\right] \\
+    \epsilon_1 = \frac{1}{E} \left[\sigma_2 - \nu \left(\sigma_1 + \sigma_3\right)\right] \\
     \epsilon_1 = \frac{1}{E} \left[\sigma_3 - \nu \left(\sigma_1 + \sigma_2\right)\right]
   \end{array} \textrm{ and } \frac{\dif W_Y}{\dif V} = \frac{1}{2} \sigma_Y \cdot \epsilon_Y = \frac{1}{2}\sigma_Y \cdot \frac{\sigma_Y}{E}
 \end{equation}
@@ -301,7 +287,7 @@ The criterion proposed by Beltrami assumes that a material can store a limited a
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 5cm]{../img/diagram91.png}
+  \includegraphics[height = 5cm]{./img/diagram91.png}
   \caption{}
 \end{figure}
 Representing the points of safety in a plane $\sigma_1$, $\sigma_2$, $\sigma_3 = 0$, an ellipse is described. Representing the points of safety in a space $\sigma_1$, $\sigma_2$, $\sigma_3$, an axial-symmetric ellipsoid with an axis along the trisector to the planes is described.
@@ -309,12 +295,12 @@ Representing the points of safety in a plane $\sigma_1$, $\sigma_2$, $\sigma_3 =
   \begin{center}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram92.png}
+      \includegraphics[width = \textwidth]{./img/diagram92.png}
       \caption{}
     \end{minipage}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram93.png}
+      \includegraphics[width = \textwidth]{./img/diagram93.png}
       \caption{}
     \end{minipage}
   \end{center}
@@ -344,8 +330,8 @@ Hydrostatic stress component is:
 \end{equation}
 Then, strain energy associated with change of volume is:
 \begin{align}
-  \frac{\dif W_V}{\dif V} &= \frac{1}{2} \left( \sigma_{oct} \cdot \epsilon_1 + \sigma_{oct} \cdot \epsilon_2 + \sigma_3 \cdot \epsilon_3\right) = \frac{\sigma_{oct}}{2} \left(\epsilon_1 + \epsilon_2 + \epsilon_3\right)\\
-  &= \frac{1 - 2\nu}{6E} \left[\sigma_1^2 + \sigma_2^2 + \sigma_3^2 + 2 \left(\sigma_1\cdot\sigma_2 + \sigma_2\cdot\sigma_3 + \sigma_1\cdot\sigma_3\right)\right]
+  \frac{\dif W_V}{\dif V} & = \frac{1}{2} \left( \sigma_{oct} \cdot \epsilon_1 + \sigma_{oct} \cdot \epsilon_2 + \sigma_3 \cdot \epsilon_3\right) = \frac{\sigma_{oct}}{2} \left(\epsilon_1 + \epsilon_2 + \epsilon_3\right) \\
+                          & = \frac{1 - 2\nu}{6E} \left[\sigma_1^2 + \sigma_2^2 + \sigma_3^2 + 2 \left(\sigma_1\cdot\sigma_2 + \sigma_2\cdot\sigma_3 + \sigma_1\cdot\sigma_3\right)\right]
 \end{align}
 The strain energy associated with distortion (change of shape) is:
 \begin{gather}
@@ -357,12 +343,12 @@ Representing the points of safety in a plane $\sigma_1$, $\sigma_2$, $\sigma_3 =
   \begin{center}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram94.png}
+      \includegraphics[width = \textwidth]{./img/diagram94.png}
       \caption{}
     \end{minipage}
     \begin{minipage}[b]{0.46\textwidth}
       \centering
-      \includegraphics[width = \textwidth]{../img/diagram95.png}
+      \includegraphics[width = \textwidth]{./img/diagram95.png}
       \caption{}
     \end{minipage}
   \end{center}
@@ -370,7 +356,7 @@ Representing the points of safety in a plane $\sigma_1$, $\sigma_2$, $\sigma_3 =
 In the Mohr's representation, the result is similar to the one obtained with Tresca representation, but in the region close to the $\tau$-axis the advantage due to interaction between the principal stress becomes significant.
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 5cm]{../img/diagram96.png}
+  \includegraphics[height = 5cm]{./img/diagram96.png}
   \caption{}
 \end{figure}
 Applicability:
@@ -381,7 +367,7 @@ The main limitation of the distortion-energy theory is that it does not predict 
 \subsection{Comparison with experiments}
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 7cm]{../img/diagram97.png}
+  \includegraphics[height = 7cm]{./img/diagram97.png}
   \caption{}
 \end{figure}
 \section{Experimental criteria}
@@ -392,13 +378,13 @@ The failure criterion proposed by Mohr differs from previous criteria because it
 \end{quotation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = \textwidth]{../img/diagram98.png}
+  \includegraphics[width = \textwidth]{./img/diagram98.png}
   \caption{}
 \end{figure}
 In the case of brittle materials, the failure envelope has a shape similar to the one in Fig.\ref{mohrscriterion1}.
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 5cm]{../img/diagram99.png}
+  \includegraphics[height = 5cm]{./img/diagram99.png}
   \caption{}
   \label{mohrscriterion1}
 \end{figure}
@@ -406,7 +392,7 @@ In the case of brittle materials, the failure envelope has a shape similar to th
 For this case, \textit{Coulomb-Mohr} criterion uses a simplified envelope, obtained by simply performing one tensile test and one compressive test. The two Mohr's circles relative to the tests are joined with straight tangent lines.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = \textwidth]{../img/diagram100.png}
+  \includegraphics[width = \textwidth]{./img/diagram100.png}
   \caption{}
 \end{figure}
 Applicability:
@@ -415,9 +401,8 @@ Applicability:
 \end{quotation}
 \begin{figure}[H]
   \centering
-  \includegraphics[height = 7cm]{../img/diagram101.png}
+  \includegraphics[height = 7cm]{./img/diagram101.png}
   \caption{}
 \end{figure}
 \section{Conclusion}
 For brittle materials, the maximum principal stress or Coulomb-Mohr criteria are most suitable. For bi-axial stress conditions, the Coulomb-Mohr modified criteria are preferable, provided that reliable test data are available for tension, compression and torsion. For ductile materials, the von Mises "distortion-energy" theory is the most reliable. The Tresca maximum shear stress theory is more conservative (i.e. the safest) and has a simple formula.
-\end{document}

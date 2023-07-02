@@ -1,18 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
+\chapter{Energy methods}
 \section{Strain energy}
 \begin{quotation}
   The energy of a system is the ability of the system to do work.
@@ -25,7 +11,7 @@ Energy may exist in many forms and can be transformed from one for to another. A
 Strain energy is a form of potential energy that is stored within a material which has been subjected to strain (deformation). If the material remains \textbf{elastic} whilst the deformation is applied, then it is capable of doing an amount of work equal to the stored strain energy when returning to its original dimensions.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram8.png}
+  \includegraphics[width = 0.4\textwidth]{./img/diagram8.png}
   \caption{}
 \end{figure}
 The work done $W$ by the external actions on the structure as effect of the displacements, is equal to the strain energy $U$ stored by internal reaction forces as effect of the deformations within the structure:
@@ -34,7 +20,7 @@ The work done $W$ by the external actions on the structure as effect of the disp
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram9.png}
+  \includegraphics[width = 0.4\textwidth]{./img/diagram9.png}
   \caption{}
 \end{figure}
 For a gradually applied load, the work done by a force acting on the structure, is given by the area under the force - displacement curve:
@@ -47,7 +33,7 @@ If displacement is proportional to load (Hookean behaviour)
 \end{equation}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram10.png}
+  \includegraphics[width = 0.4\textwidth]{./img/diagram10.png}
   \caption{}
 \end{figure}
 For a gradually applied load, the energy stored by the internal actions into the structure, is given by the area under the internal force - deformation curve:
@@ -61,13 +47,13 @@ If deformation is proportional to load (Hookean behaviour):
 \subsection{Bending moment}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram11.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram11.png}
   \caption{}
 \end{figure}
 We can determine through various methodologies the distribution of the bending moment. If we want to determine the strain energy at a particular point along the beam, we can extract an elemental portion of the beam with length $\dif x$ from a position $x$ in our coordinate system. This is subjected to a certain bending moment and this will produce a $\dif \theta$ with radius $R$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram12.png}
+  \includegraphics[width = 0.4\textwidth]{./img/diagram12.png}
   \caption{}
 \end{figure}
 We then know that:
@@ -84,7 +70,7 @@ It is inconvenient to use $\theta$ in our equations and we would like to substit
 \end{equation}
 Substituting:
 \begin{align}
-  \dif U_M = \frac{1}{2} \frac{M^2}{EI} \dif x\\
+  \dif U_M = \frac{1}{2} \frac{M^2}{EI} \dif x \\
   U_M = \int_0^L \frac{M^2}{2EI}\, \dif x
 \end{align}
 \section{Castigliano's Theorem}
@@ -95,12 +81,12 @@ Castigliano stated in his engineering thesis that:
 This simply means that if we want to know the displacement from an applied force at the point of application, we can simply take the partial derivative of the strain energy.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram13.png}
+  \includegraphics[width = 0.4\textwidth]{./img/diagram13.png}
   \caption{}
 \end{figure}
 \begin{align}
-  \delta_A &= \frac{\partial U}{\partial P_A}, \ \delta_B = \frac{\partial U}{\partial P_B}\\
-  \delta_C &= \frac{\partial U}{\partial P_C}, \ \theta_D = \frac{\partial U}{\partial M_D}
+  \delta_A & = \frac{\partial U}{\partial P_A}, \ \delta_B = \frac{\partial U}{\partial P_B} \\
+  \delta_C & = \frac{\partial U}{\partial P_C}, \ \theta_D = \frac{\partial U}{\partial M_D}
 \end{align}
 In practice, the displacement $\delta_i$ at any load $P_i$ acting upon a system is given by:
 \begin{equation}
@@ -109,7 +95,7 @@ In practice, the displacement $\delta_i$ at any load $P_i$ acting upon a system 
 where $U$ is the strain energy of the system due to all loads including $P_i$. The load may be a force, in which case a linear displacement is obtained; or a rotational moment, in which case an angular displacement is obtained. The displacement (linear or angular) will result positive in the same sense as the applied action (force or moment).
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram14.png}
+  \includegraphics[width = 0.4\textwidth]{./img/diagram14.png}
   \caption{}
 \end{figure}
 \subsection{Application of Castigliano's theorem}
@@ -123,8 +109,8 @@ We also know that:
 \end{equation}
 Substituting:
 \begin{align}
-  \delta_i &= \frac{\partial}{\partial P_i} \int_0^L \frac{M^2}{2EI} \, \dif x\\
-  \delta_i &= \int_0^L \frac{\partial}{\partial P_i} \left(\frac{M^2}{2EI}\right) \, \dif x 
+  \delta_i & = \frac{\partial}{\partial P_i} \int_0^L \frac{M^2}{2EI} \, \dif x              \\
+  \delta_i & = \int_0^L \frac{\partial}{\partial P_i} \left(\frac{M^2}{2EI}\right) \, \dif x
 \end{align}
 An alternative expression using the chain rule can be derived as:
 \begin{gather}
@@ -141,7 +127,7 @@ This leads to:
 Determine the deflection of the free end of the beam in the direction of $P$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram15.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram15.png}
   \caption{}
 \end{figure}
 Bending moment:
@@ -156,12 +142,12 @@ Castigliano's theorem:
 \subsubsection{Example 2}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram16.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram16.png}
   \caption{}
 \end{figure}
 We can utilise dummy loads in order to analyse our system. The bending moment is:
 \begin{equation}
-  M = - \frac{wx^2}{2} - P_0 x - M_0 
+  M = - \frac{wx^2}{2} - P_0 x - M_0
 \end{equation}
 Castigliano's theorem (alternative equation):
 \begin{align}
@@ -184,7 +170,7 @@ As a result:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram17.png}
+  \includegraphics[width = 0.4\textwidth]{./img/diagram17.png}
   \caption{}
 \end{figure}
 In the case of curved beams, it is more convenient to refer to the angle $\theta$ than to to the beam length. The bending moment can be characterised as:
@@ -199,10 +185,10 @@ In the case of curved beams, it is more convenient to refer to the angle $\theta
 Determine the displacement at the free end.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4\textwidth]{../img/diagram18.png}
+  \includegraphics[width = 0.4\textwidth]{./img/diagram18.png}
   \caption{}
 \end{figure}
-Bending moment: 
+Bending moment:
 \begin{equation}
   M = PR \sin\theta + V_0 R\left(1-\cos\theta\right)
 \end{equation}
@@ -213,13 +199,13 @@ Horizontal displacement:
 \end{gather}
 Converting reference system to polar $\left(\dif x = R \dif \theta\right)$:
 \begin{align}
-  \delta_H  &= \int_0^{\frac{\pi}{2}} \frac{1}{EI} \left(PR\sin\theta + V_0R(1-\cos\theta)\right)(R\sin\theta)(R) \, \dif \theta
+  \delta_H & = \int_0^{\frac{\pi}{2}} \frac{1}{EI} \left(PR\sin\theta + V_0R(1-\cos\theta)\right)(R\sin\theta)(R) \, \dif \theta
 \end{align}
 $V_0R(1-\cos\theta)$ is a dummy load and can be ignored.
 \begin{align}
-  &= \frac{PR^3}{EI} \int_)^{\frac{\pi}{2}} \sin^2\theta \, \dif \theta\\
-  &= \frac{PR^3}{EI} \left[\frac{\theta}{2}-\frac{1}{4}\sin{2\theta}\right]_0^{\frac{\pi}{2}} = \frac{PR^3}{EI}\left[\frac{\pi}{4}-0\right]\\
-  \delta_H &= \frac{\pi PR^3}{4EI}
+           & = \frac{PR^3}{EI} \int_)^{\frac{\pi}{2}} \sin^2\theta \, \dif \theta                                                                     \\
+           & = \frac{PR^3}{EI} \left[\frac{\theta}{2}-\frac{1}{4}\sin{2\theta}\right]_0^{\frac{\pi}{2}} = \frac{PR^3}{EI}\left[\frac{\pi}{4}-0\right] \\
+  \delta_H & = \frac{\pi PR^3}{4EI}
 \end{align}
 Vertical displacement:
 \begin{gather}
@@ -228,19 +214,19 @@ Vertical displacement:
 \end{gather}
 Converting reference system to polar $\left(\dif x = R \dif \theta\right)$:
 \begin{align}
-  \delta_V &= \int_0^{\frac{\pi}{2}} \frac{1}{EI} \left(PR\sin\theta + V_0R(1-\cos\theta)\right)\cdot R\left(1-\cos\theta\right)
+  \delta_V & = \int_0^{\frac{\pi}{2}} \frac{1}{EI} \left(PR\sin\theta + V_0R(1-\cos\theta)\right)\cdot R\left(1-\cos\theta\right)
 \end{align}
 $V_0R(1-\cos\theta)$ is a dummy load and can be ignored.
 \begin{align}
-  &= \frac{PR^3}{EI} \int_0^{\frac{\pi}{2}} \left(\sin\theta - \sin\theta\cos\theta\right)\, \dif \theta\\
-  &= \frac{PR^3}{EI} \left[-\cos\theta - \frac{1}{2}\sin^2\theta\right]_0^{\frac{\pi}{2}} = \frac{PR^3}{EI}\left[\left(0-\frac{1}{2}\right)-\left(-1-0\right)\right]\\
-  \delta_v &= \frac{PR^3}{2EI}
+           & = \frac{PR^3}{EI} \int_0^{\frac{\pi}{2}} \left(\sin\theta - \sin\theta\cos\theta\right)\, \dif \theta                                                             \\
+           & = \frac{PR^3}{EI} \left[-\cos\theta - \frac{1}{2}\sin^2\theta\right]_0^{\frac{\pi}{2}} = \frac{PR^3}{EI}\left[\left(0-\frac{1}{2}\right)-\left(-1-0\right)\right] \\
+  \delta_v & = \frac{PR^3}{2EI}
 \end{align}
 \subsubsection{Example 4 - proving ring}
-Determine the maximum diametrical deflection. These setups are often used to calibrate strain gauges as these systems are purely mechanical. We can use two lines of symmetry to simplify our problem. We assume that the bending does not extend past \SI{90}{\degree} as shown in the middle figure, as this would imply there is a plastic hinge. 
+Determine the maximum diametrical deflection. These setups are often used to calibrate strain gauges as these systems are purely mechanical. We can use two lines of symmetry to simplify our problem. We assume that the bending does not extend past \SI{90}{\degree} as shown in the middle figure, as this would imply there is a plastic hinge.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram19.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram19.png}
   \caption{}
 \end{figure}
 Bending moment:
@@ -254,10 +240,10 @@ Boundary condition:
 \end{gather}
 Where $\varphi_A$ is our rotation. Converting reference system to polar $\left(\dif x = R \dif \theta\right)$:
 \begin{align}
-  \varphi_A &= \int_0^{\frac{\pi}{2}} \frac{1}{EI} \left(M_A + \frac{PR}{2}\sin\theta\right)(1)(R)\, \dif \theta\\[5pt]
-  &= \frac{R}{EI} \int_0^{\frac{\pi}{2}} \left(M_A + \frac{PR}{2}\sin\theta\right)\, \dif \theta\\[5pt]
-  &= \frac{R}{EI} \left(M_A\frac{\pi}{2} + \frac{PR}{2}\right) = 0\\
-  M_A &= -\frac{PR}{\pi}
+  \varphi_A & = \int_0^{\frac{\pi}{2}} \frac{1}{EI} \left(M_A + \frac{PR}{2}\sin\theta\right)(1)(R)\, \dif \theta \\[5pt]
+            & = \frac{R}{EI} \int_0^{\frac{\pi}{2}} \left(M_A + \frac{PR}{2}\sin\theta\right)\, \dif \theta       \\[5pt]
+            & = \frac{R}{EI} \left(M_A\frac{\pi}{2} + \frac{PR}{2}\right) = 0                                     \\
+  M_A       & = -\frac{PR}{\pi}
 \end{align}
 Thus, our bending moment becomes:
 \begin{equation}
@@ -266,42 +252,41 @@ Thus, our bending moment becomes:
 Vertical displacement:
 \begin{gather}
   \delta = \frac{\partial U}{\partial \frac{P}{2}} = \int_0^L \frac{M}{EI} \frac{\partial M}{\partial \frac{P}{2}}\, \dif x\\[5pt]
-  \frac{\partial M}{\partial \frac{P}{2}} = \frac{\partial}{\partial \frac{P}{2}} \left(\frac{P}{2}R\left(\sin\theta-\frac{2}{\pi}\right)\right) = R\left(\sin\theta - \frac{2}{\pi}\right) 
+  \frac{\partial M}{\partial \frac{P}{2}} = \frac{\partial}{\partial \frac{P}{2}} \left(\frac{P}{2}R\left(\sin\theta-\frac{2}{\pi}\right)\right) = R\left(\sin\theta - \frac{2}{\pi}\right)
 \end{gather}
 Converting reference system to polar $\left(\dif x = R \dif \theta\right)$:
 \begin{align}
-  \delta &= \int_0^{\frac{\pi}{2}} \frac{1}{EI} \left(\frac{PR}{2}\left(\sin\theta - \frac{2}{\pi}\right)\right) \left(R\left(\sin\theta-\frac{2}{\pi}\right)\right) \left(R\right)\, \dif \theta\\[5pt]
-  &= \frac{PR^3}{2EI} \int_0^{\frac{\pi}{2}} \left(\sin^2\theta - \frac{4}{\pi}\sin\theta + \frac{4}{\pi^2}\right)\dif \theta\\[5pt]
-  &= \frac{PR^3}{2EI}\left(\frac{\pi}{4}-\frac{2}{\pi}\right)
+  \delta & = \int_0^{\frac{\pi}{2}} \frac{1}{EI} \left(\frac{PR}{2}\left(\sin\theta - \frac{2}{\pi}\right)\right) \left(R\left(\sin\theta-\frac{2}{\pi}\right)\right) \left(R\right)\, \dif \theta \\[5pt]
+         & = \frac{PR^3}{2EI} \int_0^{\frac{\pi}{2}} \left(\sin^2\theta - \frac{4}{\pi}\sin\theta + \frac{4}{\pi^2}\right)\dif \theta                                                              \\[5pt]
+         & = \frac{PR^3}{2EI}\left(\frac{\pi}{4}-\frac{2}{\pi}\right)
 \end{align}
 Therefore our diametrical deflection is:
 \begin{equation}
   D = 2\delta = \frac{PR^3}{EI}\left(\frac{\pi}{4}-\frac{2}{\pi}\right)
 \end{equation}
 \subsubsection{Example 5 - split rings}
-Consider a piston ring. We must be wary that we do not have two axes of symmetry and only one in this case. Hence, we must integrate from $o-\pi$. 
+Consider a piston ring. We must be wary that we do not have two axes of symmetry and only one in this case. Hence, we must integrate from $o-\pi$.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram20.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram20.png}
   \caption{}
 \end{figure}
 \subsubsection{Example 6 - discontinuous loads}
 Develop an expression for the deflection at the free end.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7\textwidth]{../img/diagram21.png}
+  \includegraphics[width = 0.7\textwidth]{./img/diagram21.png}
   \caption{}
 \end{figure}
 If expressions for the internal forces are discontinuous, the structure is divided into sections (over which the internal forces are continuous) and the intergration processes are summed to give the total strain energy of the structure/member.
 \begin{align}
-  \textrm{a. } 0 \leq x \leq \frac{l}{2} &\rightarrow M_a = -P_a x \rightarrow \frac{\partial M_a}{\partial P_A} = -x\\
-  \textrm{b. } \frac{l}{2} \leq x \leq l &\rightarrow M_b = -P_a x - P_b \left(x-\frac{l}{2}\right) \rightarrow \frac{\partial M_b}{\partial P_A} = -x
+  \textrm{a. } 0 \leq x \leq \frac{l}{2} & \rightarrow M_a = -P_a x \rightarrow \frac{\partial M_a}{\partial P_A} = -x                                  \\
+  \textrm{b. } \frac{l}{2} \leq x \leq l & \rightarrow M_b = -P_a x - P_b \left(x-\frac{l}{2}\right) \rightarrow \frac{\partial M_b}{\partial P_A} = -x
 \end{align}
 We take the derivative with respect to $P_A$ as we want to find the deflection at that point.
 \begin{align}
-  \delta_A = \frac{\partial U}{\partial P_A} &= \int_0^{\frac{l}{2}} \frac{\partial M_A}{EI} \frac{\partial M_A}{\partial P_A} \, \dif x + \int_{\frac{l}{2}}^l \frac{M_b}{EI} \frac{\partial M_b}{\partial P_a} \, \dif x\\[5pt]
-  &= \int_0^{\frac{l}{2}} \frac{Px^2}{EI}\, \dif x + \int_{\frac{l}{2}}^l \frac{1}{EI}\left(Px^2 + P\left(x^2-\frac{l}{2}x\right)\right)\, \dif x\\[5pt]
-  &= \frac{P}{EI}\left(\int_0^{\frac{l}{2}}x^2\,\dif x +\int_{\frac{l}{2}}^l \left(2x^2-\frac{l}{2}x\right)\, \dif x \right) \\[5pt]
-  \delta_A &= \frac{7}{16} \frac{PL^3}{EI}
+  \delta_A = \frac{\partial U}{\partial P_A} & = \int_0^{\frac{l}{2}} \frac{\partial M_A}{EI} \frac{\partial M_A}{\partial P_A} \, \dif x + \int_{\frac{l}{2}}^l \frac{M_b}{EI} \frac{\partial M_b}{\partial P_a} \, \dif x \\[5pt]
+                                             & = \int_0^{\frac{l}{2}} \frac{Px^2}{EI}\, \dif x + \int_{\frac{l}{2}}^l \frac{1}{EI}\left(Px^2 + P\left(x^2-\frac{l}{2}x\right)\right)\, \dif x                               \\[5pt]
+                                             & = \frac{P}{EI}\left(\int_0^{\frac{l}{2}}x^2\,\dif x +\int_{\frac{l}{2}}^l \left(2x^2-\frac{l}{2}x\right)\, \dif x \right)                                                    \\[5pt]
+  \delta_A                                   & = \frac{7}{16} \frac{PL^3}{EI}
 \end{align}
-\end{document}

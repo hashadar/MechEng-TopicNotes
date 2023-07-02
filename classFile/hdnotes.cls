@@ -32,10 +32,10 @@
 \newcommand{\myprof}{\@coordinatorname}
 \makeatother
 
-\setmodulecode{MECH0071}
-\setmodulename{Electrical Power Systems and Electrical Propulsion}
+\setmodulecode{MECH0013}
+\setmodulename{Mechanics of Solids and Structures}
 \setauthorname{HD}
-\setcoordinatorname{Prof. Richard Bucknall}
+\setcoordinatorname{Prof. Gaetano Burriesci}
 
 %% Packages
 \RequirePackage{adjustbox}

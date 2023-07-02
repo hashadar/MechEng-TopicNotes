@@ -1,21 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
-\begin{center}
-  09/10/2020
-\end{center}
+\chapter{Bending of Beams}
 \section{Internal Forces and Diagrams}
 \subsection{Bending Moment}
 The \textbf{bending moment}  is by far the most relevant of the internal forces, since it produces the largest levels of deformations and stress into the beam.
@@ -34,12 +17,12 @@ Imagine to cut the beam at a section at a distance $x$ from the beam extreme. Ba
 \subsubsection{Example: Cantilever beam having combined concentrated and distributive loads}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/cantileverbeam.PNG}
+  \includegraphics[width = 0.7 \textwidth]{./img/cantileverbeam.PNG}
 \end{figure}
 \subsubsection{Determination of Support Reactions:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.75 \textwidth]{../img/supportreactions.PNG}
+  \includegraphics[width = 0.75 \textwidth]{./img/supportreactions.PNG}
 \end{figure}
 \begin{center}
   $\vec{R_B} = \left[ \begin{array}{ccc} R_x \\ R_y \\ M \end{array}\right]$
@@ -54,7 +37,7 @@ Imagine to cut the beam at a section at a distance $x$ from the beam extreme. Ba
 \subsubsection{Determination of internal forces (from $x=0$ to $x=\frac{l}{2}$)}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/determinationofforces1.PNG}
+  \includegraphics[width = 0.8 \textwidth]{./img/determinationofforces1.PNG}
 \end{figure}
 \begin{gather}
   \sum F_y: Q + wx = 0 \\
@@ -69,7 +52,7 @@ $M$ varies parabolically: it is zero at $x=0$ and $\frac{-wl^2}{8}$ at $x=\frac{
 \subsubsection{Determination of internal forces (from $x=\frac{l}{2}$ to $x=l$)}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/determinationofforces2.PNG}
+  \includegraphics[width = 0.8 \textwidth]{./img/determinationofforces2.PNG}
 \end{figure}
 \begin{gather}
   \sum F_y: Q + wx + F = 0 \\
@@ -84,6 +67,5 @@ At $x=\frac{l}{2}$, $M$ distribution changes into a parabola with a steeper slop
 \subsubsection{Diagram of Internal Forces}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.8 \textwidth]{../img/diagramofinternalforces.PNG}
+  \includegraphics[width = 0.8 \textwidth]{./img/diagramofinternalforces.PNG}
 \end{figure}
-\end{document}

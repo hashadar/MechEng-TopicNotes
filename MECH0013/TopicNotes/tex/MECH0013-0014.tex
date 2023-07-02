@@ -1,35 +1,19 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage{cancel}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
 \section{Thick wall cylinders}
 Lame's equations
 \begin{align}
-    \sigma_r &= \frac{p_i r_i^2 - p_or_o^2}{r_o^2 - r_i^2} - \frac{\left(p_i-p_o\right)r_i^2 r_o^2}{\left(r_o^2 - r_i^2\right)r^2}\\
-    \sigma_{\theta} &= \frac{p_i r_i^2 - p_o r_o^2}{r_o^2 r_i^2} + \frac{\left(p_i-p_o\right)r_i^2 r_o^2}{\left(r_o^2 - r_i^2\right)r^2}
+    \sigma_r        & = \frac{p_i r_i^2 - p_or_o^2}{r_o^2 - r_i^2} - \frac{\left(p_i-p_o\right)r_i^2 r_o^2}{\left(r_o^2 - r_i^2\right)r^2} \\
+    \sigma_{\theta} & = \frac{p_i r_i^2 - p_o r_o^2}{r_o^2 r_i^2} + \frac{\left(p_i-p_o\right)r_i^2 r_o^2}{\left(r_o^2 - r_i^2\right)r^2}
 \end{align}
-We have seen that a thick cylinder subjected to internal pressure experiences very high peaks of stress at the inner surface. 
+We have seen that a thick cylinder subjected to internal pressure experiences very high peaks of stress at the inner surface.
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram118.png}
+    \includegraphics[height = 5cm]{./img/diagram118.png}
     \caption{The required thickness increases non-linearly with the pressure.}
 \end{figure}
 The design of cylinders that have to maintain high levels of pressure requires specific strategies. aimed at reducing the hoop stress levels at the inside surface.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = \textwidth]{../img/diagram119.png}
+    \includegraphics[width = \textwidth]{./img/diagram119.png}
     \caption{}
 \end{figure}
 A possible solution could be reducing the level of hoop stress by increasing the pressure at the outer surface.
@@ -38,29 +22,29 @@ A possible solution could be reducing the level of hoop stress by increasing the
 This can be done by shrinking another tube on the outside of the original one:
 \begin{figure}[H]
     \centering
-    \includegraphics[width = \textwidth]{../img/diagram120.png}
+    \includegraphics[width = \textwidth]{./img/diagram120.png}
     \caption{}
 \end{figure}
 \subsection{Compound or 'built-up' cylinders}
-THis compound (or built-up) arrangement is obtained by assembling two cylinders with initial diametrical interference $\delta$ at room temperature. The outer cylinder is heated and the inner cylinder is cooled, in order to compensate for the interference by thermal expansion/contraction and allow assembly. Returning the components to room temperature, a set of residual radial and hoop stress is introduced, which locks the two components firmly together. 
+THis compound (or built-up) arrangement is obtained by assembling two cylinders with initial diametrical interference $\delta$ at room temperature. The outer cylinder is heated and the inner cylinder is cooled, in order to compensate for the interference by thermal expansion/contraction and allow assembly. Returning the components to room temperature, a set of residual radial and hoop stress is introduced, which locks the two components firmly together.
 
-The interference between the two cylinders will produce an external pressure $p_{int}$ acting on the internal cylinder, and an equal internal pressure $p_{int}$ acting on the external cylinder, function of the interference $\delta$. 
+The interference between the two cylinders will produce an external pressure $p_{int}$ acting on the internal cylinder, and an equal internal pressure $p_{int}$ acting on the external cylinder, function of the interference $\delta$.
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram121.png}
+    \includegraphics[height = 5cm]{./img/diagram121.png}
     \caption{}
 \end{figure}
 Interface pressure can be expressed as a function of the interference, by using the solid mechanics equations.
 \subsubsection{Other applications}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = \textwidth]{../img/diagram122.png}
+    \includegraphics[width = \textwidth]{./img/diagram122.png}
     \caption{}
 \end{figure}
 \subsection{Stress state at the interface}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram123.png}
+    \includegraphics[height = 5cm]{./img/diagram123.png}
     \caption{}
 \end{figure}
 \begin{gather}
@@ -90,7 +74,7 @@ Therefore:
 \end{gather}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram124.png}
+    \includegraphics[height = 5cm]{./img/diagram124.png}
     \caption{}
 \end{figure}
 \begin{gather}
@@ -120,7 +104,7 @@ Therefore:
 \subsection{Analysis of compound cylinders}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram125.png}
+    \includegraphics[height = 5cm]{./img/diagram125.png}
     \caption{}
 \end{figure}
 \begin{gather}
@@ -133,17 +117,17 @@ For a single material: $E_i = E_o = E$, and $v_i = v_o = v$:
     \delta = p_{int} \frac{b}{E}\left[\frac{2b^2\left(c^2-a^2\right)}{\left(c^2 - b^2\right)\left(b^2-a^2\right)}\right]\\
     p_{int} = E \delta \left[\frac{\left(c^2 + b^2\right)\left(b^2 - c^2\right)}{2b^3\left(c^2 - a^2\right)}\right]
 \end{gather}
-One $p_{int}$ is known, it can be used in the Lame's expressions, to determine the stress state in the two cylinders. 
+One $p_{int}$ is known, it can be used in the Lame's expressions, to determine the stress state in the two cylinders.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = \textwidth]{../img/diagram126.png}
+    \includegraphics[width = \textwidth]{./img/diagram126.png}
     \caption{}
 \end{figure}
 In the case of internal pressure, under linear elastic conditions, the stress distribution can be obtained by selecting suitable BCs, or by superposition with the distribution of a single cylinder of equivalent wall thickness subjected to the internal pressure.
 \section{Rotating discs}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram127.png}
+    \includegraphics[height = 5cm]{./img/diagram127.png}
     \caption{}
 \end{figure}
 Consider a circular disc of outer radius $r_{o}$, rotating about an axis of symmetry with constant angular velocity $\omega$. Centripetal acceleration can produce high stresses that may compromise the disc integrity. If the disc is thin, longitudinal stresses can be neglected and the state of stress is plane. Under these conditions the same approach used for thick cylinders can be used.
@@ -151,12 +135,12 @@ Consider a circular disc of outer radius $r_{o}$, rotating about an axis of symm
 \subsubsection{Equilibrium equations}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 6cm]{../img/diagram129.png}
+    \includegraphics[height = 6cm]{./img/diagram129.png}
     \caption{}
 \end{figure}
-For thick cylinders: 
+For thick cylinders:
 \begin{equation}
-    \frac{\dif \theta_r}{\dif r} + \frac{\sigma_r - \sigma_{\theta}}{r} =0 
+    \frac{\dif \theta_r}{\dif r} + \frac{\sigma_r - \sigma_{\theta}}{r} =0
 \end{equation}
 Radial equilibrium:
 \begin{equation}
@@ -165,7 +149,7 @@ Radial equilibrium:
 \subsubsection{Compatbility relations}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 6cm]{../img/diagram129.png}
+    \includegraphics[height = 6cm]{./img/diagram129.png}
     \caption{}
 \end{figure}
 Same as in thick cylinders:
@@ -217,17 +201,17 @@ Differentiating:
 Substituting into constitutive laws:
 \begin{gather}
     \sigma_r = C - \frac{D}{r^2} - \frac{3 + v}{8}\rho \omega^2 r^2\\
-    \sigma_{\theta} = C + \frac{D}{r^2} - \frac{1+ 3v}{8}\rho\omega^2 r^2 
+    \sigma_{\theta} = C + \frac{D}{r^2} - \frac{1+ 3v}{8}\rho\omega^2 r^2
 \end{gather}
 \subsection{Continuous discs}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram130.png}
+    \includegraphics[height = 5cm]{./img/diagram130.png}
     \caption{}
 \end{figure}
 \begin{gather}
     \sigma_r = C - \frac{D}{r^2} - \frac{3 + v}{8}\rho \omega^2 r^2\\
-    \sigma_{\theta} = C + \frac{D}{r^2} - \frac{1+ 3v}{8}\rho\omega^2 r^2 
+    \sigma_{\theta} = C + \frac{D}{r^2} - \frac{1+ 3v}{8}\rho\omega^2 r^2
 \end{gather}
 Boundary conditions:
 \begin{gather}
@@ -241,7 +225,7 @@ Substituting:
 \end{gather}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram131.png}
+    \includegraphics[height = 5cm]{./img/diagram131.png}
     \caption{}
 \end{figure}
 Max stress at the centre of the disc $(r=0)$:
@@ -250,23 +234,23 @@ Max stress at the centre of the disc $(r=0)$:
 \end{equation}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram132.png}
+    \includegraphics[height = 5cm]{./img/diagram132.png}
     \caption{}
 \end{figure}
 \subsection{Discs with central hole}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram133.png}
+    \includegraphics[height = 5cm]{./img/diagram133.png}
     \caption{}
 \end{figure}
 \begin{gather}
     \sigma_r = C - \frac{D}{r^2} - \frac{3 + v}{8}\rho \omega^2 r^2\\
-    \sigma_{\theta} = C + \frac{D}{r^2} - \frac{1+ 3v}{8}\rho\omega^2 r^2 
+    \sigma_{\theta} = C + \frac{D}{r^2} - \frac{1+ 3v}{8}\rho\omega^2 r^2
 \end{gather}
 Boundary conditions:
 \begin{gather}
     \sigma_r \left(r_i\right) = 0 \rightarrow C - \frac{D}{r_i^2} - \frac{3+v}{8} \rho \omega^2 r_i^2 = 0 \rightarrow C = \frac{3+v}{8} \rho \omega^2 \left(r_i^2 + r_o^2\right)\\
-    \sigma_r \left(r_o\right) = 0 \rightarrow C - \frac{D}{r_o^2} - \frac{3+v}{8} \rho \omega^2 r_o^2 = 0 \rightarrow D = \frac{3+v}{8} \rho \omega^2 r_i^2 r_o^2 
+    \sigma_r \left(r_o\right) = 0 \rightarrow C - \frac{D}{r_o^2} - \frac{3+v}{8} \rho \omega^2 r_o^2 = 0 \rightarrow D = \frac{3+v}{8} \rho \omega^2 r_i^2 r_o^2
 \end{gather}
 Substituting:
 \begin{gather}
@@ -275,7 +259,7 @@ Substituting:
 \end{gather}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram134.png}
+    \includegraphics[height = 5cm]{./img/diagram134.png}
     \caption{}
 \end{figure}
 Max stress at inner radius $\left(r = r_i\right)$:
@@ -284,7 +268,6 @@ Max stress at inner radius $\left(r = r_i\right)$:
 \end{equation}
 \begin{figure}[H]
     \centering
-    \includegraphics[height = 5cm]{../img/diagram135.png}
+    \includegraphics[height = 5cm]{./img/diagram135.png}
     \caption{}
 \end{figure}
-\end{document}

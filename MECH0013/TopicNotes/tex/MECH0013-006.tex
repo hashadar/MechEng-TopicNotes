@@ -1,27 +1,10 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
-\begin{center}
-  20/11/2020
-\end{center}
+\chapter{Plastic collapse}
 What you already know on bending is sufficient to enable the basic engineering design of static beam structures. Basic engineering design is primarily concerned with:
 \begin{itemize}
   \item Controlling elastic deformations
   \item Maintaining structures within their elastic range
 \end{itemize}
-However, for safety reasons, it is essental for engineers to be able to predict how a structure would fail if unexpected loading condiitons occur. 
+However, for safety reasons, it is essental for engineers to be able to predict how a structure would fail if unexpected loading condiitons occur.
 \section{Introduction}
 \subsection{Elastic and Plastic Regimes}
 Stressing within the \textbf{elastic regime}:
@@ -37,13 +20,13 @@ Exceeding the elastic regime, \textbf{plastic regime} is reached:
 Equations of solid mechanics apply to both cases.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/diagram1.PNG}
+  \includegraphics[width = 0.7 \textwidth]{./img/diagram1.PNG}
   \caption{Solid Mechanics Equations: The relationship between actions, stresses, strains and deformations}
 \end{figure}
 \subsection{Stress-Strain Plastic Relationship}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4 \textwidth]{../img/graph4.PNG}
+  \includegraphics[width = 0.4 \textwidth]{./img/graph4.PNG}
   \caption{Typical elasto-plastic material}
 \end{figure}
 Typical elasto-plastic material:
@@ -53,7 +36,7 @@ Typical elasto-plastic material:
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4 \textwidth]{../img/graph5.PNG}
+  \includegraphics[width = 0.4 \textwidth]{./img/graph5.PNG}
   \caption{Perfectly elasto-plastic material}
 \end{figure}
 Perfectly elasto-plastic material:
@@ -65,7 +48,7 @@ Perfectly elasto-plastic material:
 \section{Plastic Theory of Collapse}
 \subsection{Bending and Plastic Collapse}
 \textbf{Bending moment} is by far the most relevant of the internal forces, since it produces the largest levels of deformations and stress into the beam. Therefore, \textbf{plastic collapse} of beam structures is commonly associated with \textbf{plastic bending}.
-Assumptions: 
+Assumptions:
 \begin{itemize}
   \item Material is perfectly elasto-plastic. (in the plastic region stress will be constant)
   \item Yield stress is the same in tension and compression
@@ -77,7 +60,7 @@ Assumptions:
 Consider a beam of rectangular cross-section, subjected to pure bending.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/beam14.PNG}
+  \includegraphics[width = 0.9 \textwidth]{./img/beam14.PNG}
 \end{figure}
 Maximum stress reaches the elastic limit $\sigma_y$ when the bending moment is equal to:
 \begin{gather}
@@ -86,14 +69,14 @@ Maximum stress reaches the elastic limit $\sigma_y$ when the bending moment is e
   I = \frac{ab^3}{12} \\
   \therefore \text{The yield bending moment}: M_Y = \sigma_Y\frac{ab^2}{6}
 \end{gather}
-At the elastic moment, all fibres are still in the elastic condition. 
-If moment increases further, external fibres exceed the elastic limit and yield: deformation increases but stress keeps constant and equal to $\sigma_y$. 
+At the elastic moment, all fibres are still in the elastic condition.
+If moment increases further, external fibres exceed the elastic limit and yield: deformation increases but stress keeps constant and equal to $\sigma_y$.
 With increasing bending moment, the plastic region penetrates deeper toward the Neutral Axis (NA).
 \subsection{Elasto-Plastic Bending Moment}
 Consider a beam of rectangular cross-section, subjected to pure bending.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/beam15.PNG}
+  \includegraphics[width = 0.9 \textwidth]{./img/beam15.PNG}
 \end{figure}
 The moment is given by:
 \begin{gather}
@@ -104,7 +87,7 @@ The moment is given by:
 \textbf{The derivation of the bending moment:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.3 \textwidth]{../img/beam16.PNG}
+  \includegraphics[width = 0.3 \textwidth]{./img/beam16.PNG}
 \end{figure}
 The cross-section is divided into 3 parts:
 \begin{enumerate}
@@ -116,13 +99,13 @@ The cross-section is divided into 3 parts:
   M = \int_{A}\dif M = \int_{A}h\cdot \sigma \dif A \\[10pt]
   = \int_{A_1}\frac{\sigma_Y h}{b/2-d}h\dif A + \int_{A_2}\sigma_Y h\dif A + \int_{A_3}\sigma_Y h\dif A \\[10pt]
   = \int_{-b/2+d}^{b/2-d}\frac{\sigma_Y a}{b/2-d}h^2\dif h + \int_{b/2-d}^{b/2}\sigma_Y ah\dif h + \int_{-b/2}^{-b/2+d}\sigma_Y ah\dif h \\[10pt]
-  = \frac{\sigma_Y ab^2}{6}\left[1+2\frac{d}{b}\left(1-\frac{d}{b}\right)\right] 
+  = \frac{\sigma_Y ab^2}{6}\left[1+2\frac{d}{b}\left(1-\frac{d}{b}\right)\right]
 \end{gather}
 \subsection{Plastic Bending Moment}
 Consider a beam of rectangular cross-section, subjected to pure bending.
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/beam17.PNG}
+  \includegraphics[width = 0.9 \textwidth]{./img/beam17.PNG}
 \end{figure}
 If bending moment keeps increasing, the plastic region propagate to the NA. In this case the moment is equal to:
 \begin{gather}
@@ -142,15 +125,15 @@ The shape factor is an indicator of the reserve strength that the beam can offer
 \subsection{Plastic Collapse Under Bending}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/diagram2.PNG}
+  \includegraphics[width = 0.7 \textwidth]{./img/diagram2.PNG}
 \end{figure}
 Contrary to the case of normal load, the plastic collapse of a beam under pure bending occurs at a moment greater than the yield moment. \\\\
-For a rectangular cross section, it will occur at a moment 50\% higher than the one that initiate yielding. 
+For a rectangular cross section, it will occur at a moment 50\% higher than the one that initiate yielding.
 \subsection{Neutral Axis with Asymmetry}
 In the case of asymmetrical sections (though still singly symmetric), the analysis becomes more complex:
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.35 \textwidth]{../img/beam18.PNG}
+  \includegraphics[width = 0.35 \textwidth]{./img/beam18.PNG}
 \end{figure}
 Equilibrium of forces in the ELASTIC case:
 \begin{gather}
@@ -159,7 +142,7 @@ Equilibrium of forces in the ELASTIC case:
 The $\int_{A}h\cdot\dif A$ is the 1st moment of area. The \textbf{elastic neutral axis} corresponds to the centroid of the section (centre of gravity).
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.35 \textwidth]{../img/beam19.PNG}
+  \includegraphics[width = 0.35 \textwidth]{./img/beam19.PNG}
 \end{figure}
 Equilibrium of forces in the PLASTIC case:
 \begin{gather}
@@ -170,13 +153,13 @@ Equilibrium of forces in the PLASTIC case:
 The \textbf{plastic neutral axis} corresponds to the centre of area (belongs to the line that divides the section into 2 equal areas).
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.9 \textwidth]{../img/beam20.PNG}
+  \includegraphics[width = 0.9 \textwidth]{./img/beam20.PNG}
   \caption{In the elasto-plastic phase, the neutral axis shifts from the centroid (centre of gravity) to the centre of area of the section}
 \end{figure}
 \subsection{Example: Shape factor for T-beam}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5 \textwidth]{../img/diagram3.PNG}
+  \includegraphics[width = 0.5 \textwidth]{./img/diagram3.PNG}
 \end{figure}
 Yield moment $M_Y$ and plastic moment $M_P$ need to be calculated:
 \begin{gather}
@@ -186,7 +169,7 @@ Yield moment $M_Y$ and plastic moment $M_P$ need to be calculated:
 \subsubsection{Elastic Neutral Axis:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4 \textwidth]{../img/diagram4.PNG}
+  \includegraphics[width = 0.4 \textwidth]{./img/diagram4.PNG}
 \end{figure}
 \begin{gather}
   \text{Centre of Gravity} = h_{CG} = \frac{\int_{A}h\cdot\dif A}{A}
@@ -194,7 +177,7 @@ Yield moment $M_Y$ and plastic moment $M_P$ need to be calculated:
 \subsubsection{2nd Moment of Area:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4 \textwidth]{../img/diagram5.PNG}
+  \includegraphics[width = 0.4 \textwidth]{./img/diagram5.PNG}
 \end{figure}
 \begin{gather}
   h_{A1} = h_{CG}+\frac{d}{2} = 23.4 \text{mm} \\
@@ -211,7 +194,7 @@ Yield moment $M_Y$ and plastic moment $M_P$ need to be calculated:
 \subsubsection{Plastic Neutral Axis:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.4 \textwidth]{../img/diagram6.PNG}
+  \includegraphics[width = 0.4 \textwidth]{./img/diagram6.PNG}
 \end{figure}
 \begin{gather}
   A_T = A_C = \frac{A_{total}}{2} \\[10pt]
@@ -221,7 +204,7 @@ Where $A_T$ and $A_C$ represent the areas of the top and bottom parts.
 \subsubsection{1st Moment of Area:}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.7 \textwidth]{../img/diagram7.PNG}
+  \includegraphics[width = 0.7 \textwidth]{./img/diagram7.PNG}
 \end{figure}
 1st moment of the areas in tension \& compression:
 \begin{gather}
@@ -241,7 +224,6 @@ Calculated yield and plastic moments:
 \end{gather}
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.5 \textwidth]{../img/graph6.PNG}
+  \includegraphics[width = 0.5 \textwidth]{./img/graph6.PNG}
   \caption{The shape factors of Rectangular, T-shaped and I-shaped cross sections}
 \end{figure}
-\end{document}
