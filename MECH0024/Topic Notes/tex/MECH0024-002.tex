@@ -1,19 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{ulem}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
+\chapter{Oblique Shocks}
 \section{Recap}
 \subsection{Analogy with hydraulic jumps}
 "Supersonic flows" in the kitchen. In free-surface flows, we have the Froude number
@@ -47,7 +32,7 @@ and depends on
 The local \textbf{instantaneous} velocity $u(x,t)$ is tangential to the local streamline. Streamlines have directions and need arrows!
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\textwidth]{../img/diagram10.png}
+    \includegraphics[width = 0.7\textwidth]{./img/diagram10.png}
     \caption{Streamline.}
 \end{figure}
 (note the difference from pathlines and streaklines).
@@ -65,7 +50,7 @@ THis is where the pressure after the shock is known. Occurs in supersonic jets.
 \subsection{Schematic and notation}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\textwidth]{../img/diagram11.png}
+    \includegraphics[width = 0.7\textwidth]{./img/diagram11.png}
     \caption{Schematic and notation.}
 \end{figure}
 Geometry controlled case. All angles are relative to incident streamline.
@@ -103,9 +88,9 @@ The conservation of energy is expressed in terms of the (specific) kinetic energ
 \subsection{Oblique shock relations}
 Integrating the conservation laws:
 \begin{align}
-    \rho_2 u_{2n}                                                                                     & = \rho_1 u_{1n}                                                                                     \\
-    \rho_2 u^2_{2n} + p_2                                                                             & = \rho_1 u^2_{1n} + p_1                                                                             \\
-    \frac{\gamma}{\gamma - 1}\frac{p_2}{\rho_2} + \frac{1}{2} \left(u^2_{2n} - \xout{u^2_{2t}}\right) & = \frac{\gamma}{\gamma - 1} \frac{p_1}{\rho_1} + \frac{1}{2}\left(u^2_{1n} - \xout{u^2_{1t}}\right)
+    \rho_2 u_{2n}                                                                                       & = \rho_1 u_{1n}                                                                                       \\
+    \rho_2 u^2_{2n} + p_2                                                                               & = \rho_1 u^2_{1n} + p_1                                                                               \\
+    \frac{\gamma}{\gamma - 1}\frac{p_2}{\rho_2} + \frac{1}{2} \left(u^2_{2n} - \cancel{u^2_{2t}}\right) & = \frac{\gamma}{\gamma - 1} \frac{p_1}{\rho_1} + \frac{1}{2}\left(u^2_{1n} - \cancel{u^2_{1t}}\right)
 \end{align}
 The conservation of momentum tangential to the shock is:
 \begin{equation}
@@ -137,7 +122,7 @@ This gives a relationship between 3 variables:
 \subsection{Relationship between $M_1$, $\zeta$ and $\delta$}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.75\textwidth]{../img/diagram12.png}
+    \includegraphics[width = 0.75\textwidth]{./img/diagram12.png}
     \caption{Shock angle vs Mach number.}
 \end{figure}
 We deconstruct the solution into parts that we can understand before looking at more specifically the solutions. For $\delta = 0$ (no streamline deflection), we have:
@@ -148,13 +133,13 @@ We deconstruct the solution into parts that we can understand before looking at 
 \subsection{Sonic waves}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = \textwidth]{../img/diagram13.png}
+    \includegraphics[width = \textwidth]{./img/diagram13.png}
     \caption{Subsonic vs supersonic flows.}
 \end{figure}
 \subsection{Multiple solutions ($\delta$, $\zeta$, $M_1$)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\textwidth]{../img/diagram14.png}
+    \includegraphics[width = 0.7\textwidth]{./img/diagram14.png}
     \caption{Deflection angle vs shock angle.}
 \end{figure}
 Look at the case where $M_1 =3$ with three examples of $\delta =$ \SI{25}{\degree}, \SI{34}{\degree} and \SI{38}{\degree}.
@@ -165,22 +150,21 @@ Look at the case where $M_1 =3$ with three examples of $\delta =$ \SI{25}{\degre
 \end{itemize}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram15.png}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram15.png}
     \caption{The shock angles changes from the near field to the far field.}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = \textwidth]{../img/diagram16.png}
+    \includegraphics[width = \textwidth]{./img/diagram16.png}
     \caption{$M_2$ vs Mach number ($M_1$).}
 \end{figure}
 \subsection{Pressure ratio $\frac{p_2}{p_1}$}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\textwidth]{../img/diagram17.png}
+    \includegraphics[width = 0.7\textwidth]{./img/diagram17.png}
     \caption{Pressure ratio vs shock angle.}
 \end{figure}
 The progression of the pressure across the shock is important and is calculated graphically here. Notice that in all cases, $\frac{p_2}{p_1}>1$. In the examples we have seen, the flow is controlled by the bounding geometry. In many other cases however, it is controlled by pressure, for instance, at the edge of a rocket exit.
 \subsection{Summary}
 Two types of shocks: geometry controlled or pressure controlled.
 Two types of shocks: weak shocks and strong shocks.
-\end{document}

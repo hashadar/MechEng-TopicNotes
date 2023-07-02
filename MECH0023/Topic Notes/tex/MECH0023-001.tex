@@ -1,20 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{array}
-\usepackage{natbib}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
+\chapter{Introduction to Vibration}
 \section{Introduction}
 \subsection{What is the module about?}
 \begin{quotation}
@@ -23,25 +7,25 @@
 In this module we will study the oscillatory forces and the resulted motion of bodies, in other words "Mechanical Vibration."
 \begin{itemize}
     \item Harmful vibrations:
-    \begin{itemize}
-        \item Vibrations can cause:
-        \begin{itemize}
-            \item Resonance
-            \item Flutter
-            \item Fatigue
-        \end{itemize}
-        \item It may cause discomfort and even be harmful to the human.
-    \end{itemize}
+          \begin{itemize}
+              \item Vibrations can cause:
+                    \begin{itemize}
+                        \item Resonance
+                        \item Flutter
+                        \item Fatigue
+                    \end{itemize}
+              \item It may cause discomfort and even be harmful to the human.
+          \end{itemize}
     \item Good vibrations:
-    \begin{itemize}
-        \item Hearing
-        \item Loudspeakers
-        \item Musical instruments
-        \item Electric toothbrush
-        \item Clocks
-        \item Material handling
-        \item Sifting
-    \end{itemize}
+          \begin{itemize}
+              \item Hearing
+              \item Loudspeakers
+              \item Musical instruments
+              \item Electric toothbrush
+              \item Clocks
+              \item Material handling
+              \item Sifting
+          \end{itemize}
 \end{itemize}
 \subsection{How to deal?}
 Analysis:
@@ -61,18 +45,18 @@ Measurements:
 \begin{itemize}
     \item Mathematical modelling, week 1 also 2-11.
     \item Single degree of freedom systems
-    \begin{itemize}
-        \item Free vibration
-        \begin{itemize}
-            \item Undamped, weeks 1 and 2
-            \item Damped, week 3
-        \end{itemize}
-        \item Forced vibration of single degree of freedom system
-        \begin{itemize}
-            \item Harmonic excitation, weeks 4 and 5
-            \item Arbitrary excitation, week 7
-        \end{itemize}
-    \end{itemize}
+          \begin{itemize}
+              \item Free vibration
+                    \begin{itemize}
+                        \item Undamped, weeks 1 and 2
+                        \item Damped, week 3
+                    \end{itemize}
+              \item Forced vibration of single degree of freedom system
+                    \begin{itemize}
+                        \item Harmonic excitation, weeks 4 and 5
+                        \item Arbitrary excitation, week 7
+                    \end{itemize}
+          \end{itemize}
     \item Two degree of freedom system, week 8
     \item Multi degree of freedom systems, week 9
     \item The use of computer aided engineering to create a refined motor vehicle, invited talk, week 10
@@ -111,20 +95,20 @@ One a function of acceleration (mass):
 \begin{figure}[H]
     \centering
     \begin{minipage}{.5\textwidth}
-      \centering
-      \includegraphics[width=.8\linewidth]{../img/diagram1.jpg}
-      \captionof{figure}{Spring-mass system.}
+        \centering
+        \includegraphics[width=.8\linewidth]{./img/diagram1.jpg}
+        \captionof{figure}{Spring-mass system.}
     \end{minipage}%
     \begin{minipage}{.5\textwidth}
-      \centering
-      \includegraphics[width=.8\linewidth]{../img/diagram2.jpg}
-      \captionof{figure}{free body diagram.}
+        \centering
+        \includegraphics[width=.8\linewidth]{./img/diagram2.jpg}
+        \captionof{figure}{free body diagram.}
     \end{minipage}
 \end{figure}
 Equation of motion:
 \begin{align}
-    \sum F &= m\ddot{x} (t)\\
-    m\ddot{x}(t) &= -kx(t)
+    \sum F       & = m\ddot{x} (t) \\
+    m\ddot{x}(t) & = -kx(t)
 \end{align}
 Equation of motion:
 \begin{gather}
@@ -135,53 +119,53 @@ Solution:
     x(t) = A\sin \left(\omega_n t + \phi \right)
 \end{gather}
 \subsection{Degree of freedom}
-The minimum number of coordinates that are required to define the position of a system is called degree of freedom. 
+The minimum number of coordinates that are required to define the position of a system is called degree of freedom.
 \begin{itemize}
     \item Single degree of freedom (SDOF):
-    \begin{itemize}
-        \item Only one coordinate is required to fully define the state of the system
-    \end{itemize}
+          \begin{itemize}
+              \item Only one coordinate is required to fully define the state of the system
+          \end{itemize}
 \end{itemize}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram3.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram3.jpg}
     \caption{SDOF systems.}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram4.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram4.jpg}
     \caption{Two degree of freedom systems.}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram5.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram5.jpg}
     \caption{Three degree of freedom systems.}
 \end{figure}
 \subsection{Continuous systems}
 Some systems, especially those involving continuous elastic members, have an infinite number of degrees of freedom.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram6.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram6.jpg}
     \caption{Continuous degree of freedom.}
 \end{figure}
 \textbf{Discrete or lumped parameter systems:} A system with finite number of degree of freedom.
 Continuous or distributed systems: an infinite number of degree of freedom.
 \subsection{Analysis procedure}
 \subsubsection{Mathematical modelling}
-We need a mathematical model to obtain a solution for the vibrational problem. The model is a compromise between simplicity and accuracy. We make some assumption and our model is valid with the limitation of those assumptions only. 
+We need a mathematical model to obtain a solution for the vibrational problem. The model is a compromise between simplicity and accuracy. We make some assumption and our model is valid with the limitation of those assumptions only.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram7.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram7.jpg}
     \caption{Model of rider-motorbike-wheel system.}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram8.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram8.jpg}
     \caption{Various models of rider-motorbike-wheel system.}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram9.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram9.jpg}
     \caption{Complex model of rider-motorbike-wheel system.}
 \end{figure}
 \subsubsection{Derivation of governing equations}
@@ -207,7 +191,7 @@ Usually in the form of a set of ordinary differential equations.
 \subsection{Classification of vibration}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram10.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram10.jpg}
     \caption{Classification of vibrations.}
 \end{figure}
 \subsection{Example: simple pendulum}
@@ -219,14 +203,14 @@ Deriving the equation of motion. We have some assumptions:
 \end{itemize}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram11.jpg}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram11.jpg}
     \caption{Free body diagram of simple pendulum system.}
 \end{figure}
 Euler's second law:
 \begin{align}
-    \sum M_o &= J \alpha\\
-    J \alpha(t) &= - mgl\sin \theta (t)\\
-    ml^2 \ddot{\theta} (t) + mgl\sin \theta (t) &= 0 
+    \sum M_o                                    & = J \alpha             \\
+    J \alpha(t)                                 & = - mgl\sin \theta (t) \\
+    ml^2 \ddot{\theta} (t) + mgl\sin \theta (t) & = 0
 \end{align}
 Linearisation:
 \begin{align}
@@ -235,13 +219,13 @@ Linearisation:
 \subsection{Simple harmonic motion}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram1.jpg}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram1.jpg}
     \caption{Spring-mass system.}
 \end{figure}
 \begin{align}
-    x(t) &= A \sin\left(\omega_n t + \phi\right)\\
-    \dot{x} &= A \omega_n \cos \left(\omega_n t + \phi\right)\\
-    \ddot{x} &= - A \omega_n^2 \sin \left(\omega_n t + \phi\right)
+    x(t)     & = A \sin\left(\omega_n t + \phi\right)               \\
+    \dot{x}  & = A \omega_n \cos \left(\omega_n t + \phi\right)     \\
+    \ddot{x} & = - A \omega_n^2 \sin \left(\omega_n t + \phi\right)
 \end{align}
 Substitute in equation of motion:
 \begin{gather}
@@ -253,7 +237,7 @@ where \ref{naturalFrequency} is the natural frequency.
 \begin{gather}
     x(t) = A \sin\left(\omega_n t + \phi\right)
 \end{gather}
-Initial conditions: initial displacement $x_0$ and initial velocity $v_0$ of the mass. 
+Initial conditions: initial displacement $x_0$ and initial velocity $v_0$ of the mass.
 \begin{gather}
     x_0 = x(t = 0) = A\sin \phi\\
     v_0 = \dot{x} (t=0) = A\omega_n \cos\left(\omega_n x_0 + \phi\right) = A \omega_n \cos \phi\\
@@ -267,7 +251,7 @@ Thus:
 \end{gather}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.3\textwidth]{../img/diagram2.jpg}
+    \includegraphics[width = 0.3\textwidth]{./img/diagram2.jpg}
     \caption{Free body diagram of spring-mass system.}
 \end{figure}
 \begin{gather}
@@ -277,19 +261,19 @@ Thus:
 \end{gather}
 Solution:
 \begin{align}
-    \omega_n &= \sqrt{\dfrac{k}{m}} = \sqrt{\dfrac{200}{2}} = \SI{200}{\radian\per\second}\\
-    A &= \dfrac{\sqrt{\omega_n^2 x_0^2 + v_0^2}}{\omega_n} = \dfrac{\sqrt{10^2 \cdot 2^2 + 10^2}}{10} = \SI{2.2}{\milli\meter}\\
-    1. \; \phi &= \arctan\left(\dfrac{\omega_n x_0}{v_0}\right) = \arctan\left(\dfrac{10\cdot-2}{10}\right) = \SI{-1.107}{\radian} \textrm{ or } \SI{-63.4}{\degree}\\
-    2. \; \phi &= \arctan\left(\dfrac{\omega_n x_0}{v_0}\right) = \arctan\left(\dfrac{10\cdot-2}{10}\right) = \left(-1.107+\pi\right)\si{\radian} \textrm{ or } \SI{116.6}{\degree}
+    \omega_n   & = \sqrt{\dfrac{k}{m}} = \sqrt{\dfrac{200}{2}} = \SI{200}{\radian\per\second}                                                                                        \\
+    A          & = \dfrac{\sqrt{\omega_n^2 x_0^2 + v_0^2}}{\omega_n} = \dfrac{\sqrt{10^2 \cdot 2^2 + 10^2}}{10} = \SI{2.2}{\milli\meter}                                             \\
+    1. \; \phi & = \arctan\left(\dfrac{\omega_n x_0}{v_0}\right) = \arctan\left(\dfrac{10\cdot-2}{10}\right) = \SI{-1.107}{\radian} \textrm{ or } \SI{-63.4}{\degree}                \\
+    2. \; \phi & = \arctan\left(\dfrac{\omega_n x_0}{v_0}\right) = \arctan\left(\dfrac{10\cdot-2}{10}\right) = \left(-1.107+\pi\right)\si{\radian} \textrm{ or } \SI{116.6}{\degree}
 \end{align}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram12.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram12.jpg}
     \caption{Plots of SHM.}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram13.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram13.jpg}
     \caption{Analysis of SHM plots.}
 \end{figure}
 \subsection{Springs}
@@ -300,76 +284,75 @@ Hooke's law (linear spring):
 \begin{figure}[H]
     \centering
     \begin{minipage}{.5\textwidth}
-      \centering
-      \includegraphics[width=.8\linewidth]{../img/diagram14.jpg}
-      \captionof{figure}{Spring system.}
+        \centering
+        \includegraphics[width=.8\linewidth]{./img/diagram14.jpg}
+        \captionof{figure}{Spring system.}
     \end{minipage}%
     \begin{minipage}{.5\textwidth}
-      \centering
-      \includegraphics[width=.8\linewidth]{../img/diagram15.jpg}
-      \captionof{figure}{$F$ vs $x$ of spring.}
+        \centering
+        \includegraphics[width=.8\linewidth]{./img/diagram15.jpg}
+        \captionof{figure}{$F$ vs $x$ of spring.}
     \end{minipage}
 \end{figure}
 \subsection{Modelling springs}
 Springs in parallel:
 \begin{align}
-    W &= k_1 \delta_{st} + k_2 \delta_{st}\\
-    &= \left(k_1 + k_2 \right)\delta_{st}\\
-    W &= k_{eq} \delta_{st}\\
-    k_{eq} &= \left(k_1 + k_2\right)
+    W      & = k_1 \delta_{st} + k_2 \delta_{st}  \\
+           & = \left(k_1 + k_2 \right)\delta_{st} \\
+    W      & = k_{eq} \delta_{st}                 \\
+    k_{eq} & = \left(k_1 + k_2\right)
 \end{align}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.4\textwidth]{../img/diagram16.jpg}
+    \includegraphics[width = 0.4\textwidth]{./img/diagram16.jpg}
     \caption{Parallel springs.}
 \end{figure}
 Springs in series:
 \begin{align}
-    \delta_{st} &= \delta_1 + \delta_2\\
-    w &= k_1 \delta_1\\
-    w &= k_2 \delta_2
+    \delta_{st} & = \delta_1 + \delta_2 \\
+    w           & = k_1 \delta_1        \\
+    w           & = k_2 \delta_2
 \end{align}
 or
 \begin{align}
-    \delta_{st} &= \dfrac{w}{k_1} + \dfrac{w}{k_2}\\
-    \delta_{st} &= \dfrac{w}{k_{eq}}\\
-    k_{eq} &= \dfrac{k_1k_2}{k_1 + k_2}
+    \delta_{st} & = \dfrac{w}{k_1} + \dfrac{w}{k_2} \\
+    \delta_{st} & = \dfrac{w}{k_{eq}}               \\
+    k_{eq}      & = \dfrac{k_1k_2}{k_1 + k_2}
 \end{align}
 \begin{figure}
     \centering
-    \includegraphics[width = 0.4\textwidth]{../img/diagram17.jpg}
+    \includegraphics[width = 0.4\textwidth]{./img/diagram17.jpg}
     \caption{Series springs.}
 \end{figure}
 A cantilever beam with a mass at the free end:
 \begin{align}
-    \delta_{st} &= \dfrac{Wl^3}{3EI}\\
-    k_{eq} &= \dfrac{W}{\delta_{st}}\\
-    k_{eq} &= \dfrac{3EI}{l^3}
+    \delta_{st} & = \dfrac{Wl^3}{3EI}      \\
+    k_{eq}      & = \dfrac{W}{\delta_{st}} \\
+    k_{eq}      & = \dfrac{3EI}{l^3}
 \end{align}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.6\textwidth]{../img/diagram18.jpg}
+    \includegraphics[width = 0.6\textwidth]{./img/diagram18.jpg}
     \caption{Cantilever beam with mass at free end.}
 \end{figure}
 \subsection{Longitudinal motion of a bar}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram19.jpg}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram19.jpg}
     \caption{Longitudinal motion of a bar.}
 \end{figure}
 \subsection{Torsional rotation of a shaft}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.6\textwidth]{../img/diagram20.jpg}
+    \includegraphics[width = 0.6\textwidth]{./img/diagram20.jpg}
     \caption{Torsional disc system.}
 \end{figure}
 \begin{align}
-    M &= k_{eq} \theta_{st}\\
-    k_{eq} &= \dfrac{GJ_p}{l}
+    M      & = k_{eq} \theta_{st} \\
+    k_{eq} & = \dfrac{GJ_p}{l}
 \end{align}
 \begin{itemize}
     \item $G$: Shear modulus of rigidity
     \item $J_p$: Polar second moment of area
     \item $l$: Length of the shaft
 \end{itemize}
-\end{document}

@@ -1,32 +1,15 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{booktabs}
-\usepackage{caption}
-\usepackage{array}
-\usepackage{ulem}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
+\chapter{Inlets}
 \section{Inlets}
 \subsection{Characteristics of a jet engine}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = \textwidth]{../img/diagram37.png}
+    \includegraphics[width = \textwidth]{./img/diagram37.png}
     \caption{Components of a jet engine.}
 \end{figure}
 \subsection{Thrust from a jet/turbine}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram38.png}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram38.png}
     \caption{Inlet areas.}
 \end{figure}
 The thrust force on a body is determined by the integrated (pressure) force over its surface $S_B$:
@@ -44,7 +27,7 @@ Taking a control surface that envelopes the body:
 \subsection{Purpose of an inlet}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram39.png}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram39.png}
     \caption{Inlet streamlines with various diffusers.}
 \end{figure}
 There are two requirements:
@@ -57,26 +40,26 @@ There are two requirements:
     \centering
     \begin{minipage}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{../img/diagram40.png}
+        \includegraphics[width=.8\linewidth]{./img/diagram40.png}
         \captionof{figure}{Subsonic inlet.}
     \end{minipage}%
     \begin{minipage}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{../img/diagram41.png}
+        \includegraphics[width=.8\linewidth]{./img/diagram41.png}
         \captionof{figure}{Supersonic inlets.}
     \end{minipage}
 \end{figure}
 Modern jets are turbofans. This consists of a low speed fan and an inner high speed compressor. This is preferred because of the lower exhaust speed that is more efficient and gives rise to less noise.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram42.png}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram42.png}
     \caption{Graph to show propulsion performance for different inlet types.}
 \end{figure}
 Thrust divided by rate at which mass of propellant is consumed $\dfrac{F_T}{\dot{m}}$.
 \section{Jet engines}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\textwidth]{../img/diagram43.png}
+    \includegraphics[width = 0.7\textwidth]{./img/diagram43.png}
     \caption{Jet engine.}
 \end{figure}
 In the first half - need high pressure, in the second half - need high velocity. There are four main components to a jet engine:
@@ -94,14 +77,14 @@ Thrust:
 \subsection{Ramjet}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\textwidth]{../img/diagram37.png}
+    \includegraphics[width = 0.7\textwidth]{./img/diagram37.png}
     \caption{Ramjet.}
 \end{figure}
 This is a form of airbreathing jet engine that uses the engine's forward motion to compress incoming air without an axial compressor. Ramjets work most efficiently at supersonic speeds, around Mach 3 and can operate up to speeds of Mach 6 (\SI{7350}{\kilo\meter\per\hour}).
 \subsection{Scramjet}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\textwidth]{../img/diagram44.png}
+    \includegraphics[width = 0.7\textwidth]{./img/diagram44.png}
     \caption{Scramjet.}
 \end{figure}
 This consists of a converging inlet, where incoming air is compressed; a combustor, where gaseous fuel is burned with atmospheric oxygen to produce heat. There is a diverging nozzle, where the heated air is accelerated to produce thrust. The flow is supersonic through the entire flow. The thrust is:
@@ -113,7 +96,7 @@ Increasing pressure of airflow increases the potential energy. Increasing veloci
 \subsection{Subsonic}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\textwidth]{../img/diagram45.png}
+    \includegraphics[width = 0.7\textwidth]{./img/diagram45.png}
     \caption{Subsonic inlet profile.}
 \end{figure}
 \subsection{Supersonic inlets}
@@ -121,7 +104,7 @@ An inlet for a supersonic aircraft, on the other hand, has a relatively sharp li
 \section{Simple normal shock inflow}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram46.png}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram46.png}
     \caption{Simple normal shock inflow.}
 \end{figure}
 Relationship between flow properties upstream and downstream of shock:
@@ -131,7 +114,7 @@ Relationship between flow properties upstream and downstream of shock:
 \end{gather}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram47.png}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram47.png}
     \caption{Graph to show ratio of stagnation pressure vs Mach number.}
 \end{figure}
 Ratio of stagnation pressure downstream to upstream of normal shock:
@@ -141,7 +124,7 @@ Ratio of stagnation pressure downstream to upstream of normal shock:
 \section{Basic concept - reflection of shock at wall}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram48.png}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram48.png}
     \caption{Diagram of shock at wall.}
 \end{figure}
 Example from Problem Sheet 2. The inlet Mach number is $M_1 = 2.8$. For a turning angle of \SI{10}{\degree}, calculate the width of the duct ($w$) in terms of the inlet width $d$, given that the shock cancels out at the corner.
@@ -159,13 +142,13 @@ Example from Problem Sheet 2. The inlet Mach number is $M_1 = 2.8$. For a turnin
 \section{External vs internal compression}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = \textwidth]{../img/diagram49.png}
+    \includegraphics[width = \textwidth]{./img/diagram49.png}
     \caption{External vs internal compression.}
 \end{figure}
 \section{Strategy for increasing stagnation pressure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.6\textwidth]{../img/diagram50.png}
+    \includegraphics[width = 0.6\textwidth]{./img/diagram50.png}
     \caption{Intake recovery graph.}
 \end{figure}
 To increase the stagnation pressure after the compression stage, it is useful to compress the flow with a series of external and internal shocks. This shows the stagnation pressure ratio due to a series of shocks which are of equal strength. Equal strength means that:
@@ -183,9 +166,8 @@ We tend to ensure that the ratio of stagnation pressure across the shocks is the
 \section{Oblique diffusers}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = \textwidth]{../img/diagram51.png}
+    \includegraphics[width = \textwidth]{./img/diagram51.png}
     \caption{Oblique diffusers.}
 \end{figure}
 \subsection{Adaptation}
 A movable cone called a 'spike' is used. For subsonic flow, the spike is pushed forward. When the aircraft accelerated past Mach 1.6, an internal jackscrew moved the spike up \SI{66}{\centi\meter} inwards, directed by an analog air inlet computer that took into account pitot-static system, pitch, roll, yaw and angle of attack. Moving the spike tip drew the shock wave riding on it closer to the inlet cowling until it touched just slightly inside the cowling.
-\end{document}

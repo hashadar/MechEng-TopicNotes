@@ -1,21 +1,4 @@
-\documentclass[class=report, crop=false, 12pt,a4paper]{standalone}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{commath}
-\usepackage{booktabs}
-\usepackage{caption}
-\usepackage{array}
-\usepackage{ulem}
-\usepackage{natbib}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
-\setlength{\parindent}{0pt}
-\begin{document}
+\chapter{Compressible Duct Flows}
 \section{Compressible duct flows}
 \subsection{Problem types}
 We are concerned with flow in ducts or 'long' pipes whose cross-section area is simple (rectangular / circular / conical). There are three types of problems where:
@@ -49,7 +32,7 @@ and for adiabatic flows:
 It is important to be aware of what is conserved for adiabatic or isentropic conditions. The reference state of $M = 1$ is useful for flow in pipes where the sonic condition is common. The sonic reference condition is usually referred to as the critical condition and denoted with a '*'. Therefore:
 \begin{align}
     \dfrac{p_*}{p_0}       & = \left(\frac{1}{2}\left(\gamma + 1\right)(M=1)^2\right)^{-\frac{\gamma}{\gamma - 1}} \approx 0.528 \\
-    \dfrac{\rho_*}{\rho_0} & = \left(\frac{1}{2}\left(\gamma + 1\right)(M=1)^2\right)^{-\frac{1}{\gamma - 1}}  \approx 0.91 \\
+    \dfrac{\rho_*}{\rho_0} & = \left(\frac{1}{2}\left(\gamma + 1\right)(M=1)^2\right)^{-\frac{1}{\gamma - 1}}  \approx 0.91      \\
     \dfrac{T_*}{T_0}       & = \left(\frac{1}{2}\left(\gamma + 1\right)(M=1)^2\right)^{-1} \approx 0.833
 \end{align}
 In duct flows, the critical state is used. $p_0$, $\rho_0$ are constant when there is no shock. $T_0$ is constant even with a shock.
@@ -72,7 +55,7 @@ The right-hand side is a constant. It is a state that may, or may not, be realis
 We are to explore some of the important relationships between the state of the flow and the cross-sectional area.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.75\textwidth]{../img/diagram52.png}
+    \includegraphics[width = 0.75\textwidth]{./img/diagram52.png}
     \caption{Graph to show pipe area vs Mach number.}
 \end{figure}
 \begin{table}[H]
@@ -94,12 +77,12 @@ Profound elements - 2 solutions are possible!
 \subsection{Creating supersonic flows}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram53.png}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram53.png}
     \caption{Supersonic flow generator.}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.9\textwidth]{../img/diagram54.png}
+    \includegraphics[width = 0.9\textwidth]{./img/diagram54.png}
     \caption{Geometry of supersonic flow generator.}
 \end{figure}
 This requires a converging, throat and diverging sections. The flow is determined by $\dfrac{p_b}{p_0}$, $\dfrac{A_e}{A_t}$.
@@ -149,14 +132,14 @@ The maximum occurs when $M=1$, when the flow is choked. The maximum mass flux is
 \end{gather}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.5\textwidth]{../img/diagram55.png}
+    \includegraphics[width = 0.5\textwidth]{./img/diagram55.png}
     \caption{}
 \end{figure}
 where $p_b$ is the back pressure and $p_0$ is the reservoir pressure.
 \subsection{Types of solution available}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\textwidth]{../img/diagram56.png}
+    \includegraphics[width = 0.7\textwidth]{./img/diagram56.png}
     \caption{Overview of problem.}
 \end{figure}
 Characteristics depend on the value of the back pressure. There are three types of solution:
@@ -189,14 +172,14 @@ This has a maximum value when $\frac{p_b}{p_0} = \frac{p_*}{p_0}$. For a moderat
 and the flow is sonic at the throat.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.75\textwidth]{../img/diagram57.png}
+    \includegraphics[width = 0.75\textwidth]{./img/diagram57.png}
     \caption{Mach number in the supersonic generator, case A.}
 \end{figure}
 \subsubsection{Case B: Choked flow with subsonic outlet}
 When $p_b$ decreases, the only way for the flow to adapt is for a shock to be created between the nozzle and the outlet. Isentropic model still applies but supplement by normal shock relationship across the shock. If $p_b < p_*$, the nozzle cannot respond because it is choked at its maximum throat mass flow. The flow switches to the supersonic condition after the throat since the flow is mass constrained. The flow passes smoothly through this transition. The only way of the pressure recovering to match the back pressure is to have a normal shock at some location in the nozzle. The exit's jets is then subsonic and is able to match the back pressure.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../img/diagram58.png}
+    \includegraphics[width = 0.8\textwidth]{./img/diagram58.png}
     \caption{Mach number in supersonic generator, case B.}
     \label{casebmachnumber}
 \end{figure}
@@ -252,4 +235,3 @@ The final state does not depend on the shape of the throat:
                     &                     & back pressure so need     \\ & & shocks to increase \\ & & pressure. \\ \bottomrule
     \end{tabular}
 \end{table}
-\end{document}
