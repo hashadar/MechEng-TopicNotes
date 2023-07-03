@@ -1,7 +1,7 @@
 \chapter{Materials, Molecules and Chemistry}
 \section{Introduction}
 \begin{itemize}
-	\item Macorscopic response of material depends on their microscopic structure
+	\item Macroscopic response of material depends on their microscopic structure
 	\item We need to be able to understand physics from molecular to continuum scales
 \end{itemize}
 \begin{figure}[H]
@@ -11,23 +11,23 @@
 \end{figure}
 \subsubsection{Cascade of length scales}
 \begin{table}
-\begin{adjustbox}{width=\columnwidth,center}
-	\begin{tabular}{@{}lll@{}}
-		\toprule
-		\textbf{Molecular} & \textbf{Continuum} & \textbf{Structural}\\
-		\midrule
-		Material is made on this level & Cracks operate on this level & Structures considered at this level\\
-		$< \SI{10}{\micro\meter}$ & $\SI{10}{\micro\meter} < x < \SI{10}{\meter}$ & $> \SI{10}{\meter}$\\
-		Short range interactions & Long range interactions & Whole scale interactions\\
-		Failure / corrosion / chemistry & Tune model - variables change & Long distance interaction \\
-		& continuously / smoothly (can account & - vibration (waves transporting energy)\\
-		& for discontinuous behaviour, e.g. crack) & \\
-		\bottomrule
-	\end{tabular}
-\end{adjustbox}
-\caption{Cascade of length scales}
+	\begin{adjustbox}{width=\columnwidth,center}
+		\begin{tabular}{@{}lll@{}}
+			\toprule
+			\textbf{Molecular}              & \textbf{Continuum}                            & \textbf{Structural}                     \\
+			\midrule
+			Material is made on this level  & Cracks operate on this level                  & Structures considered at this level     \\
+			$< \SI{10}{\micro\meter}$       & $\SI{10}{\micro\meter} < x < \SI{10}{\meter}$ & $> \SI{10}{\meter}$                     \\
+			Short range interactions        & Long range interactions                       & Whole scale interactions                \\
+			Failure / corrosion / chemistry & Tune model - variables change                 & Long distance interaction               \\
+			                                & continuously / smoothly (can account          & - vibration (waves transporting energy) \\
+			                                & for discontinuous behaviour, e.g. crack)      &                                         \\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption{Cascade of length scales}
 \end{table}
-\subsection{Compelxity of the problem at different length scales}
+\subsection{Complexity of the problem at different length scales}
 Complexity of representation changes with the scale.
 \begin{figure}[H]
 	\centering
@@ -43,18 +43,18 @@ Complexity of representation changes with the scale.
 	\item Hypersonic flow - ionisation is non-continuum effect
 	\item Analogy between defective liquids / solids
 \end{itemize}
-Note: turbulence is controllbed by small vortices.
+Note: turbulence is controlled by small vortices.
 \subsubsection{Micrograph}
 \begin{table}
 	\centering
 	\begin{tabular}{@{}ll@{}}
 		\toprule
-		\textbf{Domain} & \textbf{Process}\\
+		\textbf{Domain}   & \textbf{Process}           \\
 		\midrule
-		Bulk & Plasticity\\
-		Internal boundary & Hydrogen embrittlement - \\
-		& plastic deformation / slip\\
-		External boundary & Corrosion - chemistry\\
+		Bulk              & Plasticity                 \\
+		Internal boundary & Hydrogen embrittlement -   \\
+		                  & plastic deformation / slip \\
+		External boundary & Corrosion - chemistry      \\
 		\bottomrule
 	\end{tabular}
 	\caption{Micrograph}
@@ -92,11 +92,11 @@ Corrosion happens over a long time and a range of scales. We need to understand 
 	\centering
 	\begin{tabular}{@{}lll@{}}
 		\toprule
-		\textbf{Matter} & \textbf{Modelling approach} & \\
+		\textbf{Matter} & \textbf{Modelling approach} &           \\
 		\midrule
-		Solid & Atomistic & Continuum\\
-		Gas & Kinetic theory & Continuum\\
-		Liquid & Molecular & Continuum\\
+		Solid           & Atomistic                   & Continuum \\
+		Gas             & Kinetic theory              & Continuum \\
+		Liquid          & Molecular                   & Continuum \\
 		\bottomrule
 	\end{tabular}
 	\caption{Categorisation of matter}
@@ -121,21 +121,21 @@ It is important to understand the following:
 	\centering
 	\begin{tabular}{@{}lll@{}}
 		\toprule
-		\textbf{Properties} & &\textbf{Definition}\\
+		\textbf{Properties} &                                   & \textbf{Definition}                                \\
 		\midrule
-		Elastic modulus & $E$ (\si{\pascal}) & Measure of material resistance to deformation.\\
-		Yield stress & $\sigma_Y$ (\si{\pascal}) & Measure of stress at which the elastic behaviour\\
-		& & disappears and plastic behaviour initiates.\\
-		Hardness & HBW & Measure of material resistance to indentation\\
-		Creep & & Time-dependant deformation at high temperature\\
-		& & and constant stress.\\
-		Toughness & $K$ (\si{\joule\per\meter\cubed}) & Resistance to crack propagation.\\
-		Ductility & $\epsilon_T$ & Material's ability to undergo plastic deformation.\\
+		Elastic modulus     & $E$ (\si{\pascal})                & Measure of material resistance to deformation.     \\
+		Yield stress        & $\sigma_Y$ (\si{\pascal})         & Measure of stress at which the elastic behaviour   \\
+		                    &                                   & disappears and plastic behaviour initiates.        \\
+		Hardness            & HBW                               & Measure of material resistance to indentation      \\
+		Creep               &                                   & Time-dependant deformation at high temperature     \\
+		                    &                                   & and constant stress.                               \\
+		Toughness           & $K$ (\si{\joule\per\meter\cubed}) & Resistance to crack propagation.                   \\
+		Ductility           & $\epsilon_T$                      & Material's ability to undergo plastic deformation. \\
 		\bottomrule
 	\end{tabular}
 	\caption{Key points on material properties}
 \end{table}
-How are they related to the microstrucure? 
+How are they related to the microstructure?
 \subsection{Newtonian model of matter}
 Useful for biological, physical problems, solids, liquids and gases. This is based on a description of matter as a collection of point particles, an approach that is useful for gases, liquid and solids. The dynamics of the i-th molecule is:
 \begin{gather}
@@ -150,7 +150,7 @@ The formulation requires the form of the interaction stated using the Lennard-Jo
 \begin{gather}
 	U = 4 \epsilon \left(\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6\right) + \dots
 \end{gather}
-The difficultuy is that neighbourhood lists are kept and only sum over local interaction of molecules.
+The difficultly is that neighbourhood lists are kept and only sum over local interaction of molecules.
 \begin{itemize}
 	\item Not hard collision
 	\item Time stepping fixed
@@ -162,13 +162,13 @@ The difficultuy is that neighbourhood lists are kept and only sum over local int
 Research gaps:
 \begin{itemize}
 	\item Link between continuum and molecular
-	\item Quantim - mechanical models
+	\item Quantum - mechanical models
 \end{itemize}
 \subsection{Vibrational modes and energy}
 Mechanical representation of matter. Molecules interact with their neighbours and fields. Interaction may be quite far, particularly when charges are important. We are familiar with how degrees of freedom influence properties of a gas, especially through the isentropic index. Energy is stored in various modes of vibration e.g. gas. This is called classical molecular dynamics.
 \subsection{Molecular description of material properties}
 \subsubsection{Primary bonds}
-Ionic and covalent bonds are exteremes with most (electron distribution) bonds lying between (polar covalent)
+Ionic and covalent bonds are extremes with most (electron distribution) bonds lying between (polar covalent)
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.5\textwidth]{./img/figure7.png}
@@ -202,7 +202,7 @@ Ionic and covalent bonds are exteremes with most (electron distribution) bonds l
 	\SI{1}{eV} = \SI{1.6e-19}{J}
 \end{gather}
 \subsubsection{Secondary bonds}
-The secondary bonds are important - without them many gases would not condense. The relative displacement of the positive and negative charge gives rise to a dipolar force. This gives rise to an attractive force. Most usual form is the Lenard Jones 6-12 potential.
+The secondary bonds are important - without them many gases would not condense. The relative displacement of the positive and negative charge gives rise to a dipolar force. This gives rise to an attractive force. Most usual form is the Lennard Jones 6-12 potential.
 \begin{gather}
 	U = -\frac{A}{r^6} + \frac{B}{r^n}
 \end{gather}
@@ -224,7 +224,7 @@ so that close to this point, the energy potential can be expanded to give:
 \begin{gather}
 	m \frac{\dif^2 r }{\dif t^2} = \left(\frac{\dif^2 U}{\dif r^2}\right)\left(r-r_0\right)
 \end{gather}
-Around equilbirium point:
+Around equilibrium point:
 \begin{gather}
 	F = S_0 \left(r - r_0\right)\\
 	S_0 = -\frac{\dif^2 U}{\dif r^2}
@@ -256,14 +256,14 @@ Atom spacing:
 	\centering
 	\begin{tabular}{@{}llll@{}}
 		\toprule
-		\textbf{Bond type} & $S_0$ / \si{Nm^{-1}} & \textbf{Young's modulus estimate} & \textbf{Measurement}\\
-		& & $E$ / \si{\giga\pascal} & \\
+		\textbf{Bond type} & $S_0$ / \si{Nm^{-1}} & \textbf{Young's modulus estimate} & \textbf{Measurement}       \\
+		                   &                      & $E$ / \si{\giga\pascal}           &                            \\
 		\midrule
-		Covalent & 50 - 180 & 200 - 1000 & 1000 (diamond)\\
-		Metallic & 15 - 75 & 60 - 300 & 200 (nickel)\\
-		Ionic & 8 - 24 & 32 - 96 & 15 - 91 (alkali halides)\\
-		H-Bond & 2 - 3 & 8 - 12 & 9.1 (ice)\\
-		van der Waals & 0.5 - 1 & 2 - 4 & 0.01 - 2 (rubber to nylon)
+		Covalent           & 50 - 180             & 200 - 1000                        & 1000 (diamond)             \\
+		Metallic           & 15 - 75              & 60 - 300                          & 200 (nickel)               \\
+		Ionic              & 8 - 24               & 32 - 96                           & 15 - 91 (alkali halides)   \\
+		H-Bond             & 2 - 3                & 8 - 12                            & 9.1 (ice)                  \\
+		van der Waals      & 0.5 - 1              & 2 - 4                             & 0.01 - 2 (rubber to nylon)
 	\end{tabular}
 	\caption{Comparison between molecular and macroscopic measurements.}
 \end{table}
@@ -290,49 +290,49 @@ This estimated ratio is good for ceramics, but not good for metals. So what is m
 \subsection{Material classification}
 \begin{itemize}
 	\item Metals
-	\begin{itemize}
-		\item Ferrous metals and alloys
-		\item Non ferrous metals and alloys
-		\item (focus on here)
-	\end{itemize}
+	      \begin{itemize}
+		      \item Ferrous metals and alloys
+		      \item Non ferrous metals and alloys
+		      \item (focus on here)
+	      \end{itemize}
 	\item Polymeric (non metallic, non crystalline)
-	\begin{itemize}
-		\item Thermoplastic plastics
-		\item Thermoset plastics
-		\item Elastomers
-	\end{itemize}
+	      \begin{itemize}
+		      \item Thermoplastic plastics
+		      \item Thermoset plastics
+		      \item Elastomers
+	      \end{itemize}
 	\item Ceramics
-	\begin{itemize}
-		\item Glass
-		\item Diamond
-		\item Glass ceramics
-	\end{itemize}
+	      \begin{itemize}
+		      \item Glass
+		      \item Diamond
+		      \item Glass ceramics
+	      \end{itemize}
 	\item Composites (everything else)
-	\begin{itemize}
-		\item Metal-matrix composites
-		\item Sandwich structures
-		\item Concrete
-	\end{itemize}
+	      \begin{itemize}
+		      \item Metal-matrix composites
+		      \item Sandwich structures
+		      \item Concrete
+	      \end{itemize}
 \end{itemize}
 \subsubsection{Three common configurations}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{@{}llll@{}}
 		\toprule
-		\textbf{Type} & \textbf{Name} & \textbf{Description} & \textbf{Example}\\
+		\textbf{Type} & \textbf{Name}               & \textbf{Description}      & \textbf{Example}             \\
 		\midrule
-		BCC & Body centred cube - 2 atoms & Harder and less malleable & Lithium, Sodium, Potassium\\
-		& & Packing factor 0.68 & Chromium, Barium, Alpha-iron\\
-		FCC & Face centred cube & malleable, softer 0.74 & Copper, Gold, Aluminium\\
-		& & & Iridium, Lead, Nickel, etc.\\
-		HCP & Hexagonal close packed & 6 atoms & Cadmium, Magnesium, Titanium\\
-		& & Packing ratio 0.74 & Zinc, Zirconium\\
+		BCC           & Body centred cube - 2 atoms & Harder and less malleable & Lithium, Sodium, Potassium   \\
+		              &                             & Packing factor 0.68       & Chromium, Barium, Alpha-iron \\
+		FCC           & Face centred cube           & malleable, softer 0.74    & Copper, Gold, Aluminium      \\
+		              &                             &                           & Iridium, Lead, Nickel, etc.  \\
+		HCP           & Hexagonal close packed      & 6 atoms                   & Cadmium, Magnesium, Titanium \\
+		              &                             & Packing ratio 0.74        & Zinc, Zirconium              \\
 		\bottomrule
 	\end{tabular}
 	\caption{Configurations of atoms.}
 \end{table}
 \subsubsection{Solidification and crystal growth}
-Under normal circumstances, crystal growth starts at many nucleation points. Solidification leads to crystals growing and stop growing when they meet another crystal. A crystal is usually called a grain. The boundary between grains is the grain boundary where structure is disordered. This is controlled using nucleation points and directional solidification and liquid freezing-dendritic growth and shrinkage occurs during cooling. 
+Under normal circumstances, crystal growth starts at many nucleation points. Solidification leads to crystals growing and stop growing when they meet another crystal. A crystal is usually called a grain. The boundary between grains is the grain boundary where structure is disordered. This is controlled using nucleation points and directional solidification and liquid freezing-dendritic growth and shrinkage occurs during cooling.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.6\textwidth]{./img/figure14.png}
@@ -348,7 +348,7 @@ Three types of defects:
 \subsubsection{Atomistic view of plastic deformation}
 Elastic deformation - stress is small, the metal can recover to initial state when the stress is removed. This involves stretching the bonds but atoms do not mover over one another.
 
-Plastic deformation - stress is large, plastic deformation involves the breaking of a limited number of atomic bonds by the movement of dislocations. Since the energy required to move is lowest along the densest planes of atoms, dislocations have a preferred direction of travel within a grain of the material. This results in slip that occurs along parallel planes within the grain. These parallel slip planes group together to form slip bands. A slip band appears as a single line under the microscope, but it is in fact made up of closely spaced parallel slip planes as shown in the image. 
+Plastic deformation - stress is large, plastic deformation involves the breaking of a limited number of atomic bonds by the movement of dislocations. Since the energy required to move is lowest along the densest planes of atoms, dislocations have a preferred direction of travel within a grain of the material. This results in slip that occurs along parallel planes within the grain. These parallel slip planes group together to form slip bands. A slip band appears as a single line under the microscope, but it is in fact made up of closely spaced parallel slip planes as shown in the image.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.5\textwidth]{./img/figure15.png}
@@ -360,16 +360,16 @@ The life of a fatigue crack has two parts, initiation and propagation. Dislocati
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.5\textwidth]{./img/figure16.png}
-	\caption{Toplogical changes in crystal structure.}
+	\caption{Topological changes in crystal structure.}
 \end{figure}
 \section{Kinetic theory of gases}
-Statistical 19th century view of macroscopic properties of gas. Boltzmann and colleagues developed new techniques to describe matter. Heavily influenced the theory of turbulence $\leftarrow$ based on kinetic theory of a gas. 
+Statistical 19th century view of macroscopic properties of gas. Boltzmann and colleagues developed new techniques to describe matter. Heavily influenced the theory of turbulence $\leftarrow$ based on kinetic theory of a gas.
 
 $p = \rho RT$ origin with statistical theory.
 
 This is an excellent macroscopic model of matter. The problem is that it does not work well for low pressure, high pressure or when density is low (and continuum concepts don't work).
 \subsection{Speed of molecules}
-Results tell us about average speed but not the distribution. 
+Results tell us about average speed but not the distribution.
 \begin{gather}
 	n_v\left(E\right) = n_0 e^{-\frac{E}{k_B T}}
 \end{gather}
@@ -383,7 +383,7 @@ where, $n_v\left(E\right)$ is the Boltzmann distribution which coups a lot. The 
 	\caption{Speed of molecules.}
 \end{figure}
 \subsection{Equations of state of real gases}
-The molecular contiuum view of matter are linked. Virial equation:
+The molecular continuum view of matter are linked. Virial equation:
 \begin{gather}
 	pV = nRT\left(1 + \frac{B}{V_m} + \frac{C}{V_m^2} + \dots\right)
 \end{gather}
@@ -407,7 +407,7 @@ Solving these two equations in two unknowns (temperature and molar volume) gives
 \end{figure}
 \subsubsection{Link between molecular and microscopic}
 Most of the important 19th century breakthroughs were determining link between macroscopic (could be seen) and microscopic (could not be seen). For example, Brownian motion:
-\begin{gather} 
+\begin{gather}
 	\frac{RT}{5\pi\mu dN_A} = D = \lim_{t\rightarrow \infty} \frac{\left(x^2\right)}{2t} \approx \SI{10e-10}{\meter\squared\per\second}
 \end{gather}
 This represented a link between Avogadro's constant and macroscopic movement of particles. Here $N_A = \SI{6e23}{\per\mole}$. Theory by Einstein (1905) and Sutherland (1905). Millikans experiments: determination of the charge on an electron. The link between molecular and microscopic last areas of modern science to be worked out.
@@ -422,19 +422,19 @@ where $NDF$ is number of degrees of freedom.
 \subsubsection{Model assumptions}
 \begin{itemize}
 	\item No intermolecular forces between the gas particles
-	\item The volume occupied by the particles is negligible copared to the volume of the container they occupy
-	\item The only interactions between the particles and with the container walls are perfectly elastic collisions. 
+	\item The volume occupied by the particles is negligible compared to the volume of the container they occupy
+	\item The only interactions between the particles and with the container walls are perfectly elastic collisions.
 	\item Real gas, the atoms or molecules have a finite size, and at close range they interact with each other through a variety of intermolecular forces, including dipole-dipole interactions, dipole induced dipole interactions and van der Waal's (induced dipole - induced dipole) interactions
-	\item When applied to real gases, the ideal gas model breaks down when molecular size effects or intermolecular forces become important. This occurs under conditions of high pressure , whe nthe molecules are forced close together and therefore interact strongly, and at low temperatures, when the molecules are moving slowly and intermolecular forces have a long time to act during a collision
+	\item When applied to real gases, the ideal gas model breaks down when molecular size effects or intermolecular forces become important. This occurs under conditions of high pressure , when the molecules are forced close together and therefore interact strongly, and at low temperatures, when the molecules are moving slowly and intermolecular forces have a long time to act during a collision
 \end{itemize}
-The pressure at which the ideal gas model starts to break down will depend on the nature and strength of the intermolecular forces between the gas particles, and therefore on their identity. The ideal gas model becomes more and more exact as the pressure is lowered, since at very low pressures the gas particles are widely spaced aprt and interact very little with each other.
+The pressure at which the ideal gas model starts to break down will depend on the nature and strength of the intermolecular forces between the gas particles, and therefore on their identity. The ideal gas model becomes more and more exact as the pressure is lowered, since at very low pressures the gas particles are widely spaced apart and interact very little with each other.
 \begin{gather}
 	\textrm{number density } = \frac{N}{V} = \frac{nN_A}{V}\\
 	\Delta p_x = \left(2mv_x\right)\left(\frac{1}{2}\frac{nN_a}{V}Av_x \Delta t\right) = \frac{nMAv_x^2 \Delta t}{V}\\
 	p = \frac{F_x}{A} = \frac{nMv_x^2}{V}
 \end{gather}
 \section{Chemistry for engineers}
-Chemistry has a molecular origin. The engineering challenge is how to include chemistry into multiphysics problems. Chemistry might be simple:
+Chemistry has a molecular origin. The engineering challenge is how to include chemistry into multi-physics problems. Chemistry might be simple:
 \begin{gather}
 	\ce{NaOH + HCl -> NaCl + H2O}
 \end{gather}
