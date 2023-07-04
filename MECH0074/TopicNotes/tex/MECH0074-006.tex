@@ -306,7 +306,188 @@ Industrial accidents are usually a combination of failure and stupidity
 \subsection{Example of codes of practice}
 \subsubsection{ASTM}
 American Society for Testing and Materials is an international standards organisation that develops and publishes voluntary consensus technical standards for a wide range of material, products, systems and services.
+\begin{quoting}
+    This specification covers high strength, cold drawn or cold rolled steel wire with rectangular cross-section and round mill edge. Intended for use in pre-stressed vessel and press frame windings. The steel shall be manufactured by basic oxygen, electric furnace, or vacuum induction processes and produced as ingot cast or continuous cast. Materials shall be tested for contents of carbon, manganese phosphorus, sulphur and silicon. A tension test shall also be performed to evaluate mechanical properties conformance. Guidelines for workmanship, finish and appearance are stated, as well as the inspection, certification of reports, packaging, marking, and loading for shipment.
 
-Example: ASTM 9505-04 (2017) Standard specification for steel wire, pressure vessel winding active standard (latest version).
+    (ASTM 9505-04 (2017) Standard Specification for Steel Wire, Pressure Vessel Winding Active Standard (latest version))
+\end{quoting}
+\subsubsection{ASME}
+There are a number of student resources about codes of practice. It is worth looking at these: \url{https://www.asme.org/codes-standards/about-standards}.
+\begin{quoting}
+    Code and standards are an essential part of design and repair engineering requirements. Engineers that understand code and regulation requirements are a must in my industry and will increasingly become more widespread in other industries, as regulatory issues change and become more stringent. All industries are becoming more aware of the benefits of adherence to Code and industry standards in ensuring reliability of systems, components and structures.
 
-This specification covers high strength, cold drawn or cold rolled steel wire with rectangular cross-section and round mill edge. Intended for use in pre-stressed vessel and press frame windings. The steel shall be manufactured by basic oxygen, electric furnace, or vacuum induction processes and produced as ingot cast or continuous cast. Materials shall be tested for contents of carbon, manganese phosphorus, sulphur and silicon. A tension test shall also be performed to evaluate mechanical properties conformance. Guidelines for workmanship, finish and appearance are stated, as well as the inspection, certification of reports, packaging, marking, and loading for shipment.
+    (ASME Vision 2030 Survey Feedback)
+\end{quoting}
+\subsubsection{ASCE}
+Our interest is on ASCE/SEI 7-16, Minimum Design Loads and Associated Criteria for Buildings and Other Structures. See: \url{https://asce7tsunami.online/}
+\begin{quoting}
+    ASCE/SEI 7-16, or "Minimum Design Loads and Associated Criteria for Buildings and Other Structures," is a particularly relevant standard developed by ASCE. This standard provides the complete set of load provisions, which includes provisions for dead, live, soil, flood, wind, snow, rain, ice, and earthquake loads, as well as their combinations that are suitable for inclusion in building codes and other documents. ASCE/SEI 7-16 applies to the design and construction of general structural systems and elements for buildings and other structures.
+
+    One particular update in the 2016 revision of ASCE/SEI 7 was the inclusion of tsunami loads and effects. The changes were a response to the recognition of the risk posed by tsunamis to coastal structures, especially in areas such as the Pacific Northwest. These changes involved substantial work in understanding the complex forces exerted by tsunami waves and the resulting implications for structural design.
+
+    (ChatGPT-4 2023-07-04)
+\end{quoting}
+\subsection{Contributing to codes of practice}
+Codes of practice come out of the research activity from universities, committee memberships of various organisations.
+\subsection{Example of impact}
+The Marine Group in UCL MechEng have been working on the three main areas of environmental pollution of the seas:
+\begin{enumerate}
+    \item ballast water discharge
+    \item acidic discharge
+    \item sound generation
+\end{enumerate}
+Guidelines related to MARPOL Annex VI and the NOX Technical Code in accordance with the Action Plan endorsed by the MEPC 64.
+\begin{quoting}
+    Application of calculation-based methodology for verification of the wash water discharge criteria for pH in section 10.1.2.1(ii) of the 2009 Guidelines for Exhaust Gas Cleaning Systems, Professor I. Eames \& Professor A. Greig
+
+    (Code MEPC 64 (MARPOL Annex VI))
+\end{quoting}
+\subsubsection{Example chemistry: wash water discharge}
+Scrubbers are used to remove particulate and acidic gases from engine exhaust, they generate a buoyant and acidic discharge.
+\begin{itemize}
+    \item pH = $-\log_{10}\ce{H^+}$
+    \item pH of discharge = 3-4
+    \item pH of sea = 7.4-8.3
+\end{itemize}
+Code requires pH to recover to 6.0 about \SI{4}{\meter} from the exit.
+\subsubsection{Example chemistry: physical process of jet}
+To offer guidance we need to be able to say whether discharge criteria are met. This requires a predictive environment that is validated against test and simple enough to be understood. Complexity comes from the turbulent part:
+\begin{itemize}
+    \item Jet
+    \item Plume
+    \item Gravity current.
+\end{itemize}
+\subsubsection{What defines a jet / plume?}
+A \textit{jet} is a stream of fluid that is forced into a surrounding medium, usually air or water, typically from some kind of a nozzle. On the other hand, a \textit{plume} is a column of one fluid moving through another, and is formed by the diffusion of the source fluid into the surrounding medium.
+\begin{itemize}
+    \item \(Q\) is the volume flux, which measures the quantity of volume flowing through a given cross-sectional area per unit time. In the equation \begin{equation}Q = \pi b^2 w\end{equation} \(b\) is the radius of the jet or plume and \(w\) is the velocity of the fluid.
+    \item \(M\) is the momentum flux, which measures the rate of momentum flow across a given cross-sectional area. In the equation \begin{equation}M = \pi b^2 w^2\end{equation} \(b\) is again the radius and \(w\) is the velocity.
+    \item \(B\) is the buoyancy flux, which describes the flow rate of buoyancy across a given cross-sectional area. In the equation \begin{equation}B = -\pi b^2\frac{w\Delta \rho}{\rho_0}\end{equation} \(b\) is the radius, \(w\) is the velocity, \(\Delta \rho\) is the difference in density between the two fluids, and \(\rho_0\) is the reference (usually ambient) density.
+\end{itemize}
+The equations for the jet radius \(R\) and the dimensionless volume flux \(\bar{Q}\) both involve \(R_0\) (the initial radius) \(\alpha\) (a constant of proportionality), and \(Z\) (the vertical height). In the context of these equations, \(\alpha Z\) represents the spreading of the jet or plume with height.
+
+For the jet:
+\begin{itemize}
+    \item The radius increases linearly with height \begin{equation}R = R_0 + 2\alpha Z\end{equation}
+    \item The dimensionless volume flux, which is the volume flux normalized by the initial volume flux, also increases linearly with height \begin{equation}\bar{Q} = \left(1 + \frac{2\alpha Z}{b_0}\right)\end{equation}
+\end{itemize}
+For the plume:
+\begin{itemize}
+    \item The radius increases more rapidly with height \begin{equation}R = R_0 + \frac{6}{5}\alpha Z\end{equation} reflecting the additional spreading due to buoyancy forces.
+    \item The dimensionless volume flux for the plume also increases more rapidly with height \begin{equation}\bar{Q} = \left(1 + \frac{6\alpha Z}{5b_0}\right)^{\frac{5}{3}}\end{equation} again due to the effects of buoyancy.
+\end{itemize}
+\subsubsection{Example: chemistry of strong acids and bases}
+Conservation of charge:
+\begin{equation}
+    [\ce{H^+}] + [\ce{M^+}] = [\ce{OH^-}] + [A^-]
+\end{equation}
+Conservation of mass:
+\begin{align}
+    C_b^0D & = \left([\ce{MOH}] + [\ce{M^+}]\right)\left(1 +D \right) \\
+    C^0_a  & = [\ce{A^-}]\left(1+D\right)
+\end{align}
+Note $D$ is the dilution of the acid. Dissociation of water and base ($K_b = 1$, strong base):
+\begin{align}
+    K_w & = [\ce{OH^-}][\ce{H^+}]                     \\
+    K_b & = \dfrac{[\ce{M^+}][\ce{OH^-}]}{[\ce{MOH}]}
+\end{align}
+Note $K_w = \SI{1e-14}{\mol^2 / dm^{-6}}$ is temperature dependent giving a point of neutralisation which varies from 7.47 at \SI{0}{\degree C} to 6.92 at \SI{30}{\degree C}. This leads to:
+\begin{equation}
+    \frac{1}{D} = \dfrac{\left(\dfrac{C^0_b K_b}{\frac{K_w}{[\ce{H^+}]+K_b}} + [\ce{H^+}]-\dfrac{K_w}{[\ce{H^+}]}\right)}{C^0_a - [\ce{H^+}]+\dfrac{K_w}{[\ce{H^+}]}}
+\end{equation}
+Explanation of above section:
+\begin{quoting}
+    Strong acids and bases fully dissociate in solution, meaning they split into their respective ions completely. Here are the given equations explained:
+
+    The first equation is a conservation of charge equation. The sum of the charges of all species on both sides of the equation should be equal. This equation states that the sum of the hydrogen ion concentration ([\ce{H^+}]) and metal ion concentration ([\ce{M^+}]) equals the sum of the hydroxide ion concentration ([\ce{OH^-}]) and the anion concentration ([\ce{A^-}]).
+
+    The next two equations deal with conservation of mass. In the first, $C_b^0D$ represents the initial molar concentration of the base multiplied by the dilution factor. This equals the sum of the concentrations of metal hydroxide ([\ce{MOH}]) and the metal ion ([\ce{M^+}]), each multiplied by the term (1+D), where D represents dilution of the acid. The second equation states that the initial molar concentration of the acid $C_a^0$ equals the anion concentration ([\ce{A^-}]) times the term (1+D).
+
+    The dissociation of water and base is represented by two equilibrium expressions. The first, $K_w = [\ce{OH^-}][\ce{H^+}]$, is the equilibrium expression for the self-ionization of water, where $K_w$ is the ion-product of water. The second equation, $K_b = \frac{[\ce{M^+}][\ce{OH^-}]}{[\ce{MOH}]}$, is the equilibrium expression for the base, where $K_b$ is the base dissociation constant.
+
+    $K_w = \SI{1e-14}{\mol^2 / dm^{-6}}$ are the units for the ion product of water at 25°C. However, it's worth noting that it is temperature-dependent. For instance, the pH of neutral water isn't always 7, but varies from 7.47 at \SI{0}{\degree C} to 6.92 at \SI{30}{\degree C}. This is due to changes in $K_w$ with temperature.
+
+    The final equation provided is a more complex expression that includes both terms for the conservation of charge and conservation of mass, as well as equilibrium constants. This equation essentially allows you to calculate the dilution factor, given the known initial concentrations of the acid and base, and the equilibrium constants.
+
+    (ChatGPT-4 2023-07-04)
+\end{quoting}
+\subsubsection{Fluid mechanical model}
+This section presents a fluid mechanical model that describes the reaction of an acid and a base in a flowing system. The model is based on several key principles of fluid dynamics, including conservation of mass (acid and base), conservation of volume flux, conservation of momentum flux, and conservation of buoyancy flux.
+
+The first equation represents the conservation of acid in the flow:
+\begin{equation}
+    \frac{\dif}{\dif z}\left(\pi b^2 w[\ce{A^-}]\right) = 0
+\end{equation}
+This equation states that the rate of change of the acid concentration ([\ce{A^-}]) with respect to position ($z$) is zero, indicating that the acid concentration in the fluid is constant along the flow.
+
+The second equation represents the conservation of base in the flow:
+\begin{equation}
+    \frac{\dif}{\dif z}\left(\pi b^2 w \left([\ce{MOH}]+[\ce{M^+}]\right)\right) = 2\alpha \pi bwC^0_b
+\end{equation}
+This equation states that the rate of change of the sum of the concentrations of metal hydroxide ([\ce{MOH}]) and metal ion ([\ce{M^+}]) with respect to position ($z$) is equal to twice the product of the initial base concentration, the radius of the flow tube, and a proportionality constant $\alpha$.
+
+The third equation represents conservation of volume flux in the flow:
+\begin{equation}
+    \frac{\dif}{\dif z}\left(\pi b^2 w\right) = 2\alpha \pi bw
+\end{equation}
+This equation shows that the rate of change of volume flux with respect to position ($z$) is equal to twice the product of the radius of the flow tube, the velocity of the fluid, and a proportionality constant $\alpha$.
+
+The fourth equation represents the conservation of momentum flux in the flow:
+\begin{equation}
+    \frac{\dif}{\dif z}\left(\pi b^2 w^2\right) = -\frac{\Delta \rho g \pi b^2}{\rho_0}
+\end{equation}
+This equation states that the rate of change of momentum flux with respect to position ($z$) is equal to the negative of the gravitational acceleration times the change in density times the cross-sectional area of the flow tube divided by the initial fluid density.
+
+The fifth equation represents the conservation of buoyancy flux in the flow:
+\begin{equation}
+    \frac{\dif}{\dif z}\frac{\left(\pi b^2 w \Delta \rho\right)}{\rho_0} = 0
+\end{equation}
+This equation indicates that the rate of change of the buoyancy flux with respect to position ($z$) is zero, implying that the buoyancy flux is conserved in the fluid flow.
+
+The final three equations can be derived from the above equations and they capture the changes in the volume flux ($Q$), momentum flux ($M$), and the acid concentration with respect to position ($z$) in the fluid flow:
+\begin{align}
+    \frac{\dif Q}{\dif z}    & = 2\alpha \pi^{\frac{1}{2}} M^{\frac{1}{2}} \\
+    \frac{\dif M}{\dif z}    & = \frac{BM}{Q}                              \\
+    \frac{[\ce{A^-}]}{C^a_0} & = \frac{Q_0}{Q}
+\end{align}
+\subsubsection{Titration curves}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5 \textwidth]{./img/figure81.png}
+    \caption{Figure to show titration curve of \ce{HNO3 + NaOH}.}
+    \label{titration}
+\end{figure}
+Figure \ref{titration}: the dashed and solid lines show theoretical results while the points and crosses are experimental. Source of disagreement is most likely contamination (very difficult problem).
+\subsubsection{Example chemistry: jet experiment}
+Figures \ref{jet1}, \ref{jet2} show an example jet experiment.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5 \textwidth]{./img/figure82.png}
+    \caption{Figure to show jet experiment of acid and litmus.}
+    \label{jet1}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5 \textwidth]{./img/figure83.png}
+    \caption{Figure to show validation between predicted and experimental results for acid and litmus experiment.}
+    \label{jet2}
+\end{figure}
+\subsubsection{Example of tsunami loading on buildings: ASCE6}
+\begin{itemize}
+    \item Computational and experimental study
+    \item Measurements of surface elevations and forces on buildings
+    \item Simulation and experiments at UCL's mechanical engineering department
+\end{itemize}
+Figures \ref{tsunami1}, \ref{tsunami2} show some physical experiments.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.8 \textwidth]{./img/figure84.png}
+    \caption{UCL Mechanical Engineering tsunami experiment.}
+    \label{tsunami1}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.8 \textwidth]{./img/figure85.png}
+    \caption{City scale tsunami experiment / simulation.}
+    \label{tsunami2}
+\end{figure}
